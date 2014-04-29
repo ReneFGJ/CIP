@@ -1,0 +1,292 @@
+<?php
+class pibic_edital
+	{
+	var $tabela = "pibic_edital";
+	var $ano = 2013;
+	
+	function grafico_titulacao($ano='',$bolsa='',$modalidade='')
+		{
+			$cps = "ap_tit_titulo, pp_ss, pp_prod";
+			
+			$wh = " and (pb_tipo <> 'R' and pb_tipo <> 'X') ";
+			if (strlen($bolsa) > 0) { $wh .= " and pb_tipo = '$bolsa' "; }
+			if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X') "; }
+			if (strlen($modalidade) > 0) { $wh .= " and pbt_edital = '$modalidade' "; }
+			
+			$sql = "select $cps, count(*) as total from pibic_bolsa 
+					inner join pibic_professor on pp_cracha = pb_professor 
+					left join apoio_titulacao on ap_tit_codigo = pp_titulacao 
+					inner join pibic_bolsa_tipo on pbt_codigo =  pb_tipo 
+					where pp_ano = '$ano' $wh
+					and pb_ativo = 1 
+					group by $cps 
+					";
+			$rlt = db_query($sql);
+			
+			$tit = array(0,0,0);
+			$pp = array(0,0);
+			$ss = array(0,0);
+			
+			while ($line = db_read($rlt))
+			{
+				$titu = UpperCase(substr($line['ap_tit_titulo'],0,2));
+				$prod = round($line['pp_prod']);
+				$stri = trim($line['pp_ss']);
+				$total = $line['total'];
+				
+				if ($titu == 'DR') 
+					{
+						$tit[0] = $tit[0] + $total; 
+					}
+				else { $tit[1] = $tit[1] + $total; }
+				
+				if ($stri == 'S') { $ss[0] = $ss[0] + $total; }
+				else { $ss[1] = $ss[1] + $total; }
+				
+				if ($prod > 0) { $pp[0] = $pp[0] + $total; }
+				else { $pp[1] = $pp[1] + $total; }								
+			}	
+
+			$sx .= '
+    		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    		
+    		<script type="text/javascript">
+      				google.load("visualization", "1", {packages:["corechart"]});
+      				google.setOnLoadCallback(drawChart);
+      				function drawChart() {
+        			var data = google.visualization.arrayToDataTable([
+          			[\'titulação\', \'total\'],
+          			[\'Doutor\','.$tit[0].'],
+          			[\'Mestre\', '.$tit[1].'],
+        		]);
+		        var options = { title: \'Titulação Mestre & Doutor\' };
+		        var chart = new google.visualization.PieChart(document.getElementById(\'chart_div_1\'));
+        			chart.draw(data, options);
+      		}
+    		</script>
+
+    		<script type="text/javascript">
+      				google.load("visualization", "1", {packages:["corechart"]});
+      				google.setOnLoadCallback(drawChart);
+      				function drawChart() {
+        			var data = google.visualization.arrayToDataTable([
+          			[\'titulação\', \'total\'],
+          			[\'stricto sensu\','.$ss[0].'],
+          			[\'graduação\', '.$ss[1].'],
+        		]);
+		        var options = { title: \'Docentes stricto sensu\' };
+		        var chart = new google.visualization.PieChart(document.getElementById(\'chart_div_2\'));
+        			chart.draw(data, options);
+      		}
+    		</script>
+
+    		<script type="text/javascript">
+      				google.load("visualization", "1", {packages:["corechart"]});
+      				google.setOnLoadCallback(drawChart);
+      				function drawChart() {
+        			var data = google.visualization.arrayToDataTable([
+          			[\'titulação\', \'total\'],
+          			[\'Produtividade (CNPq/Fundação Araucária)\','.$pp[0].'],
+          			[\'Sem bolsa produtividade\', '.$pp[1].'],
+        		]);
+		        var options = { title: \'Professores Produtividade\' };
+		        var chart = new google.visualization.PieChart(document.getElementById(\'chart_div_3\'));
+        			chart.draw(data, options);
+      		}
+    		</script>
+
+			';			
+			$sx .= '<table>';
+			$sx .= '<TR>';
+			$sx .= '<TD colspan=3>';
+			$sx .= '<div id="chart_div_3b" style="width: 900px; height: 400px; display: none;" ></div>';
+			$sx .= '<TR>';
+			$sx .= '<TD><div id="chart_div_1" style="width: 300px; height: 200px;" ></div>';
+			$sx .= '<TD><div id="chart_div_2" style="width: 300px; height: 200px;" ></div>';
+			$sx .= '<TD><div id="chart_div_3" style="width: 300px; height: 200px;" ></div>';
+			$sx .= '</table>';
+			
+			return($sx);
+		}
+	
+	function edital_resumo($ano='',$bolsa='',$modalidade='')
+		{
+			$ano = round($ano);
+			
+			$wh = " and (pb_tipo <> 'R' and pb_tipo <> 'X') ";
+			if (strlen($bolsa) > 0) { $wh .= " and pb_tipo = '$bolsa' "; }
+			if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X') "; }
+			if (strlen($modalidade) > 0) { $wh .= " and pbt_edital = '$modalidade' "; }
+			
+			
+			$doc = new docentes;
+			$prod = $doc->produtividade();
+					
+			$sx .= '<h3>Distribuição de bolsas por mérito</h3>';
+			
+			$cps = "*";
+			$sql = "select $cps from pibic_bolsa 
+					inner join pibic_professor on pp_cracha = pb_professor 
+					left join apoio_titulacao on ap_tit_codigo = pp_titulacao 
+					inner join pibic_bolsa_tipo on pbt_codigo =  pb_tipo 
+					inner join pibic_submit_documento on pb_protocolo = doc_protocolo
+					where pp_ano = '$ano' $wh
+					and pb_ativo = 1 
+					order by pp_centro, pp_nome_asc, pbt_edital, pbt_auxilio desc, pb_tipo 
+					";
+			
+			$rlt = db_query($sql);
+			$sx .= '<table class="tabela00" width="100%">';
+			$id = 0;
+			$sx .= '<TR>';
+			$sx .= '<TH>Protocolo submissão
+					<TH>Modalidade
+					<TH>Tit.
+					<TH>Orientador / Docente
+					<TH>Produtividade
+					<TH>stricto sensu';
+			$t_ss = 0;
+			$t_prod = 0;
+			$t_prof = 0;
+			$xprof = '';
+			$xcampus = 'X';
+			while ($line = db_read($rlt))
+			{
+				$campus = ($line['pp_centro']);
+				
+				if ($xcampus != $campus)
+					{
+						$sx .= '<TR><TD colspan=5 class="lt2"><B>';
+						$sx .= $campus;
+						$sx .= '</B>';
+						$xcampus = $campus;
+					}
+				
+				$prof = $line['pp_cracha'];
+				if ($prof != $xprof) { $t_prof++; $xprof = $prof; }
+				$mar = $line['doc_protocolo_mae'];
+				$link = '<A HREF="parecer.php?dd0='.$mar.'&dd90='.checkpost($mar).'" target="_new" class="link" title="clique aqui para visualizar o projeto e parecer">';
+				/* pb_tipo */
+				$id++;
+				$sx .= '<TR>';
+				$sx .= '<TD class="tabela01" align="center">';
+				$sx .= $link;
+				$sx .= $line['pb_protocolo'];
+				$sx .= '</a>';
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pbt_descricao'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['ap_tit_titulo'];
+				
+				/* Docente */
+				$link = '<A HREF="docente.php?dd0='.$line['id_pp'].'">';				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $link;
+				$sx .= $line['pp_nome'];
+				$sx .= '</A>';
+				$sx .= '<TD class="tabela01">';
+				$ppr = trim($prod[$line['pp_prod']]);
+					if (strlen($ppr) > 0) { $t_prod++; }
+				$sx .= $ppr;
+				$sx .= '<TD class="tabela01" align="center">';
+				$ss = trim($line['pp_ss']);
+				if ($ss=='S') { $sx .= 'SIM'; $t_ss++; } else {$sx .= '-';  }
+				$sx .= '<TD class="tabela01" align="center">';
+				
+				if ($line['pb_ativacao'] > 20000101)
+					{
+						$dt = $line['pb_ativacao'];
+						$sx .= 'ativado';
+					}
+				
+				
+				$lattes = trim($line['pp_lattes']);
+				$ln = $line;
+			}
+			$sx .= '<TR><TD colspan=10>total '.$id.' planos de aluno distribuidas para '.$t_prof.' docentes, destes '.$t_ss.' de stricto sensu e '.$t_prod.' com bolsas produtividade.';
+			$sx .= '</table>';
+			
+			return($sx);
+		}	
+
+	function edital_resumo_professor($ano='',$professor,$edital='')
+		{
+			$ano = round($ano);
+			
+			$doc = new docentes;
+			$prod = $doc->produtividade();
+			if (strlen($edital) > 0)
+				{
+					$wh = " and pbt_edital = '$edital' ";
+				}					
+						
+			$cps = "*";
+			$sql = "select $cps from pibic_bolsa 
+					inner join pibic_professor on pp_cracha = pb_professor 
+					left join apoio_titulacao on ap_tit_codigo = pp_titulacao 
+					inner join pibic_bolsa_tipo on pbt_codigo =  pb_tipo 
+					inner join pibic_submit_documento on pb_protocolo = doc_protocolo
+					where pp_cracha = '$professor' and pp_ano = '$ano' $wh
+					and pb_ativo = 1 
+					order by pp_centro, pp_nome, pbt_edital, pbt_auxilio desc, pb_tipo 
+					";
+			//echo $sql;
+			$rlt = db_query($sql);
+			$sx .= '<table class="tabela00" width="100%">';
+			$id = 0;
+			$sx .= '<TR>';
+			$sx .= '<TH>Protocolo submissão
+					<TH>Modalidade
+					<TH>Tit.
+					<TH>Orientador / Docente
+					<TH>Produtividade
+					<TH>stricto sensu';
+			$t_ss = 0;
+			$t_prod = 0;
+			$t_prof = 0;
+			$xprof = '';
+			
+			while ($line = db_read($rlt))
+			{
+
+				$prof = $line['pp_cracha'];
+				if ($prof != $xprof) { $t_prof++; $xprof = $prof; }
+				$mar = $line['doc_protocolo_mae'];
+				$link = '<A HREF="parecer.php?dd0='.$mar.'&dd90='.checkpost($mar).'" target="_new" class="link" title="clique aqui para visualizar o projeto e parecer">';
+				/* pb_tipo */
+				$id++;
+				$sx .= '<TR>';
+				$sx .= '<TD class="tabela01" align="center">';
+				$sx .= $link;
+				$sx .= $line['pb_protocolo'];
+				$sx .= '</a>';
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pbt_descricao'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['ap_tit_titulo'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_nome'];
+				$sx .= '<TD class="tabela01">';
+				$ppr = trim($prod[$line['pp_prod']]);
+					if (strlen($ppr) > 0) { $t_prod++; }
+				$sx .= $ppr;
+				$sx .= '<TD class="tabela01" align="center">';
+				$ss = trim($line['pp_ss']);
+				if ($ss=='S') { $sx .= 'SIM'; $t_ss++; } else {$sx .= '-';  }
+				$sx .= '<TD class="tabela01">';
+				
+				$lattes = trim($line['pp_lattes']);
+				$ln = $line;
+			}
+			if ($id==0)
+				{
+					$sx .= '<TR><TD colspan=10>nenhum projeto disponível';
+				}	
+			$sx .= '</table>';
+			$sx .= '<BR>';
+			
+			return($sx);
+		}	
+
+	}
+?>
