@@ -17,8 +17,8 @@ if ($perfil->valid('#ADM#PIC#PIB'))
 	}
 	$http_redirect = page();
 	$http_ver = $tabela.'_sel.php';
-	$cdf = array('id_inst','inst_nome','inst_abreviatura','inst_codigo');
-	$cdm = array('Código','nome','sigla','código');
+	$cdf = array('id_inst','inst_nome','inst_abreviatura','inst_codigo','inst_ordem');
+	$cdm = array('Código','nome','sigla','código','ord');
 	$masc = array('','','','');
 	$busca = true;
 	$offset = 20;

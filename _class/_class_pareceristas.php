@@ -1111,7 +1111,7 @@ class parecerista
 					$sql = "select * from ajax_areadoconhecimento 
 						left join ".$this->tabela."_area on ((pa_area = a_codigo) and (pa_parecerista = '".$this->codigo."')) 
 						where ";
-					$sql .= " a_semic = 1 and not (a_cnpq like 'X%' or a_cnpq like '%-X%') and a_cnpq <> '' ";
+					$sql .= " (a_semic = 1 or a_submit = '1') and not (a_cnpq like 'X%' or a_cnpq like '%-X%') and a_cnpq <> '' ";
 					$sql .= " order by a_cnpq ";
 					
 					$rlt = db_query($sql);
@@ -1321,7 +1321,7 @@ class parecerista
 				global $dd;
 				
 				$sql = "select * from  ajax_areadoconhecimento 
-							where a_semic = 1
+							where a_semic = 1 or a_submit = '1'
 							order by a_cnpq ";
 				$rlt = db_query($sql);
 				$sq = '';

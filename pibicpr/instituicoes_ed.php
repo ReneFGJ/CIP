@@ -6,12 +6,15 @@ require($include.'_class_form.php');
 require($include.'sisdoc_data.php');
 
 $form = new form;
-$label = msg('dados_da_publicacao');
+
+echo '<h1>Cadastro de Instituições</h1>';
 
 
 	/* Dados da Classe */
-	require("_class/_class_instituicoes.php");
-	$cl = new instituicoes;
+	require("../_class/_class_instituicao.php");
+	$cl = new instituicao;
+	$cl->tabela = 'instituicao';
+	
 	$tabela = $cl->tabela;
 	$cp = $cl->cp();
 	
@@ -31,6 +34,6 @@ $label = msg('dados_da_publicacao');
 			echo $tela;
 		}
 
-	require("foot.php");	
+	require("../foot.php");	
 ?>
 

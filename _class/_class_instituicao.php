@@ -47,11 +47,13 @@ class instituicao
 		
 		function cp()
 			{
+				global $dd;
+				$dd[2] = UpperCaseSql($dd[1]);
 				$cp = array();
-				$dd[0] = $par->codigo;
+				//$dd[0] = $par->codigo;
 				array_push($cp,array('$H8','id_inst','','',False,False));
 				array_push($cp,array('$S100','inst_nome','Nome da Instituição',True,True));
-				array_push($cp,array('$HV','inst_nome_asc',UpperCaseSql($dd[1]),True,True));
+				array_push($cp,array('$H8','inst_nome_asc','',True,True));
 				array_push($cp,array('$S100','inst_abreviatura','Sigla',True,True));
 				array_push($cp,array('$[1-9]','inst_ordem','Ordem',True,True));
 				return($cp);				

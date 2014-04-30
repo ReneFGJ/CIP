@@ -33,8 +33,8 @@ if ($prof_pucpr == 1)
 		echo $par->mostra_dados_grande();		
 	}
 
-
-if ($par->status == 19)
+/* Aceitar indicação */
+if (($par->status == 19) and ($prof_pucpr == 0))
 	{
 	if ($dd[3]=='AXA')
 		{
@@ -44,6 +44,7 @@ if ($par->status == 19)
 	echo $par->aceitar_avalicao();
 	exit;
 	}
+	
 if ($par->status == 9)
 	{
 		echo '<h1><font color="red">Convite recusado</font></h1>';
