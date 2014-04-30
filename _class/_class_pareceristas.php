@@ -20,10 +20,11 @@ class parecerista
 			{
 				global $jid;
 				$sql = "select * from ".$this->tabela."
-					inner join ".$this->tabela_instituicao." on us_instituicao = inst_codigo 
+					left join ".$this->tabela_instituicao." on us_instituicao = inst_codigo 
 					where us_journal_id = '".$jid."'
-					and (us_aceito = 10 or us_aceito = 9)
-					and us_ativo > 0			
+					and (us_aceito = 10 or us_aceito = 0)
+					and us_ativo > 0		
+					order by us_aceito_resp desc	
 					";
 				$rlt = db_query($sql);
 				$sx = '<table class="tabela00" width="100%">';
@@ -43,7 +44,7 @@ class parecerista
 						$sx .= '<TD class="tabela01" align="center">';
 						$sta = $line['us_aceito'];
 						switch ($sta) {
-							case '9': 	$sx .= '<font color="red">Não aceito</font>';
+							case '0': 	$sx .= '<font color="red">Não aceito</font>';
 										break;
 							case '10': 	$sx .= '<font color="green">Aceito</font>';
 										break;
@@ -51,7 +52,9 @@ class parecerista
 										$sx .= '???? - '.$sta;								
 										break;
 						}
-					}
+						$sx .= '<TD class="tabela01">';
+						$sx .= trim($line['us_aceito']);
+				}
 				$sx .= '</table>';
 				return($sx);
 			}
@@ -78,8 +81,8 @@ class parecerista
 			{
 				global $cdf,$cdm,$masc,$tabela;
 				$tabela = "(select * from pareceristas inner join ".$this->tabela_instituicao." on us_instituicao = inst_codigo ) as tabela ";
-				$cdf = array('id_us','us_nome','inst_abreviatura','us_codigo','us_codigo_id');
-				$cdm = array('cod',msg('nome'),msg('instituicao'),msg('codigo'),msg('codigo'));
+				$cdf = array('id_us','us_nome','inst_abreviatura','us_codigo','us_codigo_id','us_instituicao');
+				$cdm = array('cod',msg('nome'),msg('instituicao'),msg('codigo'),msg('codigo'),'Instituicao');
 				$masc = array('','','','','','','');
 				return(1);				
 			}
@@ -268,7 +271,7 @@ class parecerista
 				$sta = $this->status();
 				
 				$sql = "delete from ".$this->tabela." where us_aceito = -1 ";
-				$rlt = db_query($sql);
+				//$rlt = db_query($sql);
 				
 				$sql = "select count(*) as total, us_aceito, us_ativo from (
 						select * from ".$this->tabela." 
@@ -310,6 +313,14 @@ class parecerista
 				$sx .= '</table>';
 				return($sx);
 			}
+		function botao_editar()
+			{
+				$sx = '<form action="pareceristas_editar.php">';
+				$sx .= '<input type="hidden" name="dd0" value="'.$this->id.'">';
+				$sx .= '<input type="submit" value="editar" class="botao-editar">';
+				$sx .= '</form>';
+				return($sx);
+			}
 		function lista_avaliadore_externos_ic()
 			{
 				global $jid;
@@ -323,7 +334,7 @@ class parecerista
 						
 				$sql = "select * from (
 						select * from ".$this->tabela." 
-						left join instituicoes on inst_codigo = us_instituicao
+						left join ".$this->tabela_instituicao." on inst_codigo = us_instituicao
 						where us_journal_id = ".round($jid)."
 						and us_ativo = 1
 						) as tabela "; 
@@ -331,14 +342,17 @@ class parecerista
 				$sql .= " left join pareceristas_area on pa_parecerista = us_codigo ";
 				$sql .= " left join ajax_areadoconhecimento on pa_area = a_codigo ";
 				$sql .= " order by us_nome, a_cnpq ";						
-		
 				$rlt = db_query($sql);
+				
 				$sx = '<table width="100%">';
 				$sx .= '<H2>Avaliadores Externos/IC</h2>';
 				$sx .= '<TR><TH>Cracha<TH>Títul.<TH>Nome<TH>Instituição<TH>Status<TH>Convite<TH>Atualizado';
 				$id = 0;
+				
 				$xpp = ''; 
 				$status = $this->status();
+				
+				
 				while ($line = db_read($rlt))
 					{
 						$cor = '';
@@ -373,7 +387,7 @@ class parecerista
 							if (strlen($email)==0) { $email = '<font color="red">==SEM EMAIL==</font>'; }
 							if ($av==1) { $av = '<font color="green">'.msg('ativo').'</font>'; }
 							else { $av = '<font color="red">'.msg('inativo').'</font>'; }
-							$link = '<A HREF="avaliador_externo_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
+							$link = '<A HREF="parecerista_detalhes.php?dd0='.$line['us_codigo'].'" class="link">';
 							$sx .= '<TR '.$cor.'>';
 							$sx .= '<TD class="tabela01" align="center">';
 							$sx .= $link;
@@ -662,12 +676,12 @@ class parecerista
 			{
 				global $jid;
 				$sql = "select * from pareceristas  ";
-				$sql .= "inner join instituicoes on us_instituicao = inst_codigo ";
-				$sql .= " where us_aceito = '".round($tipo)."' ";
-				$sql .= " and us_journal_id = '".$jid."'
-							and us_ativo = 1 
-				
-							order by us_nome";
+				$sql .= " left join ".$this->tabela_instituicao." on us_instituicao = inst_codigo ";
+				$sql .= " where us_journal_id = '".$jid."' ";
+				$sql .= " and us_ativo = 1 ";
+				$sql .= " and us_aceito = '".round($tipo)."' ";
+				//$rlt = db_query($sql);
+														
 				$rlt = db_query($sql);
 				$sx = '<table class="tabela00" width="100%">';
 				$sx .= '<TR><TH>Nome<TH>Instituição<TH>Código';
@@ -756,8 +770,8 @@ class parecerista
 				if ($tipo == '9')
 					{
 					echo '<BR>Enviado para '.$email_1.' '.$email_2;
-					if (strlen($email_1) > 0) { enviaremail($email_1,'',$titulo,$texto); }
-					if (strlen($email_2) > 0) { enviaremail($email_2,'',$titulo,$texto); }
+					if (strlen($email_1) > 0) { enviaremail($email_1,'',$titulo.' - '.$nome,$texto); }
+					if (strlen($email_2) > 0) { enviaremail($email_2,'',$titulo.' - '.$nome,$texto); }
 					enviaremail('pibicpr@pucpr.br','',$titulo,$texto);
 					$sql = "update pareceristas set us_aceito = 19 where us_aceito = 9 and id_us = ".$line['id_us'];
 					$xrlt = db_query($sql);
@@ -784,13 +798,24 @@ class parecerista
 		function parecerista_resumo()
 			{
 				global $jid;
+				
+				$sql = "update pareceristas set us_instituicao = '0000012' where us_instituicao = '0000232'";
+				$sql .= " and us_journal_id = '".$jid."' ";
+//				echo $sql;
+				//exit;
+//				$rlt = db_query($sql);
 
 				$st = $this->status();
 				$sql = "select count(*) as total, us_aceito from pareceristas  ";
-	//			$sql .= "inner join instituicoes on us_instituicao = inst_codigo ";
-				$sql .= " where us_ativo <> 0 ";
-				$sql .= " and us_journal_id = '".$jid."' ";
+				$sql .= " left join ".$this->tabela_instituicao." on us_instituicao = inst_codigo ";
+				$sql .= " where us_journal_id = '".$jid."' ";
+				$sql .= " and us_ativo = 1 ";
 				$sql .= " group by us_aceito";
+				
+				$sql = "select count(*) as total, us_aceito from pareceristas ";
+				$sql .= " where us_journal_id = '".$jid."' ";
+				$sql .= " and us_ativo = 1 ";
+				$sql .= " group by us_aceito";				
 				$rlt = db_query($sql);
 				
 				$sx = '<table width=500 border=1 cellpadding=4 cellspacing=0 class="tabela30">';
@@ -874,7 +899,7 @@ class parecerista
 							
 					$sx .= '<TD>';
 					$sx .= '<form method="post" action="'.page().'">';
-					$sx .= '<input type="hidden" value="9" name="dd2">';
+					$sx .= '<input type="hidden" value="0" name="dd2">';
 					$sx .= '<input type="hidden" value="AXA" name="dd3">';
 					$sx .= '<input type="submit" 
 									name="dd10" value="Recusar convite temporariamente" 
@@ -992,6 +1017,8 @@ class parecerista
 						$this->instituicao = $line['inst_nome'];
 						$this->status = $line['us_aceito'];
 						$this->link_avaliador = $link;
+						$this->line = $line;
+						$this->idx = $line['id_us'];
 						
 						if (strlen(trim($line['inst_abreviatura'])) > 0)
 							{
@@ -1028,7 +1055,7 @@ class parecerista
 			{
 				global $dd,$par;
 				$cp = array();
-				$dd[0] = $par->codigo;
+				//$dd[0] = $par->codigo;
 				array_push($cp,array('$H8','id_us','','',False,False));
 				array_push($cp,array('$H8','us_titulacao','Títulação',False,True));
 				array_push($cp,array('$S100','us_nome','Nome completo',False,False));
@@ -1554,7 +1581,7 @@ class parecerista
 			{
 				global $edit;
 				$linkz = '<A HREF="'.http.'avaliador/acesso.php?dd0='.$this->codigo.'&dd90='.checkpost($this->codigo).'">';
-				$link = '<a href="javascript:newxy(\'my_account_ed.php\',700,400);" class="ed">editar dados</A>';
+				$link = '<a href="javascript:newxy(\'my_account_ed.php?dd0='.$this->idx.'&dd90='.checkpost($this->id).'\',700,400);" class="ed">editar dados</A>';
 				
 				$sx .= '<style>'.chr(13);
 				$sx .= '.ed {font-size:11px; color=red; font-decoration: none; }'.chr(13);

@@ -15,8 +15,24 @@ echo '</div>';
 
 $userp_cod = $_SESSION['userp_cod'];
 $par->le($userp_cod);
+if (strlen($userp_cod) == 8)
+	{
+		$prof_pucpr = 1;
+	} else {
+		$prof_pucpr = 0;
+	}
 
-echo $par->mostra_dados_grande();
+if ($prof_pucpr == 1)
+	{
+		require($include.'sisdoc_debug.php');
+		require('../_class/_class_docentes.php');
+		$prof = new docentes;
+		$prof->le($userp_cod);
+		echo $prof->mostra();
+	} else {
+		echo $par->mostra_dados_grande();		
+	}
+
 
 if ($par->status == 19)
 	{

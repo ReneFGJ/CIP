@@ -7,19 +7,11 @@ require("../db.php");
 require($include.'sisdoc_data.php');
 require('../_class/_class_language.php');
 require("../_class/_class_pareceristas.php");
-require("../_class/_class_parecer.php");
-require("../_class/_class_parecer_journal.php");
 
 require($include.'sisdoc_colunas.php');
-require($include.'sisdoc_form2.php');
-require($include.'cp2_gravar.php');
-require($include.'sisdoc_debug.php');
 
 $par = new parecerista;
-$parecer = new parecer;
-$parecer_journal = new parecer_journal;
 
-$par->security();
 
 ?>
 <style>
@@ -105,16 +97,18 @@ body
 </header>
 
 <?
+require($include.'_class_form.php');
+$form = new form;
+
 $cp = $par->cp_myaccount();
-$dd[0] = $par->codigo;
 $tabela = $par->tabela;
 
-echo '<table width="100%" class="lt1">';
-editar();
-echo '</table>';
+$tela = $form->editar($cp,$tabela);
 
-if ($saved > 0)
+if ($form->saved > 0)
 	{
 		require('../close.php');
+	} else {
+		echo $tela;
 	}
 ?>

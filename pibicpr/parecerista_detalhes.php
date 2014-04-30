@@ -27,6 +27,11 @@ if (($dd[12]=='DEL') and (strlen($dd[10]) > 0)) { $par->area_excluir($dd[10]); }
 /* dados do parecerista */
 echo $par->mostra_dados();
 
+if ($perfil->valid('#ADM#PIC#PIB'))
+	{
+		echo $par->botao_editar();
+	}
+
 
 /* resumo do avalidor */
 echo '<div style="float: right;">'.chr(13);

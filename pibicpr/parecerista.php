@@ -11,11 +11,12 @@ $menu = array();
 	array_push($menu,array('Avaliadores','Avaliadores','')); 
 	array_push($menu,array('Avaliadores','__Resumo','paraceristas_rel_resumo.php'));
 	array_push($menu,array('Avaliadores','__Cadastro','pareceristas_cadastro.php'));
+	
 	 
 	array_push($menu,array('Avaliadores','E-mail',''));
 	array_push($menu,array('Avaliadores','__Enviar convite','pareceristas_enviar_convite.php'));
 	
-	
+	array_push($menu,array('Instituíções','Cadastro Instituições','instituicoes.php'));		
 	  
 	array_push($menu,array('Relatório','Professores Doutores/IC','professores_ic.php')); 
 	//array_push($menu,array('Relatório','__Pareceristas / Instituição','paraceristas_rel_parecerista_instituicao.php')); 
