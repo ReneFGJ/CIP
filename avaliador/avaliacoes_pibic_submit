@@ -1,0 +1,28 @@
+<?
+//$sql = "update ".$parecer->tabela." set pp_status = '@' where pp_avaliador = '".$par->codigo."' ";
+//$rlt = db_query($sql);
+
+
+	$sql = "select  * from (select ".$parecer->tabela.".id_pp as id,* from ".$parecer->tabela; 
+	$sql .= " where pp_avaliador = '".$par->codigo."' ";
+	$sql .= " and pp_status = '@' ";
+	$sql .= " ) as tabela ";
+	$sql .= " left join pibic_bolsa_contempladas on pp_protocolo = pb_protocolo";
+	$sql .= " left join pibic_aluno on pb_aluno = pa_cracha ";
+	$sql .= " left join pibic_professor on pb_professor = pp_cracha ";
+	$sql .= " left join pibic_submit_documento on doc_protocolo = pb_protocolo_mae ";
+	$sql .= " left join pibic_bolsa_tipo on pbt_codigo = pb_tipo ";
+	$sql .= " where pb_status <> 'C' ";
+	$rlt = db_query($sql);
+?>
+<div>
+	<table width="97%" align="center" class="lt1" border=0>
+	<?php
+	while ($line = db_read($rlt))
+		{
+		$tot++; 
+		echo $parecer->mostra_mini($line);
+		}
+	?>
+	</table>
+</div>

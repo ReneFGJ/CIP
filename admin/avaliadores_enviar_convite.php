@@ -9,7 +9,6 @@ echo '<h1>Resumo dos pareceristas externos</h1>';
 echo $par->resumo_avaliadore_externos();
 
 $status = $par->status();
-print_r($status);
 
 $ops = ' : ';
 $ops .= '&1:Convite aceito';
@@ -35,7 +34,9 @@ $tela = $form->editar($cp,'');
 
 if ($form->saved > 0)
 	{
-		print_r($dd);
+		$par = new parecerista;
+		echo $par->alterar_status_de_para($dd[1],$dd[2]);
+		redirecina(page());
 	} else {
 		echo $tela;
 	}

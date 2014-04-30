@@ -16,6 +16,64 @@ class parecerista
 		var $tabela = "pareceristas";
 		var $tabela_instituicao = "instituicao";
 		
+		function parecerista_ultimos_aceites()
+			{
+				global $jid;
+				$sql = "select * from ".$this->tabela."
+					inner join ".$this->tabela_instituicao." on us_instituicao = inst_codigo 
+					where us_journal_id = '".$jid."'
+					and (us_aceito = 10 or us_aceito = 9)
+					and us_ativo > 0			
+					";
+				$rlt = db_query($sql);
+				$sx = '<table class="tabela00" width="100%">';
+				$sx .= '<TR><TH>Parecerista<TH>Instituição<TH>Data Aceite<TH>Situação';
+				while ($line = db_read($rlt))
+					{
+						$sx .= '<TR>';
+						$sx .= '<TD class="tabela01">';
+						$sx .= trim($line['us_nome']);
+						
+						$sx .= '<TD class="tabela01">';
+						$sx .= trim($line['inst_abreviatura']);
+						
+						$sx .= '<TD class="tabela01" align="center">';
+						$sx .= stodbr($line['us_aceito_resp']);
+						
+						$sx .= '<TD class="tabela01" align="center">';
+						$sta = $line['us_aceito'];
+						switch ($sta) {
+							case '9': 	$sx .= '<font color="red">Não aceito</font>';
+										break;
+							case '10': 	$sx .= '<font color="green">Aceito</font>';
+										break;
+							default:
+										$sx .= '???? - '.$sta;								
+										break;
+						}
+					}
+				$sx .= '</table>';
+				return($sx);
+			}
+		
+		function alterar_status_avaliador($id,$para)
+			{
+				$sql = "update ".$this->tabela." set us_aceito = '".$para."',
+							us_aceito_resp = ".date("Ymd")." 				 
+							where id_us = '".$id."' ";
+				$rlt = db_query($sql);
+			}
+		
+		function alterar_status_de_para($de,$para)
+			{
+				global $jid;
+				$sql = "update  ".$this->tabela."
+								set us_aceito = ".$para." 
+								where us_aceito = ".$de."
+								and us_journal_id = '".$jid."'";
+				$rlt = db_query($sql);
+			}
+		
 		function row()
 			{
 				global $cdf,$cdm,$masc,$tabela;
@@ -237,6 +295,7 @@ class parecerista
 						if ($t[$r] > 0)
 							{
 							$i++; 
+							$link = '<A HREF="pareceristas_lista.php?">';
 							$sa .= '<TD width="xx%" align="center">'.$sta[$r];
 							$sb .= '<TD class="lt5" align="center">'.$t[$r];
 							}
@@ -647,7 +706,7 @@ class parecerista
 		function enviar_convite($tipo,$titulo,$texto_original)
 			{
 			global $jid;
-			echo '<HR>';
+			
 			$sql = "select * from pareceristas  ";
 			$sql .= "inner join instituicoes on us_instituicao = inst_codigo ";
 			$sql .= " and us_journal_id = '".intval($jid)."' ";
@@ -799,6 +858,30 @@ class parecerista
 						$sx .= '</form>';
 					}
 				return($sx);	
+			}
+		function aceitar_avalicao()
+			{
+				$sx = '<table width="100%">';
+					$sx .= '<TR>';
+					$sx .= '<TD>';
+					$sx .= '<form method="post" action="'.page().'">';
+					$sx .= '<input type="hidden" value="10" name="dd2">';
+					$sx .= '<input type="hidden" value="AXA" name="dd3">';
+					$sx .= '<input type="submit" 
+									name="dd10" value="Aceitar convite de avaliador" 
+									style="background-color:#A0FFA0;" class="botao-redondo">
+							</form>';
+							
+					$sx .= '<TD>';
+					$sx .= '<form method="post" action="'.page().'">';
+					$sx .= '<input type="hidden" value="9" name="dd2">';
+					$sx .= '<input type="hidden" value="AXA" name="dd3">';
+					$sx .= '<input type="submit" 
+									name="dd10" value="Recusar convite temporariamente" 
+									style="background-color:#FFA0A0" class="botao-redondo">
+							</form>';
+				$sx .= '</table>';
+				return($sx);
 			}
 		function ativar_acesso()
 			{
@@ -1173,17 +1256,17 @@ class parecerista
 				while ($line = db_read($rlt))
 					{
 						$sx .= '<tr>
-									<td>
+									<td class="tabela01">
 									<i class="icon-barcode icon-large icon_color_padrao"></i>&nbsp;&nbsp;&nbsp;'.$line['a_cnpq'].'
 									</td>
-									<td>
+									<td class="tabela01">
 									<i class="icon-bookmark icon-large icon_color_padrao"></i>&nbsp;&nbsp;&nbsp;'.$line['a_descricao'].'
 									</td>
-									<td>
+									<td class="tabela01">
 									<i class="icon-refresh icon-large icon_color_padrao"></i>&nbsp;&nbsp;&nbsp;'.stodbr($line['pa_update']).'
 									</td>
 									
-									<td>
+									<td class="tabela01">
 									<i class="icon-refresh icon-large icon_color_padrao"></i>&nbsp;&nbsp;&nbsp;<A HREF="'.page().'?dd0='.$dd[0].'&dd12=DEL&dd11='.checkpost($line['id_pa']).'&dd10='.$line['id_pa'].'">excluir</A></I>
 									</td>';																											
 					}
@@ -1192,7 +1275,7 @@ class parecerista
 					{
 						$sx = $sxz;
 					} else {
-						$sxx .= '<Table width="100%" border=0 class="tabela30 lt0">';
+						$sxx .= '<Table width="100%" border=0 class="tabela30 lt1">';
 						$sxx .= '<TR><TD class="tabela30t" colspan=4>Áreas associadas ao parecerista';
 						$sxx .= '<TR><TH>'.msg('codigo').'<TH>'.msg('area').'<TH>'.msg('update');
 						if (strlen($edit) > 0)
@@ -1467,7 +1550,7 @@ class parecerista
 				return($sx);
 			}
 
-		function mostra_dados_old()
+		function mostra_dados_grande()
 			{
 				global $edit;
 				$linkz = '<A HREF="'.http.'avaliador/acesso.php?dd0='.$this->codigo.'&dd90='.checkpost($this->codigo).'">';
@@ -1491,7 +1574,7 @@ class parecerista
 				$sx .= '<BR><font class="lt0">email</font>: '.$this->email;
 				$sx .= '<BR><font class="lt0">email</font>: '.$this->email_alt;
 				$sx .= '<TR><TD>';
-				$sx .= $linkz.'Link do avaliador'.'</A>';
+				//$sx .= $linkz.'Link do avaliador'.'</A>';
 				$sx .= '</table>';
 				$sx .= '<BR>'.$link;
 				
