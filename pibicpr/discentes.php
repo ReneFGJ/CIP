@@ -17,10 +17,11 @@ $dis->limpar_aluno_sem_codigo();
 $dis->row();
 
 	$label = msg('tit_'.$tabela);
-	$http_edit = ''; 
+	$http_edit = 'discentes_ed.php'; 
 	//$editar = True;
 	
 	$http_ver = 'discente.php';
+	$editar = True;
 	
 	$http_redirect = page();
 	$busca = true;
@@ -28,6 +29,7 @@ $dis->row();
 	//$pre_where = " e_mailing = '".$cl->mail_codigo."' ";
 	
 	$order  = "pa_nome";
+	$tab_max = '100%';
 	echo '<div id="content">';
 	echo '<TABLE width="100%" align="center"><TR><TD>';
 	require($include.'sisdoc_row.php');	

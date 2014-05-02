@@ -440,6 +440,10 @@ class discentes
 			array_push($cp,array('$A','','Filiação',False,True,''));
 			array_push($cp,array('$S100','pa_pai','Nome do pai',False,True,''));
 			array_push($cp,array('$S100','pa_mae','Nome da mae',False,True,''));
+			array_push($cp,array('$D8','pa_nasc','Data nascimento',False,True,''));
+			array_push($cp,array('$O : &M:Masculino&F:Feminino','pa_genero','Genero',False,True,''));
+			
+			
 
 			array_push($cp,array('$A','','Formas de contato',False,True,''));
 			array_push($cp,array('$S20','pa_telefone','Telefone<BR><font class="lt0">(xx)0000.0000',False,True,''));
@@ -473,11 +477,11 @@ class discentes
 			array_push($cp,array('$C1','pa_blacklist','Blacklist',False,False,''));
 			array_push($cp,array('$T60:5','pa_obs','Observações',False,True,''));
 			
-			$sql = "alter table pibic_aluno add column pa_blacklist char(1)";
-			$rlt = db_query($sql);
+			//$sql = "alter table pibic_aluno add column pa_blacklist char(1)";
+			//$rlt = db_query($sql);
 			
-			$sql = "alter table pibic_aluno add column pa_obs text";
-			$rlt = db_query($sql);
+			//$sql = "alter table pibic_aluno add column pa_obs text";
+			//$rlt = db_query($sql);
 			
 			return($cp);
 		}

@@ -17,6 +17,85 @@ class artigo
 		
 		var $tabela = 'artigo';
 		
+		function mostra_artigo()
+			{
+				global $editar;
+				$sql = "select * from ".$this->tabela." 
+					where ar_professor = '".$this->docente."' 
+				";
+				$rlt = db_query($sql);
+				$sx = '';
+				$sx .= '<fieldset>';
+				$sx .= '<h2>Captação de Recursos</h2>';
+				//$sx .= '<font class="lt1">'.msg('captacao_pesq_inf').'</font>';
+				$sx .= '<table width="100%" class="tabela00">';
+				$sx .= '<TR><TH>Protocolo<TH>Título<TH>ISSN<TH>Periódico<TH>Status';
+				if ($editar==1) { $sx .= '<TH>ação'; }
+				$xano = 0;
+				$tot = 0;
+				while ($line = db_read($rlt))
+					{
+						$tot++;
+						$ano = $line['ca_vigencia_ini_ano'];
+						if ($xano != $ano)
+							{
+								$sx .= '<TR class="lt1"><TD colspan=7><B>'.$ano;
+								$xano = $ano;
+							}
+						$editar = 0;
+						$sta = round($line['ca_status']);
+						if (($sta==0) or ($sta==8)) { $editar = 1; }
+						$sx .= $this->mostra_artigo_lista($line);
+					}
+				if ($tot == 0)
+					{
+						$sx .= '<TR><TD colspan=9><font class="lt4"><center><font color="orange">sem projetos cadastrado';
+					}
+				$sx .= '</table>';
+				$sx .= '</fieldset>';
+				return($sx);				
+			}
+
+		function mostra_artigo_lista($line,$tipo=0)
+			{
+				global $editar,$user,$perfil;
+				
+				$sss = $this->status();
+
+				$sta = round($line['ar_status']);
+				$sx .= '<TR '.coluna().' valign="top">';
+				$sx .= '<TD class="tabela01">';
+				
+				if ($sta != 0)
+					{
+						$link = '<A HREF="'.http.'/cip/artigo_detalhe.php?dd0='.$line['id_ar'].'&dd90='.checkpost($line['id_ca']).'" target="nw'.$line['id_ca'].'">';
+					} else {
+						$link = '<A HREF="'.http.'/cip/artigo_novo.php?pag=1&dd0='.$line['id_ar'].'&dd90='.checkpost($line['id_ca']).'" target="nw'.$line['id_ca'].'">';						
+					}
+				$sx .= $link.$line['ar_protocolo'].'</A>';
+				
+				$sx .= '<TD class="tabela01">'.$cor;
+				$sx .= $link.$line['ar_titulo'].'</A>';
+				$sx .= '<TD class="tabela01">'.$cor;
+				$sx .= $line['ar_issn'];
+				$sx .= '<TD class="tabela01">'.$cor;
+				$sx .= $line['ar_journal'];
+				$sx .= '<BR><font class="lt0">Atualizado '.stodbr($line['ca_update']);
+
+				$sx .= '<TD align="center" class="tabela01">'.$sss[$line['ar_status']];
+ 
+				
+				if (($editar==1) and ($user->user_cracha == trim($line['ca_professor'])))
+					{
+						$sx .= '<TD class="tabela01">'.$cor;
+						$sx .= '<A HREF="'.http.'/cip/captacao_novo.php?dd0='.$line['id_ca'].'&pag=1&dd90='.checkpost($line['id_ca']).'">';
+						$sx .= 'editar';
+						$sx .= '</A>';
+					}
+				
+				return($sx);
+			}		
+		
 	function acoes_11()
 		{
 			global $dd;
@@ -30,9 +109,15 @@ class artigo
 			$ic = new ic;
 			$ms = $ic->ic($ict);
 			
+			$professor = $this->autor_nome;
+			$protocolo = $this->protocolo;
+			
 			$titulo = $ms['nw_titulo'];
 			$texto = $ms['nw_descricao'];
 			$texto = troca($texto,'$MOTIVO',$dd[5]);
+			$texto = troca($texto,'$professor',$professor);
+			$texto = troca($texto,'$protocolo',$protocolo);
+			
 			$texto = '<img src="'.$http.'img/email_cip_header.png" ><BR>' 
 							. $texto;
 			$texto .= '<BR><BR><img src="'.$http.'img/email_cip_foot.png" >';
@@ -44,6 +129,7 @@ class artigo
 			$eamil3 = trim($email_adm);
 			$email3 = 'renefgj@gmail.com';
 			
+			enviaremail('cip@pucpr.br','',$titulo.' [copia]',$texto);
 			enviaremail($email3,'',$titulo,$texto);
 			if (strlen($email1) > 0) { enviaremail($email1,'',$titulo,$texto); }
 			if (strlen($email2) > 0) { enviaremail($email2,'',$titulo,$texto); }
@@ -99,6 +185,32 @@ class artigo
 			redirecina(page().'?dd0='.$dd[0]);
 			exit;			
 		}		
+	/* Devlvoer para correções */
+	function acoes_8()
+		{
+			global $dd,$hd,$nw;
+			$sta = $this->status();
+			$action = 'A08';
+			$historico = $sta[8].' - '.$nw->user_login;
+			$this->comunicar_professor('bon_artigo_correcoes');
+			$this->alterar_status('8');
+			$this->historico_inserir($this->protocolo,$action,$historico);
+			$this->alterar_status('0');
+			redirecina(page().'?dd0='.$dd[0]);
+			exit;			
+		}		
+	/* Cancelar solicitação */
+	function acoes_10()
+		{
+			global $dd,$hd,$nw;
+			$sta = $this->status();
+			$action = 'A10';
+			$historico = $sta[15].' - '.$nw->user_login;
+			$this->alterar_status('10');
+			$this->historico_inserir($this->protocolo,$action,$historico);
+			redirecina(page().'?dd0='.$dd[0]);
+			exit;			
+		}		
 
 	/* Gerado formulário */
 	function acoes_24()
@@ -123,30 +235,55 @@ class artigo
 				{
 					switch ($dd[1])
 						{
+						case '10': 
+							if ($st != '10')
+								{
+								$this->acoes_10(); 
+								//$this->historico('11');
+								}
+							break;							
 						case '11': 
 							if ($st != '11')
 								{
 								$this->acoes_11(); 
 								//$this->historico('11');
 								}
+							break;
 						case '22': 
 							if ($st != '22')
 								{
 								$this->acoes_22(); 
 								$this->historico('22');
 								}
+							break;
 						case '24': 
 							if ($st != '24')
 								{
 								$this->acoes_24(); 
 								$this->historico('24');
 								}
+							break;
 						case '9': 
 							if ($st != '9')
 								{
 								$this->acoes_9(); 
 								//$this->historico('9');
-								}																					
+								}
+							break;
+						case '8': 
+							if ($st != '8')
+								{
+								$this->acoes_8(); 
+								//$this->historico('9');
+								}
+							break;	
+						case '10': 
+							if ($st != '10')
+								{
+								$this->acoes_10(); 
+								//$this->historico('9');
+								}
+							break;																																		
 						}
 					echo '--->executa acao '.$dd[1];
 				}
@@ -154,6 +291,12 @@ class artigo
 			$acoes = array();
 			switch ($st)
 				{
+				case '8': /* Cadastrado */
+					array_push($acoes,array('10','Acatar para análise'));
+					break;					
+				case '0': /* Cadastrado */
+					array_push($acoes,array('10','Acatar para análise'));
+					break;					
 				case '10': /* Cadastrado */
 					array_push($acoes,array('8','Devolvido ao professor para correções'));
 					array_push($acoes,array('11','Com bonificação'));
@@ -179,10 +322,10 @@ class artigo
 					break;										
 				case '24': /* Cadastrado */
 					array_push($acoes,array('25','Comunicado pesquisador'));
-
 					break;										
 				default:
 					echo '-->'.$st;
+					break;
 				}
 			$sx = '<form method="post" action="'.page().'">
 					<input type="hidden" name="dd0" value="'.$this->line['id_ar'].'">
@@ -488,6 +631,8 @@ class artigo
 				'13'=>'Sem bonificação e com isenção',
 				'14'=>'Sem bonificação e sem isenção',
 				
+				'15'=>'Aceito trabalho pela coordenação',
+				
 				'22'=>'Validado pelo(a) Diretor(a) de Pesquisa',
 				'23'=>'Indeferido  pelo(a) Diretor(a) de Pesquisa',
 				'24'=>'Gerado formulario de pagamento',
@@ -522,7 +667,9 @@ class artigo
 			}
 		function historico_inserir($protocolo,$ope,$historico)
 			{
-				global $user;
+				global $user, $dd;
+				$text = $dd[5];
+				
 				$protocolo = 'AR'.strzero(round($protocolo),5);
 				$data = date("Ymd");
 				$hora = date("H:i");
@@ -536,14 +683,15 @@ class artigo
 					{
 					$sql = "insert into bonificacao_historico 
 					(bnh_data, bnh_hora, bnh_historico,
-						bnh_ope, bnh_log, bnh_protocolo)
+						bnh_ope, bnh_log, bnh_protocolo, bnh_descricao)
 					values
 					($data,'$hora','$historico',
-					'$ope','$login','$protocolo')";
+					'$ope','$login','$protocolo','$text')";
 					$rlt = db_query($sql);
 					} else {
 						$sql = "update bonificacao_historico 
-								set bnh_historico = '$historico'
+								set bnh_historico = '$historico',
+								bnh_descricao = '$text'
 								where id_bnh = ".$line['id_bnh'];
 						$rlt = db_query($sql);	
 						
@@ -593,7 +741,7 @@ class artigo
 			return($sx);
 		}
 		function historico_mostrar($protocolo,$protocolo_origem)
-			{				
+			{								
 				$protocolo2 = round($protocolo);
 				$protocolo = 'AR'.strzero(round($protocolo),5);
 				$sql = "select * from bonificacao_historico
@@ -610,8 +758,14 @@ class artigo
 						$sx .= '<TD class="tabela01" width="10%"><NOBR>'.stodbr($line['bnh_data']);
 						
 						$sx .= ' '.($line['bnh_hora']);
-						$sx .= '<TD class="tabela01" width="80%">'.($line['bnh_historico']);
+						$sx .= '<TD class="tabela01" width="80%"><B>'.($line['bnh_historico']).'</B>';
 						$sx .= '<TD class="tabela01" width="10%"><NOBR>'.($line['bnh_ope']);
+						
+						$text = trim($line['bnh_descricao']);
+						if (strlen($text) > 0)
+							{
+								$sx .= '<TR><TD><TD>'.mst($text);
+							}
 					}
 				$sx .= '</table>';
 				return($sx);

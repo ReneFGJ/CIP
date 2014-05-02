@@ -74,6 +74,20 @@ class pibic_bolsa_contempladas
 		var $pg_valida = 'pa_relatorio_parcial_ajax.php';
 		var $autores_semic;
 		
+		function atualiza_publicacao($proto,$rs,$txt)
+			{		
+				if (strlen($proto) > 0)
+				
+				{
+				$sql = "update ".$this->tabela." set 
+					pb_publicacao = '$rs',
+					pb_publicacao_desc = '$txt'
+				where pb_protocolo = '$proto'
+				";
+				$rlt = db_query($sql);
+				}
+			}
+		
 		function recupera_ano_ativo()
 			{
 				$mes = date("m");
@@ -4011,7 +4025,7 @@ class pibic_bolsa_contempladas
 		
 		function mostra_registro($line)
 			{
-				global $link;
+				global $link, $http;
 				$linka = '<A HREF="'.$link.'?dd0='.$line['pb_protocolo'].'&dd90='.checkpost($line['pb_protocolo']).'">';
 				
 				
@@ -4031,7 +4045,7 @@ class pibic_bolsa_contempladas
 				$link = '';
 		
 				$bolsa = trim($line['pbt_descricao']);
-				$bolsa_img = '<img src="img/'.trim($line['pbt_img']).'" border="0">';
+				$bolsa_img = '<img src="'.$http.'img/'.trim($line['pbt_img']).'" border="0">';
 				
 				$style = ' style="border-top: 1px solid #202020; padding-top: 15px;" ';
 				
@@ -4244,6 +4258,8 @@ class pibic_bolsa_contempladas
 					$this->semic_valida_status = trim($line['pb_semic_ratificado_status']);
 
 					$this->pb_titulo_projeto_asc = trim($line['pb_titulo_projeto_asc']);
+					
+					$this->line = $line;
 					return(1);
 					
 					}
