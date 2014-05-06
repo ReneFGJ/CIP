@@ -22,11 +22,120 @@ class projetos
 		var $status = '@';
 		
 		var $ano;
+
+
+		
+		function acao_enviar_email_avaliacao($avaliador,$tipo='',$data)
+			{
+				global $email_adm, $admin_nome;
+				
+				$sql = "select * from pareceristas where us_codigo = '".$avaliador."' ";
+				$rlt = db_query($sql);
+				if ($line = db_read($rlt))
+					{
+						$nome = trim($line['us_nome']);
+						$email = trim($line['us_email']);
+						$email2 = trim($line['us_email_alternativo']);
+					}
+				
+				//$sql = "select * from ic_noticia where nw_ref = 'PARIC_AVAL_SUBMI' ";
+				$sql = "select * from ic_noticia where nw_ref = 'ic_indicacao_SUBMI' ";
+				$rlt = db_query($sql);
+				
+				if ($line = db_read($rlt))
+					{
+						$texto = $line['nw_descricao'];	
+						$texto = troca($texto,chr(13),'<BR>');
+						$texto = troca($texto,'$parecerista',$nome);
+						
+						$chk = substr(md5('pibic'.date("Y").$avaliador),0,10);
+						$linkx = 'http://www2.pucpr.br/reol/avaliador/';
+						$linkx .= 'acesso.php?dd0='.$avaliador.'&dd90='.$chk;
+						$link = '<A HREF="'.$linkx.'" target="new">';
+						$link .= $linkx;
+						$link .= '</A>';
+						$texto = troca($texto,'$parecer_link',$link);
+						$texto = troca($texto,'$data_previsao','<B>'.$data.'</B>');
+
+						//$email_adm = 'pibicpr@pucpr.br';
+						//$admin_nome = 'PIBIC (PUCPR)';
+						//enviaremail('monitoramento@sisdoc.com.br','','Indicação de avaliação Iniciação Científica',$texto);
+						
+						if (strlen($email) > 0) { enviaremail($email,'','[IC] - Indicação de avaliação Iniciação Científica',$texto); echo '>>>'.$email; }
+						if (strlen($email2) > 0) { enviaremail($email2,'','[IC] - Indicação de avaliação Iniciação Científica (copia)',$texto); echo '>>>'.$email2; }
+						
+					}
+				return(true);
+			}
+		
+		
+		function acao_indicar_avaliaca($protocolo,$avaliador,$obj,$tipo,$data=0)
+			{
+				if ($data == 0) {
+					$data = mktime(0,0,0,date("m"),date("d"),date("Y"),0);
+					$data = $data + 15*24*60*60;
+					$data = date("Ymd",$data);
+				}
+				$sql = "select * from ".$obj->tabela." 
+					where pp_protocolo = '".$protocolo."' 
+					and pp_avaliador = '".$avaliador."'
+					and pp_tipo = '$tipo'
+					";
+				$rlt = db_query($sql);
+				if ($line = db_read($rlt))
+				{
+					$sta = trim($line['pp_status']);
+					//if (($sta != 'X') and ($sta != '@'))
+						{
+							$sql = "update ".$obj->tabela." set
+								pp_data = $data, 
+								pp_status = '@',
+								pp_tipo = '$tipo'
+								where (id_pp = ".$line['id_pp'].")
+								or (pp_protocolo_mae = '".$line['pp_protocolo']."' 
+								and pp_avaliador = '".$avaliador."')";
+							$rlt = db_query($sql);
+							echo '<BR><font color=green>Reenviar e-mail</font><BR> ';
+							$this->acao_enviar_email_avaliacao($avaliador,'',stodbr($data));								
+						}
+				} else {
+					$sql = "insert into ".$obj->tabela."
+						(pp_tipo, pp_protocolo, pp_protocolo_mae, 
+						pp_avaliador, pp_revisor, pp_status, 
+						pp_pontos, pp_pontos_pp, pp_data, 
+						pp_data_leitura, pp_hora, pp_parecer_data, 
+						pp_parecer_hora, 
+						pp_p01, pp_p02, pp_p03, pp_p04, pp_p05,
+						pp_p06, pp_p07, pp_p08, pp_p09, pp_p10,
+						pp_p11, pp_p12, pp_p13, pp_p14, pp_p15,
+						pp_p16, pp_p17, pp_p18, pp_p19, 
+						pp_abe_01, pp_abe_02, pp_abe_03, pp_abe_04, pp_abe_05,
+						pp_abe_06, pp_abe_07, pp_abe_08, pp_abe_09, pp_abe_10 
+						) values (
+						'$tipo','$protocolo','',
+						'$avaliador','','@',
+						0,0,$data,
+						0,'',0,
+						'',
+						0,0,0,0,0,
+						0,0,0,0,0,
+						0,0,0,0,0,
+						0,0,0,0,
+						'','','','','',
+						'','','','',''
+						)";
+					$rlt = db_query($sql);
+					$this->acao_enviar_email_avaliacao($avaliador,'',stodbr($data));
+				}
+			}
+		
 		
 	function projetos_validar($ano,$status='@')
 		{
 			$sql = "select * from ".$this->tabela."
-					where pj_status = '".$status."' and pj_ano = '$ano' 
+					left join ajax_areadoconhecimento on a_cnpq = pj_area
+					where pj_status = '".$status."' and pj_ano = '$ano'
+					order by a_cnpq 
 			";
 			$rlt = db_query($sql);
 			
@@ -37,8 +146,15 @@ class projetos
 			$sx .= '<TH>Protocolo';
 			$sx .= '<TH>Título';
 			$sx .= '<TH>Status';
+			$xarea = ''; 
 			while ($line = db_read($rlt))
 				{
+					$area = $line['a_descricao'];
+					if ($xarea != $area)
+						{
+							$sx .= '<TR><TD colspan=2><B>'.$line['a_cnpq'].'-'.$line['a_descricao'].'</td></tr>';
+							$xarea = $area;
+						}
 					$tot++;
 					$sx .= '<TR>';
 					$sx .= $this->mostra_projeto_linha($line);
@@ -274,6 +390,58 @@ class projetos
 			$sx .= '</table>';
 			return($sx);
 		}		
+
+	function alterar_estatus_para_indicado()
+		{
+			$sql = "
+						select * from ".$this->tabela." 
+							inner join pibic_submit_documento on (pj_codigo =  doc_protocolo_mae) and (doc_status <> 'X' and doc_status <> 'X')
+							where pj_ano = '".date("Y")."' and (pj_status <> 'X' and pj_status <> '@') 	
+						";
+			$rlt = db_query($sql);
+			while ($line = db_read($rlt))
+				{
+					$sta = trim($line['pj_status']);
+					$stb = trim($line['doc_status']);
+					$proto = $line['doc_protocolo'];
+					if ($sta != $stb)
+						{
+							$sql = "update pibic_submit_documento set doc_status = '".$sta."' where doc_protocolo = '".$proto."' ";
+							$rrr = db_query($sql);
+						}
+					
+					
+				}
+						
+			$sql = "
+					select * from ".$this->tabela." left join (
+					select count(*) as total, pp_protocolo from pibic_parecer_".date("Y")." 
+					where (pp_status <> 'D' and pp_status <> 'X') and (pp_tipo = 'SUBMI')
+					group by pp_protocolo 
+					) as tabela on pp_protocolo = pj_codigo
+					where pj_status <> 'X' and pj_status <> '@'
+					";
+			//$sql = "select * from pibic_parecer_".date("Y")." limit 1";
+			$rlt = db_query($sql);
+			while ($line = db_read($rlt))
+				{
+					$total = $line['total'];
+					$status = $line['pj_status'];
+					$proto = $line['pj_codigo'];
+					//echo '<BR>'.$protp.'-'.$status.'-'.$total;
+					if (($status == 'C') and ($total >= 2))
+						{
+							$sql = "update ".$this->tabela." set pj_status ='D' where id_pj = ".$line['id_pj'];
+							$rrr = db_query($sql);
+						}					
+					if (($status == 'D') and ($total < 2))
+						{
+							$sql = "update ".$this->tabela." set pj_status ='C' where id_pj = ".$line['id_pj'];
+							$rrr = db_query($sql);				
+						}
+				}
+		}
+
 		
 	function razao_submissao_planos_indicar($data,$status='@')
 		{
@@ -2497,17 +2665,19 @@ class projetos
 				if ($bb1==$acao2)
 					{
 						$avaliadores = array();
-						for ($r=0;$r < 1000;$r++)
+						for ($r=0;$r < 50000;$r++)
 							{
 								$vlr = $_POST['ddp'.$r];
 								if (strlen($vlr) > 0)
 									{ array_push($avaliadores,$vlr); }								
 							}
-						
 						for ($rx=0;$rx < count($avaliadores);$rx++)
 						{
 							$aval = $avaliadores[$rx];
-							if (strlen($aval) > 0) { $this->acao_indicar_avaliaca($this->protocolo,$aval,$pp,'SUBMI'); }
+							$prev = (mktime(0,0,0,date("m"),date("d"),date("Y"),0) + 15*60*60*24);
+							$prev = date("Ymd",$prev);
+							
+							if (strlen($aval) > 0) { $this->acao_indicar_avaliaca($this->protocolo,$aval,$pp,'SUBMI',$prev); }
 						}
 						if (count($avaliadores) > 0)
 							{
@@ -2522,10 +2692,11 @@ class projetos
 						exit;
 					}
 					
-				
-				$externo = $par->parecerista_lista('E','pibic_parecer',$this->area,'pibic_parecer_'.date("Y"),'SUBMI');
-				$interno = $par->parecerista_lista('L','pibic_parecer',$this->area,'pibic_parecer_'.date("Y"),'SUBMI');
-				$gestor = $par->parecerista_lista('G','pibic_parecer',$this->area,'pibic_parecer_'.date("Y"),'SUBMI');
+				$this->area = $this->line['pj_area'];
+				$prof = $this->line['pj_professor'];
+				$externo = $par->parecerista_lista('E','pibic_parecer',$this->area,'pibic_parecer_'.date("Y"),'SUBMI',$prof);
+				$interno = $par->parecerista_lista('L','pibic_parecer',$this->area,'pibic_parecer_'.date("Y"),'SUBMI',$prof);
+				$gestor = $par->parecerista_lista('G','pibic_parecer',$this->area,'pibic_parecer_'.date("Y"),'SUBMI',$prof);
 
 				$professor = trim($pj->professor);
 				
@@ -2788,9 +2959,12 @@ class projetos
 				return($sx);
 			}
 		function mostra_sn($sn)
-			{
+			{				
 				if ($sn=='S') { $sn = 'Sim'; }
 				if ($sn=='N') { $sn = 'Não'; }
+				if ($sn=='A') { $sn = '<font color="green">Em submissão</font>'; }
+				if ($sn=='B') { $sn = '<font color="blue" Em avaliação</font>'; }
+				if ($sn=='C') { $sn = 'Aprovado'; }
 				return($sn);
 			}		
 		function mostra_botoes_editar($line)
@@ -2823,6 +2997,17 @@ class projetos
 			return($sx);
 		}
 		
+		function mostra_area($area='')
+			{
+				$sql = "select * from ajax_areadoconhecimento where a_cnpq = '".$area."' ";
+				$rlt = db_query($sql);
+				if ($line = db_read($rlt))
+					{
+						return(trim($line['a_descricao']));
+					}
+				return('(não identificada) '.$area);
+			}
+		
 		function mostra($line,$id='',$edit=1)
 			{
 				global $user;
@@ -2853,6 +3038,8 @@ class projetos
 						case 'C': $sx .= '<font color="white"><B>Projeto em avaliação</B><font>'; break;
 						case 'X': $sx .= '<font color="red"><B>Cancelado</B><font>'; break;
 						case 'D': $sx .= '<font color="white"><B>Em avaliação</B><font>'; break;
+						case 'T': $sx .= '<font color="white"><B>Em análise da TI</B><font>'; break;
+						case 'P': $sx .= '<font color="white"><B>Em análise do Comitê Gestor</B><font>'; break;
 						default:
 						$sx .= '???' . $sta; break;
 						}
@@ -2915,7 +3102,7 @@ class projetos
 						/* area */
 						$sx .= '<TR><TD align="right" class="tabela00">';
 						$sx .= 'área do conhecimento:';
-						$sx .= '<TD class="tabela00" colspan=1 ><B>'.trim($line['pj_area']).' - '.trim($line['area1']).'</B>';
+						$sx .= '<TD class="tabela00" colspan=1 ><B>'.trim($line['pj_area']).' - '.$this->mostra_area(trim($line['pj_area'])).'</B>';
 						
 						/* Aprovação & Financiamento Externo */
 						$sa = '<font class="lt0" align="right">Projeto aprovado externamente por uma agência de fomento: </font>';
@@ -2923,7 +3110,7 @@ class projetos
 						/* area estratégica */
 						$sx .= '<TR><TD class="tabela00" align="right">';
 						$sx .= 'área estratégica:';
-						$sx .= '<TD class="tabela00" colspan=1 ><nobr><B>'.trim($line['pj_area_estra']).' - '.trim($line['area2']).'</B>';			
+						$sx .= '<TD class="tabela00" colspan=1 ><nobr><B>'.trim($line['pj_area_estra']).' - '.$this->mostra_area(trim($line['pj_area_estra'])).'</B>';			
 						
 						$sx .= '<TR><TD class="tabela00" align="right">'.$sa.'
 									<TD class="tabela00"><B>'.$this->mostra_sn($line['pj_ext_sn']).'</B>';
@@ -2933,7 +3120,20 @@ class projetos
 						$sa = '<font class="tabela00" align="right">Grupo 2 - Financiamento por empresa: </font>';
 						$sx .= '<TR><TD class="tabela00" align="right">'.$sa.'
 									<TD class="tabela00"><B>'.$this->mostra_sn($line['pj_gr2_sn']).'</B>';
+									
+						/* CEP e CEUA */
+						$cep = $line['pj_cep_status'];
+						$ceua = $line['pj_ceua_status'];
 						
+						$sa = '<font class="tabela00" align="right">Análise do comitê de ética de humanos (CEP):</font>';
+						$sx .= '<TR><TD class="tabela00" align="right">'.$sa.'
+									<TD class="tabela00"><B>'.$this->mostra_sn($cep).'</B>';
+						
+						$sa = '<font class="tabela00" align="right">Análise do comitê de ética no uso de animais (CEUA):</font>';
+						$sx .= '<TR><TD class="tabela00" align="right">'.$sa.'
+									<TD class="tabela00"><B>'.$this->mostra_sn($ceua).'</B>';
+						
+												
 						$sx .= '</table>';
 						/* arquivos */
 						if ($sta != 'X' and $sta != 'A' and $sta != '@' and $sta != 'T')

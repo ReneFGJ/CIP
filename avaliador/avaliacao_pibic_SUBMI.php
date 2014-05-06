@@ -46,7 +46,7 @@ $id = $parecer_pibic->id_pp;
 $avaliador = $parecer_pibic->avaliador;
 
 echo '<table width=95% align=center border=0 >';
-echo '<TR><TD>';
+echo '<TR><TD colspan=4 >';
 /* */
 $sql = "update ".$parecer_pibic->tabela." set pp_data_leitura = ".date("Ymd")." where id_pp = ".round($id);
 $qrlt = db_query($sql);
@@ -54,25 +54,12 @@ $qrlt = db_query($sql);
 $comentarios = 'Comentários';
 
 /*********************************************************************/
+require("../_class/_class_ic.php");
+$ic = new ic;
+$nw = $ic->ic('ic_aval_instrucoes');
+$infor = $nw['nw_descricao'];
 echo '<P>';
-echo '
-<BR><BR><B>Prezado avaliador</B>
-<BR>
-<BR>O processo de avaliação é extremamente rápido e direto.
-<BR>As informações estão apresentadas da seguinte forma:
-<BR>- Projeto do professor orientador, identificado pelo ícone P.
-<BR>- A este projeto está vinculado pelo menos 01 plano de trabalho do aluno, ícone A.
-<BR>- A avaliação consiste na análise de cada uma destas partes a partir dos critérios especificados.
-<BR>- O parecer qualitativo é de preenchimento obrigatório e será enviado ao professor proponente como feedback, visando o aprimoramento da pesquisa na nossa Instituição.
-<BR>- Ao final, clique em gravar e enviar. Está encerrado o processo de avaliação!
-<BR>Instruções para a avaliação de projetos.
-<BR><A HREF="http://www2.pucpr.br/reol/public/20/archive/Instrucoes_avaliacao_de_projetos_ICI2013.pdf" targer="_new">Arquivo de instruções para avaliadores</A>
-<BR><BR>Agradecemos sua valiosa contribuição para o nosso Programa.
-<BR><BR>Cleybe Vieira
-<BR>Coordenação da IC
-<BR>pibicpr@pucpr.br
-<BR>(41) 3271-1602 / 3271- 1730
-';
+echo mst($infor);
 echo '</P>';
 
 /*********************************************************************/
@@ -83,7 +70,7 @@ $pj->le($protocolo);
 /*********************************************************************/
 /* Dados do professor */
 echo '<center><h3>Dados do Professor Orientador</h3></center>';
-$prof = $pj->professor;
+$prof = $pj->line['pj_professor'];
 $doc->le($prof);
 echo $doc->mostra();
 
@@ -111,13 +98,13 @@ if (strlen($acao) == 0)
 	}
 
 /*********************************************************************/
-echo '<TR><TD>';
+//echo '<TR><TD align=6>';
 echo '<BR><BR><center>';
 echo  '<h1>Ficha de Avaliação do Projeto do Professor</h1>';
 echo '</center>';
 
 /* Ficha de avaliacao */
-$sx = '<table class="tabela00" width="100%" border=0>';
+$sx = '<table class="tabela00" width="100%" border=0 align="center">';
 $sx .= chr(13);
 /** Campos do formulario **/
 	$area1 = $pj->line['pj_area'];
@@ -135,7 +122,7 @@ for ($r=0;$r < count($cp); $r++)
 		$sx .= sget("dd".$ddx,$cp[$r][0],$cp[$r][2],$cp[$r][3],$cp[$r][4]);
 		$ddx++;
 	}
-$sx .= '</table>';
+//$sx .= '</table>';
 
 echo $sx;
 echo '<TR><TD colspan=4><input type="submit" name="acao" value="gravar avaliação >>>" class="botao-geral">';
@@ -182,10 +169,11 @@ echo '</center>';
 $pl = 0;
 $ged->tabela = 'pibic_ged_documento';
 
+echo '<TR><TD colspan=6>';
 echo '<table class="tabela00" width="100%" border=0>';
 while ($line = db_read($rlt))
 	{
-	echo '<TR valign="top"><TD><img src="'.http.'pibic/img/icone_plano_aluno.png" width="50">';
+	echo '<TR valign="top">';
 	echo '<TD>';
 	echo $pj->mostra_plano_line($line);
 	$proto_pp = trim($line['doc_protocolo']);
@@ -299,10 +287,7 @@ if ((strlen($acao) > 0) and (strlen($dd[80]) < 10))
 	
 echo $cor.'<B>Parecer qualitativo</B>'.'</font>';
 echo ' (<font color="red">campo obrigatório</font>)';
-echo $cor.' será enviado como feedback para o professor
-		proponente, com intuito de aprimoramento da pesquis
-		a na iniciação científica em nossa
-		instituição. </font>';
+echo $cor.' será enviado como feedback para o professor proponente, com intuito de aprimoramento da pesquisa na iniciação científica em nossa instituição. </font>';
 echo '<TR><TD>';
 echo sget('dd80','$T80:6','',1,1);
 echo '</table>';
@@ -312,6 +297,15 @@ echo '<TR><TD colspan=4><input type="submit" name="acao" value="gravar avaliação
 
 
 if (strlen($dd[80]) <= 5) { $saved = 0; }
+
+if (($saved == 0) and (strlen($acao) > 0))
+	{
+		echo '
+		<script>
+			alert("Existe(m) campo(s) obrigatórios não preechidos!");
+		</script>
+		';
+	}
 
 if (($saved > 0) and ($acao != $bbx))
 	{

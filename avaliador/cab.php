@@ -43,6 +43,15 @@ $par->security();
 	<script language="JavaScript" src="../js/jquery.corner.js"></script>
 </header>
 
+<?
+if ((strlen($par->nome) == 0) and (strlen($dd[0])==0))
+	{
+		echo '<CENTER>';
+		echo '<H1>Sessão expirada</h1>';
+		echo '<h2>Sua sessão expirou, acesse novamente pelo link recebido no e-mail</h2>';
+		exit;	
+	}
+?>
 <table width="98%" border=0 cellpadding="10" cellspacing="0" class="tabela00">
 <TR><TD colspan="3">	
 	<div class="fields" id="fields" style="display: none;">

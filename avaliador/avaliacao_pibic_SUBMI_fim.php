@@ -10,6 +10,8 @@ require($include.'sisdoc_debug.php');
 
 $saved = 1;
 
+require("../_class/_class_ic.php");
+
 require("../_class/_class_docentes.php");
 $doc = new docentes;
 
@@ -28,19 +30,25 @@ $protocolo = $parecer_pibic->protocolo;
 $id = $parecer_pibic->id_pp;
 
 echo '<table width=95% align=center border=0 >';
-echo '<TR><TD>';
+echo '<TR><TD colspan=6>';
 
 $pj->le($protocolo);
 /*********************************************************************/
 /* Dados do professor */
-echo '<center><h3>Dados do Professor Orientador</h3></center>';
-$prof = $pj->professor;
+$prof = $pj->line['pj_professor'];
 $doc->le($prof);
-echo $doc->mostra();
+//echo $doc->mostra();
 
 /*********************************************************************/
-echo '<center><h3>Projeto do Professor Orientador</h3></center>';
-echo $pj->mostra($pj->line);
+///echo $pj->mostra($pj->line);
 echo '</table>';
 echo '<center>';
-echo '<BR><BR><H1>Projeto avaliado com sucesso!</h1>';
+
+$ic = new ic;
+$nw = $ic->ic('ic_fim_avalicao');
+echo '<table width="100%"><TR><TD>';
+echo '<font style="font-size: 16px;">';
+echo mst($nw['nw_descricao']);
+echo '</table>';
+echo '<BR><BR><BR><BR>';
+?>

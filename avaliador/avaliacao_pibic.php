@@ -18,7 +18,7 @@ $id = $dd[0];
 if ($dd[90] != checkpost($id)) { echo 'Erro de post'; exit; }
 $ok = $parecer->le($id);
 
-echo '<HR>'.$sql.'<HR>';
+//echo '<HR>'.$sql.'<HR>';
 $sql = "update pibic_parecer_".date("Y")." set pp_data_leitura = ".date("Ymd")." where id_pp = ".round($id);
 $qrlt = db_query($sql);
 

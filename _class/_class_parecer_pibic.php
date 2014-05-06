@@ -28,7 +28,8 @@ class parecer_pibic
 	
 	function avaliacoes_indicadas($professor,$ano)
 		{
-			$sql = "select * from pibic_parecer_".$ano." 
+			$this->tabela = "pibic_parecer_".$ano;
+			$sql = "select * from ".$this->tabela."
 					where pp_avaliador = '".trim($professor)."' 
 					order by pp_tipo, pp_data
 			";
@@ -40,6 +41,11 @@ class parecer_pibic
 			
 			while ($line = db_read($rlt))
 			{
+				$link = '';
+				if ($line['pp_status']=='@')
+					{
+						$link = '<A HREF="#" onclick="newxy2(\'parecer_declinar.php?dd0='.$line['id_pp'].'&dd1='.$this->tabela.'\',300,200);">declinar</A>';
+					}
 				$tipo = trim($line['pp_tipo']);
 				if ($tipo != $xtipo)
 					{
@@ -53,9 +59,11 @@ class parecer_pibic
 				}
 				$sx .= '<TR>';
 				$sx .= '<TD class="tabela01" align="center">'.$line['pp_protocolo'];
+				$sx .= '<TD>'.$line['pp_tipo'];
 				$sx .= '<TD class="tabela01" align="center">'.$status[$line['pp_status']];
 				$sx .= '<TD class="tabela01" align="center">'.stodbr($line['pp_data']);
 				$sx .= '<TD class="tabela01" align="center">'.$dtp;
+				$sx .= '<TD class="tabela01" align="center">'.$link;
 			}
 			$sx .= '</table>';
 			return($sx);
@@ -443,6 +451,7 @@ class parecer_pibic
 	function parecer_abertos_submissao($dd1=20100101,$dd2=20500101,$tipo='',$status)
 		{
 			global $jid;
+			
 			$sql = "select * from ".$this->tabela;
 			$sql .= " inner join pareceristas on pp_avaliador = us_codigo ";
 			$sql .= " inner join pibic_projetos on pp_protocolo = pj_codigo ";
@@ -453,7 +462,7 @@ class parecer_pibic
 			$sql .= " and (pp_data >= $dd1 and pp_data <= $dd2) ";
 			$sql .= " order by us_nome, pp_data desc ";	
 			$rlt = db_query($sql);
-			
+					
 			$sx .= '<table width="100%" border=0 class="lt1">';
 			$sx .= '<TR><TD colspan=10><H9>Indicações não avaliadas</h9>';
 			$sx .= '<BR>&nbsp;&nbsp;<font class="lt0">Indicados entre '.stodbr($dd1).' e '.stodbr($dd2);
@@ -463,6 +472,11 @@ class parecer_pibic
 				{
 					$id++;
 					$link = '<A href="#" onclick="newxy2(\'parecer_declinar.php?dd0='.$line['id_pp'].'\',600,400);" class="link">Declinar</A>';
+					if ($line['pp_status'] != '@') {
+						 $link = 'AVALIADO';
+						if ($line['pp_status'] == 'D') { $link = 'DECLINADO'; } 
+						}
+					$linkv = '<A HREF="pibic_projetos_detalhes.php?dd0='.$line['pp_protocolo'].'&dd90='.checkpost($line['pp_protocolo']).'" target="_new'.$line['id_pp'].'">';
 					$nome = trim($line['us_nome']);
 					if ($xnome != $nome)
 						{
@@ -481,7 +495,7 @@ class parecer_pibic
 					$sx .= $link;
 
 					$sx .= '<TD align="center" class="tabela01">';
-					$sx .= $line['pp_protocolo'];
+					$sx .= $linkv.$line['pp_protocolo'].'</A>';
 					
 					$sx .= '<TD class="tabela01">';
 					$sx .= $line['pj_titulo'];
@@ -1268,7 +1282,7 @@ class parecer_pibic
 				group by pp_status ";
 			//echo $sql;
 			$rlt = db_query($sql);
-			echo '<table width="500" cellpadding=4 cellspacing=0 border=1>';
+			echo '<table width="500" cellpadding=4 cellspacing=0 border=0>';
 			echo '<TR><TH>Status<TH>Total';
 			$ar = array();
 			while ($line = db_read($rlt))
@@ -1565,7 +1579,7 @@ class parecer_pibic
 				$opc .= '&5:ruim<BR> ';
 				$opc .= '&1:muito ruim ';
 				
-				$cap = '<B>Critério 4</B>: Coerência entre o projeto do orientador e o plano de trabalho do aluno, considerando a contribuição para a formação do discente.';		
+				$cap = '<B>Critério 5</B>: Coerência entre o projeto do orientador e o plano de trabalho do aluno, considerando a contribuição para a formação do discente.';		
 				array_push($cp,array('$R '.$opc,'pp_p06',$cap,True,True));
 
 				/** Segunda questão **/
@@ -1574,19 +1588,32 @@ class parecer_pibic
 				$opc .= '&13:muito bom<BR> ';
 				$opc .= '&10:bom<BR> ';
 				$opc .= '&7:regular<BR> ';
+				$opc .= '&5:ruim<BR> ';
 				$opc .= '&1:muito ruim ';
 				
-				$cap = '<B>Critério 5</B>: Roteiro de atividades do aluno considerando a sua adequação ao processo de iniciação científica.';		
+				$cap = '<B>Critério 6</B>: Roteiro de atividades do aluno considerando a sua adequação ao processo de iniciação científica.';		
 				array_push($cp,array('$R '.$opc,'pp_p07',$cap,True,True));
 
 				/** Terceira questão **/
 				$opc = '';
 				$opc .= '10:adequado<BR> ';
-				$opc .= '&7:parcialmente adequado<BR> ';
-				$opc .= '&1:indequado ';
+				$opc .= '&5:parcialmente adequado<BR> ';
+				$opc .= '&1:inadequado ';
 				
-				$cap = '<B>Critério 6</B>: Adequação do cronograma para a execução da proposta.';		
+				$cap = '<B>Critério 7</B>: Adequação do cronograma para a execução da proposta.';		
 				array_push($cp,array('$R '.$opc,'pp_p08',$cap,True,True));
+
+				/** Quarta questão **/
+				$opc = '';
+				$opc .= '1:SIM. Recomendo que o projeto seja direcionado para o Programa PIBITI.<BR> ';
+				$opc .= '&0:NÃO<BR> ';
+				$opc .= '&2:Tenho dúvida, peço que o comitê gestor analise.';
+				
+				$cap = '<B>Critério 8</B>: Critério de Inovação Tecnológica: O projeto se enquadra dentro da área de inovação e tecnologia? ';		
+				array_push($cp,array('$R '.$opc,'pp_p12',$cap,True,True));
+				
+				/** Quinta questão */
+				
 				return($cp);								
 		}	
 	
@@ -1625,6 +1652,16 @@ class parecer_pibic
 						/** Terceira questão **/
 						$cap = 'Critério 3</B>: Coerência e adequação entre a capacitação e a experiência do professor orientador proponente e a realização do projeto, considerando as informações curriculares apresentadas.';
 						array_push($cp,array('$R '.$opc,'pp_p04',$cap,True,True));
+						
+						/** Quarta questão **/
+						$opc = '';
+						$opc .= '1:SIM<BR> ';
+						$opc .= '&0:NÃO<BR> ';
+						$opc .= '&2:Tenho dúvida, peço que o comitê de Ética analise a obrigatoriedade';
+					
+						$cap = '<B>Critério 4</B>: Este projeto envolve seres humanos ou animais e, portanto, deve ser analisado pelo Comitê de Ética (CEP) ou Comitê de Ética no Uso de Animais (CEUA), respectivamente ?';		
+						array_push($cp,array('$R '.$opc,'pp_p09',$cap,True,True));
+						
 		
 						if (substr($estrategica,0,4) != '9.00')
 							{
@@ -1635,7 +1672,7 @@ class parecer_pibic
 										$area_nome = trim($xline['a_descricao']);
 									}
 							/** Área Estratégica **/
-								$cap = 'Área Estratégica</B>: Este projeto foi assinalado pelo professor proponente para concorrer as bolsas de IC de áreas estratégicas (<B>'.$area_nome.'</B>) da PUCPR. O projeto se enquadra na área assinalada?';
+								$cap = 'Área Estratégica</B>: Este projeto foi assinalado pelo professor proponente como tendo aderência a área estratégica (<b>'.$this->mostra_area($estrategica).'</B>) da PUCPR. O projeto se enquadra na área assinalada?';
 								array_push($cp,array('$R '.$opc_sn,'pp_p05',$cap,True,True));
 							} else {
 								array_push($cp,array('$HV','pp_p05','0',True,True));								
@@ -1646,6 +1683,19 @@ class parecer_pibic
 				/** fecha Field **/
 				return($cp);			
 			}
+
+	/* Mostra área */
+		function mostra_area($area='')
+			{
+				$sql = "select * from ajax_areadoconhecimento where a_cnpq = '".$area."' ";
+				$rlt = db_query($sql);
+				if ($line = db_read($rlt))
+					{
+						return(trim($line['a_descricao']));
+					}
+				return('(não identificada) '.$area);
+			}
+
 
 	/*
 	 * Verifica os avaliadores deste relatorio

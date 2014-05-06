@@ -4,9 +4,10 @@ require("../db.php");
 
 $chk = $dd[90];
 $ch1 = checkpost($dd[0]);
+
 if (strlen($dd[1])==0)
 	{ $dd[1] = 'pibic_parecer_'.date("Y"); }
-	
+
 if ($chk != $ch1)
 	{
 	//echo 'Erro de chave';

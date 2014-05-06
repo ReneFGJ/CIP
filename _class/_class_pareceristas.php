@@ -532,7 +532,7 @@ class parecerista
 				print_r($prodt);
 				return($sx);
 			}
-		function parecerista_lista($tipo,$tabela,$area,$pareceres,$ptipo='')
+		function parecerista_lista($tipo,$tabela,$area,$pareceres,$ptipo='',$prof='')
 			{
 				$ara = array();
 				$pos = strpos($area,'.00');
@@ -546,10 +546,12 @@ class parecerista
 					$sql .= " inner join pareceristas on pa_parecerista = us_codigo ";
 					$sql .= " left join ( select count(*) as total, pp_avaliador from ".$pareceres." where pp_protocolo_mae = '' and pp_tipo = '$ptipo' and pp_status <> 'X' group by pp_avaliador ) as tabela on us_codigo = pp_avaliador ";					
 					$sql .= " left join ".$this->tabela_instituicao." on us_instituicao = inst_codigo ";
-					$sql .= " where a_cnpq like '".substr($area,0,4)."%' ";
+					$sql .= " where a_cnpq like '".substr($area,0,7)."%' ";
+					$sql .= " and pa_parecerista <> '".trim($prof)."' ";
 					$sql .= " and us_journal_id = 20 and us_aceito = 10 and us_ativo = 1";
 					$sql .= " order by a_cnpq, us_nome ";
 					$rlt = db_query($sql);
+					
 					while ($line = db_read($rlt))
 						{
 							$nome = trim($line['us_nome']);
@@ -582,7 +584,8 @@ class parecerista
 						$sql .= " where (a_cnpq like '".substr($area,0,4)."%' ";
 						$sql .= " and us_ativo = 1 ";
 						$sql .= " and pp_avaliador = 1  ";
-						$sql .= " and us_journal_id = 20 "; 
+						$sql .= " and us_journal_id = 20 ";
+						$sql .= " and us_codigo <> '".$prof."' "; 
 						$sql .= ") ";
 						
 						$sql .= " order by a_cnpq, pp_nome ";
@@ -612,7 +615,7 @@ class parecerista
 						$sql .= " inner join ajax_areadoconhecimento on pa_area = a_codigo ";
 						$sql .= " left join ( select count(*) as total, pp_avaliador as pp_ava from ".$pareceres." where pp_protocolo_mae = '' and pp_tipo = '$ptipo' and pp_status <> 'X' group by pp_avaliador ) as tabela on pp_ava = pp_cracha ";						
 						$sql .= " where pp_avaliador = 1 and pp_comite >= 1 ";
-						$sql .= " and a_cnpq like '".substr($area,0,4)."%' ";
+						$sql .= " and a_cnpq like '".substr($area,0,3)."%' ";
 						$sql .= " and pp_ativo=1 ";
 						//$sql .= " and (pp_aceito=1 or pp_aceito = 10) ";
 						$sql .= " order by a_cnpq, pp_nome ";
@@ -679,7 +682,9 @@ class parecerista
 				$sql .= " left join ".$this->tabela_instituicao." on us_instituicao = inst_codigo ";
 				$sql .= " where us_journal_id = '".$jid."' ";
 				$sql .= " and us_ativo = 1 ";
-				$sql .= " and us_aceito = '".round($tipo)."' ";
+				$sql .= " and us_aceito = '".round($tipo)."' 
+							order by us_nome
+				";
 				//$rlt = db_query($sql);
 														
 				$rlt = db_query($sql);
