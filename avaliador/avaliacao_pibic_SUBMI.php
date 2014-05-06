@@ -125,7 +125,7 @@ for ($r=0;$r < count($cp); $r++)
 //$sx .= '</table>';
 
 echo $sx;
-echo '<TR><TD colspan=4><input type="submit" name="acao" value="gravar avaliação >>>" class="botao-geral">';
+//echo '<TR><TD colspan=4><input type="submit" name="acao" value="gravar avaliação >>>" class="botao-geral">';
 echo '<TR><TD colspan=4><BR><BR><BR>';
 
 /*********************************************************************/
@@ -138,11 +138,13 @@ if ((strlen($acao) > 0) and ($acao != $bbx))
 		$rest[3] = round($dd[15]);
 		$rest[4] = round($dd[16]);
 		
-		if ($rest[1]==0) { $saved = 0; }
-		if ($rest[2]==0) { $saved = 0; }
-		if ($rest[3]==0) { $saved = 0; }
-		if (substr($area2,0,4) != '9.00') 
-			{ if ($rest[4]==0) { $saved = 0; } }
+		if ($rest[1]==0) { $saved = 0; $erro .= '<BR>Campo 1'; }
+		if ($rest[2]==0) { $saved = 0; $erro .= '<BR>Campo 2';  }
+		if ($rest[3]==0) { $saved = 0; $erro .= '<BR>Campo 3';  }
+
+//		if (substr($area2,0,4) != '9.00') 
+//			{ if ($rest[4]==0) { $saved = 0; } }
+//		echo '<BR>-AREA->'.$saved;			
 		
 		$sql = "update ".$parecer_pibic->tabela." 
 					set pp_p01 = ".$rest[1].",
@@ -220,7 +222,7 @@ while ($line = db_read($rlt))
 		}
 	$sx .= '</table>';
 	echo $sx;	
-	echo '<TR><TD colspan=4><input name="acao" type="submit" value="gravar avaliação >>>" class="botao-geral">';
+//	echo '<TR><TD colspan=4><input name="acao" type="submit" value="gravar avaliação >>>" class="botao-geral">';
 	echo '<TR><TD colspan=4><BR><BR><BR>';
 
 	/*********************************************************************/
@@ -250,9 +252,9 @@ while ($line = db_read($rlt))
 	if ((strlen($acao) > 0) and ($acao != $bbx))
 		{
 			$idx = $pl*10+26;
-			if ($dd[$idx+0]==0) { $saved = 0; }
-			if ($dd[$idx+1]==0) { $saved = 0; }
-			if ($dd[$idx+2]==0) { $saved = 0; }
+			if ($dd[$idx+0]==0) { $saved = 0;  $erro .= '<BR>Campo 2.'.$idx;  }
+			if ($dd[$idx+1]==0) { $saved = 0;  $erro .= '<BR>Campo 2.'.$idx; }
+			if ($dd[$idx+2]==0) { $saved = 0;  $erro .= '<BR>Campo 2.'.$idx; }
 			
 			$sql = "update ".$parecer_pibic->tabela." 
 						set pp_p01 = ".$rest[1].",
@@ -267,7 +269,8 @@ while ($line = db_read($rlt))
 							pp_abe_01 = '".$dd[80]."'					
 					where 	pp_protocolo = '".$proto_pp."' and
 				 		 	pp_protocolo_mae = '".$protocolo."' and 
-				  			pp_avaliador = '".$avaliador."' ";					
+				  			pp_avaliador = '".$avaliador."' ";
+			echo '<HR>'.$sql;					
 			$qrlt = db_query($sql);
 		}		
 	
@@ -293,10 +296,7 @@ echo sget('dd80','$T80:6','',1,1);
 echo '</table>';
 echo '<TR><TD colspan=4><input type="submit" name="acao" value="gravar avaliação >>>" class="botao-geral">';
 
-
-
-
-if (strlen($dd[80]) <= 5) { $saved = 0; }
+if (strlen($dd[80]) <= 5) { $saved = 0;  }
 
 if (($saved == 0) and (strlen($acao) > 0))
 	{

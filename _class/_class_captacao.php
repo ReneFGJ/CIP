@@ -2460,8 +2460,7 @@ class captacao
 						{
 							if ($dd[1]=='S')
 							{
-							enviaremail('nucleo.pesquisa@pucpr.br','','(cópia) Validação de captação',$ttt);
-							enviaremail('monitoramento@sisdoc.com.br','','(cópia) Validação de captação',$ttt);
+							enviaremail('cip@pucpr.br','','(cópia) Validação de captação',$ttt);
 							if (strlen($em1) > 0) 
 								{ enviaremail($em1,'','Validação de captação',$ttt); echo '<BR>enviado para '.$em1; }
 							if (strlen($em2) > 0) 

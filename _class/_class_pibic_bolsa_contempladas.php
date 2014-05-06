@@ -106,6 +106,7 @@ class pibic_bolsa_contempladas
 						inner join pibic_professor on pb_professor = pp_cracha
 						inner join pibic_aluno on pb_aluno = pa_cracha
 						inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+						left join apoio_titulacao on ap_tit_codigo = pp_titulacao
 						left join centro on centro_codigo = pp_escola
 						where pb_ano = '$ano1' or pb_ano = '$ano2' 
 						order by centro_nome, pp_curso, pp_nome
@@ -121,8 +122,15 @@ class pibic_bolsa_contempladas
 							<TH>Professor
 							<TH>Campus
 							<TH>Edital
+							<TH>SS
 							<TH>Modalidade
-							<TH>Status';
+							<TH>Estudande
+							<TH>Curso
+							<TH>Status
+							<TH>email
+							<TH>email alternativo
+							<TH>Titulação						
+							';
 				$tot = 0;
 				while ($line = db_read($rlt))
 					{
@@ -170,7 +178,14 @@ class pibic_bolsa_contempladas
 						$sx .= '<TD>';
 						$sx .= $line['pb_status'];
 
-						$ln = $line;
+						$sx .= '<TD>';
+						$sx .= $line['pp_email'];
+
+						$sx .= '<TD>';
+						$sx .= $line['pp_email_1'];
+
+						$sx .= '<TD>';
+						$sx .= $line['ap_tit_titulo'];
 					}
 				$sx .= '</table>';
 				$sx .= $tot.' total';

@@ -1,5 +1,5 @@
 <?php
-require("cab.php");
+require("cab_cip.php");
 require($include.'sisdoc_email.php');
 require("../_class/_class_docentes.php");
 $doc = new docentes;
@@ -20,7 +20,13 @@ if ($bon->status == 'A')
 		$valor = number_format($bon->valor,2,',','.');
 		$nome = trim($bon->professor_nome);
 		
-		$txt = msg('bonif_avisa');
+		require('../_class/_class_ic.php');
+		$ic = new ic;
+		$nw = $ic->ic('bon_comunicacao_boni');
+		
+		$titulo_email = $nw['nw_titulo'].' - '.$proto;
+		$txt = $nw['nw_descricao'];
+				
 		$txt = troca($txt,'$nome',$nome);
 		$txt = troca($txt,'$valor',$valor);
 		$txt = troca($txt,'$proto',$proto);
@@ -39,12 +45,12 @@ if ($bon->status == 'A')
 		enviaremail('renefgj@gmail.com','','Bonificação',$txt.$txt2);
 		
 		$email = trim($doc->pp_email);
-		if (strlen($email) > 0) { enviaremail($email,'','Bonificação',$txt.$txt2); }
+		if (strlen($email) > 0) { enviaremail($email,'',$titulo_email,$txt.$txt2); }
 		
 		$email = trim($doc->pp_email_1);
-		if (strlen($email) > 0) { enviaremail($email,'','Bonificação',$txt.$txt2); }
+		if (strlen($email) > 0) { enviaremail($email,'',$titulo_email,$txt.$txt2); }
 		
-		enviaremail('nucleo.pesquisa@pucpr.br','','Bonificação',$txt.$txt2); 
+		enviaremail('cip@pucpr.br','',$titulo_email.'[copia]',$txt.$txt2); 
 				
 		$bon->historico_inserir($bon->protocolo,'BON','Bonificado por '.$user->user_login);
 		$bon->troca_status('A','F');

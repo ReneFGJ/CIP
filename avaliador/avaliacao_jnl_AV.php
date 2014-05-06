@@ -38,8 +38,9 @@ require("../_class/_class_ic.php");
 
 require_once('../editora/_ged_submit_files.php');
 $ged->protocol = $pp->protocolo;
-//echo $ged->file_list();
+
 $protocolo = $pp->protocolo;
+require("avaliacao_jnl_AV_files_2.php");
 require("avaliacao_jnl_AV_files.php");
 
 if (($pp->status == 'B') or ($pp->status == 'C'))

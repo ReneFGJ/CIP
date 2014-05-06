@@ -111,12 +111,14 @@ class artigo
 			
 			$professor = $this->autor_nome;
 			$protocolo = $this->protocolo;
+			$valor = number_format($this->line['ar_v1']+$this->line['ar_v2']+$this->line['ar_v3']+$this->line['ar_v4']+$this->line['ar_v5'],2,',','.');
 			
-			$titulo = $ms['nw_titulo'];
+			$titulo = trim($ms['nw_titulo']).' - '.$professor.' - '.$protocolo;
 			$texto = $ms['nw_descricao'];
 			$texto = troca($texto,'$MOTIVO',$dd[5]);
 			$texto = troca($texto,'$professor',$professor);
 			$texto = troca($texto,'$protocolo',$protocolo);
+			$texto = troca($texto,'$valor',$valor);
 			
 			$texto = '<img src="'.$http.'img/email_cip_header.png" ><BR>' 
 							. $texto;
@@ -181,6 +183,32 @@ class artigo
 			$historico = $sta[9].' - '.$nw->user_login;
 			$this->comunicar_professor('bon_artigo_cancela');
 			$this->alterar_status('9');
+			$this->historico_inserir($this->protocolo,$action,$historico);
+			redirecina(page().'?dd0='.$dd[0]);
+			exit;			
+		}		
+	/* Cancelar solicitação */
+	function acoes_23()
+		{
+			global $dd,$hd,$nw;
+			$sta = $this->status();
+			$action = 'A23';
+			$historico = $sta[23].' - '.$nw->user_login;
+			$this->comunicar_professor('bon_art_indeferido');
+			$this->alterar_status('23');
+			$this->historico_inserir($this->protocolo,$action,$historico);
+			redirecina(page().'?dd0='.$dd[0]);
+			exit;			
+		}		
+	/* Cancelar solicitação */
+	function acoes_25()
+		{
+			global $dd,$hd,$nw;
+			$sta = $this->status();
+			$action = 'A25';
+			$historico = $sta[25].' - '.$nw->user_login;
+			$this->comunicar_professor('bon_comunicacao_arti');
+			$this->alterar_status('25');
 			$this->historico_inserir($this->protocolo,$action,$historico);
 			redirecina(page().'?dd0='.$dd[0]);
 			exit;			
@@ -256,6 +284,13 @@ class artigo
 								$this->historico('22');
 								}
 							break;
+						case '23': 
+							if ($st != '23')
+								{
+								$this->acoes_23(); 
+								$this->historico('23');
+								}
+							break;
 						case '24': 
 							if ($st != '24')
 								{
@@ -267,6 +302,13 @@ class artigo
 							if ($st != '9')
 								{
 								$this->acoes_9(); 
+								//$this->historico('9');
+								}
+							break;
+						case '25': 
+							//if ($st != '25')
+								{
+								$this->acoes_25(); 
 								//$this->historico('9');
 								}
 							break;
@@ -293,9 +335,11 @@ class artigo
 				{
 				case '8': /* Cadastrado */
 					array_push($acoes,array('10','Acatar para análise'));
+					array_push($acoes,array('9','Cancelar'));
 					break;					
 				case '0': /* Cadastrado */
 					array_push($acoes,array('10','Acatar para análise'));
+					array_push($acoes,array('9','Cancelar'));
 					break;					
 				case '10': /* Cadastrado */
 					array_push($acoes,array('8','Devolvido ao professor para correções'));
@@ -321,6 +365,11 @@ class artigo
 					array_push($acoes,array('8','Devolvido ao professor para correções'));				
 					break;										
 				case '24': /* Cadastrado */
+					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));
+					array_push($acoes,array('25','Comunicado pesquisador'));
+					break;										
+				case '25': /* Cadastrado */
+					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));
 					array_push($acoes,array('25','Comunicado pesquisador'));
 					break;										
 				default:
@@ -560,16 +609,38 @@ class artigo
 			while ($line = db_read($rlt))
 				{
 					$sta = round($line['ar_status']);
-					echo '->'.$sta;
-					if ($sta == 0 ) { $api[9] = $api[9] + $line['total']; }
-					if ($sta == 10 ) { $api[0] = $api[0] + $line['total']; }
-					if ($sta == 8 ) { $api[8] = $api[8] + $line['total']; }
-					if ($sta == 1 ) { $api[6] = $api[6] + $line['total']; }
-					if ($sta == 11)  { $api[1] = $api[1] + $line['total']; }
-					if ($sta == 22)  { $api[22] = $api[22] + $line['total']; }
-					if ($sta == 24)  { $api[24] = $api[24] + $line['total']; }
+					//echo '->'.$sta;
+					switch ($sta) {
+						case 0:
+							$api[9] = $api[9] + $line['total'];
+							break;
+						case 10:
+							$api[0] = $api[0] + $line['total'];
+							break;
+						case 8:
+							$api[8] = $api[8] + $line['total'];
+							break;
+						case 1:
+							$api[6] = $api[6] + $line['total'];
+							break;
+						case 11:
+							$api[1] = $api[1] + $line['total'];
+							break;
+						case 22:
+							$api[22] = $api[22] + $line['total'];
+							break;
+						case 24:
+							$api[24] = $api[24] + $line['total'];
+							break;
+						case 23:
+							$api[23] = $api[23] + $line['total'];
+							break;
+						default:
+							$api[22] = $api[22] + $line['total'];
+							break;
+					}
 				}
-			$sx = '<table class="tabela00" width="700" align="center">';
+			$sx = '<table class="tabela00" width="100%" align="center">';
 			$sx .= '<TR><TD><TD colspan=10><center><h2>Cadastro de Artigos Bonificáveis</h2>';
 			$sx .= '<TR>';
 			$sx .= '<TH>';
@@ -580,9 +651,10 @@ class artigo
 			$sx .= '<TH width="10%">Análise do(a) Diretor(a) de Pesquisa';
 			$sx .= '<TH width="10%">(outros 2)';
 			$sx .= '<TH width="10%">Não bonificados para finalizar';
-			$sx .= '<TH width="10%">Liberação da Erli';
+			$sx .= '<TH width="10%">Liberação da Secretaria';
 			$sx .= '<TH width="10%">Comunicar o professor';
 			$sx .= '<TH width="10%">Finalizado';
+			$sx .= '<TH width="10%">Indeferido';
 			
 			$link9 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=0&dd90='.checkpost(0).'">';
 			$link8 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=8&dd90='.checkpost(8).'">';
@@ -593,6 +665,7 @@ class artigo
 			$link22 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=22&dd90='.checkpost(22).'">';
 			$link24 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=24&dd90='.checkpost(24).'">';
 			$link90 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=90&dd90='.checkpost(90).'">';
+			$link23 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=23&dd90='.checkpost(23).'">';
 			
 			$sx .= '<TR>';
 			$sx .= '<TD align="right">Artigos';
@@ -606,6 +679,7 @@ class artigo
 			$sx .= '<TD class="tabela01" align="center">'.$link22.$api[22].'</A>';
 			$sx .= '<TD class="tabela01" align="center">'.$link24.$api[24].'</A>';
 			$sx .= '<TD class="tabela01" align="center">'.$link90.$api[25].'</A>';
+			$sx .= '<TD class="tabela01" align="center">'.$link23.$api[23].'</A>';
 					
 			$sx .= '</table>';
 			return($sx);

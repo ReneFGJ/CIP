@@ -1635,7 +1635,7 @@ class docentes
 		{
 			global $tab_max;
 			$sx .= '<table width="98%" class="tabela00" align="center">';
-			$sx .= '<TR><TH>Nome<TH>Tót.<TH>Produtivade<TH>SS<TH>Cracha<TH>Campus<TH>Curso<TH>Escola<TH>Atualizado';
+			$sx .= '<TR><TH>Nome<TH>Tót.<TH>Produtivade<TH>SS<TH>Cracha<TH>Campus<TH>Curso<TH>Escola<TH>Atualizado<TH>e-amil<TH>e-mail alt.';
 			$tot = 0;
 			$prod = $this->produtividade();
 			$prod_n = array('');
@@ -1655,7 +1655,7 @@ class docentes
 					$tot++;
 					$link = '<A HREF="docentes_detalhe.php?dd0='.$line['id_pp'].'&dd90='.checkpost($line['id_pp']).'">';
 					$sx .= '<TR '.coluna().'>';
-					$sx .= '<TD class="tabela01">';
+					$sx .= '<TD class="tabela01"><nobr>';
 					$sx .= $this->link_lattes($line['pp_lattes']).$line['pp_nome'].'</A>';
 					$sx .= '<TD class="tabela01">';
 					$sx .= $line['pp_titulo'];
@@ -1674,6 +1674,10 @@ class docentes
 					$sx .= $line['centro_nome'];
 					$sx .= '<TD align="center" class="tabela01">';
 					$sx .= $line['pp_update'];
+					$sx .= '<TD align="center" class="tabela01">';
+					$sx .= $line['pp_email'];
+					$sx .= '<TD align="center" class="tabela01">';
+					$sx .= $line['pp_email_1'];
 				}
 			$sx .= '<TR><TD colspan=8><B>Total de '.$tot.' docentes nesta categoria';
 			$sx .= '</table>';
