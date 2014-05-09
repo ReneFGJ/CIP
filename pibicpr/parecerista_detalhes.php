@@ -12,11 +12,6 @@ require("../_class/_class_parecer.php");
 $par->le($dd[0]);
 echo '<h3>Participação nas avaliações</h3>';
 
-
-/* */
-$par = new parecerista;
-$par->le(round($dd[0]));
-
 /* Areas */
 $edit = 1;
 $page = page();

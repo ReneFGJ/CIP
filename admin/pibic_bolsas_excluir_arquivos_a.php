@@ -37,6 +37,9 @@ echo '<h1>Exclusão de Arquivos de Bolsas PIBIC</h1>';
 				$ged->file_delete();
 				
 				echo $ged->file_list();
+			
+				echo $ged->file_attach_form();
+				
 				echo '</fieldset>';				
 				
 			} else {

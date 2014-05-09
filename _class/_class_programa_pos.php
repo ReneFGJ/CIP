@@ -1087,31 +1087,35 @@ $sg = '
 						$linkp = '<A href="docente.php?dd0='.$line['id_pp'].'&dd90='.checkpost($line['id_pp']).'" class="link">';
 						
 						$sx .= '<TR '.coluna().'>';
-						$sx .= '<TD>'.$link.$line['pos_nome'].'</A>';
-						$sx .= '<TD align="center">'.$line['pos_mestado'];
-						$sx .= '<TD align="center"> '.$line['pos_conceito'];
+						$sx .= '<TD class="tabela01">'.$link.$line['pos_nome'].'</A>';
+						$sx .= '<TD class="tabela01" align="center">'.$line['pos_mestado'];
+						$sx .= '<TD class="tabela01" align="center"> '.$line['pos_conceito'];
 						if ($line['pos_doutorado'] != 0)
 							{
-							$sx .= '<TD align="center">'.$line['pos_doutorado'];
-							$sx .= '<TD align="center"> '.$line['pos_conceito'];
+							$sx .= '<TD class="tabela01" align="center">'.$line['pos_doutorado'];
+							$sx .= '<TD class="tabela01" align="center"> '.$line['pos_conceito'];
 							} else {
-								$sx .= '<TD><center>- -';
-								$sx .= '<TD><center>- -';
+								$sx .= '<TD class="tabela01"><center>- -';
+								$sx .= '<TD class="tabela01"><center>- -';
 							}
-						$sx .= '<TD>'.$line['qa_descricao'];
-						$sx .= '<TD>'.$linkp.$line['pp_nome'].'</A>';
+						$sx .= '<TD class="tabela01">'.$line['qa_descricao'];
+						$sx .= '<TD class="tabela01">'.$line['pos_capes_cod'];
+						$sx .= '<TD class="tabela01">'.$line['centro_nome'];
+						$sx .= '<TD class="tabela01">'.$linkp.$line['pp_nome'].'</A>';
 						$ln = $line;
 					}
 				
 				if (strlen($sx) > 0)
 					{
-						$sa = '<table width="98%" class="lt1">';
+						$sa = '<table width="100%" class="lt1">';
 						$sa .= '<TR><TH>Programa';
 						$sa .= '<TH>Mestrado';
 						$sa .= '<TH>Nota';
 						$sa .= '<TH>Doutorado';
 						$sa .= '<TH>Nota';
 						$sa .= '<TH>Área de avaliação CAPES';
+						$sa .= '<TH>Cód. CAPES';
+						$sa .= '<TH>Escola';
 						$sa .= '<TH>Coordenador';
 						$sa .= $sx;
 						$sa .= '</table>';
@@ -1149,7 +1153,9 @@ $sg = '
 		
 		function cp()
 			{
-				//$sql = "ALTER TABLE ".$this->tabela." add column pos_sigla char(10)";
+				//$sql = "ALTER TABLE ".$this->tabela." add column pos_capes_cod char(30)";
+				//$rlt = db_query($sql);
+				//$sql = "ALTER TABLE ".$this->tabela." add column pos_escola char(7)";
 				//$rlt = db_query($sql);
 				$cp = array();
 				$opa = '&1:ano indefinido';
@@ -1160,6 +1166,9 @@ $sg = '
 				array_push($cp,array('$S100','pos_nome',msg('nome'),true,true));
 				array_push($cp,array('$S10','pos_sigla',msg('sigla'),true,true));
 				array_push($cp,array('$S10','pos_instituicao',msg('instituicao'),true,true));
+				
+				array_push($cp,array('$S30','pos_capes_cod','Código do programa na CAPES',true,true));
+				array_push($cp,array('$Q centro_nome:centro_codigo:select * from centro order by centro_nome','pos_escola','Escola/Centro',true,true));
 
 				array_push($cp,array('$T80:6','pos_descricao',msg('descricao'),False,true));
 
