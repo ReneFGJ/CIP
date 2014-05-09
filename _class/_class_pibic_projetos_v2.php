@@ -23,6 +23,99 @@ class projetos
 		
 		var $ano;
 
+		function gerar_relatorio_analitico_avaliador_projetos($ano='')
+			{
+				global $jid;
+				if (strlen($ano)==0) { $ano = date("Y"); }
+				
+				$sql = "select * from ajax_areadoconhecimento where a_ativo = '1' order by a_cnpq";
+				$sql = "select * from ajax_areadoconhecimento order by a_cnpq";
+				$rlt = db_query($sql);
+				
+				$area = array();
+				$aa = array();
+				while ($line = db_read($rlt))
+					{
+						array_push($area,array(trim($line['a_cnpq']),trim($line['a_descricao']),0,0,0,0,0,0));
+						array_push($aa,trim($line['a_cnpq']));
+					}
+				
+				/* Projetos */
+				$sql = "select * from ".$this->tabela." where pj_ano = '".$ano."'
+						and (pj_status <> '@' and pj_status <> 'X')
+						";
+				$rlt = db_query($sql);
+				while ($line = db_read($rlt))
+					{
+						$a = trim($line['pj_area']);
+						$key = array_search($a, $aa);
+						$area[$key][2] = $area[$key][2] + 1; 						
+					}
+				
+				/* Avaliadores Externos */
+				$sql = "select pa_area, a_cnpq from pareceristas 
+						left join pareceristas_area on us_codigo = pa_parecerista
+						left join ajax_areadoconhecimento on a_codigo = pa_area
+						where us_journal_id = '".$jid."' and (us_ativo = 1) and (us_aceito = 10)";
+				$rlt = db_query($sql);
+				while ($line = db_read($rlt))
+					{
+						$a = trim($line['a_cnpq']);
+						$key = array_search($a, $aa);
+						$area[$key][3] = $area[$key][3] + 1; 						
+					}
+
+				/* Avaliadores Internos */
+				$sql = "select pa_area, a_cnpq from pibic_professor 
+						inner join pareceristas_area on pp_cracha = pa_parecerista
+						left join ajax_areadoconhecimento on a_codigo = pa_area
+						where pp_ativo = 1 ";
+				$rlt = db_query($sql);
+				while ($line = db_read($rlt))
+					{
+						$a = trim($line['a_cnpq']);
+						$key = array_search($a, $aa);
+						$area[$key][4] = $area[$key][4] + 1; 						
+					}
+				
+				$sx .= '<table class="tabela00" width="100%">';
+				$sx .= '<TR><TD rowspan=2 colspan=2>Área do conhecimento<TD colspan=5 align="center">N° de avaliadores';
+				$sx .= '<TR>
+							<TD width="80" align="center">Projetos
+							<TD width="80" align="center">Externo
+							<TD width="80" align="center">Interno
+							<TD width="80" align="center">GAP Externo
+							<TD width="80" align="center">GAP Interno';
+				for ($r=0;$r < count($area);$r++)
+					{
+						if (($area[$r][2]+$area[$r][3]+$area[$r][4]) > 0)
+							{
+							$sx .= '<TR>';
+							$sx .= '<TD class="tabela01"><nobr>';
+							$sx .= $area[$r][0];
+							$sx .= '<TD class="tabela01">';
+							$sx .= $area[$r][1];
+							$sx .= '<TD align="center" class="tabela01">';
+							$sx .= $area[$r][2];
+							$sx .= '<TD align="center" class="tabela01">';
+							$sx .= $area[$r][3];
+							$sx .= '<TD align="center" class="tabela01">';
+							$sx .= $area[$r][4];
+							
+							$vl = $area[$r][2] - $area[$r][3];
+							if ($vl > 0) { $cor = '<font color="red">'; } else { $cor = '<font color="blue">'; }
+							$sx .= '<TD align="center" class="tabela01">';
+							$sx .= $cor.$vl.'</font>';							
+														
+							$vl = $area[$r][2] - $area[$r][4];
+							if ($vl > 0) { $cor = '<font color="red">'; } else { $cor = '<font color="blue">'; }
+							$sx .= '<TD align="center" class="tabela01">';
+							$sx .= $cor.$vl.'</font>';
+							}
+					}
+				$sx .= '</table>';
+				return($sx);
+			}
 
 		
 		function acao_enviar_email_avaliacao($avaliador,$tipo='',$data)

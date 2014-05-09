@@ -17,6 +17,80 @@ class artigo
 		
 		var $tabela = 'artigo';
 		
+		function normaliza_issn($line)
+			{
+				$issn_old = $issn;
+				$issn = trim(uppercasesql($line['ar_issn']));
+				
+				$issn_dv = substr($issn,strlen($issn)-1,1);
+				$issn = sonumero($issn);
+				
+				$issn = substr($issn,0,4).'-'.substr($issn,4,3).$issn_dv;
+				
+				if ($issn != $issn_old)
+					{
+						$sql = "update ".$this->tabela." 
+							set ar_issn = '".$issn."' where ar_issn = '".$issn_old."' 
+						";
+						$rlt = db_query($sql);
+					}
+				
+			}
+		
+		function resumo_issn()
+			{
+				$st = $this->status();
+				$sql = "select * from ".$this->tabela."
+							inner join pibic_professor on pp_cracha = ar_professor 
+							where ar_status <> 0 and ar_status <> 9
+						order by ar_issn, ar_titulo, ar_professor
+					";
+				$rlt = db_query($sql);
+				$sx = '<h1>Artigos cadastrados</h1>';
+				$sx .= '<table width="100%" class="tabela00">';
+				$xissn = '';
+				$xtitle = '';
+				while ($line = db_read($rlt))
+					{
+						$cor = '';
+						$issn = trim($line['ar_issn']);
+						$title = substr(uppercasesql(trim($line['ar_titulo'])),0,10);
+						if (($issn == $xissn) and ($title == $xtitle)) 
+							{ $cor = '<font color="red">'; }
+						$xissn = $issn;
+						$xtitle = $title;
+						
+						$this->normaliza_issn($line);
+						$link = '<A HREF="artigo_detalhe.php?dd0='.$line['id_ar'].'">';
+						$sx .= '<TR>';
+						$sx .= '<TD><NOBR>';
+						$sx .= $link;
+						$sx .= $line['ar_protocolo'];
+						$sx .= '</A>';
+						
+						/* */
+						$sx .= '<TD><NOBR>';
+						$sx .= $line['ar_issn'];
+						$sx .= '<TD>';
+						$sx .= $cor;
+						$sx .= $line['ar_titulo'];
+						$sx .= '</font>';
+						
+						$sx .= '<TD><NOBR>';
+						$sx .= $cor;
+						$sx .= $line['pp_nome'];
+						$sx .= ' ';
+						$sx .= '('.$line['ar_professor'].')';
+						$sx .= '</font>';
+
+						$sx .= '<TD><nobr>';
+						$sx .= $st[$line['ar_status']];
+						$sx .= ' ('.$line['ar_status'].')';
+					}
+				$sx .= '</table>';
+				return($sx);
+			}
+		
 		function mostra_artigo()
 			{
 				global $editar;
@@ -26,7 +100,7 @@ class artigo
 				$rlt = db_query($sql);
 				$sx = '';
 				$sx .= '<fieldset>';
-				$sx .= '<h2>Captação de Recursos</h2>';
+				$sx .= '<h2>Artigos</h2>';
 				//$sx .= '<font class="lt1">'.msg('captacao_pesq_inf').'</font>';
 				$sx .= '<table width="100%" class="tabela00">';
 				$sx .= '<TR><TH>Protocolo<TH>Título<TH>ISSN<TH>Periódico<TH>Status';
@@ -710,6 +784,7 @@ class artigo
 				'22'=>'Validado pelo(a) Diretor(a) de Pesquisa',
 				'23'=>'Indeferido  pelo(a) Diretor(a) de Pesquisa',
 				'24'=>'Gerado formulario de pagamento',
+				'25'=>'Comunicado professor',
 				'26'=>'Marcado bonificação ',
 				
 				'89'=>'Processo finalizado',
@@ -990,6 +1065,32 @@ class artigo
 				array_push($cp,array('$O : &ER:Excellence Rate (ExR)&--:Não é ExR no SCImago','ar_er','Excellence Rate Report',True,True));
 				array_push($cp,array('$M','',$ex_tips,False,True));
 				
+				array_push($cp,array('$A','','Colaboração com outras instituições',False,True));
+				$op = 'NÃO:NÃO, Pesquisa realizada somente na instituição';
+				$op .= '&NAC:SIM, Pesquisa realizada em colaboração com instituções brasileiras';
+				$op .= '&NAE:SIM, Pesquisa realizada em com técnicos/equipamentos de instituções brasileiras';
+				$op .= '&INT:SIM, Pesquisa realizada em colaboração com instituções internacionais';
+				$op .= '&INE:SIM, Pesquisa realizada em com técnicos/equipamentos de instituções internacionais';
+				$op .= '&NAP:SIM, Pesquisa realizada em cooperação técnica com empresas brasileiras';
+				$op .= '&INP:SIM, Pesquisa realizada em cooperação técnica com empresas internacionais';
+				array_push($cp,array('$O : &'.$op,'ar_colaboracao','Tipo',True,True));
+				array_push($cp,array('$M','',$ex_tips,False,True));
+
+				array_push($cp,array('$A','','Artigo resultado de pesquisa financiada/patrocinada?',False,True));
+				$op = 'NÃO:NÃO, sem financiamento';
+				$op .= '&SIN:SIM, Por agência de fomento/empresa nacional';
+				$op .= '&SII:SIM, Por agência de fomento/empresa internacional';
+				array_push($cp,array('$O : &'.$op,'ar_sponsor','Finaciamento/Patrocínio',True,True));
+				array_push($cp,array('$M','',$ex_tips,False,True));
+
+				array_push($cp,array('$A','','Participação de alunos como autores da artigo',False,True));
+				$op = 'NÃO:NÃO';
+				$op .= '&SIP:SIM, alunos de Pós-Graduação';
+				$op .= '&SIG:SIM, alunos de Graduação';
+				$op .= '&SIG:SIM, alunos de Graduação e Pós-Graduação';
+				array_push($cp,array('$O : &'.$op,'ar_estudante','Estudantes',True,True));
+				array_push($cp,array('$M','',$ex_tips,False,True));
+		
 				array_push($cp,array('$A','','Observações',False,True));
 				array_push($cp,array('$T80:3','ar_obs','Obs',False,True));		
 				array_push($cp,array('$}','','',False,True));

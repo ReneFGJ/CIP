@@ -1,4 +1,13 @@
 <?php
+    /**
+     * Menu de manutenção do PIBIC
+	 * @author Rene Faustino Gabriel Junior <monitoramento@sisdoc.com.br>
+	 * @copyright Copyright (c) 2013 - sisDOC.com.br
+	 * @access public
+     * @version v0.14.18
+	 * @package Bolsas PIBIC Contempladas
+	 * @subpackage classe
+    */
 require("cab.php");
 
 /*
@@ -9,16 +18,13 @@ array_push($breadcrumbs,array(http.'admin/index.php',msg('principal')));
 array_push($breadcrumbs,array(http.'admin/index.php',msg('menu')));
 echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 
-
-$file = '../messages/msg_index.php';
-if (file_exists($file)) { require($file); }
-
 require($include."sisdoc_menus.php");
 $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
 
 $menu = array();
 /////////////////////////////////////////////////// MANAGERS
 array_push($menu,array('Bolsas Implementadas','Manutenção de bolsas','pibic_bolsas.php'));
+array_push($menu,array('Bolsas Implementadas','Excluir arquivos postados','pibic_bolsas_excluir_arquivos.php'));
  
 array_push($menu,array('Pagamentos','Inportar pagamentos de pagamentos','pibic_02.php'));
 array_push($menu,array('Pagamentos','Editar lançamentos','pibic_03.php'));

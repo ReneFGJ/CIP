@@ -18,6 +18,8 @@ $art = new artigo;
 
 echo $art->resumo('');
 
+echo $art->resumo_issn('');
+
 	//$tela = menus($menu,"3");
 require("../foot.php");
 ?>

@@ -2194,7 +2194,7 @@ class pibic_bolsa_contempladas
 			$rlt = db_query($sql);
 			
 			$sx .= '<table>';
-			$sx .= '<TR><TD colspan=5><h2>óreas de Apresentação SEMIC Internacional</h2>';
+			$sx .= '<TR><TD colspan=5><h2>Áreas de Apresentação SEMIC Internacional</h2>';
 			$sx .= '<TR><Th width="10%">Total<TH width="10%">CNPq
 					<TH width="80%" align="left">Descrição da órea';
 
