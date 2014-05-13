@@ -3,7 +3,7 @@ class pibic_historico
 	{
 		var $tabela = 'pibic_bolsa_historico';
 		
-		function inserir_historico($proto,$ac,$hist,$aluno1,$aluno2,$motivo)
+		function inserir_historico($proto,$ac,$hist,$aluno1,$aluno2,$motivo,$obs='')
 			{
 				global $nw;
 
@@ -19,6 +19,7 @@ class pibic_historico
 						and bh_acao = $ac
 					";
 				$rlt = db_query($sql);
+				
 				if ($line = db_read($rlt))
 					{
 						
@@ -26,11 +27,13 @@ class pibic_historico
 						$sql = "insert into ".$this->tabela." 
 							(bh_protocolo, bh_data, bh_hora,
 							bh_log, bh_acao, bh_historico,
-							bh_aluno_1, bh_aluno_2, bh_motivo 
+							bh_aluno_1, bh_aluno_2, bh_motivo,
+							bh_obs
 							) values (
 							'$proto',$data,'$hora',
 							'$log','$ac','$hist',
-							'$aluno2','$aluno1','$motivo')
+							'$aluno2','$aluno1','$motivo',
+							'$obs')
 					";
 					$rlt = db_query($sql);
 					}
@@ -39,13 +42,10 @@ class pibic_historico
 		
 		function mostra_historico($proto)
 			{
-				$sql = "delete from ".$this->tabela." 
-							where bh_protocolo = '".$proto."' and bh_historico like '%()%' ";
-				$rlt = db_query($sql);
-							
+				global $tab_max;						
 				$sql = "select * from ".$this->tabela." where bh_protocolo = '".$proto."' ";
 				$rlt = db_query($sql);
-				$sx = '<table width="100%" class="tabela00" align="center">';
+				$sx = '<table width="900" class="tabela00" align="center">';
 				$sx .= '<TR><TH>Data<TH>Hora<TH>Historico<TH>Protocolo';
 				while ($line = db_read($rlt))
 					{
@@ -61,6 +61,8 @@ class pibic_historico
 									$sx .= '<TD class="tabela01">'.$line['bh_hora'];
 									$sx .= '<TD class="tabela01">'.$line['bh_historico'];
 									$sx .= '<TD class="tabela01">'.$line['bh_protocolo'];
+									$sx .= '<TR valign="top">';
+									$sx .= '<TD><TD class="tabela01" colspan=3>'.$line['bh_obs'];
 									break;
 							}
 						

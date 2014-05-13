@@ -22,6 +22,16 @@ class projetos
 		var $status = '@';
 		
 		var $ano;
+		
+		function projetos_para_correcao($professor='')
+			{
+				$sql = "select count(*) as total from ".$this->tabela." where pj_professor = '".$professor."' ";
+				$rlt = db_query($sql);
+				
+				$line = db_read($rlt);
+				$total = $line['total'];
+				return($total);
+			}
 
 		function gerar_relatorio_analitico_avaliador_projetos($ano='')
 			{
@@ -1445,6 +1455,36 @@ class projetos
 		/**
 		 * Acoes
 		 */
+		 
+	function enviar_email_correcao()
+		{
+			global $dd, $http;
+			$line = $this->line;
+			$email = $line['pp_email'];
+			$email_1 = $line['pp_email_1'];
+			$nome = $line['pp_nome'];
+			$protocolo = $this->protocolo;
+			
+			$ic = new ic;
+			$nw = $ic->ic('ic_proj_dev_prof');
+			
+			$titulo = $nw['nw_titulo'].' - '.$this->line['pp_nome'];
+			$texto = mst($nw['nw_descricao']);
+			
+			$texto = troca($texto,'$MOTIVO','<B>'.$dd[2].'</B>');
+			$texto = troca($texto,'$NOME','<B>'.$nome.'</B>');
+			$texto = troca($texto,'$PROTOCOLO','<B>'.$protocolo.'</B>');
+					
+			$texto = '<IMG SRC="'.$http.'img/email_ic_header.png"><BR><BR>'.mst($texto).'<BR><BR><BR><img src="'.$http.'img/email_ic_foot.png">';
+			
+			if (strlen($email) > 0)
+				{ enviaremail($email,'',$titulo,$texto); }
+			if (strlen($email_1) > 0)
+				{ enviaremail($email_1,'',$titulo,$texto); }
+			enviaremail('renefgj@gmail.com','',$titulo.' [copia]',$texto.'<BR><BR>Enviao para '.$email.' '.$email_1);				
+			enviaremail('pibicpr@pucpr.br','',$titulo.' [copia]',$texto.'<BR><BR>Enviao para '.$email.' '.$email_1);				
+			return(1);			
+		}		 
 	function acao_01()
 		{
 			global $dd, $acao, $ss;
@@ -1475,15 +1515,29 @@ class projetos
 					$motivo = '';
 					
 					$his = new pibic_historico;
-					$his->inserir_historico($proto,$ac,$hist,$aluno1,$aluno2,$motivo);
+					//$his->inserir_historico($proto,$ac,$hist,$aluno1,$aluno2,$motivo,$dd[2]);
 					
 					if (strlen($dd[3]) > 0)
 					{
-						$sql = "update pibic_projetos set pj_status = '".$dd[3]."' where pj_codigo = '$proto' ";
+						/* enviar e-mail professor */
+						if ($dd[3]=='@')
+							{
+							$this->enviar_email_correcao();	
+							}
+						
+						$sql = "update pibic_projetos 
+									set pj_status = '".$dd[3]."',
+									pj_coment = '".$dd[2]."' 
+									where pj_codigo = '$proto' ";
 						$rlt = db_query($sql);
 			
-						$sql = "update pibic_submit_documento set doc_status = '".$dd[3]."' where (doc_protocolo_mae = '$proto') and (doc_status <> 'X') ";
+						$sql = "update pibic_submit_documento 
+										set doc_status = '".$dd[3]."' 
+										where (doc_protocolo_mae = '$proto') 
+										and (doc_status <> 'X') ";
 						$rlt = db_query($sql);
+						
+						
 					}	
 					redirecina(page().'?dd0='.$dd[0].'&dd90='.$dd[90]);					
 				}
@@ -1502,7 +1556,8 @@ class projetos
 			
 			if ($sts == '@')
 				{
-					$sx .= '<input TYPE="RADIO" name="dd3" value="A">Aceitar Submissão manualmente<BR>';		
+					$sx .= '<input TYPE="RADIO" name="dd3" value="A">Aceitar Submissão manualmente<BR>';
+					$sx .= '<input TYPE="RADIO" name="dd3" value="@">Devolver para o professor realizar correções<BR>';		
 				} else {
 					$sx .= '<input TYPE="RADIO" name="dd3" value="@">Devolver para o professor realizar correções<BR>';
 					$sx .= '<input TYPE="RADIO" name="dd3" value="C">Acatar projeto para avaliação<BR>';
@@ -3229,7 +3284,7 @@ class projetos
 												
 						$sx .= '</table>';
 						/* arquivos */
-						if ($sta != 'X' and $sta != 'A' and $sta != '@' and $sta != 'T')
+						if ($sta != 'X')
 							{
 							require("../pibic/_ged_config_submit_pibic.php");
 							$ged->protocol = trim($line['pj_codigo']);

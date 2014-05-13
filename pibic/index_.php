@@ -8,10 +8,17 @@ session_start();
 
 $msg_erro = '&nbsp;';
 
-if ((strlen($dd[1]) > 0) and (strlen($dd[2]) > 0) and (strlen($dd[3]) == 0))
+/* Valida pendencia da submissao */
+require("../_class/_class_pibic_projetos_v2.php");
+$pj = new projetos;
+
+print_r($nw);
+$tot = $pj->projetos_para_correcao();
+if ($tot > 0)
 	{
-	$msg_erro = "necessário código do cracha";
+		'<A HREF="submit_project.php">XX</A>';
 	}
+
 
 if ((strlen($dd[1]) > 0) and (strlen($dd[2]) > 0) and (strlen($dd[3]) > 0))
 	{

@@ -9,6 +9,19 @@ require($include.'sisdoc_data.php');
 
 $professor = $ss->user_cracha;
 
+/* Valida pendencia da submissao */
+require("../_class/_class_pibic_projetos_v2.php");
+$pj = new projetos;
+
+$tot = $pj->projetos_para_correcao($professor);
+if ($tot > 0)
+	{
+		echo '<H1><font color="red">Correção de trabalhos submetidos</font></h1>';
+		echo '<img src="'.$http.'img/icone_alert.png">';
+		echo '<A HREF="submit_project.php">Clique arqui para iniciar a correção</A>';
+	}
+
+
 /*
 echo '<font class="lt1">Submissão de projeto IC Internacional</font><BR>';
 echo '<A HREF="submit_project.php">

@@ -5,6 +5,8 @@ require($include.'sisdoc_data.php');
 require($include.'sisdoc_windows.php');
 require($include.'sisdoc_email.php');
 
+require("../_class/_class_ic.php");
+
 if (strlen($dd[0])==0)
 	{
 		$dd[0] = $_SESSION['ART']; 
@@ -14,13 +16,14 @@ if (strlen($dd[0])==0)
 
 	/* Dados da Classe */
 	require("../_class/_class_pibic_historico.php");	
-	require('../_class/_class_pibic_projetos.php');	
+	require('../_class/_class_pibic_projetos_v2.php');	
 	$prj = new projetos;
 
 	$dd0 = round($dd[0]);
 
 	$prj->le($dd0);
 	$line = $prj->line;
+	
 	echo $prj->mostra($line);
 	
 	echo '<TR><TD colspan=3><h2>Planos de alunos</h2>';
@@ -28,6 +31,7 @@ if (strlen($dd[0])==0)
 	echo $prj->mostra_planos_projetos();
 	echo '</table>';	
 
+	
 		if (($prj->status != '!') and ($prj->status != 'X'))
 		{
 			$prj->le($dd[0]);

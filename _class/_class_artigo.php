@@ -438,6 +438,9 @@ class artigo
 					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));
 					array_push($acoes,array('8','Devolvido ao professor para correções'));				
 					break;										
+				case '23': /* Cadastrado */
+					array_push($acoes,array('22','Validado pelo(a) Diretor(a) de Pesquisa'));
+					break;										
 				case '24': /* Cadastrado */
 					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));
 					array_push($acoes,array('25','Comunicado pesquisador'));
