@@ -32,7 +32,12 @@ array_push($menu,array(msg('pre-avaliacao'),'Projetos para idicação','submissao_
 array_push($menu,array(msg('pre-avaliacao'),'__Projetos idicados','submissao_detalhe.php?dd1=D'));
 array_push($menu,array(msg('pre-avaliacao'),'Projetos para Coordenação','submissao_detalhe.php?dd1=P'));
 array_push($menu,array(msg('pre-avaliacao'),'Projetos para TI','submissao_detalhe.php?dd1=T'));
+array_push($menu,array(msg('pre-avaliacao'),'Situação das avaliações','submissao_indicacao_unicao.php'));
 array_push($menu,array(msg('pre-avaliacao'),'Avaliações Finalizadas','submissao_detalhe.php?dd1=E'));
+
+array_push($menu,array(msg('pre-avaliacao'),'Avaliações em aberto','submissao_avaliacao_aberta.php'));
+
+
 
 array_push($menu,array('Em avaliação','Enviados para avaliação','submissao_detalhe.php?dd1=D'));
 array_push($menu,array('Em avaliação','Resumo dos status','submissao_avaliacao_resumo.php'));

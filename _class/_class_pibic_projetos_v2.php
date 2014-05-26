@@ -23,6 +23,129 @@ class projetos
 		
 		var $ano;
 		
+		function  mostra_planos_com_uma_indicacao()
+			{
+				$sql = "select * from (
+						select count(*) as total, pp_protocolo from pibic_parecer_".date("Y")." 
+						where pp_tipo = 'SUBMI' and substr(pp_protocolo,1,1) = '1'
+								and pp_status <> 'D'						
+						group by pp_protocolo
+						) as total 
+						inner join ".$this->tabela." on pj_codigo = pp_protocolo
+						where total < 2
+						order by total desc";
+				$rlt = db_query($sql);
+				$id = 0;
+				while ($line = db_read($rlt))
+					{
+						
+						$pp = $line['pj_status'];
+						if ($pp != 'C')
+							{
+								$id++;
+								$sql = "update ".$this->tabela." set pj_status = 'C' where pj_codigo = '".$line['pp_protocolo']."'";
+								$rrr = db_query($sql);
+							}
+					}
+				echo '<h3>Protocolos reencaminhado para avaliação: '.$id.'';
+				
+				$sql = "select * from (
+						select count(*) as total, pp_protocolo from pibic_parecer_".date("Y")." 
+						where pp_tipo = 'SUBMI' and substr(pp_protocolo,1,1) = '1'
+								and pp_status = 'B'						
+						group by pp_protocolo
+						) as total 
+						inner join ".$this->tabela." on pj_codigo = pp_protocolo 
+						where total >= 2
+						order by total desc";
+				$rlt = db_query($sql);
+				$id = 0;
+				while ($line = db_read($rlt))
+					{
+						
+						$pp = $line['pj_status'];
+						if ($pp != 'F')
+							{
+								$id++;
+								$sql = "update ".$this->tabela." set pj_status = 'F' where pj_codigo = '".$line['pp_protocolo']."'";
+								$rrr = db_query($sql);
+							}
+						
+					}
+				echo '<h3>Protocolos finalizados: '.$id;
+				
+				$sql = " select count(*) as total, pp_status from pibic_parecer_".date("Y")." 
+						where pp_tipo = 'SUBMI' and substr(pp_protocolo,1,1) = '1'
+						group by pp_status
+				";
+				$rlt = db_query($sql);
+				echo '<HR>';
+				
+				while ($line = db_read($rlt))
+					{
+						$sta = $line['pp_status'];		
+						switch ($sta)
+							{
+							case '@':
+								echo 'Em avaliação';
+								break;
+							case 'B':
+								echo 'Avaliado';
+								break;
+							case 'D':
+								echo 'Declinado';
+								break;
+							default:
+								echo 'Outros ('.$sta.')';
+							}
+						echo ' '.$line['total'].'<BR>';
+					}				
+				echo '<HR>';
+				
+				$this->status_projetos();
+								
+			}
+		function status_projetos()
+			{
+				$sql = "select pj_status, count(*) as total 
+						from ".$this->tabela." 
+						where pj_ano = '".date("Y")."' and pj_status <> 'X' and pj_status <> '!'
+						group by pj_status 
+						";
+				$rlt = db_query($sql);
+				$id = 0;
+				while ($line = db_read($rlt))
+					{
+						$id = $id + $line['total'];
+						$sta = $line['pj_status'];		
+						switch ($sta)
+							{
+							case '@':
+								echo 'Em correção do professor';
+								break;
+							case 'B':
+								echo 'Submetido, aguardando análise';
+								break;
+							case 'C':
+								echo 'Aguardando indicação de avaliador';
+								break;
+							case 'D':
+								echo 'Aguardando avaliação';
+								break;
+								
+							case 'F':
+								echo 'Avaliação finalizada';
+								break;
+							case 'T':
+								echo 'Com a TI';
+								break;
+							default:
+								echo 'Outros ('.$sta.')';
+							}
+						echo ' '.$line['total'].'<BR>';
+					}
+					echo '<B>Total '.$id.'</B>';
+			}
 		function projetos_para_correcao($professor='')
 			{
 				$sql = "select count(*) as total from ".$this->tabela." where pj_professor = '".$professor."' ";
@@ -2890,8 +3013,8 @@ class projetos
 						$in++;
 						if ($ax != $interno[$r][2])
 							{
-							$sx .= '<BR>';
-							$sx .= '<B>'.$interno[$r][2].' - '.$interno[$r][3].'</b><BR>'; 
+							//$sx .= '<BR>';
+							//$sx .= '<B>'.$interno[$r][2].' - '.$interno[$r][3].'</b><BR>'; 
 							$ax = $interno[$r][2]; 
 							}
 

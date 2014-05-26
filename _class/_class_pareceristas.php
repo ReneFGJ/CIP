@@ -144,8 +144,9 @@ class parecerista
 				global $dd;
 				$sql = "select * from (				
 						select pp_cracha, pp_nome, pp_update, pp_curso, pp_email, pp_email_1 from pibic_bolsa_contempladas 
-						inner join pibic_professor on pb_professor = pp_cracha
-						where pp_titulacao = '002' and pp_update = '".date("Y")."' 
+						inner join pibic_professor on pb_professor = pp_cracha ";
+												
+				$sql .= " where pp_titulacao = '002' and pp_update = '".date("Y")."' 
 						group by pp_cracha, pp_nome, pp_update, pp_curso, pp_email, pp_email_1
 						) as tabela
 						
@@ -214,10 +215,17 @@ class parecerista
 						
 				$pb = new pibic_bolsa_contempladas;
 				$sql = "select * from (				
-						select pp_cracha, pp_nome, pp_update, pp_avaliador, pp_curso from pibic_bolsa_contempladas 
-						inner join pibic_professor on pb_professor = pp_cracha
+						select total, avaliador, pp_cracha, pp_nome, pp_update, pp_avaliador, pp_curso from pibic_bolsa_contempladas 
+						inner join pibic_professor on pb_professor = pp_cracha ";
+				$sql .= " left join (
+								select count(*) as total, pp_avaliador as avaliador 
+									from pibic_parecer_".date("Y")." 
+									where pp_tipo = 'SUBMI' and substr(pp_protocolo,1,1) = '1'
+									group by avaliador
+								) as tabela02 on avaliador = pp_cracha ";	
+				$sql .= "					
 						where pp_titulacao = '002' and pp_update = '".date("Y")."' 
-						group by pp_cracha, pp_nome, pp_update, pp_curso, pp_avaliador	
+						group by total, pp_cracha, pp_nome, pp_update, pp_curso, pibic_professor.pp_avaliador, avaliador	
 						) as tabela
 						
 				";
@@ -255,6 +263,8 @@ class parecerista
 							$sx .= '<TD class="tabela01" align="center">';
 							$sx .= $av;
 							$xpp = $pp;
+							$sx .= '<TD class="tabela01" align="center">';
+							$sx .= $line['total'];
 						}
 					if ($line['a_semic']==1)
 						{
@@ -341,12 +351,18 @@ class parecerista
 						
 				$sql .= " left join pareceristas_area on pa_parecerista = us_codigo ";
 				$sql .= " left join ajax_areadoconhecimento on pa_area = a_codigo ";
+				$sql .= " left join (
+								select count(*) as total, pp_avaliador 
+									from pibic_parecer_".date("Y")." 
+									where pp_tipo = 'SUBMI' and substr(pp_protocolo,1,1) = '1'
+									group by pp_avaliador
+								) as tabela02 on pp_avaliador = us_codigo ";
 				$sql .= " order by us_nome, a_cnpq ";						
 				$rlt = db_query($sql);
 				
 				$sx = '<table width="100%">';
 				$sx .= '<H2>Avaliadores Externos/IC</h2>';
-				$sx .= '<TR><TH>Cracha<TH>Títul.<TH>Nome<TH>Instituição<TH>Status<TH>Convite<TH>Atualizado';
+				$sx .= '<TR><TH>Cracha<TH>Títul.<TH>Nome<TH>Instituição<TH>Status<TH>Convite<TH>Atualizado<TH>Aceito<TH>Indicado';
 				$id = 0;
 				
 				$xpp = ''; 
@@ -407,6 +423,7 @@ class parecerista
 							$sx .= '<TD class="tabela01">'.$line['us_bolsista'];
 							$sx .= '<TD class="tabela01">'.$status[$line['us_aceito']].' ('.$line['us_aceito'].')';
 							$sx .= '<TD class="tabela01">'.stodbr($line['us_aceito_resp']);
+							$sx .= '<TD class="tabela01" align="center">'.$line['total'];
 							
 						}
 					if ($line['a_semic']==1)
@@ -577,15 +594,15 @@ class parecerista
 										
 						$sql = "select * from pareceristas_area ";
 						$sql .= " inner join ajax_areadoconhecimento on pa_area = a_codigo ";
-						$sql .= " inner join pibic_professor on pa_parecerista = pp_cracha ";
+						$sql .= " left join pibic_professor on pa_parecerista = pp_cracha ";
 						$sql .= " left join ( select count(*) as total, pp_avaliador as pp_ava from ".$pareceres." where pp_protocolo_mae = '' and pp_tipo = '$ptipo' and pp_status <> 'X' group by pp_avaliador ) as tabela on pp_ava = pp_cracha ";						
-						$sql .= " inner join pareceristas on pp_cracha = us_codigo ";
+						//$sql .= " inner join pareceristas on pp_cracha = us_codigo ";
 						
 						$sql .= " where (a_cnpq like '".substr($area,0,4)."%' ";
-						$sql .= " and us_ativo = 1 ";
+						$sql .= " and pp_ativo = 1 ";
 						$sql .= " and pp_avaliador = 1  ";
-						$sql .= " and us_journal_id = 20 ";
-						$sql .= " and us_codigo <> '".$prof."' "; 
+						//$sql .= " and us_journal_id = 20 ";
+						$sql .= " and pp_cracha <> '".$prof."' "; 
 						$sql .= ") ";
 						
 						$sql .= " order by a_cnpq, pp_nome ";
@@ -596,6 +613,7 @@ class parecerista
 						{
 							$gestor = round($line['pp_comite']);
 							$cracha = trim($line[pp_cracha]);
+							
 							if (($gestor == 0) and ($cracha != $cod))
 							{
 							$nome = trim($line['pp_nome']);
@@ -617,6 +635,7 @@ class parecerista
 						$sql .= " where pp_avaliador = 1 and pp_comite >= 1 ";
 						$sql .= " and a_cnpq like '".substr($area,0,3)."%' ";
 						$sql .= " and pp_ativo=1 ";
+						$sql .= " and pp_cracha <> '".$prof."' ";
 						//$sql .= " and (pp_aceito=1 or pp_aceito = 10) ";
 						$sql .= " order by a_cnpq, pp_nome ";
 										
