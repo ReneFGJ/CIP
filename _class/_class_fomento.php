@@ -127,7 +127,9 @@ class fomento
 			}
 		function le($id)
 			{
-				$sql = "select * from ".$this->tabela." where id_ed = ".round($id)." or ed_codigo = '".$id."'";
+				$sql = "select * from ".$this->tabela." 
+							left join agencia_de_fomento on agf_codigo = ed_agencia
+							where id_ed = ".round($id)." or ed_codigo = '".$id."'";
 				$rlt = db_query($sql);
 				if ($line = db_read($rlt))
 					{
@@ -213,17 +215,26 @@ class fomento
 									font-size: 14px; font-family: tahoma, verdana, arial;
 									"						
 				>';
-				$sx .= '<TR><TD>';
+				$sx .= '<TR valign="top"><TD>';
 				$sx .= '<img src="'.$http.'img/email_pdi_header.png" ><BR>';
-				$sx .= '<tr><td ALIGN="CENTER"><font style="font-size:25px;">';
-				$sx .= trim($this->line['ed_titulo']);
+				$sx .= '<tr valign="top">
+							<td valign="top" ALIGN="left" style="font-size:21px;">';
 				
+
+				if (strlen(trim($this->line['agf_imagem'])))
+					{ $sx .= '<img src="'.$this->line['agf_imagem'].'" height="100" align="left">'; }
+				
+				$sx .= trim($this->line['ed_titulo']);
+				$sx .= '<BR><BR>';
+				
+
+
 				for ($r=1;$r <= 12;$r++)
 					{
 						$vl = trim($this->line['ed_texto_'.$r]);
 						if (strlen($vl) > 0)
 						//$sx .= '<TR><TD><B>'.UpperCase(msg('fomento_'.$r)).'</B>';
-						$sx .= '<TR><TD><B>'.msg('fomento_'.$r).'</B>';
+						$sx .= '<TR><TD><BR><B>'.msg('fomento_'.$r).'</B>';
 						$sx .= '<TR><TD><div align="justify">'.$vl.'</div>';
 					}
 				$sx .= '<BR>';					
@@ -267,7 +278,7 @@ class fomento
 				$sx .= '<BR><BR><BR>';
 				$this->texto = $sx;
 				$this->titulo = $this->line['ed_titulo'];
-				
+								
 				return($sx);
 			}
 		function tags()
