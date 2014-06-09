@@ -21,6 +21,9 @@ $menu = array();
 array_push($menu,array(msg('Ged'),msg('Documentos de Bonificação'),'ged_bonificacao.php'));
 array_push($menu,array(msg('Ged'),msg('Documentos de Artigos Bonificados'),'ged_artigos.php'));  
 
+array_push($menu,array(msg('LABS'),'Laboratório','ged_laboratorio_documento.php'));
+array_push($menu,array(msg('LABS'),'Equipamento','ged_equipamento_documento.php'));
+
 array_push($menu,array(msg('IC'),msg('Tipos de Documentos'),'ged_pibic_ged_documento.php'));
 
 array_push($menu,array(msg('Submissão'),msg('Tipos de Documentos'),'ged_submit_files.php'));

@@ -7,6 +7,9 @@ array_push($breadcrumbs,array($site.'main.php','menu'));
 require('main_cab.php');
 require($include.'sisdoc_colunas.php');
 
+require("_class/_class_fomento.php");
+$observatorio = new fomento;
+
 require("_class/_class_captacao.php");
 $cap = new captacao;
 
@@ -71,6 +74,9 @@ if ($total3 > 0)
 //if (($perfil->valid('#ADM#SCR#COO#SPG')))
 	{ array_push($mn,array('Centro Integrado de Pesquisa, Grupos e Linhas de Pesquisa','b2','cip/','CIP',"icone-pesquisa",'')); }
 
+if (($perfil->valid('#ADM#PIB#PIT#SPI')))
+	{ array_push($mn,array('Administração Iniciação Científica, PIBIC, PIBITI, PIBIC Jr, CsF, Inclusão Social','b1','pibicpr/','Iniciação Científica','icone-iniciacao-cientifica','')); }	
+	
 //if (($nw->user_ss=='S') and (date("Ymd") <= 20130728))
 if (!($perfil->valid('#CNQ')))
 	{
@@ -79,9 +85,10 @@ if (!($perfil->valid('#CNQ')))
 	
 
 	
-if ($perfil->valid('#CNQ#ADM#PIB'))
+if ($perfil->valid('#CNQ#ADM'))
 	{
 		array_push($mn,array('Observatório CNPq','b1','cnpq/','CNPq','icone-iniciacao-cientifica',''));
+		array_push($mn,array('Grupos de Pesquisas','b1','grupo_pesquisa/','Grupo de Pesquisa','icone-iniciacao-cientifica',''));
 	}
 if ($perfil->valid('#PIB'))
 	{
@@ -105,8 +112,6 @@ if (!($perfil->valid('#CNQ')))
 	array_push($mn,array($cap,'b2','cip/artigos_resumo.php','Bonificação de artigos',"icone-pesquisa",$ativ3));
 
  
-if (($perfil->valid('#ADM#PIB#PIT#SPI')))
-	{ array_push($mn,array('Administração Iniciação Científica, PIBIC, PIBITI, PIBIC Jr, CsF, Inclusão Social','b1','pibicpr/','Iniciação Científica','icone-iniciacao-cientifica','')); }	
 if (($perfil->valid('#ADM#PIB#PIT#SPI')))
 	{ array_push($mn,array('Administração SEMIC e Mostra de Pesquisa','b1','semic_adm/','SEMIC & MOSTRA','icone-iniciacao-cientifica','')); }	
 	
@@ -147,21 +152,45 @@ if ($perfil->valid('#ADM#SPI#CPI'))
 		array_push($mn,array('Produção científica institucional','b1','lattes/','Indicadores de Produção','',''));	
 	}	
 
+	if ($perfil->valid('#ADM'))
+	{
+		array_push($mn,array('Laboratórios e equipamentos para pesquisa na instituição','b1','labs/','Lab & Equipamento','',''));	
+	}
 /* Montagem da tela */
 echo '<h1>Menu principal</h1>';
 echo '<table border=0 cellpadding=10 align="center" class="tabela00" align="center">'.chr(13);;
 $col = 6;
+$ln = 0;
 for ($r=0;$r < count($mn);$r++)
 	{
 		$sx = '';
 		
-		if ($col >= 4) { $col = 0; $sx .= '<TR>'.chr(13);; }
+		if ($col >= 3) 
+			{
+				if ($ln == 1)
+					{
+						$sx .= '<td width="140" rowspan="20">';
+						$sx .= '<div id="icone-cip-'.$r.'" class="icone-iniciacao-cientifica icone-cip_double">';
+							$sq .= $observatorio->chamadas_abertas();
+							
+							$sx .= '
+							<h2 class="'.$class.'-cor"><nobr>Captação de Recursos<BR><font class="lt0">Editais abertos</font></nobr></h2>
+							'.$sq.'						
+							</div>
+							</a>
+							</td>'.chr(13);
+						
+					}
+				$ln++;
+				$col = 0; $sx .= '<TR valign="top">'.chr(13); 
+			}
 		
 		$tips = $mn[$r][4];
 		if ($tips == 'imgs')
 			{
 				$img1 = '<img src="img/'.$mn[$r][0].'_01.jpg" id="img" border=0 >';
-				$sx .= '<td width="33%">';
+				
+				$sx .= '<td width="25%">';
 				$sx .= '<A HREF="'.$mn[$r][2].'">';
 				$sx .= $img1;
 				$sx .= $img2;
@@ -197,7 +226,7 @@ for ($r=0;$r < count($mn);$r++)
 				$link = $mn[$r][2];
 				if (strlen($mn[$r][4]) > 0)
 					{ $class = $mn[$r][4]; }
-				$sx .= '<td width="33%">';
+				$sx .= '<td width="25%">';
 				$sx .= '<a href="'.$link.'" onclick="parent.location=\''.$mn[$r][2].'\'" class="no-undeline">';
 				$sx .= '     <div id="icone-cip-'.$r.'" class="'.$class.' icone-cip">';
 				$sx .= $mn[$r][5];

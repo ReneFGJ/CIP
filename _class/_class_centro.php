@@ -12,7 +12,9 @@ class centro
 		
 		function cp()
 			{
-				$sql = "ALTER TABLE centro ADD COLUMN centro_area char(1) ";
+				$sql = "ALTER TABLE centro ADD COLUMN centro_email_1 char(89) ";
+				//$rlt = db_query($sql);
+				$sql = "ALTER TABLE centro ADD COLUMN centro_email_2 char(89) ";
 				//$rlt = db_query($sql);
 				
 				$cp = array();
@@ -21,7 +23,10 @@ class centro
 				array_push($cp,array('$H8','centro_codigo','',False,True));
 				
 				array_push($cp,array('$Q pp_nome:pp_cracha:select * from pibic_professor where pp_ativo = 1 order by pp_nome','centro_decano','Decano',False,True));
-				//array_push($cp,array('$Q pp_nome:pp_cracha:select * from pibic_professor where pp_ativo = 1 order by pp_nome ','centro_decano_adj','Decano Adjunto',False,True));		
+				//array_push($cp,array('$Q pp_nome:pp_cracha:select * from pibic_professor where pp_ativo = 1 order by pp_nome ','centro_decano_adj','Decano Adjunto',False,True));
+				
+				array_push($cp,array('$S100','centro_email_1','e-mail do Decanato (1)',False,True));
+				array_push($cp,array('$S100','centro_email_2','e-mail do Decanato (2)',False,True));
 				
 				array_push($cp,array('$O 1:Centro&2:Área','centro_tipo',msg('tipo'),True,True));
 				array_push($cp,array('$S10','centro_sigla',msg('sigla'),False,True));

@@ -30,7 +30,8 @@ $file = '../messages/msg_pt_BR.php';
 require($file);
 
 $menu = array();
-//array_push($menu,array('Relatório Parcial','atividade_IC1.php'));
+array_push($menu,array('Início','index.php'));
+array_push($menu,array('Banco de Variáveis','var.php'));
 //array_push($menu,array('Indicadores','indicadores.php'));
 //array_push($menu,array('pareceristas','parecerista.php'));
 //array_push($menu,array('discentes','discentes.php'));

@@ -1,0 +1,33 @@
+.passo-numero{
+	font-family: 'RobotoBlack';
+	font-size: 42px;
+}
+
+.passo-concluido{
+	background-image: url('../img/passo-concluido.png');
+	background-repeat: no-repeat;
+	color: #c2c2c2;
+	
+	
+}
+
+.passo-atual{
+	background-image: url('../img/passo-current1.png');
+	background-repeat: no-repeat;
+	color: #fff;
+	
+	
+}
+
+.passo-fazer{
+	background-image: url('../img/passo-fazer.png');
+	background-repeat: no-repeat;
+	color: #c2c2c2;
+	
+	
+}
+
+#cabecalho-localizador{
+	margin-left: 0px;
+	height: 65px;
+}

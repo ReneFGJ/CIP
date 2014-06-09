@@ -16,6 +16,28 @@ class linha_de_pesquisa
 	
 	var $tabela = 'linha_de_pesquisa';
 	
+	function mostra_linhas_de_pesquisa($grupo)
+		{
+			$grupo = strzero($grupo,7);
+			
+			$sql = "select * from ".$this->tabela."_grupo 
+						inner join ".$this->tabela." on lpg_linha = lp_codigo 
+						where lpg_grupo  = '".$grupo."'";
+			$rlt = db_query($sql);
+			
+			$sx = '<table width="100%">';
+			while ($line = db_read($rlt))
+				{
+					$sx .= '<TR>';
+					$sx .= '<TD>';
+					$sx .= $line['lp_nome'];
+					$sx .= '<TD>';
+					$sx .= $line['lp_area_1'];
+				}
+			$sx .= '</table>';
+			return($sx);
+		}
+	
 	function cp()
 		{
 			$sql = "select * from ajax_areadoconhecimento order by a_cnpq";
@@ -112,9 +134,14 @@ class linha_de_pesquisa
   					(8, '0000008', '0000020', 1);";
   					//$rlt = db_query($sql);	
 		}
-		function linha_de_pesquisa_atualizar($nome,$link)
+		function linha_de_pesquisa_atualizar($nome,$link,$grupo,$linha)
 			{	
 			//require_once('_class')
+			//$sql = "delete from linha_de_pesquisa_grupo where 1=1 ";	
+			//$rlt = db_query($sql);
+			//$sql = "delete from linha_de_pesquisa where 1=1 ";
+			//$rlt = db_query($sql);
+			
 			$nome = uppercase($nome);
 			$rsql = "select * from linha_de_pesquisa where lp_nome = '".$nome."' ";
 			$rlt = db_query($rsql);
@@ -126,16 +153,52 @@ class linha_de_pesquisa
 							lp_setor_1,lp_cnpq_link )
 							values
 							('$nome',2,'','','',
-							'','','','',
+							'$linha','','','',
 							'','$link')";
 					$rlt = db_query($sql);
 					$this->updatex();
+					
+					$sql = "select * from linha_de_pesquisa where Upper(asc7(lp_nome)) = '".UpperCaseSql($nome)."'";
+					$rlt = db_query($sql);
+					
+					if ($line = db_read($rlt)) { $linha = trim($line['lp_codigo']); }
+					
+					$sql = "insert into linha_de_pesquisa_grupo
+								(lpg_linha, lpg_grupo, lpg_ativo)
+								values
+								('$linha','$grupo',1);
+							";
+					$rlt = db_query($sql);
 				}
 			$this->updatex();
 			$rlt = db_query($rsql);
 			$line = db_read($rlt);		
 			return($line['lp_codigo']);
 			}	
+		function recupera_linha($nome)
+			{
+				$sql = "select * from ".$this->tabela." where Upper(asc7(lp_nome)) = '".uppercasesql($nome)."'";
+				$rlt = db_query($sql);
+				if ($line = db_read($rlt))
+					{
+						return($line['lp_codigo']);
+					}
+			}
+		function cp_linhas()
+			{
+				$cp = array();
+				array_push($cp,array('$H8','id_lp','id_gp',False,True,''));
+				array_push($cp,array('$H8','','',False,True,''));
+				array_push($cp,array('$H8','','',False,True,''));
+				array_push($cp,array('$S80','lp_nome','Nome da linha',True,True,''));
+				array_push($cp,array('$HV','lp_ativo','1',True,True,''));
+				$sql = "a_descricao:a_cnpq:select * from ajax_areadoconhecimento where a_semic = '1' and a_cnpq like '%00.00%' and not a_cnpq like '%00.00.00%' order by a_descricao  ";
+				$ob = False;
+				if (date("Ymd") > 20140800) { $ob = True; } 
+				array_push($cp,array('$Q '.$sql,'lp_area_2','Área do Conhecimento',$ob,True,''));
+				return($cp);				
+				
+			}
 	function updatex()
 		{
 			global $base;

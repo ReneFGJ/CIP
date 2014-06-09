@@ -153,13 +153,13 @@ class captacao
 							$api[9] = $api[9] + $line['total'];
 							break;													
 						default:
-							echo ' -->'.$sta;
+							//echo ' -->'.$sta;
 							break;
 					}
 				}
-			print_r($api);
+			//print_r($api);
 			$sx = '<table class="tabela00" width="700" align="center">';
-			$sx .= '<TR><TD><TD colspan=4><center><h2>Cadastro de Artigos Bonificáveis</h2>';
+			//$sx .= '<TR><TD><TD colspan=4><center><h2>Cadastro de Artigos Bonificáveis</h2>';
 			$sx .= '<TR>';
 			$sx .= '<TH>';
 			$sx .= '<TH width="15%">Em cadastro';

@@ -38,6 +38,23 @@ class docentes
 	
 	var $tabela = 'pibic_professor';
 	
+	function docentes_email_escola($escola='',$emails)
+		{
+			$sql = "select * from pibic_professor 
+						where pp_escola = '".$escola."' 
+						and pp_update = '".date("Y")."'
+						and pp_ativo = 1
+			";
+			$rlt = db_query($sql);
+			while ($line = db_read($rlt))
+				{
+					$email1 = trim($line['pp_email']);
+					$email2 = trim($line['pp_email_1']);
+					if (strlen($email1) > 0) { array_push($emails,$email1); }
+					if (strlen($email2) > 0) { array_push($emails,$email2); }
+				}	
+			return($emails);
+		}
 	function docente_orientacao_duplicado($programa='')
 		{
 			$sql = "select * from docente_orientacao 

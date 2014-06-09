@@ -59,7 +59,7 @@ class declaracao_ic
 				case 'B':
 					$sx = '
 						<font style="background-color: #FFC0C0; padding: 0px 15px 0px 15px;"
-						<B>Indiponível, aguardando liberação</B>
+						<B>Indisponível, aguardando liberação</B>
 						</font>
 					';
 					break;

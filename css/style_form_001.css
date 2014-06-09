@@ -1,0 +1,22 @@
+.input_001 
+	{
+	width: 100%;
+	border: thin solid silver;
+}
+
+.textarea_001
+	{
+	width: 100%;
+	border: thin solid silver;		
+	}
+.botao-geral
+	{
+		height:40px;
+		width:150px;
+	}
+.form_01
+	{
+	width: 100%;
+	border: thin solid silver;
+	background-color: #FFFFFF;
+}

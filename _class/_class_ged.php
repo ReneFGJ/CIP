@@ -389,6 +389,38 @@ class ged
 				return($sx);
 			}	
 			
+		function mostra_fotos()
+			{
+				global $messa,$secu,$ged_del,$dd,$page,$popup,$divname,$frame,$http;
+				$sx = '<table width="100%" class="tabela00">';
+
+				$sql = "select * from ".$this->tabela;
+				$sql .= " left join ".$this->tabela."_tipo on doc_tipo = doct_codigo ";
+				$sql .= " where doc_dd0 = '".$this->protocol."' and doc_ativo=1 ";
+				if (strlen($this->file_type) > 0)
+					{ $sql .= " and doc_tipo = '".$this->file_type."' ";}
+				$sql .= ' order by doc_data desc, doc_hora desc ';
+				$rlt = db_query($sql);
+				
+				$tot = 0;
+				$sx = '<table width="100%">';
+				while ($line = db_read($rlt))
+					{
+						
+						$capt = trim($line['doct_nome']);
+						$file = trim($line['doc_arquivo']);
+						$file = troca($file,'/pucpr/httpd/htdocs/www2.pucpr.br','');
+						$img = '<img src="'.$file.'" height="150">';		
+						
+						$sx .= '<TR>';
+						$sx .= '<TD class="tabela01" width="10%">'.$img.'</A>';
+						$sx .= '<TD class="tabela01">'.$capt.'</A>';
+						$sx .= '<TD class="tabela01">'.$file.'</A>';
+						
+					}
+				$sx .= '</table>';
+				return($sx);				
+			}
 		function file_list()
 			{
 				global $messa,$secu,$ged_del,$dd,$page,$popup,$divname,$frame,$http;

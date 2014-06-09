@@ -1425,6 +1425,7 @@ class bonificacao
 				$sql = "select * from ".$this->tabela." 
 						left join captacao on bn_original_protocolo = ca_protocolo
 						where (bn_valor > 0) and (bn_liberacao >= $dd1 and bn_liberacao <= $dd2)
+						and bn_original_tipo = 'PRJ'
 						order by 
 					bn_status desc, bn_liberacao desc, bn_professor_nome ";
 				$rlt = db_query($sql);
@@ -1486,6 +1487,7 @@ class bonificacao
 				
 				$sql = "select * from ".$this->tabela." 
 					where (bn_valor > 0)  and bn_liberacao >= $dd1 and bn_liberacao <= $dd2
+					and bn_original_tipo = 'PRJ'
 					order by 
 					bn_professor_nome, bn_status desc, bn_liberacao desc ";
 				$rlt = db_query($sql);
@@ -1551,7 +1553,7 @@ class bonificacao
 				$sql = "select * from ".$this->tabela." 
 					left join programa_pos_docentes on bn_professor = pdce_docente and pdce_ativo = 1
 					left join programa_pos on pdce_programa = pos_codigo
-					 
+					and bn_original_tipo = 'PRJ'
 					where (bn_valor > 0)  and bn_liberacao >= $dd1 and bn_liberacao <= $dd2
 					
 					order by pos_nome,

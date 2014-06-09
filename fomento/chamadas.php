@@ -21,6 +21,7 @@ require($include.'sisdoc_debug.php');
 	$clx->row();
 	$busca = true;
 	$offset = 20;
+	$order = 'ed_status';
 	//$pre_where = " e_mailing = '".$cl->mail_codigo."' ";
 	
 	//exit;

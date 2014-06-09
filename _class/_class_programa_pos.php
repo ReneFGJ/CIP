@@ -1153,11 +1153,13 @@ $sg = '
 		
 		function cp()
 			{
-				//$sql = "ALTER TABLE ".$this->tabela." add column pos_capes_cod char(30)";
+				//$sql = "ALTER TABLE ".$this->tabela." add column pos_email_1 char(80)";
 				//$rlt = db_query($sql);
-				//$sql = "ALTER TABLE ".$this->tabela." add column pos_escola char(7)";
+				//$sql = "ALTER TABLE ".$this->tabela." add column pos_email_2 char(80)";
 				//$rlt = db_query($sql);
+				
 				$cp = array();
+				
 				$opa = '&1:ano indefinido';
 				for ($r=1950;$r<=date("Y");$r++)
 					{$opa .= '&'.$r.':'.$r; }
@@ -1169,6 +1171,9 @@ $sg = '
 				
 				array_push($cp,array('$S30','pos_capes_cod','Código do programa na CAPES',true,true));
 				array_push($cp,array('$Q centro_nome:centro_codigo:select * from centro order by centro_nome','pos_escola','Escola/Centro',true,true));
+				
+				array_push($cp,array('$S100','pos_email_1','e-mail da secretaria (1)',False,True));
+				array_push($cp,array('$S100','pos_email_2','e-mail da secretaria (2)',False,True));				
 
 				array_push($cp,array('$T80:6','pos_descricao',msg('descricao'),False,true));
 

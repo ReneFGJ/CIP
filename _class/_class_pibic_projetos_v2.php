@@ -287,9 +287,11 @@ class projetos
 						//$admin_nome = 'PIBIC (PUCPR)';
 						//enviaremail('monitoramento@sisdoc.com.br','','Indicação de avaliação Iniciação Científica',$texto);
 						
-						if (strlen($email) > 0) { enviaremail($email,'','[IC] - Indicação de avaliação Iniciação Científica',$texto); echo '>>>'.$email; }
-						if (strlen($email2) > 0) { enviaremail($email2,'','[IC] - Indicação de avaliação Iniciação Científica (copia)',$texto); echo '>>>'.$email2; }
-						
+						if (strlen($email) > 0) { enviaremail($email,'','[IC] - Indicação de avaliação Iniciação Científica - '.trim($nome),$texto); echo '>>>'.$email; }
+						if (strlen($email2) > 0) { enviaremail($email2,'','[IC] - Indicação de avaliação Iniciação Científica (copia)'.trim($nome),$texto); echo '>>>'.$email2; }
+						$texto .= '<BR><BR>'.$email.' '.$email2;
+						enviaremail('pibicpr@pucpr.br','','[IC] - Indicação de avaliação Iniciação Científica (copias)',$texto); 
+						enviaremail('monitoramento@sisdoc.com.br','','[IC] - Indicação de avaliação Iniciação Científica (copia)',$texto); 
 					}
 				return(true);
 			}

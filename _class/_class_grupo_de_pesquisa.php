@@ -290,6 +290,58 @@ class grupo_de_pesquisa
 			echo $s;
 			
 		}
+	function recupera_id_do_grupo($nome)
+		{
+			$this->id = '';
+			$sql = "select id_gp, gp_nome from ".$this->tabela."  
+					where upper(asc7(gp_nome)) = '".uppercasesql($nome)."' ";
+			
+			$rlt = db_query($sql);
+			if ($line = db_read($rlt))
+				{
+					$this->id = $line['id_gp'];
+					return($line['id_gp']);
+				} else {
+					echo 'Not FOUND';
+				}
+			return('');
+		}
+	function cp_membros()
+		{
+		$cp = array();
+		array_push($cp,array('$H8','','id_gp',False,True,''));
+		array_push($cp,array('$H8','','',False,True,''));
+		array_push($cp,array('${','','Dados do professor',False,True,''));
+		array_push($cp,array('$S8','','Crachá do professor',True,True,''));
+		array_push($cp,array('$O : &L:Lider&P:Participante','','Categoria',True,True,''));
+		array_push($cp,array('$B8','','Adicionar >>>',False,True,''));
+		array_push($cp,array('$}','','',False,True,''));			
+		return($cp);
+		}
+	function cp_novo_grupo()
+		{
+		//$tabela = "grupo_de_pesquisa";
+		$cp = array();
+		array_push($cp,array('$H8','id_gp','id_gp',False,True,''));
+		array_push($cp,array('$S250','gp_nome','Nome do grupo',True,True,''));
+		//array_push($cp,array('$Q crs_nome:crs_codigo:select * from cursos where crs_ativo=1 order by crs_nome ','gp_curso','Curso de Graduação/Programa de Pós-Graduação',True,True,''));
+		array_push($cp,array('$[1970-'.date("Y").']','gp_ano_formacao','Ano de formação',True,True,''));
+		array_push($cp,array('$H8','','',False,True,''));
+		$sql = "a_descricao:a_cnpq:select * from ajax_areadoconhecimento where a_semic = '1' and a_cnpq like '%00.00%' and not a_cnpq like '%00.00.00%' order by a_descricao  ";
+		array_push($cp,array('$Q '.$sql,'gp_area_1','Área do Conhecimento',False,True,''));
+		array_push($cp,array('$T60:6','gp_repercursao','Objetivos do Grupo',False,True,''));
+		//array_push($cp,array('$T60:3','gp_comentarios','Comentários (interno)',False,True,''));
+		array_push($cp,array('$O 1:SIM&0:NÃO','gp_ativo','Ativo',True,True,''));
+		array_push($cp,array('$S150','gp_site','Site do Grupo',False,True,''));
+	//	array_push($cp,array('$S150','gp_link_cnpq','Link do CNPq',False,True,''));
+	//	array_push($cp,array('$O : &1:SIM&0:NÃO','gp_cnpq_certificado','Certificado no CNPq',True,True,''));
+	//	array_push($cp,array('$D8','gp_data_autorizacao','Data do parecer da Pró-Reitoria Acadêmica',True,True,''));
+		array_push($cp,array('$HV','gp_status','!',False,True,''));
+	//	array_push($cp,array('$T80:6','gp_pages','Conteúdo da página',False,True,''));
+	
+		array_push($cp,array('$H8','gp_codigo','',False,True,''));
+		return($cp);
+		}
 	
 	/* campos de edição de dados */
 	function cp()
@@ -592,6 +644,7 @@ class grupo_de_pesquisa
 			$sx .= '<TH>NOME COMPLETO';
 			$sx .= '<TH>Qualificação';
 			$sx .= '<TH>Instituição';
+			$sx .= '<TH>Carga Horaria';
 			for ($rr=0;$rr < count($nm);$rr++)
 				{
 					$sx .= '<TR '.coluna().'>';
@@ -603,6 +656,8 @@ class grupo_de_pesquisa
 					$sx .= $nm[$rr][1];
 					$sx .= '<TD align="center">';
 					$sx .= $nm[$rr][3];
+					$sx .= '<TD align="center">';
+					$sx .= $nm[$rr][5].'h';
 				}
 			$sx .= '</table>';
 			$sx .= '</fieldset>';
@@ -673,16 +728,42 @@ class grupo_de_pesquisa
 			$this->gp_codigo = strzero($this->id_gp,7);
 			$sql = "select * from grupo_de_pesquisa_membro ";
 			$sql .= " left join docentes on pp_cracha = gpm_cracha ";
+			$sql .= " left join apoio_titulacao on ap_tit_codigo = pp_titulacao ";
 			$sql .= " where gpm_grupo = '".$this->gp_codigo."' ";
-			echo $sql;
+
 			$rlt = db_query($sql);
 			while ($line = db_read($rlt))
 				{
 				$tipo = $line['gpm_tipo'];
 				if ($tipo == 'L') { $tipo = 'Lider do grupo'; }
-				array_push($mb,array(trim($line['pp_nome']),$line['pp_escolaridade'],$tipo,$line['pp_centro'],$line['gpm_tipo']));
+				if ($tipo == 'P') { $tipo = 'Participante'; }
+				if ($tipo == 'E') { $tipo = 'Estudante'; }
+				array_push($mb,array(trim($line['pp_nome']),$line['ap_tit_titulo'],$tipo,$line['pp_centro'],$line['gpm_tipo'],$line['pp_carga_semanal']));
 				}
 			return($mb);
+		}
+
+	function inserir_professor_membro($codigo,$tipo)
+		{		
+				$grupo = $this->gp_codigo;
+				$data = date("Ymd");
+				
+				$sql = "select * from grupo_de_pesquisa_membro 
+							where gpm_cracha = '$codigo'
+								and gpm_grupo = '$grupo'
+				";
+				$rlt = db_query($sql);
+				if ($line = db_read($rlt))
+					{
+						
+					} else {
+							$sql = "insert into grupo_de_pesquisa_membro ";
+							$sql .= "(gpm_cracha,gpm_grupo,gpm_update,gpm_tipo,gpm_ativo,gmp_inventario)";
+							$sql .= " values ";
+							$sql .= "('$codigo','$grupo','$data','$tipo',1,0)";
+							$rlt = db_query($sql);
+					}
+			
 		}
 	function grupo_de_pesquisa_membro_atualizar($nome,$tipo)
 		{
@@ -721,6 +802,7 @@ class grupo_de_pesquisa
 		}
 	function grupo_lattes_importar()
 		{
+			return('');
 			require_once('_class_linha_de_pesquisa.php');
 			$li = new linha_de_pesquisa;
 			
@@ -783,7 +865,7 @@ class grupo_de_pesquisa
 				$site = 'http://dgp.cnpq.br/buscaoperacional/detalhelinha.jsp?grupo='.$this->gp_cnpq_cod.'&seqlinha='.$sl;
 
 				//Linha de pesquisa
-				$ln_cod = $li->linha_de_pesquisa_atualizar($sa,$site);
+				//$ln_cod = $li->linha_de_pesquisa_atualizar($sa,$site,$grupo);
 				
 				$this->grupo_de_pesquisa_linha_atualizar($ln_cod);
 				$sx = substr($sx,strpos($sx,$ss)+strlen($ss),strlen($sx));
@@ -906,6 +988,7 @@ class grupo_de_pesquisa
 		}	
 	function structure()
 		{
+			return(0);
 			$sql = "CREATE TABLE grupo_de_pesquisa_protocolo_membro (
   				id_gpmp serial,
   				gpmp_cracha char(8),

@@ -26,9 +26,6 @@ array_push($menu,array(msg('system_message'),msg('message_copile'),'message_crea
 array_push($menu,array(msg('system_message'),msg('message_email'),'ic.php'));
 //bon_isencao_prod
 
-array_push($menu,array(msg('user'),msg('user_system'),'usuario.php'));  
-array_push($menu,array(msg('user'),'Perfis','perfil.php')); 
-
 array_push($menu,array(msg('calender'),msg('calender'),'calendario.php')); 
 array_push($menu,array(msg('calender'),msg('calender_type'),'calendario_tipo.php')); 
 

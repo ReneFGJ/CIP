@@ -1,0 +1,111 @@
+h10
+{
+	font-family: RobotoLight, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	padding: 10px 10px 10px 10px;
+}
+h9
+{
+	font-family: RobotoLight, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	padding: 10px 10px 10px 10px;
+}
+h8
+{
+	font-family: RobotoLight, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 25px;
+	padding: 10px 10px 10px 10px;
+}
+h7
+{
+	font-family: RobotoLight, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 21px;
+	padding: 10px 10px 10px 10px;
+}
+h6
+{
+	font-family: RobotoLight, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	padding: 10px 10px 10px 10px;
+}
+h5
+{
+	font-family: RobotoLight, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	padding: 10px 10px 10px 10px;
+}
+
+h2
+{
+	font-family: RobotoThin, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+}
+
+body
+{
+	font-family: RobotoCondensed, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 13px;	
+}
+.menu_li
+	{
+		color: #303030;
+	}
+.menu_item_li
+	{
+	font-family: RobotoCondensed, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 150%;	
+	text-decoration: none;
+	color: #303030;			
+	}
+.menu_item_li a
+	{
+	font-family: RobotoCondensed, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 150%;
+	text-decoration: none;
+	color: #303030;	
+	}	
+
+.menu_item_ul
+	{
+	font-family: RobotoThin, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 22px;	
+	color: #303030;	
+	font-height: 140%;	
+	}
+	
+.font_01
+	{
+	font-family: RobotoThin, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	line-height: 130%;	
+	text-decoration: none;
+	color: #303030;			
+	}
+font_01 { text-decoration: none; color=blue; }
+.font_01:hover { text-decoration: underline; color=red; }	
+
+
+.font_02
+	{
+	font-family: RobotoThin, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 19px;
+	line-height: 130%;	
+	text-decoration: none;
+	color: #303030;			
+	}
+.font_02 a { text-decoration: none; }
+.font_02:hover { text-decoration: underline; }	
+
+
+.font_03
+	{
+	font-family: RobotoThin, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	line-height: 130%;	
+	text-decoration: none;
+	color: #303030;			
+	}
+.font_03 a { text-decoration: none; }
+.font_03:hover { text-decoration: underline; }	

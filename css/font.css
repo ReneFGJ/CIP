@@ -1,0 +1,79 @@
+/* Padroes */
+body
+	{
+	margin: 0px 0px 0px 0px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #101010;
+	background-image: url(../img/bg_fundo.png);
+	background-repeat: repeat-x;
+	background-attachment: fixed;
+}
+	
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Objetos */
+#foot
+	{
+		font-size: 10px;
+		color: #101010;		
+		text-align: center;
+	}
+	
+#menu_top
+	{
+	background-color: #add8e6;
+	font-size: 10px;
+	height: 16px;
+	vertical-align: middle;
+}
+
+#menu_top ul
+	{ padding:0px; margin:0px; float: left; width: 100%; list-style:none; }
+	
+#menu_top ul li { display: inline; padding: 5px; color: black;	}
+
+#menu_top ul li a { color:black; }
+
+#menu_top ul li a:hover {
+	color: white;
+}
+
+#content
+	{
+		width: 780px;
+		background-color: #FFFFFF;
+		padding: 10px;
+	}
+
+/* h1, h2, h3, h4, h5, h6 */
+.h3
+	{
+		color: #000000;
+		font-size:13px;
+	}
+
+/* lt's */
+.lt0
+	{
+		font-size:10px;
+		color:#101010;
+	}
+	
+/* box */
+.box_gray
+	{
+	width: 250px;
+	font-size: 10px;
+	color: #404040;
+	background-color: #d3d3d3;
+	float: right;
+}
+
+/* Cabecalho */
+#header_img
+	{
+	border-bottom: 2px solid black;
+	border-top: 2px solid black;
+}

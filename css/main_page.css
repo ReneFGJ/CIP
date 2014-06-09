@@ -1,0 +1,89 @@
+
+
+#cabecalho_main
+	{
+		padding: 20px 20px 20px 20px; float: left;
+		width: 100%;
+		height: 80px;	
+	}
+
+#b1, #b2, #b3, #b4, #b5
+	{
+		width: 251px;
+		height: 154px;
+		color:#505050; 
+		cursor: pointer; 
+		margin-top: 10px;
+		}
+		
+	#ba, #bb, #bc, #bd, #be
+	{
+		width: 251px;
+		height: 89px;
+		color:#505050; 
+		cursor: pointer; 
+		margin-top: 10px;
+		}		
+
+	#b1 { background:url('img/button_b1.png'); }
+	#b2 { background:url('img/button_b2.png'); }
+	#b3 { background:url('img/button_b3.png'); }
+	#b4 { background:url('img/button_b4.png'); }
+	#b5 { background:url('img/button_b5.png'); }
+
+	#b1:hover {background:url('img/button_b1_on.png');}
+	#b2:hover {background:url('img/button_b2_on.png');}
+	#b3:hover {background:url('img/button_b3_on.png');}
+	#b4:hover {background:url('img/button_b4_on.png');}
+	#b5:hover {background:url('img/button_b5_on.png');}
+
+	#ba { background:url('img/button_ba.png'); }
+	#bb { background:url('img/button_bb.png'); }
+	#bc { background:url('img/button_bc.png'); }
+	#bd { background:url('img/button_bd.png'); }
+	#be { background:url('img/button_be.png'); }
+
+	#ba:hover {background:url('img/button_ba_on.png');}
+	#bb:hover {background:url('img/button_bb_on.png');}
+	#bc:hover {background:url('img/button_bc_on.png');}
+	#bd:hover {background:url('img/button_bd_on.png');}
+	#be:hover {background:url('img/button_be_on.png');}
+
+	#texto
+		{
+			padding: 10px 10px 10px 10px; 
+			width: 177px; height: 134px;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			line-height: 150%; 
+		} 
+	#texto_half
+		{
+			padding: 10px 10px 10px 10px; 
+			width: 177px; height: 52px;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			line-height: 150%; 
+		} 
+	#texto2
+		{
+			padding: 0px 0px 0px 60px; 
+			width: 400px; height: 40px;
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			line-height: 150%; 
+		} 
+	#texto_cab
+		{
+			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			font-size: 20px;
+			line-height: 130%; 			
+		}
+	#calendario
+		{
+			width: 351px;
+			height: 54px;
+			color:#505050; 
+			margin-top: 10px;
+			background:url('img/icone_calendario.png') no-repeat;	
+		}

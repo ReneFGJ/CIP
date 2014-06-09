@@ -8,6 +8,8 @@ require($include.'sisdoc_form2.php');
 require($include.'sisdoc_debug.php');
 require($include.'sisdoc_email.php');
 
+require("../_class/_class_docentes.php");
+
 	$clx = new fomento;
 	$clx->le($dd[0]);
 	
@@ -44,9 +46,15 @@ require($include.'sisdoc_email.php');
 						case '00010':
 							$emails = $clx->alunos_ic($emails);
 							break;
-						
+						case '00036':
+							/* Prof. Escola de Saúde */
+							$doc = new docentes;
+							$emails = $doc->docentes_email_escola('00010',$emails);
+						default:
+							echo '<BR>==>'.$trc;
 						}
 				}
+
 			$clx->email_gera_fila_envio($titulo,$conteudo,$emails);
 			
 			sort($emails);

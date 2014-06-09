@@ -24,6 +24,28 @@ class fomento
 		var $id;
 		var $edital;
 		
+		function chamadas_abertas()
+			{
+				$sql = "select * from ".$this->tabela." 
+				
+						where ed_status = 'O' and ed_data_1 > ".date("Ymd")."
+						order by ed_data_1
+						";
+				$rlt = db_query($sql);
+				$sx = '';
+				while ($line = db_read($rlt))
+					{
+						$link = '<A HREF="cip/editais_ver.php?dd0='.$line['id_ed'].'" class="link">';
+						$sx .= '<B>'.$link.'<span style="color: #505050;">'.$line['ed_titulo'].'</span></a></font></b>';
+						$dt = '<BR><span style="color: #ffa0a0;"><I>Deadline '.stodbr($line['ed_data_1']).'</I></span>';
+						$sx .= $dt;
+						$sx .= '<HR>';
+						
+						//print_r($line);
+					}
+				return($sx);
+			}
+		
 		function lidos()
 			{
 				$edital = $this->line['ed_codigo'];
@@ -94,16 +116,18 @@ class fomento
 							$nome = substr($nome,0,strpos($nome,';'));
 							$cracha = substr($cracha,0,strpos($cracha,';'));
 							
-							$tit = '[PUCPR] - '.$titulo;
+							
 							
 							$txta = '
 							<font style="font-size: 12px; font-family: tahoma, verdana, arial">
-							Prezado '.$nome.' segue para seu conhecimento<BR><BR><BR>';
+							<font color="white">Prezado(a) '.$nome.', segue para seu conhecimento<BR><BR><BR></font>';
 							$txt = $txta.$conteudo;
 							
 							$txt = troca($txt,'$CRACHA',$cracha);
 							$txt = troca($txt,'$NOME',$nome);
 							$txt = troca($txt,'$EMAIL',$email);
+							
+							$tit = '[PUCPR] - '.$titulo.' ['.trim($nome).']';
 							
 							$sql .= "insert into ".$this->tabela_fila_envio." 
 									( fle_email, fle_titulo, fle_content )
@@ -222,9 +246,9 @@ class fomento
 				
 
 				if (strlen(trim($this->line['agf_imagem'])))
-					{ $sx .= '<img src="'.$this->line['agf_imagem'].'" height="100" align="left">'; }
-				
-				$sx .= trim($this->line['ed_titulo']);
+					{ $sx .= '<img src="'.$this->line['agf_imagem'].'" height="100" align="left"  style="padding: 0px 20px 0px 5px;">'; }
+				$tttt = trim($this->line['ed_titulo']);
+				$sx .= '<font style="font-size:25px">'.$tttt.'</font>';
 				$sx .= '<BR><BR>';
 				
 
@@ -249,9 +273,14 @@ class fomento
 					{ $sx .= '<TR><TD align="right"><font style="font-size: 18px;"><I>Deadline</I> para submissão eletrônica <B><font color="red">'.stodbr($this->line['ed_data_1']).'</font>'; }
 				else 
 					{ $sx .= '<TR><TD align="right"><font style="font-size: 18px;"><I>Deadline</I> para submissão eletrônica <B><font color="red">'.$this->deadline($this->line['ed_data_1']).'</font>'; }
+
 				if ($this->line['ed_data_2'] > 20000101)
 					{
 						$sx .= '<TR><TD align="right"><font style="font-size: 18px;">Prazo para envio dos documentos <B>'.stodbr($this->line['ed_data_2']).'</font>';
+					}
+
+				if ($this->line['ed_document_require'] == '1')
+					{
 						$sx .= '<TR><TD align="right"><font style="font-size:12 px; color: #000080;">
 												Paras as assinaturas institucionais<BR>
 												devem ser solicitadas em até 3 dias úteis, antes do <I>deadline</I>';
@@ -277,7 +306,10 @@ class fomento
 				$sx .= '</table>';
 				$sx .= '<BR><BR><BR>';
 				$this->texto = $sx;
-				$this->titulo = $this->line['ed_titulo'];
+				$ttt = trim($this->line['ed_titulo']);
+				$ttt = troca($tttt,'<br>','');
+				$ttt = troca($tttt,'<BR>','');				
+				$this->titulo = $ttt;
 								
 				return($sx);
 			}
@@ -316,6 +348,10 @@ class fomento
 				
 				array_push($cp,array('$D8','ed_data_2','Deadline (envio da documentação)',False,True));
 				array_push($cp,array('$D8','ed_data_3','Previsão de divulgação dos resultados',False,True));
+				array_push($cp,array('$C1','ed_document_require','Requer assinatura de documento',False,True));
+				
+				array_push($cp,array('$S15','ed_login','Responsável (LOGIN)',True,True));
+				//ed_data_envio				
 				
 				array_push($cp,array('$T70:3','ed_texto_1',msg('fomento_1'),True,True));
 				array_push($cp,array('$T70:3','ed_texto_2',msg('fomento_2'),False,True));
@@ -332,7 +368,7 @@ class fomento
 				
 				array_push($cp,array('$S200','ed_url_externa','Link da chamada',False,True));
 				
-				array_push($cp,array('$O : &A:Editar&B:Concluido&X:Cancelado','ed_status','Status',False,True));
+				array_push($cp,array('$O : &A:Editar&O:Aberto&B:Concluido&X:Cancelado','ed_status','Status',False,True));
 				
 				return($cp);
 				
@@ -422,6 +458,9 @@ class fomento
 						ed_data_1 integer,
 						ed_data_2 integer,
 						ed_data_3 integer,
+						ed_data_envio integer,
+						ed_document_require char(1),
+						ed_login char(15),
 						ed_texto_1 text,
 						ed_texto_2 text,
 						ed_texto_3 text,
@@ -448,9 +487,12 @@ class fomento
 		function row()
 			{
 				global $cdf,$cdm,$masc;
-				$cdf = array('id_ed','ed_titulo','ed_chamada','ed_data_1','ed_status','ed_codigo');
-				$cdm = array('cod','Título','Chamada','Deadline','Status','Codigo');
-				$masc = array('','','','D','','','','');
+				$sql = "alter table ".$this->tabela." add column ed_login char(15) ";
+				//$rlt = db_query($sql);
+				
+				$cdf = array('id_ed','ed_titulo','ed_chamada','ed_data_1','ed_status','ed_codigo','ed_data_envio','ed_login');
+				$cdm = array('cod','Título','Chamada','Deadline','Status','Codigo','Data envio','Login');
+				$masc = array('','','','D','','','D','');
 				return(1);				
 			}
 		function resumo()

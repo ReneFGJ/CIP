@@ -112,7 +112,10 @@ class formulario
 			$h = strzero($hora,2).':'.strzero($min,2);
 			return($h);
 		}
-	
+	function set_dados($oj)
+		{
+			
+		}
 	function form_solicitacao_pagamento()
 		{
 			$sx .= '

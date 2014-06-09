@@ -122,14 +122,17 @@ class pibic_bolsa_contempladas
 							<TH>Professor
 							<TH>Campus
 							<TH>Edital
-							<TH>SS
 							<TH>Modalidade
 							<TH>Estudande
+							<TH>??
 							<TH>Curso
+							<TH>??
+							<TH>??
 							<TH>Status
 							<TH>email
 							<TH>email alternativo
-							<TH>Titulação						
+							<TH>Titulação
+							<TH>SS						
 							';
 				$tot = 0;
 				while ($line = db_read($rlt))
@@ -160,8 +163,8 @@ class pibic_bolsa_contempladas
 						$sx .= '<TD>';
 						$sx .= $line['pbt_descricao'];
 												
-						$sx .= '<TD>';
-						$sx .= $line['pa_codigo'];
+						//$sx .= '<TD>';
+						//$sx .= $line['pa_codigo'];
 																								
 						$sx .= '<TD>';
 						$sx .= $line['pa_nome'];
@@ -186,6 +189,9 @@ class pibic_bolsa_contempladas
 
 						$sx .= '<TD>';
 						$sx .= $line['ap_tit_titulo'];
+
+						$sx .= '<TD>';
+						$sx .= $line['pp_ss'];
 					}
 				$sx .= '</table>';
 				$sx .= $tot.' total';

@@ -9,11 +9,10 @@ require($include.'sisdoc_debug.php');
 require("../_class/_class_perfil.php");
 
 $clx = new user_perfil;
-echo '3';
+
 	$cp = $clx->cp();
 	$tabela = $clx->tabela;
 	
-echo '1';
 	$label = msg("perfil");
 	$http_edit = 'perfil_ed.php'; 
 	$editar = True;
