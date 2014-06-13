@@ -10,22 +10,60 @@ class formulario
 	var $ig_empresa = "Associação Paranaense de Cultura - APC";
 	var $ig_filial = "PUCPR - Campus Curitiba";
 	var $ig_classificacao = "DESPESA";
-	var $ig_pa = "Bonificação de 3% - projeto Atração e Retenção de Talentos";
-	var $ig_periodo_de = 'setembro/2014';
-	var $ig_periodo_ate = 'stembro/2014';
+	var $ig_pa = "Repasse de 3% - projeto Atração e Retenção de Talentos";
+	var $ig_periodo_de = 'junho';
+	var $ig_periodo_ate = 'junho/2014';
 	var $ig_vr = 100;
-	var $ig_horas = 977;
+	var $ig_horas = 0;
+	
+	var $ordenador_necessidade;
+	var $ordenador_gasto;
 	
 	var $beneficiario = '';
 	var $beneficiario_nome = '';
+	var $beneficiario_valor = 0;
 	var $artigo_id = 0;
 	
+	var $tabela = 'bonificacao'; 
+	
+	function crs($cr)
+		{
+			switch ($cr)
+				{
+				case '103507': $ncr = 'Adminstração da Pró-Reitoria de Pesquisa e Pós-Graduação';
+					break;
+				case '103300': $ncr = 'Diretoria de Pesquisa e Programas Stricto Sensu';
+					break;
+				case '103309': $ncr = 'Núcleo do Fundo de Pesquisa';
+					break;
+				default:
+					$ncr = '??????';
+				}
+			return($ncr);
+		}
+	
+
+	function cp_cr()
+		{
+			global $dd,$acao,$user;
+			$cr = ' : ';
+			$cr .= '&103507:103507 - Adminstração da Pró-Reitoria de Pesquisa e Pós-Graduação';
+			$cr .= '&103300:103300 - Diretoria de Pesquisa e Programas Stricto Sensu';
+			$cr .= '&103309:103309 - Núcleo do Fundo de Pesquisa';
+			$hv = 0;
+		
+			$cp = array();
+			array_push($cp,array('$H8','id_bn','',False,False));
+			array_push($cp,array('$O '.$cr,'bn_cr','Centro de resultado',True,True));						
+			return($cp);			
+		}
+
 	function cp()
 		{
 			global $dd,$acao,$user;
 			$cr = ' : ';
-			$cr .= '&103507:103507 - Adminstração da Pró-Reitoria de Pesquisa e Pós-Graduaçã';
-			$cr .= '&103300:103300 - Diretoria de PEsquisa e Programas Stricto Sensu';
+			$cr .= '&103507:103507 - Adminstração da Pró-Reitoria de Pesquisa e Pós-Graduação';
+			$cr .= '&103300:103300 - Diretoria de Pesquisa e Programas Stricto Sensu';
 			$cr .= '&103309:103309 - Núcleo do Fundo de Pesquisa';
 			$hv = 0;
 			if ((strlen($dd[3]) > 0) and (strlen($dd[4]) > 0))
@@ -107,14 +145,39 @@ class formulario
 
 	function show_horas($min)
 		{
-			$hora = round($min/(60));
+			$hora = (int)($min/(60));
 			$min = $min - $hora * 60;
 			$h = strzero($hora,2).':'.strzero($min,2);
 			return($h);
 		}
 	function set_dados($oj)
 		{
-			
+			$line = $oj->line;
+			$id = $line['id_bn'];
+			$sql = "select * from bonificacao where id_bn = ".$id;
+			$rlt = db_query($sql);
+			if ($line = db_read($rlt))
+				{
+					$this->beneficiario_nome = trim($line['bn_professor_nome']);
+					$this->beneficiario = trim($line['bn_professor']);
+					$vlr = round($line['bn_valor'] * 100)/100;
+					$this->beneficiario_valor = number_format($vlr,2);
+					$this->beneficio_extenso = extenso($vlr);
+
+					$ncr = $line['bn_cr'];
+					$this->ig_centro_resultado = trim($ncr);
+					$crs_nome = $this->crs($ncr);
+					$this->ig_centro_nome = $crs_nome;
+					$vlrh = $this->ig_vr;
+					$tempo = $vlr / $vlrh * 60;
+					$this->ig_horas = $tempo;
+					$des = $line['bn_descricao'];
+					$this->bn_descricao = $des;
+					
+					$cr = new cr;
+					$this->ordenador_necessidade = $cr->recupera_ordenador_necessidade($ncr);
+					$this->ordenador_gasto = $cr->recupera_ordenador_gasto($ncr); 		
+				}
 		}
 	function form_solicitacao_pagamento()
 		{
@@ -155,27 +218,27 @@ class formulario
 			$sx .= '<TR><TD class="sz10" colspan="10" 
 							style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"
 							><B>INFORMAÇÕES GERAIS</B></TR>';
-			$sx .= '<TR><TD align="right" class="sz10">Centro de Resultado:
+			$sx .= '<TR><TD align="right" class="sz10"><NOBR>Centro de Resultado: 
 						<TD align="left" class="sz10" colspan=9><B>'.$this->ig_centro_resultado.' - 
 						'.$this->ig_centro_nome.'</B>';
 			
-			$sx .= '<TR><TD align="right" class="sz10">Empresa:
+			$sx .= '<TR><TD align="right" class="sz10">Empresa: 
 						<TD colspan=9 class="sz10"><B>'.$this->ig_empresa.'</B>';
 			
-			$sx .= '<TR><TD align="right" class="sz10">Filial:
+			$sx .= '<TR><TD align="right" class="sz10">Filial: 
 						<TD colspan=9 class="sz10"><B>'.$this->ig_filial.'</B>';
 			
-			$sx .= '<TR><TD align="right" class="sz10">Classificação:
+			$sx .= '<TR><TD align="right" class="sz10">Classificação: 
 						<TD colspan=9 class="sz10"><B>'.$this->ig_classificacao.'</B>';
 
 			$sx .= '<TR><TD align="right" class="sz10" colspan=2
-						><nobr>	Programa de aprendizagem / Módulo:
-						<TD colspan=9 class="sz10"><B>'.$this->ig_classificacao.'</B>';
+						><nobr>	Programa de aprendizagem / Módulo: 
+						<TD colspan=9 class="sz10"><B>'.$this->ig_pa.'</B>';
 			
 			$sx .= '<TR><TD align="right" class="sz10" colspan=2
-						>Período de Execuçao da Atividade:';
+						>Período de Execução da Atividade: ';
 			$sx .= '<TD class="sz10" colspan=7
-						>de: <B>'.$this->ig_periodo_de.'</B> à <B>'.$this->ig_periodo_ate.'</B>';
+						>de <B>'.$this->ig_periodo_de.'</B> à <B>'.$this->ig_periodo_ate.'</B>';
 			$sx .= '<TD class="sz10" colspan=1
 						>Horas (Qtda.): <B>'.$this->show_horas($this->ig_horas).'</B>';
 			$sx .= '<TR><TD align="right" class="sz10" 
@@ -188,14 +251,14 @@ class formulario
 			/* Informações para Pagamento */
 			$sx .= '<TR><TD class="sz10" colspan="10" style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"><B>Informações para Pagamento</B></TR>';
 			
-			$sx .= '<TR><TD colspan=1 align="right" class="sz10"><B>Nome:</B>';
-			$sx .= '<TD colspan=7 >&nbsp;'.$this->ip_nome;
-			$sx .= '<TD class="sz10" align="right"><NOBR><B>Código funcional:';
-			$sx .= '<TD><B>'.$this->ip_cracha.'</B>';
+			$sx .= '<TR><TD colspan=1 align="right" class="sz10"><B>Nome: </B>';
+			$sx .= '<TD colspan=7 >&nbsp;<B>'.$this->beneficiario_nome.'</B>';
+			$sx .= '<TD class="sz10" align="right"><NOBR><B>Código funcional: ';
+			$sx .= '<TD><B>'.$this->beneficiario.'</B>';
 
-			$sx .= '<TR><TD colspan=1 align="right" class="sz10"><B>Valor a Pagar R$:</B>';
-			$sx .= '<TD colspan=9>&nbsp;'.number_format($this->ip_valor,2,',','.');
-			
+			$sx .= '<TR><TD colspan=1 align="right" class="sz10"><B>Valor a Pagar R$: </B>';
+			$sx .= '<TD colspan=9>&nbsp;'.number_format($this->beneficiario_valor,2,',','.');
+			$sx .= $this->beneficio_extenso;
 			$sx .= '<TR><TD colspan=10 class="sp">';
 			
 			/* Descrição dos serviços */
@@ -204,7 +267,7 @@ class formulario
 						style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"
 						><B>Descrição do Serviço / Justificativa:</B></TR>';
 			
-			$sx .= '<TR><TD colspan=10 height="60" >';			
+			$sx .= '<TR><TD colspan=10 height="60" >'.$this->bn_descricao;			
 			$sx .= '<TR><TD colspan=10 class="sp" >';	
 			
 			/* Preenchimento Exclusivo D.R.H. */
@@ -215,13 +278,13 @@ class formulario
 			$sx .= '<TR><TD colspan=3 class="sz10" align="right">Incluso na Folha de Pagamento do mês de:';
 			$sx .= '<TD class="bi" colspan=7	>&nbsp';	
 
-			$sx .= '<TR><TD colspan=1 class="sz10" align="right">Nome:';
+			$sx .= '<TR><TD colspan=1 class="sz10" align="right">Nome: ';
 			$sx .= '<TD class="bi" colspan=7>&nbsp';	
 
-			$sx .= '<TD colspan=1 class="sz10" align="right">Data:';
+			$sx .= '<TD colspan=1 class="sz10" align="right">Data: ';
 			$sx .= '<TD class="bi">&nbsp';	
 
-			$sx .= '<TR><TD colspan=1 class="sz10" align="right">Assinatura:';
+			$sx .= '<TR><TD colspan=1 class="sz10" align="right">Assinatura: ';
 			$sx .= '<TD class="bi" colspan=9>&nbsp';
 			
 			$sx .= '<TR><TD colspan=10 class="sp">';	
@@ -246,16 +309,17 @@ class formulario
 			$sx .= '<TR><TD class="sz10" 
 						colspan="5" 
 						style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"
-						><B>Ordenador da Necessidade:</B>';
+						><B>Ordenador da Necessidade:</B> ';
 			$sx .= '<TD class="sz10" 
 						colspan="5" 
 						style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"
-						><B>Ordenador de Gasto:</B>';						
+						><B>Ordenador de Gasto:</B> ';
+												
 			$sx .= '<TR valign="top">
-						<TD colspan=1 height="40" class="sz10" align="right">Nome:';
-			$sx .= '<TD class="sz10" colspan=4>&nbsp';	
+						<TD colspan=4 height="40" class="sz10" align="left">Nome: <B>'.$this->ordenador_necessidade.'</B>';
+			$sx .= '<TD class="sz10" colspan=1>&nbsp';	
 
-			$sx .= '	<TD colspan=1 height="40" class="sz10" align="right">Nome:';
+			$sx .= '	<TD colspan=5 height="40" class="sz10" align="left">Nome: <B>'.$this->ordenador_gasto.'</B>';
 			$sx .= '<TD class="sz10" colspan=5>&nbsp';	
 
 			$sx .= '<TR valign="top">
@@ -266,10 +330,10 @@ class formulario
 			$sx .= '<TD class="bi" colspan=5>&nbsp';	
 
 			$sx .= '<TR valign="top">
-						<TD colspan=1 height="20" class="sz10" align="right">Data:';
+						<TD colspan=1 height="20" class="sz10" align="right">Data: ';
 			$sx .= '<TD class="sz10" colspan=4>___/___/___';	
 
-			$sx .= '	<TD colspan=1 height="20" class="sz10" align="right">Data:';
+			$sx .= '	<TD colspan=1 height="20" class="sz10" align="right">Data: ';
 			$sx .= '<TD class="sz10" colspan=4>___/___/___';
 			
 			$sx .= '<TR><TD colspan=10 class="sp">';	

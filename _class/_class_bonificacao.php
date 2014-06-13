@@ -343,6 +343,20 @@ class bonificacao
 
 			return($cp);			
 		}
+
+	function cp_frase()
+		{
+			global $dd;
+			$cp = array();
+			array_push($cp,array('$H8','id_bn','',false,true));
+			
+			array_push($cp,array('$S100','bn_descricao','Descricao',false,false));
+			array_push($cp,array('$S6','bn_cr','CR',true,true));
+			array_push($cp,array('$T60:5','bn_descricao','CR',true,true));
+			
+			return($cp);			
+		}
+
 	function cp()	
 		{
 			$cp = array();
@@ -467,7 +481,7 @@ class bonificacao
 			global $ss,$nw,$perfil,$ged;
 			$sta = trim($this->line['bn_status']);
 			$vlr = round($this->line['bn_rf_parcela']);
-		
+			$descricao = $this->line['bn_descricao'];
 			$dl = stodbr($this->line['bn_liberacao']);
 			if (strlen($dl)==0) 
 				{
@@ -478,7 +492,7 @@ class bonificacao
 			if ($sta == 'A') { $sta = 'Em processo de liberação (Diretoria)'; }
 			$sx .= '<fieldset><legend>Bonificação de projetos</legend>';
 			$sx .= '<table width=100% class="lt1">';
-			$sx .= '<TR><TD rowspan=4 width="30">';
+			$sx .= '<TR><TD rowspan=6 width="30">';
 			if ($vlr == 5)
 				{
 				$sx .= '<IMG SRC="../img/label_5percente_blue.png" height="60">';
@@ -490,15 +504,24 @@ class bonificacao
 			$sx .= '<TR>';
 			$sx .= '<TD>Data de processamento: <B>'.stodbr($this->line['bn_data']).'</B>';
 			$sx .= ' protocolo: '.$this->line['bn_codigo'];
-			$sx .= '<TR><TD>Situação <B>'.$sta.'</B>';
+			$sx .= '<TR><TD>'.$descricao.'';
+			if ($perfil->valid('#SCR#ADM'))
+				{
+					$link = 'onclick="newxy2(\'bonificacao_ed_frs.php?dd0='.$this->line['id_bn'].'\',600,500);" ';
+					$sx .= ' (<A HREF="#" class="link" '.$link.'>editar</A>)';
+				}			$sx .= '<TR><TD>Situação <B>'.$sta.'</B>';
 			$sx .= '<TR><TD>Valor da Bonificação <B>'.number_format($this->line['bn_valor'],2,',','.');
-			$sx .= '</B> pago em '.$dl;				
+			$sx .= '</B> pago em '.$dl;
+			$sx .= '<TR><TD>CR: '.$cr.' '.$this->line['bn_cr'];
+				
 			$sx .= '</table>';
 			
 			$sr = $ged->filelist();
 			if ($ged->total_files > 0) { $sx .= $sr; }
+			
 			if ($perfil->valid('#SCR#ADM'))
 				{
+				
 				$sx .= $ged->upload_botton();
 				}		
 			$sx .= '</fieldset>';

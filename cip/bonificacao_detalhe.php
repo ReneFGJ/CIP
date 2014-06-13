@@ -146,6 +146,7 @@ echo '<input type="button" value="imprimir formulário" id="bt5">';
 
 //echo $bon->bonificar_formento_gerar($dd[1]);
 $link = 'bonificacao_detalhe_pr.php?dd0='.$dd[0].'&dd90='.$dd[90];
+$link = 'formulario_pagamento.php?dd0='.$dd[0].'&dd90='.$dd[90];
 
 $bon = new bonificacao;
 echo $bon->mostra_bonificacoes_por_projeto($cap->protocolo);
