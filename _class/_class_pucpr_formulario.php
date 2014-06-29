@@ -3,7 +3,11 @@ class formulario
 	{
 	var $nr_ordem = 1;
 	var $nr_log = 'RENE.GABRIEL';
-	var $vinculo = "COLABORADOR COM VÍNCULO"; 
+	var $vinculo = "COLABORADOR COM VÍNCULO";
+	
+	var $solicitante;
+	var $solicitante_telefone;
+	var $solicitante_nome; 
 	
 	var $ig_centro_resultado = "103507";
 	var $ig_centro_nome = "Administração da Pró-Reitoria de Pesquisa e Pós-Graduação";
@@ -66,13 +70,7 @@ class formulario
 			$cr .= '&103300:103300 - Diretoria de Pesquisa e Programas Stricto Sensu';
 			$cr .= '&103309:103309 - Núcleo do Fundo de Pesquisa';
 			$hv = 0;
-			if ((strlen($dd[3]) > 0) and (strlen($dd[4]) > 0))
-				{
-					$dd[3] = troca($dd[3],',','');
-					$dd[4] = troca($dd[4],',','');
-					echo $dd[3].'--'.$dd[4];
-					$dd[5] = (round($dd[3]/$dd[4]*100)/100);
-				}
+
 			$dd[6] = $user->user_login;
 		
 			$cp = array();
@@ -80,8 +78,8 @@ class formulario
 			array_push($cp,array('$O ART:Bonificação de artigo','crp_tipo','Tipo',True,True));
 			array_push($cp,array('$O '.$cr,'crp_tipo','Centro de resultado',True,True));
 			array_push($cp,array('$N8','crp_valor','Valor pagamento',True,True));
-			array_push($cp,array('$N8','crp_valor_hora','Valor hora',True,True));
-			array_push($cp,array('$N8','crp_horas_minuto','Horas(Qta)',True,False));
+			array_push($cp,array('$HV','crp_valor_hora','1',True,True));
+			array_push($cp,array('$HV','crp_horas_minuto','1',True,False));
 			array_push($cp,array('$S20','crp_login','Login',True,False));
 			array_push($cp,array('$S8','','Beneficiário',True,False));
 			array_push($cp,array('$S60','','Nome',True,False));
@@ -89,12 +87,16 @@ class formulario
 			
 			array_push($cp,array('$O '.$dd[8].':'.$dd[8],'crp_doc_original','Prof. Original',True,True));
 			
-			array_push($cp,array('${','','Período de execução da atividade',True,False));
-			array_push($cp,array('$D8','crp_data_1','De',True,False));
-			array_push($cp,array('$D8','crp_data_2','à',True,False));
-			array_push($cp,array('$}','','Período de execução da atividade',True,False));
+			array_push($cp,array('$A','','Período de execução da atividade',False,False));
+			array_push($cp,array('$S20','crp_data_1_str','De',True,True));
+			array_push($cp,array('$S20','crp_data_2_str','à',True,True));
+			//array_push($cp,array('$}','','Período de execução da atividade',True,False));
 			
-			array_push($cp,array('$T60:5','crp_descricao','descrição',True,True));			
+			array_push($cp,array('$T60:5','crp_descricao','descrição',True,True));		
+			//$sql = "alter table ".$this->tabela." add column crp_data_1_str char(20)";
+			//$rlt = db_query($sql);	
+			//$sql = "alter table ".$this->tabela." add column crp_data_2_str char(20)";
+			//$rlt = db_query($sql);	
 			return($cp);			
 		}
 	
@@ -152,6 +154,28 @@ class formulario
 		}
 	function set_dados($oj)
 		{
+			global $user, $nw, $hd, $dd;
+			
+			$this->nr_ordem = strzero($dd[0],7);
+			$user_login = trim($_SESSION['user_login']);
+			$this->nr_log = $user_login;
+			$sql = "select * from usuario where us_login = '".$user_login."'";
+			$rlt = db_query($sql);
+			if ($line = db_read($rlt))
+				{
+					$this->solicitante = trim($line['us_nome']);
+					$this->solicitante_telefone = trim($line['us_endereco']);
+					$this->solicitante_email = trim($line['us_email']);
+					if (strlen($this->solicitante_nome))
+						{
+							echo 'Nome do usuário não cadastrado';
+							exit;
+						}
+				} else {
+					echo 'Usuário não autorizado';
+					exit;
+				}
+			//nr_log
 			$line = $oj->line;
 			$id = $line['id_bn'];
 			$sql = "select * from bonificacao where id_bn = ".$id;
@@ -176,7 +200,12 @@ class formulario
 					
 					$cr = new cr;
 					$this->ordenador_necessidade = $cr->recupera_ordenador_necessidade($ncr);
-					$this->ordenador_gasto = $cr->recupera_ordenador_gasto($ncr); 		
+					$this->ordenador_necessidade_funcao = $cr->recupera_ordenador_necessidade_funcao;
+					$this->ordenador_gasto = $cr->recupera_ordenador_gasto($ncr);
+					$this->ordenador_gasto_funcao = $cr->recupera_ordenador_gasto_funcao;
+					$this->ig_pa = $line['bn_nome'];
+					$this->ig_periodo_de = $line['crp_data_1_str'];
+					$this->ig_periodo_ate = $line['crp_data_2_str'];
 				}
 		}
 	function form_solicitacao_pagamento()
@@ -240,7 +269,7 @@ class formulario
 			$sx .= '<TD class="sz10" colspan=7
 						>de <B>'.$this->ig_periodo_de.'</B> à <B>'.$this->ig_periodo_ate.'</B>';
 			$sx .= '<TD class="sz10" colspan=1
-						>Horas (Qtda.): <B>'.$this->show_horas($this->ig_horas).'</B>';
+						><NOBR>Horas (Qtda.): <B>'.$this->show_horas($this->ig_horas).'</B>';
 			$sx .= '<TR><TD align="right" class="sz10" 
 							colspan=3 
 							>Valor Base (hora/aula ou hora técnica):';
@@ -252,13 +281,13 @@ class formulario
 			$sx .= '<TR><TD class="sz10" colspan="10" style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"><B>Informações para Pagamento</B></TR>';
 			
 			$sx .= '<TR><TD colspan=1 align="right" class="sz10"><B>Nome: </B>';
-			$sx .= '<TD colspan=7 >&nbsp;<B>'.$this->beneficiario_nome.'</B>';
-			$sx .= '<TD class="sz10" align="right"><NOBR><B>Código funcional: ';
-			$sx .= '<TD><B>'.$this->beneficiario.'</B>';
+			$sx .= '<TD colspan=7 class="sz10" >&nbsp;<B>'.$this->beneficiario_nome.'</B>';
+			$sx .= '<TD class="sz10" align="right"><NOBR>Código funcional: ';
+			$sx .= '<TD class="sz10">&nbsp;<B>'.$this->beneficiario.'</B>';
 
 			$sx .= '<TR><TD colspan=1 align="right" class="sz10"><B>Valor a Pagar R$: </B>';
-			$sx .= '<TD colspan=9>&nbsp;'.number_format($this->beneficiario_valor,2,',','.');
-			$sx .= $this->beneficio_extenso;
+			$sx .= '<TD colspan=9 class="sz10">&nbsp;'.$this->beneficiario_valor;
+			$sx .= '('.trim($this->beneficio_extenso).')';
 			$sx .= '<TR><TD colspan=10 class="sp">';
 			
 			/* Descrição dos serviços */
@@ -267,7 +296,7 @@ class formulario
 						style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"
 						><B>Descrição do Serviço / Justificativa:</B></TR>';
 			
-			$sx .= '<TR><TD colspan=10 height="60" >'.$this->bn_descricao;			
+			$sx .= '<TR><TD colspan=10 height="60" class="sz10">'.$this->bn_descricao;			
 			$sx .= '<TR><TD colspan=10 class="sp" >';	
 			
 			/* Preenchimento Exclusivo D.R.H. */
@@ -295,13 +324,13 @@ class formulario
 						style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"
 						><B>Dados do Solicitante</B></TR>';
 			$sx .= '<TR><TD colspan=1 class="sz10" align="right">Solicitante:';
-			$sx .= '<TD class="bi" colspan=9>&nbsp';	
+			$sx .= '<TD colspan=9 class="sz10">&nbsp'.$this->solicitante;	
 
 			$sx .= '<TR><TD colspan=1 class="sz10" align="right">Telefone:';
-			$sx .= '<TD class="bi" colspan=2>&nbsp';	
+			$sx .= '<TD colspan=2 class="sz10">&nbsp'.$this->solicitante_telefone;	
 
 			$sx .= '<TD colspan=1 class="sz10" align="right">e-mail:';
-			$sx .= '<TD class="bi" colspan=6>&nbsp';
+			$sx .= '<TD colspan=6 class="sz10">&nbsp'.$this->solicitante_email;
 			
 			$sx .= '<TR><TD colspan=10 class="sp">';	
 
@@ -316,10 +345,10 @@ class formulario
 						><B>Ordenador de Gasto:</B> ';
 												
 			$sx .= '<TR valign="top">
-						<TD colspan=4 height="40" class="sz10" align="left">Nome: <B>'.$this->ordenador_necessidade.'</B>';
+						<TD colspan=4 height="40" class="sz10" align="left">Nome: <B>'.$this->ordenador_necessidade.'</B><BR>'.$this->ordenador_necessidade_funcao;
 			$sx .= '<TD class="sz10" colspan=1>&nbsp';	
 
-			$sx .= '	<TD colspan=5 height="40" class="sz10" align="left">Nome: <B>'.$this->ordenador_gasto.'</B>';
+			$sx .= '	<TD colspan=5 height="40" class="sz10" align="left">Nome: <B>'.$this->ordenador_gasto.'</B><BR>'.$this->ordenador_gasto_funcao;
 			$sx .= '<TD class="sz10" colspan=5>&nbsp';	
 
 			$sx .= '<TR valign="top">

@@ -1,0 +1,36 @@
+<?
+require($include."sisdoc_menus.php");
+
+$menu = array();
+
+array_push($menu,array("Avaliação","Lançar avaliações","semic_avaliacoes.php"));
+if ($user_nivel == 9) 
+{
+	array_push($menu,array("Avaliação","Lista de avaliadores","ed_pareceristas.php"));
+	array_push($menu,array("Avaliação","Fichas de avaliação (SEMIC)","semic_fichas_avaliadores.php?dd1=SEMIC20"));
+	array_push($menu,array("Avaliação","Fichas de avaliação (MOSTRA)","semic_fichas_avaliadores.php?dd1=MP"));
+
+	array_push($menu,array("Avaliação","Lista de trabalhos X Avaliadores","semic_fichas_avaliadores_row_1.php"));
+	array_push($menu,array("Avaliação","Avaliadores X Lista de trabalhos","semic_fichas_avaliadores_row_2.php"));
+
+	array_push($menu,array("Programação","Programação","programacao.php"));
+	array_push($menu,array("Programação","Listas de trabalhos","trabalhos.php"));
+	array_push($menu,array("Declaração (Avaliador)","Declaração de avaliador","semic_declaracao_tp_1.php"));
+	array_push($menu,array("Declaração (Avaliador)","Declaração do avaliador CNPq","semic_declaracao_tp_1.php"));
+	array_push($menu,array("Declaração (Estudante)","Declaração de apresentação de trabalhos","declaracao_tp_3.php"));
+	array_push($menu,array("Declaração (Estudante)","Declaração de ouvinte","declaracao_tp_4.php"));
+	
+	array_push($menu,array("Indicadores","Avaliadores","indicares_avaliadores.php"));
+
+
+	array_push($menu,array("Premiação","Fichas de avaliação (MOSTRA)","semic_fichas_avaliadas.php"));
+	array_push($menu,array("Premiação","Ver fichas","semic_avaliacoes_2.php"));
+	array_push($menu,array("Premiação","Ver fichas (row)","semic_avaliacoes_3.php"));
+
+	array_push($menu,array("Premiação","TOP 50 - PIBIC/PIBITI","semic_avaliacoes_4a.php"));
+	array_push($menu,array("Premiação","TOP 50 - iPIBIC/iPIBITI","semic_avaliacoes_4b.php"));
+	array_push($menu,array("Premiação","TOP 50 - MOSTRA","semic_avaliacoes_4c.php"));
+	array_push($menu,array("Premiação","TOP 50 - Junior","semic_avaliacoes_4d.php"));
+}
+echo menus($menu,3);
+?>

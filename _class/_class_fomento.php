@@ -95,6 +95,11 @@ class fomento {
 		echo $sx;
 	}
 
+	function cancelar_email()
+		{
+			$sql .= "delete from " . $this -> tabela_fila_envio . " where 1=1" . chr(13) . chr(10);			
+			$rlt = db_query($sql);
+		}
 	function enviar_email($total) {
 		$sql = "select * from " . $this -> tabela_fila_envio . "
 						order by id_fle
@@ -177,8 +182,7 @@ class fomento {
 			}
 			$xmail = $mail;
 		}
-		if (strlen($sql) > 0) { $rlt = db_query($sql);
-		}
+		if (strlen($sql) > 0) { $rlt = db_query($sql); }
 	}
 
 	function email_cancelar($cracha) {
@@ -315,7 +319,7 @@ class fomento {
 			if (strlen($vl) > 0)
 				//$sx .= '<TR><TD><B>'.UpperCase(msg('fomento_'.$r)).'</B>';
 				$sx .= '<TR><TD><BR><B>' . msg('fomento_' . $r) . '</B>';
-			$sx .= '<TR><TD><div align="justify">' . $vl . '</div>';
+			$sx .= '<TR><TD align="left">' . $vl . '';
 		}
 		$sx .= '<BR>';
 		$sx .= '<TR><TD>';
@@ -338,8 +342,8 @@ class fomento {
 
 		if ($this -> line['ed_document_require'] == '1') {
 			$sx .= '<TR><TD align="right"><font style="font-size:12 px; color: #000080;">
-												Paras as assinaturas institucionais<BR>
-												devem ser solicitadas em até 3 dias úteis, antes do <I>deadline</I>';
+												As assinaturas institucionais<BR>
+												devem ser solicitadas em até 3 dias úteis antes do <I>deadline</I>';
 			$sx .= '</font>';
 		}
 		if ($this -> line['ed_data_3'] > 20000101) { $sx .= '<TR><TD align="right"><font style="font-size:30 px;">Previsão dos resultados <B>' . stodbr($this -> line['ed_data_3']) . '';

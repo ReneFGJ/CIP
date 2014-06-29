@@ -26,7 +26,7 @@ $menu = array();
 
 if (($perfil->valid('#ADM#SCR#COO')))
 	{
-	array_push($menu,array(':: Início ::','main.php'));
+	array_push($menu,array(':: Início ::','index.php'));
 	}
 
 require('../_class/_class_header.php');

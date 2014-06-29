@@ -48,10 +48,11 @@ class docentes
 			$rlt = db_query($sql);
 			while ($line = db_read($rlt))
 				{
+					$nome = $line['pp_nome'];
 					$email1 = trim($line['pp_email']);
 					$email2 = trim($line['pp_email_1']);
-					if (strlen($email1) > 0) { array_push($emails,$email1); }
-					if (strlen($email2) > 0) { array_push($emails,$email2); }
+					if (strlen($email1) > 0) { array_push($emails,$email1.';'.$nome); }
+					if (strlen($email2) > 0) { array_push($emails,$email2.';'.$nome); }
 				}	
 			return($emails);
 		}
@@ -643,7 +644,12 @@ class docentes
 			
 			array_push($cp,array('$S20','pp_login','Login',False,False));
 			
+			array_push($cp,array('${','','Função administrativa na Instituição',False,True));
+			array_push($cp,array('$S100','pp_funcao','Função (opcional)',False,True));
+			array_push($cp,array('$}','','Função administrativa na Instituição',False,True));
 			
+			//$sql = "alter table pibic_professor add pp_funcao char(100)";
+			//$rlt = db_query($sql);
 			
 			return($cp);
 		}

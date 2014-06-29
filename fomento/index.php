@@ -22,7 +22,10 @@ echo $fmt->resumo();
 
 
 array_push($menu,array('Editais de Chamadas','Editais de chamadas','chamadas.php'));
-array_push($menu,array('Editais de Chamadas','__Categorias das chamadas','chamadas_categorias.php')); 
+array_push($menu,array('Editais de Chamadas','__Categorias das chamadas','chamadas_categorias.php'));
+
+array_push($menu,array('Envio de e-mail','Disparar e-mail na lista','chamadas_enviar_email.php'));
+array_push($menu,array('Envio de e-mail','Cancelar lista de envio','chamadas_enviar_cancelar.php')); 
 
 array_push($menu,array('Cadastros','Cadastro de Agências de Fomento','agencia_de_fomento.php'));
 

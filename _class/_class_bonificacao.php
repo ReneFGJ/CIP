@@ -347,12 +347,20 @@ class bonificacao
 	function cp_frase()
 		{
 			global $dd;
+			
+			//$sql = "alter table bonificacao alter column bn_nome TYPE char(200)";
+			//$rlt = db_query($sql);
+			
 			$cp = array();
 			array_push($cp,array('$H8','id_bn','',false,true));
 			
 			array_push($cp,array('$S100','bn_descricao','Descricao',false,false));
 			array_push($cp,array('$S6','bn_cr','CR',true,true));
-			array_push($cp,array('$T60:5','bn_descricao','CR',true,true));
+			array_push($cp,array('$S100','bn_nome','Tipo',true,true));
+			array_push($cp,array('$T60:5','bn_descricao','Descrição',true,true));
+			
+			array_push($cp,array('$S20','crp_data_1_str','De',True,True));
+			array_push($cp,array('$S20','crp_data_2_str','à',True,True));			
 			
 			return($cp);			
 		}
@@ -458,18 +466,30 @@ class bonificacao
 				$ged->protocol = $line['bn_codigo'];				
 				$tipo = trim($line['bn_original_tipo']);
 				$this->line = $line;
-				if ($tipo == 'IXR')
-					{ $sr .= $this->mostar_isencao(); }
-				if ($tipo == 'IPR')
-					{ $sr .= $this->mostar_isencao(); }
-				if ($tipo == 'IPQ')
-					{ $sr .= $this->mostar_isencao_cnpq(); }				
-				if ($tipo == 'ICP')
-					{ $sr .= $this->mostar_isencao_capes(); }				
-				if ($tipo == 'PRJ')
-					{ $sr .= $this->mostar_bonificacao(); }					
-
-
+				switch ($tipo)
+					{						
+					case 'IXR':
+						$sr .= $this->mostar_isencao();
+						break;
+					case 'IPR':
+						$sr .= $this->mostar_isencao();
+						break;
+					case 'IPQ':	
+						$sr .= $this->mostar_isencao_cnpq();
+						break;
+					case 'ICP':				
+						$sr .= $this->mostar_isencao_capes();
+						break;
+					case 'PRJ':				
+						$sr .= $this->mostar_bonificacao();
+						break;
+					case 'BNI':					
+						$sr .= $this->mostar_bonificacao_artigo();
+						break;
+					default:
+						echo '===>'.$tipo;
+						echo 'Não Informado';
+					}
 				//print_r($line);
 				//echo '<HR>';
 			}
@@ -527,6 +547,60 @@ class bonificacao
 			$sx .= '</fieldset>';
 			return($sx);
 		}		
+
+	function mostar_bonificacao_artigo()
+		{
+			global $ss,$nw,$perfil,$ged;
+			$this->updatex();
+			$sta = trim($this->line['bn_status']);
+			$vlr = round($this->line['bn_rf_parcela']);
+			$descricao = $this->line['bn_descricao'];
+			$dl = stodbr($this->line['bn_liberacao']);
+			if (strlen($dl)==0) 
+				{
+					$dl = '<font color="organge">Não pago</font>';
+				}
+			if ($sta == '!') { $sta = 'não efetuado pagamento'; }
+			if ($sta == 'B') { $sta = 'Pago'; }
+			if ($sta == 'A') { $sta = 'Em processo de liberação (Diretoria)'; }
+			$sx .= '<fieldset><legend>Bonificação de projetos</legend>';
+			$sx .= '<table width=100% class="lt1">';
+			$sx .= '<TR><TD rowspan=6 width="30">';
+			$sx .= '<IMG SRC="../img/label_artigo.png" height="60">';
+			//$sx .= '<TD>'.$this->line['bn_descricao'];
+			$sx .= '<TD>Beneficiário: <B>'.$this->line['bn_professor_nome'].'</B>';
+			$sx .= '<TR>';
+			$sx .= '<TD>Data de processamento: <B>'.stodbr($this->line['bn_data']).'</B>';
+			$sx .= ' protocolo: '.$this->line['bn_codigo'];
+			$sx .= '<TR><TD>'.$descricao.'';
+			if ($perfil->valid('#SCR#ADM'))
+				{
+					$link = 'onclick="newxy2(\'bonificacao_ed_frs.php?dd0='.$this->line['id_bn'].'\',600,500);" ';
+					$sx .= ' (<A HREF="#" class="link" '.$link.'>editar</A>)';
+				}			$sx .= '<TR><TD>Situação <B>'.$sta.'</B>';
+			$sx .= '<TR><TD>Valor da Bonificação <B>'.number_format($this->line['bn_valor'],2,',','.');
+			$sx .= '</B> pago em '.$dl;
+			$sx .= '<TR><TD>CR: '.$cr.' '.$this->line['bn_cr'];
+				
+			$sx .= '</table>';
+			
+			$sr = $ged->filelist();
+			if ($ged->total_files > 0) { $sx .= $sr; }
+			
+			if ($perfil->valid('#SCR#ADM'))
+				{
+				if (strlen($ged->count) == 0)
+					{
+						$sx .= '<A HREF="formulario_pagamento.php?dd0='.$ged->protocol.'" target="_novo_formulario">Imprimir Formulário de pagamento</A>';
+						$sx .= ' ';
+					}
+				$sx .= $ged->upload_botton();
+				
+				}		
+			$sx .= '</fieldset>';
+			return($sx);
+		}		
+
 	function mostar_isencao()
 		{
 			global $ss,$nw,$perfil,$ged;

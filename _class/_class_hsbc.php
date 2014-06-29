@@ -112,9 +112,13 @@ class hsbc
 			$sx .= '         ';
 			$sx .= '27665982';
 			$sx .= '00001510';
-			// $sx .= '51462'; Trocado convenio de Salário para Outros 
+			// $sx .= '51462'; Trocado convenio de Salário para Outros
+			 
 			// Solicitidado pelo Fernando em 17/07/2013
-			$sx .= '90565';
+			// $sx .= '90565';
+			
+			// Solicitidado pelo Fernando em 16/06/2014
+			$sx .= '51462'; 
 			$sx .= '              ';
 			$sx .= '00000';
 			$sx .= ' ';
@@ -230,8 +234,13 @@ class hsbc
 					$cc .= strz($line['pa_cc_agencia'],5);
 					$cc .= ' ';
 					$cc .= '0';
-					$cc .= strz($line['pa_cc_agencia'],5);
-					$cc .= strz($line['pa_cc_conta'],7);
+					$ncc = strz($line['pa_cc_agencia'],5);
+					$nca = strz($line['pa_cc_conta'],7);
+					
+					if ($nca == '0000000') { $ncc = '00000'; }
+					$cc .= $ncc;
+					$cc .= $nca;
+					//$cc .= strz($line['pa_cc_conta'],7);
 					$cc .= ' ';
 					break;					
 				default:

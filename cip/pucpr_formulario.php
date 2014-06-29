@@ -13,7 +13,7 @@ $tela = $form->editar($cp,'');
 
 if ($form->saved > 0)
 	{
-		
+		require("../close.php");
 	} else {
 		echo $tela;
 	}

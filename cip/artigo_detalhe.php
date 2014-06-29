@@ -21,6 +21,9 @@ require("../_class/_class_ic.php");
 require("../_class/_class_artigo.php");
 $art = new artigo;
 	
+require("../_class/_class_bonificacao.php");
+$bon = new bonificacao;
+
 require("../_class/_class_docentes.php");
 $doc = new docentes;
 
@@ -56,7 +59,7 @@ if ($perfil->valid('#CPS#ADM#COO'))
 		$form_pucpr->beneficiario_nome = $art->autor_nome;
 		$form_pucpr->artigo_id = $art->id;
 		
-		echo $form_pucpr->show_botton_create();
+		//echo $form_pucpr->show_botton_create();
 
 		echo $ged->upload_botton_with_type($art->protocolo,'','');
 		echo '<h2>Ações</h2>';
@@ -68,6 +71,10 @@ if ($perfil->valid('#CPS#ADM#COO'))
 		
 		echo '<TD>';
 		echo $art->pagamentos();
+		
+		echo '<TR><TD colspan=2>';
+		$proto = 'AR'.substr($art->protocolo,2,5);
+		echo $bon->mostra_bonificacoes_por_projeto($proto);
 		
 		echo '</table>';
 		

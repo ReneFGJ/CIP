@@ -2,6 +2,9 @@
 class cr
 	{
 		var $tabela = "centro_resultado";
+		var $recupera_ordenador_necessidade_funcao;
+		var $recupera_ordenador_gasto_funcao;
+		
 		function cp()
 			{
 				
@@ -14,6 +17,7 @@ class cr
 				$rlt = db_query($sql);
 				$line = db_read($rlt);
 				$nome = trim($line['pp_nome']).' ('.trim($line['pp_cracha']).')';
+				$this->recupera_ordenador_necessidade_funcao = trim($line['pp_funcao']);
 				return($nome);
 			}
 		function recupera_ordenador_gasto($cr)
@@ -24,6 +28,7 @@ class cr
 				$rlt = db_query($sql);
 				$line = db_read($rlt);
 				$nome = trim($line['pp_nome']).' ('.trim($line['pp_cracha']).')';
+				$this->recupera_ordenador_gasto_funcao = trim($line['pp_funcao']);
 				return($nome);
 			}
 		function structure()

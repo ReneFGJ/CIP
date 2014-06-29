@@ -317,7 +317,11 @@ class artigo
 	/* Gerado formulário */
 	function acoes_24()
 		{
-			global $dd,$hd,$nw;
+			global $dd,$hd,$nw,$bon;
+			
+			$this->gerar_formulario_pagamento();
+			$bon->updatex();
+			
 			$sta = $this->status();
 			$action = 'A24';
 			$historico = $sta[24].' - '.$nw->user_login;
@@ -327,7 +331,82 @@ class artigo
 			redirecina(page().'?dd0='.$dd[0]);
 			exit;			
 		}		
-				
+	/* Cancelar solicitação */
+	function acoes_90()
+		{
+			global $dd,$hd,$nw;
+			$sta = $this->status();
+			$action = 'A90';
+			$historico = $sta[90].' - '.$nw->user_login;
+			//$this->comunicar_professor('bon_comunicacao_arti');
+			$this->alterar_status('90');
+			$this->historico_inserir($this->protocolo,$action,$historico);
+			redirecina(page().'?dd0='.$dd[0]);
+			exit;			
+		}		
+
+	function gerar_formulario_pagamento()
+		{
+			
+			$data = date("Ymd");
+			$professor = $this->line['ar_professor'];
+			$professor_nome = trim($this->autor_nome);
+			$art_titulo = trim($this->line['ar_titulo']);
+			$art_journal = trim($this->line['ar_journal']);
+			$protocolo = 'AR'.substr($this->protocolo,2,5);
+			$valor = $this->line['ar_v1'] + $this->line['ar_v2'] + $this->line['ar_v3'] + $this->line['ar_v4'] + $this->line['ar_v5'];
+			$tipo = 'BNI';
+			
+			$titulo = 'Repasse de Artigo ';
+			 
+			$texto = 'Repasse referente ao artigo científico intitulado <B>'.$art_titulo.'</B> publicado no periódico <B>'.$art_journal.'</B>, protocolo do CIP, nº '.$protocolo.', artigo ';
+			if ($this->line['ar_v1'] > 0) { $texto .= '[Qualis A1] '; $titulo .= '[Qualis A1] '; }
+			if ($this->line['ar_v2'] > 0) { $texto .= '[Qualis A2] '; $titulo .= '[Qualis A2] ';  }
+			if ($this->line['ar_v3'] > 0) { $texto .= '[Q1 Scimago] '; $titulo .= '[Q1 Scimago] '; }
+			if ($this->line['ar_v4'] > 0) { $texto .= '[ExR Scimago] '; $titulo .= '[ExR Scimago] '; }
+			if ($this->line['ar_v5'] > 0) { $texto .= '[Colaboração Internacional] '; $titulo .= '[Colaboração Internacional] '; }
+			$titulo .= ' - Ato normativo';
+			
+			$texto .= ' em Filosofia/Teologia: subcomissão Filosofia';
+			$texto .= ', conforme Ato Normativo 02/2013.';
+			$texto .= chr(13).chr(10).chr(13).chr(10).'Professor do Programa de Pós-Graduação em Filosofia- PPGF.';
+			$descricao = $texto;	
+			
+			$sql = "select * from bonificacao ";
+			$sql .= " where bn_original_protocolo = '".$protocolo."'";
+			$rlt = db_query($sql);
+	
+			if (!($line = db_read($rlt)))
+				{
+					$sql = "insert into bonificacao 
+						(
+						bn_codigo, bn_professor, bn_professor_nome,
+						bn_professor_cracha, bn_data, bn_hora,
+						bn_status, bn_descricao, bn_nome, bn_valor,
+						bn_aprovador, bn_ordenador, bn_liberacao,
+						bn_previsao, bn_original_protocolo, bn_original_tipo, 
+						bn_renuncia, bn_data_implementacao,
+						bn_beneficiario, bn_rf_parcela, bn_rf_valor, 
+						bn_modalide, crp_data_1_str, crp_data_2_str
+						) values (
+						'','$professor','$professor_nome',
+						'$professor',$data,'0',
+						'A','$descricao','$titulo',$valor,
+						'','',$data,
+						$data,'$protocolo','$tipo',
+						'0',$data,
+						'$professor','1','0',
+						'','',''
+						);
+					";
+					$rlt = db_query($sql);
+					return(1);
+				} else {
+					print_r($line);
+					echo 'Formulário já cadastrado';
+				}
+				return(0);
+		}
 	function acoes()
 		{
 			global $dd,$acao;
@@ -337,6 +416,13 @@ class artigo
 				{
 					switch ($dd[1])
 						{
+						case '1': 
+							if ($st != '1')
+								{
+								$this->acoes_22(); 
+								//$this->historico('11');
+								}
+							break;							
 						case '10': 
 							if ($st != '10')
 								{
@@ -400,8 +486,18 @@ class artigo
 								//$this->historico('9');
 								}
 							break;																																		
+						case '90':
+							echo '==============='; 
+							if ($st != '90')
+								{
+								$this->acoes_90(); 
+								//$this->historico('9');
+								}
+							break;					
+						default:
+							echo '-não localizado->executa acao '.$dd[1];																													
 						}
-					echo '--->executa acao '.$dd[1];
+					
 				}
 			
 			$acoes = array();
@@ -444,12 +540,17 @@ class artigo
 				case '24': /* Cadastrado */
 					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));
 					array_push($acoes,array('25','Comunicado pesquisador'));
+					array_push($acoes,array('90','Finalizar'));
 					break;										
 				case '25': /* Cadastrado */
 					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));
 					array_push($acoes,array('25','Comunicado pesquisador'));
-					break;										
+					array_push($acoes,array('90','Finalizar'));
+					break;
+				case '90':
+					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));										
 				default:
+					
 					echo '-->'.$st;
 					break;
 				}
@@ -686,7 +787,7 @@ class artigo
 			while ($line = db_read($rlt))
 				{
 					$sta = round($line['ar_status']);
-					//echo '->'.$sta;
+					$total = $line['total'];
 					switch ($sta) {
 						case 0:
 							$api[9] = $api[9] + $line['total'];
@@ -712,8 +813,12 @@ class artigo
 						case 23:
 							$api[23] = $api[23] + $line['total'];
 							break;
+						case 90:
+							$api[25] = $api[25] + $line['total'];
+							break;
 						default:
-							$api[22] = $api[22] + $line['total'];
+							echo '==>'.$sta;
+							$api[11] = $api[11] + $line['total'];
 							break;
 					}
 				}
@@ -772,6 +877,8 @@ class artigo
 				'99'=>'Não validado pelo coordenador',
 				'98'=>'Validado, sem bonificação',
 				'10'=>'Validado pelo professor',
+				
+				'90'=>'Não validado pelo coordenador',
 				
 				'1'=>'Com bonificação',
 				'2'=>'Sem bonificação',

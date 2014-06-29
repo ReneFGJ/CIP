@@ -10,9 +10,7 @@ require($include.'sisdoc_debug.php');
 	$clx = new discentes;
 	$tabela = $clx->tabela;
 	
-	$label = "";
-	echo '<h1>Cadastro de Discentes</h1>';
-	
+	$label = ("discente");
 	$http_edit = 'discentes_ed.php'; 
 	$http_ver = 'discentes_detalhe.php'; 
 

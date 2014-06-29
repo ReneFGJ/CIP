@@ -18,6 +18,8 @@ $art = new artigo;
 
 echo $art->resumo('');
 
+echo '<A HREF="artigos_professores_q1.php">Professores com Q1</A>';
+
 echo $art->resumo_issn('');
 
 	//$tela = menus($menu,"3");

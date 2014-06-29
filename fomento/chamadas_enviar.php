@@ -19,6 +19,7 @@ require("../_class/_class_docentes.php");
 	$titulo = $clx->titulo;
 	echo $conteudo;
 
+	$doc = new docentes;
 	
 	if ((strlen($acao) > 0) and ($dd[1] == '1'))
 		{
@@ -47,11 +48,6 @@ require("../_class/_class_docentes.php");
 						case '00010':
 							$emails = $clx->alunos_ic($emails);
 							break;
-						case '00036':
-							/* Prof. Escola de Saúde */
-							$doc = new docentes;
-							$emails = $doc->docentes_email_escola('00010',$emails);
-							break;
 						case '00008':
 							/* Coordenadores */
 							$emails = $clx->ppg_coordenadores_email($emails);
@@ -60,13 +56,46 @@ require("../_class/_class_docentes.php");
 							/* Prof. Escola de Saúde */
 							$emails = $clx->ppg_secretaria_email($emails);
 							break;
-						case '00017':
-							/* Pesquisa básicas */
-							break;						
+						/* Escolas */
+						case '00036':
+							/* Prof. Escola de Saúde */
+							$emails = $doc->docentes_email_escola('00010',$emails);
+							break;
 						case '00037':
 							/* Prof. Escola de Saúde */
-							array_push($emails,'renefgj@gmail.com;Rene Faustino Gabriel Junior');
-							array_push($emails,'pdi@pucpr.br;Observatório PD&I');
+							array_push($emails,'pdi@pucpr.br;Observatorio PD&I');
+							break;							
+						case '00038':
+							/* Prof. Escola Politécnica */
+							$emails = $doc->docentes_email_escola('00009',$emails);
+							break;														
+						case '00039':
+							/* Prof. Escola Arquitetura e Desgin */
+							$emails = $doc->docentes_email_escola('00001',$emails);
+							break;														
+						case '00040':
+							/* Prof. Escola Arquitetura e Desgin */
+							$emails = $doc->docentes_email_escola('00003',$emails);
+							break;														
+						case '00041':
+							/* Prof. Escola Comunicação e Artes */
+							$emails = $doc->docentes_email_escola('00004',$emails);
+							break;														
+						case '00042':
+							/* Prof. Escola de Direito */
+							$emails = $doc->docentes_email_escola('00005',$emails);
+							break;														
+						case '00043':
+							/* Prof. Escola de Humanidades */
+							$emails = $doc->docentes_email_escola('00006',$emails);
+							break;														
+						case '00044':
+							/* Prof. Escola de Medicina */
+							$emails = $doc->docentes_email_escola('00007',$emails);
+							break;														
+						case '00045':
+							/* Prof. Escola de Negócios */
+							$emails = $doc->docentes_email_escola('00045',$emails);
 							break;														
 						default:
 							echo '<BR>=xx=>'.$trc;

@@ -20,6 +20,7 @@ $bon->le($dd[0]);
 
 require('../_class/_class_cr.php');
 $cr = new cr;
+$cr->structure();
 
 require('../_class/_class_pucpr_formulario.php');
 $fm = new formulario;

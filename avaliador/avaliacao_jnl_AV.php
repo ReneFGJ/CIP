@@ -57,7 +57,7 @@ if ($pp->status == 'D')
 		echo '<BR><BR><BR><center>';
 		exit;
 	}
-	
+		
 echo '<div>';
 echo '<form method="post">';
 	$edit_mode = 0;
