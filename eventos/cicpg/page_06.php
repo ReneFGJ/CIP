@@ -19,7 +19,7 @@
 					<BR>
 					Fone: 55(41) 3271-2112
 					<BR>
-					e-mail: pibicpr@pucpr.br </TD>
+					e-mail: oliveira.thales@pucpr.br ou pibicpr@pucpr.br </TD>
 					</P>
 					<TD></TD>
 				</TR>

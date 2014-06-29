@@ -11,4 +11,6 @@ class campi
 					'DOUTORANDO'
 					);
 			return($campi);
+			}
 	}
+?>

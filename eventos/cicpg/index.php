@@ -12,6 +12,7 @@ require("page_05.php");
 require("page_06.php");
 require("page_07.php");
 require("page_08.php");
+require("page_10.php");
 
 
 require("foot.php");

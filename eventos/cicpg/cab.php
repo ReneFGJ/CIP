@@ -30,8 +30,7 @@ function msg($x)
         <meta charset="ISO-8859-1" description" content="">
 		<meta name="description" content="Encontro Sul de Iniciacao Cientifica e Pps-Graduacao">
 	    <link rel="icon" type="img/png" href="favicon.png">
-        <link rel="stylesheet" href="css/estilo.css">
-        <link rel="stylesheet" href="css/font-awesome.css">
+	    <link rel="stylesheet" href="css/cicpg-inport-font.css">
 		<link rel="stylesheet" href="css/cicpg-header-main.css">
 		<link rel="stylesheet" href="css/cicpg_normal.css">
 		<script src="js/jquery.js"></script>

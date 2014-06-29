@@ -45,7 +45,7 @@
 			<div class="content">Entre em contato com a organização</div>
 		</div></a>
 		
-		<a href="#page07">
+		<a href="#page10">
 		<div class="block">
 			<div class="title">Mapas</div>
 			<div class="content">Mapa de localização de Curitiba</div>
@@ -87,6 +87,7 @@
 .block:hover
 	{
 		opacity: 1;
+		background-image: url('../img/back01.jpg');
 		background-color: #242424;
 		color: #F0F0F0;
 		width: 300px;
@@ -95,10 +96,6 @@
 		margin: 10px 10px 10px 10px;
 		float: left;
 	}	
-.pg01
-	{
-		background-color:#FF8258;
-	}
 #menu_apresentacao
 	{
 		background-color:#FF8258;
