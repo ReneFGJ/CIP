@@ -1,0 +1,70 @@
+/* CSS Document FORMS E LINKS*/
+
+
+/*fORM BUSCA GERAL*/
+form.busca{
+	position: relative;
+	margin-top: 120px;
+	margin-right: 10px;
+	height: 25px;
+}
+form.busca label{
+    cursor: pointer;
+    font-size: 13pt;
+}
+form.busca label a:link, .busca label a:visited{
+	text-decoration: none;
+    color: #ffcc33;
+    font-size: 13pt;
+}
+form.busca label a:hover{
+	color: #fff; 
+}
+form.busca label i { /* Gap between icon and text */
+    display: inline-block;
+}
+form.busca input[type=text] {
+    font-family: 'open_sansregular';
+    font-size: 11pt;
+    margin-right: 5px;
+    /* width: 170px; */
+    padding: 3px;
+    margin-bottom: 5px;
+    -webkit-box-shadow: inset 1px 2px 2px 1px rgba(6, 6, 6, 0.2);
+    box-shadow: inset 1px 2px 2px 1px rgba(6, 6, 6, 0.2);
+    border: 1px solid #ebe6e2;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+form.busca input[type=text]:hover {
+    border-color: #ffcc33;
+}
+
+form.busca label:hover ~ input {
+    border-color: #ffcc33;
+}
+
+form.busca input[type=text]:focus{
+    border-color: #BBB;
+    outline: none; /* Remove Chrome's outline */
+}
+/*End FORMA BUSCA GERAL*/
+
+/* LINKS */
+    
+a:link, a:visited {
+    color: #666666;
+    text-decoration:none;
+    /* Transition */
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+}
+a:hover{
+    color: #ffcc33;
+}

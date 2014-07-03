@@ -1,0 +1,23 @@
+/* CSS Document IMGS*/
+
+.logo{
+	position: relative;
+	float: left;
+	left: 47px;
+	top: 48px;
+	width:216px;
+	height: 83px;
+	background: url(../img/logo.png) no-repeat;
+}
+.icon-thumbs-up{
+	color: #99cc99;
+}
+.icon-thumbs-down{
+	color: #993333;
+}
+.margin_right_icon{
+	margin-right: 12px;
+}
+.icon_color_padrao{
+	color: #4a618b;
+}

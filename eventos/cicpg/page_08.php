@@ -71,7 +71,7 @@
 			<B>Felipe Machado</B>
 			<BR>
 			(design gráfico da Editora Champagnat)
-			<BR>
+				<BR>
 			<BR>
 			<B>Fernanda Arruda</B>
 			<BR>

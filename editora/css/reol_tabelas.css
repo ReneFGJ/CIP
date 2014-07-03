@@ -1,0 +1,111 @@
+.padding5
+	{ padding: 5px 5px 5px 5px; }
+/*-------------TABELA 10-------------*/
+.tabela00{
+	font-family: 'open_sansregular';
+}
+
+.tabela00 th{
+	font-size: 10px;
+}
+.tabela00_title th{
+	border-bottom: 2px #fff solid;
+}
+.tabela00 tr{
+	font-size: 13px;
+	border-bottom: 2px #fff solid;
+/* Transition */
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+}
+
+.tabela00 td{
+	padding: 0px;
+	font-size: 14px;
+}
+
+
+/*-------------TABELA 10-------------*/
+.tabela10{
+	font-family: 'open_sansregular';
+}
+
+.tabela10 th{
+	font-size: 10px;
+	background-color: #e7e7e7;
+}
+.tabela10_title th{
+	background-color: #e7e7e7;
+	border-bottom: 2px #fff solid;
+}
+.tabela10 tr{
+	font-size: 13px;
+	background-color: #f4f4f4;
+	border-bottom: 2px #fff solid;
+/* Transition */
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+}
+.tabela10 tr:hover{
+	background-color: #ffea92;
+}
+.tabela10 td{
+	padding: 0px;
+}
+
+tr.tabela10_total{
+	background-color: #e7e7e7;
+}
+tr.tabela10_total:hover{
+	background-color: #e7e7e7;
+	cursor: auto;
+}
+
+/*-------------TABELA 20-------------*/
+
+.tabela20 th{
+	font-family: 'open_sanslight';
+	font-size: 16px;
+	background-color: #c8c8c8;
+	padding: 2px;
+	border-bottom: 2px #fff solid;
+
+}
+.tabela20 tr{
+	border-bottom: 2px #fff solid;
+	background-color: #e7e7e7;
+	        /* Transition */
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: linear;
+}
+.tabela20 tr:hover{
+	background-color: #ffea92;
+	cursor: pointer;
+}
+.tabela20 td{
+	font-size: 14px;
+	padding: 5px;
+}
+tr.par{
+	border-bottom: 2px #fff solid;
+	background-color: #f4f4f4;
+}
+
+.tabela_title{
+	font-family: 'open_sanslight_italic';
+	font-size: 15px;
+	text-align: center;
+	background-color: #c8c8c8;
+	border-bottom: 2px #fff solid;
+}
+
+/*-------------TABELA 20-------------*/
+
+.tabela {
+	font-family: 'open_sanslight';
+	font-size: 12px;
+	padding: 2px;
+}
