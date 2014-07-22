@@ -14,6 +14,8 @@ echo $hd->main_content();
 echo '<h2>seleciona uma publicação</h2>';
 echo $jl->journal_list();
 
+echo '<A HREF="journals.php">tt</A>';
+
 echo '</div>';
 
 require("foot.php");

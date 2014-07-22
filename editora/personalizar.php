@@ -24,6 +24,7 @@ $menu = array();
 	array_push($menu,array('Dados da publicação','Configurações','journal_parametros.php?dd0='.$jid));
 	array_push($menu,array('Edição do site','Habilitar/desabilitar edição','admin_message_enable.php'));	
 	array_push($menu,array('Imagens','Cabeçalho da página','upload_file.php?dd99=top'));
+	array_push($menu,array('Imagens','Rodapé da página','upload_file.php?dd99=botton'));
 	array_push($menu,array('Layout da página','Cor de fundo','layout_background.php'));
 	array_push($menu,array('Layout da página','Template da Página','layout_template.php'));
 	

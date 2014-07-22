@@ -34,12 +34,15 @@ array_push($menu,array('Avaliadores','Mudar todos para enviar convite','avaliado
 array_push($menu,array('Avaliações','Cancelar todas as indicações','pibic_04.php')); 
 
 array_push($menu,array('Avaliações','Manutenção das indicações','pibic_05.php'));
+array_push($menu,array('Avaliações','Validações (SUBMI/SUBMP)','pibic_AA.php'));
 
 array_push($menu,array('Contrato','Emissao de contratos','pibic_contrato.php')); 
 
 
 array_push($menu,array('Calendário','Calendário de eventos','admin_calender.php'));
 array_push($menu,array('Calendário','Tipos de eventos','admin_calender_type.php'));
+
+array_push($menu,array('Calendário','Cadastro de Bolsas','pibic_bolsa_tipo.php'));
 
 ?>
 

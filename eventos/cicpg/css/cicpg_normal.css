@@ -1,3 +1,37 @@
+.pg04 { background-color: #F5F5DC; }
+.pg05 { background-color: #F0FFF0; }
+.pg06 { background-color: #D3D3D3; }
+.pg07 { background-color: #FFE4E1; }
+.pg08 { background-color: #F0FFFF; }
+.pg09 { background-color: #FFF0FF; }
+.pg10 { background-color: #FFFFF0; }
+.pg11 { background-color: #FFF0F0; }
+.pg12 { background-color: #F0F0FF; }
+
+.foot
+	{
+		padding: 50px;
+		background-color: #C0C0C0;
+		width: 100%;
+		font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
+		font-size: 14px;
+		margin-left: 10px;	
+	}
+.logo_pg
+	{
+		padding: 10px;
+	}
+#logo_pucpr
+	{
+		top: 0px;
+		position: absolute;
+		right: 40px;
+		background: url('../img/logo_pucpr_top.jpg');
+		width: 234px;
+		height: 110px;
+		border: 1px solid #8B1217;
+		z-index: 10000;
+	}
 .title {
 	font-family: 'CICPG-Bold', 'EBGaramondRegular', 'Tahoma', 'Arial';
 	font-size: 14px;
@@ -7,7 +41,7 @@
 
 .content {
 	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
-	font-size: 11px;
+	font-size: 13px;
 	letter-spacing: 0.1em;
 }
 
@@ -21,6 +55,7 @@
 	letter-spacing: 1px;
 }
 h1 {
+	margin-left: 50px;
 	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
 }
 .lt4 {
@@ -44,7 +79,7 @@ h1 {
 p {
 	line-height: 140%;
 	font-family: 'CICPG', 'Tahoma', 'Arial';
-	font-size: 13px;
+	font-size: 15px;
 }
 table {
 	font-family: 'CICPG', 'Tahoma', 'Arial';
@@ -66,7 +101,7 @@ table {
 }
 /* Pagimas */
 .page_min {
-	min-height: 800px;
+	min-height: 500px;
 	padding-top: 80px;
 }
 /* Cabecalho */
@@ -120,7 +155,7 @@ a.y-out:hover {
 	top: 0;
 	width: 100%;
 	margin-top: 0px;
-	z-index: 9999;
+	z-index: 50;
 	background-color: #2d332d;
 	color: #f0f0f0;
 }

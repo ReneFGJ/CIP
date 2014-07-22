@@ -10,10 +10,11 @@ echo '<HR>';
  */
 //$sql = "update ".$parecer_pibic->tabela." set pp_data = 20140417 where pp_tipo = 'RPAR' ";
 //$rlt = db_query($sql); 
-if (date("m") < 5)
+if (date("m") < 4) 
 	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAR'); } 
+	//{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAC'); } 
 
-if ((date("m") >= 5) and (date("m") < 7))
+if ((date("m") >= 5) and (date("m") < 8))
 	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'SUBMI'); }
 	 
 $tot = $tot + $tela[0];

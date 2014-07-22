@@ -7,9 +7,6 @@ require("_class/_class_dtd_mark.php");
 $dtd = new dtd_mark;
 $id = $dd[0];
 
-
-
-
 if (strlen($acao) == 0)
 	{
 		$dtd->recupera_file($ged->tabela, $id);
@@ -28,13 +25,25 @@ $tela = $form->editar($cp,'');
 
 if ($form->saved > 0)
 	{
+		$tx = $dd[1];
 		$dtd->recupera_file($ged->tabela, $id);
 		$file = $dtd->file;
-		$txt = troca($dd[1],'´',"'");
-		if ($dd[2]=='S') { $txt = utf8_encode($txt); }
+		$tx = troca($tx,'´',"'");
+		$tx = troca($tx,'&#61650;','&reg');
+		$tx = troca($tx,'&#61617;','&plusmn;');
+		$tx = troca($tx,'&#61666;','&reg');
+		$tx = troca($tx,'1st','1[sup]st[/sup]');
+		$tx = troca($tx,'2nd','2[sup]nd[/sup]');
+		$tx = troca($tx,'3th','3[sup]th[/sup]');
+		$tx = troca($tx,'Pimax','Pi[sub]max[/sub]');
+		$tx = troca($tx,'Pemax','Pe[sub]max[/sub]');
+		$tx = troca($tx,'SaO2','SaO[sub]2[/sub]');
+		
+				
+		if ($dd[2]=='S') { $tx = utf8_encode($tx); }
 		//$txt = troca($txt,chr(177),'&#177;');
 		$rlt = fopen($file,'w+');
-		fwrite($rlt,$txt);
+		fwrite($rlt,$tx);
 		fclose($rlt);
 		require("close.php");
 	} else {

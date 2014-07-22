@@ -80,14 +80,22 @@ class pibic_historico
 				array_push($cp,array('$S7','bh_aluno_2','Aluno (Entra)',False,True));
 				return($cp);
 			}
+
 		
-		function historico($tp=90,$dd1=19000101,$dd2=20500101)
+		function historico($tp=90,$dd1=19000101,$dd2=20500101,$bolsa='')
 			{
-				$sql = "select * from ".$this->tabela.'
-						where bh_acao = '.round($tp).'
-						and bh_data >= '.$dd1.' and bh_data <= '.$dd2.'
+				$tp = 91;
+				$wh = ' and bh_acao = '.round($tp);
+						
+				$in = ' left join pibic_bolsa_contempladas on bh_protocolo = pb_protocolo 
+						inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+				';
+				$sql = "select * from ".$this->tabela."
+						$in
+						where  bh_data >= $dd1 and bh_data <= $dd2
+						$wh
 						order by bh_data
-						'
+						"
 						;
 				
 				$rlt = db_query($sql);
@@ -101,9 +109,6 @@ class pibic_historico
 				while ($line = db_read($rlt))
 					{
 						$id++;
-						//print_r($line);
-						//echo '<HR>';
-						//exit;
 						$link = '<A HREF="pibic_historico_ed.php?dd0='.$line['id_bh'].'" target="_new">';
 						$sx .= '<TR>';
 						$sx .= '<TD class="tabela01"><nobr>';
@@ -123,7 +128,12 @@ class pibic_historico
 						$sx .= $link;
 						$sx .= $line['bh_acao'];	
 						
-						
+						$sx .= '<TD class="tabela01">';
+						$sx .= $line['pbt_edital'];
+
+						$sx .= '<TD class="tabela01">';
+						$sx .= $line['pbt_descricao'];
+												
 						$ln = $line;					
 					}
 				$sx .= '<TR><TD colspan=2>Total de '.$id.' registros localizados';

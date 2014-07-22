@@ -57,7 +57,7 @@ if (date("m") < 4)
 		$ano = $ano - 1;
 	}
 
-//if ($professor == '88958022')
+if ($professor == '88958022')
 {
 	//echo $ed->bolsas_indicadas($professor,$ano);
 	$id_pesq = $professor;
@@ -80,11 +80,9 @@ require("atividade_IC1_row.php");
 /* Relatório Parcial - Correcoes */
 require("atividade_IC7_row.php");
  
-/*
- equire("atividade_IC3_row.php");
+require("atividade_IC3_row.php");
 require("atividade_IC4_row.php");
-echo '<HR>';
-*/
+
  /* require("atividade_IC6_row.php"); */
 
 require("../foot.php");

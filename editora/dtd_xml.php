@@ -64,7 +64,7 @@ if (strpos($page,'-') > 0)
 		$page = trim(substr($page,0,strpos($page,'-')));
 	}
 while (strlen($page) < 4) { $page = '0'.$page; }
-$path = trim($jnl->line['path']); $path = 'FM';
+$path = trim($jnl->line['path']); $path = 'fm';
 $file = trim($jnl->line['journal_issn']);
 $npage = $page;
 while (strlen($npage) < 5) { $npage = '0'.$npage; }

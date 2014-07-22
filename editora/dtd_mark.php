@@ -19,10 +19,10 @@ echo '['.$tipo.']';
 			$tela = $form->editar($cp, '');
 			if ($form->saved > 0)
 				{
-					echo '--->'.$dd[10]; 
 					$dtd->phase_insere($paragrafo,$dd[10]);
-					echo $dtd->conteudo;
+					//echo $dtd->conteudo;
 					$dtd->save_file();
+					echo 'FIM';
 				} else { echo $tela; exit; }
 
 require("close.php");

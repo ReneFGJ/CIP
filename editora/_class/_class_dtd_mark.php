@@ -63,6 +63,7 @@ class dtd_mark
 				$sec .= '&introducao:introducao';
 				$sec .= '&metodologia:metodologia';
 				$sec .= '&materiais:materiais';
+				$sec .= '&materials|methods|materials|methods';
 				$sec .= '&resultado:resultado';
 				$sec .= '&discussao:discussao';
 				$sec .= '&conclusao:conclusao';
@@ -152,6 +153,7 @@ class dtd_mark
 							case 'metodo': $ttt = '[sec sec-type="methods"][title][title]'; $ttr = '[/title]'; break;
 							case 'resultado': $ttt = '[sec sec-type="results"][title]'; $ttr = '[/title]'; break;
 							case 'discussao': $ttt = '[sec sec-type="discussion"][title]'; $ttr = '[/title]'; break;
+							case 'materials|methods': $ttt = '[sec sec-type="materials|methods"][title]'; $ttr = '[/title]'; break;
 							case 'conclusao': $ttt = '[sec sec-type="conclusions"][title]'; $ttr = '[/title]'; break;
 							case 'outros': $ttt = '[sec][title]'; $ttr = '[/title]'; break;
 							case 'materiais': $ttt = '[sec sec-type="materials"][title]'; $ttr = '[/title]'; break;
@@ -215,22 +217,16 @@ class dtd_mark
 				$err = '';
 				$ok = 0;
 				$txt = '  '.$this->conteudo;
-				if (strpos($txt,'<article') > 0)
+				$t1 = splitx('[sec',$txt);
+				$t2 = splitx('/sec]',$txt);
+
+				if (count($t1) != count($t2))
 					{
-						/* ok */
-					} else {
 						$ok = -1;
-						$err .= 'Falta elemeto [article]<BR>';
+						$err = 'Número de sessões abertas não corresponde as fechadas';
 					}
-				if (strpos($txt,'</article>') > 0)
-					{
-						/* ok */
-					} else {
-						$ok = -2;
-						$err .= 'Falta finalização do elemeto [article]<BR>';
-					}
-				$this->erro = $err;
 				$this->phase = 1;
+				$this->erro = $err;
 				return($ok);
 			}
 		function checa_phase_ii()
@@ -364,12 +360,22 @@ class dtd_mark
 		function mostra_marcacao($tipo='M0')
 			{
 				$txt = $this->conteudo;
-				
+				$cores = array(
+							   '#006000','#FF8000','#FF8080',
+							   '#FF0080','#FF80FF','#FF00FF',
+
+							   '#0000FF','#8000FF','#8080FF',
+							   '#0080FF','#80FFFF','#00FFFF',
+
+							   '#00FF00','#80FF00','#80FF80',
+							   '#0080FF','#80FFFF','#00FFFF'
+							);
+				$cor = 0;
 				
 				$txt = ' '.troca($txt,chr(13),'£');
 				$txt = troca($txt,'<','[');
 				$txt = troca($txt,'>',']');
-				
+				$ncor = 0;
 				if ($this->phase == 1)
 					{
 						$par = 1;
@@ -380,7 +386,21 @@ class dtd_mark
 							{
 								$link = '<BR><INPUT TYPE="button"  onclick="newxy2(\'dtd_mark.php?dd0='.$id.'&dd1='.$r.'&dd2='.$tipo.'&dd3='.$this->file_table.'&dd4='.$this->file_id.'\',200,200);" 
 										value="'.($r+1).'">';
-								$txt .= $link.$txts[$r];
+								
+								$tx = trim($txts[$r]);
+								$sec = trim(substr($tx,0,4));
+								
+								if ($sec == '[sec') 
+									{
+										$tx = '<font color="'.$cores[$ncor].'">'.$tx;
+										$ncor++;																				
+									}
+								$t = splitx('[/sec]',$tx);
+								$ncor = $ncor - (count($t)-1);
+								$tx = troca($tx,'[/sec]','[/ sec]</font>');
+								
+								$txt .= $link.$tx.' ['.$ncor.']';
+								if ($ncor==0) { $txt .= '<HR>'; }
 								$txt .= chr(13).chr(10);
 							}
 						$txt .= '</UL>';

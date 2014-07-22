@@ -19,10 +19,10 @@ class pibic_bolsa_tipo
 				array_push($cp,array('$S1','pbt_codigo','codigo',False,true));
 				array_push($cp,array('$S100','pbt_descricao','Nome',False,true));
 				array_push($cp,array('$S40','pbt_img','Link da Imagem',False,true));
-				array_push($cp,array('$Q pm_nome:pm_codigo:select * from pibic_modalidade where pm_ativo=1 order by id_pm','pbt_edital',msg('pbt_edital'),True,true));
+				array_push($cp,array('$O PIBIC:PIBIC&PIBITI:PIBITI&PIBICE:PIBIC JR&ICI:Mobilidade Internacional&CSF:Ciência sem Fronteiras','pbt_edital',msg('pbt_edital'),True,true));
 				array_push($cp,array('$N8','pbt_auxilio',msg('pbt_auxilio'),False,true));
-				array_push($cp,array('$[1-30]','pbt_ordem',msg('pbt_ordem'),False,true));
-				array_push($cp,array('$O 1:SIM&0:NÃO','pbt_ativo','id',False,true));
+				//array_push($cp,array('$[1-30]','pbt_ordem',msg('pbt_ordem'),False,true));
+				array_push($cp,array('$O 1:SIM&0:NÃO','pbt_ativo','Ativo',False,true));
 				return($cp);
 			}
 		function row()

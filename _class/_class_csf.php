@@ -861,8 +861,8 @@ class csf
 			    google.setOnLoadCallback(drawVisualization);
   				</script>
 	
-				<div id="visualization"></div>
-				<div style="text-align: justify"><?php echo msg("csf_mapa_foot"); ?></div>
+				<div id="visualization" style="z-index:0;"></div>
+				<div style="text-align: justify">Mapa</div>
 			
 				<style>
 					#visualization

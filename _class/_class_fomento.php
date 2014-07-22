@@ -20,6 +20,7 @@ class fomento {
 	var $tabela_cancelar_envio = 'fomento_email_nao_receber';
 	var $texto;
 	var $titulo;
+	var $titulo_email;
 	var $id;
 	var $edital;
 
@@ -95,11 +96,11 @@ class fomento {
 		echo $sx;
 	}
 
-	function cancelar_email()
-		{
-			$sql .= "delete from " . $this -> tabela_fila_envio . " where 1=1" . chr(13) . chr(10);			
-			$rlt = db_query($sql);
-		}
+	function cancelar_email() {
+		$sql .= "delete from " . $this -> tabela_fila_envio . " where 1=1" . chr(13) . chr(10);
+		$rlt = db_query($sql);
+	}
+
 	function enviar_email($total) {
 		$sql = "select * from " . $this -> tabela_fila_envio . "
 						order by id_fle
@@ -139,7 +140,7 @@ class fomento {
 		return (1);
 	}
 
-	function email_gera_fila_envio($titulo, $conteudo, $email) {
+	function email_gera_fila_envio($titulo, $conteudo, $email, $titulo_email = '') {
 		$last = $this -> email_resumo_enviar();
 		if ($last > 0) {
 			echo '<h1>ERRO</h1>';
@@ -162,7 +163,11 @@ class fomento {
 				$titulo = troca($titulo, '<br>', '');
 				$titulo = troca($titulo, '<BR>', '');
 				$titulo = troca($titulo, '&nbsp', '');
-				$tit = '[PUCPR] - ' . $titulo;
+				$tit = '[PD&I] - ' . $titulo;
+				if (strlen($titulo_email) > 0) {
+					$tit = '[PD&I] - ' . $titulo_email;
+				}
+				$tit .= ' ' . $nome;
 
 				$txta = '
 							<font style="font-size: 12px; font-family: tahoma, verdana, arial">
@@ -182,7 +187,8 @@ class fomento {
 			}
 			$xmail = $mail;
 		}
-		if (strlen($sql) > 0) { $rlt = db_query($sql); }
+		if (strlen($sql) > 0) { $rlt = db_query($sql);
+		}
 	}
 
 	function email_cancelar($cracha) {
@@ -202,6 +208,7 @@ class fomento {
 		if ($line = db_read($rlt)) {
 			$this -> line = $line;
 			$this -> titulo = $line['ed_titulo'];
+			$this -> titulo_email = $line['ed_titulo_email'];
 			$this -> id = $line['ed_codigo'];
 			return (1);
 		}
@@ -298,40 +305,39 @@ class fomento {
 
 	function mostra() {
 		global $http;
-		$sx = '<table width="600" align="center"
-							style="border: 1px solid #000000;
-									font-size: 14px; font-family: tahoma, verdana, arial;
-									"						
-				>';
+		$sx = '<table width="640" border=0 align="center" style="border: 1px solid #000000; font-size: 14px; font-family: tahoma, verdana, arial;">';
+		/* Titulo do e-mail */
+		$titulo_email = trim($this -> titulo_email);
+		echo '<TR><TD>';
+		echo '<h2><font color="blue">' . $titulo_email . '</font></h2>';
+		echo '</TD></TR>';
+
 		$sx .= '<TR valign="top"><TD>';
 		$sx .= '<img src="' . $http . 'img/email_pdi_header.png" ><BR>';
 		$sx .= '<tr valign="top">
 							<td valign="top" ALIGN="left" style="font-size:21px;">';
-		
-		if (strlen(trim($this -> line['agf_imagem']))) 
-			{ $sx .= '<img src="' . $this -> line['agf_imagem'] . '" height="100" align="left"  style="padding: 0px 20px 0px 5px;">'; }
+
+		if (strlen(trim($this -> line['agf_imagem']))) { $sx .= '<img src="' . trim($this -> line['agf_imagem']) . '" height="100" align="left"  style="padding: 0px 20px 0px 5px;">';
+		}
 		$tttt = trim($this -> line['ed_titulo']);
 		$sx .= '<font style="font-size:25px">' . $tttt . '</font>';
 		$sx .= '<BR><BR>';
 
 		for ($r = 1; $r <= 12; $r++) {
 			$vl = trim($this -> line['ed_texto_' . $r]);
-			if (strlen($vl) > 0)
+			if (strlen($vl) > 0) {
 				//$sx .= '<TR><TD><B>'.UpperCase(msg('fomento_'.$r)).'</B>';
-				$sx .= '<TR><TD><BR><B>' . msg('fomento_' . $r) . '</B>';
-			$sx .= '<TR><TD align="left">' . $vl . '';
+				$sx .= chr(13) . chr(10);
+				$sx .= '<TR><TD><BR><B>' . msg('fomento_' . $r) . '</B></td></tr>';
+				$sx .= chr(13) . chr(10);
+				$sx .= '<TR><TD>' . $vl . '<BR></td></tr>';
+			}
 		}
-		$sx .= '<BR>';
 		$sx .= '<TR><TD>';
 		$sx .= '<BR><BR>';
-		$sx .= '<table width="500" align="center" border=0 
-							style="border: 1px solid #000000;
-									font-size: 14px; font-family: tahoma, verdana, arial;
-							" 
-							>';
-		if (round($this -> line['ed_data_1']) > 20000101) 
-		{
-			 $sx .= '<TR><TD align="right"><font style="font-size: 18px;"><I>Deadline</I> para submissão eletrônica <B><font color="red">' . stodbr($this -> line['ed_data_1']) . '</font>';
+		$sx .= '<table width="500" align="center" border=0 style="border: 1px solid #000000; font-size: 14px; font-family: tahoma, verdana, arial;	">' . chr(13) . chr(10);
+		if (round($this -> line['ed_data_1']) > 20000101) {
+			$sx .= '<TR><TD align="right"><font style="font-size: 18px;"><I>Deadline</I> para submissão eletrônica <B><font color="red">' . stodbr($this -> line['ed_data_1']) . '</font>';
 		} else {
 			//$sx .= '<TR><TD align="right"><font style="font-size: 18px;"><I>Deadline</I> para submissão eletrônica <B><font color="red">' . $this -> deadline($this -> line['ed_data_1']) . '</font>';
 		}
@@ -370,7 +376,7 @@ class fomento {
 		$ttt = troca($tttt, '<BR>', '');
 		$this -> titulo = $ttt;
 
-		return ($sx);		
+		return ($sx);
 	}
 
 	function tags() {
@@ -390,6 +396,9 @@ class fomento {
 	}
 
 	function cp() {
+		//$sql = "alter table ".$this->tabela." add column ed_titulo_email char(100)";
+		//$rlt = db_query($sql);
+
 		$info = '<TR><TD><TD class="tabela01">
 			Informar a data do <I>Deadline</I>
 			<BR>Informar 01/01/1910 - Para 90 dias antes do evento (Deadline)
@@ -397,6 +406,8 @@ class fomento {
 		$cp = array();
 		array_push($cp, array('$H8', 'id_ed', '', False, True));
 		array_push($cp, array('$T70:3', 'ed_titulo', 'Título da chamada', True, True));
+		array_push($cp, array('$S100', 'ed_titulo_email', 'Título do e-mail (opcional)', False, True));
+
 		array_push($cp, array('$HV', 'ed_data', date("Ymd"), False, True));
 		array_push($cp, array('$Q agf_nome:agf_codigo:select * from agencia_de_fomento where agf_ativo=1 order by agf_nome', 'ed_agencia', '', False, True));
 		array_push($cp, array('$O : &Observatório:Observatório&IC:IC', 'ed_local', 'Disseminador', False, True));

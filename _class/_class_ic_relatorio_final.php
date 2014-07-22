@@ -276,6 +276,7 @@ class ic_relatorio_final
 	
 	function idicacao_avaliador($mod='')
 		{
+			$ano = (date("Y")-1);
 			if (strlen($mod) > 0)
 				{
 					$wh = " and (pbt_edital = '$mod') ";
@@ -286,6 +287,7 @@ class ic_relatorio_final
 					left join pibic_bolsa_tipo on pb_tipo = pbt_codigo
 					left join pibic_aluno on pb_aluno = pa_cracha
 					where (pb_relatorio_final_nota = -99 or pb_relatorio_final_nota = 99 or pb_relatorio_final_nota = 0)
+					and pb_ano = '$ano'
 					$wh
 					order by a_cnpq, pp_nome
 			";

@@ -1,0 +1,1433 @@
+/*
+ 
+ Este documento pertence à Pontifícia Universidade Católica do Paraná e mantém seus direitos.
+ 
+ 
+ Web Site Ciência sem Fronteiras - PUCPR
+ 
+ 1.0 Arquivos Web Fontes
+ 2.0 Tipografia
+ 3.0 Corpo
+ 	3.1 Layout
+ 	3.2 Links
+ 	3.3 Button
+ 	3.4 Input
+ 4.0 Cabeçalho
+ 5.0 Conteúdo
+ 6.0 Tabelas
+ 7.0 Rodapé
+ 8.0 Contato
+ 9.0 Inscrição
+ 10.0 Depoimentos
+ 11.0 Quem já viajou
+ 12.1 Dicas de viagem
+ 13.0 Acesso aos bolsistas
+ 
+ ---------------------------------------------------- 
+ */
+
+
+/* ------------------------------- 1.0 Arquivos Web Fontes*/
+
+@font-face {
+    font-family: 'OpenSansLight';
+    src: url('../fontes/OpenSans-Light-webfont.eot');
+    src: url('../fontes/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/OpenSans-Light-webfont.woff') format('woff'),
+         url('../fontes/OpenSans-Light-webfont.ttf') format('truetype'),
+         url('../fontes/OpenSans-Light-webfont.svg#OpenSansLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansLightItalic';
+    src: url('../fontes/OpenSans-LightItalic-webfont.eot');
+    src: url('../fontes/OpenSans-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/OpenSans-LightItalic-webfont.woff') format('woff'),
+         url('../fontes/OpenSans-LightItalic-webfont.ttf') format('truetype'),
+         url('../fontes/OpenSans-LightItalic-webfont.svg#OpenSansLightItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansRegular';
+    src: url('../fontes/OpenSans-Regular-webfont.eot');
+    src: url('../fontes/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/OpenSans-Regular-webfont.woff') format('woff'),
+         url('../fontes/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('../fontes/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansItalic';
+    src: url('../fontes/OpenSans-Italic-webfont.eot');
+    src: url('../fontes/OpenSans-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/OpenSans-Italic-webfont.woff') format('woff'),
+         url('../fontes/OpenSans-Italic-webfont.ttf') format('truetype'),
+         url('../fontes/OpenSans-Italic-webfont.svg#OpenSansItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansSemibold';
+    src: url('../fontes/OpenSans-Semibold-webfont.eot');
+    src: url('../fontes/OpenSans-Semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/OpenSans-Semibold-webfont.woff') format('woff'),
+         url('../fontes/OpenSans-Semibold-webfont.ttf') format('truetype'),
+         url('../fontes/OpenSans-Semibold-webfont.svg#OpenSansSemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansSemiboldItalic';
+    src: url('../fontes/OpenSans-SemiboldItalic-webfont.eot');
+    src: url('../fontes/OpenSans-SemiboldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/OpenSans-SemiboldItalic-webfont.woff') format('woff'),
+         url('../fontes/OpenSans-SemiboldItalic-webfont.ttf') format('truetype'),
+         url('../fontes/OpenSans-SemiboldItalic-webfont.svg#OpenSansSemiboldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('../fontes/OpenSans-Bold-webfont.eot');
+    src: url('../fontes/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/OpenSans-Bold-webfont.woff') format('woff'),
+         url('../fontes/OpenSans-Bold-webfont.ttf') format('truetype'),
+         url('../fontes/OpenSans-Bold-webfont.svg#OpenSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansBoldItalic';
+    src: url('../fontes/OpenSans-BoldItalic-webfont.eot');
+    src: url('../fontes/OpenSans-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/OpenSans-BoldItalic-webfont.woff') format('woff'),
+         url('../fontes/OpenSans-BoldItalic-webfont.ttf') format('truetype'),
+         url('../fontes/OpenSans-BoldItalic-webfont.svg#OpenSansBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansExtrabold';
+    src: url('../fontes/OpenSans-ExtraBold-webfont.eot');
+    src: url('../fontes/OpenSans-ExtraBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/OpenSans-ExtraBold-webfont.woff') format('woff'),
+         url('../fontes/OpenSans-ExtraBold-webfont.ttf') format('truetype'),
+         url('../fontes/OpenSans-ExtraBold-webfont.svg#OpenSansExtrabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansExtraboldItalic';
+    src: url('../fontes/OpenSans-ExtraBoldItalic-webfont.eot');
+    src: url('../fontes/OpenSans-ExtraBoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/OpenSans-ExtraBoldItalic-webfont.woff') format('woff'),
+         url('../fontes/OpenSans-ExtraBoldItalic-webfont.ttf') format('truetype'),
+         url('../fontes/OpenSans-ExtraBoldItalic-webfont.svg#OpenSansExtraboldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'axure_handwritingregular';
+    src: url('../fontes/axurehandwriting-webfont.eot');
+    src: url('../fontes/axurehandwriting-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/axurehandwriting-webfont.woff') format('woff'),
+         url('../fontes/axurehandwriting-webfont.ttf') format('truetype'),
+         url('../fontes/axurehandwriting-webfont.svg#axure_handwritingregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'axure_handwritingbold';
+    src: url('../fontes/axurehandwriting-bold-webfont.eot');
+    src: url('../fontes/axurehandwriting-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/axurehandwriting-bold-webfont.woff') format('woff'),
+         url('../fontes/axurehandwriting-bold-webfont.ttf') format('truetype'),
+         url('../fontes/axurehandwriting-bold-webfont.svg#axure_handwritingbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'axure_handwritingbold_italic';
+    src: url('../fontes/axurehandwriting-bolditalic-webfont.eot');
+    src: url('../fontes/axurehandwriting-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/axurehandwriting-bolditalic-webfont.woff') format('woff'),
+         url('../fontes/axurehandwriting-bolditalic-webfont.ttf') format('truetype'),
+         url('../fontes/axurehandwriting-bolditalic-webfont.svg#axure_handwritingbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+   }
+   
+  @font-face {
+    font-family: 'SnicklesRegular';
+    src: url('../fontes/Snickles-webfont.eot');
+    src: url('../fontes/Snickles-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fontes/Snickles-webfont.woff') format('woff'),
+         url('../fontes/Snickles-webfont.ttf') format('truetype'),
+         url('../fontes/Snickles-webfont.svg#SnicklesRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* ------------------------------- 2.0 Tpografia*/
+
+p{
+	font-family: 'OpenSansRegular';
+	font-size: 12px;
+	color: #6d6d6d;
+	line-height: 20px;
+}
+
+h1{
+	font-family: 'OpenSansExtrabold';
+	font-size: 30px;
+	color: #6d6d6d;
+	letter-spacing: -2px;
+	
+}
+
+h2{
+	font-family: 'OpenSansExtrabold';
+	font-size: 20px;
+	color: #cfd025;
+}
+
+h3{
+	font-family: 'OpenSansExtrabold';
+	font-size: 18px;
+	color: #6d6d6d;
+}
+
+h4{
+	font-family: 'OpenSansExtrabold';
+	font-size: 18px;
+	color: #cfd025;
+}
+
+h5{
+	font-family: 'OpenSansExtrabold';
+	font-size: 16px;
+	color: #6d6d6d;
+}
+
+h6{
+	font-family: 'OpenSansExtrabold';
+	font-size: 24px;
+	color: #022045;
+}
+
+
+
+.lt1{
+	font-family: 'OpenSansRegular';
+	font-size: 8px;
+}
+
+.lt2{
+	font-family: 'OpenSansRegular';
+	font-size: 10px;
+}
+
+.lt3{
+	font-family: 'OpenSansRegular';
+	font-size: 12px;
+}
+
+.lt4{
+	font-family: 'OpenSansRegular';
+	font-size: 14px;
+}
+
+.lt5{ /*usado para titulo de tabelas*/
+	font-family: 'OpenSansBold';
+	font-size: 14px;
+	color: #c7c820;
+}
+
+.lt6light{
+	font-family: 'OpenSansLight';
+	font-size: 30px;
+	color: #6d6d6d;
+}
+
+.lt7{
+	font-family: 'OpenSansExtrabold';
+	font-size: 60px;
+	color: #022045;
+}
+
+.lt8{
+	font-family: 'OpenSansExtrabold';
+	font-size: 24px;
+	color: #022045;
+}
+
+.lt9{
+	 font-family: 'axure_handwritingregular';
+	 color: #022045;
+	 font-size: 14px;
+}
+
+.lt10{
+	font-family: 'OpenSansExtrabold';
+	font-size: 18px;
+	color: #6d6d6d;
+}
+
+li{
+	font-family: 'OpenSansRegular';
+	font-size: 12px;
+	color: #6d6d6d;
+}
+
+ul{
+	font-family: 'OpenSansRegular';
+	font-size: 12px;
+	color: #6d6d6d;
+}
+
+.aviso-rodape{
+	font-family: 'OpenSansItalic';
+	font-size: 10px;
+	color: #022045;
+}
+
+.texto-caixinha-amarela{
+	font-family: 'OpenSansRegular';
+	font-size: 12px;
+	color: #022045;
+}
+
+.quantidade-alunos{
+	color: #4b4b4b;
+	font-family: 'OpenSansExtrabold';
+	font-size: 72px;
+}
+
+.caixa-texto-numero{
+	color: #b4b630;
+	font-family: 'OpenSansLight';
+	font-size: 14px;
+}
+
+.caixa-texto-numero-cinza{
+	color: #6d6d6d;
+	font-family: 'OpenSansLight';
+	font-size: 14px;
+}
+
+
+/* ------------------------------- 3.0 Corpo*/
+
+/* ------------------------------- 3.1 Layout*/
+img{
+	max-width: 100%;
+	
+}
+
+::-moz-selection{
+	background: #d7d921;
+	color: #272727;
+}
+::selection {
+	background: #d7d921;
+	color: #272727;
+}
+
+#corpo{
+
+	width: 800px; /*65%*/
+	height: auto;
+  	background-color: #fff;
+  	margin-left: 14%;
+  	margin-top: -5px;
+  	-webkit-box-shadow:  5px 5px 30px 1px rgba(0, 0, 0, 0.2);
+    box-shadow:  5px 5px 30px 1px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px 50px 50px;
+}
+
+#total {
+	height:100%;
+	min-height:100%;
+	position:relative;
+	margin-bottom: 0px;
+}
+
+html,
+body {
+   margin:0;
+}
+
+.total{
+	
+	background-image: url('../img/background.jpg');
+	background-repeat: repeat;
+}
+
+/* ------------------------------- 3.2 Links */
+
+a{
+	color: #85a600;
+	text-decoration: underline;
+	
+}
+
+a:hover{
+	color: #000000;
+}
+
+a:visited{
+	color: #85a600;
+}
+
+/* ------------------------------- 3.3 Buttons */
+
+button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e6e633), color-stop(1, #d6d921) );
+	background:-moz-linear-gradient( center top, #e6e633 5%, #d6d921 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6e633', endColorstr='#d6d921');
+	background-color:#e6e633;
+	border:1px solid #adb018;
+	display:inline-block;
+	color:#838507;
+	font-family:arial;
+	font-size:18px;
+	font-weight:bold;
+	padding:10px 20px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #f0f0f0;
+}
+
+button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d6d921), color-stop(1, #e6e633) );
+	background:-moz-linear-gradient( center top, #d6d921 5%, #e6e633 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6d921', endColorstr='#e6e633');
+	background-color:#d6d921;
+	cursor: pointer;
+}
+
+button:active {
+	position:relative;
+	top:1px;
+}
+
+.botao-grande{
+	width: 300px;
+}
+
+.botao-super{
+	width: 80%;
+}
+
+.botao-menor{
+	font-size: 12px;
+	background-color: #dcdcdc;
+}
+/* ------------------------------- 3.4 Input */
+
+.input-dark{
+	background-color: #9d8b4b;
+	color: #fff;
+	font-family: 'OpenSansLightItalic';
+	font-size: 24px;
+	padding: 5px;
+	width: 287px;
+	-webkit-box-shadow: inset 5px 5px 50px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 5px 5px 50px 1px rgba(0, 0, 0, 0.1);
+}
+
+.input-light{
+	background-color: #fff;
+	color: #9d8b4b;
+	font-family: 'OpenSansLightItalic';
+	font-size: 24px;
+	padding: 5px;
+	width: 287px;
+	-webkit-box-shadow: inset 5px 5px 50px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 5px 5px 50px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ------------------------------- 4.0 Cabeçalho*/
+
+#cabecalho{
+	margin-left: 14%;
+	margin-top: 50px;
+}
+
+/* ------------------------------- 5.0 Conteúdo*/
+
+/* ------------------------------- 5.5 Menu*/
+
+#menu ul ul {
+	display: none;
+}
+
+#menu ul li:hover > ul {
+		display: block;
+}
+
+#menu{
+   height: 60px;
+   width: 100%;
+   position: fixed;
+   
+   background-image: url('../img/background-menu.jpg');
+   background-repeat: repeat-x;
+   
+   margin-left: 0px;
+   margin-top: 0px;
+   left: 0px;
+   top: 0px;
+}
+
+
+#menu ul {
+	margin-left: 10%;
+		 
+	list-style: none;
+	position: relative;
+	display: inline-table;
+}
+
+#menu ul:after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+	
+#menu ul li {
+	float: left;
+	font-size: 14px;
+	margin-right: 15px;
+	
+}
+
+#menu ul li:hover {
+	color: #ffffff;
+	background-color: #929416;
+	/*height: 60px;*/
+	}
+
+#menu ul li:hover a {
+			color: #fff;
+		}
+	
+#menu ul li a {
+		display: block;
+		padding: 10px 15px;
+		text-decoration: none;
+		color: #84856a;
+	}
+
+#menu ul ul {
+	background-color: #929416;
+	color: #fff;
+	border-radius: 0px;
+	padding: 0;
+	
+	top: 0px;
+	margin-left: 0px;
+	
+}
+
+#menu ul ul li {
+		float: none; 
+		border-top: 1px solid #6d6f10;
+		
+		position: relative;
+		color: #fff;
+		padding-right: 0px;
+		margin-right: 0px;
+		
+	}
+
+#menu ul ul li a {
+			
+			color: #fff;
+		}	
+
+#menu ul ul li a:hover {
+				background-color: #7c7e10;
+				border-bottom: 1px solid #525304;
+				
+			}
+
+
+
+
+td{ font-size: 11px; text-align: center;}
+
+/*#menu{
+   height: 60px;
+   width: 100%;
+   position: fixed;
+   
+   background-image: url('../img/background-menu.jpg');
+   background-repeat: repeat-x;
+   
+   margin-left: 0px;
+   margin-top: 0px;
+   left: 0px;
+   top: 0px;
+}
+
+#menu ul{
+	list-style: none;
+	margin-left: 11%;
+	font-family: 'OpenSansRegular';
+}
+
+#menu li{
+	font-size: 14px;
+}
+
+#menu ul li{
+	display: inline;
+
+}
+
+#menu ul li{
+	padding: 15px 20px 15px 20px;
+	
+}
+
+#menu a{
+	color: #6d6d6d;
+	text-decoration: none;
+}
+
+#menu ul li a:hover{
+	color: #ffffff;
+	background-color: #929416;
+	
+	
+}
+
+#menu li a:hover{
+	color: #fff;
+}
+
+#menu a:visited{
+	color: #6d6d6d;
+}
+
+*/
+
+
+
+/* ------------------------------- 6.0 Tabelas*/
+table{
+	background-color: #fff;
+	
+}
+
+td{
+	border-bottom: 1px #eae7e7 solid;
+	padding: 10px;
+	color: #6d6d6d;
+}
+
+
+/* ------------------------------- 7.0 Rodapé*/
+
+#rodape{
+	bottom: 0;
+	margin-bottom: 0px;
+	width: 100%;
+	height: 230px;
+	background-image: url('../img/background.jpg');
+}
+
+#conteudo-rodape{
+	float: left;
+	margin-left: 14%;
+	width: 978px;
+	height: 100%;
+
+}
+
+#logo-pucpr{
+	width: 129px;
+	height: 100%;
+	float: left;
+}
+
+#contato{
+	float: left;
+	margin-left: 30px;
+	color: #221903;
+	/*text-shadow: 1px 1px 1px #f7d89e;
+    filter: dropshadow(color=#f7d89e, offx=1, offy=1);*/
+}
+
+#ilustra-rodape{
+	float: right;
+	margin-right: 80px;
+}
+
+.titulo-escuro{
+	color: #221903;
+}
+
+/* ------------------------------- 7.0 Conteúdo Index*/
+
+#processo-passo-1{
+	width: 800px;
+	height: 316px;
+	background-image: url('../img/processo-passo1.png');
+	margin-left: 60px;
+	
+}
+
+#caixa-branco-1{
+	width: 100%;
+	height: 35%;
+	
+}
+
+#caixa-branco-2{
+	width: 42%;
+	height: 65%;
+	
+}
+
+#caixa-amarela-passo-1{
+	width: 50%;
+	float: right;
+	margin-top: -26%;
+	margin-right: 50px;
+	
+}
+
+.caixa-amarela{
+	background-color: #f7f8af;
+	padding: 10px;
+}
+
+#passo-2{
+	background-image: url('../img/processo-passo2.png');
+	width: 800px;
+	height: 206px;
+}
+
+#caixa-amarela-passo-2{
+	width: 55%;
+	float: right;
+	margin-right: 50px;
+	margin-top: 15px;
+}
+
+#passo-3{
+	background-image: url('../img/processo-passo3.png');
+	background-repeat: no-repeat;
+	width: 800px;
+	height: 330px;
+	
+}
+
+
+
+#caixa-amarela-passo-3{
+	width: 40%;
+	float: left;
+	margin-top: 240px;
+	margin-left: 50px;
+}
+
+
+#passo-5{
+	width: 800px;
+	height: 200px;
+	
+}
+
+#caixa-amarela-passo-5{
+	width: 480px;
+	
+}
+
+.margin-geral-itens{
+	width: 100%;
+	margin-left: 20px;
+}
+
+#caixa-amarela-passo-6{
+	width: 500px;
+}
+
+#caixa-amarela-passo-7{
+	width: 400px;
+}
+
+#caixa-amarela-passo-8{
+	width: 500px;
+}
+
+#ilustracao-viagem{
+	
+}
+
+#language{
+	
+	
+}
+
+
+.lang-port{
+	float: left;
+}
+
+.lang-eng{
+	float: left;
+}
+
+
+
+/* ------------------------------- 8.0 Contato*/
+
+.contato-box{
+	float: left;
+	width: 400px;
+}
+
+#conteudo-contato{
+	height: 500px;
+	
+}
+
+#contato-facebook{
+	
+	width: 300px;
+	height: 100px;
+	float: right;
+	margin-right: 100px;
+	margin-top: -240px;
+}
+
+/* ------------------------------- 9.0 Inscrição*/
+
+#inscricao-campo{
+	width: 100%;
+	height: 350px;
+}
+
+#inscricao-interessado{
+	width: 35%;
+	float: left;
+	padding: 5%;
+}
+
+#inscricao-edital{
+	width: 35%;
+	float: left;
+	padding: 5%;
+	background-image: url('../img/background-inscricao.jpg');
+	-webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.texto-caixa-interesse{
+	font-size: 14px;
+	line-height: 25px;
+}
+
+.texto-caixa-inscricao-edital{
+	color: #fff;
+	font-family: 'OpenSansRegular', arial, sans-serif;
+	font-size: 14px;
+	line-height: 25px;
+	
+}
+
+
+.texto-caixa-interesse{
+	font-size: 14px;
+	line-height: 25px;
+}
+
+.texto-caixa-inscricao-edital{
+	color: #fff;
+	font-family: 'OpenSansRegular', arial, sans-serif;
+	font-size: 14px;
+	line-height: 25px;
+	
+}
+
+#coluna-dados-aluno{
+	width: 100%;
+	height: 190px;
+	
+}
+
+#dados-puxado-alunos{
+	background-color: #dbdbdb;
+	-webkit-border-radius: 15px;
+    border-radius: 15px;
+	width: 75%;
+	height: 100%;
+}
+
+#problemas-dados-siga{
+	
+	width: 20%;
+	height: 100%;
+	float: right;
+	margin-top: -170px;
+	padding: 20px;
+}
+
+.tabela-dados-pessoais{
+	margin-left: 20px;
+	background-color: #dbdbdb;
+}
+
+.titulo-dados-pessoais{
+	margin-left: 30px;
+	margin-top: 30px;
+}
+
+/* ------------------------------- 10.0 Depoimentos*/
+
+.depoimento-geral{
+	width: 100%;
+	height: 700px;
+	
+}
+
+.texto-depoimento{
+	width: 50%;
+	padding: 0 5% 0 5%;
+	float: left;
+}
+
+.foto-depoimento{
+	width: 290px;
+	float: left;
+	padding-top: 3%;
+}
+
+.citacao-depoimento{
+	 font-family: 'OpenSansItalic';
+	 font-size: 14px;
+	 line-height: 25px;
+}
+
+#depoimentos-video{
+	width: 100%;
+	height: 800px;
+	
+}
+
+#depoimentos-texto{
+	width: 100%;
+	height: 500px;
+	
+}
+
+#video-1{
+	float: left;
+}
+
+#video-2{
+	float: left;
+	margin-left: 30px;
+}
+
+#linha-divisoria{
+	width: 100%;
+	height: 3px;
+	margin-top: 20px;
+	border-bottom: 1px solid #c5c5c5;
+	float: left;
+}
+
+.aba-1-link{
+	background-color: #ededea;
+	padding: 10px 15px 10px 15px;
+	font-family: 'OpenSansExtrabold';
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
+}
+
+.aba-2-link{
+	background-color: #d1d1cd;
+	padding: 10px 15px 10px 15px;
+	font-family: 'OpenSansExtrabold';
+	font-size: 14px;
+	color: #fff;
+	text-decoration: none;
+}
+
+#caixa-abas{
+	width: 100%;
+	height: 29px;
+	border-bottom: #cfcfcf 1px solid;
+	margin-top: 50px;
+}
+
+#depoimento-texto-1{
+	float: left;
+	width: 300px;
+	height: 200px;
+	
+	margin-left: 30px;
+	margin-top: 30px
+	
+}
+
+#depoimento-texto-2{
+	float: left;
+	width: 300px;
+	height: 200px;
+	margin-left: 30px;
+	margin-top: 30px
+}
+
+
+/* ------------------------------- 11.0 Quem já viajou*/
+#informacoes-viajando{
+	width: 100%;
+	height: 200px;
+	
+}
+
+#espaco-branco{
+	float: left;
+	width: 45%;
+	padding-right: 10px;
+}
+
+
+#participaram-processo{
+	float: left;
+	background-image: url('../img/bg-alunos-inscritos.jpg');
+	-webkit-box-shadow: inset 5px 5px 50px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 5px 5px 50px 5px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    
+    width: 15%;
+	height: 100px;
+    padding: 40px;
+    margin-right: 10px;
+	
+}
+
+
+#estao-viajando{
+	float: left;
+	background-image: url('../img/bg-alunos-viajando.jpg');
+	-webkit-box-shadow: inset 5px 5px 50px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 5px 5px 50px 5px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    
+    width: 10%;
+	height: 100px;
+    padding: 40px;
+	
+}
+
+#voltaram{
+	float: left;
+	background-image: url('../img/bg-alunos-inscritos.jpg');
+	margin-left: 10px;
+	-webkit-box-shadow: inset 5px 5px 50px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 5px 5px 50px 5px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    
+    width: 10%;
+    height: 100px;
+    padding: 40px;
+}
+
+#prox-inscritos{
+	float: left;
+	background-image: url('../img/bg-alunos-viajando.jpg');
+	margin-left: 10px;
+	-webkit-box-shadow: inset 5px 5px 50px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 5px 5px 50px 5px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    
+    width: 15%;
+    height: 100px;
+    padding: 40px;
+}
+
+#texto-info-viajando{
+	width: 100%;
+	height: 30px;
+	margin-top: -15px;
+}
+
+
+
+#texto-participaram-processo{
+	float: left;
+	width: 19%;
+	padding-left: 20px;
+	
+}
+
+#texto-estao-viajando{
+	float: left;
+	width: 19%;
+	padding-left: 50px;
+	
+}
+
+#texto-voltaram{
+	float: left;
+	width: 19%;
+	padding-left: 20px;
+	
+}
+
+#texto-prox-inscritos{
+	float: left;
+	width: 30%;
+	padding-left: -30px;
+	
+}
+
+
+#filtro-alunos{
+	width: 100%;
+	height: 80px;
+	background-color: #f8f8f8;
+	padding: 10px;
+	border-bottom: 1px solid #e3e2e0;
+	border-top: 1px solid #e3e2e0;
+	margin-top: 50px;
+}
+
+select{
+	padding: 8px 15px 8px 15px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #d7d921;
+    font-family: 'OpenSansRegular', arial, sans-serif;
+}
+
+#tabela-alunos-viajaram{
+	margin-top: 50px;
+}
+
+.botao-buscar {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e3e633), color-stop(1, #d6d921) );
+	background:-moz-linear-gradient( center top, #e3e633 5%, #d6d921 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e633', endColorstr='#d6d921');
+	background-color:#e3e633;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #a2a418;
+	display:inline-block;
+	color:#ffffff;
+	font-family: 'OpenSansRegular', arial, sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	padding:7px 20px;
+	text-decoration:none;
+	
+}
+
+.botao-buscar:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d6d921), color-stop(1, #e3e633) );
+	background:-moz-linear-gradient( center top, #d6d921 5%, #e3e633 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d6d921', endColorstr='#e3e633');
+	background-color:#d6d921;
+	cursor: pointer;
+	color: #fff;
+}
+
+.botao-buscar:active {
+	position:relative;
+	top:1px;
+	color: #fff;
+	
+}
+
+
+/* ------------------------------- 12.0 Dicas de viagem */
+
+.item-dica-viagem{
+	width: 25%;
+	
+	float: left;
+	background-image: url('../img/bg-alunos-inscritos.jpg');
+	margin: 5px;
+	padding: 15px;
+	
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+    
+    -webkit-box-shadow: inset 5px 5px 50px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 5px 5px 50px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+#dicas-de-viagem{
+	height: 410px;
+}
+
+#espaco-dicas-de-viagem{
+	
+	height: 600px;
+}
+
+/* ------------------------------- 13.0 Acesso ao bolsista */
+
+#acesso-bolsista{
+	height: 500px;
+	width: 100%;
+}
+
+#acesso-login{
+	width: 75%;
+	float: left;
+	padding: 5%;
+	background-image: url('../img/bg-alunos-inscritos.jpg');
+	-webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.texto-caixa-acesso-bolsistas{
+	color: #6d6d6d;
+	font-family: 'OpenSansRegular', arial, sans-serif;
+	font-size: 14px;
+	line-height: 25px;
+	
+}
+
+#enviar-arquivos-bolsista{
+	width: 80%;
+	padding: 30px;
+	height: 280px;
+	background-color: #ede9e9;
+	-webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#dados-enviados-bolsista{
+	width: 80%;
+	padding: 30px;
+	height: 660px;
+	background-color: #ede9e9;
+	-webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+
+#enviar-dados-bolsista{
+	width: 80%;
+	padding: 30px;
+	height: 990px;
+	background-color: #ede9e9;
+	-webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.input-dados{
+	padding: 5px 10px 5px 10px;
+	border:1px solid #adb018;
+}
+
+#area-bolsista{
+	width: 90%;
+	padding: 30px;
+	height: 230px;
+	
+	border: 1px solid #cecece;
+}
+
+#fases-envio-documento{
+	width: 60%;
+	height: 200px;
+	float: left;
+	
+	background-color: #f7f7f7;
+}
+
+#lembrete-dados-pessoais{
+	width: 30%;
+	height: 180px;
+	float: right;
+	padding: 30px 30px 30px 30px;
+	
+	
+	background-color: #f3d900;
+	-webkit-box-shadow:  5px 5px 10px 2px rgba(0, 0, 0, 0.1);
+    box-shadow:  5px 5px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+#lembrete-dados-pessoais p{
+	color: #00055c;
+}
+
+.titulo-bilhete{
+	font-family: 'SnicklesRegular';
+	font-size: 42px;
+	color: #00055c;
+	
+}
+
+.aba-docs{
+	padding: 10px 17px;
+	background-color: #e2e2e2;
+	font-family: 'OpenSansSemibold';
+	font-size: 14px;
+	text-decoration: none;
+}
+
+#aba1 p{
+	padding: 15px;
+}
+
+#aba2 p{
+	padding: 15px;
+}
+
+#aba3 p{
+	padding: 15px;
+}
+
+.numero-fase{
+	font-family: 'OpenSansBold';
+	font-size: 18px;
+}
+
+#campo-data-viagem{
+	width: 30%;
+	height: 100px;
+	float: right;
+	padding: 20px 20px 20px 40px;
+	
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #767676;
+    font-family: 'OpenSansLight';
+    
+    background-image: url('../img/bg-alunos-inscritos.jpg');
+    -webkit-box-shadow: inset 5px 5px 20px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 5px 5px 20px 1px rgba(0, 0, 0, 0.1);
+}
+
+.numero-dias{
+	font-size: 30px;
+	font-family: 'OpenSansExtrabold';
+}
+
+#campo-data-viagem input{
+	padding: 8px 15px;
+}
+
+
+/* ----------------------------------------- FAQ*/
+
+#faq-passo{
+	width: 800px;
+	height: auto;
+}
+#faq-passo-about{
+	width: 700px;
+	height: auto;
+}
+
+#faq-caixa-amarela-passos{
+	float: left;
+	margin-right: 50px;
+}
+
+
+.faq-caixa-amarela{
+	width: 700px;
+	background-color: #f7f8af;
+	padding: 10px;
+	margin: 10px 0;
+}
+.faq-margin-itens{
+	padding-top: 20px;
+	width: 700px;
+	margin-left: 20px;
+}
+.faq-img-passo-1{
+	width: 705px;
+	height: 220px;
+	margin-bottom: 15px;
+	background: url('../img/faq-passo-1.jpg') no-repeat;
+}
+.faq-img-passo-1-1{
+	margin-top: 20px;
+	width: 705px;
+	height: 316px;
+	margin-bottom: 15px;
+	background: url('../img/faq-passo-1-1.jpg') no-repeat;
+}
+.faq-img-passo-2{
+	margin-top: 20px;
+	width: 705px;
+	height: 198px;
+	margin-bottom: 15px;
+	background: url('../img/faq-passo-2.jpg') no-repeat;
+}
+.faq-img-passo-2-1{
+	margin-top: 20px;
+	width: 705px;
+	height: 159px;
+	margin-bottom: 15px;
+	background: url('../img/faq-passo-2-1.jpg') no-repeat;
+}
+.faq-img-passo-2-2{
+	margin-top: 20px;
+	width: 705px;
+	height: 339px;
+	margin-bottom: 15px;
+	background: url('../img/faq-passo-2-2.jpg') no-repeat;
+}
+.faq-img-passo-3{
+	margin-left: 30px;
+	margin-top: 20px;
+	width: 705px;
+	height: 228px;
+	margin-bottom: 15px;
+	background: url('../img/notas.jpg') no-repeat;
+}

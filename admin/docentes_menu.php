@@ -26,7 +26,7 @@ array_push($menu,array(msg('docentes'),'Cadastro de docentes','docentes.php'));
 array_push($menu,array(msg('docentes'),'__professores sem código de cracha','docentes_sem_codigo.php'));
 
 array_push($menu,array(msg('docentes'),'Importa lista do DRH','docentes_importacao.php'));
-array_push($menu,array(msg('docentes'),'Importa lista (simples) do DRH','docentes_importacao_simples.php'));    
+array_push($menu,array(msg('docentes'),'Processar lista importada','docentes_importacao_simples.php'));    
 
 ?>
 

@@ -32,7 +32,9 @@ echo '<img src="img/icone_mailing_send.jpg" height="40" title="Comunicar leitore
 echo '<TD align="right" width="20">';
 echo '<img src="img/icone_mailing_send.jpg" height="40" title="Comunicar autores sobre edição deste fascículo" aling="right">';
 echo '<TD align="right" width="20">';
+echo '<A HREF="doi_issue_xml.php?dd0='.$issue_id.'" target="_new'.$issue_id.'">';
 echo '<img src="img/icone_doi_xml.png" height="40" title="XML para o DOI" aling="right">';
+echo '</A>';
 echo '</table>';
 echo $wk->show_works_issue($issue_id);
 echo $ar->show_article_issue($issue_id);

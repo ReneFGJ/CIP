@@ -6,7 +6,7 @@ class institution
 		var $it_endereco;
 		var $it_bairro;
 		var $it_cidade;
-		var $it_id_fiscal;
+		var $it_id_fiscal
 		var $it_ativo;
 		var $it_abreviatura;
 		var $it_contato;

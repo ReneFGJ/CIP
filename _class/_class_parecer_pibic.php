@@ -46,6 +46,10 @@ class parecer_pibic
 					{
 						$link = '<A HREF="#" onclick="newxy2(\'parecer_declinar.php?dd0='.$line['id_pp'].'&dd1='.$this->tabela.'\',300,200);">declinar</A>';
 					}
+				if ($line['pp_status']=='D')
+					{
+						$link = '<A HREF="#" onclick="newxy2(\'parecer_alterar_status.php?dd0='.$line['id_pp'].'&dd1='.$this->tabela.'\',300,200);">alterar status</A>';
+					}					
 				$tipo = trim($line['pp_tipo']);
 				if ($tipo != $xtipo)
 					{
@@ -381,8 +385,8 @@ class parecer_pibic
 	function row()
 			{
 				global $cdf,$cdm,$masc;
-				$cdf = array("id_pp","pp_nrparecer","pp_protocolo","pp_tipo","pp_data","pp_status","pp_avaliador");
-				$cdm = array('cod',msg('nome'),msg('cracha'),msg('centro'),msg('curso'));
+				$cdf = array("id_pp","pp_nrparecer","id_pp","pp_protocolo","pp_tipo","pp_data","pp_status","pp_avaliador");
+				$cdm = array('cod',msg('Parecer'),msg('Mae'),msg('centro'),msg('curso'));
 				$masc = array('','','','','','','','');
 				return(1);				
 			}		
@@ -1763,7 +1767,8 @@ class parecer_pibic
 					$sql = "select * from ".$this->tabela." ";
 					$sql .= "left join pibic_projetos on pp_protocolo = pj_codigo ";
 					$sql .= " where pp_avaliador = '".$parecerista."' ";
-					$sql .= " and pp_status = '@' and pp_tipo = '$tipo' ";
+					$sql .= " and pp_status = '@'
+							  and pp_tipo = '$tipo' ";
 				} else {
 					$sql = "select * from ".$this->tabela." ";
 					$sql .= "left join pibic_bolsa_contempladas on pp_protocolo = pb_protocolo ";
@@ -1771,12 +1776,13 @@ class parecer_pibic
 					$sql .= " and pp_status = '@' and pp_tipo = '$tipo' ";
 					$sql .= " order by id_pp desc, pp_protocolo ";					
 				}									
-			
+//			echo $sql;
+//			echo '<HR>';
 			$rlt = db_query($sql);
 			$sx .= '<div><table width="97%" align="center" class="lt1" border=0 >'.chr(13);
 			
 			while ($line = db_read($rlt))
-				{			
+				{
 					$tot++; 
 					$sx .= $this->mostra_mini($line);			
 				}
@@ -1872,10 +1878,15 @@ class parecer_pibic
 				}
 				
 			$cor="red";
+			switch ($tipo)
+				{
+				case 'RPAC': $ntipo = 'Correção Relatório Parcial'; break;
+				case 'SUBMI': $ntipo = 'Projeto IC/IT'; break;
+				}
 			$sx .= '<TR><TD>';
 			$sx .= "<TR valign=top ><TD rowspan=2 width=90>
 					<img src=../editora/img_edicao/$img   height=80>
-					<TD>Protocolo: <B>".$protocolo."</B></TD>
+					<TD>Protocolo: <B>".$link.$protocolo."</A></B> - (".$ntipo.")</TD>
 					
 					<TD>Prazo para avalição:<I> $data_prazo [$status]</I></TD>
 					<TD width=50 aling=center class=lt5 rowspan=2>
@@ -1892,9 +1903,11 @@ class parecer_pibic
 		{
 			$cp = array();
 			array_push($cp,array('$H8','id_pp',"",false,True));
+			array_push($cp,array('$S8',"pp_protocolo","Protocolo",True,True));
 			array_push($cp,array('$S8',"pp_avaliador","Avaliador",True,True));
 			array_push($cp,array('$S1',"pp_status","Status",True,True));
 			array_push($cp,array('$T80:6',"pp_abe_01","Qualitativa",True,True));
+			array_push($cp,array('$S5',"pp_tipo","Tipo",True,True));
 			return($cp);
 		}
 	function structure()

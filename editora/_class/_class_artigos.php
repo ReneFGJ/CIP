@@ -170,7 +170,9 @@ class artigos
 	
 	function le($id=0)
 		{
-			$sql = "select * from articles where id_article = ".round($id);
+			$sql = "select * from articles 
+						inner join sections on article_section = section_id
+						where id_article = ".round($id);
 			$rlt = db_query($sql);
 			if ($line = db_read($rlt))
 				{
@@ -237,7 +239,7 @@ class artigos
 	function cp()
 		{
 			global $dd,$jid;
-			//$sql = "alter table reol_submit alter column doc_doi type char(80)";
+			//$sql = "alter table ".$this->tabela." add column article_doi_link char(120)";
 			//$rlt = db_query($sql);
 			//echo $sql;
 			//exit;
@@ -287,6 +289,7 @@ class artigos
 			array_push($cp,array('$D8','article_dt_revisao','Publicado em',True,True,''));
 	
 			array_push($cp,array('$S80','article_doi','DOI:http://',False,True,''));
+			array_push($cp,array('$S80','article_doi_link','Link Externo do DOI (Scielo)',False,True,''));
 
 			array_push($cp,array('$O : &S:SIM&N:NÃO&X:CANCELADO','article_publicado','Publicado',True,True,''));
 			//array_push($cp,array('$S10','article_modalidade','Modalidade',False,True,''));
@@ -359,14 +362,18 @@ class artigos
 
 	function show_article($line)
 		{
-			//print_r($line);
-			//exit;
 			$link = '<A HREF="article_detalhe.php?dd0='.$line['id_article'].'" class="link">';
 			$sx .= '<TR valign="top" '.coluna().'>
 					<TD>'.$line['article_seq'].'
 					<TD>';
 			$sx .= $link.trim($line['article_title']).'</a>';
 			$sx .= '<BR>'.$line['article_doi'];
+			$link = trim($line['article_doi_link']);
+			if (strlen($link) > 0)
+				{
+					$link = '(<A HREF="'.$link.'" target="_new"><font color="blue">link externo</font></A>)';
+					$sx .= $link;
+				}
 			
 			$sx .= '<TD>
 					<A HREF="article_editar.php?dd0='.$line['id_article'].'&dd90='.checkpost($line['id_article']).'">

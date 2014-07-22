@@ -1,6 +1,7 @@
 <div id="page04" class="page_min pg04">
-	<h1>INSTRUÇÕES PARA AUTORES</h1>
-	<table width="98%" align="center">
+	<A HREF="index.php#page01"><img src="img/icone_top.jpg" align="right" border=0 class="top" title="retorna ao menu"></A>
+	<h1>Instruções para autores</h1>
+	<table width="900" align="center">
 		<TR>
 			<TD>
 			<div style="text-align: justify">

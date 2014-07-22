@@ -313,7 +313,15 @@ class doi
 			function fmt_xml_doi_data($tp='')
 				{
 					global $article;
+					
 					$cr = chr(13).chr(10);
+					$link_doi = $this->link.$article->journal_path.'?dd1='.$article->id_article.'&amp;dd99=view';
+					
+					if (strlen(trim($article->link_doi)) > 0)
+						{
+							$link_doi = trim($article->link_doi);
+							$link_doi = troca($link_doi,'&','&amp;');
+						}
 					
 					/* Dados sobre o DOI */
 					$sx .= $this->tab(2).'<doi_data>'.$cr;
@@ -321,7 +329,7 @@ class doi
 					/* Modelo simplificado */
 					if ($tp != 'S') 
 						{ $sx .= $this->tab(3).'<timestamp>'.$this->datahora_atualiza().'</timestamp>'.$cr; }
-					$sx .= $this->tab(3).'<resource>'.$this->link.$article->journal_path.'?dd1='.$article->id_article.'&amp;dd99=view</resource>'.$cr;
+					$sx .= $this->tab(3).'<resource>'.$link_doi.'</resource>'.$cr;
 					$sx .= $this->tab(2).'</doi_data>'.$cr;
 					return($sx);					
 				}

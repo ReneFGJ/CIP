@@ -11,6 +11,7 @@ switch ($LANG)
 		break;
 	}
 ?>
+<div id="logo_pucpr"></div>
 <nav id="menu">
 	<div id="hamburger-helper">
 		<div>
@@ -35,7 +36,10 @@ switch ($LANG)
 		<li>
 			<a href="index.php#page05" class="menu_top">PRAZOS</a>
 		<li>
-			<a href="index.php#page04" class="menu_top"><?php echo UpperCase($menui[2]);?></a>			
+			<a href="index.php#page03" class="menu_top"><?php echo UpperCase($menui[2]);?></a>
+		<li>
+			<a href="index.php#page12" class="menu_top">FAQ</a>
+						
 	</ul>
 	<div id="menus" class="menu_left menu_lateral">
 	    	<div class="mobile-menu">
@@ -51,7 +55,6 @@ switch ($LANG)
 	    	</div>
 	</div>	
 </nav>
-
 
 
 <script>

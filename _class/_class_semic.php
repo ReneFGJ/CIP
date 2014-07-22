@@ -16,8 +16,8 @@ class semic
 	var $id;
 	var $journal;
 	var $path;
-	var $evento = 'SEMIC21';
-	var $mostra = 'MP15';
+	var $evento = 'SEMIC22';
+	var $mostra = 'MP16';
 	
 	var $erro = '';
 	
@@ -877,9 +877,11 @@ class semic
 		{
 			global $ss;
 			$cracha = $ss->user_cracha;
-			$sql = "select count(*) as total, sm_status from ".$this->tabela."
+			$sql = "select count(*) as total, sm_status 
+						 from ".$this->tabela."
 						 group by sm_status
 					";
+			echo $sql;
 			$rlt = db_query($sql);
 			
 			$total = array(0,0,0,0,0,0,0,0);

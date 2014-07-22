@@ -17,6 +17,7 @@ require("../_class/_class_docentes.php");
 	
 	$conteudo = $clx->mostra();
 	$titulo = $clx->titulo;
+	$titulo_email = $clx->titulo_email;
 	echo $conteudo;
 
 	$doc = new docentes;
@@ -109,8 +110,9 @@ require("../_class/_class_docentes.php");
 			
 			if (count($emails) > 0)
 				{
+					$titulo_email = $clx->titulo_email;
 					echo '<BR>Adicionando...'.count($emails).' emails<BR>';
-					$clx->email_gera_fila_envio($titulo,$conteudo,$emails);
+					$clx->email_gera_fila_envio($titulo,$conteudo,$emails,$titulo_email);
 					$clx->modificar_data_envio($dd[0]);
 				}
 				

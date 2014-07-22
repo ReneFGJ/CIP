@@ -41,6 +41,10 @@ echo '<div id="conteudo">';
 	echo '<TR><TD><BR><BR><BR>';
 	echo '</table>';
 	echo '<BR><BR>';
+	
+	/* Diretorios */
+	$jl->checa_diretorios();
+	
 echo '</div>';
 
 require("foot.php");

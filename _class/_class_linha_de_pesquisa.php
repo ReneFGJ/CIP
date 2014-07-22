@@ -192,7 +192,7 @@ class linha_de_pesquisa
 				array_push($cp,array('$H8','','',False,True,''));
 				array_push($cp,array('$S80','lp_nome','Nome da linha',True,True,''));
 				array_push($cp,array('$HV','lp_ativo','1',True,True,''));
-				$sql = "a_descricao:a_cnpq:select * from ajax_areadoconhecimento where a_semic = '1' and a_cnpq like '%00.00%' and not a_cnpq like '%00.00.00%' order by a_descricao  ";
+				$sql = "a_descricao:a_cnpq:select a_cnpq || ' ' || a_descricao as a_descricao, a_cnpq from ajax_areadoconhecimento where 1=1 order by a_descricao  ";
 				$ob = False;
 				if (date("Ymd") > 20140800) { $ob = True; } 
 				array_push($cp,array('$Q '.$sql,'lp_area_2','Área do Conhecimento',$ob,True,''));

@@ -1,5 +1,6 @@
 <div id="page08" class="page_min pg08">
-	<h1>COMISSÃO ORGANIZADORA</h1>
+	<A HREF="index.php#page01"><img src="img/icone_top.jpg" align="right" border=0 class="top" title="retorna ao menu"></A>
+	<h1>Comissão Organizadora</h1>
 
 	<table align="center" width="700">
 		<TR>
@@ -17,7 +18,27 @@
 			<BR>
 			(Pró-Reitora de Pesquisa e Pós-Graduação)
 			<BR>
+            	<BR>
+            TECPAR: Prof. <B>Milton Pires Ramos</B>
 			<BR>
+			(Coordenador de IC)
+			<BR>
+            	<BR>
+            UFPR: Profa. <B>Mariluci Alves Maftum</B>
+			<BR>
+			(Coordenador de IC)
+			<BR>
+            	<BR>
+            UNESPAR: Profa. <B>Gisele Miyoko Onuki</B>
+			<BR>
+			(Chefe da Divisão de Extensão e Cultura)
+			<BR>
+            	<BR>
+            UTFPR: Profa. <B>Gilson Yukio Sato</B>
+			<BR>
+			(Pró-Reitor Adjunto de Pesquisa e Pós-graduação)
+			<BR>
+            	<BR>
 			<h3 style="border-top:1px solid #333f33;"><B>Diretoria de Pesquisa da PUCPR</B></h3> Profa. <B>Paula Cristina Trevillatto</B>
 			<BR>
 			(Pró-Reitora de Pesquisa e Pós-Graduação)
@@ -40,47 +61,55 @@
 			(Coordenadora)
 			<BR>
 			<BR>
-			<B>Ericsson Falabretti</B>
+            Profa. <B>Adalgiza Gonçalves</B>
+			<BR>
+			(representante da Escola de Comunicação e Artes)
+            <BR>
+			<BR>
+            Profa. <B>Cristina Baena</B>
+			<BR>
+			(representante da Escola de Medicina)
+			<BR>
+            <BR>
+            Prof. <B>Ericsson Falabretti</B>
 			<BR>
 			(representante da Escola de Educação e Humanidades)
 			<BR>
 			<BR>
-			<B>Gezelda Moraes</B>
+			Profa. <B>Gezelda Moraes</B>
 			<BR>
 			(representante do PIBIC Jr)
 			<BR>
 			<BR>
-			<B>Renata Macedo</B>
+            Prof. <B>Júlio Cesar Nievola</B>
+			<BR>
+			(representante da Escola Politécnica)
+			<BR>
+		   	<BR>
+            Profa. <B>Lucia Mazieiro</B>
+			<BR>
+			(representante da Escola de Arquitetura e Design)
+            <BR>
+			<BR>
+            Profa. <B>Renata Macedo</B>
 			<BR>
 			(representante da Escola de Ciências Agrárias e Medicina Veterinária)
+            <BR>
 			<BR>
-			<BR>
-			<BR>
-			<BR>
-			<BR>
-			<h3 style="border-top:1px solid #333f33;"><B>Staff</B></h3><B>Alessandra de Lacerda Carvalho</B>
+            <BR>
+			<h3 style="border-top:1px solid #333f33;"><B>Staff</B></h3><B>Edena Grein</B>
 			<BR>
 			(secretária da IC)
 			<BR>
 			<BR>
-			<B>Edena Grein</B>
-			<BR>
-			(secretária da IC)
-			<BR>
-			<BR>
-			<B>Felipe Machado</B>
+           	<B>Felipe Machado</B>
 			<BR>
 			(design gráfico da Editora Champagnat)
-				<BR>
+			<BR>
 			<BR>
 			<B>Fernanda Arruda</B>
 			<BR>
 			(representante do Marketing do Grupo Marista)
-			<BR>
-			<BR>
-			<B>Mariani Pimenta Barbosa</B>
-			<BR>
-			(secretária da IC)
 			<BR>
 			<BR>
 			<B>Rene Faustino Gabriel Junior</B>

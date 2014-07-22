@@ -22,15 +22,16 @@ if ($dd[99] == 'top')
 ///////////////////////////////////////// Imagem de Cabeçalho
 if ($dd[99] == 'botton')
 	{
-	$ximg = $dir_public.'/reol/public/'.$jid.'/images/homeBottonLogoImage.png';
-	$xmst = $http_public.'/reol/public/'.$jid.'/images/homeBottonLogoImage.png';
-	$xnome = 'homeBottonLogoImage.jpg';
-
-	$uploaddir = $dir_public.'/reol/public/'.$jid.'/images/';
+	$ximg = $dir_public.$jid.'/images/homeBottonLogoImage.png';
+	$xmst = $http_public.$jid.'/images/homeBottonLogoImage.png';
+	$xnome = 'homeBottonLogoImage.png';
+	
+	$uploaddir = $dir_public.$jid.'/images/';
 	$uploadfile = $uploaddir. $_FILES['userfile']['name'];
 	$uploadfile = $uploaddir. 'homeBottonLogoImage.png';
 	$pg_titulo = "Upload de imagem do rodapé";
 	$pg_mst = '<IMG src="'.$xmst.'">';
+		
 	}	
 	
 ///////////////////////////////////////// Imagem de Cabeçalho

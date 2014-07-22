@@ -31,6 +31,7 @@ class article
 	var $issue_vol;
 	var $issue_nr;
 	var $publicado;
+	var $link_doi;
 	
 	var $modalidade;
 	var $sigla;
@@ -317,7 +318,7 @@ class article
 				
 			array_push($cp,array('$O 9:Não revisado&1:Revisado','article_revisado','Revisado',False,True,''));
 			array_push($cp,array('$S20','article_pages',msg('pages'),False,True,''));
-			array_push($cp,array('$B8','','Salvar',False,True,''));
+			array_push($cp,array('$B8','','Salvar Dados',False,True,''));
 			return($cp);
 		}
 
@@ -547,6 +548,7 @@ class article
 					$this->journal_ISSN = substr(trim($line['journal_issn']),0,9);
 					$this->journal_path = trim($line['path']);
 					$this->publicado = $line['issue_dt_publica'];
+					$this->link_doi = $line['article_doi_link'];
 
 					/* Pages */
 					$this->article_pages = $line['article_pages'];

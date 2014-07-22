@@ -14,6 +14,7 @@ require($include.'sisdoc_debug.php');
 	$cl = new pibic_bolsa_tipo;
 	$cp = $cl->cp();
 	$tabela = $cl->tabela;
+	echo '<HR>'.$tabela.'<HR>';
 	
 	$http_edit = 'pibic_bolsa_tipo_ed.php';
 	$http_redirect = '';

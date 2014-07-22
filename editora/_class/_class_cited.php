@@ -799,19 +799,21 @@ class cited
 	function inport_cited($txt,$protocol)
 		{
 			$protocolo = $this->protocolo;
-			$tt = splitx(chr(13),$txt.chr(13));
+			$tt = splitx(chr(13),$txt.chr(13).'[fim]'.chr(13).chr(13));
 			if (count($tt) > 0)
 				{
 					$this->delete_cited($protocolo);
 					$id = 0;
 					for ($r=0;$r < count($tt);$r++)
 						{
+							
 							$ta = ($tt[$r]);
 							if (strlen($ta) > 5)
 								{
 								$id++;
 								$this->insert_cited($id,$ta);
 								}
+							//echo $ta.'<HR>';
 						}
 				}
 		}

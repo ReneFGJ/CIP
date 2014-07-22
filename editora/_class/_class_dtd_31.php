@@ -780,6 +780,15 @@ class dtd31
 
 	function dtd_counts()
 		{
+			/*
+			 * <count count-type="contributors" count="3"/>
+				<fig-count count="5"/>
+				<table-count count="3"/>
+				<equation-count count="10"/>
+				<ref-count count="26"/>
+				<page-count count="6"/>
+				<word-count count="2847"/>
+			 */
 			$sx = '
  			<counts>
          		<table-count count="'.$this->count_table.'"/>
@@ -789,6 +798,7 @@ class dtd31
          		<page-count count="'.$this->count_page.'"/>
 			</counts>
 			';
+			
 			return($sx);			
 		}
 	function dtd_front()

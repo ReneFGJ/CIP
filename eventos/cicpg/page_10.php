@@ -1,9 +1,11 @@
 <div id="page10" class="page_min pg10">
+	<A HREF="index.php#page01"><img src="img/icone_top.jpg" align="right" border=0 class="top" title="retorna ao menu"></A>
 	<h1><span>LOCALIZAÇÃO & MAPAS</span></h1>
 	<table width="900" align="center">
 		<TR>
-			<TD><IMG SRC="img/mapa_pucpr_00.gif"></TD>
+			<TD><IMG SRC="img/mapa/mapa_pucpr_2014.jpg" width="100%"></TD>
 		</TR>
+		<!--
 		<tr>
 			<td> LEGENDA
 			<BR>
@@ -41,5 +43,6 @@
 			<BR>
 			16. Centro Esportivo e Estacionamento para Visitantes</td>
 		</tr>
+		-->
 	</TABLE>
 </div>

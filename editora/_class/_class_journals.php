@@ -58,8 +58,8 @@ class journals
 				$opt .= '&R:Repositório Acadêmico';
 				$cp = array();
 				
-				$sql = "ALTER TABLE  journals ADD  jnl_editor CHAR(80)";
-				$rlt = db_query($sql);
+				//$sql = "ALTER TABLE  journals ADD  jnl_editor CHAR(80)";
+				//$rlt = db_query($sql);
 				
 				
 				array_push($cp,array('$H4','journal_id','journal_id',False,False,''));

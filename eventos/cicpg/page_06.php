@@ -1,17 +1,16 @@
 <div id="page06" class="page_min pg06">
-	<div id="page-journal" class="padd display backgr cc2 no-height">
-		<div class="ct">
-			<h1>Contato / Contact</h1>
+	<A HREF="index.php#page01"><img src="img/icone_top.jpg" align="right" border=0 class="top" title="retorna ao menu"></A>
+			<h1>Contato</h1>
 			<table align="center" width="900">
 				<TR>
-					<TD colspan=2 align="center"><h3>III Congresso de Iniciação Científica e Pós-Graduação da Região Sul</h3></TD>
-					
+					<TD colspan=2 align="center"><h3>III Congresso Sul Brasileiro de Iniciação Científica e Pós-Graduação</h3></TD>
+
 				</TR>
 				<TR>
 					<TD align="left" width="50%">
 					<P><B>Coordenação de Iniciação Científica - PUCPR</B>
 					<BR>
-					Pré-Reitoria de Pesquisa e Pós-Graduação da PUCPR
+					Pró Reitoria de Pesquisa e Pós Graduação da PUCPR
 					<BR>
 					Rua: Imaculada Conceição, 1155 - Prado Velho
 					<BR>
@@ -24,6 +23,4 @@
 					<TD></TD>
 				</TR>
 			</table>
-		</div>
-	</div>
 </div>	

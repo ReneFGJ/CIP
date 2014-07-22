@@ -76,7 +76,7 @@ class lattes
 				
 				for ($r=1;$r < count($ln);$r++)
 					{
-						if (($pos==0) or ($pos > 499))
+						if (($pos==0) or ($pos > 49))
 							{
 							if ($open==1) { fclose($farq); }
 							$farq = fopen('tmp/'.$tipo.'_'.strzero($arq++,4),'w');
@@ -1703,7 +1703,7 @@ class lattes
 				if (strlen($professor) ==0) { echo '<BR>'.UpperCaseSql(trim($cp[0])).' não localizado<BR>'; return(false); }
 				$this->updatex_journal();
 				
-				echo $professor;
+				//echo $professor;
 				$issn = $this->formata_issn($cp[8]);
 				$periodico = $this->busca_periodico($cp[7],$issn);
 				$ano = $cp[3];
@@ -1948,7 +1948,6 @@ class lattes
 					echo '<BR>'.$line['pa_nome'].' - '.$line['pa_cracha'].' ok';
 					return(trim($line['pa_cracha']));
 				} else {
-					echo '<BR>'.$sql;
 					return(''); 
 				}
 			}			
