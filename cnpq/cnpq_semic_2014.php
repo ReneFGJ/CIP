@@ -1,10 +1,16 @@
 <?
 $breadcrumbs=array();
 require("cab_cnpq.php");
-?>
-<h1 align="center"><b>PANORAMA DA PESQUISA NA PUCPR - 2014</b></h1>
+
+$sx = '
+<h1 align="center">SEMIC</h1>
+
 <span class="corpo-texto-explicativo">
 
-<?
+<img src="img/IC-2014-04.JPG" width="100%">
+<BR>
+';
+
+echo $sx;
 require("../foot.php");	
 ?>

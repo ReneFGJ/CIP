@@ -17,6 +17,69 @@ class artigo
 		
 		var $tabela = 'artigo';
 		
+		function export_to_excel()
+			{
+				$st = $this->status();
+								
+				$sql = "select * from ".$this->tabela." 
+						inner join pibic_professor on pp_cracha = ar_professor
+						left join centro on centro_codigo = pp_escola
+						and ar_status <> 0
+						order by pp_centro, centro_nome, pp_nome
+				";
+				$rlt = db_query($sql);
+				
+				$sx = '<table style="font-family: Arial; size: 12px;">';
+				$sx .= '<TR><TD>Protocolo
+						<TD>Status
+						<TD>Cracha
+						<TD>Tit.
+						<TD>Nome
+						<TD>SS
+						<TD>Centro
+						<TD>Escola
+						<TD>Titulo do artigo
+						<TD>ISSN
+						<TD>Revista
+						<TD>ISSN
+						<TD>Ano
+						<TD>Q1
+						<TD>ExR
+						<TD>Qualis
+						<TD>email
+						<TD>email alternativo
+						<TD>data';
+						
+				while ($line = db_read($rlt))
+					{
+						$sx .= '<TR>';
+						$sx .= '<TD>'.$line['ar_protocolo'];
+						$sx .= '<TD>'.$st[$line['ar_status']];
+						$sx .= '<TD>'.$line['pp_cracha'];
+						$sx .= '<TD>'.$line['pp_escolaridade'];
+						$sx .= '<TD>'.$line['pp_nome'];
+						$sx .= '<TD>'.$line['pp_ss'];
+						$sx .= '<TD>'.$line['pp_centro'];
+						$sx .= '<TD>'.$line['centro_nome'];
+						$sx .= '<TD>'.$line['ar_titulo'];
+						$sx .= '<TD>'.$line['ar_issn'];
+						$sx .= '<TD>'.$line['ar_ano'];
+						$sx .= '<TD>'.$line['ar_journal'];
+						$sx .= '<TD>'.$line['ar_q'];
+						$sx .= '<TD>'.$line['ar_er'];
+						$sx .= '<TD>'.$line['ar_a'];
+						$sx .= '<TD>'.$line['ar_tipo'];
+						$sx .= '<TD>'.$line['pp_email'];
+						$sx .= '<TD>'.$line['pp_email_1'];
+						$sx .= '<TD>'.$line['ar_update'];						
+						$sx .= '<TD>'.$line['ar_q'];
+						$sx .= '<TD>'.$line['ar_er'];
+						$sx .= '<TD>'.$line['ar_a'];						
+					}
+				$sx .= '</table>';
+				return($sx);
+			}
+		
 		function normaliza_issn($line)
 			{
 				$issn_old = $issn;

@@ -8,7 +8,7 @@ $form = new form;
 
 $cp = array();
 array_push($cp,array('$H8','','',False,True));
-array_push($cp,array('$[2010-'.date("Y").']','','Excluir dados a partir de ',True,True))	;
+array_push($cp,array('$[2009-'.date("Y").']D','','Excluir dados a partir de ',True,True))	;
 array_push($cp,array('$O : &S:SIM','','Confirmar Exclusão',True,True));
 
 $tela = $form->editar($cp,'');

@@ -11,6 +11,7 @@ class pibic_edital
 			$wh = " and (pb_tipo <> 'R' and pb_tipo <> 'X') ";
 			if (strlen($bolsa) > 0) { $wh .= " and pb_tipo = '$bolsa' "; }
 			if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X') "; }
+			if ($modalide == 'PIBICE') { $modalidade = 'PIBIC_EM'; }
 			if (strlen($modalidade) > 0) { $wh .= " and pbt_edital = '$modalidade' "; }
 			
 			$sql = "select $cps, count(*) as total from pibic_bolsa 
@@ -72,9 +73,9 @@ class pibic_edital
         			var data = google.visualization.arrayToDataTable([
           			[\'titulação\', \'total\'],
           			[\'stricto sensu\','.$ss[0].'],
-          			[\'graduação\', '.$ss[1].'],
+          			[\'docentes da graduação\', '.$ss[1].'],
         		]);
-		        var options = { title: \'Docentes stricto sensu\' };
+		        var options = { title: \'Docentes stricto sensu / graduação\' };
 		        var chart = new google.visualization.PieChart(document.getElementById(\'chart_div_2\'));
         			chart.draw(data, options);
       		}
@@ -108,6 +109,113 @@ class pibic_edital
 			
 			return($sx);
 		}
+
+	function edital_resumo_area($ano='',$bolsa='',$modalidade='')
+		{
+			$ano = round($ano);
+			
+			$wh = " and (pb_tipo <> 'R' and pb_tipo <> 'X') ";
+			if (strlen($bolsa) > 0) { $wh .= " and pb_tipo = '$bolsa' "; }
+			if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X') "; }
+			if ($modalidade == 'PIBICE') { $modalidade = 'PIBIC_EM'; }
+			if (strlen($modalidade) > 0) { $wh .= " and pbt_edital = '$modalidade' "; }
+			
+			
+			$doc = new docentes;
+			$prod = $doc->produtividade();
+					
+			$sx .= '<h3>Distribuição de bolsas por mérito</h3>';
+			
+			$cps = "*";
+			$sql = "select $cps from pibic_bolsa 
+					inner join pibic_professor on pp_cracha = pb_professor 
+					left join apoio_titulacao on ap_tit_codigo = pp_titulacao 
+					inner join pibic_bolsa_tipo on pbt_codigo =  pb_tipo 
+					inner join pibic_submit_documento on pb_protocolo = doc_protocolo
+					where pp_ano = '$ano' $wh
+					and pb_ativo = 1 
+					order by doc_area, pp_centro, pp_nome_asc, pbt_edital, pbt_auxilio desc, pb_tipo 
+					";
+			$rlt = db_query($sql);
+			$sx .= '<table class="tabela00" width="100%">';
+			$id = 0;
+			$sx .= '<TR>';
+			$sx .= '<TH>Protocolo submissão
+					<TH>Modalidade
+					<TH>Tit.
+					<TH>Orientador / Docente
+					<TH>Produtividade
+					<TH>stricto sensu';
+			$t_ss = 0;
+			$t_prod = 0;
+			$t_prof = 0;
+			$xprof = '';
+			$xcampus = 'X';
+			while ($line = db_read($rlt))
+			{
+				$campus = ($line['pp_centro']);
+				$campus = trim($line['doc_area']);
+				
+				if ($xcampus != $campus)
+					{
+						if ($campus =='A') { $campus_nome = 'Ciências Agrárias'; }
+						if ($campus =='V') { $campus_nome = 'Ciências da Vida'; }
+						if ($campus =='E') { $campus_nome = 'Ciências Exatas'; }
+						if ($campus =='H') { $campus_nome = 'Ciências Humanas'; }
+						if ($campus =='S') { $campus_nome = 'Ciências Sociais Aplicadas'; }
+						$sx .= '<TR><TD colspan=5 class="lt2"><B>';
+						$sx .= $campus_nome;
+						$sx .= '</B>';
+						$xcampus = $campus;
+					}
+				
+				$prof = $line['pp_cracha'];
+				if ($prof != $xprof) { $t_prof++; $xprof = $prof; }
+				$mar = $line['doc_protocolo_mae'];
+				$link = '<A HREF="parecer.php?dd0='.$mar.'&dd90='.checkpost($mar).'" target="_new" class="link" title="clique aqui para visualizar o projeto e parecer">';
+				/* pb_tipo */
+				$id++;
+				$sx .= '<TR>';
+				$sx .= '<TD class="tabela01" align="center">';
+				$sx .= $link;
+				$sx .= $line['pb_protocolo'];
+				$sx .= '</a>';
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pbt_descricao'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['ap_tit_titulo'];
+				
+				/* Docente */
+				$link = '<A HREF="docente.php?dd0='.$line['id_pp'].'">';				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $link;
+				$sx .= $line['pp_nome'];
+				$sx .= '</A>';
+				$sx .= '<TD class="tabela01">';
+				$ppr = trim($prod[$line['pp_prod']]);
+					if (strlen($ppr) > 0) { $t_prod++; }
+				$sx .= $ppr;
+				$sx .= '<TD class="tabela01" align="center">';
+				$ss = trim($line['pp_ss']);
+				if ($ss=='S') { $sx .= 'SIM'; $t_ss++; } else {$sx .= '-';  }
+				$sx .= '<TD class="tabela01" align="center">';
+				
+				if ($line['pb_ativacao'] > 20000101)
+					{
+						$dt = $line['pb_ativacao'];
+						$sx .= 'ativado';
+					}
+				
+				
+				$lattes = trim($line['pp_lattes']);
+				$ln = $line;
+			}
+			$sx .= '<TR><TD colspan=10>total '.$id.' planos de aluno distribuidas para '.$t_prof.' docentes, destes '.$t_ss.' de stricto sensu e '.$t_prod.' com bolsas produtividade.';
+			$sx .= '</table>';
+			
+			return($sx);
+		}	
+
 	
 	function edital_resumo($ano='',$bolsa='',$modalidade='')
 		{

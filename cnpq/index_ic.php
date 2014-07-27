@@ -18,6 +18,11 @@ switch ($moda)
 echo '<img src="../img/'.$logo.'" align="right">';
 echo '<h1>Iniciação Científica da PUCPR</h1>';
 echo '<h3>'.$moda.' - PUCPR</h3>';
+$ano = $dd[1];
+if (strlen($ano) == 0)
+	{
+		$ano = date("Y");
+	}
 $menu = array();
 
 if (date("m") >= 10)
@@ -29,20 +34,25 @@ if (date("m") >= 10)
 			{
 				array_push($menu,array('Edital de aprovação','Aprovados com bolsa CNPq','edital.php?dd0=B&dd1='.$moda.'&dd2='.date("Y")));		
 			} else {
-				array_push($menu,array('Edital de aprovação','Aprovados com bolsa CNPq','edital.php?dd0=C&dd1='.$moda.'&dd2='.date("Y")));
+				if ($moda == 'PIBICE') {
+					array_push($menu,array('Edital de aprovação','Aprovados com bolsa CNPq','edital.php?dd0=H&dd1='.$moda.'&dd2='.date("Y")));	
+				} else {
+					array_push($menu,array('Edital de aprovação','Aprovados com bolsa CNPq','edital.php?dd0=C&dd1='.$moda.'&dd2='.date("Y")));
+				}
+				
 			}
 		array_push($menu,array('Edital de aprovação','Aprovados em todas as modalidades','edital.php?dd0=&dd1='.$moda.'&dd2='.date("Y")));
 		array_push($menu,array('Edital de aprovação','Projetos não aprovados','edital.php?dd0=R&dd1='.$moda.'&dd2='.date("Y")));
 	}
 //array_push($menu,array('Edital de aprovação','Panorama dos projetos '.$modalidade,'edital_panorama.php?dd0=H&dd1='.$moda.'&dd2='.date("Y")));
 
-array_push($menu,array('Formulário','Modelo do Projeto de Pesquisa','arq/2013/modelo_projeto_do_professor_'.$moda.'.doc'));
-array_push($menu,array('Formulário','Modelo do Plano de trabalho do aluno','arq/2013/modelo_plano_de_aluno_'.$moda.'.doc'));
-array_push($menu,array('Formulário','Caderno de Normas IC','arq/2013/cadernos_de_normas_2013.pdf'));
-array_push($menu,array('Formulário','Ficha do Avaliador '.$modalidade,'arq/2013/modelo_ficha_avaliaca_'.$moda.'_2013.pdf'));
+array_push($menu,array('Formulário','Modelo do Projeto de Pesquisa','arq/'.$ano.'/modelo_projeto_do_professor_'.$moda.'.doc'));
+array_push($menu,array('Formulário','Modelo do Plano de trabalho do aluno','arq/'.$ano.'/modelo_plano_de_aluno_'.$moda.'.doc'));
+array_push($menu,array('Formulário','Caderno de Normas IC','arq/'.$ano.'/cadernos_de_normas.pdf'));
+array_push($menu,array('Formulário','Ficha do Avaliador '.$modalidade,'arq/'.$ano.'/modelo_ficha_avaliaca_'.$moda.'.pdf'));
 if ($moda == 'PIBITI')
 	{
-		array_push($menu,array('Formulário','Questionário de inovação','arq/2013/questionario_de_Inovacao.doc'));
+		array_push($menu,array('Formulário','Questionário de inovação','arq/'.$ano.'/questionario_de_Inovacao.doc'));
 	}
 array_push($menu,array('Avaliação CNPq ','<b>Instruções para o avaliador CNPq</B>','link_cnpq_'.$moda.'.php'));
 array_push($menu,array('Avaliação CNPq ','Link de acesso externo do CNPq','http://www.cnpq.br/web/guest/comite-externo-institucional'));

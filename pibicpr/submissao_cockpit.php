@@ -18,8 +18,8 @@ $sql = "select count(*) as total, pj_ano, doc_edital
 	inner join pibic_submit_documento on doc_protocolo_mae = pj_codigo 
 	
 	where pj_ano = '".$pj->ano."'
-					and (doc_status = 'B' or doc_status = 'C' or doc_status = 'D') 
-					and (pj_status = 'B' or pj_status = 'C' or pj_status = 'D')
+					and (doc_status = 'B' or doc_status = 'C' or doc_status = 'D' or doc_status = 'F') 
+					and (pj_status = 'B' or pj_status = 'C' or pj_status = 'D' or pj_status = 'F')
 	group by pj_ano, doc_edital 
 ";
 $rlt = db_query($sql);

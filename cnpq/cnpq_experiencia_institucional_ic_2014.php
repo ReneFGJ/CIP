@@ -4,12 +4,13 @@ require("cab_cnpq.php");
 
 $sx = '
 <h1 align="center">EXPERIÊNCIA INSTITUCIONAL NA INICIAÇÃO CIENTÍFICA</h1>
-
+<h2>PIBIC e PIBITI</h2>
 <span class="corpo-texto-explicativo lt3">
 O Programa Institucional de Bolsas de Iniciação Científica (PIBIC) teve um grande salto qualitativo e quantitativo nos últimos anos.
-<BR><BR>Em 2010, a PUCPR teve sua adesão ao Programa PIBITI (Programa Institucional de Bolsas de Iniciação em Desenvolvimento Tecnológico e Inovação). 
-<BR><BR>O número de alunos envolvidos nos programas de PIBIC e PIBITI pode ser visualizado a seguir:
-
+'; 
+$sx .= '<BR>'.utf8_encode('A ades�o da PUCPR ao programa PIBITI ocorreu em 2010.');
+$sx .= '
+<BR><BR>O número de alunos envolvidos no PIBIC e PIBITI pode ser visualizado a seguir:
 <BR><BR>
 <B>Quadro 1 - Número de Bolsas de Programas de Iniciação Científica e Tecnológica da Instituição (2008 - 2014)</B>
 <table class="tabela00 lt2" width="90%" align="center">
@@ -26,8 +27,8 @@ O Programa Institucional de Bolsas de Iniciação Científica (PIBIC) teve um gr
 <TR><TD class="tabela01" align="center">2010-2011<TD class="tabela01" align="center">160<TD class="tabela01" align="center">58 	<TD class="tabela01" align="center">90	<TD class="tabela01" align="center">50		<TD class="tabela01" align="center">30		<TD class="tabela01" align="center">388
 <TR><TD class="tabela01" align="center">2011-2012<TD class="tabela01" align="center">225<TD class="tabela01" align="center">130 	<TD class="tabela01" align="center">95	<TD class="tabela01" align="center">50		<TD class="tabela01" align="center">30		<TD class="tabela01" align="center">530
 <TR><TD class="tabela01" align="center">2012-2013<TD class="tabela01" align="center">325<TD class="tabela01" align="center">195	<TD class="tabela01" align="center">94	<TD class="tabela01" align="center">50		<TD class="tabela01" align="center">38		<TD class="tabela01" align="center">702
-<TR><TD class="tabela01" align="center">2013-2014<TD class="tabela01" align="center">328<TD class="tabela01" align="center">152	<TD class="tabela01" align="center">97	<TD class="tabela01" align="center">50		<TD class="tabela01" align="center">48		<TD class="tabela01" align="center">675
-<tr>
+<TR><TD class="tabela01" align="center">2013-2014<TD class="tabela01" align="center">325<TD class="tabela01" align="center">145	<TD class="tabela01" align="center">94	<TD class="tabela01" align="center">50		<TD class="tabela01" align="center">48		<TD class="tabela01" align="center">662
+<TR><TD class="tabela01" align="center">2014-2015<TD class="tabela01" align="center">350<TD class="tabela01" align="center">?	<TD class="tabela01" align="center">87	<TD class="tabela01" align="center">55		<TD class="tabela01" align="center">32		<TD class="tabela01" align="center">524<tr>
 <td colspan="7"><font style="font-size:10px">FONTE: Coordenação de Iniciação Científica - PIBIC PUCPR</font></td>
 </table>	
 
@@ -46,32 +47,19 @@ O Programa Institucional de Bolsas de Iniciação Científica (PIBIC) teve um gr
 <TR><TD class="tabela01" align="center">2011-2012<TD class="tabela01" align="center">206<TD class="tabela01" align="center">53<TD class="tabela01" align="center">259
 <TR><TD class="tabela01" align="center">2012-2013<TD class="tabela01" align="center">370<TD class="tabela01" align="center">40<TD class="tabela01" align="center">410
 <TR><TD class="tabela01" align="center">2013-2014<TD class="tabela01" align="center">448<TD class="tabela01" align="center">56<TD class="tabela01" align="center">504
+<TR><TD class="tabela01" align="center">2014-2015<TD class="tabela01" align="center">772*<TD class="tabela01" align="center">103<TD class="tabela01" align="center">875';
+$sx .= utf8_encode('<TR><TD colspan=2 class="lt0">* Em fase de implementa��o');
+$sx .= '
 <tr>
 <td colspan="7"><font style="font-size:10px">FONTE: Coordenação de Iniciação Científica - PIBIC PUCPR</font></td>
 </table>
-	 	
-
-
-<BR>Em 2006, a PUCPR aderiu ao PIBIC Jr (Programa Institucional de Bolsas para o Ensino Médio), mantendo ao longo desses anos uma atuação efetiva em vários colégios da rede pública e privada.
-<BR><BR>
-<B>Quadro 3 - Número de bolsas PIBIC Jr /PIBIC_EM (2009 - 2013)</B>
-<table class="tabela00 lt2" width="70%" align="center">
-<TR><TH>ANO<TH>Bolsa PUCPR<TH>Fundação Arauc'.utf8_encode('�').'ria<TH>CNPq<TH>TOTAL
-<TR><TD class="tabela01" align="center">2009<TD class="tabela01" align="center">40<TD class="tabela01" align="center">40<TD class="tabela01" align="center">---<TD class="tabela01" align="center">80
-<TR><TD class="tabela01" align="center">2010<TD class="tabela01" align="center">40<TD class="tabela01" align="center">---<TD class="tabela01" align="center">40<TD class="tabela01" align="center">80
-<TR><TD class="tabela01" align="center">2011<TD class="tabela01" align="center">45<TD class="tabela01" align="center">---<TD class="tabela01" align="center">35<TD class="tabela01" align="center">80
-<TR><TD class="tabela01" align="center">2012<TD class="tabela01" align="center">45<TD class="tabela01" align="center">---<TD class="tabela01" align="center">35<TD class="tabela01" align="center">80
-<TR><TD class="tabela01" align="center">2013<TD class="tabela01" align="center">30<TD class="tabela01" align="center">16<TD class="tabela01" align="center">35<TD class="tabela01" align="center">81
-<TR><TD class="tabela01" align="center">2014<TD class="tabela01" align="center">96<TD class="tabela01" align="center">16<TD class="tabela01" align="center">35<TD class="tabela01" align="center">81
-<tr>
-<td colspan="7"><font style="font-size:10px">FONTE: Coordenação de Iniciação Científica - PIBIC PUCPR</font></td>
-</table>
-
-<BR>Totalizamos 1193, somando todos os alunos envolvidos em IC na PUCPR na vigência 2012-2013.
-<BR><BR>Realização anual do Seminário de Iniciação Científica, publicação impressa e online dos Cadernos de Resumo dos Seminários de Iniciação Científica da PUCPR (http://www.pucpr.br/pesquisacientifica/iniciacaocientifica/semic.php).
-<BR><BR>O SEMIC congrega pesquisas desde o ensino médio (PIBIC Jr), graduação (PIBIC), mestrado e doutorado (mostra de pesquisa da PG).
-<BR><BR>Novidades no SEMIC de 2012: site bilíngue, 66 apresentações de trabalhos em inglês, Concurso Jovens Ideias, Espaço Pesquisa é Evoluir. 
+<center>	 	
+<img src="img/IC-2014-01.JPG" width="98%">
+<BR>
+<img src="img/IC-2014-02.JPG" width="98%">
+<BR><BR><BR>
 ';
 echo utf8_decode($sx);
+echo '<BR><BR>';
 require("../foot.php");	
 ?>

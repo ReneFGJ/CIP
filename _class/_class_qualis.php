@@ -177,6 +177,8 @@ class qualis
 						$this->update_area();
 						return($line['qa_codigo']);
 					} else {
+						return('');
+						
 						$sql = "insert into qualis_area (
 						qa_descricao, qa_codigo, qa_ativo,
 						qa_atualizado 
@@ -239,49 +241,64 @@ class qualis
 				$sx = troca($sx,'"','');
 				
 				$xarea = "X";
-				
+				$sx = troca($sx,'Atualizado','');
 				$cs = splitx(chr(13),$sx);
 				for ($r=0;$r < count($cs);$r++)
 					{
+						$issn = substr($cs[$r],0,9);
+						
+						/* trocas do qualids */
+						$ss = $cs[$r];
+						$ss = troca($ss,' A1 ','[<A1>]');
+						$ss = troca($ss,' A2 ','[<A2>]');
+						$ss = troca($ss,' B1 ','[<B1>]');
+						$ss = troca($ss,' B2 ','[<B2>]');
+						$ss = troca($ss,' B3 ','[<B3>]');
+						$ss = troca($ss,' B4 ','[<B4>]');
+						$ss = troca($ss,' B5 ','[<B5>]');
+						$ss = troca($ss,' C ','[<C >]');
+						
+						/* Nome do journal */
+						$pos = strpos($ss,'[<');
+						$journal_name = trim(substr($ss,9,$pos-9)); 
+						$journal_name = troca($journal_name,"'",'´'); 
+						/* Iniciao string */
+						$is = substr($cs[$r],0,9).';';
 						$isn = splitx(';',$cs[$r]);
-						print_r($cs[$r]);
-						echo '<BR>';
+						
+						/* Qualis */
+						$qualis = substr($ss,strpos($ss,'[<')+2,2);
+						
+						/* Area */
+						$area = trim(substr($ss,strpos($ss,'>]')+2,100));
+										
 
-						$issn = trim($isn[0]);
-						$journal_name = trim($isn[1]);
-						$qualis = trim($isn[2]);
-						$qualis = substr($qualis,strlen($qualis)-2,2);
-						$area = trim($isn[3]);
-						$status = trim($isn[4]);
-						echo '['.substr($issn,4,1).']';
 						if (substr($issn,4,1)=='-')
 							{
-								echo "===>".$area;
+								
 								if ($xarea != $area)
 									{
+										$area = troca($area,"'",'´');
+										echo '<HR>'.$area.'<HR>';
 										$cod_area = $this->qualis_area($area);
 										$xarea = $area;
 										echo '<HR>';
-										echo $cod_area;
+										echo $cod_area . ' - '.$area;
 										echo '<HR>';
 									}
-								$rs = $this->cited_journal_insert($ar[0], $ar[2]);
-								$ano = date("Y");
-								$this->qualis_estrado($issn,$area,$qualis,$ano,$cod_area);
+
+								echo '<BR>'.$issn.'-'.$area.'-['.$qualis.']-'.$journal_name;
+
+								if ($cod_area != '')
+									{
+									$rs = $this->cited_journal_insert($issn, $journal_name);
+									$ano = date("Y");
+									$this->qualis_estrado($issn,$area,$qualis,$ano,$cod_area);
+									}
 							}					
 					}
 				exit;
 				
-				while ((strlen($sx) > 0) and ($loop < 50000))
-					{
-						$loop++;
-						$xpos = strpos($sx,chr(13));
-						$ln = substr($sx,0,$xpos);
-						$sx = substr($sx,$xpos+1,strlen($sx));
-						$ln = troca($ln,"'",'´');
-						$this->cited_process_inport_ln($ln);
-						echo '. ';
-					}
 				echo '<BR>Processado '.$loop.' registro.';
 			}
 		function cited_process_inport_ln($ln)
@@ -305,7 +322,12 @@ class qualis
 				$rs = $this->cited_journal_insert($ar[0], $ar[2]);
 				if ($rs == 1) 
 				{
-					if (strlen($xarea == 0)) { echo '<HR>'.$ar[1].'<HR>'; $xarea = $this->qualis_area($ar[1]); }
+					if (strlen($xarea == 0)) 
+						{
+						echo '<HR>'.$ar[1].'<HR>'; 
+						exit;
+						$xarea = $this->qualis_area($ar[1]); 
+						}
 					$this->qualis_estrado($ar[0],$xarea,$ar[3],sonumero($ar[4])); 
 				}
 			}
@@ -339,7 +361,6 @@ class qualis
 								'$ano'); ";
 					}
 					$rlt = db_query($sql);
-					echo '<HR>'.$sql.'<HR>';
 					return(1);
 				} else {
 					return(0);
@@ -347,7 +368,7 @@ class qualis
 			}
 		function cited_journal_insert($issn,$journal)
 			{
-				$journal = substr($journal,0,100);
+				$journal = substr($journal,0,50);
 				$issn = trim($issn);
 				if (strlen($issn)==9)
 				{

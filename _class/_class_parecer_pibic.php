@@ -220,14 +220,14 @@ class parecer_pibic
 			$crt[6] = 'Critério 5: Roteiro de atividades do aluno considerando a sua adequação ao processo de iniciação científica.';
 			$crt[7] = 'Critério 6: Adequação do cronograma para a execução da proposta.';
 
-
+			$this->tabela = "pibic_parecer_".date("Y");
+			
 			$sql = "select * from ".$this->tabela." 
 					where (pp_protocolo_mae = '$protocolo' 
 						or pp_protocolo = '$protocolo')
-					and pp_status = 'B' 
+					and pp_status <> 'D' and pp_status <> '@' 
 					order by pp_protocolo, pp_avaliador
 					";
-					
 			$rlt = db_query($sql);
 			
 			$xava = '';
@@ -253,7 +253,7 @@ class parecer_pibic
 					$aval = trim($line['pp_avaliador']);
 					if (substr($proto,0,1)=='1')
 						{
-							$quali .= mst(trim($line['pp_abe_01'])).'<BR>';
+							$quali .= mst(trim($line['pp_abe_01'])).'<HR>';
 							$xava = $aval;
 							
 							$rs1 .= '<BR>Avaliador '.($av).': <B>'.$this->valor_avaliacao($pp01).'</B>';
@@ -1059,8 +1059,8 @@ class parecer_pibic
 			$sx .= '<h3>Gerar dados para o edital</h3>';
 			$sx .=  '<table width="100%" class="lt1">';
 			
-			$aq = array(0,0,0);
-			$ar = array(0,0,0);
+			$aq = array(0,0,0,0);
+			$ar = array(0,0,0,0);
 			while ($line = db_read($rlt))
 			{
 				$bonificacao = 0;
@@ -1094,6 +1094,7 @@ class parecer_pibic
 				$id = 0;
 				if ($moda == 'PIBITI') { $id = 1; }
 				if ($moda == 'PIBICE') { $id = 2; }
+				if ($moda == 'PIBICE') { $id = 3; }
 				$aq[$id] = $aq[$id] + 1;
 				if ($soma < 60) { $ar[$id] = $ar[$id] + 1; }
 				$tot++;

@@ -2,6 +2,7 @@
 require("cab.php");
 require("../_class/_class_pibic_projetos.php");
 $ano = date("Y");
+$meta = 1100;
 
 echo '<H3>Projetos para avaliação</h3>';
 $pj = new projetos;

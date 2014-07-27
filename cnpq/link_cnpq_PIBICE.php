@@ -16,6 +16,7 @@ Link de acesso a página do CIP da PUCPR<br>
 <BR> 
 <BR>clique no link formulário de seleção do PIBITI, baixe o arquivo, preencha e envie por e-mail para o CNPq.
 <BR> 
+<BR>No formulário fique livre para comentários pertinentes apenas para o PIBIC_EM
 </span>
 <?
 echo $hd->foot();

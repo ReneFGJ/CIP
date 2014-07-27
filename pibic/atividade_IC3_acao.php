@@ -18,7 +18,7 @@ $data_rp = round($pb->pb_rf);
 
 if ($data_rp < 20100101)
 	{
-		if (date("Ymd") > 20130810)
+		if (date("Ymd") > 20140729)
 			{
 				echo $rp->prazo_encerrado();
 				echo $rp->form($ged);

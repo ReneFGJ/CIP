@@ -13,7 +13,8 @@ echo '<h3>resultado</h3>';
 
 echo $ed->grafico_titulacao($ano,$dd[0],$dd[1]);
 
-echo $ed->edital_resumo($ano,$dd[0],$dd[1]);
+echo $ed->edital_resumo_area($ano,$dd[0],$dd[1]);
+//echo $ed->edital_resumo($ano,$dd[0],$dd[1]);
 
 
 require("../foot.php");	

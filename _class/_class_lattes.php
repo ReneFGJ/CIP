@@ -772,6 +772,7 @@ class lattes
 		
 		function resumo_qualis_ss($programa,$areas,$anoi=1990,$anof=2999,$tp=0,$producao='A')
 			{
+				$ano = date("Y");
 				$sx = '<table width="100%" class="tabela00">';
 				$sx .= '<TR><TH>ISSN<TH>Journal<TH><TH>Estr.<TH>Ano<TH>Vol.<TH>Pag.<TH>Autor';
 				for ($r=0;$r < count($areas);$r++)
@@ -787,7 +788,7 @@ class lattes
 							inner join programa_pos_docentes on pdce_docente = la_professor
 							inner join pibic_professor on pdce_docente = pp_cracha
 							left join lattes_journals on j_codigo = la_periodico
-							left join qualis_estrato on (j_issn = eq_issn) $wh_areas ";
+							left join qualis_estrato on (j_issn = eq_issn) $wh_areas and (eq_ano = '".$ano."')";
 					$wh = "	where pdce_programa = '$programa'
 							and (la_ano >= '$anoi' and la_ano <= '$anof')
 							and (la_tipo = '".$producao."') "; 
@@ -871,8 +872,9 @@ class lattes
 									.'('.$line['la_nul'].')'
 									.', '.$line['la_ano'];
 						$sx .= '<TD><NOBR>p. '.$line['la_pag'];
-						$sx .= '<TD>'.$cor.$line['pp_nome'].' ('.$line['la_professor'].')';
-						$sx .= '<TD>'.$cor.$line['la_tipo'];
+						$sx .= '<TR><TD><TD colspan=10>';
+						$sx .= $cor.$line['pp_nome'].' ('.$line['la_professor'].')';
+						$sx .= '<TD>'.$cor.$line['id_la'];
 						}
 					}
 					$sx .= '<TR><TD colspan=7><center>';

@@ -20,6 +20,12 @@ echo $art->resumo('');
 
 echo '<A HREF="artigos_professores_q1.php">Professores com Q1</A>';
 
+echo '<BR><BR>';
+echo '<A HREF="artigos_excel.php" target="new" title="Exportar para o excel" >';
+echo '<img src="../img/icone_excel.png" height="32">';
+echo '</A>';
+echo '<BR><BR>';
+
 echo $art->resumo_issn('');
 
 	//$tela = menus($menu,"3");

@@ -16,10 +16,12 @@ Quadro 3 - Número de bolsas PIBIC Jr /PIBIC_EM (2009 - 2014)
 <TR><TD class="tabela01" align="center">2011<TD class="tabela01" align="center">45<TD class="tabela01" align="center">---<TD class="tabela01" align="center">35<TD class="tabela01" align="center">80
 <TR><TD class="tabela01" align="center">2012<TD class="tabela01" align="center">45<TD class="tabela01" align="center">---<TD class="tabela01" align="center">35<TD class="tabela01" align="center">80
 <TR><TD class="tabela01" align="center">2013<TD class="tabela01" align="center">30<TD class="tabela01" align="center">16<TD class="tabela01" align="center">35<TD class="tabela01" align="center">81</TD></TR>
-<TR><TD class="tabela01" align="center">2014<TD class="tabela01" align="center">30<TD class="tabela01" align="center">16<TD class="tabela01" align="center">35<TD class="tabela01" align="center">81</TD></TR>
+<TR><TD class="tabela01" align="center">2014<TD class="tabela01" align="center">50<TD class="tabela01" align="center">?</TD><TD class="tabela01" align="center">35<TD class="tabela01" align="center">85</TD></TR>
 <tr><td colspan="5"><font style="font-size:10px">FONTE: Coordenação de Iniciação Científica - PIBIC PUCPR</font>
 </td></tr>
 </table>
+
+<img src="img/IC-2014-03.JPG"  width="98%">
 <br>
 A PUCPR é a única IES que como contrapartida às bolsas recebidas dos órgãos de fomento desenvolve o mesmo programa com colégios da rede privada. Abaixo relacionamos nossos colégios parceiros, bem como o respectivo tempo em que mantemos o programa na instituição:
 <br>
@@ -29,7 +31,7 @@ A PUCPR é a única IES que como contrapartida às bolsas recebidas dos órgãos de f
         <li>Colégio Marista (Maringá) - (1 ano)</li>
         <li>Colégio Top Gun - (1 ano)</li>
     </ul>
-Se somarmos todos os alunos envolvidos em IC na PUCPR na vigência 2012-2013 totalizamos 1193.
+
 <table border="0" width="70%" align="center" class="corpo-texto-explicativo">
 <TR><TD>
 <ul>
@@ -75,6 +77,7 @@ Se somarmos todos os alunos envolvidos em IC na PUCPR na vigência 2012-2013 tota
 </table>
 Essa grande rotatividade de colégios e o pequeno número de alunos de cada colégio envolvidos não favorecem a disseminação e sedimentação da cultura da iniciação científica na escola. Apesar de, sem dúvida alguma, os bolsistas se beneficiarem sobremaneira da experiência. A nova formatação da IC Jr em PIBIC_EM nos parece ser uma boa estratégia para enfrentar esta questão, uma vez que a IES faz parceria com um ou mais colégio, as bolsas ficam concentradas numa escola, podendo envolver toda a comunidade em torno de um eixo de interesse comum. Desse modo, a intervenção pode ser mais efetiva.
 </span>
+<img src="img/IC-2014-08.JPG"  width="98%">
   <?
 require("../foot.php");	
 ?>

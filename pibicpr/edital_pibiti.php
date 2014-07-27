@@ -2,20 +2,23 @@
 
 if ($_GET['printer']=='S')
 {
-require("db.php");
-require('../_class/_class_pibic_projetos.php');
+$include = '../';
+require("../db.php");
+require($include.'sisdoc_debug.php');
+
+require('../_class/_class_pibic_projetos_v2.php');
 require($include.'sisdoc_colunas.php');
 require($include.'sisdoc_autor.php');
 
 $relatorio_titulo = "Edital ".$dd[1]." ".date("Y")."/".(date("Y")+1)." - Resultado do Processo de Seleção de Bolsas de Iniciação Tecnológica";
 $edital = new projetos;
 ?>
-<link rel="STYLESHEET" type="text/css" href="css/letras.css">
+<link rel="STYLESHEET" type="text/css" href="../css/ic-edital.css">
 <body topmargin="0" leftmargin="0" rightmargin="0">
 <TABLE width="100%">
 	<TR>
 		<TD width="30%" valign="top">
-		<img src="img/logo_pibiti.jpg" height="80" alt="" border="0">
+		<img src="../img/logo_ic_pibiti.png" height="80" alt="" border="0">
 		</TD>
 		<TD class="lt3" align="center"><?=$relatorio_titulo;?><?=$tit1;?></TD>
 		<TD width="30%" align="right" valign="top"><NOBR>

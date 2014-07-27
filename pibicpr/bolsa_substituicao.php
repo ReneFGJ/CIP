@@ -30,7 +30,7 @@ if ($saved > 0)
 	$dd0 = brtos($dd[0]);
 	$dd1 = brtos($dd[1]);
 	require("../_class/_class_pibic_historico.php");
-	$his = new pibic_histotico;
+	$his = new pibic_historico;
 	echo $his->historico($dd[2],$dd0,$dd1);
 }
 

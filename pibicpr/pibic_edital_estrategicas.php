@@ -14,11 +14,13 @@ echo '<H3>Edital por áreas estratégicas</h3>';
 $sql = "select * from pibic_submit_documento 
 		inner join pibic_projetos on pj_codigo = doc_protocolo_mae
 		inner join pibic_professor on pj_professor = pp_cracha
+		inner join ajax_areadoconhecimento on pj_area_estra = a_cnpq
 		where pj_area_estra <> '9.00.00.00-X'
 			and (doc_ano = '".date("Y")."') 
 			and (pj_status <> 'X')
 			and (doc_status <> 'X')
-			and pj_area_estra = '9.00.00.01-X'
+			and  pj_area_estra like '9.%'
+			and pj_area_estra <> '9.00.00.00-X'
 		order by pj_area_estra, doc_nota desc, pp_nome, doc_protocolo_mae, doc_protocolo
 		";
 $rlt = db_query($sql);
@@ -28,6 +30,8 @@ $sh = '<TR><TH>Proto<TH>Projeto do professor<TH>Proto<TH>Plano de trabalho<TH>No
 $tot = 0;
 while ($line = db_read($rlt))
 	{
+		$area = $line['pj_area_estra'];
+		$area_descricao = $line['a_descricao'];
 		$titpl = $line['doc_1_titulo'];
 		$titpj = $line['pj_titulo'];
 		$nota = $line['doc_nota'];
@@ -35,6 +39,15 @@ while ($line = db_read($rlt))
 		$prof = $line['pp_nome'];
 		$prot = $line['doc_protocolo'];
 		$protj = $line['doc_protocolo_mae'];
+		
+		if ($area != $xarea)
+			{	
+			$sx .= '<TR><TD class="tabela00 lt4" colspan=5><font color="blue">';
+			$sx .= $area;
+			$sx .= $area_descricao;
+			$xarea = $area;
+			$sx .= '</font>';
+			}
 		
 		if ($prof != $xprof)
 			{

@@ -7,6 +7,9 @@ require($include.'sisdoc_email.php');
 
 require("../_class/_class_ic.php");
 
+$sql = "update pibic_submit_documento set doc_autor_principal = '70005465' where doc_protocolo_mae = '1003421'";
+$rlt = db_query($sql);
+
 if (strlen($dd[0])==0)
 	{
 		$dd[0] = $_SESSION['ART']; 
