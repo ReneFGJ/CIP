@@ -13,7 +13,7 @@ require($include.'sisdoc_debug.php');
 	
 	/* Não alterar - dados comuns */
 	$label = msg($tabela);
-	$http_edit = 'cited_journal_ed.php'; 
+	$http_edit = 'cited_journal_data_ed.php'; 
 	$http_ver = 'cited_journal_detalhe.php'; 
 	$editar = True;
 	$http_redirect = 'cited_journal.php';

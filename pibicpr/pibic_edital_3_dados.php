@@ -30,6 +30,18 @@ require ("pibic_edital_3_resumo.php");
 //$sql = 'CREATE INDEX index_key_05 ON "pibic_aluno" (pa_cracha); ';
 //$rlt = db_query($sql);
 
+
+$sql = "select * from pibic_submit_documento
+		 	left join pibic_aluno on pa_cracha = doc_aluno
+			where pa_cracha isnull ";
+$rlt = db_query($sql);
+while ($line = db_read($rlt))
+	{
+		$sql = "update pibic_submit_documento set doc_aluno = '00000000' where id_doc = ".$line['id_doc'];
+		$xrlt = db_query($sql);
+		echo $sql;
+	}
+
 $cps = 'pb3.id_pb as idp, doc_ava_estrategico, id_pj, pj_codigo, doc_doutorando, doc_area, pb2.pb_tipo as pb_tipo_ant, pb3.pb_tipo as pb_tipo_atu,pb1.pb_tipo as pb_tipo, ap_tit_titulo, pp_nome, pp_centro, pp_ss, pa_nome, doc_icv, doc_estrategica, doc_nota, doc_protocolo_mae, doc_protocolo ';
 $cps .= ', pp_prod, pp_cracha, doc_aluno, doc_avaliacoes ';
 //$cps = '*';
@@ -51,6 +63,8 @@ $sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
 $sql .= " and (doc_aluno <> '') ";
 $sql .= " and doc_nota > 10 ";
 $sql .= " order by  doc_area, doc_nota desc, doc_protocolo ";
+
+
 
 if ($dtipo == 'PIBICE') {
 	$cps = 'pb3.id_pb as idp, doc_ava_estrategico, id_pj, pj_codigo, doc_doutorando, doc_area, pb2.pb_tipo as pb_tipo_ant, pb3.pb_tipo as pb_tipo_atu,pb1.pb_tipo as pb_tipo, ap_tit_titulo, pp_nome, pp_centro, pp_ss, doc_icv, doc_estrategica, doc_nota, doc_protocolo_mae, doc_protocolo ';

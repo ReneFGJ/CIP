@@ -41,6 +41,7 @@ if ($bon->origem_tipo = 'IPR')
 			}
 	}
 echo $cap->mostra($cap);	
+echo '</table>';
 require('../foot.php');
 ?>
 

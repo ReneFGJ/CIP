@@ -16,6 +16,50 @@ class artigo
 		var $bon_ExR= 3000;
 		
 		var $tabela = 'artigo';
+		var $result = 0;
+		
+		function resultado_busca($sx)
+			{
+				
+				$sql = "select * from ".$this->tabela."
+						inner join pibic_professor on pp_cracha = ar_professor
+						where asc7(pp_nome) like '%".UpperCaseSql($sx)."%'
+						order by pp_nome
+						";
+				$rlt = db_query($sql);
+				$sx = '<table>';
+				$xprof = '';
+				while ($line = db_read($rlt))
+				{
+					$prof = trim($line['pp_nome']);
+					if ($prof != $xprof)
+						{
+							$xprof = $prof;
+							$sx .= '<TR><TD colspan=5 class="lt3">';
+							$sx .= $prof;
+						}
+					$sx .= $this->mostra_artigo_lista($line,1);
+				}
+				$sx .= '</table>';
+				return($sx);
+			}
+			
+		
+		function busca()
+			{
+				global $dd,$acao;
+				
+				if ((strlen($dd[20]) > 0) and (strlen($acao) > 0))
+					{
+						return($this->resultado_busca($dd[20]));
+						$this->result = 1;
+					}
+				$sx = '<form method="post" action="'.page().'">';
+				$sx .= '<input type="text" size="40" name="dd20">';
+				$sx .= '<input type="submit" value="busca>>" name="acao">';
+				$sx .= '</form>';
+				return($sx);
+			}
 		
 		function export_to_excel()
 			{
@@ -436,7 +480,7 @@ class artigo
 			$descricao = $texto;	
 			
 			$sql = "select * from bonificacao ";
-			$sql .= " where bn_original_protocolo = '".$protocolo."'";
+			$sql .= " where bn_original_protocolo = '".$protocolo."' and bn_original_tipo = '$tipo' ";
 			$rlt = db_query($sql);
 	
 			if (!($line = db_read($rlt)))
@@ -1120,9 +1164,18 @@ class artigo
 				$sx .= '<TR><TD width="50%">
 							<TD width="50%" class="lt1">							
 							';
-				$sx .= 'Qualis: <B>'.$line['ar_a'].'</B>';
-				$sx .= '<BR>Scopus Q: <B>'.$line['ar_q'].'</B>';
-				$sx .= '<BR>Excelence Rate: <B>'.$line['ar_er'].'</B>';				
+				$sx .= 'Qualis: <B><font color="blue">'.$line['ar_a'].'</font></B>';
+				$sx .= '<BR>Scopus Q: <B><font color="blue">'.$line['ar_q'].'</font></B>';
+				$sx .= '<BR>Excelence Rate: <B><font color="blue">'.$line['ar_er'].'</font></B>';
+				$col = $line['ar_colaboracao'];
+				
+				switch ($col)
+					{
+					case 'NAC': $col = 'Nacional'; break;
+					case 'NAO': $col = 'Sem colaboração'; break;
+					case 'INT': $col = '<font color="blue">Internacional</font>'; break;
+					}				
+				$sx .= '<BR>Colaboração: <B>'.$col.'</B>';				
 				
 				$sx .= '<TR><TD align="center" class="tabela00 lt4" colspan=2>';
 				

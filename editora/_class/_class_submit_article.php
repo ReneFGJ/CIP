@@ -104,7 +104,11 @@ class submit
 	function resumo()
 		{
 			global $http,$perfil;
-			$sql = "select count(*) as total, doc_status from ".$this->tabela."
+			/* Volta estatus perdidos para o editor */
+			$sql = "update ".$this->tabela." set doc_status = 'G' where (doc_status = '') and doc_journal_id = '".strzero($this->journal,7)."' ";
+			$rlt = db_query($sql);
+			
+			$sql = "select count(*) as total, doc_status from ".$this->tabela." 
 					where doc_journal_id = '".round($this->journal)."'
 					or doc_journal_id = '".strzero($this->journal,7)."'
 					group by doc_status
@@ -129,7 +133,7 @@ class submit
 						case 'G': $op[8] = $op[8] + $tot; break;
 						case 'M': $op[8] = $op[8] + $tot; break;
 						case 'N': $op[9] = $op[9] + $tot; break;
-						default: $op[4] = $op[4] + $tot; break;
+						default: $op[4] = $op[4] + $tot;  break;
 						}
 				}
 			$wd = round(100/10);
@@ -361,9 +365,9 @@ class submit
 			$ok = $this->transfere_submissao_para_works($protocolo,$issue,$sessao);
 			if ($ok =1)
 				{
-					$sx .= '<BR><font color="red">Artigo já publicado</font>';
+					echo '<BR><font color="red">Artigo já publicado em '.$this->protocolo.'</font>';
 				} else {
-					$sx .= '<BR><font color="green">Publicação atualizada</font>';
+					echo '<BR><font color="green">Publicação atualizada</font>';
 				}
 				
 			/* Transfere arquivos */
@@ -587,6 +591,7 @@ class submit
 										,doc_1_titulo = '".$titulo_doc."' 
 										,doc_section = '".strzero($secao,7)."'
 										,doc_data_submit = ".$data_submit."
+										,doc_status = 'N'
 								where doc_protocolo_original = '".$this->protocolo."'";
 					$rlt = db_query($sql);
 					return(0);
@@ -1180,32 +1185,33 @@ class submit
 					array_push($sn,'@');
 					array_push($sn,'N');
 					array_push($sn,'X');
-					
+					array_push($sn,'E');					
 					break;
 				case 'X': 
 					array_push($sn,'E');
 					break;					
 				case 'E':
 					array_push($sn,'C'); 
-					array_push($sn,'E');
 					array_push($sn,'N');
 					array_push($sn,'X');
 					array_push($sn,'G');
-					array_push($sn,'L');					
+					array_push($sn,'L');
+					array_push($sn,'E');					
 					break;					
 				case 'F':
 					array_push($sn,'C'); 
-					array_push($sn,'E');
 					array_push($sn,'N');
 					array_push($sn,'X');
 					array_push($sn,'G');
-					array_push($sn,'L');					
+					array_push($sn,'L');
+					array_push($sn,'E');					
 					break;					
 				case 'B': 
 					array_push($sn,'C');
 					array_push($sn,'N');
 					array_push($sn,'@');
-					array_push($sn,'X');					
+					array_push($sn,'X');
+					array_push($sn,'E');					
 					break;
 				case 'C': 
 					array_push($sn,'C');
@@ -1251,6 +1257,7 @@ class submit
 					break;					
 				case 'Z': 
 					array_push($sn,'C');
+					array_push($sn,'E');
 					break;														
 				}
 			$sx = '<table width="100%" class="tabela20" border=0>';
@@ -1757,10 +1764,10 @@ class submit
 					$s .= '<TD rowspan="3">'.$hora;
 					$s .= '<BR>';
 					$chk = md5($line['id_mail'].$user_id);
-					$slink .= '<A HREF="mail.php?dd0='.$line['id_mail'].'&dd50=replay&dd2='.$chk.'" title="Responder">';
+					$slink .= '<A HREF="mail_replay.php?dd0='.$line['id_mail'].'&dd50=replay&dd2='.$chk.'" title="Responder">';
 					$s .= $slink;
 					$s .= '<img src="'.$http.'editora/img/mail_reply.png" width="16" height="16" alt="Responder" border="0"></A>';
-					$s .= '<A HREF="mail.php?dd0='.$line['id_mail'].'&dd1='.$dd[1].'&dd50=del&dd2='.$chk.'"  title="Excluir mensagem">';
+					$s .= '<A HREF="mail_replay.php?dd0='.$line['id_mail'].'&dd1='.$dd[1].'&dd50=del&dd2='.$chk.'"  title="Excluir mensagem">';
 					$s .= '<img src="'.$http.'editora/img/mail_cut.png" width="16" height="16"  alt="Excluir" border="0"></A>';
 					$s .= '</TD>';
 					$s .= '<TD>';

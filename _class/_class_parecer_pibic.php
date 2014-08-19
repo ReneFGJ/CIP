@@ -130,7 +130,7 @@ class parecer_pibic
 			$linka = $par->link_avaliador;
 			
 			$ic = new ic;
-			$icname = $rtipo."_ic_indicacao";
+			$icname = 'ic_'.$rtipo."_indicacao";
 			$line = $ic->ic($icname);
 			
 			$email_copia = 'monitoramento@sisdoc.com.br';
@@ -750,10 +750,12 @@ class parecer_pibic
 					var tri = "#j"+id;
 					$(tri).show();
 					var file = "'.$arq.'_indicar_avaliador_ajax.php?dd5="+protocolo+"&dd4='.$this->tabela.'&dd2=DECLINAR&dd3="+id+"&dd0="+id;
+					var file = "gestao_indicar_avaliador_ajax.php?dd5="+protocolo+"&dd4='.$this->tabela.'&dd2=DECLINAR&dd3="+id+"&dd0="+id;
+					
 					var jqxhz = $.ajax( file )
 						.done(function(dados) 
 							{ $( tri ).html(dados); })
-						.fail(function() { alert("error"); 
+						.fail(function() { alert("error#declinar#"); 
 					});															
 				}
 			</script>
@@ -857,7 +859,7 @@ class parecer_pibic
 						var jqxhz = $.ajax( file )
 							.done(function(dados) 
 								{ $( tri ).html(dados); })
-							.fail(function() { alert("error"); });					
+							.fail(function() { alert("error#2#"); });					
 						}
 				</script>
 			';
@@ -865,7 +867,22 @@ class parecer_pibic
 		}
 	function avaliador_do_rparcial()
 		{
-			
+			$sql = "select * from ".$this->tabela." 
+					inner join pibic_professor on ".$this->tabela.".pp_avaliador = pp_cracha
+					where pp_protocolo = '".$this->protocolo."' and pp_status = 'B'";
+			$rlt = db_query($sql);
+			$sx = '<table width="100%">';
+			while ($line = db_read($rlt))
+				{
+					$bg = ' bgcolor="#E0FFE0" ';
+					$sx .= '<TR '.$bg.'>';
+					$sx .= '<TD>Avaliador do relatório parcial:';
+					$sx .= '<td>'.$line['pp_avaliador'];
+					$sx .= '<TD>'.$line['pp_nome'];
+					$sx .= '<TD>'.$line['pp_status'];
+				}
+			$sx .= '</table>';
+			return($sx);
 		}
 	function avaliador_idicar_correcao_form($protocolo,$area,$tipo)
 		{
@@ -925,7 +942,7 @@ class parecer_pibic
 						var jqxhz = $.ajax( file )
 							.done(function(dados) 
 								{ $( tri ).html(dados); })
-							.fail(function() { alert("error"); });					
+							.fail(function() { alert("error#3#"); });					
 						}
 				</script>
 			';
@@ -1059,8 +1076,8 @@ class parecer_pibic
 			$sx .= '<h3>Gerar dados para o edital</h3>';
 			$sx .=  '<table width="100%" class="lt1">';
 			
-			$aq = array(0,0,0,0);
-			$ar = array(0,0,0,0);
+			$aq = array(0,0,0);
+			$ar = array(0,0,0);
 			while ($line = db_read($rlt))
 			{
 				$bonificacao = 0;
@@ -1094,7 +1111,6 @@ class parecer_pibic
 				$id = 0;
 				if ($moda == 'PIBITI') { $id = 1; }
 				if ($moda == 'PIBICE') { $id = 2; }
-				if ($moda == 'PIBICE') { $id = 3; }
 				$aq[$id] = $aq[$id] + 1;
 				if ($soma < 60) { $ar[$id] = $ar[$id] + 1; }
 				$tot++;
@@ -1346,6 +1362,7 @@ class parecer_pibic
 		}
 	function parecer_indicacao_row()
 		{
+			global $perfil;
 			$sta = array('@'=>'Não avaliado','A'=>'Finalizado','X'=>'Cancelado','D'=>'Declinou');
 			$sql = "select * from ".$this->tabela."
 				left join pareceristas on pp_avaliador = us_codigo
@@ -1355,9 +1372,10 @@ class parecer_pibic
 			
 			$rlt = db_query($sql);
 			$sx .= '<table width="100%" class="lt1">';
-			$sx .= '<TR><TH>ID<TH>Protocolo<TH><TH>Coment.<TH>Avaliador<TH>Tipo<TH>Tipo<TH>Crit. 1<TH>Crit. 2<TH>Crit. 3';
+			$sx .= '<TR><TH>ID<TH>Protocolo<TH>Tipo<TH>Coment.';
+			$sx .= '<TH>Tipo<TH>Crit. 1<TH>Crit. 2<TH>Crit. 3';
 			$sx .= '<TH>Estrat.';
-			$sx .= '<TH>Crit. 4 <TH>Crit. 5<TH>Crit. 6<TH>Crit. 7';
+			$sx .= '<TH>Crit. 4 <TH>Crit. 5<TH>Crit. 6';
 			$cor = 0;
 			$sy = '';
 			$sr = '';
@@ -1397,11 +1415,15 @@ class parecer_pibic
 			
 				$sx .= '<TD align="center">';
 				$sx .= $dialog;
-				
-				$sx .= '<TD align="center">';
-				$sx .= $line['pp_avaliador'];
-				$sx .= '&nbsp;';
-				$sx .= $line['us_nome'];
+				if (($perfil->valid('#CPI#ADM')))
+					{
+						$sx .= '<TD align="center">';
+						$sx .= '<A HREF="#" title="'.trim($line['us_nome']).'">';
+						$sx .= $line['pp_avaliador'];
+						$sx .= '</A>';
+						$sx .= '&nbsp;';
+						
+					}
 				$sx .= '<TD align="center">';
 				$sx .= $line['pp_tipo'];
 				$sx .= '<TD>';
@@ -1414,6 +1436,10 @@ class parecer_pibic
 				$sx .= '<TD align="center" width="6%">'.$this->mostra_notas($line['pp_p06']);
 				$sx .= '<TD align="center" width="6%">'.$this->mostra_notas($line['pp_p07']);
 				$sx .= '<TD align="center" width="6%">'.$this->mostra_notas($line['pp_p08']);
+				if (($perfil->valid('#CPI#ADM')))
+					{
+						$sx .= '<TD align="center" width="6%">ED';		
+					}
 			}
 			$sx .= '<TR><TD colspan=5>';
 			$sx .= $sy;
@@ -1753,7 +1779,7 @@ class parecer_pibic
 					var jqxhz = $.ajax( file )
 						.done(function(dados) 
 							{ $( trs ).html(dados); })
-						.fail(function() { alert("error"); 
+						.fail(function() { alert("error#5#"); 
 					});															
 				}
 			</script>
@@ -1774,7 +1800,7 @@ class parecer_pibic
 					$sql = "select * from ".$this->tabela." ";
 					$sql .= "left join pibic_bolsa_contempladas on pp_protocolo = pb_protocolo ";
 					$sql .= " where pp_avaliador = '".$parecerista."' ";
-					$sql .= " and pp_status = '@' and pp_tipo = '$tipo' ";
+					$sql .= " and pp_status = '@' and pp_tipo = '$tipo' and pb_status <> 'C' ";
 					$sql .= " order by id_pp desc, pp_protocolo ";					
 				}									
 //			echo $sql;

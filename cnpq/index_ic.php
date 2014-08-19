@@ -1,7 +1,7 @@
 <?
 $breadcrumbs=array();
 require("cab_cnpq.php");
-
+$ano = '2014';
 require($include."sisdoc_menus.php");
 $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
 
@@ -41,7 +41,7 @@ if (date("m") >= 10)
 				}
 				
 			}
-		array_push($menu,array('Edital de aprovação','Aprovados em todas as modalidades','edital.php?dd0=&dd1='.$moda.'&dd2='.date("Y")));
+		array_push($menu,array('Edital de aprovação','Relação dos projetos submetidos em '.$ano,'edital.php?dd0=&dd1='.$moda.'&dd2='.date("Y")));
 		array_push($menu,array('Edital de aprovação','Projetos não aprovados','edital.php?dd0=R&dd1='.$moda.'&dd2='.date("Y")));
 	}
 //array_push($menu,array('Edital de aprovação','Panorama dos projetos '.$modalidade,'edital_panorama.php?dd0=H&dd1='.$moda.'&dd2='.date("Y")));
@@ -56,6 +56,9 @@ if ($moda == 'PIBITI')
 	}
 array_push($menu,array('Avaliação CNPq ','<b>Instruções para o avaliador CNPq</B>','link_cnpq_'.$moda.'.php'));
 array_push($menu,array('Avaliação CNPq ','Link de acesso externo do CNPq','http://www.cnpq.br/web/guest/comite-externo-institucional'));
+
+array_push($menu,array('Recursos/Reconsideração','Pedidos de Reconsideração/Recursos','recursos_lista.php?dd1='.$moda));
+
 echo menus($menu,"3");
 
 require("../foot.php");	

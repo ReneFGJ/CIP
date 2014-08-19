@@ -33,7 +33,7 @@ class projetos {
 		}
 	
 	
-	function mostra_edital($ano,$bolsa,$modalidade)
+	function mostra_edital($ano,$bolsa,$modalidade,$tipo='')
 		{	
 			$sql = "select * from pibic_submit_documento where doc_edital = 'PIBICE' ";
 //			$rlt = db_query($sql);
@@ -68,6 +68,7 @@ class projetos {
 			if (strlen($area) > 0) { $sql .= " and doc_area = '".$area."' "; }
 			$sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
 			$sql .= " and pb_tipo <> 'X' ";
+			if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' "; }
 			//$sql .= " and (doc_aluno <> '') ";
 			//$sql .= " and doc_nota > 10 ";
 			$sql .= " order by doc_area, pp_nome ";
@@ -87,7 +88,7 @@ class projetos {
 				{
 					$idr = $line['id_pj'];
 					$nota = round($line['doc_nota']);
-					$link = '<A HREF="pibic_projetos_detalhes.php?dd0='.$idr.'&dd90='.checkpost($idr).'" class="lt1a" target="new'.$id.'">';
+					//$link = '<A HREF="pibic_projetos_detalhes.php?dd0='.$idr.'&dd90='.checkpost($idr).'" class="lt1a" target="new'.$id.'">';
 					$cp = 'ap_tit_titulo, pp_nome, pa_nome, doc_1_titulo';
 					$area = $line['doc_area'];
 					if ($area != $xarea)
@@ -121,7 +122,7 @@ class projetos {
 						$sx .= $link;
 						$aluno = trim($line['pa_nome']);
 					if (strlen($aluno)==0) 
-						{ $aluno = ':: Sem Definiçâo de Aluno ::'; } 
+						{ $aluno = ':: Sem Definição de Aluno ::'; } 
 					else 
 						{ $aluno = trim(nbr_autor($line['pa_nome'],7)); }
 					if (strlen($aluno)==0) 
@@ -1132,6 +1133,15 @@ class projetos {
 		return (1);
 	}
 
+	function row_plano() {
+		global $cdf, $cdm, $masc;
+		$cdf = array('id_doc','doc_protocolo_mae', 'doc_protocolo','doc_1_titulo', 'doc_autor_principal', 'doc_status', 'doc_aluno','doc_ano','pb_vies');
+		$cdm = array('id','cod', msg('protocolo'),msg('titulo'), msg('professor'), msg('status'), msg('aluno'), msg('ano'),'vies');
+		$masc = array('', '', '', '', '', '', '');
+		
+		return (1);
+	}
+
 	function cp_ti() {
 		$cp = array();
 		array_push($cp, array('$H8', 'id_doc', '', False, TRUE));
@@ -1149,12 +1159,18 @@ class projetos {
 	}
 
 	function cp_plano() {
+		$sql = "alter table pibic_submit_documento add column doc_recurso int8";
+		//$rlt = db_query($sql);
+		
 		$cp = array();
 		array_push($cp, array('$H8', 'id_doc', '', False, TRUE));
 		array_push($cp, array('$T60:5', 'doc_1_titulo', 'Título', TRUE, TRUE));
 		array_push($cp, array('$S8', 'doc_aluno', 'Aluno', TRUE, TRUE));
 		array_push($cp, array('$S1', 'doc_status', 'Status', TRUE, TRUE));
 		array_push($cp, array('$S8', 'doc_autor_principal', 'Professor', TRUE, TRUE));
+		array_push($cp, array('$S8', 'doc_edital', 'Edital', TRUE, TRUE));
+		array_push($cp, array('$O :Não&1:SIM', 'pb_vies', 'Viés PIBITI', False, TRUE));
+		array_push($cp, array('$[0-20]', 'doc_recurso', 'Nota (+) do recurso', False, TRUE));
 		return ($cp);
 	}
 
@@ -1202,10 +1218,10 @@ class projetos {
 		while ($line = db_read($rlt)) {
 			$tot++;
 			$sx .= $this -> mostra_plano_aluno($line);
-			if ($perfil -> valid('#ADM')) {
-				$sx .= '<span onclick="newxy2(\'pibic_plano_editar.php?dd0=' . $line['id_doc'] . '&dd90=' . checkpost($line['id_doc']) . '\',600,500);" class="link">';
-				$sx .= 'editar';
-				$sx .= '</span>';
+			if ($perfil -> valid('#CPI#ADM#CPP')) {
+				$sx .= '<BR><span onclick="newxy2(\'pibic_plano_editar.php?dd0=' . $line['id_doc'] . '&dd90=' . checkpost($line['id_doc']) . '\',600,500);" class="link">';
+				$sx .= '<DIV class="button_submit">editar</div>';
+				$sx .= '</span><br><br>';
 			}
 
 		}
@@ -3408,8 +3424,16 @@ class projetos {
 	}
 
 	function mostra_plano_aluno($line) {
+		global $user, $perfil;
 		$aluno = trim($line['pa_nome']);
 		$tipo = trim($line['doc_edital']);
+		$vies = $line['pb_vies'];
+		
+		$nota = $line['doc_nota'];
+		$recurso = round($line['doc_recurso']);
+		$penalidade = $line['doc_penalidade'];
+		$bonificacao = round('0'.$line['doc_bonificacao']);
+		
 		$img = $this -> imagem_edital($tipo);
 		$link = '<A HREF="pibic_projetos_detalhes.php?dd0=' . $line['doc_protocolo_mae'] . '&dd90=' . checkpost($line['doc_protocolo_mae']) . '">';
 		switch ($tipo) {
@@ -3437,7 +3461,12 @@ class projetos {
 
 		$sx = '';
 		$sx .= '<img src="' . $img . '" height="60" align="left">';
-		$sx .= 'Protocolo:' . $line['doc_protocolo'] . '/' . $link . $line['doc_protocolo_mae'] . '</A>' . '<BR><HR>';
+		$sx .= 'Protocolo:' . $line['doc_protocolo'] . '/' . $link . $line['doc_protocolo_mae'] . '</A>' . '';
+		if (($perfil->valid('#ADM#PIB#PIT')))
+			{
+				$sx .= ' Nota: <B>'.$nota.'</B>, Bonificação: <B>'.$bonificacao.'</B>, Penalidade: ,<b>'.$penalidade.'</B>, Recurso <B>'.$recurso.'</B>';
+			}
+		$sx .= '<BR><HR>';
 
 		$sx .= '<BR><B>' . $line['doc_1_titulo'] . '</b><BR>';
 		$sx .= '<BR><B>' . $aluno . '</b>';
@@ -3448,6 +3477,10 @@ class projetos {
 		$ged -> protocol = $line['doc_protocolo'];
 		$sx .= '<div>';
 		$sx .= $ged -> filelist();
+		if ($vies=='1')
+			{
+				$sx .= '<BR><font color="brown">*** <B>Indicado pelo avaliador com vies PIBITI</B></font>';
+			}
 		$sx .= '</div>';
 		$sx .= '<HR>';
 
@@ -3624,7 +3657,7 @@ class projetos {
 	}
 
 	function mostra($line, $id = '', $edit = 1) {
-		global $user;
+		global $user,$perfil;
 		$this -> session_seta(trim($line['pj_codigo']));
 		$this -> protocolo = trim($line['pj_codigo']);
 		$this -> status = $line['pj_status'];

@@ -19,6 +19,9 @@ echo '<H3>Comunicação por e-mail</h3>';
 	array_push($tps,array('010','Professores que submeteram projetos em '.date("Y")));
 	array_push($tps,array('011','Professores que submeteram projetos (PIBITI) em '.date("Y")));
 	array_push($tps,array('012','Professores que submeteram projetos (PIBIC) em '.date("Y")));
+	array_push($tps,array('015','Professores que submeteram projetos contemplados com ICV (PIBIC) em '.date("Y")));
+	array_push($tps,array('016','Professores que submeteram projetos contemplados com ITV (PIBITI) em '.date("Y")));
+	array_push($tps,array('017','Professores que submeteram projetos com views PIBITI em '.date("Y")));
 	
 	array_push($tps,array('021','Professores que não enviaram relatório parcial de '.(date("Y")-1).'/'.date("Y")));
 	array_push($tps,array('022','Professores que não enviaram correções do relatório parcial de '.(date("Y")-1).'/'.date("Y")));

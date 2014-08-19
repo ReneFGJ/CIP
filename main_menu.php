@@ -38,6 +38,8 @@ if ((date("Ymd") <= 20140424) or ($ic_on == 1))
 $ati->total_isencoes($user_id);
 $total = $ati->total_atividades($user_id);
 
+$total = $total + $ati->total_atividades_reconsideracao($user_id);
+
 $total3 = $ati->total_captacoes_validar($ss->user_cracha);
 
 if ($total > 0)
@@ -50,7 +52,7 @@ if ($total > 0)
 		
 	/* Lista de atividades autorizadas */
 	
-	if ($perfil->valid('#RES'))
+//	if ($perfil->valid('#RES'))
 		{ array_push($mn,array('Lista de atividades indicadas ao seu login','b1','atividades.php','Atividades','icone-atividades',$ativ)); }
 }
 
@@ -156,6 +158,10 @@ if ($perfil->valid('#ADM#SPI#CPI'))
 	{
 		array_push($mn,array('Laboratórios e equipamentos para pesquisa na instituição','b1','labs/','Lab & Equipamento','',''));	
 	}
+if ($perfil->valid('#ADM'))
+	{
+	array_push($mn,array('Fundo de Pesquisa','fundo','fundo/','Fundo de Pesquisa','icone-indicadores',''));	
+	}	
 /* Montagem da tela */
 echo '<h1>Menu principal</h1>';
 echo '<table border=0 cellpadding=10 align="center" class="tabela00" align="center">'.chr(13);;
@@ -182,7 +188,8 @@ for ($r=0;$r < count($mn);$r++)
 						
 					}
 				$ln++;
-				$col = 0; $sx .= '<TR valign="top">'.chr(13); 
+				$col = 0; 
+				$sx .= '<TR valign="top" width="60">'.chr(13); 
 			}
 		
 		$tips = $mn[$r][4];
@@ -243,6 +250,7 @@ for ($r=0;$r < count($mn);$r++)
 		echo $sx;	
 		$col++;
 	}
+echo '<TR><TD height="2048" colspan=3>&nbsp;';
 echo '</table>';
 echo '<BR><BR><BR><BR><BR><BR>';
 

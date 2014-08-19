@@ -72,12 +72,10 @@ class atividades
 				where bn_professor = '$professor'
 				and bn_original_tipo = 'IPR' ";
 			$sql .= " and bn_status = '!' ";
-			//echo $sql;
 			$rlt = db_query($sql);
 			$total = 0;			
 			while ($line = db_read($rlt))
-			{
-				
+			{	
 				$professor = $line['bn_professor'];
 				$discente = '';				 
 				$total++;
@@ -146,83 +144,63 @@ class atividades
 			$total = $line['total'];
 			return($total);	
 		}
+	function total_atividades_reconsideracao($codigo='')
+		{
+			$sql = "select * from pibic_recurso where rec_avaliador = '".$codigo."' and rec_status = '@' ";
+			$rlt = db_query($sql);
+			$to = 0;
+			$sx = '';
+			while ($line = db_read($rlt))
+				{
+					$sx .= '<TR>';
+					$sx .= '<TD width="50">'.strzero($line['id_rec'],7);
+					$sx .= '<TD>'.$line['rec_titulo'];
+					$sx .= '<TD align="right">';
+					$sx .= '<TD><form method="post" action="pibic_gestor/recurso_lista.php">';
+					$sx .= '<input type="submit" value="verificar >>>" class="botao_submit">';
+					$to++;
+				}
+			$this->sx = $sx;
+			return($to);
+		}
+	function total_atividades_isencao($professor='')
+		{
+			$sql = "
+				select * from bonificacao
+				inner join captacao on bn_original_protocolo = ca_protocolo
+				where bn_professor = '$professor'
+				and bn_original_tipo = 'IPR' ";
+			$sql .= " and bn_status = '!' ";
+			$rlt = db_query($sql);
+			
+			while ($line = db_read($rlt))
+				{
+					$chk = checkpost($professor.$line['id_bn'].'ISE');
+					$link = '<A HREF="atividade_detalhes.php?dd1=ISE&dd2='.$line['id_bn'].'&dd5='.$professor.'&dd90='.$chk.'">';
+					$sx .= '<TR>';
+					$sx .= '<TD> Isenção de estudante Pós-Graduação (strico sensu)';
+					$sx .= '<TD>';
+					$sx .= $link;
+					$sx .= '<span class="botao-geral">Indicar Insenção >></span>';
+					$sx .= '</A>';	
+				}
+			$this->sx = $sx;
+			return($sx);
+		}
 		
 	function lista_atividades($codigo='')
 		{
 			global $tab_max;
-			
-			//$this->inserir_atividade('IC3','Avaialiação de relatório parcial',$codigo,'',20130228);
-			//$this->inserir_atividade('PQ4','Senso da pesquisa (diretoria de pesquisa)',$codigo,'',20130211);
-			if (strlen($codigo)==0) { return(''); }
-			$sql = "select * from ".$this->tabela." 
-					where act_docente = '$codigo'
-					or act_discente = 'codigo'
-					order by act_limite 
-					";
-		
-			$rlt = db_query($sql);
-			$id = 0;			
-			$sx = '
-			<div>
-				<h1>Lista de alunos</h1>
-				<p>Você precisa realizar a tarefa descritas <span class="palavra-destaque">"Abaixo"</span>. Clique na atividade ou no botão para visualizar.</p>
-			
-			<table width="88%" align="center">				
-				<tr>
-					<td class="tabela-titulo">Origem</td>
-					<td class="tabela-titulo">Atividade</td>
-					<td class="tabela-titulo">Prazo</td>
-				</tr>
-						
-			';
-			$tipos = $this->tipos();
-			$tot = 0;
-			while ($line = db_read($rlt))
-				{
-					$tot++;
-					$css = lowercase(substr($line['act_codigo'],0,2));
-					$id++;
-					$post = 'dd0='.$codigo.'&dd1='.trim($line['act_codigo']).'&dd2='.$line['id_act'].'&dd5='.$codigo.'&dd90='.checkpost($codigo.$line['id_act'].trim($line['act_codigo']));
-					$link = '<A class="lt1" HREF="atividade_detalhes.php?'.$post.'">';
-					$sx .= '<TR>';
-					$sx .= '<td class="id-atividade-'.$css.'">';
-					$sx .= $this->tipos($css).'</td>';
-					$sx .= '<TD class="lt1">';
-					$sx .= $link;
-					$sx .= $line['act_descricao'];
-					$sx .= '<TD>';
-					$limite = $line['act_limite'];
-					if ($limite == date("Ymd")) { $limite_c = 'Hoje'; }
-					if ($limite < date("Ymd")) { $limite_c = '<font color="red">Atrasado</A>'; }
-					if ($limite > date("Ymd")) { $limite_c = stodbr($limite); }
-					$acao = 'Entregar';
-					$tp = trim($line['act_codigo']);
-					if ($tp == 'ise') { $acao = 'solicitar isenção';}
+			$sx .= '<table width="100%" class="tabela00">';
 					
-					$sx .= $limite_c;
-					$sx .= '<td>';
-					$sx .= '<form action="atividade_detalhes.php" method="get">
-							<input type="hidden" name="dd0" value="'.$codigo.'">
-							<input type="hidden" name="dd1" value="'.trim($line['act_codigo']).'">
-							<input type="hidden" name="dd2" value="'.$line['id_act'].'">
-							<input type="hidden" name="dd5" value="'.$codigo.'">
-							<input type="hidden" name="dd90" value="'.checkpost($codigo.$line['id_act'].trim($line['act_codigo'])).'">
-							<input type="submit" value="'.$acao.'" class="botao-geral">
-							</form></button>';
-					$sx .= '</td>';
-				}
-			if ($tot == 0)
-				{
-					$sx .= '<TR><TD colspan=5>';
-					$sx .= '<h3>'.msg('nenhuma_atividade');
-				}
-	
-			$sx .= '
-					</table>
-				</div>
-				
-			';
-			//if ($id==0) { $sx = '<h2>nenhuma atividade pendente</h2>'; }
+			$this->total_atividades_reconsideracao($codigo);
+			$sx .= $this->sx;
+			
+			/* Isenções */
+			$this->total_atividades_isencao($codigo);
+			$sx .= $this->sx;
+			
+			$sx .= '</table>';			
 			return($sx);
 		}
 	function inserir_atividade($cod='',$descricao='',$docente='',$discente='',$limite=19000101,$protocolo)

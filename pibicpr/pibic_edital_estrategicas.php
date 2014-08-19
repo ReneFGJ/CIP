@@ -19,14 +19,17 @@ $sql = "select * from pibic_submit_documento
 			and (doc_ano = '".date("Y")."') 
 			and (pj_status <> 'X')
 			and (doc_status <> 'X')
-			and  pj_area_estra like '9.%'
-			and pj_area_estra <> '9.00.00.00-X'
+			and pj_ano = '2014'
 		order by pj_area_estra, doc_nota desc, pp_nome, doc_protocolo_mae, doc_protocolo
 		";
 $rlt = db_query($sql);
-
+/*
+ * 			and  pj_area_estra like '9.%'
+			and pj_area_estra <> '9.00.00.00-X'
+ * 
+ */
 $sx = '<Table width="98%" align="center" class="tabela00">';
-$sh = '<TR><TH>Proto<TH>Projeto do professor<TH>Proto<TH>Plano de trabalho<TH>Nota';
+//$sh = '<TR><TH>Proto<TH>Projeto do professor<TH>Proto<TH>Plano de trabalho<TH>Nota';
 $tot = 0;
 while ($line = db_read($rlt))
 	{
@@ -40,23 +43,24 @@ while ($line = db_read($rlt))
 		$prot = $line['doc_protocolo'];
 		$protj = $line['doc_protocolo_mae'];
 		
-		if ($area != $xarea)
+		//if ($area != $xarea)
 			{	
-			$sx .= '<TR><TD class="tabela00 lt4" colspan=5><font color="blue">';
+			$sx .= '<TR><TD><font color="blue">';
 			$sx .= $area;
 			$sx .= $area_descricao;
 			$xarea = $area;
 			$sx .= '</font>';
 			}
 		
-		if ($prof != $xprof)
+		//if ($prof != $xprof)
 			{
-			$sx .= '<TR><TD class="tabela00 lt4" colspan=5>';
+			//$sx .= '<TR>';
+			$sx .= '<TD>';
 			$sx .= $prof;
 			$xprof = $prof;
 			$sx .= $sh;
 			}
-		$sx .= '<TR valign="top">';
+		//$sx .= '<TR valign="top">';
 		$sx .= '<TD class="tabela01">';
 		$sx .= $protj;
 		$sx .= '<TD class="tabela01">';
@@ -67,6 +71,8 @@ while ($line = db_read($rlt))
 		$sx .= $titpl;
 		$sx .= '<TD class="tabela01">';
 		$sx .= $nota;
+		$sx .= '<TD class="tabela01">';
+		$sx .= $line['doc_ano'];
 		$tot++;
 	}
 $sx .= '<TR><TD colspan=5>'.msg('total').' '.$tot;

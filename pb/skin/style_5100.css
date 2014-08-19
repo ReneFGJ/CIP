@@ -1,0 +1,264 @@
+body
+	{
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 14px;
+	font-size-adjust: inherit;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+	line-height: 130%;
+}
+p
+	{
+		line-height: 120%;
+		color: #404040;
+		text-align: justify;
+		font-family: Tahoma, Verdana, Arial;
+		font-size: 14px;
+	}
+
+/* Creative Commons */
+.cc
+{
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 12px;
+	color: #404040;
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+.artigo{
+	width:100%;
+	margin: 10px 20px;
+}
+.div_titulo{
+	padding:0;
+	margin:0;
+	
+}
+
+/*
+* titulo_pdf -> tabela
+*/
+.titulo_pdf{
+	width:100%;
+}
+.titulo_pdf td{
+	
+}
+.titulo_pdf tr{
+	color:#191925;
+	border:0;
+	padding:0;
+	margin:0;
+	font:90%;
+	
+}
+
+.td_plusmin{
+	background-color:transparent;
+	background:url(plusmin.gif) no-repeat;
+	background-position: 4px 2px;
+	width:15px;
+	height:18px;
+}
+.td_minus{
+	background-position: -21px 2px;
+}
+.td_titulo{
+	font-size: 14px;
+	width:580px;
+	padding-left:20px;
+	font-weight:bold;
+	cursor:pointer;
+	text-align: left;
+	
+}
+.td_titulo:hover { text-decoration: underline;  }
+
+.pags{
+	text-align:right;
+	width:5%px;
+	font:90%;
+	vertical-align:top;
+}
+
+h1
+	{
+		font-size: 18px;
+	}
+
+#pdf_text
+	{
+		width: 200px;
+		height: 26px;
+		background-color: #FF5C00;
+		text-align: center;
+		color: #FFFFFF;
+		font-family: Tahoma, Verdana, Arial;
+		font-size: 16px;
+		text-decoration: none;
+		vertical-align: middle;
+		padding-top: 5px;
+		cursor: pointer;
+	}
+#pdf_text a
+	{
+		color: #000000;
+		text-decoration: none;
+	}
+	
+#pdf_text:hover
+	{
+		color: #000000;
+		background-color: #FF9C00;
+		text-decoration: none;
+	}
+		
+.pdf {
+	text-align:right;
+	padding-right:40px;
+	width:20px;
+	font:90%;
+	vertical-align:top;
+	font-weight:bold;
+	text-decoration:none;
+}
+.pdf a{
+	font:90%;
+	font-weight:bold;
+	text-decoration:none;
+	color:#0909EC;
+}
+.pdf a:hover { text-decoration: underline; }
+
+.artigo_autor {
+	padding-left:25px;
+	font-size:12px;
+	font-style:italic;
+}
+.resumo_palavra{
+	padding: 25px 0 25px 25px;
+	display:none;
+	text-align:justify;
+	width:700px;
+	font:90%;
+}
+.resumoz{
+	font:85%;
+	text-align: justify;
+	font-size:14px;
+}
+.palavras{
+	font:85%;
+}
+.indicado{
+	padding: 5px 20px 0px 40px;
+	font:65%;
+	font-weight:bold;
+	color:#446;
+}
+
+.editmode
+	{
+		font-size:10px;
+		text-decoration: none;
+		color: #2020FF;
+	}
+
+.editmode a
+	{ text-decoration: none; }
+.editmode a:hover
+	{ text-decoration: underline; }
+
+.lt0
+	{
+		font-size:10px;
+		text-decoration: none;
+		color: #202020;
+	}
+
+.lt0 a
+	{ text-decoration: none; }
+.lt0 a:hover
+	{ text-decoration: underline; }
+	
+.lt1
+	{
+		font-size:14px;
+		text-decoration: none;
+		color: #202020;
+	}
+
+.lt1 a
+	{ text-decoration: none; }
+.lt1 a:hover
+	{ text-decoration: underline; }
+
+.lt2
+	{
+		font-size:16px;
+		text-decoration: none;
+		color: #202020;
+	}
+
+.lt2 a
+	{ text-decoration: none; }
+.lt2 a:hover
+	{ text-decoration: underline; }
+	
+.lt3
+	{
+		font-size:18px;
+		text-decoration: none;
+		color: #202020;
+		line-height: 140%;
+	}
+.lt3 a
+	{ text-decoration: none; }
+.lt3 a:hover
+	{ text-decoration: underline; }
+	
+#content
+	{ 
+		list-style-type:none; width:870px; position:relative; 
+		background-color: white;
+		text-align: left;
+	}
+#content_center
+	{ 
+		list-style-type:none; width:870px; position:relative; 
+		background-color: #FAFAFA;
+		text-align: left;
+		width: 96%;
+		font-size: 12px;
+		font-weight: normal;
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	
+#foot
+	{
+		font-size: 10px;
+		width: 870px;
+		color: white;
+	}
+	
+#cssmenu ul {
+list-style-type:none; width:870px; position:relative; 
+display:block; height:33px; font-size:14px;
+font-family: Verdana,Helvetica,Arial,sans-serif; 
+border:0px solid #000; padding:0; text-align: center; 
+margin:0 auto;         
+text-align:left;   
+}
+#cssmenu li { display:block; float:left; margin:0; padding:0; }
+#cssmenu li a { float:left; color: #FAFAFA; text-decoration:none; height:24px; padding:9px 15px 0; font-weight:normal; }
+#cssmenu li a:hover,  #cssmenu .active { color:#fff;  text-decoration:none; }
+#cssmenu .active a { color:#fff; font-weight:700; }
+#cssmenu li a:hover, #cssmenu li.active { background-color:#404040; }
+

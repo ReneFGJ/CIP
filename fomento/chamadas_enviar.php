@@ -96,7 +96,7 @@ require("../_class/_class_docentes.php");
 							break;														
 						case '00045':
 							/* Prof. Escola de Negócios */
-							$emails = $doc->docentes_email_escola('00045',$emails);
+							$emails = $doc->docentes_email_escola('00008',$emails);
 							break;														
 						default:
 							echo '<BR>=xx=>'.$trc;

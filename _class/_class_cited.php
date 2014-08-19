@@ -8,6 +8,16 @@ class cited
 	
 	var $tabela = "mar_works";
 	var $tabela_journal = "mar_journal";
+	var $tabela_journal_cited = "cited_journals";
+	
+	function row_journals()
+		{
+			global $cdf,$cdm,$masc;
+			$cdf = array('id_cj','cj_codigo','cj_issn','cj_nome','cj_abrev');
+			$cdm = array('cod',msg('codigo'),msg('issn'),msg('journal'),msg('abrev'));
+			$masc = array('','','','SN','','','');
+			return(1);				
+		}
 	
 	function cp_mar()
 		{

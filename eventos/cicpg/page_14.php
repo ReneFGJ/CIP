@@ -40,10 +40,11 @@
 			<TD><A HREF="http://www.ufpr.br/"> <img src="img/logos/logo_ufpr.jpg" border=0 height="90">
 			<BR>
 			</A>  </TD>
-
-			<TD><A HREF="http://www.unespar.edu.br/"> <img src="img/logos/logo_unespar.jpg" border=0 height="70">
+			
+			<TD><A HREF="http://www.unesc.net/"> <img src="img/logos/logo_unesc.jpg" border=0 height="90">
 			<BR>
 			</A>  </TD>
+			
 		</TR>
 		<TR>
 			<TD colspan=10>
@@ -54,7 +55,15 @@
 		</TR>
 
 		<tr valign="bottom">
+			<TD><A HREF="http://www.unespar.edu.br/"> <img src="img/logos/logo_unespar.jpg" border=0 height="70">
+			<BR>
+			</A>  </TD>			
+			
 			<TD><A HREF="http://www.utfpr.edu.br/"> <img src="img/logos/logo_utfpr.jpg" border=0 height="40">
+			<BR>
+			</A> </TD>
+
+			<TD><A HREF="http://www.unicentro.edu.br/"> <img src="img/logos/logo_unicentro.jpg" border=0 height="60">
 			<BR>
 			</A> </TD>
 

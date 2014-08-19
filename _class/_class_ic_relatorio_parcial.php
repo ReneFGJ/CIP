@@ -382,7 +382,7 @@ class ic_relatorio_parcial
 							var jqxhz = $.ajax( file )
 								.done(function(dados) 
 									{ $( tri ).html(dados); })
-								.fail(function() { alert("error"); });
+								.fail(function() { alert("error#r1"); });
 						}
 					</script>
 			';
@@ -476,7 +476,7 @@ class ic_relatorio_parcial
 							var jqxhz = $.ajax( file )
 								.done(function(dados) 
 									{ $( tri ).html(dados); })
-								.fail(function() { alert("error"); });
+								.fail(function() { alert("error#r2"); });
 						}
 					</script>
 			';
@@ -980,7 +980,7 @@ function form_crp($ged)
 				<script>
 					var jqxhr = $.ajax( "'.$file.'" )
 					.done(function(dados) { var tela=1;  $("#geds").html(dados); })
-					.fail(function() { alert("error"); })
+					.fail(function() { alert("error#r3"); })
 				</script>';
 			return($sx);	
 		}
@@ -1011,7 +1011,7 @@ function form_crp($ged)
 						url: "'.$file.'",
 						data: { dd7: protocolo, dd4: titulo, dd5: "titulo", dd6: titulo_2  } } )
 					.done(function(dados) { var tela=2;  $("#titulo").html(dados); })
-					.fail(function() { alert("error"); });
+					.fail(function() { alert("error#r4"); });
 				});					
 				</script>';			
 			return($sx);
@@ -1025,7 +1025,7 @@ function form_crp($ged)
 				<script>
 					var jqxhz = $.ajax( "'.$file.'" )
 					.done(function(dados) { var tela=2;  $("#titulo").html(dados); })
-					.fail(function() { alert("error"); })
+					.fail(function() { alert("error#r5"); })
 				</script>';
 			return($sx);
 		}
@@ -1039,7 +1039,7 @@ function form_crp($ged)
 				<script>
 					var jqxhz = $.ajax( "'.$file.'" )
 					.done(function(dados) { var tela=2;  $("#area").html(dados); })
-					.fail(function() { alert("error"); })
+					.fail(function() { alert("error#r6"); })
 				</script>';
 			return($sx);
 		}
@@ -1092,7 +1092,7 @@ function form_crp($ged)
 						url: "'.$file.'",
 						data: { dd4: area, dd5: "area" } } )
 					.done(function(dados) { var tela=2;  $("#area").html(dados); })
-					.fail(function() { alert("error"); });
+					.fail(function() { alert("error#r7"); });
 				});					
 				</script>';			
 			
@@ -1108,7 +1108,7 @@ function form_crp($ged)
 				<script>
 					var jqxhz = $.ajax( "'.$file.'" )
 					.done(function(dados) { var tela=2;  $("#idioma").html(dados); })
-					.fail(function() { alert("error"); })
+					.fail(function() { alert("error#r8"); })
 				</script>';
 			return($sx);
 		}
@@ -1148,7 +1148,7 @@ function form_crp($ged)
 						url: "'.$file.'",
 						data: { dd4: area, dd5: "idioma" } } )
 					.done(function(dados) { var tela=2;  $("#idioma").html(dados); })
-					.fail(function() { alert("error"); });
+					.fail(function() { alert("error#r9"); });
 				});					
 				</script>';						
 			return($sx);

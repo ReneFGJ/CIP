@@ -77,15 +77,15 @@ if ( $dd[11] == '1')
 	$texto .= '<BR>';
 	$texto = mst($texto);
 	
-	if (trim($bolsa) == 'F')
+	if ((trim($bolsa) == 'F') or (trim($bolsa) == 'F'))
 		{
 			$texto .= '<BR><BR>';
 			$texto .= '<h3>BOLSAS DA FUNDAÇÃO ARAUCÁRIA</h3>
 						<BR>
-						<font color="green">período de implementação: 24/07/2013 a 29/07/2013</font>
+						<font color="green">período de implementação: 13/08/2014 a 18/08/2014</font>
 						<BR>
-						<BR>Para bolsas da Fundação Araucária, o aluno deverá ter uma conta corrente própria e individual, em banco de sua preferência (contas-poupança não são aceitas pelo órgão de fomento). O Professor Orientador deverá preencher os dados do aluno no portal (www.pucpr.br/cip) bem como, anexar cópias digitalizadas dos documentos do aluno (RG, CPF,  comprovante de residência, cópia da conta bancária e atestado de matrícula, o qual o aluno  deverá solicitar em caráter de urgência no SIGA). Após este cadastro, o professor deverá imprimir 2 (duas) vias do termo de concessão de bolsa, anexar cópias de CPF, RG, comprovante de residência, currículo Lattes e atestado de matrícula e entregar no 6º andar do prédio da Administração.
-						<BR><BR>Ambos, aluno e Professor Orientador, deverão comparecer obrigatoriamente na coordenação do PIBIC até dia 29/07/2013, para entrega desta documentação e assinatura de adesão à bolsa.';
+						<BR>Para bolsas da Fundação Araucária, o aluno deverá ter uma conta corrente própria e individual, em banco de sua preferência (contas-poupança não são aceitas pelo órgão de fomento). O Professor Orientador deverá preencher os dados do aluno no portal (www.pucpr.br/cip) bem como, anexar cópias digitalizadas dos documentos do aluno (RG, CPF,  comprovante de residência, cópia da conta bancária e atestado de matrícula, o qual o aluno  deverá solicitar em caráter de urgência no SIGA). Após este cadastro, o professor deverá imprimir 2 (duas) vias do termo de concessão de bolsa, anexar cópias de CPF, RG, comprovante de residência, currículo Lattes e atestado de matrícula e entregar no térreo do prédio da Administração.
+						<BR><BR>Ambos, aluno e Professor Orientador, deverão comparecer obrigatoriamente na coordenação do PIBIC até dia 18/08/2013, para entrega desta documentação e assinatura de adesão à bolsa.';
 		}
 
 	echo $texto.'<BR><BR>';

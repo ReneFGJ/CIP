@@ -1,7 +1,7 @@
 <?
 require("cab.php");
 require('../_class/_class_ic.php');
-
+$journal_id = 20;
 require($include.'/_class_form.php');
 $form = new form;
 

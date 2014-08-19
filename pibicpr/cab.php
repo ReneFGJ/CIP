@@ -24,6 +24,8 @@ require("../cab_institucional.php");
 $file = '../messages/msg_pt_BR.php';
 require($file);
 
+
+
 $menu = array();
 array_push($menu,array(':: Início ::','index.php'));
 array_push($menu,array('Bolsas','bolsas.php'));
@@ -39,4 +41,11 @@ array_push($menu,array('Indicadores','indicadores.php'));
 require('../_class/_class_header.php');
 $hd = new header;
 echo $hd->mostra('ic');
+
+if (!($perfil->valid('#ADM#CPI#SPI')))
+	{
+		redirecina("../pibic/");
+		echo 'Acesso Bloqueado!';
+		exit;
+	}
 ?>

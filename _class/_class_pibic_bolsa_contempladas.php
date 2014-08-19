@@ -108,6 +108,7 @@ class pibic_bolsa_contempladas
 						inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
 						left join apoio_titulacao on ap_tit_codigo = pp_titulacao
 						left join centro on centro_codigo = pp_escola
+						left join ajax_areadoconhecimento on pb_semic_area = a_cnpq
 						where pb_ano = '$ano1' or pb_ano = '$ano2' 
 						order by centro_nome, pp_curso, pp_nome
 						";
@@ -132,7 +133,11 @@ class pibic_bolsa_contempladas
 							<TH>email
 							<TH>email alternativo
 							<TH>Titulação
-							<TH>SS						
+							<TH>SS
+							<TH>e-mail (est.)
+							<TH>e-mail alt (est.)
+							<TH>área CNPq
+							<TH>CNPq Descrição						
 							';
 				$tot = 0;
 				while ($line = db_read($rlt))
@@ -192,6 +197,19 @@ class pibic_bolsa_contempladas
 
 						$sx .= '<TD>';
 						$sx .= $line['pp_ss'];
+						
+						$sx .= '<TD>';
+						$sx .= $line['pa_email'];
+
+						$sx .= '<TD>';
+						$sx .= $line['pa_email_1'];		
+										
+						$sx .= '<TD><nobr>';
+						$sx .= $line['a_cnpq'];
+						$sx .= '</nobr>';	
+						$sx .= '<TD><nobr>';
+						$sx .= $line['a_descricao'];
+						$sx .= '</nobr>';																	
 					}
 				$sx .= '</table>';
 				$sx .= $tot.' total';
@@ -1612,7 +1630,7 @@ class pibic_bolsa_contempladas
 						array_push($acao,array('020','Substituição do aluno*'));
 						array_push($acao,array('050','Substituição do professor'));
 						array_push($acao,array('021','Alterar modalidade da IC*'));
-						array_push($acao,array('022','Alterar Título do plano do aluno*'));
+						array_push($acao,array('022','Alterar Título do plano do aluno'));
 						
 						/* Cancelar submissóo do relatório parcial */
 						
@@ -1620,7 +1638,7 @@ class pibic_bolsa_contempladas
 							{
 								array_push($acao,array('030','Renviar para orientador relatório parcial para resubmissóo'));		
 							}
-						break;
+//					break;
 				case 'C':
 						array_push($acao,array('011','Reativar bolsa'));
 						break;
@@ -1630,6 +1648,7 @@ class pibic_bolsa_contempladas
 				}
 			array_push($acao,array('','Entrega de relatório'));
 			array_push($acao,array('100','__Alterar dados do relatório parcial'));
+			array_push($acao,array('200','__Alterar dados do relatório final'));
 			
 			$sx = '<fieldset><legend>'.msg("actions").'</legend>';
 			$sx .= '<UL>';
@@ -1691,11 +1710,13 @@ class pibic_bolsa_contempladas
 			$txt = $this->mostar_dados();
 			$txt .= '<BR><BR>'.$texto;
 			enviaremail('pibicpr@pucpr.br','','[IC] '.$this->pb_protocolo.' '.$assunto,$txt);			
-			enviaremail('monitoramento@sisdoc.com.br','','[IC] '.$this->pb_protocolo.' '.$assunto,$txt);			
+			enviaremail('monitoramento@sisdoc.com.br','','[IC] '.$this->pb_protocolo.' '.$assunto,$txt);
+			enviaremail('renefgj@gmail.com','','[IC] '.$this->pb_protocolo.' '.$assunto,$txt);			
 			if (strlen($email1) > 0) { enviaremail($email1,'','[IC] '.$this->pb_protocolo.' '.$assunto,$txt); }
 			if (strlen($email2) > 0) { enviaremail($email2,'','[IC] '.$this->pb_protocolo.' '.$assunto,$txt); }
 			if (strlen($email3) > 0) { enviaremail($email3,'','[IC] '.$this->pb_protocolo.' '.$assunto,$txt); }
 			if (strlen($email4) > 0) { enviaremail($email4,'','[IC] '.$this->pb_protocolo.' '.$assunto,$txt); }
+			echo '<BR>';
 		}
 	function liberar_resubmissao_relatorio_parcial()
 		{
@@ -1705,15 +1726,190 @@ class pibic_bolsa_contempladas
 			$rlt = db_query($sql);
 			return(1);
 		}
+
 	function actions($ac)
 		{
-			global $dd,$form,$acao,$http,$pb;
-			
+			global $user,$dd,$form,$acao,$http,$pb;
 			$ph = new pibic_historico;
 			
 			$proto = $this->pb_protocolo;
 			$acao = $_POST['acao'];
+			
+			/* Alterar Título de Trabalho */
+			if ($ac == '200')
+				{
+					if (strlen($acao) > 0)
+						{
+							$dd[3] = utf8_decode($dd[3]);
+							$dd[4] = utf8_decode($dd[4]);
+							$dd[5] = utf8_decode($dd[5]);							
+						}
+					$cp = array();
+					array_push($cp,array('$HV','pb_protocolo',$dd[0],True,True));
+					array_push($cp,array('$HV','',$dd[1],False,True));
+					array_push($cp,array('$HV','',$dd[2],False,True));
+					array_push($cp,array('$O : &1:Reabrir para postagem do relatório','','Ação',True,True));
+					array_push($cp,array('$HV','pb_relatorio_final','0',True,True));
+					array_push($cp,array('$HV','pb_relatorio_final_nota','-1',True,True));
+					array_push($cp,array('$O : &1:SIM','','Confirmar',True,True));
+					array_push($cp,array('$B8','','Atualizar >>',False,False));
+					$tela = $form->editar($cp,$this->tabela);
+					if ($form->saved > 0)
+						{
+							$this->le('',$dd[0]);
+							
+									echo '<BR>Gerando Histórico';											
+									$historico = 'Reenviado para postagem do relatório final';
+									$ph->inserir_historico($dd[0],200,$historico,$dd[3],'','RFR');
 
+									echo '<BR>Recuperando mensagem do sistema';
+									$ic = new ic;
+									$nw = $ic->ic('ic_reenvio_realtorio');
+									
+									$texto = $nw['nw_descricao'];
+									$texto .= '<BR><BR>'.$historico.'<BR><BR>';
+									$titulo = $nw['nw_titulo'];
+									
+									$texto = '<IMG SRC="'.$http.'img/email_ic_header.png"><BR><BR>'.mst($texto).'<BR><BR><BR><img src="'.$http.'img/email_ic_foot.png">';
+									
+									echo '<BR>Comunicando pesquisador<BR>';
+									/* Comunicar novo orientador */
+									$this->comunicar_pesquisador('Reabertura para reenvio de relatório',$historico);					
+									
+									echo '<font color="green">Operação realizada com sucesso!</font>';
+									exit;
+									
+							$sx = 'Saved';
+						} else {
+							$sx = $tela;		
+						}
+					
+					return($sx);				
+				}
+
+
+			/* Alterar Título de Trabalho */
+			if ($ac == '021')
+				{
+					$cp = array();
+					
+					if (strlen($acao) > 0)
+						{
+							$dd[5] = utf8_decode($dd[5]);							
+						}
+					array_push($cp,array('$HV','pb_protocolo',$dd[0],True,True));
+					array_push($cp,array('$HV','',$dd[1],False,True));
+					array_push($cp,array('$H8','pb_tipo','',False,False));
+					array_push($cp,array('$HV','',$dd[2],False,True));
+					array_push($cp,array('$Q pbt_descricao:pbt_codigo:select * from pibic_bolsa_tipo','pb_tipo','Nova bolsa',True,True));
+					//array_push($cp,array('$Q a_descricao:a_codigo:select * from ajax_areadoconhecimento where a_semic = \'1\'','pb_semic_area','Data de submissão',True,True));
+					array_push($cp,array('$T80:6','','Justificativa',True,True));
+					array_push($cp,array('$B8','','Atualizar >>',False,False));
+					$tela = $form->editar($cp,'');
+					
+					if ($form->saved > 0)
+						{
+							
+							print_r($dd);
+							echo 'salvo';
+							exit;
+							$this->le('',$dd[0]);
+							if ($dd[3] != $dd[4])
+								{
+									$sql = "select * from pibic_bolsa_tipo where pbt_codigo = '".$dd[4]."' ";
+									$rrr = db_query($sql);
+									if ($line = db_read($rlt)) { $mod1 = $line['pbt_descricao']; }
+											
+									$sql = "select * from pibic_bolsa_tipo where pbt_codigo = '".$dd[3]."' ";
+									$rrr = db_query($sql);
+									if ($line = db_read($rlt)) { $mod2 = $line['pbt_descricao']; }
+									
+									echo '<BR>Gerando Histórico';											
+									$historico = 'Troca de modalidade de bolsa<BR>De:<B><I>'.$mod1.'</I></B><BR>Para:<B>'.$mod2.'</B><BR><BR>Motivo:'.$dd[5];
+									$ph->inserir_historico($dd[0],021,$historico,$dd[3],'','SUB');
+
+									echo '<BR>Recuperando mensagem do sistema';
+									$ic = new ic;
+									$nw = $ic->ic('ic_troca_modalidade');
+									
+									$texto = $nw['nw_descricao'];
+									$texto .= '<BR><BR>'.$historico.'<BR><BR>';
+									$titulo = $nw['nw_titulo'];
+									
+									$texto = '<IMG SRC="'.$http.'img/email_ic_header.png"><BR><BR>'.mst($texto).'<BR><BR><BR><img src="'.$http.'img/email_ic_foot.png">';
+									
+									echo '<BR>Comunicando pesquisador<BR>';
+									/* Comunicar novo orientador */
+									$this->comunicar_pesquisador('Troca de modalidade de Iniciação, Tecnológica e Inovação',$historico);					
+									
+									echo '<font color="green">Substituição realizada com sucesso!</font>';
+									exit;
+								}
+							$sx = 'Saved';
+						} else {
+							$sx = $tela;		
+						}
+					
+					return($sx);				
+				}
+
+			/* Alterar Título de Trabalho */
+			if ($ac == '022')
+				{
+					$cp = array();
+					if (strlen($acao) > 0)
+						{
+							$dd[3] = utf8_decode($dd[3]);
+							$dd[4] = utf8_decode($dd[4]);
+							$dd[5] = utf8_decode($dd[5]);							
+						}
+					array_push($cp,array('$HV','pb_protocolo',$dd[0],True,True));
+					array_push($cp,array('$HV','',$dd[1],False,True));
+					array_push($cp,array('$HV','',$dd[2],False,True));
+					array_push($cp,array('$T80:6','pb_titulo_projeto','Novo título',True,True));
+					array_push($cp,array('$H8','pb_titulo_projeto','',False,False));
+					//array_push($cp,array('$Q a_descricao:a_codigo:select * from ajax_areadoconhecimento where a_semic = \'1\'','pb_semic_area','Data de submissão',True,True));
+					array_push($cp,array('$T80:6','','Justificativa',True,True));
+					array_push($cp,array('$B8','','Atualizar >>',False,False));
+					$tela = $form->editar($cp,$this->tabela);
+					
+					if ($form->saved > 0)
+						{
+							$this->le('',$dd[0]);
+							echo $dd[3];
+							echo '<BR>'.$dd[4];
+							if ($dd[3] != $dd[4])
+								{
+									echo '<BR>Gerando Histórico';											
+									$historico = 'Troca de título do plano<BR>De:<B><I>'.$dd[4].'</I></B><BR>Para:<B>'.$dd[3].'</B><BR><BR>Motivo:'.$dd[5];
+									$ph->inserir_historico($dd[0],022,$historico,$dd[3],'','TIT');
+
+									echo '<BR>Recuperando mensagem do sistema';
+									$ic = new ic;
+									$nw = $ic->ic('ic_troca_titulo');
+									
+									$texto = $nw['nw_descricao'];
+									$texto .= '<BR><BR>'.$historico.'<BR><BR>';
+									$titulo = $nw['nw_titulo'];
+									
+									$texto = '<IMG SRC="'.$http.'img/email_ic_header.png"><BR><BR>'.mst($texto).'<BR><BR><BR><img src="'.$http.'img/email_ic_foot.png">';
+									
+									echo '<BR>Comunicando pesquisador<BR>';
+									/* Comunicar novo orientador */
+									$this->comunicar_pesquisador('Troca de título de trabalhos',$historico);					
+									
+									echo '<font color="green">Substituição realizada com sucesso!</font>';
+									exit;
+								}
+							$sx = 'Saved';
+						} else {
+							$sx = $tela;		
+						}
+					
+					return($sx);				
+				}
+			
+			/* Relatório Parcial */
 			if ($ac == '100')
 				{
 					$cp = array();

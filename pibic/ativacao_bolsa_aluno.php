@@ -2,9 +2,13 @@
 session_start();
 
 require("cab.php");
-require("../_class/_class_pibic_projetos.php");
-$pj = new pibic_projetos;
-
+require("../_class/_class_pibic_projetos_v2.php");
+$pj = new projetos;
+if (strlen($dd[0]) == 0)
+	{
+		echo 'ERRO DE POST';
+		exit;
+	}
 if (strlen($dd[0])==7)
 	{
 		$_SESSION['proto'] = $dd[0];
@@ -39,7 +43,7 @@ if (strlen($dd[5]) > 0)
 	if ($ativo == 1)
 		{
 			require("atividade_bolsa_implantacao_ativacao_6.php");
-			echo 'ATIVADO';
+			echo '<HR><font color="green">ATIVADO</font>';
 
 			exit;
 		}

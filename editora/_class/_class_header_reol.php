@@ -153,7 +153,7 @@ class header
 				                      	<li><a href="#">Parecer</a></li>
 				                      	<li><a href="areadoconhecimento.php">Áreas de Avaliação</a></li>
 				                      	<li><a href="parecerista_email.php">Comunicação</a></li>
-				                      	<li><a href="#">Relatório</a></li>
+				                      	<li><a href="parecerista_relatorio.php">Relatório</a></li>
 				                      	<li><a href="parecer_modelo.php">Modelos de parecer</a></li>
 				                      	<li><a href="parecer_modelo_area.php">Áreas do modelos de parecer</a></li>
 				                      	<li><a href="documentos_obrigatorio.php">Documentos obrigatórios</a></li>

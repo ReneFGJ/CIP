@@ -486,6 +486,9 @@ class bonificacao
 					case 'BNI':					
 						$sr .= $this->mostar_bonificacao_artigo();
 						break;
+					case 'BN2':					
+						$sr .= $this->mostar_bonificacao_artigo();
+						break;						
 					default:
 						echo '===>'.$tipo;
 						echo 'Não Informado';
@@ -531,7 +534,7 @@ class bonificacao
 					$sx .= ' (<A HREF="#" class="link" '.$link.'>editar</A>)';
 				}			$sx .= '<TR><TD>Situação <B>'.$sta.'</B>';
 			$sx .= '<TR><TD>Valor da Bonificação <B>'.number_format($this->line['bn_valor'],2,',','.');
-			$sx .= '</B> pago em '.$dl;
+			$sx .= '</B> repasse em '.$dl;
 			$sx .= '<TR><TD>CR: '.$cr.' '.$this->line['bn_cr'];
 				
 			$sx .= '</table>';
@@ -579,7 +582,7 @@ class bonificacao
 					$sx .= ' (<A HREF="#" class="link" '.$link.'>editar</A>)';
 				}			$sx .= '<TR><TD>Situação <B>'.$sta.'</B>';
 			$sx .= '<TR><TD>Valor da Bonificação <B>'.number_format($this->line['bn_valor'],2,',','.');
-			$sx .= '</B> pago em '.$dl;
+			$sx .= '</B> repasse em '.$dl;
 			$sx .= '<TR><TD>CR: '.$cr.' '.$this->line['bn_cr'];
 				
 			$sx .= '</table>';

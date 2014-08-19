@@ -107,8 +107,7 @@ while ($line = db_read($rlt))
 			$limit_tp = 2;
 			$limit_tt = 2;
 			/* RN Mestre e Doutor Duas bolsas pagar */
-			/* RN Mestro dois ICV */
-			/* RN Doutor treis ICV */
+			
 			
 			/* Titulação de Doutor */
 			if ($tit_cod == '002') { $limit_tp++; $limit_tt++; }
@@ -119,6 +118,14 @@ while ($line = db_read($rlt))
 			
 			if ($pibic > ($limit_tp+$limit_p)) { $bgp=' bgcolor="#ff0000" '; $msg.='<A HREF="#" title="Total de Bolsas PIBIC é superior ao máximo">R</A>"'; }
 			if ($pibiti > $limit_tt+$limit_t) { $bgt=' bgcolor="#ff0000" '; $msg.='<A HREF="#" title="Total de Bolsas PIBITI é superior ao máximo">R</A>"'; }
+
+			/* RN Mestro dois ICV */
+			if (($tit_cod == '001') and (($pibic - $pibic_r) > 2))
+				{ $bgp=' bgcolor="#ff0000" '; }
+
+			/* RN Doutor quatro ICV */
+			if (($tit_cod == '002') and (($pibic - $pibic_r) > 4))
+				{ $bgp=' bgcolor="#ff0000" '; }
 			
 			if ($pibiti > 0)
 				{
@@ -126,6 +133,7 @@ while ($line = db_read($rlt))
 				} else {
 					$sx .= '<TD colspan="'.(15-($pibic-$pibiti)).'" class="tabela01">&nbsp;</TD>';
 				}
+			
 			$sx .= '<TD align="center"  '.$bgp.' class="tabela01">'.$pibic.'/'.$pibic_r.'</TD>';
 			$sx .= '<TD align="center" '.$bgt.' class="tabela01">'.$pibiti.'/'.$pibiti_r.'</TD>';
 			$sx .= '<TD class="tabela01">'.$msg.'</TD>';
@@ -134,7 +142,8 @@ while ($line = db_read($rlt))
 	
 	if ($centro != $xcentro)
 		{
-		$sx .= '<TR class="lt3"><TD colspan="40" class="tabela01"><B><font style="font-size:22px">'.$centro.'</font></B></TD></TR><TR>';
+		$sx .= '<TR class="lt3"><TD colspan="40" class="tabela01">
+					<B><font style="font-size:22px">'.$centro.'</font></B></TD></TR><TR>';
 		$xcentro = $centro;
 		}
 		

@@ -25,9 +25,10 @@ if ($line = db_read($rlt))
 		$sc = $line['pp_carga_semanal'];
 		if ($tti == '002') { $bolsa_max_paga = 1; }
 		if ($tti == '003') { $bolsa_max_paga = 1; }
-		 $bolsa_max_paga++; $ssens  = 1; 
+		 //$bolsa_max_paga++; 
+		 $ssens  = 1; 
 //		if ($ss == 'S')   { $bolsa_max_paga++; $ssens  = 1; }
-		if ($tti == '001') { $bolsa_max_paga = 1; }
+		//if ($tti == '001') { $bolsa_max_paga = 1; }
 		
 		 $bolsa_max_paga = 2;
 	} else {

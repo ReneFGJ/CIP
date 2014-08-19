@@ -13,6 +13,7 @@ $menu = array();
 /////////////////////////////////////////////////// MANAGERS
 array_push($menu,array(msg('submissoes'),'Resumo Cockpit','submissao_cockpit.php'));
 array_push($menu,array(msg('submissoes'),'__Projetos do professor','submissao_professor.php'));
+array_push($menu,array(msg('submissoes'),'__Planos de aluno','submissao_plano.php'));
 
 array_push($menu,array(msg('submissoes'),'Projetos submetidos',''));
 array_push($menu,array(msg('submissoes'),'__Não finalizados','submissao_nao_finalizadas.php'));
@@ -62,8 +63,11 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	array_push($menu,array(	'Edital (Publicação)','Edital (PIBIC) - Resultado Final','edital.php?dd0=H&dd1=PIBIC&dd2='.date("Y").'&printer=S'));
 	array_push($menu,array(	'Edital (Publicação)','Edital (PIBITI) - Resultado Final','edital_pibiti.php?dd0=H&dd1=PIBITI&dd2='.date("Y").'&printer=S'));
 	array_push($menu,array(	'Edital (Publicação)','Edital (PIBIC_EM) - Resultado Final','edital_pibic_em.php?dd0=H&dd1=PIBICE&dd2='.date("Y").'&printer=S'));
-
+	array_push($menu,array(	'Edital (Publicação)','Edital (Inclusão Social) - Resultado Final','edital_inclusao.php?dd0=H&dd1=PIBIC&dd2='.date("Y").'&printer=S'));
 	
+	array_push($menu,array(	'Edital (Recursos)','Recursos para o edital','recurso_lista.php'));
+	array_push($menu,array(	'Edital (Recursos)','__Cadastrar Recurso','recurso.php'));	
+		
 	} 
 
 array_push($menu,array('Implementação de Bolsas (Fase de Implementação)','Bolsas não Implementadas de Bolsas (PIBIC)','pibic_implementacao_bolsas.php?dd1=PIBIC'));	

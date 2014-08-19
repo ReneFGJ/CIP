@@ -30,7 +30,7 @@ $total3 = $ati->total_artigos_validar($professor);
 $menu = array();
 /////////////////////////////////////////////////// MANAGERS
 array_push($menu,array('Artigos para bonificação','Meus artigos cadastrados','artigos_my.php'));
-//array_push($menu,array('Captação de Recursos','Cadastrar novo projeto','artigo_novo.php'));
+array_push($menu,array('Artigos para bonificação','Cadastrar novo artigo','artigo_novo.php'));
 
 if (($total3 > 0) and (date("Ymd") > 20140116))
 	{

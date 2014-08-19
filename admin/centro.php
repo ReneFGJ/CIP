@@ -12,12 +12,6 @@ require($include.'sisdoc_debug.php');
 	$clx = new centro;
 	$tabela = $clx->tabela;
 
-	$sql = "delete from ".$tabela." where centro_nome = '-Doutorandos-'";
-	$rlt = db_query($sql);	
-	/* Mensagens */
-	$link_msg = '../messages/msg_'.$tabela.'.php';
-	if (file_exists($link_msg)) { require($link_msg); }
-	
 	/* Não alterar - dados comuns */
 	$label = msg($tabela);
 	$http_edit = $tabela.'_ed.php'; 

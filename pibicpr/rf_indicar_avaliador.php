@@ -11,6 +11,7 @@ echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 require("../_class/_class_ic_relatorio_final.php");
 $rp = new ic_relatorio_final;
 
+$rp->verificar_sem_avaliacao();
 echo $rp->idicacao_avaliador();
 
 require("../foot.php");	

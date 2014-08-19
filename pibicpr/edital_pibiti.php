@@ -5,12 +5,13 @@ if ($_GET['printer']=='S')
 $include = '../';
 require("../db.php");
 require($include.'sisdoc_debug.php');
+$dd[4] = '=';
 
 require('../_class/_class_pibic_projetos_v2.php');
 require($include.'sisdoc_colunas.php');
 require($include.'sisdoc_autor.php');
 
-$relatorio_titulo = "Edital ".$dd[1]." ".date("Y")."/".(date("Y")+1)." - Resultado do Processo de Seleção de Bolsas de Iniciação Tecnológica";
+$relatorio_titulo = "Edital ".$dd[1]." ".date("Y")."/".(date("Y")+1)." - Resultado do Processo de Seleção de Bolsas de Iniciação Tecnológica da Fundação Auraucária";
 $edital = new projetos;
 ?>
 <link rel="STYLESHEET" type="text/css" href="../css/ic-edital.css">
@@ -23,7 +24,8 @@ $edital = new projetos;
 		<TD class="lt3" align="center"><?=$relatorio_titulo;?><?=$tit1;?></TD>
 		<TD width="30%" align="right" valign="top"><NOBR>
 		<img src="img/logo_pucpr.jpg" height="90" alt="" border="0">&nbsp;
-		<img src="img/logo_re2ol.jpg" height="30" alt="" border="0">&nbsp;
+		<img src="img/logo_re2ol.jpg" height="0" alt="" border="0">&nbsp;
+		<img src="img/logo_fundacao_araucaria.jpg" height="50" alt="" border="0">
 		</TD>
 	</TR>
 </TABLE>
@@ -31,10 +33,10 @@ $edital = new projetos;
 	$tit1 = " "; 
 	$hb = '<table class="lt0" width="100%"><TR>';
 	$hb .= '<TD>Bolsas:</TD>';
-	$hb .= '<TD><NOBR><img src="img/logo_bolsa_B.png" width="34" height="15" alt="" border="0"> CNPQ';
-//	$hb .= '<TD><NOBR><img src="img/logo_fa_mini.jpg" width="34" height="15" alt="" border="0"> Fundação Araucária';
-	$hb .= '<TD><NOBR><img src="img/logo_bolsa_G.png" width="34" height="15" alt="" border="0"> Agência PUC';
-	$hb .= '<TD><NOBR><img src="img/logo_bolsa_O.png" width="34" height="15" alt="" border="0"> Bolsa PUCPR';
+//	$hb .= '<TD><NOBR><img src="img/logo_bolsa_B.png" width="34" height="15" alt="" border="0"> CNPQ';
+	$hb .= '<TD><NOBR><img src="img/logo_bolsa_=.png" width="34" height="15" alt="" border="0"> Fundação Araucária';
+//	$hb .= '<TD><NOBR><img src="img/logo_bolsa_G.png" width="34" height="15" alt="" border="0"> Agência PUC';
+//	$hb .= '<TD><NOBR><img src="img/logo_bolsa_O.png" width="34" height="15" alt="" border="0"> Bolsa PUCPR';
 //	$hb .= '<NOBR>Bolsa de Iniciação Científica em áreas estratégicas - PUCPR</TD>';
 //	$hb .= '<TD><NOBR><img src="img/logo_bolsa_M.png" width="34" height="15" alt="" border="0">';
 //	$hb .= '<NOBR>Bolsa PUCPR Doutorando</TD>';
@@ -69,5 +71,5 @@ $edital = new projetos;
 	$edital = new projetos;	
 	
 }
-echo $edital->mostra_edital(date("Y"),$dd[3].$dd[0],$dd[1]);
+echo $edital->mostra_edital(date("Y"),$dd[3].$dd[0],$dd[1],$dd[4]);
 ?>

@@ -402,8 +402,8 @@ class qualis
 			}
 		function row_journal() {
 			global $cdf, $cdm, $masc;
-			$cdf = array('id_cj', 'cj_nome', 'cj_issn', 'cj_pais');
-			$cdm = array('cod', msg('journal_name'), msg('journal_issn'), msg('journal_country'));
+			$cdf = array('id_cj', 'cj_nome', 'cj_issn', 'cj_pais','cj_codigo');
+			$cdm = array('cod', msg('journal_name'), msg('journal_issn'), msg('journal_country'),msg('codigo'));
 			$masc = array('', '', '','','','','','','','SN');
 			return (1);
 		}		
@@ -415,20 +415,42 @@ class qualis
 			$masc = array('', '', '','','','','','','','SN');
 			return (1);
 		}		
-	
+		function insert_journal($issn,$journal_name,$country)
+			{
+				$name = $journal_name;
+				$name_asc = UpperCaseSql($journal_name);
+				$date = date("Ymd");
+				
+				$sql = "insert into ".$this->tabela_journal." 
+						(cj_issn, cj_nome, cj_abrev,
+						cj_nome_asc, cj_codigo, cj_pais,
+						cj_estado, cj_site, cj_ativo,
+						cj_update
+						) values (
+						'$issn','$name','',
+						'$name_asc','','',
+						'','',1,
+						$date
+						)
+				";
+				$rlt = db_query($sql);
+				$this->updatex_journal();
+			}
 		function cp_journal()
 			{
+				global $dd;
+				$dd[4] = uppercasesql($dd[2]);
 				$cp = array();
 				array_push($cp,array('$H8','id_cj','',False,True));
-				array_push($cp,array('$S9','cj_issn','',False,True));
-				array_push($cp,array('$S100','cj_nome','',True,True));
-				array_push($cp,array('$S20','cj_abrev','',True,True));
+				array_push($cp,array('$S9','cj_issn','ISSN',False,True));
+				array_push($cp,array('$S100','cj_nome','Nome',True,True));
+				array_push($cp,array('$S20','cj_abrev','Abrev',False,True));
 				array_push($cp,array('$HV','cj_nome_asc','',False,True));
-				array_push($cp,array('$H8','cj_codigo','',False,True));
-				array_push($cp,array('$S3','cj_pais','',False,True));
-				array_push($cp,array('$S2','cj_estado','',False,True));
-				array_push($cp,array('$S100','cj_site','',False,True));
-				array_push($cp,array('$O 1:SIM&0:NÃO','cj_ativo','',True,True));
+				array_push($cp,array('$H8','cj_codigo','',Codigo,True));
+				array_push($cp,array('$S3','cj_pais','',Pais,True));
+				array_push($cp,array('$S2','cj_estado','',Estado,True));
+				array_push($cp,array('$S100','cj_site','',Site,True));
+				array_push($cp,array('$O 1:SIM&0:NÃO','cj_ativo','Ativo',True,True));
 				array_push($cp,array('$U8','cj_update','',False,True));
 				return($cp);
 			}
@@ -452,22 +474,21 @@ class qualis
 			$c1 = 'id_' . $c;
 			$c2 = $c . '_codigo';
 			$c3 = 7;
-			$sql = "update cited_journal set $c2 = lpad($c1,$c3,0) where $c2='' ";
-			if ($base == 'pgsql') { $sql = "update cited_journal set $c2 = trim(to_char(id_" . $c . ",'" . strzero(0, $c3) . "')) where $c2='' ";
+			$sql = "update cited_journals set $c2 = lpad($c1,$c3,0) where $c2='' ";
+			if ($base == 'pgsql') { $sql = "update cited_journals set $c2 = trim(to_char(id_" . $c . ",'" . strzero(0, $c3) . "')) where $c2='' ";
 			}
 			$rlt = db_query($sql);
 			
-			$sql = "select * from cited_journal where cj_nome_asc = '' ";
+			$sql = "select * from cited_journals where cj_nome_asc = '' ";
 			$rlt = db_query($sql);
 			$sqlu = "";
 			while ($line = db_read($rlt))
 				{
 					$nome_asc = Uppercase(trim(trim($line['cj_nome']).' '.trim($line['cj_abrev'])));
 					$id = $line['id_cj'];
-					$sqlu .= "update cited_journal where cj_nome_asc = '$nome_asc' wher id_cj = $id; ".chr(13);
+					$sqlu = "update cited_journals set cj_nome_asc = '$nome_asc' where id_cj = $id; ".chr(13);
+					$rlt = db_query($sqlu);
 				}
-			if (strlen($sqlu) >0)
-				{ $rlt = db_query($sqlu); }
-			}
 		}
+}
 ?>

@@ -75,10 +75,14 @@ if ($dd[90]=='ged')
 	{
 	require("_ged_config.php");
 	
+		require('../_class/_class_pibic_bolsa_contempladas.php');
+		$pb = new pibic_bolsa_contempladas;
+		$pb->le('',$dd[0]);
+			
 	if ($dd[2]=='files_del')
 		{
 			$ged->id_doc = round($dd[10]);
-			$ged->file_delete();
+			$ged->file_delete_confirm();
 			echo '
 				<script>
 					window.location.reload( true );
@@ -95,13 +99,22 @@ if ($dd[90]=='ged')
 				$divname = 'geds';
 				$frame = '1';
 				$sx = '<fieldset class="fieldset01">';
-				$sx 	.= '<legend class="legend01">'.msg('ic_aquivos').'</legend>';
+				$sx .= '<legend class="legend01">'.msg('ic_aquivos').'</legend>';
 				$sx .= msg('ic_rpar_file');
 				$sx .= '<table width="100%" class="tabela00">';
 				$sx .= '<TR><TH><h2>'.msg('ic_aquivos').'</h2>';
 				$sx .= $ged->file_list('',page());
 				$sx .= '</table>';			
-				$sx .= $ged->upload_form('RELAF','Submeter relatório final');
+				$nota = $pb->line['pb_relatorio_final_nota'];
+				if ($nota <> 2)
+					{
+						$sx .= $ged->upload_form('RELAF','Submeter relatório final');		
+					} else {
+						$sx .= $ged->upload_form('RFC','Submeter correção do relatório final ');		
+					}
+					
+				
+				
 				$sx .= '</fieldset>';
 	}
 echo $sx;

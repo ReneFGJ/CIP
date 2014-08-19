@@ -115,11 +115,68 @@ if ((substr($dd[1],0,1)=='0') or (substr($dd[1],0,1)=='1'))
 			$sql = "select pp_email, pp_email_1 from pibic_projetos 
 					inner join pibic_professor on pj_professor = pp_cracha
 					inner join pibic_submit_documento on doc_protocolo_mae = pj_codigo
-					where (pj_status <> 'X') and pj_ano = '".date("Y")."'and doc_edital = 'PIBIC'
+					where (pj_status <> 'X') and pj_ano = '".date("Y")."' and doc_edital = 'PIBIC'
 					group by pp_email, pp_email_1 		
 			";
 			$rlt = db_query($sql);
-		}		
+		}	
+	if ($op == '015')
+		{
+			// 	
+			//  left join apoio_titulacao on ap_tit_codigo = pp_titulacao 
+			$ano = date("Y");
+			$wh = " and doc_edital = 'PIBIC' ";
+			$sql = "select pp_email, pp_email_1 from (
+					select pp_email, pp_email_1 from pibic_bolsa 					
+					inner join pibic_bolsa_tipo on pbt_codigo =  pb_tipo 
+					inner join pibic_submit_documento on pb_protocolo = doc_protocolo
+					inner join pibic_professor on pp_cracha = pb_professor 
+					where pp_ano = '$ano' $wh and pb_tipo = 'I'
+					and pb_ativo = 1 ) as tabela
+					group by pp_email, pp_email_1
+					";			
+			$rlt = db_query($sql);
+			$line = db_read($rlt);
+			$rlt = db_query($sql);
+		}
+	if ($op == '016')
+		{
+			// 	
+			//  left join apoio_titulacao on ap_tit_codigo = pp_titulacao 
+			$ano = date("Y");
+			$wh = " and doc_edital = 'PIBITI' ";
+			$sql = "select pp_email, pp_email_1 from (
+					select pp_email, pp_email_1 from pibic_bolsa 					
+					inner join pibic_bolsa_tipo on pbt_codigo =  pb_tipo 
+					inner join pibic_submit_documento on pb_protocolo = doc_protocolo
+					inner join pibic_professor on pp_cracha = pb_professor 
+					where pp_ano = '$ano' $wh and pb_tipo = 'Y'
+					and pb_ativo = 1 ) as tabela
+					group by pp_email, pp_email_1
+					";			
+			$rlt = db_query($sql);
+			$line = db_read($rlt);
+			$rlt = db_query($sql);
+		}
+	if ($op == '017')
+		{
+			// 	
+			//  left join apoio_titulacao on ap_tit_codigo = pp_titulacao 
+			$ano = date("Y");
+			$wh = " and doc_edital = 'PIBIC' and pb_vies = '1'";
+			$sql = "select pp_email, pp_email_1 from (
+					select pp_email, pp_email_1 from pibic_bolsa 					
+					inner join pibic_bolsa_tipo on pbt_codigo =  pb_tipo 
+					inner join pibic_submit_documento on pb_protocolo = doc_protocolo
+					inner join pibic_professor on pp_cracha = pb_professor 
+					where pp_ano = '$ano' $wh and pb_tipo = 'I'
+					and pb_ativo = 1 ) as tabela
+					group by pp_email, pp_email_1
+					";			
+			$rlt = db_query($sql);
+			$line = db_read($rlt);
+			$rlt = db_query($sql);
+		}							
 	if ($op == '001')
 		{
 			$sql = "select pa_email, pa_email_1 from pibic_bolsa_contempladas 

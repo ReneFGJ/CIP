@@ -179,7 +179,7 @@ class issue
 				and issue_published = 1';
 			$sql .= " order by issue_year desc,issue_volume desc,issue_number desc ";
 			$rlt = db_query($sql);
-			$sx .= '<table width="100%" cellpadding=2 cellspacing=0 align="left" class="tabela00" > ';
+			$sx .= '<table width="100%" cellpadding=2 cellspacing=0 align="left" class="tabela00" border=0 > ';
 			$sx .= '<TR><TD colspan=10><BR><h2><B>Edições publicadas</B></h2>';		
 			
 			$xyear = -1;
@@ -193,20 +193,20 @@ class issue
 				{
 					if ($xyear > 0) { $sx .= '<TD colspan=8 width="80%" bgcolor="#FFFFFF">&nbsp;'; }
 					$sx .= '<TR>';
-					$sx .= '<TD class="font_03">';
+					$sx .= '<TD class="font_03" colspan=5><B>';
 					$sx .= chr(187);
-					$sx .= '<TD class="font_02">';
 					$sx .= $year;
 					$xyear = $year;
 				}
-				$sx .= '<TD align="center"><nobr>&nbsp;&nbsp;&nbsp;';
+				$sx .= '<TR>';				
+				$sx .= '<TD align="left"><nobr>&nbsp;&nbsp;&nbsp;';
 				$sx .= $link.'v. '.$line['issue_volume'];
 				$sx .= ',n. '.$line['issue_number'].'</A>&nbsp;';
 				//$sx .= ', '.$line['issue_year'].'</A>';;
 				$tit = trim($line['issue_title']);
 				if (strlen($tit) > 0)
 					{
-		//				$sx .= $link.$tit.'</A>';
+						$sx .= $link.$tit.'</A>';
 					}
 				$ln = $line;		
 			}
@@ -264,7 +264,7 @@ class issue
 			$ed = array();
 			$sql = "select * from issue 
 						where journal_id = ".round($jid)."
-						and issue_published = 1 and issue_status = 'S'
+						and issue_published = 1 
 						order by 	issue_year desc,
 						 			issue_volume desc, 
 						 			issue_number desc
@@ -316,9 +316,10 @@ class issue
 			
 			$rlt = db_query($sql);
 			$secx = 'secao';
-			$sx = '<table width="650" border=0 >';
+			$sx = '<table width="100%" border=0 >';
 			while ($line = db_read($rlt))
 				{
+					$tit2 = trim($line['article_2_title']);
 					$ab = round($line['abstracts_disabled']);
 					$sec = trim($line['title']);
 					if ($secx != $sec)
@@ -407,6 +408,7 @@ class issue
 			global $edit_mode;	
 			$mref = '';
 			$ref = trim($ln['article_3_abstract']);
+			$tit2 = trim($ln['article_2_title']);
 
 			if (strlen($ref) > 0)
 				{
@@ -440,9 +442,15 @@ class issue
                         <table width="100%" class="titulo_pdf" border=0 cellpadding=0 cellspacing=0>
                         	<tr>
                             <td class="td_titulo" onclick="abstractshow(\''.$id.'\');" >'.$mref.$art_title.'</td>
-                            '.$art_pages.'
+                            <TD><nobr>'.$art_pages.'
                             <td class="pdf" align="left">'.$this->pdf_link($ln,$art_pdf).'</td>
-						</tr></table>
+						</tr>';
+						
+			if (strlen($tit2) > 0)
+				{
+					$sx .= '<TR><TD class="td_titulo" style="padding: 5px 0px 5px 20px;"><I>'.$tit2.'</I></td></tr>';
+				}	
+			$sx .= '</table>
                     </div>
                     <div class="artigo_autor">'.$art_autor.'</div>
                                         

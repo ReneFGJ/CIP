@@ -609,11 +609,16 @@ class works
 	
 	function show_work($line)
 		{
+			$titulo = trim($line['doc_1_titulo']);
+			if (strlen($titulo) == 0)
+				{
+					$titulo = '##SEM TITULO##';
+				}
 			$link = '<A HREF="producao_works_detalhe.php?dd0='.$line['id_doc'].'" class="link">';
 			$sx .= '<TR valign="top" '.coluna().'>
 					<TD>'.$line['doc_ord'].'
 					<TD>';
-			$sx .= $link.trim($line['doc_1_titulo']).'</a>';
+			$sx .= $link.$titulo.'</a>';
 			$sx .= '<TD>'.$line['ess_descricao_1'];
 			$sx .= '<TD width="25"><img src="'.http.'editora/img/icone_tools.png" height="25">';
 			$sx .= '<TR><TD colspan=3 class="tabela00" height=15>';

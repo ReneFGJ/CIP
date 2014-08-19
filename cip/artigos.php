@@ -16,6 +16,9 @@ echo '<H3>Artigos cadastrados para Bonificação</h3>';
 require("../_class/_class_artigo.php");
 $art = new artigo;
 
+$tela = $art->busca();
+echo $tela;
+
 echo $art->resumo('');
 
 echo '<A HREF="artigos_professores_q1.php">Professores com Q1</A>';

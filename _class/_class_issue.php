@@ -212,11 +212,12 @@ class issue
 	function ultima_edicao_publicada($journal)
 		{
 			$sql = "select * from ".$this->tabela;
-			$sql .= " where issue_published = 1 and journal_id = $journal
+			$sql .= " where 
+						and issue_published = 1 and issue_status = 'S'
+						and journal_id = $journal
 						order by issue_year desc, issue_volume desc, issue_number desc
 			";
 			$rlt = db_query($sql);
-			
 			if ($line = db_read($rlt))
 				{
 					return($line['id_issue']);

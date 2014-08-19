@@ -5,6 +5,34 @@ class ic_relatorio_final
 	var $professor;
 	
 	var $tabela = "pibic_parecer_2011";
+	function verificar_sem_avaliacao()
+		{
+				$sql = "
+						select pb_protocolo, total, pb_status from pibic_bolsa_contempladas 
+						left join (
+						 select 1 as total, pp_protocolo from pibic_parecer_".date("Y")." where (pp_status = '@' or pp_status= 'A' or pp_status = 'B') and pp_tipo = 'RFIN' group by pp_protocolo
+						 ) as tabela00 on pb_protocolo = pp_protocolo
+						 inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+						where pb_ano = '".(date("Y")-1)."' and pb_status <> 'C' 
+							and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')
+							
+				";
+				$rlt = db_query($sql);
+				$id = 0;
+				while ($line = db_read($rlt))
+					{
+						$total = round($line['total']);
+						if ($total == 0)
+							{
+								$sql = "update pibic_bolsa_contempladas set pb_relatorio_final_nota = 0 where pb_protocolo = '".$line['pb_protocolo']."'";
+								echo $sql;
+								$rrr = db_query($sql);
+								$id++;
+							}
+					}
+				echo $id;
+
+		}
 	
 	function relatorio_final_reprovado($ano='2010')
 		{
@@ -162,17 +190,41 @@ class ic_relatorio_final
 			return($sx);
 		}	
 
+	function zera_declinados_cancelados($ttipo='')
+		{
+			$this->tabela = "pibic_parecer_".date("Y");
+			$sql = "
+					select * from ".$this->tabela." 
+						inner join pibic_bolsa_contempladas on pp_protocolo = pb_protocolo
+						where pp_tipo = '$ttipo' 
+					and (pp_status = '@' or pp_status = 'A')
+			";
+			$rlt = db_query($sql);
+			while ($line = db_read($rlt))
+				{
+					$lb = trim($line['pb_status']);
+					if ($lb=='C') 
+						{
+							$sql = "update ".$this->tabela." set pp_status = 'D' where id_pp = ".$line['id_pp'];
+							//echo '<BR>'.$sql;
+							$xxx = db_query($sql);
+						}
+				}			
+		}
 	function idicacao_avaliador_email($tst,$tipo='')
 		{
 			global $dd;
 			$ttipo = 'RFIN';
+			/* */
+			$this->zera_declinados_cancelados($ttipo);
+			
 			if (strlen($tipo) > 0) { $ttipo = $tipo; }
 			require_once("../_class/_class_ic.php");
 			$ic = new ic;
-			$mmm = $ic->ic('RFIM_AVALIADOR');
+			$mmm = $ic->ic('ic_RFIN_indicacao');
 			print_r($mm);
 			$email_titulo = $mmm['nw_titulo'];
-			$email_texto = $mmm['nw_descricao'];
+			$email_texto = mst($mmm['nw_descricao']);
 			require("../pibicpr/_email.php");			
 			$this->tabela = "pibic_parecer_".date("Y");
 			
@@ -188,7 +240,7 @@ class ic_relatorio_final
 				$rlt = db_query($sql);
 			}
 			
-			$sql = "update ".$this->tabela." set pp_data = 20130904 where pp_tipo = '$ttipo' ";
+			$sql = "update ".$this->tabela." set pp_data = 20140818 where pp_tipo = '$ttipo' ";
 			$rlt = db_query($sql);
 			
 			$cp = $this->tabela.".pp_avaliador as ava_cracha, ";
@@ -222,6 +274,7 @@ class ic_relatorio_final
 						<TH width=20%>Centro';
 			$id = 0;
 			$idt = 0;
+			echo '<HR>'.$email_texto.'<HR>';
 			while ($line = db_read($rlt))
 				{
 					$link = http.'avaliador/acesso.php?dd0='.($line['pp_cracha']);
@@ -254,17 +307,18 @@ class ic_relatorio_final
 					
 					if (($dd[10] == -1) and ($id < 10))
 						{
-							$sx .= '<BR>enviando email para monitoramento@sisdoc.com.br';
-							enviaremail('monitoramento@sisdoc.com.br','',$email_titulo,$texto);
+							$sx .= '<BR>enviando email para renefgj@gmail.com';
+							//enviaremail('renefgj@gmail.com','','xxx','xxxx');
+							enviaremail('renefgj@gmail.com','',$email_titulo,$texto);
+							echo $sx;
 							exit;
 						}
+
 					if ($dd[10] == 1)
 						{
-							if (strlen($email1) > 0 ) { enviaremail($email1,'',$email_titulo,$texto); }
-							if (strlen($email2) > 0 ) { enviaremail($email2,'',$email_titulo,$texto); }
+							if (strlen($email1) > 0 ) { enviaremail($email1,'',$email_titulo.'-'.trim($line['pp_nome']),$texto); $sx .= '<BR>'.$email1 .' [send]'; }
+							if (strlen($email2) > 0 ) { enviaremail($email2,'',$email_titulo.'-'.trim($line['pp_nome']),$texto); $sx .= '<BR>'.$email2 .' [send]';}
 							enviaremail('pibicpr@pucpr.br','',$email_titulo,$texto);
-							if (strlen($email1) > 0) { $sx .= '<BR>'.$email1 .'[send]'; }
-							if (strlen($email2) > 0) { $sx .= '<BR>'.$email2 .'[send]';  }
 							////enviaremail('monitoramento@sisdoc.com.br','',$email_titulo,$texto);
 						}
 					
@@ -287,7 +341,8 @@ class ic_relatorio_final
 					left join pibic_bolsa_tipo on pb_tipo = pbt_codigo
 					left join pibic_aluno on pb_aluno = pa_cracha
 					where (pb_relatorio_final_nota = -99 or pb_relatorio_final_nota = 99 or pb_relatorio_final_nota = 0)
-					and pb_ano = '$ano'
+					and pb_ano = '$ano' and (pbt_edital = 'PIBITI' or pbt_edital = 'PIBIC')
+					and pb_status <> 'C'
 					$wh
 					order by a_cnpq, pp_nome
 			";
@@ -332,11 +387,11 @@ class ic_relatorio_final
 							var trs = "#TR"+id;
 							var tri = "#TRI"+id;
 							$(tri).show();
-							var file = "rf_indicar_avaliador_ajax.php?dd0="+id;
+							var file = "gestao_indicar_avaliador_ajax.php?dd1=ic&dd2=RFIN&dd0="+id;
 							var jqxhz = $.ajax( file )
 								.done(function(dados) 
 									{ $( tri ).html(dados); })
-								.fail(function() { alert("error"); });
+								.fail(function() { alert("error#1"); });
 						}
 					</script>
 			';
@@ -403,7 +458,7 @@ class ic_relatorio_final
 							var jqxhz = $.ajax( file )
 								.done(function(dados) 
 									{ $( tri ).html(dados); })
-								.fail(function() { alert("error"); });
+								.fail(function() { alert("error#2"); });
 						}
 					</script>
 			';
@@ -790,7 +845,7 @@ function form_crp($ged)
 					$sx .= $aluno;
 					$sx .= '<BR>Modalidade: '.$bolsa.' ('.$bolsa_nome.'/'.$line['pb_ano'].')';
 					$sx .= '<TD >';
-					$sx .= '<form action="atividade_IC3_acao.php">';
+					$sx .= '<form action="atividade_IC5_acao.php">';
 					$sx .= '<input type="hidden" name="dd0" value="'.trim($line['pb_protocolo']).'">';
 					$sx .= '<input type="hidden" name="dd1" value="'.trim($line['id_pb']).'">';
 					$sx .= '<input type="hidden" name="dd90" value="'.checkpost(trim($line['pb_protocolo'])).'">';
@@ -1074,7 +1129,7 @@ function form_crp($ged)
 				<script>
 					var jqxhr = $.ajax( "'.$file.'" )
 					.done(function(dados) { var tela=1;  $("#geds").html(dados); })
-					.fail(function() { alert("error"); })
+					.fail(function() { alert("error#3"); })
 				</script>';
 			return($sx);	
 		}
@@ -1105,7 +1160,7 @@ function form_crp($ged)
 						url: "'.$file.'",
 						data: { dd7: protocolo, dd4: titulo, dd5: "titulo", dd6: titulo_2  } } )
 					.done(function(dados) { var tela=2;  $("#titulo").html(dados); })
-					.fail(function() { alert("error"); });
+					.fail(function() { alert("error#4"); });
 				});					
 				</script>';			
 			return($sx);
@@ -1119,7 +1174,7 @@ function form_crp($ged)
 				<script>
 					var jqxhz = $.ajax( "'.$file.'" )
 					.done(function(dados) { var tela=2;  $("#titulo").html(dados); })
-					.fail(function() { alert("error"); })
+					.fail(function() { alert("error#5"); })
 				</script>';
 			return($sx);
 		}
@@ -1133,7 +1188,7 @@ function form_crp($ged)
 				<script>
 					var jqxhz = $.ajax( "'.$file.'" )
 					.done(function(dados) { var tela=2;  $("#area").html(dados); })
-					.fail(function() { alert("error"); })
+					.fail(function() { alert("error#6"); })
 				</script>';
 			return($sx);
 		}
@@ -1186,7 +1241,7 @@ function form_crp($ged)
 						url: "'.$file.'",
 						data: { dd4: area, dd5: "area" } } )
 					.done(function(dados) { var tela=2;  $("#area").html(dados); })
-					.fail(function() { alert("error"); });
+					.fail(function() { alert("error#7"); });
 				});					
 				</script>';			
 			
@@ -1202,7 +1257,7 @@ function form_crp($ged)
 				<script>
 					var jqxhz = $.ajax( "'.$file.'" )
 					.done(function(dados) { var tela=2;  $("#idioma").html(dados); })
-					.fail(function() { alert("error"); })
+					.fail(function() { alert("error#8"); })
 				</script>';
 			return($sx);
 		}
@@ -1242,7 +1297,7 @@ function form_crp($ged)
 						url: "'.$file.'",
 						data: { dd4: area, dd5: "idioma" } } )
 					.done(function(dados) { var tela=2;  $("#idioma").html(dados); })
-					.fail(function() { alert("error"); });
+					.fail(function() { alert("error#9"); });
 				});					
 				</script>';						
 			return($sx);

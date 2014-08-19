@@ -391,9 +391,11 @@ class parecer_model
 			{
 				global $jid, $art, $pp;
 				//return(1);
+				$sx = troca($sx,' & ',' e ');
 				$sx = troca($sx,'<BR>',chr(13));
 				$sx = troca($sx,'<B>','&lt;b&gt;');
 				$sx = troca($sx,'</B>','&lt;/b&gt;');
+				
 				
 				$dir = '../editora/parecer';
 				if (!is_dir($dir)) { mkdir($dir); }

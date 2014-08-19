@@ -9,7 +9,6 @@ $menu = array();
 /////////////////////////////////////////////////// MANAGERS
 
 array_push($menu,array('Grupo de Pesquisa','Grupos de Pesquisa (lista)','grupo_de_pesquisa_validados.php'));
-array_push($menu,array('Grupo de Pesquisa','Solicitação criação de Cadastro','gp_solicitacao.php'));
 
 ?>
 <TABLE width="710" align="center" border="0">

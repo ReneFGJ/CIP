@@ -13,7 +13,7 @@ $professor = $ss->user_cracha;
 require("../_class/_class_pibic_projetos_v2.php");
 $pj = new projetos;
 
-$tot = $pj->projetos_para_correcao($professor);
+//$tot = $pj->projetos_para_correcao($professor);
 if ($tot > 0)
 	{
 		echo '<H1><font color="red">Correção de trabalhos submetidos</font></h1>';
@@ -51,13 +51,14 @@ $ed = new pibic_edital;
 
 
 $ano = date("Y");
-
 if (date("m") < 4)
 	{
 		$ano = $ano - 1;
 	}
 
-if ($professor == '88958022')
+//if ($professor == '88958022')
+require("../pibic/__submit_INPL.php");
+if ($open == 1)
 {
 	//echo $ed->bolsas_indicadas($professor,$ano);
 	$id_pesq = $professor;
@@ -75,14 +76,36 @@ echo $ed->edital_resumo_professor(date("Y"),$professor,'PIBITI');
 echo '<h3>PIBIC</h3>';
 echo $ed->edital_resumo_professor(date("Y"),$professor,'PIBIC');
 */
-/* RelatÃ³rio Parcial */
-require("atividade_IC1_row.php");
-/* RelatÃ³rio Parcial - Correcoes */
-require("atividade_IC7_row.php");
- 
-require("atividade_IC3_row.php");
-require("atividade_IC4_row.php");
 
+if ((date("m") >= 7) and (date("m") <= 8))
+	{
+		echo '<h1>PIBIC/PIBITI - Parecer do(s) Projeto(s)'.(date("Y")).'/'.(date("Y")+1).'</h1>';
+		echo $ed->show_protocolo_professor($nw->user_cracha);		
+	}
+
+/* Relatorio Parcial */
+if (date("m") < 4) { require("atividade_IC1_row.php"); }
+/* RelatÃ³rio Parcial - Correcoes */
+if (date("m") < 4) { require("atividade_IC7_row.php"); }
+/* Relatório Final e resumo */
+if (file_exists('__submit_RFIN.php'))
+	{
+		require("__submit_RFIN.php");
+		if ((date("m") > 5) and (date("m") < 11) and ($open == 1)) 
+		{
+		require("atividade_IC3_row.php");
+		require("atividade_IC4_row.php");
+		}
+	}
+/* Relatório Final e resumo */
+if (file_exists('__submit_RFIC.php'))
+	{
+		require("__submit_RFIC.php");
+		if ((date("m") > 5) and (date("m") < 11) and ($open == 1)) 
+		{
+		require("atividade_IC5_row.php");
+		}
+	}
  /* require("atividade_IC6_row.php"); */
 
 require("../foot.php");

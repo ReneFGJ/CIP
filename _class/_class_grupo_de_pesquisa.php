@@ -40,6 +40,7 @@ class grupo_de_pesquisa {
 	var $tabela = 'grupo_de_pesquisa';
 
 	function lista_grupos($status = '') {
+		
 		$sql = "select * from " . $this -> tabela . " 
 					where gp_status = '$status' 
 					order by gp_nome
@@ -80,6 +81,7 @@ class grupo_de_pesquisa {
 	}
 
 	function grupos_validados_por_area() {
+		
 		$sql = "select * from " . $this -> tabela . " 
 					where gp_ativo = 1
 					order by gp_area_01, gp_area_02
@@ -280,6 +282,7 @@ class grupo_de_pesquisa {
 	}
 
 	function grupos_de_pesquisa_relacao() {
+		
 		$sql = "select * from " . $this -> tabela . " 
 					where gp_ativo = 1
 					order by gp_nome
@@ -538,6 +541,7 @@ class grupo_de_pesquisa {
 	 * Mostra lider
 	 */
 	function mostra_lider() {
+		
 		global $coluna;
 		$sx = '<fieldset><legend>' . msg('group_leader') . '</legend>
 					<table width=100% cellpadding=3 cellspacing=0 border=0 class="lt1">
@@ -1021,6 +1025,15 @@ class grupo_de_pesquisa {
 
 	function structure() {
 		return (0);
+
+		$sql = "DELETE FROM grupo_de_pesquisa";
+		$rlt = db_query($sql);
+		$sql = "DELETE FROM grupo_de_pesquisa_membro";
+		$rlt = db_query($sql);
+		$sql = "DELETE FROM cip_ged_documento ";
+		$rlt = db_query($sql);
+		EXIT;
+				
 		$sql = "CREATE TABLE grupo_de_pesquisa_protocolo_membro (
   				id_gpmp serial,
   				gpmp_cracha char(8),
@@ -1054,12 +1067,6 @@ class grupo_de_pesquisa {
 		$sql = "update grupo_de_pesquisa set gp_ativo = 1 ";
 		//$rlt = db_query($sql);
 
-		$sql = "drop table grupo_de_pesquisa";
-		//$rlt = db_query($sql);
-		$sql = "drop table grupo_de_pesquisa_membro";
-		//$rlt = db_query($sql);
-		$sql = "DROP TABLE cip_ged_documento ";
-		//$rlt = db_query($sql);
 
 		$sql = "
 			CREATE TABLE grupo_de_pesquisa (

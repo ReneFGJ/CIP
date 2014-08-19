@@ -1,0 +1,85 @@
+.botao-submit {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-image: -moz-linear-gradient(top,  rgba(248, 131, 22, 1) 0%, rgba(170, 84, 9, 1) 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248, 131, 22, 1)), color-stop(100%,rgba(170, 84, 9, 1)));
+  background-image: -webkit-linear-gradient(top,  rgba(248, 131, 22, 1) 0%,rgba(170, 84, 9, 1) 100%);
+  background-image: -o-linear-gradient(top,  rgba(248, 131, 22, 1) 0%,rgba(170, 84, 9, 1) 100%);
+  background-image: -ms-linear-gradient(top,  rgba(248, 131, 22, 1) 0%,rgba(170, 84, 9, 1) 100%);
+  background-image: linear-gradient(to bottom,  rgba(248, 131, 22, 1) 0%,rgba(170, 84, 9, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F88316', endColorstr='#AA5409',GradientType=0 );
+  opacity: .8;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000000;
+  -webkit-box-shadow: 0px 0px 10px 0px #000000;
+  -moz-box-shadow: 0px 0px 10px 0px #000000;
+  -ms-box-shadow: 0px 0px 10px 0px #000000;
+  -o-box-shadow: 0px 0px 10px 0px #000000;
+  text-shadow: 0px 0px 1px #000000;
+  font-family: 'RobotoRegular', arial, sans-serif;
+  font-size: 12px;  
+  color: #FFFFFF;
+  padding: 10px 30px 10px 30px;
+}
+
+.botao-submit:hover {
+box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #1C13C9;
+  opacity: 1;
+  border: 1px solid #000000;
+  padding: 10px 30px 10px 30px;
+}
+
+.botao-geral{
+	background-color: #00929a;
+	color: #fff;
+	font-family: 'RobotoRegular', arial, sans-serif;
+	font-size: 12px;
+	padding: 5px 10px 5px 10px;
+	cursor: pointer;
+	border: none;
+}
+
+.botao-geral:active {
+	position:relative;
+	top:1px;
+}
+
+.botao-geral:hover{
+	background-color: #0099a1;
+}
+
+.botao-red {
+	position:relative;
+	top:1px;
+	background-color: #FF9393;
+}
+
+
+
+.botao-confirmar{
+	background-color: #DF8500;
+	
+	color: #000;
+	font-family: 'RobotoRegular', arial, sans-serif;
+	font-size: 12px;
+	padding: 5px 10px 5px 10px;
+	cursor: pointer;
+	border: none;
+	height:40px;
+}
+
+.botao-confirmar:active {
+	position:relative;
+	top:1px;
+}
+
+.botao-confirmar:hover{
+	background-color: #FFA500; 
+}

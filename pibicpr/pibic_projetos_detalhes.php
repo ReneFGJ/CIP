@@ -7,6 +7,13 @@ require($include.'sisdoc_email.php');
 
 require("../_class/_class_ic.php");
 
+
+if (!($perfil->valid('#ADM#CPI#SPI')))
+	{
+		echo 'Acesso Bloqueado!';
+		exit;
+	}
+	
 $sql = "update pibic_submit_documento set doc_autor_principal = '70005465' where doc_protocolo_mae = '1003421'";
 $rlt = db_query($sql);
 
@@ -47,13 +54,15 @@ if (strlen($dd[0])==0)
 			$pa = new parecer_pibic;
 			$pa->tabela = 'pibic_parecer_'.date("Y");
 			$pa->table_exists($pa->tabela);	
-			
-			$pa->protocolo = $prj->protocolo;
-			$sx .= '<TR><TD>';
-			$sx .= '<fieldset><legend>'.msg('avaliacoes').'</legend>';
-			if ($user_nivel == 9) { $sx .= $pa->parecer_indicacao(''); }
-			$sx .= $pa->parecer_indicacao_row('');
-			$sx .= '</fieldset>';
+			if (($perfil->valid('#ADM#SPI')))
+				{
+					$pa->protocolo = $prj->protocolo;
+					$sx .= '<TR><TD>';
+					$sx .= '<fieldset class="tabela00"><legend>'.msg('avaliacoes').'</legend>';
+					if ($user_nivel == 9) { $sx .= $pa->parecer_indicacao(''); }
+					$sx .= $pa->parecer_indicacao_row('');
+					$sx .= '</fieldset>';
+				}
 		}
 	if ($prj->status != 'E')
 		{		

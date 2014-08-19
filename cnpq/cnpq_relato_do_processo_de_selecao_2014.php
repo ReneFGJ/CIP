@@ -140,7 +140,7 @@ seguinte forma:
   </li>
 </ul>
 <ul>
-  <li>No  PIBITI, a demanda bruta foi de 200 planos de trabalhos, a demanda qualificada de 190 e a demanda atendida de o momento foi de 87 bolsas (32 CNPq, 30 PUCPR e 25 Agencia PUC).</li>
+  <li>No  PIBITI, a demanda bruta foi de 200 planos de trabalhos, a demanda qualificada de 194 e a demanda atendida de o momento foi de 87 bolsas (32 CNPq, 30 PUCPR e 25 Agencia PUC).</li>
 </ul>
 
 <ul>

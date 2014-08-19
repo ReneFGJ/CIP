@@ -11,7 +11,8 @@ require('_ged_config.php');
 
 $ged->protocol = $dd[0];
 $pb->le('',$dd[0]);
-
+//print_r($dd);
+//exit;
 echo $pb->mostar_dados();
 
 $data_rp = round($pb->pb_rf);

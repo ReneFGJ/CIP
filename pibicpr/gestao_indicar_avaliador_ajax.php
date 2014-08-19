@@ -11,8 +11,23 @@ require("../_class/_class_ic.php");
 $ic = new ic;
 require($include.'sisdoc_email.php');
 
-require("_email.php");
 
+if ($dd[2]=='DECLINAR')
+	{
+		$sql = "update pibic_bolsa_contempladas set pb_relatorio_parcial_nota = -99
+				where pb_protocolo = '".$dd[5]."' 
+		";
+		$rlt = db_query($sql);
+		
+		$sql = "update pibic_parecer_".date("Y")." set pp_status = 'D' where id_pp = ".$dd[3];
+		$rlt = db_query($sql);
+		//pb_relatorio_parcial_nota
+		echo '<font color="blue">Declinou</font>';
+		exit;
+	}
+	
+require("_email.php");
+print_r($dd);
 /* TIPOS DE DOCUMENTOS */
 $rtipo = $dd[2];			/* Tipo de Relatorio */
 $edital = $dd[1];			/* Modalidade */
@@ -64,7 +79,7 @@ switch ($rtipo)
 		break;		
 	case 'RFIN': /* Relatório Parcial Junior */
 		$field = 'pb_relatorio_final';
-		$limit_avaliacoes = 1;
+		$limit_avaliacoes = 10;
 		break;		
 	default:
 		echo '<font color="red">Relatório não implementado '.$rtipo.'</font>';
@@ -111,10 +126,12 @@ if ($acao == 'INDICAR')
 				
 				$trocas = array();
 				array_push($trocas,array('$TITULO',$pb->pb_titulo_projeto));
-				
-				$pp->enviar_email_indicacao($proto,$par,$rtipo,$trocas);
+				if (date("Ymd") > 20140805)
+					{
+					$pp->enviar_email_indicacao($proto,$par,$rtipo,$trocas);
+					}
 				$pp->inserir_idicacao_avaliacao($proto,$avaliador,$rtipo);
-				$pp->avaliacoes_mudar_deadline($rtipo,20140217);
+				$pp->avaliacoes_mudar_deadline($rtipo,20140815);
 				
 				$sql = "update pibic_bolsa_contempladas 
 						set ".$field."_nota = -90

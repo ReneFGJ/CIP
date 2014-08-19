@@ -76,19 +76,45 @@ array_push($cp,array('$T80:4','pp_abe_09',$cap.$texto,True,True));
 /** Quita Questão **/
 
 $cap = $sp.'6) Resultado da avaliação do Relatório Final e do Resumo';
-$opc = '20:Relatório Final aprovado com Mérito.<BR>&';
-$opc .= '10:Relatório Final aprovado.<BR>&';
+$opc = '20:Relatório final aprovado com mérito.<BR>&';
+$opc .= '10:Relatório final aprovado.<BR>&';
 //$opc .= '12:<font color=Green>Aprovado com pendências a serem corrigidas<font><BR>&';
-$opc .= '5:Aprovado, porém necessita adequações para apresetação no SEMIC.<BR>&';
-$opc .= '2:Relatório Final está com pendências, precisa ser corrigido e reenviado.<BR>&';
-$opc .= '-1:Relatório não aprovado e não indicado para apresentação pública no XXI SEMIC.';
+$opc .= '5:Relatório final aprovado. As sugestões apresentadas devem ser incorporadas para a apresentação no SEMIC.<BR>&';
+$opc .= '2:Relatório final com pendência, submeter novamente após realizar as correções.<BR>&';
+$opc .= '-1:Relatório final não indicado para apresentação pública.';
 array_push($cp,array('$R '.$opc,'pp_p01',$cap,True,True));
 //array_push($cp,array('$HV','pp_p02','1',True,True));
 //array_push($cp,array('$HV','','1',True,True));
 
-$cap = $sp.'7) Apresente justificativa detalhada, mínimo de 60 palavras, caso o trabalho não tenha sido indicado para apresentação pública no XXI do SEMIC:';
+$cap = $sp.'7) Apresente justificativa detalhada, mínimo de 60 palavras, caso o trabalho não tenha sido indicado para apresentação pública no SEMIC:';
 array_push($cp,array('$T80:4','pp_abe_10',$cap,False,True));
 
+$cap = '8) Atribuia uma Nota Geral ao Projeto (0-10): ';
+$op = ' : &';
+$op .= '0:0&';
+$op .= '0,5:0.5&';
+$op .= '1:1&';
+$op .= '1,5:1.5&';
+$op .= '2:2&';
+$op .= '2,5:2.5&';
+$op .= '3:3&';
+$op .= '3,5:3.5&';
+$op .= '4:4&';
+$op .= '4,5:4.5&';
+$op .= '5:5&';
+$op .= '5,5:5.5&';
+$op .= '6:6&';
+$op .= '6,5:6.5&';
+$op .= '7:7&';
+$op .= '7,5:7.5&';
+$op .= '8:8&';
+$op .= '8,5:8.5&';
+$op .= '9:9&';
+$op .= '9,5:9.5&';
+$op .= '10:10&';
+
+//array_push($cp,array('$[0-10]','pp_abe_11',$cap,False,True));
+array_push($cp,array('$O'.$op,'pp_abe_11',$cap,False,True));
 
 array_push($cp,array('$B8','','Finaliza avaliação >>',False,True));
 

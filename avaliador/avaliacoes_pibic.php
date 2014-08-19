@@ -9,7 +9,8 @@ echo '<HR>';
  * RELATORIO PARCIAL
  */
 //$sql = "update ".$parecer_pibic->tabela." set pp_data = 20140417 where pp_tipo = 'RPAR' ";
-//$rlt = db_query($sql); 
+//$rlt = db_query($sql);
+$tala = ''; 
 if (date("m") < 4) 
 	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAR'); } 
 	//{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAC'); } 
@@ -17,6 +18,9 @@ if (date("m") < 4)
 if ((date("m") >= 5) and (date("m") < 8))
 	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'SUBMI'); }
 	 
+if ((date("m") >= 7) and (date("m") <= 9))
+	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RFIN'); } 
+
 $tot = $tot + $tela[0];
 if ($tela[0] > 0) { echo $tela[1]; }
 $tela[1] = '';
