@@ -1293,10 +1293,30 @@ class pibic_bolsa_contempladas
 
 		function relatorio_implementadas($edital,$modalidade,$ano='')
 		{
-			$sql = "select * from pibic_bolsa_contempladas 
-			 	inner join pibic_professor on pp_cracha = pb_professor 
- 				inner join pibic_aluno on pa_cracha = pb_aluno 
- 				inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+			/* Areas */
+			$ar = array();
+			$an = array();
+			$sql = "select * from ajax_areadoconhecimento where a_cnpq like '%.00.00-%' ";
+			$rlt = db_query($sql);
+			while ($line = db_read($rlt))
+				{
+					array_push($ar,substr($line['a_cnpq'],0,4));
+					array_push($an,$line['a_descricao']);
+				}
+
+				$sql = "select a1.a_cnpq as yy, a1.a_descricao as a_descricao_1, * from pibic_bolsa_contempladas 
+			 	left join pibic_professor on pp_cracha = pb_professor
+			 	left join 
+			 			(
+			 			select pj_codigo, pj_titulo from pibic_projetos 
+			 			group by pj_codigo , pj_titulo
+			 			) as projetos
+			 			on pb_protocolo_mae = pj_codigo    
+			 	
+			 	left join ajax_areadoconhecimento as a1 on a1.a_cnpq = pb_semic_area 
+			 	
+ 				left join pibic_aluno on pa_cracha = pb_aluno 
+ 				left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
  				where pb_ano = '".$ano."'
  				 ";
 
@@ -1322,10 +1342,10 @@ class pibic_bolsa_contempladas
 				switch($area)
 					{
 						case 'S': $area = 'Sociais Aplicada'; break;
-						case 'A': $area = 'Cióncias Agrórias'; break;
-						case 'V': $area = 'Cióncias da Saóde'; break;
-						case 'H': $area = 'Cióncias Humanas'; break;
-						case 'E': $area = 'Cióncias Exatas'; break;
+						case 'A': $area = 'Ciências Agrárias'; break;
+						case 'V': $area = 'Ciências da Saúde e Vida'; break;
+						case 'H': $area = 'Ciências Humanas'; break;
+						case 'E': $area = 'Ciências Exatas'; break;
 						 
 					}	
 				$prof_nome = $line['pp_nome'];
@@ -1333,19 +1353,27 @@ class pibic_bolsa_contempladas
 
 				$sx .= '<TR >';
 				//$sx .= '<TD align="center">'.$edital.'/'.$ano.'</TD>';
-
 				$sx .= '<TD class="tabela01">'.$prof_nome.'</TD>';
-				$sx .= '<TD>'.$line['pb_status'];
 				$sx .= '<TD class="tabela01">'.$line['pp_cpf'].'</TD>';
 				$sx .= '<TD class="tabela01">'.$line['pp_lattes'].'</TD>';
 				
+				$sx .= '<TD class="tabela01">'.$line['pj_titulo'].'</TD>';
+				
 				$sx .= '<TD class="tabela01">'.$area.'</TD>';
 				
+				
+				$az = substr($line['pb_semic_area'],0,4);
+				$ai = array_search($az,$ar);
+				$sx .= '<TD class="tabela01">'.$an[$ai];
+				
+				$sx .= '<TD class="tabela01">'.$line['a_descricao_1'].'</TD>';
+				
 				$sx .= '<TD class="tabela01">'.$line['pb_titulo_projeto'].'</TD>';
-			
+				
+				$sx .= '<TD class="tabela01">'.$line['pa_nome'].'</TD>';								
 				$sx .= '<TD class="tabela01">'.$line['pa_cpf'].'</TD>';
 				$sx .= '<TD class="tabela01">'.$line['pa_lattes'].'</TD>';
-				$sx .= '<TD class="tabela01">'.$line['pa_nome'].'</TD>';
+				
 				
 				$sx .= '</TR>';
 		}
@@ -1354,12 +1382,16 @@ class pibic_bolsa_contempladas
 		$sa .= '<table width="98%" class="tabela00">';
 		$sa .= '<TR><TH>Nome do Orientador</TH>';
 		$sa .= '<TH>CPF do Orientador</TH>';
-		$sa .= '<TH>Link do Curróculo Lattes do Orientador</TH>';
-		$sa .= '<TH>órea do conhecimento</TH>';
+		$sa .= '<TH>Link do Currículo Lattes do Orientador</TH>';
 		$sa .= '<TH>Título do projeto do bolsista</TH>';
-		$sa .= '<TH>CPF do bolsista</TH>';
-		$sa .= '<TH>Link do Curróculo Lattes do Bolsista</TH>';
+		$sa .= '<TH>Grande área do conhecimento</TH>';
+		$sa .= '<TH>Área do conhecimento</TH>';
+		$sa .= '<TH>Subárea</TH>';
+		$sa .= '<TH>Título do projeto do bolsista</TH>';
 		$sa .= '<TH>Nome do bolsista</TH>';
+		$sa .= '<TH>CPF do bolsista</TH>';
+		$sa .= '<TH>Link do Currículo Lattes do Bolsista</TH>';
+		
 		$sa .= '</TR>';
 		$sa .= $sx;
 		$sa .= '<TR><TD colspan="10" align="left">Total de '.$tot.' bolsas implementadas.</TD></TR>';		

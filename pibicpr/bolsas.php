@@ -27,6 +27,8 @@ if ($perfil->valid('#ADM'))
 		array_push($menu,array(msg('ativar_bolsas'),'Ativar um protocolo de pesquisa com ICV','bolsas_indicacao_status.php'));		
 	}
 
+array_push($menu,array('Fundação Araucária - Bolsas Implementação','ANEXO II','bolsas_anexo_ii.php'));
+array_push($menu,array('Fundação Araucária - Bolsas Implementação','ANEXO IV','bolsas_anexo_iv.php'));
 
 echo '<TABLE width="710" align="center" border="0">
 		<TR>';

@@ -215,7 +215,12 @@ class parecer
 			";
 			$rlt = db_query($sql);
 			
-			$sx .= '<TR><TH>Protocolo<TH>Avaliador<TH>Ação<TH>Situação<TH>Atualizado<TH>ação';
+			$sx .= '<TR><TH>Protocolo<TH>Avaliador
+						<TH>e-mail
+						<TH>Ação
+						<TH>Situação
+						<TH>Atualizado
+						<TH>ação';
 			while ($line = db_read($rlt))
 			{
 				$link = '<span class="link" onclick="newxy2(\'parecer_resultado.php?dd0='.$line['id_pp'].'&dd90='.checkpost($line['id_pp']).'\')">';
@@ -321,7 +326,11 @@ class parecer
 			";
 			$rlt = db_query($sql);
 			
-			$sx .= '<TR><TH>Avaliador<TH>Situação<TH>Atualizado<TH>ação';
+			$sx .= '<TR><TH>Avaliador
+					<TH>e-mail
+					<TH>Situação
+					<TH>Atualizado
+					<TH>ação';
 			while ($line = db_read($rlt))
 			{
 				$link = '<span class="link" onclick="newxy2(\'parecer_resultado.php?dd0='.$line['id_pp'].'&dd90='.checkpost($line['id_pp']).'\')">';
@@ -331,6 +340,10 @@ class parecer
 				$sx .= '<TR>';
 				$sx .= '<TD class="tabela01">';
 				$sx .= trim($line['us_nome']);
+				$sx .= '<TD class="tabela01">';
+				$sx .= trim($line['us_email']);
+				$sx .= ' ';
+				$sx .= trim($line['us_email_1']);
 				$sx .= '<TD class="tabela01" align="center">';
 				$sx .= $this->show_status(trim($line['pp_status']));
 				$sx .= '<TD class="tabela01" align="center">';
@@ -362,6 +375,11 @@ class parecer
 						}
 					$sx .= '<TR valign="top" class="tabela01">';
 					$sx .= '<TD class="tabela01">'.$line['us_nome'];
+					$sx .= '<TD class="tabela01">';
+					$sx .= trim($line['us_email']);
+					$sx .= ' ';
+					$sx .= trim($line['us_email_1']);
+
 					$sx .= '<TD class="tabela01" align="center">';
 
 					if (($line['pp_status']=='@') or ($line['pp_status']=='A'))
