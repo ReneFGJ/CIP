@@ -25,7 +25,6 @@ class ic_relatorio_final
 						if ($total == 0)
 							{
 								$sql = "update pibic_bolsa_contempladas set pb_relatorio_final_nota = 0 where pb_protocolo = '".$line['pb_protocolo']."'";
-								echo $sql;
 								$rrr = db_query($sql);
 								$id++;
 							}
@@ -240,7 +239,7 @@ class ic_relatorio_final
 				$rlt = db_query($sql);
 			}
 			
-			$sql = "update ".$this->tabela." set pp_data = 20140818 where pp_tipo = '$ttipo' ";
+			$sql = "update ".$this->tabela." set pp_data = 20140825 where pp_tipo = '$ttipo' ";
 			$rlt = db_query($sql);
 			
 			$cp = $this->tabela.".pp_avaliador as ava_cracha, ";
@@ -276,18 +275,21 @@ class ic_relatorio_final
 			$idt = 0;
 			echo '<HR>'.$email_texto.'<HR>';
 			while ($line = db_read($rlt))
-				{
+				{					
 					$link = http.'avaliador/acesso.php?dd0='.($line['pp_cracha']);
 					$link .= '&dd90='.checkpost($line['pp_cracha']);
 					$link = '<A HREF="'.$link.'" target="_new">'.$link.'</A>';
 					$id++;
 					$idt = $idt + $line['protocolo'];
 					$proto = $line['protocolo'];
-					$avali = $line['avaliador'];
-					$avali = $line['pp_nome'];
+					$avali = trim($line['avaliador']);
+					$avali = trim($line['pp_nome']);
 					$statu = $line['pp_status'];
 					$email1 = trim($line['pp_email']);
 					$email2 = trim($line['pp_email_1']);
+					
+					$email_titulo_span = trim($email_titulo).' Indicação  '.$avali.' '.substr(md5($line['protocolo']),3,10);
+					
 					$ln = $line;
 					$sx .= '<TR>';
 					$sx .= '<TD>'.$proto;
@@ -309,16 +311,16 @@ class ic_relatorio_final
 						{
 							$sx .= '<BR>enviando email para renefgj@gmail.com';
 							//enviaremail('renefgj@gmail.com','','xxx','xxxx');
-							enviaremail('renefgj@gmail.com','',$email_titulo,$texto);
+							enviaremail('renefgj@gmail.com','',$email_titulo_span,$texto);
 							echo $sx;
 							exit;
 						}
 
 					if ($dd[10] == 1)
 						{
-							if (strlen($email1) > 0 ) { enviaremail($email1,'',$email_titulo.'-'.trim($line['pp_nome']),$texto); $sx .= '<BR>'.$email1 .' [send]'; }
-							if (strlen($email2) > 0 ) { enviaremail($email2,'',$email_titulo.'-'.trim($line['pp_nome']),$texto); $sx .= '<BR>'.$email2 .' [send]';}
-							enviaremail('pibicpr@pucpr.br','',$email_titulo,$texto);
+							if (strlen($email1) > 0 ) { enviaremail($email1,'',$email_titulo_span.'-'.trim($line['pp_nome']),$texto); $sx .= '<BR>'.$email1 .' [send]'; }
+							if (strlen($email2) > 0 ) { enviaremail($email2,'',$email_titulo_span.'-'.trim($line['pp_nome']),$texto); $sx .= '<BR>'.$email2 .' [send]';}
+							enviaremail('pibicpr@pucpr.br','',$email_titulo_span,$texto);
 							////enviaremail('monitoramento@sisdoc.com.br','',$email_titulo,$texto);
 						}
 					

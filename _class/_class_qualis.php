@@ -16,6 +16,71 @@ class qualis
 	var $tabela_estrato = "qualis_estrato";	
 	var $tabela_journal = "cited_journals";
 	var $tabela_area = "qualis_area";
+	
+		function remover_print_online($termo,$termo2)
+			{
+				$sql = "select * from ".$this->tabela_journal."
+					where cj_nome like '%$termo%' 
+					limit 20
+					";
+				$rlt = db_query($sql);
+				while ($line = db_read($rlt))
+					{
+						$nome = $line['cj_nome'];
+						echo $nome.'<BR>';
+						$nome = troca($nome,$termo,$termo2);
+						$sql = "update ".$this->tabela_journal." set cj_nome = '".$nome."' where id_cj = ".$line['id_cj'];
+						$rrr = db_query($sql);
+					}
+				return(1);
+			}
+	
+		function process_issn_eissn()
+			{
+				$this->remover_print_online('(Online)','');
+				$this->remover_print_online('(En Línea)','');
+				$this->remover_print_online('(Impresa)','');
+				$this->remover_print_online('. Online)',')');
+				
+				
+				
+				$sql = "select * from ".$this->tabela_journal."
+						order by cj_nome, cj_scimago desc 
+						limit 12600
+						";
+				$rlt = db_query($sql);
+				$sx = '<TT>';
+				$xnome = '';
+				while ($line = db_read($rlt))
+					{
+						$nome = trim($line['cj_nome']);
+						if (strpos($nome,'(') > 0)
+							{ $nome = substr($nome,0,strpos($nome,'(')); }
+						if ($nome == $xnome) 
+							{
+								$ms=1;
+								echo $sb;
+								$cor = '<font color="red">';
+							} else {
+								$ms=0;
+								$cor = '<font color="black">';
+							}
+						$sa = $cor.$line['cj_issn'];
+						$sa .= ' '.$line['cj_issn_2'];
+						$sa .= ' '.$line['cj_nome'];
+						$sa .= '('.$line['cj_scimago'].')';
+						$sa .= '</font>';
+						if ($ms==1)
+							{
+								echo '<BR>'.$sa;
+								echo '<HR>';
+							}
+						$xnome = $nome;
+						$sb = $sa;
+					}
+				$sx .= '</TT>';
+				return($sx);
+			}
 		function cp_cited()
 			{
 				$cp = array();
@@ -402,8 +467,8 @@ class qualis
 			}
 		function row_journal() {
 			global $cdf, $cdm, $masc;
-			$cdf = array('id_cj', 'cj_nome', 'cj_issn', 'cj_pais','cj_codigo');
-			$cdm = array('cod', msg('journal_name'), msg('journal_issn'), msg('journal_country'),msg('codigo'));
+			$cdf = array('id_cj', 'cj_nome', 'cj_issn', 'cj_issn_2', 'cj_pais','cj_codigo','cj_scimago');
+			$cdm = array('cod', msg('journal_name'), msg('journal_issn'), msg('journal_issn'), msg('journal_country'),msg('codigo'),msg('scimago'));
 			$masc = array('', '', '','','','','','','','SN');
 			return (1);
 		}		
@@ -439,10 +504,13 @@ class qualis
 		function cp_journal()
 			{
 				global $dd;
+				//$sql = "alter table ".$this->tabela_journal." add column cj_issn_2 char(9)";
+				//$rlt = db_query($sql);
 				$dd[4] = uppercasesql($dd[2]);
 				$cp = array();
 				array_push($cp,array('$H8','id_cj','',False,True));
 				array_push($cp,array('$S9','cj_issn','ISSN',False,True));
+				array_push($cp,array('$S9','cj_issn_2','ISSN (online)',False,True));
 				array_push($cp,array('$S100','cj_nome','Nome',True,True));
 				array_push($cp,array('$S20','cj_abrev','Abrev',False,True));
 				array_push($cp,array('$HV','cj_nome_asc','',False,True));
@@ -450,6 +518,7 @@ class qualis
 				array_push($cp,array('$S3','cj_pais','',Pais,True));
 				array_push($cp,array('$S2','cj_estado','',Estado,True));
 				array_push($cp,array('$S100','cj_site','',Site,True));
+				array_push($cp,array('$O : &Q1:Q1&Q2:Q2&Q3:Q3&Q4:Q4','cj_scimago','SCImago',False,True));
 				array_push($cp,array('$O 1:SIM&0:NÃO','cj_ativo','Ativo',True,True));
 				array_push($cp,array('$U8','cj_update','',False,True));
 				return($cp);

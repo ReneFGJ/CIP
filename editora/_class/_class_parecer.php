@@ -25,6 +25,24 @@ class parecer
 
 	var $tabela = "submit_parecer_2013";
 	
+
+	function tabela_vigente()
+		{
+			return('submit_parecer_2013');
+			$tabela = "submit_parecer_".date("Y");
+			$sql = "select relname from pg_class 
+						where relname = '".$tabela."' and relkind='r'; 
+					";
+			$rlt = db_query($sql);
+			if (!($line = db_read($rlt)))
+				{
+					echo 'TABELA NÃO EXISTE';
+					exit;
+				}
+			$this->tabela = $tabela;
+			return($tabela);
+		}
+
 	function resumo_parecer()
 		{
 			global $jid;
@@ -352,7 +370,6 @@ class parecer
 				$sx .= $line['pp_hora'].':00';
 				$sx .= '<TD class="tabela01" align="center">';
 				$sx .= $link;
-				$sx .= '===';
 			}
 
 			$sql = "select * from ".$this->tabela." 
@@ -613,14 +630,16 @@ class parecer
 	function parecer_abertos($dd1=20100101,$dd2=20500101)
 		{
 			global $jid;
-			$sql = "select * from ".$this->tabela;
+			//$this->tabela = $this->tabela_vigente();
+			
+			$sql = "select * from submit_parecer_2013 ";
 			$sql .= " inner join pareceristas on pp_avaliador = us_codigo ";
 			$sql .= " inner join submit_documento on pp_protocolo = doc_protocolo ";
 			$sql .= " where us_journal_id = ".round($jid);
-			$sql .= " and pp_status = 'I' ";
+			$sql .= " and (pp_status = 'I' or pp_status = '@') ";
 			$sql .= " and (pp_data >= $dd1 and pp_data <= $dd2) ";
 			$sql .= " order by us_nome, pp_data desc ";
-						
+			
 			$rlt = db_query($sql);
 			$sx .= '<table width="100%" border=0 class="lt1">';
 			$sx .= '<TR><TD colspan=10><H9>Indicações não avaliadas</h9>';

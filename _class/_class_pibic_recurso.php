@@ -3,6 +3,81 @@ class recurso {
 	var $tabela = "pibic_recurso";
 	var $line;
 	
+	function mostra_recurso_professor()
+		{
+			$line = $this->line;
+			$sx .= '<h3>'.$line['rec_titulo'].'</h3>';
+			$sx .= '<fieldset><legend>Justificativa do recurso</legend>';
+			$sx .= mst($line['rec_justificativa']);
+			$sx .= '</fieldset>';
+
+			$sx .= '<BR><BR>';
+			$sx .= '<fieldset><legend>Deliberação</legend>';
+			$sx .= mst($line['rec_solucao']);
+			$sx .= '</fieldset>';	
+
+			$sx .= '<BR><BR>';
+			$sx .= '<fieldset><legend>Situação</legend>';
+			$sx .= '<font class="lt3">'.$this->status($line['rec_status']).'</font>';
+			$sx .= '</fieldset>';	
+
+			$sx .= '<BR><BR>';
+			$sx .= '<fieldset><legend>Encaminhamento da Coordenação IC</legend>';
+			$def = $this->status($line['rec_deferimento']);
+			if (strlen($def) > 0)
+				{
+					$sx .= mst($def);
+				} else {
+					$sx .= 'em processo';
+				}
+			$sx .= '</fieldset>';	
+
+			return($sx);
+		}
+	
+	function status($id)
+		{
+			switch($id)
+				{
+				case '@': $txt = '<font color="blue">Em análise</font>'; break;
+				case 'X': $txt = '<font color="grey">Cancelado</font>'; break;
+				case 'D': $txt = '<font color="blue">Deferido</font>'; break;
+				case 'I': $txt = '<font color="orange">Indeferido</font>'; break;
+				default:
+					$txt = $id; break;
+				}
+			return($txt);
+		}
+	
+	function resumo_recurso_professor($professor)
+		{
+			$sql = "select * from ".$this->tabela."  
+						left join pibic_submit_documento on rec_protocolo = doc_protocolo 
+						where doc_autor_principal = '".$professor."' order by rec_data desc";
+			$rlt = db_query($sql);
+			$sx = '<table>';
+			$sx .= '<TR><TD colspan=3 class="lt3">Recussos';
+			$sx .= '<TR><TH>Protocolo<TH>Plano<TH>Situação';
+			$id = 0;
+			while ($line = db_read($rlt))
+				{
+					$link = '<A HREF="recurso_ver.php?dd0='.$line['id_rec'].'&dd90='.checkpost($line['id_rec']).'">';
+					$link2 = '<A HREF="#">';
+					$id++;
+					$sx .= '<TR><TD>';
+					$sx .= $link.strzero($line['id_rec'],4).'/'.substr($line['rec_data'],2,2).'</A>';
+					$sx .= '<TD>';
+					$sx .= $link2;
+					$sx .= $line['rec_protocolo'];
+					$sx .= '</A>';
+					$sx .= '<TD>';
+					$sx .= $this->status($line['rec_status']);
+				}
+			$sx .= '</table>';
+			if ($id == 0) { $sx = ''; }
+			return($sx);
+		}
+	
 	function lista_recursos($status='',$edital='')
 		{
 			$sql = "select * from ".$this->tabela." where rec_status = '".$status."' ";
@@ -97,8 +172,8 @@ class recurso {
 	function row() {
 		global $cdf, $cdm, $masc;
 		
-		$cdf = array('id_rec', 'id_rec','rec_protocolo','rec_titulo', 'rec_data', 'rec_tipo','rec_status','rec_avaliador');
-		$cdm = array('cod','ID', msg('protocolo'), msg('titulo'), msg('data'), msg('tipo'),'status','avaliador');
+		$cdf = array('id_rec', 'id_rec','rec_protocolo','rec_titulo', 'rec_data', 'rec_tipo','rec_status','rec_avaliador','rec_professor');
+		$cdm = array('cod','ID', msg('protocolo'), msg('titulo'), msg('data'), msg('tipo'),'status','avaliador','professor');
 		$masc = array('', '', '', '', '', '', '');
 		return (1);
 	}

@@ -2,40 +2,122 @@
 class pos_linha
 	{
 		var $tabela = 'programa_pos_linhas';
+		var $line;
+		var $id;
+		var $programa;
+		var $codigo;
+		
+		function mostra()
+			{
+				$sx .= '<div class="topic_header">';
+				$sx .= msg('Linha de Pesquisa').': <B>'.$this->line['posln_descricao'].'</B>';
+				$sx .= '</div>';				
+				
+				return($sx);
+			}
+		function mostra_docentes()
+			{
+				$sql = "select * from programa_pos_docentes 
+						inner join pibic_professor on pdce_docente = pp_cracha and pdce_ativo = 1
+						where pdce_programa_linha = '".$this->codigo."' 
+						order by pp_nome
+						";
+				$rlt = db_query($sql);
+				
+				$sx .= '<table width="100%" class="tabela00">';
+				$sx .= '<TR><TH>Docente
+							<TH>Ano Entrada
+							<TH align="right">Tipo';
+				$id = 0;
+				while ($line = db_read($rlt))
+					{
+						$link = '<A HREF="docente.php?dd0='.$line['pp_cracha'].'">';
+						$id++;
+						$sx .= '<TR>';
+						$sx .= '<TD>';
+						$sx .= $link;
+						$sx .= $line['pp_nome'];
+						$sx .= '</A>';
+						$sx .= '<TD align="center">';
+						$sno = round($line['pdce_ano_entrada']);
+						if ($ano == 0) { $ano = '-'; }
+						$sx .= $ano;
+						$sx .= '<TD align="right">';
+						$sx .= $this->mostra_tipo($line['pdce_tipo']);
+					}
+				$sx .= '<tr><TD colspan=5><i>Total de '.$id.' docentes vinculados ao programa</I>';
+				$sx .= '</table>';
+				return($sx);
+				
+			}
+		function mostra_tipo($tipo)
+			{
+				$tipo = trim($tipo);
+				switch ($tipo)
+					{
+					case 'P': $tipo = 'Permanente'; break;
+					case 'V': $tipo = 'Visitante'; break;
+					case 'C': $tipo = 'Colaborador'; break;
+					}
+				return($tipo);
+			}
+		function le($id)
+			{
+				$sql = "select * from ".$this->tabela." where id_posln = ".round('0'.$id);
+				$rlt = db_query($sql);
+				if ($line = db_read($rlt))
+					{
+						$this->id = $line['id_posln'];
+						$this->nome = trim($line['posln_descricao']);
+						$this->programa = $line['posln_programa'];
+						$this->codigo = $line['posln_codigo'];
+						$this->line = $line;
+					}
+				return(1);
+			}
+			
 		
 		function mostra_resumo_pos($pos)
 			{
 				$sqlq = "
-						select sum(docentes) as docentes, sum(visitante) as visitante, pdce_programa_linha 
+						select sum(docentes) as docentes, sum(visitante) as visitante, sum(colaborador) as colaborador, pdce_programa_linha 
 						from (
-							select count(*) as docentes , 0 as visitante, pdce_programa_linha
+							select count(*) as docentes , 0 as visitante, 0 as colaborador, pdce_programa_linha
 							from programa_pos_docentes 
-							where pdce_programa = '$pos' and pdce_tipo = 'P' 
+							where pdce_programa = '$pos' and pdce_tipo = 'P' and pdce_ativo = 1
 							group by pdce_programa_linha
 						union
-							select 0 as docentes, count(*) as visitante, pdce_programa_linha
+							select 0 as docentes, count(*) as visitante, 0 as colaborador, pdce_programa_linha
 							from programa_pos_docentes 
-							where pdce_programa = '$pos' and pdce_tipo = 'V'
+							where pdce_programa = '$pos' and pdce_tipo = 'V' and pdce_ativo = 1
+							group by pdce_programa_linha 
+						union
+							select 0 as docentes, 0 as visitante, count(*) as colaborador, pdce_programa_linha
+							from programa_pos_docentes 
+							where pdce_programa = '$pos' and pdce_tipo = 'C' and pdce_ativo = 1
 							group by pdce_programa_linha 
 						) as tabela group by pdce_programa_linha
 						";				
 				
 				$sql = "select * from programa_pos_linhas
 						left join (".$sqlq.") as tabela001 on pdce_programa_linha = posln_codigo 
-						where posln_programa = '$pos'
+						where posln_programa = '$pos' and posln_ativo = 1
 				";
 				$rlt = db_query($sql);
 				$sx .= '<table class="tabela00" width="100%">';
-				$sx .= '<TR><TH>Linha de pesquisa<TH>Docentes<TH>Visitantes';
+				$sx .= '<TR><TH>Linha de pesquisa<TH>Docentes<TH>Visitantes<TH>Colaboradores';
 				while ($line = db_read($rlt))
 					{
+						$link = '<A HREF="pos_graduacao_linha_detalhe.php?dd0='.$line['id_posln'].'">';
 						$sx .= '<TR>';
 						$sx .= '<td class="tabela01">';
-						$sx .= $line['posln_descricao'];
-						$sx .= '<td class="tabela01" align="center" clsas="lt4">';
+						$sx .= $link.$line['posln_descricao'].'</A>';
+						$sx .= '<td class="tabela01" align="center" clsas="lt4" width="100">';
 						$sx .= $line['docentes'];						
-						$sx .= '<td class="tabela01" align="center" clsas="lt4">';
+						$sx .= '<td class="tabela01" align="center" clsas="lt4" width="100">';
 						$sx .= $line['visitante'];
+						$sx .= '<td class="tabela01" align="center" clsas="lt4" width="100">';
+						$sx .= $line['colaborador'];
 					}
 				$sx .= '</table>';
 

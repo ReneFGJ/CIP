@@ -1,21 +1,26 @@
-<?php
+<?
 require("cab.php");
-require("_class/_class_pareceristas.php");
-require($include.'sisdoc_colunas.php');
-require($include.'sisdoc_data.php');
-require($include.'sisdoc_windows.php');
+$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+$path = "cadastro.php";
+require($include."sisdoc_menus.php");
 
-require("_class/_class_parecer.php");
-
-$par = new parecerista;
-
+/////////////////////////////////////////////////// MANAGERS 
 echo $hd->menu();
 echo '<div id="conteudo">';
-echo $hd->main_content('Avaliadores da Revista');
-/* Areas */
-$edit = 1;
-echo $par->lista_avaliadores();
+	echo $hd->main_content('Pareceristas');
+
+$menu = array();
+//if ($user_nivel >= 9)
+	{
+	array_push($menu,array('Pareceristas','Lista de Avaliadores','parecerista_todos.php'));
+	array_push($menu,array('Pareceristas','Lista de Avaliadores (Áreas indicadas)','parecerista_lista.php'));
+	
+	array_push($menu,array('Avaliações','Avaliações em aberto','pareceres_gestao_av1.php'));
+	array_push($menu,array('Avaliações','Avaliações por período','parecerista_periodo.php'));
+	
+	}
+	
+echo menus($menu,'3');
 echo '</div>';
 
-require("foot.php");
-?>
+require("foot.php");	?>

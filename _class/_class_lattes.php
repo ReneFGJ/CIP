@@ -1182,6 +1182,7 @@ class lattes
 				$sql = "select * from lattes_artigos
 							inner join programa_pos_docentes on pdce_docente = la_professor and pdce_ativo = 1 
 							left join lattes_journals on j_codigo = la_periodico 
+							left join cited_journals on j_issn = cj_issn and cj_issn <> ''
 							left join programa_pos on pdce_programa = pos_codigo
 							left join qualis_estrato on (j_issn = eq_issn) and (pos_avaliacao_1 = eq_area)
 							where la_professor = '$professor' order by la_ano desc, id_la desc
@@ -1228,6 +1229,7 @@ class lattes
 							$sx .= ', '.trim($line['la_ano']);
 							$sx .= '.';
 							$jcr = trim($line['la_jcr']);
+							$sx .= ' ('.$line['j_issn'].')';
 							if (strlen($jcr) > 0)
 								{
 									$sx .= '(<font color="red">JCR '.$line['la_jcr'].'</font>)';
@@ -1308,7 +1310,14 @@ class lattes
 						$sx .= '</UL>';
 						$sx .= '<TD width="15" class="tabela01">';
 						$sx .= ''.$line['eq_estrato'].'';
-//						$sx .= '<BR>'.$line['eq_area'];
+						$sx .= '<TD width="15" class="tabela01">';
+
+						$sci = trim($line['cj_scimago']);
+						if (strlen($sci) > 0)
+							{
+								$sx .= '<IMG SRC="../img/scimago_'.lowercase($line['cj_scimago']).'.gif">';
+							}
+						//	$sx .= '<BR>'.$line['eq_area'];
 						$sx .= '</table>';
 						$xid = $id;
 					}

@@ -1,4 +1,14 @@
 /* Folha de estudo para cabeclaho */
+.topic_header
+	{
+	padding: 8px 2px 8px 20px;
+	font-family: 'RobotoLightItalic', arial, sans-serif;
+	font-size: 14px;
+	background-color: #E8E8E8;
+	color: #001000;	
+	border-bottom: 1px solid  #001000;
+	}
+
 img { border: none; }
 
 /* Tela Login */

@@ -5,6 +5,9 @@ array_push($breadcrumbs,array('main.php','principal'));
 array_push($breadcrumbs,array($site.'main.php','menu'));
 require("cab_pibic.php");
 
+require("../_class/_class_pibic_recurso.php");
+$rc = new recurso;
+
 require($include.'sisdoc_data.php');
 
 $professor = $ss->user_cracha;
@@ -37,7 +40,13 @@ $pb = new pibic_bolsa_contempladas;
 $pb->set($professor);
 //if ($professor == '88958022')
 	{
+		echo '<table width="100%">';
+		echo '<TR valign="top">';
+		echo '<TD>';
 		echo $pb->resumo();
+		echo '<TD>';
+		//echo $rc->resumo_recurso_professor($professor);
+		echo '</table>';
 	}
 
 require("../_class/_class_atividades.php");

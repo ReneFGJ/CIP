@@ -3,19 +3,15 @@ $include = '../';
 session_start();
 require("../db.php");
 require($include.'sisdoc_debug.php');
+require("_class/_class_parecer.php");
+$pr = new parecer; 
+
 $chk = $dd[90];
 $ch1 = checkpost($dd[0]);
-if (strlen($dd[1])==0)
-	{ $dd[1] = 'submit_parecer_'.date("Y"); }
 
-if ($chk != $ch1)
-	{
-	//echo 'Erro de chave';
-	//exit;
-	}
 if ((strlen($dd[20]) == 0) or (strlen($dd[50])==0))
 	{
-		$sql = "select * from ".$dd[1]." where id_pp = ".$dd[0];
+		$sql = "select * from submit_parecer_2013 where id_pp = ".$dd[0];
 		$rlt = db_query($sql);
 		if ($line = db_read($rlt))
 			{
@@ -36,10 +32,14 @@ if ((strlen($dd[20]) == 0) or (strlen($dd[50])==0))
 		</form>
 		<?
 	} else {
-		$sql = "update ".$dd[1]." set pp_status='D',
+		$sql = "update submit_parecer_2013 set pp_status='D',
 				pp_abe_14 = '".$dd[50]."'
 				where id_pp = ".$dd[0];
 		$rlt = db_query($sql);
-		require("../close.php");
+		?>
+		<script>
+			close();
+		</script>
+		<?
 	}
 ?>

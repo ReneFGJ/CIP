@@ -1124,6 +1124,53 @@ $sg = '
 					
 			}
 		
+		function resume_icone()
+			{
+				$sql = "select * from ".$this->tabela." 
+					left join centro on pos_centro = centro_codigo
+					left join qualis_area on pos_avaliacao_1 = qa_codigo
+					left join pibic_professor on pp_cracha = pos_coordenador
+					where pos_ativo = 1 and pos_corrente = '1'
+					order by pos_conceito desc, pos_nome
+				";
+				$rlt = db_query($sql);
+				$xnota = 0;
+				while ($line = db_read($rlt))
+					{
+						$nota = $line['pos_conceito'];
+						if ($nota != $xnota)
+							{
+								$sx .= '<div class="ppos_divisao">Conceito '.$nota.'</div>';
+								$xnota = $nota;
+							}
+						$link = '<A href="pos_graduacao_1_sel.php?dd0='.$line['id_pos'].'&dd90='.checkpost($line['id_pos']).'" class="link">';
+						$linkp = '<A href="docente.php?dd0='.$line['id_pp'].'&dd90='.checkpost($line['id_pp']).'" class="link">';
+						
+						$sx .= '<DIV class="programa_icone">';
+						$sx .= '<DIV class="ppos_conceito ppos_nota_'.$line['pos_conceito'].'"> '.$line['pos_conceito'].'<BR><font class="ppos_conceito_descricao">NOTA</font></DIV>';
+						$sx .= '<DIV class="ppos_nome">'.$link.$line['pos_nome'].'</A></DIV>';
+						//$sx .= '<DIV class="ppos_md">'.$line['pos_mestado'].'</DIV>';
+						
+						//if ($line['pos_doutorado'] != 0)
+						//	{
+						//	$sx .= '<DIV class="ppos_md">'.$line['pos_doutorado'].'</DIV>';
+						//	$sx .= '<DIV class="ppos_md"> '.$line['pos_conceito'].'</DIV>';
+						//	} else {
+						//		$sx .= '<DIV class="ppos_md"><center>- -'.'</DIV>';
+						//		$sx .= '<DIV class="ppos_md"><center>- -'.'</DIV>';
+						//	}
+						$sx .= '<DIV class="ppos_descricao">'.$line['qa_descricao'].'</DIV>';
+						$sx .= '<DIV class="ppos_capes">'.$line['pos_capes_cod'].'</DIV>';
+						$sx .= '<DIV class="ppos_centro">'.$line['centro_nome'].'</DIV>';
+						$sx .= '<DIV class="ppos_coordenador">'.$linkp.$line['pp_nome'].'</A>'.'</DIV>';
+						$sx .= '</div>';
+						$ln = $line;
+					}
+				
+				return($sx);
+					
+			}
+		
 		function cp_docente()
 			{			
 				$sql = "select * from programa_pos_linhas

@@ -129,7 +129,7 @@ class header
 		
 	function head()
 		{
-		global $LANG;
+		global $LANG,$css,$js;
 		$cr = chr(13).chr(10);
 		$pth = $this->path;
 		header ('Content-type: text/html; charset=ISO-8859-1');
@@ -149,6 +149,13 @@ class header
         $sx .= '<link rel="stylesheet" href="'.http.'css/style_font-awesome.css">'.$cr;
 		$sx .= '<link rel="stylesheet" href="'.http.'css/style_form.css">'.$cr;
 		
+		if (is_array($css))
+			{
+				for ($r=0;$r < count($css);$r++)
+					{
+						$sx .= '<link rel="stylesheet" href="'.http.$css[$r].'">'.$cr;
+					}
+			}
         //$sx .= '<link rel="stylesheet" href="'.http.'css/estilo.css">'.$cr;
         //$sx .= '<link rel="stylesheet" href="'.http.'css/estilo_fontes.css">'.$cr;
         
