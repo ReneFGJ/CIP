@@ -1722,7 +1722,8 @@ class lattes
 				$autores = round($cp[18]);
 				$titulo = trim($cp[4]);
 				$idioma = $this->idioma($cp[2]);
-				$autor_ordem = $cp[5];
+				$autor_ordem = round($cp[5]);
+				if ($autor_ordem > 99) { $autor_ordem = 99; }
 				$doi = substr($cp[14],0,50);
 				$jcr = $cp[15];
 				$qualis = $cp[16];

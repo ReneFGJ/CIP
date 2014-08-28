@@ -35,6 +35,8 @@ $rlt = db_query($sql);
 $tot = 0;
 $sx .= '<table class="tabela00">';
 while ($line = db_read($rlt)) {
+	$sql = "update pibic_submit_documento set pb_vies = '1' where doc_protocolo = '".$line['pp_protocolo']."' ";
+	$rrr = db_query($sql);
 	$tot++;
 	$sx .= '<TR>';
 	$sx .= '<TD>';

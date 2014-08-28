@@ -32,6 +32,7 @@ require($file);
 $menu = array();
 array_push($menu,array('Início','index.php'));
 array_push($menu,array('Banco de Variáveis','var.php'));
+array_push($menu,array('IC','ic.php'));
 //array_push($menu,array('Indicadores','indicadores.php'));
 //array_push($menu,array('pareceristas','parecerista.php'));
 //array_push($menu,array('discentes','discentes.php'));

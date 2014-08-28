@@ -26,6 +26,71 @@ class parecer_pibic
 
 	var $tabela = "pibic_parecer_2013";
 	
+	function resumo_avaliadores($tipo = 'SUBMP')
+		{
+			$sql = "select total, count(*) as total2 from (
+						select count(*) as total, pp_protocolo
+						from ".$this->tabela."
+						where pp_status <> '@' and pp_status <> '@' and pp_status <> 'X' and pp_tipo = 'SUBMI' 
+						group by pp_protocolo) as tabela
+					group by total
+						 ";				 
+			$rlt = db_query($sql);
+			$i = 0;
+			while ($line = db_read($rlt))
+				{
+					$i = $i + $line['total2'];
+					print_r($line);
+					echo '<HR>';
+				}			
+				echo '===>'.$i;
+			$sql = "select pp_avaliador, us_bolsista, us_nome, count(*) as avaliacoes
+							from ".$this->tabela."
+						left join pareceristas on pp_avaliador = us_codigo 
+							where pp_tipo = 'SUBMI' 
+							and pp_status = 'B'
+					group by pp_avaliador, us_bolsista, us_nome
+					order by us_nome ";
+			$rlt = db_query($sql);
+			echo $sql;
+			
+			$av = array(0,0);
+			$at = array(0,0);
+			$pq = array(0,0);
+			$pos = 0;
+			while ($line = db_read($rlt))
+				{
+					$prod = trim($line['us_bolsista']);
+					$tot = $line['avaliacoes'];
+					$id = strlen(trim($line['pp_avaliador']));
+					if ($id == 7)
+						{
+							$av[0] = $av[0] + 1;
+							$at[0] = $at[0] + $tot;
+							if ($prod == 'NÃO')
+								{
+									//$pq[1] = $pq[1] + 1;
+								} else {
+									$pos++;
+									$pq[0] = $pq[0] + 1;
+									$sa .= '<BR>'.strzero($pos,2).' '.$line['us_nome'];
+								}
+							
+						} else {
+							$av[1] = $av[1] + 1;
+							$at[1] = $at[1] + $tot;						
+						}
+				}
+			$sx = '<TABLE class="tabela00" width="400">';
+			$sx .= '<TR><TD>-<TD>Externo<TD>Interno';
+			$sx .= '<TR><TH>Avaliadores<TD>'.$av[0].'<TD>'.$av[1];
+			$sx .= '<TR><TH>Produtividade<TD>'.$pq[0].'<TD>'.$pq[1];
+			$sx .= '<TR><TH>Projetos avaliados<TD>'.$at[0].'<TD>'.$at[1];
+			$sx .= '</table>';
+			$sx .= '<BR><TT>'.$sa;
+			return($sx);
+		}
+	
 	function avaliacoes_indicadas($professor,$ano)
 		{
 			$this->tabela = "pibic_parecer_".$ano;
@@ -1432,7 +1497,7 @@ class parecer_pibic
 				$sx .= '<TD align="center" width="6%">'.$this->mostra_notas($line['pp_p02']);
 				$sx .= '<TD align="center" width="6%">'.$this->mostra_notas($line['pp_p03']);
 				$sx .= '<TD align="center" width="6%">'.$line['pp_p04'];
-				$sx .= '<TD align="center" width="6%">'.$this->mostra_notas($line['pp_p05']);
+				$sx .= '<TD align="center" width="6%">['.trim($line['pp_p05']).']';
 				$sx .= '<TD align="center" width="6%">'.$this->mostra_notas($line['pp_p06']);
 				$sx .= '<TD align="center" width="6%">'.$this->mostra_notas($line['pp_p07']);
 				$sx .= '<TD align="center" width="6%">'.$this->mostra_notas($line['pp_p08']);

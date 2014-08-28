@@ -30,6 +30,7 @@ class qualis
 						echo $nome.'<BR>';
 						$nome = troca($nome,$termo,$termo2);
 						$sql = "update ".$this->tabela_journal." set cj_nome = '".$nome."' where id_cj = ".$line['id_cj'];
+						echo $sql.'<BR>';
 						$rrr = db_query($sql);
 					}
 				return(1);
@@ -40,10 +41,34 @@ class qualis
 				$this->remover_print_online('(Online)','');
 				$this->remover_print_online('(En Línea)','');
 				$this->remover_print_online('(Impresa)','');
+				$this->remover_print_online('(Print)','');
+				$this->remover_print_online('(Internet)','');
 				$this->remover_print_online('. Online)',')');
+				$this->remover_print_online(': Print)',')');
+				$this->remover_print_online('. Impresso)',')');
+				$this->remover_print_online('(Supplement)','');
+				$this->remover_print_online('(Print)','');
+				$this->remover_print_online('. En línea)',')');
+				$this->remover_print_online('. Impressa)',')');
+				$this->remover_print_online('(Impresso. Ed. Português)','');
+				$this->remover_print_online('(Impresso)','');
+				$this->remover_print_online('. Internet)',')');
+				$this->remover_print_online('. Print)',')');
+				$this->remover_print_online(' Online)',')');
+				$this->remover_print_online(' :)',')');
+				$this->remover_print_online('(Edição em português)','');
+				$this->remover_print_online('(English Edition)','');
+				$this->remover_print_online('(Online. Edição em Inglês)','');
+				$this->remover_print_online('(online version)','');
+				$this->remover_print_online('(English ed.)','');
+				$this->remover_print_online('(En línea)','');
+				$this->remover_print_online('(online)','');
+				$this->remover_print_online('(British edition)','');
 				
 				
 				
+				
+								
 				$sql = "select * from ".$this->tabela_journal."
 						order by cj_nome, cj_scimago desc 
 						limit 12600
@@ -51,11 +76,28 @@ class qualis
 				$rlt = db_query($sql);
 				$sx = '<TT>';
 				$xnome = '';
+				$xnome2 = '';
+				$xissn = '';
+				$xq2 = '';
 				while ($line = db_read($rlt))
 					{
 						$nome = trim($line['cj_nome']);
+						$nome2 = trim($line['cj_nome']);
+						$issn = trim($line['cj_issn']);
+						$xq = trim($line['cj_scimago']);
+						
 						if (strpos($nome,'(') > 0)
 							{ $nome = substr($nome,0,strpos($nome,'(')); }
+							
+						if ($nome2 == $xnome2)
+							{
+								echo '<BR>'.$nome2;
+								echo ' ('.$xq.')';
+								echo $issn;
+								echo '<BR>'.$xnome;
+								echo ' ('.$xq2.')';
+								echo $xissn;
+							}
 						if ($nome == $xnome) 
 							{
 								$ms=1;
@@ -76,6 +118,9 @@ class qualis
 								echo '<HR>';
 							}
 						$xnome = $nome;
+						$xnome2 = $nome2;
+						$xissn = $issn;
+						$xq2 = $xq;
 						$sb = $sa;
 					}
 				$sx .= '</TT>';

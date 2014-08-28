@@ -3,8 +3,13 @@ class scimago {
 
 	var $journal;
 	var $journal_codigo;
-	
+	var $scimago;	
 	var $tabela = 'cited_journals';
+	
+	function busca_scimago_issn($issn)
+		{
+			$sx = "http://www.scimagojr.com/journalsearch.php?q=$issn&tip=iss";
+		}
 
 	function buscar_arquivos_pastas($dir) {
 		$d = dir($dir);
@@ -35,7 +40,9 @@ class scimago {
 			$rlt = db_query($sql);
 			if ($line = db_read($rlt)) {
 				$cod = trim($line['cj_codigo']);
+				$this -> journal = trim($line['cj_nome']);
 				$this -> journal_codigo = $cod;
+				$this -> scimago = trim($line['cj_scimago']);
 				$this -> journal_codigo_issn = $line['cj_issn'];
 				return (1);
 			} else {
@@ -49,11 +56,15 @@ class scimago {
 		
 		$this->updatex();
 		$s = $this -> read_file($filename);
+		echo '<HR>'.$filename.'<HR>';
 		if ($s != -1) {
 			$s = $this -> process_i($s);
 			$s = $this -> process_ii($s);
+			echo '<HR>PROCESSO III<HR>';
 			$sa = $this -> process_iii($s);
+			echo '<HR>PROCESSO IV<HR>';
 			$this -> process_iv($sa);
+			echo '<HR>PROCESSO V<HR>';
 			$this -> process_v($sa);
 		} else {
 			Echo 'Erro na abertura de arquivo';
@@ -65,16 +76,55 @@ class scimago {
 	function process_iv($sa) {
 		for ($r = 0; $r < count($sa); $r++) {
 			$sx = $sa[$r] . ';';
+			$ss = troca($ss,';;','; ;');
 			$ss = splitx(';', $sx);
-			$issn = substr($ss[2], 0, 4) . '-' . substr($ss[2], 4, 4);
 			$journal = $ss[1];
-			$q = $ss[3];
+			$q = $ss[4];
+			if (substr($q,0,1) != 'Q')
+				{
+					print_r($ss);
+					echo '=========>'.$q;
+				}
 			
-			$country = $ss[13];
-			echo '<BR>' . $issn . '-' . $journal . ' ';
-			if ($this -> search_journal($issn) > 0) {		
-				$sql = "update cited_journals set cj_scimago = '$q' where cj_codigo = '" . $this -> journal_codigo . "' ";
-				$rrr = db_query($sql);
+			$issn = trim(substr($ss[3], 0, 4) . '-' . substr($ss[3], 4, 4));
+			if (strlen($issn) <> 9)
+				{
+					$issn = trim(substr($ss[4], 0, 4) . '-' . substr($ss[4], 4, 4));
+					$journal = $ss[1];
+					$q = $ss[5];
+							
+				}
+			$journal = $ss[1];
+			$q = $ss[4];
+			
+			$country = $ss[14];
+			echo '<BR>[[' . $issn . ']] - <font color="blue">' . $journal . '('.strlen($issn).')</font> ';
+			
+			
+			//$sql = "update cited_journals set cj_scimago = '' where cj_scimago <> ''";
+			//$rlt = db_query($sql);
+			//exit;
+			
+			if ($this -> search_journal($issn) > 0) {
+				if (substr($q,0,1)=='Q')
+				{
+					$q1 = round(substr($q,1,1));
+					$q2 = round(substr($this->scimago,1,1));
+					if ($q2 == 0) { $q2 = 9; }
+					echo $q1.'-'.$q2.'-'.$q;
+					if (($q1 < $q2) and ($q1 > 0))
+						{
+							echo $q1.'-'.$q2.'-'.$q;		
+							$sql = "update cited_journals set cj_scimago = '$q' 
+										where cj_nome = '" . $this -> journal . "' 
+												or cj_issn = '".$issn."'
+												or cj_issn_2 = '".$issn."'
+												";
+							echo '<BR><font color="blue">'.$sql.'</font>';
+							
+							$rrr = db_query($sql);
+						}
+				}
 			} else {
 				echo '<BR><font color="red">Publicação não localizada ' . $issn . ' - ' . $this -> journal . '</font>';
 				$qualis = new qualis;
@@ -88,32 +138,7 @@ class scimago {
 
 	function process_v($sa) {
 		/* Identificacao */
-
-		for ($r = 0; $r < count($sa); $r++) {
-			$sx = $sa[$r] . ';';
-			$ss = splitx(';', $sx);
-			$issn = substr($ss[2], 0, 4) . '-' . substr($ss[2], 4, 4);
-			$journal = $ss[1];
-			$q = $ss[3];
-			$f1 = $ss[4];
-			$f2 = $ss[5];
-			$f3 = $ss[6];
-			$f4 = $ss[7];
-			$f5 = $ss[8];
-			$f6 = $ss[9];
-			$f7 = $ss[10];
-			$f8 = $ss[11];
-			$f9 = $ss[12];
-			$country = $ss[13];
-			echo '<BR>===>' . $issn . '-' . $journal . ' ';
-			if ($this -> search_journal($issn) > 0) {
-
-			} else {
-				echo '<BR><font color="red">Publicação não localizada ' . $issn . ' - ' . $this -> journal . '</font>';
-			}
-
 		}
-	}
 
 	/* Processa corta */
 	function process_i($s) {

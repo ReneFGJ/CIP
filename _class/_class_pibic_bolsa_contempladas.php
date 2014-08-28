@@ -389,7 +389,7 @@ class pibic_bolsa_contempladas
 						inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
 						inner join pibic_professor on pb_professor = pp_cracha
 						left join apoio_titulacao on ap_tit_codigo = pp_titulacao
-						where pb_status <> 'C' and pb_ano = '".$ano."'
+						where pb_status <> 'C' and pb_ano = '".$ano."' and pbt_edital = '$edital'
 						) as tabela 
 						group by pp_ss, pp_titulacao, ap_tit_titulo
 					";	
@@ -443,7 +443,7 @@ class pibic_bolsa_contempladas
 						inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
 						inner join pibic_professor on pb_professor = pp_cracha
 						left join apoio_titulacao on ap_tit_codigo = pp_titulacao
-						where pb_status <> 'C' and pb_ano = '".$ano."'
+						where pb_status <> 'C' and pb_ano = '".$ano."' and pbt_edital = '$edital'
 						group by pp_ss, pp_titulacao, ap_tit_titulo, pp_cracha
 						) as tabela 
 						group by pp_ss, pp_titulacao, ap_tit_titulo

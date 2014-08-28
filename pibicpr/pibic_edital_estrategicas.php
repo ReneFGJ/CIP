@@ -9,19 +9,28 @@ $meta = 1100;
 require($include.'_class_form.php');
 $form = new form;
 
-echo '<H3>Edital por áreas estratégicas</h3>';
+echo '<H3>Edital por ï¿½reas estratï¿½gicas</h3>';
 
 $sql = "select * from pibic_submit_documento 
 		inner join pibic_projetos on pj_codigo = doc_protocolo_mae
 		inner join pibic_professor on pj_professor = pp_cracha
 		inner join ajax_areadoconhecimento on pj_area_estra = a_cnpq
-		where pj_area_estra <> '9.00.00.00-X'
-			and (doc_ano = '".date("Y")."') 
+		left join centro on pp_escola = centro_codigo
+		left join (
+			select count(*) as nota, pp_protocolo 
+			from pibic_parecer_2014 where pp_p05='1' 
+			group by pp_protocolo
+		) as tabela on pp_protocolo = doc_protocolo
+		left join pibic_bolsa_contempladas on doc_protocolo = pb_protocolo and pb_status = 'A'
+		left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+		where (doc_ano = '".date("Y")."') 
 			and (pj_status <> 'X')
 			and (doc_status <> 'X')
 			and pj_ano = '2014'
 		order by pj_area_estra, doc_nota desc, pp_nome, doc_protocolo_mae, doc_protocolo
 		";
+		
+	
 $rlt = db_query($sql);
 /*
  * 			and  pj_area_estra like '9.%'
@@ -62,6 +71,8 @@ while ($line = db_read($rlt))
 			}
 		//$sx .= '<TR valign="top">';
 		$sx .= '<TD class="tabela01">';
+		$sx .= $line['centro_nome'];		
+		$sx .= '<TD class="tabela01">';
 		$sx .= $protj;
 		$sx .= '<TD class="tabela01">';
 		$sx .= $titpj;
@@ -73,6 +84,16 @@ while ($line = db_read($rlt))
 		$sx .= $nota;
 		$sx .= '<TD class="tabela01">';
 		$sx .= $line['doc_ano'];
+		$sx .= '<TD class="tabela01">';
+		$sx .= $line['pb_protocolo'];
+		$sx .= '<TD class="tabela01">';
+		$sx .= $line['doc_edital'];
+		$sx .= '<TD class="tabela01">';
+		$sx .= $line['pbt_edital'];
+		$sx .= '<TD class="tabela01">';
+		$sx .= $line['pb_vies'];
+		$sx .= '<TD class="tabela01">[';
+		$sx .= $line['nota'].']';
 		$tot++;
 	}
 $sx .= '<TR><TD colspan=5>'.msg('total').' '.$tot;
