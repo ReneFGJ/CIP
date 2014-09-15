@@ -21,6 +21,22 @@ class submit
 		
 	var $tabela = "submit_documento";
 	
+	function mostra_dados_complementares()
+		{
+			$sx = '<B>RESUMO</B><BR>';
+			$sx .= '<DIV>'.$this->line['doc_resumo'].'</div>';
+			$sx .= '<BR><BR>';
+			$key = trim($line['doc_palavra_chave']);
+			$sx .= '<B>Palavras-chave:</B> '.$key;
+			
+			$sx .= '<BR>-'.$this->line['doc_field_1'];
+			$sx .= '<BR>-'.$this->line['doc_field_2'];
+			$sx .= '<BR>-'.$this->line['doc_field_3'];
+
+			return($sx);
+			
+		}
+	
 	function comunicar_avaliador()
 		{
 			global $email_adm, $admin_nome, $pp, $http, $secu;
@@ -229,6 +245,7 @@ class submit
 			$sta = trim($dd[2]);
 			switch ($sta)
 				{
+				case '@': $this->execute_AA(); break;
 				case 'B': $this->execute_B(); break;
 				case 'C': $this->execute_C(); break;
 				case 'D': $this->execute_C(); break;
@@ -241,6 +258,62 @@ class submit
 				case 'L': $this->execute_L(); break;
 				}
 		}
+	function execute_AA()
+		{
+			global $dd,$acao,$hd;
+			$sx = '';
+			$sx = 'Devolução ao autor';
+			/* insere no hisetorico */
+			/* Modifica status */
+			
+			/* insere no historico */
+			$hs = new submit_historico;
+			$hs->insere_historico($this->protocolo,'DEV','',$hd->user_id);
+			/* Modifica status */
+			$this->alterar_status('@');
+			/* enviar e-mail */
+			$complemento = $dd[4];
+			if ($dd[3]=='1')
+				{
+					$proto = $this->protocolo;
+					$nome = $this->autor_nome;
+					$email = $this->autor_email;
+					$editor = $hd->editor;
+					$title = $this->title;
+					
+					$mes = $this->ic("subm_B",1);
+					$ms = $mes[1];
+					$titulo = $mes[0].' - '.$this->protocolo;
+					
+					$email = array();
+					array_push($email,trim($this->autor_email));
+					array_push($email,trim($this->autor_email_alt));
+					array_push($email,$hd->email);
+
+					
+					$ms = troca($ms,'$JOURNAL',$hd->journal_name);
+					$ms = troca($ms,'$AUTOR',$this->autor_nome);
+					$ms = troca($ms,'$PROTOCOLO',$proto);
+					$ms = troca($ms,'$TITULO',$title);
+					$ms = troca($ms,'$EDITOR',$editor);
+					
+					echo '<B>'.$titulo.'</B>';
+					echo '<HR>';
+					echo $ms;
+					echo '<HR>';
+					
+					for ($r=0;$r < count($email);$r++)
+						{
+						$email_send = $email[$r];
+						if (strlen($email_send) > 0)
+							{
+							enviaremail($email_send,'',$titulo,$ms);
+							echo '<BR>enviado '.$email_send;
+							}
+						}					
+				}
+			return($sx);
+		}		
 	function execute_B()
 		{
 			global $dd,$acao,$hd;
@@ -1045,6 +1118,26 @@ class submit
 
 	/* ACAOES */
 	
+	function action_AA()
+		{
+			global $dd,$acao,$jid;
+			$pp = new parecer;
+			$issue = 0;
+			
+			$sx .= '<table width="100%" class="tabela">
+					<TR class="tabela_title" valign="top">
+						<TH colspan="10" class="tabela_title">'.msg("actions").'
+					<TR valign="top">
+						<TD width="49%">
+							'.$this->show_button('confirmar >>>',$text,1,1,$form,$issue).'
+						<td width="2%">&nbsp;
+						<TD width="49%">
+							'.$this->ic("subm_@").'	
+					</table>
+			';
+			return($sx);
+		}	
+	
 	function action_B()
 		{
 			global $dd,$acao;
@@ -1306,6 +1399,7 @@ class submit
 			echo '<HR>'.$op.'<HR>';
 			switch ($op)
 			{
+			case "@": $sx = $this->action_AA(); break;
 			case "B": $sx = $this->action_B(); break;
 			case "C": $sx = $this->action_C(); break;
 			case "E": $sx = $this->action_E(); break;
@@ -1632,6 +1726,7 @@ class submit
 			
 			if ($line = db_read($rlt))
 				{
+					$this->line = $line;
 					$this->autor_nome = trim($line['sa_nome']);
 					$this->autor_email = trim($line['sa_email']);
 					$this->autor_email_alt = trim($line['sa_email_alt']);

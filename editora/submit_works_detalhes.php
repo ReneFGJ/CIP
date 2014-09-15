@@ -50,6 +50,9 @@ echo '<div id="conteudo">';
 	echo $ar->mostra_dados();
 	echo $ar->mostra_autor_principal();
 
+	/* Dados complementares */
+	echo $ar->mostra_dados_complementares();
+	
 	/* Acoes */
 	echo $ar->actions();
 	

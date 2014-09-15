@@ -7,8 +7,31 @@ class lattes
 		
 		var $docentes = "pibic_professor";
 		var $discentes = "pibic_aluno";
+		var $tabela_journal = 'lattes_journals';
 		
 		var $erros = '';
+		
+		function cp_journal()
+			{
+				//$sql = "delete from ".$this->tabela_journal." where j_issn like '%--%' ";
+				//$rlt = db_query($sql);
+				
+				$cp = array();
+				array_push($cp,array('$H8','id_j','',False,True));
+				array_push($cp,array('$S80','j_name','Journal',True,True));
+				array_push($cp,array('$S9','j_issn','ISSN',True,True));
+				return($cp);
+			}
+		
+		function row_journal()
+			{
+			global $cdf, $cdm, $masc;
+			
+			$cdf = array('id_j','j_name','j_issn','j_codigo');
+			$cdm = array('Código','Nome','ISSN','Codigo');
+			$masc = array('','','','');
+			return('');
+			}
 		
 		function busca_professor_cpf($cpf)
 			{
@@ -129,7 +152,6 @@ class lattes
 	function salva_foto($link,$destino='')
 		{
 			$sr = $this->read_link_fopen($link);
-			echo '-->'.strlen($sr);
 		}
 	function recupera_link_foto($cnt)
 		{
@@ -1367,7 +1389,7 @@ class lattes
 				echo '<table width="704"><TR><TD>Processamento<TR><TD><TT>';
 				for ($r=0;$r < count($lns);$r++)
 					{
-						$cp = $this->campos($lns[$r]);
+						$cp = $this->campos($lns[$r]);;
 						$tp = $this->tipo_publicacao($cp[1]);
 						if ($tp == 'A') { $ok = $this->inport_artigo($cp); }
 					}
@@ -1715,8 +1737,10 @@ class lattes
 				$this->updatex_journal();
 				
 				//echo $professor;
-				$issn = $this->formata_issn($cp[8]);
+				$issn = $this->formata_issn(trim($cp[8]));
+				//xxxxxxxxxxxxx
 				$periodico = $this->busca_periodico($cp[7],$issn);
+				
 				$ano = $cp[3];
 				$pagina = substr(trim($cp[11]),0,8);
 				$autores = round($cp[18]);
@@ -1914,6 +1938,7 @@ class lattes
 			{
 				while (strlen($issn) < 8) {$issn = '0'.$issn; }
 				$issn = substr($issn,0,4).'-'.substr($issn,4,4);
+				echo '<BR>--'.$issn;
 				return($issn);
 			}
 		function tipo_publicacao($tipo)

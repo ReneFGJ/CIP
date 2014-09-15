@@ -61,39 +61,32 @@ if (!(file_exists($arq))) {
 
 		//print_r($qst[$r][children]);
 		//echo '<HR>';
+		$q6 = utf8_decode($qst[$r][children][6][children][0]);
 		$q5 = utf8_decode($qst[$r][children][5][children][0]);
 		$tp = utf8_decode($qst[$r][children][1][children][0]);
 
 		$q0 = utf8_decode($qst[$r][children][2][children][0]);
 		$q1 = utf8_decode($qst[$r][children][3][children][0]);
 		$q2 = utf8_decode($qst[$r][children][4][children][0]);
-
-		if ($q0 != $xq0) {
-			echo '<H1>' . $q0 . '</h1>';
-			$xq0 = $q0;
-		}
-		if (strlen($q1) > 0) {
-			$id++;
-			echo '' . $id . ') ' . $q1;
-		}
-
-		if ($tp == 'N') {
-			echo '<BR>Avaliação:<B>';
-			if (strlen($q5) == 1) {
-				if ($q5 == '0') { echo 'SIM';
-				} else { echo '<font color="red">NÃO</font>';
+		$q5 = troca($q5,'?L%','');
+		$q2 = troca($q2,'?L%','');
+		if (strlen($tp) > 0)
+			{
+			if ($q1 != $xq1)
+				{
+					echo '<BR><BR><font style="font-size: 20px;">'.$q1.'</font>';
+					$xq1 = $q1;
 				}
-			} else {
-				echo $q5;
+			if ($tp != 'I')
+				{
+					echo '<BR><BR>'.$q2.' ';
+					//echo '<BR>q3='.$q3;
+					//echo '<BR>q4='.$q4;
+					echo '<B>'.mst($q5).'</B>';
+					//echo '<BR>q6='.$q6;
+					//echo '<HR>';
+				}
 			}
-			echo '</B><BR>';
-		} else {
-		}
-
-		if (strlen($q2) > 0) {
-			$rst = '<BR>Avaliação:<B>' . $q2 . '</B><BR>';
-			echo $rst;
-		}
 	}
 }
-?>
+?>	

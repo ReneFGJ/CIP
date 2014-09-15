@@ -20,8 +20,57 @@ if ((substr($dd[1],0,1)=='0') or (substr($dd[1],0,1)=='1'))
 					{ $ee .= '; '.$email1; }
 			}
 			$dd[3] = $ee;
-		}		
+		}
 		
+	/* Estudantes PIBIC Atual */
+	if ($op == '060')
+		{
+			$sql = "select pa_email, pa_email_1 from pibic_bolsa_contempladas 
+					inner join pibic_aluno on pb_aluno = pa_cracha
+					left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+					where pb_status <> 'C' and pb_ano = '".date("Y")."'
+					and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')		
+			";
+			echo $sql;
+			$rlt = db_query($sql);
+		}
+				
+	/* Estudantes PIBIC Atual -1 */
+	if ($op == '061')
+		{
+			$sql = "select pa_email, pa_email_1 from pibic_bolsa_contempladas 
+					inner join pibic_aluno on pb_aluno = pa_cracha
+					left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+					where pb_status <> 'C' and pb_ano = '".(date("Y")-1)."'
+					and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')		
+			";
+			echo $sql;
+			$rlt = db_query($sql);
+		}
+	/* Estudantes PIBIC Atual -2 */
+	if ($op == '062')
+		{
+			$sql = "select pa_email, pa_email_1 from pibic_bolsa_contempladas 
+					inner join pibic_aluno on pb_aluno = pa_cracha
+					left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+					where pb_status <> 'C' and pb_ano = '".(date("Y")-2)."'
+					and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')		
+			";
+			echo $sql;
+			$rlt = db_query($sql);
+		}	
+	/* Estudantes PIBIC Atual -3 */
+	if ($op == '063')
+		{
+			$sql = "select pa_email, pa_email_1 from pibic_bolsa_contempladas 
+					inner join pibic_aluno on pb_aluno = pa_cracha
+					left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+					where pb_status <> 'C' and pb_ano = '".(date("Y")-3)."'
+					and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')		
+			";
+			echo $sql;
+			$rlt = db_query($sql);
+		}			
 	if ($op == '001')
 		{
 			$sql = "select pa_email, pa_email_1 from pibic_bolsa_contempladas 
@@ -90,7 +139,15 @@ if ((substr($dd[1],0,1)=='0') or (substr($dd[1],0,1)=='1'))
 			";
 			$rlt = db_query($sql);
 		}		
-		
+	/* Todos os professores */
+	if ($op == '007')
+		{
+			$sql = "
+				select pp_email, pp_email_1 from pibic_professor
+					where pp_ativo = 1 and pp_update = '".date("Y")."'
+			";
+			$rlt = db_query($sql);
+		}	
 	if ($op == '010')
 		{
 			$sql = "select pp_email, pp_email_1 from pibic_projetos 

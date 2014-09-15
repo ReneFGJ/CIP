@@ -965,14 +965,17 @@ class submit
 						$texto = msg('Dear').' '.$nome;
 						$texto .= '<BR><BR>'.msg('send_your_password');
 						$texto .= '<BR><BR>'.msg('your_password').': '.$senha.'</B>';
-						
-						enviaremail(trim($line['ec_email_1']),'',msg('recover_password'),$texto);
+
+						$email1 = trim($line['sa_email']);
+						if (strlen($email1) > 0) { enviaremail($email,'',msg('recover_password'),$texto); }
+						$email2 = trim($line['sa_email_alt']);
+						if (strlen($email2) > 0) { enviaremail($email,'',msg('recover_password'),$texto); }
 						enviaremail('monitoramento@sisdoc.com.br','',msg('recover_password'),$texto);				
 						echo '
 						<H2><font color="white">'.msg('recover_password').'</font></H2>
 						<BR>
 						<font color="white">';
-						echo msg('password_send_to').' '.$email;
+						echo msg('password_send_to').' '.$email1.' '.$email2;
 					} else {
 						echo msg('email_not_found');
 					}

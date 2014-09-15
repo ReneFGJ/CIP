@@ -1,0 +1,37 @@
+@charset "utf-8";
+@import url('reset.css');
+/* CSS Document */
+body{
+	font-family: 'open_sanslight';
+	font-size: 13pt;
+	color: #333333;
+}
+#container {
+	margin: 0 auto;
+	width:980px;
+	height: auto;
+}
+#header{
+	width: 980px;
+	height: 201px;
+	float: left;
+	background: url(../img/back_cab.png) no-repeat;
+	margin-bottom: 6px;
+}
+.content_cab{
+	float: right;
+	width: auto;
+	height: 180px;
+}
+.logado{
+	margin-top: 3px;
+	float: right;
+	margin-right: 20px;
+}
+#container_down{
+	float:left;
+	width: 980px;
+	height: 100%;
+	background: url(../img/back_container_down.png) repeat;
+}
+.clear { clear:both;}

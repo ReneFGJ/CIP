@@ -141,6 +141,7 @@ class header
 				                      	<li><a href="submit_autor.php">Autores</a></li>
 				                      	<li><a href="submit_works_search.php">Busca submissões</a></li>
 				                      	<li><a href="submit_documentos_obrigatorio.php">Documentos obrigatório</a></li>
+				                      	<li><a href="submit_campo_04_opcionais.php">Campos obrigatórios na submissão (CP4)</a></li>
 				                      	<li><a href="#">Avaliações</a></li>
 				                    </ul> 
 						        </li>
@@ -156,7 +157,7 @@ class header
 				                      	<li><a href="parecerista_relatorio.php">Relatório</a></li>
 				                      	<li><a href="parecer_modelo.php">Modelos de parecer</a></li>
 				                      	<li><a href="parecer_modelo_area.php">Áreas do modelos de parecer</a></li>
-				                      	<li><a href="documentos_obrigatorio.php">Documentos obrigatórios</a></li>
+				                      	<li><a href="submit_documentos_obrigatorio.php">Documentos obrigatórios</a></li>
 				                    </ul> 
 						        </li>
 						        <li id="menu3"><span class="font_menu menu3_af_class" id="menu3_af">Em editoração</span>

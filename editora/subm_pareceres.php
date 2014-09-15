@@ -26,11 +26,10 @@ while ($yline = db_read($yrlt))
 	if ($st == 'B') { $sto = 'Avaliado - Parecer concluído'; }
 	if ($st == 'I') 
 		{
-			$link = '<A HREF="javascript:newxy2(\'parecer_declinar.php?dd0='.$yline['id_pp'].chr(39).',300,300);">';
-			$sto = $link.'Em avaliação</A>';
-			 
-	
+			$link = '<A HREF="javascript:newxy2(\'parecer_declinar.php?dd5=reol_parecer_enviado&dd0='.$yline['id_pp'].chr(39).',300,300);">';
+			$sto = $link.'Em avaliação</A>';	
 		}
+	if ($st == 'D') { $sto = $link.'Declinado'; }
 	if ($st == 'J') { $sto = $link.'Avaliação concluída'; }
 	if ($st == 'C') { $sto = $link.'<font color="green"><B>Finalizado</B></font></A>'; }
 	if ($st == 'X') { $sto = '<font color=red>Cancelado'; }

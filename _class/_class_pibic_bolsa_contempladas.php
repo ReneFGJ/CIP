@@ -132,12 +132,12 @@ class pibic_bolsa_contempladas
 							<TH>Status
 							<TH>email
 							<TH>email alternativo
-							<TH>Titulação
+							<TH>Titulaï¿½ï¿½o
 							<TH>SS
 							<TH>e-mail (est.)
 							<TH>e-mail alt (est.)
-							<TH>área CNPq
-							<TH>CNPq Descrição						
+							<TH>ï¿½rea CNPq
+							<TH>CNPq Descriï¿½ï¿½o						
 							';
 				$tot = 0;
 				while ($line = db_read($rlt))
@@ -313,7 +313,7 @@ class pibic_bolsa_contempladas
 							order by pp_nome
 							";
 				$rlt = db_query($sql);
-				$sx = '<h1>Relatório Parcial nóo Entregue</h1>';
+				$sx = '<h1>Relatï¿½rio Parcial nï¿½o Entregue</h1>';
 				$sx . '<table width="100%" class="tabela00">';
 				$id = 0;
 				$xprof = '';
@@ -410,7 +410,7 @@ class pibic_bolsa_contempladas
       				google.setOnLoadCallback(drawChart);
       				function drawChart() {
         				var data = google.visualization.arrayToDataTable([
-          				[\'Titulação\', \'Professores\']
+          				[\'Titulaï¿½ï¿½o\', \'Professores\']
           				'.$sr.'
         			]);
 
@@ -425,7 +425,7 @@ class pibic_bolsa_contempladas
 		    <div id="piechart2" style="width: 350px; height: 250px;"></div>
 			';
 			$sx .= '<table width="350">';
-			$sx .= '<TR><TH>Titulação<TH>Projetos';
+			$sx .= '<TR><TH>Titulaï¿½ï¿½o<TH>Projetos';
 			$sx .= $st;
 			$sx .= '<TR><TD><TH>'.$totg;
 			$sx .= '</table>';					
@@ -465,12 +465,12 @@ class pibic_bolsa_contempladas
       				google.setOnLoadCallback(drawChart);
       				function drawChart() {
         				var data = google.visualization.arrayToDataTable([
-          				[\'Titulação\', \'Professores\']
+          				[\'Titulaï¿½ï¿½o\', \'Professores\']
           				'.$sr.'
         			]);
 
         		var options = {
-          			title: \'Titulação dos professores orientadores\'
+          			title: \'Titulaï¿½ï¿½o dos professores orientadores\'
         			};
 
 			    var chart = new google.visualization.PieChart(document.getElementById(\'piechart\'));
@@ -480,7 +480,7 @@ class pibic_bolsa_contempladas
 		    <div id="piechart" style="width: 350px; height: 250px;"></div>
 			';		
 			$sx .= '<table width="350">';
-			$sx .= '<TR><TH>Titulação<TH>Quant.';
+			$sx .= '<TR><TH>Titulaï¿½ï¿½o<TH>Quant.';
 			$sx .= $st;
 			$sx .= '<TR><TD><TH>'.$totg;
 			$sx .= '</table>';
@@ -491,13 +491,13 @@ class pibic_bolsa_contempladas
 			{
 				if($tipo==1)
 					{
-						$wh = "and (pp_centro = 'DOUTORANDO' or pp_centro = '' or pp_centro = 'PUC CURITIBA' or pp_centro = 'PUC PR CAMPUS CURITIBA' or pp_centro = 'PUCPR CAMPUS SJP')";
+						$wh = "and (pp_centro = 'DOUTORANDO' or pp_centro = '' or pp_centro = 'PUC CURITIBA' or pp_centro = 'PUC PR CAMPUS CURITIBA' or pp_centro = 'PUC SAO JOSE')";
 						$ind = 0.34; /* Alterado em 07/03/2014 */
 						$ind = 0.0662;
 					}
 				if($tipo==2)
 					{
-						$wh = "and not (pp_centro = 'DOUTORANDO' or pp_centro = '' or pp_centro = 'PUC CURITIBA' or pp_centro = 'PUC PR CAMPUS CURITIBA' or pp_centro = 'PUCPR CAMPUS SJP')";
+						$wh = "and not (pp_centro = 'DOUTORANDO' or pp_centro = '' or pp_centro = 'PUC CURITIBA' or pp_centro = 'PUC PR CAMPUS CURITIBA' or pp_centro = 'PUC SAO JOSE')";
 						$ind = 0.34; /* Alterado em 07/03/2014 */
 						$ind = 0.2645; 
 					}
@@ -604,7 +604,7 @@ class pibic_bolsa_contempladas
 					order by pb_ano desc, pb_status
 					";										
 				$rlt = db_query($sql);
-				$sx .= '<h1>Orientações IC</h1>';
+				$sx .= '<h1>Orientaï¿½ï¿½es IC</h1>';
 				$sx .= '<table width="98%" class="tabela00" align="center">';
 				$id = 0;
 				while ($line=db_read($rlt))
@@ -614,7 +614,7 @@ class pibic_bolsa_contempladas
 						//$this->le($line['pb_protocolo']);
 						$sx .= $this->mostra_simples($line);
 					}
-				$sx .= '<TR><TD colspan=10><i>Total de '.$id.' orientação(ões)';
+				$sx .= '<TR><TD colspan=10><i>Total de '.$id.' orientaï¿½ï¿½o(ï¿½es)';
 				$sx .= '</table>';			
 				return($sx);	
 			}
@@ -667,7 +667,7 @@ class pibic_bolsa_contempladas
 						$bs[$id][$ids] = $bs[$id][$ids] + $total;
 						} 
 					}
-				$sx .= '<h1>Resumo IC - Orientações '.$tipo.'</h1>';
+				$sx .= '<h1>Resumo IC - Orientaï¿½ï¿½es '.$tipo.'</h1>';
 				$sx .= '<table class="tabela00" width="100%">';
 				$sx .= '<TR><TH width="4%">ano
 								<TH width="22%">Ativas
@@ -747,7 +747,7 @@ class pibic_bolsa_contempladas
 				$sx .= '</table>';
 				
 				$sa .= '<table class="tabela00">';
-				$sa .= '<TR><TD>Curso<TD>Frequóncia';
+				$sa .= '<TR><TD>Curso<TD>Frequï¿½ncia';
 				for ($ra = 0;$ra < count($curn);$ra++)
 					{
 						$sa .= '<TR><TD>'.$curn[$ra].'<TD align="center">'.$curt[$ra];
@@ -974,7 +974,7 @@ class pibic_bolsa_contempladas
         		]);
 		
 	        var options = {
-    	      	title: \'Implementação de Bolsas\',
+    	      	title: \'Implementaï¿½ï¿½o de Bolsas\',
           		hAxis: {title: \'Escola\', titleTextStyle: {color: \'red\'}}
         		};
 	
@@ -1062,7 +1062,7 @@ class pibic_bolsa_contempladas
         		]);
 		
 	        var options = {
-    	      	title: \'Implementação de Bolsas\',
+    	      	title: \'Implementaï¿½ï¿½o de Bolsas\',
           		hAxis: {title: \'Escola\', titleTextStyle: {color: \'red\'}}
         		};
 	
@@ -1159,10 +1159,10 @@ class pibic_bolsa_contempladas
 				switch($area)
 					{
 						case 'S': $area = 'Sociais Aplicada'; break;
-						case 'A': $area = 'Cióncias Agrórias'; break;
-						case 'V': $area = 'Cióncias da Saóde'; break;
-						case 'H': $area = 'Cióncias Humanas'; break;
-						case 'E': $area = 'Cióncias Exatas'; break;
+						case 'A': $area = 'Ciï¿½ncias Agrï¿½rias'; break;
+						case 'V': $area = 'Ciï¿½ncias da Saï¿½de'; break;
+						case 'H': $area = 'Ciï¿½ncias Humanas'; break;
+						case 'E': $area = 'Ciï¿½ncias Exatas'; break;
 						 
 					}	
 				$prof_nome = $line['pp_nome'];
@@ -1191,8 +1191,8 @@ class pibic_bolsa_contempladas
 		$sa .= '<table width="98%" class="tabela00">';
 		$sa .= '<TR><TH>Protoc.</TH>';
 		$sa .= '<TH>Orientador / Orientado</TH>';
-		$sa .= '<TH>Título do projeto do bolsista / Bolsa</TH>';
-		$sa .= '<TH>órea do conhecimento</TH>';
+		$sa .= '<TH>Tï¿½tulo do projeto do bolsista / Bolsa</TH>';
+		$sa .= '<TH>ï¿½rea do conhecimento</TH>';
 		$sa .= '</TR>';
 		$sa .= $sx;
 		$sa .= '<TR><TD colspan="10" align="left">Total de '.$tot.' bolsas implementadas.</TD></TR>';		
@@ -1249,10 +1249,10 @@ class pibic_bolsa_contempladas
 				switch($area)
 					{
 						case 'S': $area = 'Sociais Aplicada'; break;
-						case 'A': $area = 'Cióncias Agrórias'; break;
-						case 'V': $area = 'Cióncias da Saóde'; break;
-						case 'H': $area = 'Cióncias Humanas'; break;
-						case 'E': $area = 'Cióncias Exatas'; break;
+						case 'A': $area = 'Ciï¿½ncias Agrï¿½rias'; break;
+						case 'V': $area = 'Ciï¿½ncias da Saï¿½de'; break;
+						case 'H': $area = 'Ciï¿½ncias Humanas'; break;
+						case 'E': $area = 'Ciï¿½ncias Exatas'; break;
 						 
 					}	
 				$prof_nome = $line['pp_nome'];
@@ -1281,8 +1281,8 @@ class pibic_bolsa_contempladas
 		$sa .= '<table width="98%" class="tabela00">';
 		$sa .= '<TR><TH>Protoc.</TH>';
 		$sa .= '<TH>Orientador / Orientado</TH>';
-		$sa .= '<TH>Título do projeto do bolsista / Bolsa</TH>';
-		$sa .= '<TH>órea do conhecimento</TH>';
+		$sa .= '<TH>Tï¿½tulo do projeto do bolsista / Bolsa</TH>';
+		$sa .= '<TH>ï¿½rea do conhecimento</TH>';
 		$sa .= '</TR>';
 		$sa .= $sx;
 		$sa .= '<TR><TD colspan="10" align="left">Total de '.$tot.' bolsas implementadas.</TD></TR>';		
@@ -1342,10 +1342,10 @@ class pibic_bolsa_contempladas
 				switch($area)
 					{
 						case 'S': $area = 'Sociais Aplicada'; break;
-						case 'A': $area = 'Ciências Agrárias'; break;
-						case 'V': $area = 'Ciências da Saúde e Vida'; break;
-						case 'H': $area = 'Ciências Humanas'; break;
-						case 'E': $area = 'Ciências Exatas'; break;
+						case 'A': $area = 'Ciï¿½ncias Agrï¿½rias'; break;
+						case 'V': $area = 'Ciï¿½ncias da Saï¿½de e Vida'; break;
+						case 'H': $area = 'Ciï¿½ncias Humanas'; break;
+						case 'E': $area = 'Ciï¿½ncias Exatas'; break;
 						 
 					}	
 				$prof_nome = $line['pp_nome'];
@@ -1382,15 +1382,15 @@ class pibic_bolsa_contempladas
 		$sa .= '<table width="98%" class="tabela00">';
 		$sa .= '<TR><TH>Nome do Orientador</TH>';
 		$sa .= '<TH>CPF do Orientador</TH>';
-		$sa .= '<TH>Link do Currículo Lattes do Orientador</TH>';
-		$sa .= '<TH>Título do projeto do bolsista</TH>';
-		$sa .= '<TH>Grande área do conhecimento</TH>';
-		$sa .= '<TH>Área do conhecimento</TH>';
-		$sa .= '<TH>Subárea</TH>';
-		$sa .= '<TH>Título do projeto do bolsista</TH>';
+		$sa .= '<TH>Link do Currï¿½culo Lattes do Orientador</TH>';
+		$sa .= '<TH>Tï¿½tulo do projeto do bolsista</TH>';
+		$sa .= '<TH>Grande ï¿½rea do conhecimento</TH>';
+		$sa .= '<TH>ï¿½rea do conhecimento</TH>';
+		$sa .= '<TH>Subï¿½rea</TH>';
+		$sa .= '<TH>Tï¿½tulo do projeto do bolsista</TH>';
 		$sa .= '<TH>Nome do bolsista</TH>';
 		$sa .= '<TH>CPF do bolsista</TH>';
-		$sa .= '<TH>Link do Currículo Lattes do Bolsista</TH>';
+		$sa .= '<TH>Link do Currï¿½culo Lattes do Bolsista</TH>';
 		
 		$sa .= '</TR>';
 		$sa .= $sx;
@@ -1500,7 +1500,7 @@ class pibic_bolsa_contempladas
 	function mostra_titulo()
 		{
 			$sx = '<fieldset>';
-			$sx .= '<legend>Título da pesquisa do aluno</legend>';
+			$sx .= '<legend>Tï¿½tulo da pesquisa do aluno</legend>';
 			$sx .= '<font class="lt4">'.$this->pb_titulo_plano.'</font>';
 			
 			$sx .= '</fieldset>';
@@ -1511,7 +1511,7 @@ class pibic_bolsa_contempladas
 			$ati = new atividade;
 			
 			$cod = 'RRS';
-			$descricao = "Validação Título e colaboradores para o SEMIC";
+			$descricao = "Validaï¿½ï¿½o Tï¿½tulo e colaboradores para o SEMIC";
 			$limite = 20130701;
 			$protocolo = '';
 			$docente = '';
@@ -1617,7 +1617,7 @@ class pibic_bolsa_contempladas
 				$sx .= '<TD>';
 				if ($line['pb_ativacao'] != '19000101')
 				{
-					$sx .= 'Data ativação '.stodbr($line['pb_ativacao']);
+					$sx .= 'Data ativaï¿½ï¿½o '.stodbr($line['pb_ativacao']);
 				} else {
 					$sx .= '&nbsp;';
 				}
@@ -1632,11 +1632,11 @@ class pibic_bolsa_contempladas
 		$sa .= '<TH>Ano</TH>';
 		$sa .= '<TH>Aluno</TH>';
 		$sa .= '<TH>Cracha</TH>';
-		$sa .= '<TH>Título do projeto do aluno</TH>';
+		$sa .= '<TH>Tï¿½tulo do projeto do aluno</TH>';
 		$sa .= '<TH>IC</TH>';
 		$sa .= '<TH>Protocolo</TH>';
 		$sa .= '<TH>Curso</TH>';
-		$sa .= '<TH>Ativação</TH>';
+		$sa .= '<TH>Ativaï¿½ï¿½o</TH>';
 		$sa .= '</TR>';
 		$sa .= $sx;
 		$sa .= '</table>';
@@ -1659,16 +1659,16 @@ class pibic_bolsa_contempladas
 				{
 				case 'A':
 						array_push($acao,array('010','Suspender bolsa*'));
-						array_push($acao,array('020','Substituição do aluno*'));
-						array_push($acao,array('050','Substituição do professor'));
+						array_push($acao,array('020','Substituiï¿½ï¿½o do aluno*'));
+						array_push($acao,array('050','Substituiï¿½ï¿½o do professor'));
 						array_push($acao,array('021','Alterar modalidade da IC*'));
-						array_push($acao,array('022','Alterar Título do plano do aluno'));
+						array_push($acao,array('022','Alterar Tï¿½tulo do plano do aluno'));
 						
-						/* Cancelar submissóo do relatório parcial */
+						/* Cancelar submissï¿½o do relatï¿½rio parcial */
 						
 						if (($rpar > 0) and ($rpar_nota < 1))
 							{
-								array_push($acao,array('030','Renviar para orientador relatório parcial para resubmissóo'));		
+								array_push($acao,array('030','Renviar para orientador relatï¿½rio parcial para resubmissï¿½o'));		
 							}
 //					break;
 				case 'C':
@@ -1678,9 +1678,9 @@ class pibic_bolsa_contempladas
 						array_push($acao,array('011','Reativar bolsa'));
 						break;
 				}
-			array_push($acao,array('','Entrega de relatório'));
-			array_push($acao,array('100','__Alterar dados do relatório parcial'));
-			array_push($acao,array('200','__Alterar dados do relatório final'));
+			array_push($acao,array('','Entrega de relatï¿½rio'));
+			array_push($acao,array('100','__Alterar dados do relatï¿½rio parcial'));
+			array_push($acao,array('200','__Alterar dados do relatï¿½rio final'));
 			
 			$sx = '<fieldset><legend>'.msg("actions").'</legend>';
 			$sx .= '<UL>';
@@ -1708,7 +1708,7 @@ class pibic_bolsa_contempladas
 					$sx .= $sxf;
 				}
 			$sx .= '</UL>';
-			$sx .= '* Não implementado';
+			$sx .= '* Nï¿½o implementado';
 			$sx .= '</fieldset>';
 			/* Java script */
 			$sx .= '
@@ -1767,7 +1767,7 @@ class pibic_bolsa_contempladas
 			$proto = $this->pb_protocolo;
 			$acao = $_POST['acao'];
 			
-			/* Alterar Título de Trabalho */
+			/* Alterar Tï¿½tulo de Trabalho */
 			if ($ac == '200')
 				{
 					if (strlen($acao) > 0)
@@ -1780,7 +1780,7 @@ class pibic_bolsa_contempladas
 					array_push($cp,array('$HV','pb_protocolo',$dd[0],True,True));
 					array_push($cp,array('$HV','',$dd[1],False,True));
 					array_push($cp,array('$HV','',$dd[2],False,True));
-					array_push($cp,array('$O : &1:Reabrir para postagem do relatório','','Ação',True,True));
+					array_push($cp,array('$O : &1:Reabrir para postagem do relatï¿½rio','','Aï¿½ï¿½o',True,True));
 					array_push($cp,array('$HV','pb_relatorio_final','0',True,True));
 					array_push($cp,array('$HV','pb_relatorio_final_nota','-1',True,True));
 					array_push($cp,array('$O : &1:SIM','','Confirmar',True,True));
@@ -1790,8 +1790,8 @@ class pibic_bolsa_contempladas
 						{
 							$this->le('',$dd[0]);
 							
-									echo '<BR>Gerando Histórico';											
-									$historico = 'Reenviado para postagem do relatório final';
+									echo '<BR>Gerando Histï¿½rico';											
+									$historico = 'Reenviado para postagem do relatï¿½rio final';
 									$ph->inserir_historico($dd[0],200,$historico,$dd[3],'','RFR');
 
 									echo '<BR>Recuperando mensagem do sistema';
@@ -1806,9 +1806,9 @@ class pibic_bolsa_contempladas
 									
 									echo '<BR>Comunicando pesquisador<BR>';
 									/* Comunicar novo orientador */
-									$this->comunicar_pesquisador('Reabertura para reenvio de relatório',$historico);					
+									$this->comunicar_pesquisador('Reabertura para reenvio de relatï¿½rio',$historico);					
 									
-									echo '<font color="green">Operação realizada com sucesso!</font>';
+									echo '<font color="green">Operaï¿½ï¿½o realizada com sucesso!</font>';
 									exit;
 									
 							$sx = 'Saved';
@@ -1820,7 +1820,7 @@ class pibic_bolsa_contempladas
 				}
 
 
-			/* Alterar Título de Trabalho */
+			/* Alterar Tï¿½tulo de Trabalho */
 			if ($ac == '021')
 				{
 					$cp = array();
@@ -1834,7 +1834,7 @@ class pibic_bolsa_contempladas
 					array_push($cp,array('$H8','pb_tipo','',False,False));
 					array_push($cp,array('$HV','',$dd[2],False,True));
 					array_push($cp,array('$Q pbt_descricao:pbt_codigo:select * from pibic_bolsa_tipo','pb_tipo','Nova bolsa',True,True));
-					//array_push($cp,array('$Q a_descricao:a_codigo:select * from ajax_areadoconhecimento where a_semic = \'1\'','pb_semic_area','Data de submissão',True,True));
+					//array_push($cp,array('$Q a_descricao:a_codigo:select * from ajax_areadoconhecimento where a_semic = \'1\'','pb_semic_area','Data de submissï¿½o',True,True));
 					array_push($cp,array('$T80:6','','Justificativa',True,True));
 					array_push($cp,array('$B8','','Atualizar >>',False,False));
 					$tela = $form->editar($cp,'');
@@ -1856,7 +1856,7 @@ class pibic_bolsa_contempladas
 									$rrr = db_query($sql);
 									if ($line = db_read($rlt)) { $mod2 = $line['pbt_descricao']; }
 									
-									echo '<BR>Gerando Histórico';											
+									echo '<BR>Gerando Histï¿½rico';											
 									$historico = 'Troca de modalidade de bolsa<BR>De:<B><I>'.$mod1.'</I></B><BR>Para:<B>'.$mod2.'</B><BR><BR>Motivo:'.$dd[5];
 									$ph->inserir_historico($dd[0],021,$historico,$dd[3],'','SUB');
 
@@ -1872,9 +1872,9 @@ class pibic_bolsa_contempladas
 									
 									echo '<BR>Comunicando pesquisador<BR>';
 									/* Comunicar novo orientador */
-									$this->comunicar_pesquisador('Troca de modalidade de Iniciação, Tecnológica e Inovação',$historico);					
+									$this->comunicar_pesquisador('Troca de modalidade de Iniciaï¿½ï¿½o, Tecnolï¿½gica e Inovaï¿½ï¿½o',$historico);					
 									
-									echo '<font color="green">Substituição realizada com sucesso!</font>';
+									echo '<font color="green">Substituiï¿½ï¿½o realizada com sucesso!</font>';
 									exit;
 								}
 							$sx = 'Saved';
@@ -1885,7 +1885,7 @@ class pibic_bolsa_contempladas
 					return($sx);				
 				}
 
-			/* Alterar Título de Trabalho */
+			/* Alterar Tï¿½tulo de Trabalho */
 			if ($ac == '022')
 				{
 					$cp = array();
@@ -1898,9 +1898,9 @@ class pibic_bolsa_contempladas
 					array_push($cp,array('$HV','pb_protocolo',$dd[0],True,True));
 					array_push($cp,array('$HV','',$dd[1],False,True));
 					array_push($cp,array('$HV','',$dd[2],False,True));
-					array_push($cp,array('$T80:6','pb_titulo_projeto','Novo título',True,True));
+					array_push($cp,array('$T80:6','pb_titulo_projeto','Novo tï¿½tulo',True,True));
 					array_push($cp,array('$H8','pb_titulo_projeto','',False,False));
-					//array_push($cp,array('$Q a_descricao:a_codigo:select * from ajax_areadoconhecimento where a_semic = \'1\'','pb_semic_area','Data de submissão',True,True));
+					//array_push($cp,array('$Q a_descricao:a_codigo:select * from ajax_areadoconhecimento where a_semic = \'1\'','pb_semic_area','Data de submissï¿½o',True,True));
 					array_push($cp,array('$T80:6','','Justificativa',True,True));
 					array_push($cp,array('$B8','','Atualizar >>',False,False));
 					$tela = $form->editar($cp,$this->tabela);
@@ -1912,8 +1912,8 @@ class pibic_bolsa_contempladas
 							echo '<BR>'.$dd[4];
 							if ($dd[3] != $dd[4])
 								{
-									echo '<BR>Gerando Histórico';											
-									$historico = 'Troca de título do plano<BR>De:<B><I>'.$dd[4].'</I></B><BR>Para:<B>'.$dd[3].'</B><BR><BR>Motivo:'.$dd[5];
+									echo '<BR>Gerando Histï¿½rico';											
+									$historico = 'Troca de tï¿½tulo do plano<BR>De:<B><I>'.$dd[4].'</I></B><BR>Para:<B>'.$dd[3].'</B><BR><BR>Motivo:'.$dd[5];
 									$ph->inserir_historico($dd[0],022,$historico,$dd[3],'','TIT');
 
 									echo '<BR>Recuperando mensagem do sistema';
@@ -1928,9 +1928,9 @@ class pibic_bolsa_contempladas
 									
 									echo '<BR>Comunicando pesquisador<BR>';
 									/* Comunicar novo orientador */
-									$this->comunicar_pesquisador('Troca de título de trabalhos',$historico);					
+									$this->comunicar_pesquisador('Troca de tï¿½tulo de trabalhos',$historico);					
 									
-									echo '<font color="green">Substituição realizada com sucesso!</font>';
+									echo '<font color="green">Substituiï¿½ï¿½o realizada com sucesso!</font>';
 									exit;
 								}
 							$sx = 'Saved';
@@ -1941,16 +1941,16 @@ class pibic_bolsa_contempladas
 					return($sx);				
 				}
 			
-			/* Relatório Parcial */
+			/* Relatï¿½rio Parcial */
 			if ($ac == '100')
 				{
 					$cp = array();
 					array_push($cp,array('$HV','pb_protocolo',$dd[0],True,True));
 					array_push($cp,array('$HV','',$dd[1],False,True));
 					array_push($cp,array('$HV','',$dd[2],False,True));
-					array_push($cp,array('$D8','pb_relatorio_parcial','Data de submissão',True,True));
-					array_push($cp,array('$O : &1:Pendência&2:Aprovado&0:Não avaliado','pb_relatorio_parcial_nota','Nota',True,True));
-					//array_push($cp,array('$Q a_descricao:a_codigo:select * from ajax_areadoconhecimento where a_semic = \'1\'','pb_semic_area','Data de submissão',True,True));
+					array_push($cp,array('$D8','pb_relatorio_parcial','Data de submissï¿½o',True,True));
+					array_push($cp,array('$O : &1:Pendï¿½ncia&2:Aprovado&0:Nï¿½o avaliado','pb_relatorio_parcial_nota','Nota',True,True));
+					//array_push($cp,array('$Q a_descricao:a_codigo:select * from ajax_areadoconhecimento where a_semic = \'1\'','pb_semic_area','Data de submissï¿½o',True,True));
 					array_push($cp,array('$B8','','Atualizar >>',False,False));
 
 					$tela = $form->editar($cp,$this->tabela);
@@ -1965,7 +1965,7 @@ class pibic_bolsa_contempladas
 					return($sx);				
 				}
 			/*
-			 * Substituição de professor
+			 * Substituiï¿½ï¿½o de professor
 			 */
 			if ($ac == '050')
 				{					
@@ -1973,9 +1973,9 @@ class pibic_bolsa_contempladas
 					array_push($cp,array('$HV','pb_protocolo',$dd[0],True,True));
 					array_push($cp,array('$HV','',$dd[1],False,True));
 					array_push($cp,array('$HV','',$dd[2],False,True));
-					array_push($cp,array('$S8','pb_professor','Código do professor',True,True));
+					array_push($cp,array('$S8','pb_professor','Cï¿½digo do professor',True,True));
 					array_push($cp,array('$T60:2','','Motivo da troca',True,True));
-					//array_push($cp,array('$Q a_descricao:a_codigo:select * from ajax_areadoconhecimento where a_semic = \'1\'','pb_semic_area','Data de submissão',True,True));
+					//array_push($cp,array('$Q a_descricao:a_codigo:select * from ajax_areadoconhecimento where a_semic = \'1\'','pb_semic_area','Data de submissï¿½o',True,True));
 					array_push($cp,array('$B8','','efetuar troca >>',False,False));
 
 					$tela = $form->editar($cp,'');
@@ -1992,7 +1992,7 @@ class pibic_bolsa_contempladas
 							
 							if (strlen($orientador2)==0)
 								{
-									$SX = '<FONT COLOR="RED">Código do novo orientador inválido '.$dd[3].'</font>';
+									$SX = '<FONT COLOR="RED">Cï¿½digo do novo orientador invï¿½lido '.$dd[3].'</font>';
 								} else {
 									$this->le('',$dd[0]);
 									
@@ -2035,7 +2035,7 @@ class pibic_bolsa_contempladas
 									if (strlen($email2) > 0) { enviaremail($email2,'',$titulo,$texto); }
 									
 									
-									echo '<font color="green">Substituição realizada com sucesso!</font>';
+									echo '<font color="green">Substituiï¿½ï¿½o realizada com sucesso!</font>';
 									exit;
 								}
 						} else {
@@ -2047,7 +2047,7 @@ class pibic_bolsa_contempladas
 			/* Renvio para o professor */
 			if (($ac == '030') and ($dd[2]=='1'))
 				{
-					$historico = 'Rencaminhado projeto para correção do professor';
+					$historico = 'Rencaminhado projeto para correï¿½ï¿½o do professor';
 					$hist = msg('acao_'.$ac.'h');
 					$hist = $historico;
 					$motivo = '000';
@@ -2058,7 +2058,7 @@ class pibic_bolsa_contempladas
 					$this->liberar_resubmissao_relatorio_parcial();
 					$his->inserir_historico($proto,$ac,$hist,$aluno1,$aluno2,$motivo);
 					$this->liberar_resubmissao_relatorio_parcial();
-					$this->comunicar_pesquisador('Liberação de relaório parcial',$historico);
+					$this->comunicar_pesquisador('Liberaï¿½ï¿½o de relaï¿½rio parcial',$historico);
 					redirecina(page().'?dd0='.$dd[0].'&dd90='.$dd[90]);
 					exit;					
 				}
@@ -2076,7 +2076,7 @@ class pibic_bolsa_contempladas
 					$his = new pibic_historico;
 					$his->inserir_historico($proto,$ac,$hist,$aluno1,$aluno2,$motivo);
 					$this->alterar_status('S');
-					$this->comunicar_pesquisador('Suspensóo de bolsa',$historico);
+					$this->comunicar_pesquisador('Suspensï¿½o de bolsa',$historico);
 					redirecina(page().'?dd0='.$dd[0].'&dd90='.$dd[90]);
 					exit;
 				}
@@ -2093,7 +2093,7 @@ class pibic_bolsa_contempladas
 					$his = new pibic_historico;
 					$his->inserir_historico($proto,$ac,$hist,$aluno1,$aluno2,$motivo);
 					$this->alterar_status('A');
-					$this->comunicar_pesquisador('Reativação de bolsa',$historico);
+					$this->comunicar_pesquisador('Reativaï¿½ï¿½o de bolsa',$historico);
 					redirecina(page().'?dd0='.$dd[0].'&dd90='.$dd[90]);
 					exit;
 				}				
@@ -2168,7 +2168,7 @@ class pibic_bolsa_contempladas
 			$rlt = db_query($sql);
 			$id = 0;
 			$sx = '<table class="tabela00">';
-			$sx .= '<TR><TD colspan=10><h2>Professores desligados com orientações</h2>';
+			$sx .= '<TR><TD colspan=10><h2>Professores desligados com orientaï¿½ï¿½es</h2>';
 			$sx .= '<TR><TH>Professor<TH>Centro<TH>Modalidade<TH>Estudante<TH>Ano';
 			while ($line = db_read($rlt))
 			{
@@ -2213,9 +2213,9 @@ class pibic_bolsa_contempladas
 				$sx .= '<TR>
 						<TH width="5%">Protocolo
 						<Th width="5%">Cracha<TH width="50%">Nome
-						<TH width="10%" align="left">Data ativação
+						<TH width="10%" align="left">Data ativaï¿½ï¿½o
 						<TH width="20%" align="left">Bolsa
-						<TH width="10%" align="left">Benefócio';
+						<TH width="10%" align="left">Benefï¿½cio';
 				$rlt = db_query($sql);
 				$id = 0;
 				$tot = 0;
@@ -2279,11 +2279,11 @@ class pibic_bolsa_contempladas
 				
 				$sx .= '<table width="100%">';
 				$sx .= '<TR><TD colspan=5><h2>Bolsas ativas para pagamento - '.$ano.'</h2>';
-				$sx .= '<TR><TD colspan=10>Data para cródito: '.($credito);
+				$sx .= '<TR><TD colspan=10>Data para crï¿½dito: '.($credito);
 				$sx .= '<TR><Th width="10%">Cracha<TH>CPF<TH width="30%">Nome
-						<TH width="10%" align="left">Data ativação
+						<TH width="10%" align="left">Data ativaï¿½ï¿½o
 						<TH width="20%" align="left">Bolsa
-						<TH width="10%" align="left">Benefócio
+						<TH width="10%" align="left">Benefï¿½cio
 						<TH width="3%" align="left">Banco
 						<TH width="3%" align="left">Mod.
 						<TH width="3%" align="left">Ag.
@@ -2382,19 +2382,19 @@ class pibic_bolsa_contempladas
 							
 					}
 				$sx .= '<TR class="lt1"><TD colspan=10>';
-				$sx .= '<B><I>'.msg("total").' de nóo creditados '.number_format($tot1,2,',','.').' ('.$id1.')';
+				$sx .= '<B><I>'.msg("total").' de nï¿½o creditados '.number_format($tot1,2,',','.').' ('.$id1.')';
 				$sx .= '<TR class="lt1"><TD colspan=10 class="lt3">';
 				$sx .= '<B><I>'.msg("total").' para pagamento '.number_format($tot,2,',','.').' ('.$id.')';
 				$sx .= '<TR><TD colspan=3>';
 				$sx .= '<BR><font color="red">SUSPENSA</font> - Bolsa Suspensa</font>';
-				$sx .= '<BR><font color="red">ERRO</font> - Conta invólida</font>';
-				$sx .= '<BR><font color="red">ERRO DV</font> - Digito verificador da conta nóo confere</font>';
-				$sx .= '<BR><font color="red">ERRO AG</font> - Agóncia invólida</font>';
-				$sx .= '<BR><font color="red">ERRO CC</font> - Conta Corrente invólida</font>';
+				$sx .= '<BR><font color="red">ERRO</font> - Conta invï¿½lida</font>';
+				$sx .= '<BR><font color="red">ERRO DV</font> - Digito verificador da conta nï¿½o confere</font>';
+				$sx .= '<BR><font color="red">ERRO AG</font> - Agï¿½ncia invï¿½lida</font>';
+				$sx .= '<BR><font color="red">ERRO CC</font> - Conta Corrente invï¿½lida</font>';
 				
 				$sx .= '<TD align="center" colspan=4>';
 				$sx .= '<BR><BR>_________________________________________________';
-				$sx .= '<BR>Coordenador da Iniciação Cientófica';
+				$sx .= '<BR>Coordenador da Iniciaï¿½ï¿½o Cientï¿½fica';
 				$sx .= '<BR><BR><BR>';
 				$data = new date;
 				$mes = $data->month_name(round(date("m")),'1'); 
@@ -2428,9 +2428,9 @@ class pibic_bolsa_contempladas
 			$rlt = db_query($sql);
 			
 			$sx .= '<table>';
-			$sx .= '<TR><TD colspan=5><h2>Áreas de Apresentação SEMIC Internacional</h2>';
+			$sx .= '<TR><TD colspan=5><h2>ï¿½reas de Apresentaï¿½ï¿½o SEMIC Internacional</h2>';
 			$sx .= '<TR><Th width="10%">Total<TH width="10%">CNPq
-					<TH width="80%" align="left">Descrição da órea';
+					<TH width="80%" align="left">Descriï¿½ï¿½o da ï¿½rea';
 
 			while ($line = db_read($rlt))
 				{
@@ -2472,9 +2472,9 @@ class pibic_bolsa_contempladas
 			$rlt = db_query($sql);
 			
 			$sx .= '<table>';
-			$sx .= '<TR><TD colspan=5><h2>óreas de Apresentação SEMIC Geral</h2>';
+			$sx .= '<TR><TD colspan=5><h2>ï¿½reas de Apresentaï¿½ï¿½o SEMIC Geral</h2>';
 			$sx .= '<TR><Th width="10%">Total<TH width="10%">CNPq
-					<TH width="80%" align="left">Descrição da órea';
+					<TH width="80%" align="left">Descriï¿½ï¿½o da ï¿½rea';
 
 			while ($line = db_read($rlt))
 				{
@@ -2511,7 +2511,7 @@ class pibic_bolsa_contempladas
 			$rlt = db_query($sql);
 			$sx = '<BR>';
 			$sx .= '<table>';
-			$sx .= '<TR><TD colspan=5><h2>Idioma de Apresentação</h2>';
+			$sx .= '<TR><TD colspan=5><h2>Idioma de Apresentaï¿½ï¿½o</h2>';
 			$sx .= '<TR><TD class="lt3">';
 			while ($line = db_read($rlt))
 				{
@@ -2565,8 +2565,8 @@ class pibic_bolsa_contempladas
 				
 				/* Grafico */
 				$sx = '<table>';
-				$sx .= '<TR><TD colspan=5><h2>Avaliação do relatório Parcial</h2>';
-				$sx .= '<TR><TH>Modalidade<TH>ó entregue<TH>Entregue<TH>Grófico';
+				$sx .= '<TR><TD colspan=5><h2>Avaliaï¿½ï¿½o do relatï¿½rio Parcial</h2>';
+				$sx .= '<TR><TH>Modalidade<TH>ï¿½ entregue<TH>Entregue<TH>Grï¿½fico';
 				$sx .= '<TH>Percentual';
 				$sx .= '<TH rowspan=10 width="30" class="tabela01">Enviado<h2>';
 				if ($tot0 > 0)
@@ -2643,9 +2643,9 @@ class pibic_bolsa_contempladas
 				
 				/* Grafico */
 				$sx = '<table>';
-				$sx .= '<TR><TD colspan=5><h2>Índice de aprovação dos relatórios parciais</h2>';
-				$sx .= '<TR><TH>Modalidade<TH>aprovado<TH>ó Aprovado<TH>Grófico';
-				$sx .= '<TH rowspan=10 width="30" class="tabela01">Aprovação<h2>';
+				$sx .= '<TR><TD colspan=5><h2>ï¿½ndice de aprovaï¿½ï¿½o dos relatï¿½rios parciais</h2>';
+				$sx .= '<TR><TH>Modalidade<TH>aprovado<TH>ï¿½ Aprovado<TH>Grï¿½fico';
+				$sx .= '<TH rowspan=10 width="30" class="tabela01">Aprovaï¿½ï¿½o<h2>';
 				if ($tot0 > 0)
 					{
 						$sx .= '<center>';
@@ -2735,8 +2735,8 @@ class pibic_bolsa_contempladas
 				
 				/* Grafico */
 				$sx = '<table>';
-				$sx .= '<TR><TD colspan=5><h2>Ratificação dos Planos para o SEMIC</h2>';
-				$sx .= '<TR><TH>Modalidade<TH>ó entregue<TH>Entregue<TH>Grófico';
+				$sx .= '<TR><TD colspan=5><h2>Ratificaï¿½ï¿½o dos Planos para o SEMIC</h2>';
+				$sx .= '<TR><TH>Modalidade<TH>ï¿½ entregue<TH>Entregue<TH>Grï¿½fico';
 				$sx .= '<TH>Percentual';
 				$sx .= '<TH rowspan=10 width="30" class="tabela01">Enviado<h2>';
 				if ($tot0 > 0)
@@ -2824,8 +2824,8 @@ class pibic_bolsa_contempladas
 				
 				/* Grafico */
 				$sx = '<table>';
-				$sx .= '<TR><TD colspan=5><h2>Entrega do relatório Final</h2>';
-				$sx .= '<TR><TH>Modalidade<TH>ó entregue<TH>Entregue<TH>Grófico';
+				$sx .= '<TR><TD colspan=5><h2>Entrega do relatï¿½rio Final</h2>';
+				$sx .= '<TR><TH>Modalidade<TH>ï¿½ entregue<TH>Entregue<TH>Grï¿½fico';
 				$sx .= '<TH>Percentual';
 				$sx .= '<TH rowspan=10 width="30" class="tabela01">Enviado<h2>';
 				if ($tot0 > 0)
@@ -2908,8 +2908,8 @@ class pibic_bolsa_contempladas
 				
 				/* Grafico */
 				$sx = '<table>';
-				$sx .= '<TR><TD colspan=5><h2>Entrega do relatório Final</h2>';
-				$sx .= '<TR><TH>Modalidade<TH>ó entregue<TH>Entregue<TH>Grófico';
+				$sx .= '<TR><TD colspan=5><h2>Entrega do relatï¿½rio Final</h2>';
+				$sx .= '<TR><TH>Modalidade<TH>ï¿½ entregue<TH>Entregue<TH>Grï¿½fico';
 				$sx .= '<TH>Percentual';
 				$sx .= '<TH rowspan=10 width="30" class="tabela01">Enviado<h2>';
 				if ($tot0 > 0)
@@ -2990,8 +2990,8 @@ class pibic_bolsa_contempladas
 				
 				/* Grafico */
 				$sx = '<table>';
-				$sx .= '<TR><TD colspan=5><h2>Entrega do relatório Parcial</h2>';
-				$sx .= '<TR><TH>Modalidade<TH>ó entregue<TH>Entregue<TH>Grófico';
+				$sx .= '<TR><TD colspan=5><h2>Entrega do relatï¿½rio Parcial</h2>';
+				$sx .= '<TR><TH>Modalidade<TH>ï¿½ entregue<TH>Entregue<TH>Grï¿½fico';
 				$sx .= '<TH>Percentual';
 				$sx .= '<TH rowspan=10 width="30" class="tabela01">Enviado<h2>';
 				if ($tot0 > 0)
@@ -3076,8 +3076,8 @@ class pibic_bolsa_contempladas
 				
 				/* Grafico */
 				$sx = '<table>';
-				$sx .= '<TR><TD colspan=5><h2>Entrega do relatório Parcial</h2>';
-				$sx .= '<TR><TH>Modalidade<TH>ó entregue<TH>Entregue<TH>Grófico';
+				$sx .= '<TR><TD colspan=5><h2>Entrega do relatï¿½rio Parcial</h2>';
+				$sx .= '<TR><TH>Modalidade<TH>ï¿½ entregue<TH>Entregue<TH>Grï¿½fico';
 				$sx .= '<TH>Percentual';
 				$sx .= '<TH rowspan=10 width="30" class="tabela01">Enviado<h2>';
 				if ($tot0 > 0)
@@ -3211,7 +3211,7 @@ class pibic_bolsa_contempladas
 					where pb_protocolo = '$proto' ";
 				$rlt = db_query($sql);
 			} else {
-				echo 'Protocolo nóo informado';
+				echo 'Protocolo nï¿½o informado';
 			}
 			return(1);
 		}		
@@ -3537,7 +3537,7 @@ class pibic_bolsa_contempladas
 			$xprof = 'x';
 			$xano = '0000';
 			$sx = '<table width="704" class="lt0" cellpadding=0 cellspacing=2 border=1>';
-			$sh = '<TR><TH>Prof.<TH>Ano<TH>PIBIC<TH>PIBITI<TH>PIBIC_EM<TH>Inclusão<TH>NA<TH>CSF<TH>Outros';
+			$sh = '<TR><TH>Prof.<TH>Ano<TH>PIBIC<TH>PIBITI<TH>PIBIC_EM<TH>Inclusï¿½o<TH>NA<TH>CSF<TH>Outros';
 			while($line = db_read($rlt))
 				{
 
@@ -3688,7 +3688,7 @@ class pibic_bolsa_contempladas
 			$sa = '<table class="tabela00" width="704" border=0>';
 			$sa .= '<TR align="center"><TH>ano';
 			$sa .= '<TH width="10%">PIBIC<TH width="10%">PIBITI<TH width="10%">PIBIC_EM(Jr)
-					<TH width="10%">Inclusão<TH width="10%">NA<TH width="10%">Outros';
+					<TH width="10%">Inclusï¿½o<TH width="10%">NA<TH width="10%">Outros';
 			$sa .= $sb;
 			$sa .= '<TR align="center"><TH>Total<TH width="10%">'.$tot1.'<TH width="10%">'.$tot2.'<TH width="10%">'.$tot3.'
 					<TH width="10%">'.$tot4.'<TH width="10%">'.$tot5.'<TH width="10%">'.$tot8;
@@ -3778,7 +3778,7 @@ class pibic_bolsa_contempladas
         // Create and draw the visualization.
         new google.visualization.ColumnChart(document.getElementById(\'visualization\')).
             draw(data,
-                 {title:"Titulação dos pesquisadores em Iniciação Cientófica",
+                 {title:"Titulaï¿½ï¿½o dos pesquisadores em Iniciaï¿½ï¿½o Cientï¿½fica",
                   width:700, height:300,
                   vAxis: {title: "Prof."},
                   hAxis: {title: "Ano"}}
@@ -3792,21 +3792,26 @@ class pibic_bolsa_contempladas
 	return($sx);
 				
 	}
-		function indicador_bolsa_completadas($filtro='',$tipo='')
+		function indicador_bolsa_completadas($filtro='',$tipo='',$campus='')
 			{
 				$filtro = UpperCaseSql($filtro);
 				
 				$cp = "pb_ano, count(*) as total ";
 				$sql = "select * from ".$this->tabela." 
 						inner join pibic_professor on pp_cracha = pb_professor
-						inner join pibic_aluno on pa_cracha = pb_aluno ";
+						inner join pibic_aluno on pa_cracha = pb_aluno 
+						left join pibic_bolsa_tipo on pb_tipo = pbt_codigo
+						";
 				if ($tipo == 'E')
 					{
 						$sql .= " where Upper(ASC7(pa_curso)) like '%$filtro%' ";
 					} else {
 						$sql .= " where Upper(ASC7(pp_curso)) like '%$filtro%' ";
 					}
-					$sql .= " and pb_status <> 'C' order by pp_nome, pb_ano ";
+				if (strlen($campus) > 0)
+					{ $sql .= " and pp_centro like '%$campus%' "; }
+				
+				$sql .= " and pb_status <> 'C' order by pp_nome, pb_ano ";
 
 				$rlt = db_query($sql);
 				$xprof = 'x';
@@ -3827,6 +3832,7 @@ class pibic_bolsa_contempladas
 								$sx .= '<TR><TD colspan=4 class="lt3"><B>';
 								$sx .= $line['pp_nome'];
 								$sx .= '<I>('.trim($line['pp_curso']).')</I>';
+								$sx .= ' - '.$line['pp_centro'];
 								$xprof = $prof;
 							}
 
@@ -3835,6 +3841,7 @@ class pibic_bolsa_contempladas
 						$sx .= '<TD>'.$line['pb_titulo_projeto'];
 						$sx .= '<BR><B>'.$line['pa_nome'].'</B> ';
 						$sx .= '('.trim($line['pa_curso']).')';
+						$sx .= '<TD>'.$line['pbt_descricao'];
 					}
 				$sx .= '</table>';
 				
@@ -3906,11 +3913,11 @@ class pibic_bolsa_contempladas
 					}
 				echo '<table class="lt0">';
 				echo '<TR><TD colspan=6 class="lt3">';
-				echo 'Discentes envolvidos em pesquisa na Instituição';
+				echo 'Discentes envolvidos em pesquisa na Instituiï¿½ï¿½o';
 					
 				echo '<TR><TD colspan=6 class="lt0">';
-				echo 'Legenda: PIBIC - Iniciação Cientófica; PIBITI - Iniciação Tecnológica; PIBIC_EM - Iniciação Jónior (Ens. Módio); CSF - Cióncia sem fronteiras';
-				echo '<TR><TH width="20%">Curso<TH>Nome do Discente<TH>Código<TH>Modalidade';
+				echo 'Legenda: PIBIC - Iniciaï¿½ï¿½o Cientï¿½fica; PIBITI - Iniciaï¿½ï¿½o Tecnolï¿½gica; PIBIC_EM - Iniciaï¿½ï¿½o Jï¿½nior (Ens. Mï¿½dio); CSF - Ciï¿½ncia sem fronteiras';
+				echo '<TR><TH width="20%">Curso<TH>Nome do Discente<TH>Cï¿½digo<TH>Modalidade';
 				echo $ts;
 				echo '<TR><TD colspan=5>Total '.$tot.' IC ativo';
 				echo '</table>';
@@ -3950,7 +3957,7 @@ class pibic_bolsa_contempladas
 			$sx .= ' Protocolo: '.$link.$doc_protocolo.'</A>&nbsp;&nbsp;&nbsp;&nbsp;';
 			if ($line['pb_ativacao'] != '19000101')
 				{
-				$sx .= 'Data ativação '.stodbr($line['pb_ativacao']);
+				$sx .= 'Data ativaï¿½ï¿½o '.stodbr($line['pb_ativacao']);
 				}
 
 			$sx .= '</TR>';
@@ -4016,7 +4023,7 @@ class pibic_bolsa_contempladas
 				$xrlt = db_query($sql);
 				$sx .= '<table width="95%" class="lt1" width="100%" border=1 cellspacing=0 cellpadding=2>';
 				$sx .= '<TR><TD colspan=5 align="center" class="lt4">';
-				$sx .= 'Histórico de troca de modalidade';
+				$sx .= 'Histï¿½rico de troca de modalidade';
 				while ($xline = db_read($xrlt))
 					{
 						$sx .= '<TR><TD colspan=5>'.stodbr($xline['bh_data']);
@@ -4041,10 +4048,10 @@ class pibic_bolsa_contempladas
 					order by pb_ano desc
 					";
 				$rlt = db_query($sql);
-				$sx .= '<fieldset><legend>Histórico do Estudante nos Programas de Iniciação Cientófica</legend>';
+				$sx .= '<fieldset><legend>Histï¿½rico do Estudante nos Programas de Iniciaï¿½ï¿½o Cientï¿½fica</legend>';
 				$sx .= '<table width=99% class="lt1">';
-				$sx .= '<TR><TD colspan=5>Participação do estudante nos programas de Iniciação Cientófica';
-				$sx .= '<TR><TH>Protocolo<TH>Título<TH>Ano<TH>Modalidade<TH>Status<TH>Orientador';
+				$sx .= '<TR><TD colspan=5>Participaï¿½ï¿½o do estudante nos programas de Iniciaï¿½ï¿½o Cientï¿½fica';
+				$sx .= '<TR><TH>Protocolo<TH>Tï¿½tulo<TH>Ano<TH>Modalidade<TH>Status<TH>Orientador';
 				$tot = 0;
 				while ($line = db_read($rlt))
 					{
@@ -4108,7 +4115,7 @@ class pibic_bolsa_contempladas
 				$xrlt = db_query($sql);
 				$sx .= '<table width="95%" class="lt1" width="100%" border=1 cellspacing=0 cellpadding=2>';
 				$sx .= '<TR><TD colspan=5 align="center" class="lt4">';
-				$sx .= 'Histórico de cancelamento';
+				$sx .= 'Histï¿½rico de cancelamento';
 				while ($xline = db_read($xrlt))
 					{
 						$tot++;
@@ -4142,7 +4149,7 @@ class pibic_bolsa_contempladas
 				$rlt = db_query($sql);
 				$sx .= '<table width="95%" class="lt1" width="100%" border=1 cellspacing=0 cellpadding=2>';
 				$sx .= '<TR><TD colspan=5 align="center" class="lt4">';
-				$sx .= 'Histórico de substituição';
+				$sx .= 'Histï¿½rico de substituiï¿½ï¿½o';
 				while ($line = db_read($rlt))
 					{
 						$sx .= '<TR '.coluna().'>';
@@ -4169,7 +4176,7 @@ class pibic_bolsa_contempladas
 			{
 				$nt = array('-','-','-','-','-','-','-','-');
 				$ci = array('off','off','off','off','off','off','off','off','off','off','off','off','off','off');
-				$ns = array('-','aprovado','não aprovado','nao avaliado','','','','','','-','');
+				$ns = array('-','aprovado','nï¿½o aprovado','nao avaliado','','','','','','-','');
 				$ni = array('off','a','x','off','off','off','off','off','off','off','off','off','off','off','off');
 				$msgc = array('-','-','-','-','-','-','-','-','-','-','-','-','-');
 				/*** Relatorio Parcial */
@@ -4177,12 +4184,12 @@ class pibic_bolsa_contempladas
 				$nt[1] = $ns[round($this->pb_rp_nota)];
 				$ci[1] = $ni[round($this->pb_rp_nota)];
 				
-				/*** Relatorio Parcial Correção */
+				/*** Relatorio Parcial Correï¿½ï¿½o */
 				if ($this->pb_pr_2 > 20000101) { $msgc[2] = 'Postado em '.stodbr($this->pb_pr_2); }
 				$nt[2] = $ns[round($this->$pb_rp_nota_2)];
 				$ci[2] = $ni[round($this->$pb_rp_nota_2)];
 				
-				/*** Relatorio Parcial Correção */
+				/*** Relatorio Parcial Correï¿½ï¿½o */
 				if ($this->pb_rp_data_reenvio > 20000101) { $msgc[2] = 'Postado em '.stodbr($this->pb_rp_data_reenvio); }
 				$nt[2] = $ns[round($this->pb_rp_data_reenvio_nota)];
 				$ci[2] = $ni[round($this->pb_rp_data_reenvio_nota)];
@@ -4202,12 +4209,12 @@ class pibic_bolsa_contempladas
 				$sx .= '
 				<TABLE width="704" border="1" cellpadding="4" cellspacing="0">
 				<TR class="lt2" bgcolor="#F0F0F0" align="center">
-					<TD width="17%">Relatório Parcial</Td>
-					<TD width="17%">Correção R. Parcial </TD>
-					<TD width="17%">Relatório Final</Td>
-					<TD width="17%">Correção R. Final</Td>
+					<TD width="17%">Relatï¿½rio Parcial</Td>
+					<TD width="17%">Correï¿½ï¿½o R. Parcial </TD>
+					<TD width="17%">Relatï¿½rio Final</Td>
+					<TD width="17%">Correï¿½ï¿½o R. Final</Td>
 					<TD width="17%">Resumo</TH>
-					<TD width="17%">Correção Resumo</Td>
+					<TD width="17%">Correï¿½ï¿½o Resumo</Td>
 				</TR>
 				
 				<TR align="center">
@@ -4280,7 +4287,7 @@ class pibic_bolsa_contempladas
 				
 				$status = trim($line['pb_status']);
 	
-				if ($status == '@') { $status = '<font color="#ff8000">Nóo implementado</font>'; $bgc = '#f5f5f5';}
+				if ($status == '@') { $status = '<font color="#ff8000">Nï¿½o implementado</font>'; $bgc = '#f5f5f5';}
 				if ($status == 'A') { $status = '<font color="green">Ativo</font>';  $bgc = '#d2fad1';}
 				if ($status == 'B') { $status = '<font color="#0000ff">Encerrado</font>';  $bgc = '#faebef';}
 				if ($status == 'C') { $status = '<font color="#ff0000">**Cancelado**</font>';  $bgc = '#ffe1e1';}
@@ -4319,7 +4326,7 @@ class pibic_bolsa_contempladas
 				$sr .= '<TD align="right"><B>'.$status.'</TD>';
 				$sr .= '</TR>';
 
-				$sr .= '<TR bgcolor="'.$bgc.'"><TD align="right"><I>Relatórios</I></TD>';
+				$sr .= '<TR bgcolor="'.$bgc.'"><TD align="right"><I>Relatï¿½rios</I></TD>';
 				$sr .= '<TD colspan="6">';
 		
 				$fld = "pb_relatorio_parcial";
@@ -4351,18 +4358,18 @@ class pibic_bolsa_contempladas
 					{
 					switch ($nota)
 						{
-						case '0': $sx = 'não avaliado'; break;
+						case '0': $sx = 'nï¿½o avaliado'; break;
 						case '1': $sx = '<font color="#404080"><B>aprovado</B></font>'; break;
 						case '0': $sx = '<font color="#800000"><B>pendente</B></font>'; break;
-						case '-1': $sx = '<B>enviado para correção</B>';
-						case '-90': $sx = '<B>postado, aguardando avaliação</B>'; break;
+						case '-1': $sx = '<B>enviado para correï¿½ï¿½o</B>';
+						case '-90': $sx = '<B>postado, aguardando avaliaï¿½ï¿½o</B>'; break;
 						case '-99': $sx = '<B>postado, aguardando avaliador</B>'; break;
-						case '0': $sx = 'não avaliado'; break;
+						case '0': $sx = 'nï¿½o avaliado'; break;
 						default:
 							$sx = '- -'.$nota;
 						}
 					} else {
-						$sx = 'não postado';
+						$sx = 'nï¿½o postado';
 					}
 					return($sx);
 				}
@@ -4374,9 +4381,9 @@ class pibic_bolsa_contempladas
 				array_push($cp,array('$T50:2','pb_titulo_projeto','Titulo',True,True,''));
 				array_push($cp,array('$HV','pb_titulo_projeto_asc',uppercasesql($dd[1]),False,True,''));
 
-				array_push($cp,array('$T50:2','pb_titulo_plano','Título Plano',False,True,''));
-				array_push($cp,array('$T50:2','pb_fomento','Aprovação externa',False,True,''));
-				array_push($cp,array('$S10','pb_codigo','Código da Bolsa',False,False,''));
+				array_push($cp,array('$T50:2','pb_titulo_plano','Tï¿½tulo Plano',False,True,''));
+				array_push($cp,array('$T50:2','pb_fomento','Aprovaï¿½ï¿½o externa',False,True,''));
+				array_push($cp,array('$S10','pb_codigo','Cï¿½digo da Bolsa',False,False,''));
 				array_push($cp,array('$Q pbt_descricao:pbt_codigo:select * from pibic_bolsa_tipo order by pbt_descricao','pb_tipo','Bolsa',True,True,''));
 				array_push($cp,array('$S1','pb_status','Status',False,True,''));
 				//array_push($cp,array('$S10','pb_status','Status',False,True,''));
@@ -4385,7 +4392,7 @@ class pibic_bolsa_contempladas
 				array_push($cp,array('$S8','pb_aluno','Aluno (Cracha)',False,True,''));
 
 
-				array_push($cp,array('${','','Cióncia Sem Fronteira',False,True,''));
+				array_push($cp,array('${','','Ciï¿½ncia Sem Fronteira',False,True,''));
 				array_push($cp,array('$S100','pb_aluno_nome','Nome do Tutor',False,True,''));
 				array_push($cp,array('$S60','pb_colegio','Nome do Universidade',False,True,''));
 				array_push($cp,array('$S60','pb_colegio_orientador','Pais de destino',False,True,''));
@@ -4399,7 +4406,7 @@ class pibic_bolsa_contempladas
 				array_push($cp,array('$HV','pb_data',19000101,False,True,''));
 				array_push($cp,array('$H5','pb_hora','Hora',False,True,''));
 
-				array_push($cp,array('$D8','pb_data_ativacao','Data (ativação)',False,True,''));
+				array_push($cp,array('$D8','pb_data_ativacao','Data (ativaï¿½ï¿½o)',False,True,''));
 				array_push($cp,array('$D8','pb_data_encerramento','Data (encerramento)',False,True,''));
 				
 				array_push($cp,array('$HV','pb_relatorio_parcial','0',False,True,''));
@@ -4410,9 +4417,9 @@ class pibic_bolsa_contempladas
 				array_push($cp,array('$HV','pb_resumo_nota','0',False,True,''));
 				array_push($cp,array('$HV','pb_semic','0',False,True,''));
 
-				array_push($cp,array('$O 1:SIM&0:NóO','pb_ativo','Ativo',False,True,''));
-				array_push($cp,array('$D8','pb_ativacao','Data ativação',False,True,''));
-				array_push($cp,array('$D8','pb_desativacao','Data finalização',False,True,''));
+				array_push($cp,array('$O 1:SIM&0:Nï¿½O','pb_ativo','Ativo',False,True,''));
+				array_push($cp,array('$D8','pb_ativacao','Data ativaï¿½ï¿½o',False,True,''));
+				array_push($cp,array('$D8','pb_desativacao','Data finalizaï¿½ï¿½o',False,True,''));
 				array_push($cp,array('$H8','','Contrato',False,True,''));
 
 				array_push($cp,array('$H8','pb_area_conhecimento','Area conhecimento',False,True,''));
@@ -4789,7 +4796,7 @@ class pibic_bolsa_contempladas
 
 
 /**
- * Relatório Final
+ * Relatï¿½rio Final
  */
  		function bolsa_relatorio_final_lista()
 			{
@@ -4808,7 +4815,7 @@ class pibic_bolsa_contempladas
 				
 				$ss .= '<TABLE width="100%" class="lt1" border="0">';
 				$ss .= '<TR><TD>';
-				$ss .= '<font color="red">Prazo de 06/ago./2012 ató <B>12/ago./2012</B> as 23h59</font>';
+				$ss .= '<font color="red">Prazo de 06/ago./2012 atï¿½ <B>12/ago./2012</B> as 23h59</font>';
 				$ss .= '<BR><BR>';
 				$ss .= 'Clique no plano de trabalho do aluno para submeter atividade.<BR>';
 				$ss .= '<UL>';
@@ -5135,7 +5142,7 @@ class pibic_bolsa_contempladas
 			}
 
 	/** 
-	 * Valida órea do conhecimento
+	 * Valida ï¿½rea do conhecimento
 	 */
 
 		function valida_relatorio_parcial()
@@ -5188,13 +5195,13 @@ class pibic_bolsa_contempladas
 
 
 		/**
-		 * Idioma disponóveis
+		 * Idioma disponï¿½veis
 		 */
 		function idioma()
 			{
 				$rsti = array('pt_BR'=>'Portugues',
-					'en'=>'Inglós',
-					'en_US'=>'Inglós',
+					'en'=>'Inglï¿½s',
+					'en_US'=>'Inglï¿½s',
 					//'es'=>'Espanhol',
 					//'fr'=>'Frances'
 					);
@@ -5208,7 +5215,7 @@ class pibic_bolsa_contempladas
 			}
 		 
 		/**
-		 * Descreve o nome do idioma pelo seu código
+		 * Descreve o nome do idioma pelo seu cï¿½digo
 		 * @param string $idioma
 		 */
 		function mostra_idioma($idioma='')
@@ -5245,7 +5252,7 @@ class pibic_bolsa_contempladas
 				return(1);
 			}
 		/**
-		 * Mostra o idioma seleciona com caixa de apresentação
+		 * Mostra o idioma seleciona com caixa de apresentaï¿½ï¿½o
 		 */
 		function semic_idioma()
 			{
@@ -5273,7 +5280,7 @@ class pibic_bolsa_contempladas
 			}
 
 	/** 
-	 * Valida órea do conhecimento
+	 * Valida ï¿½rea do conhecimento
 	 */
 
 		function valida_area()

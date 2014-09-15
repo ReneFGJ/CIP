@@ -9,7 +9,7 @@ class submit_documentos_obrigatorio
 				$cp = array();
 				array_push($cp,array('$H8','id_sdo','id_faq',False,True,''));
 				array_push($cp,array('$Q title:jnl_codigo:select * from journals where journal_id = '.$jid,'sdo_journal_id','Publicação',True,True,''));
-				array_push($cp,array('$Q sp_descricao:sp_codigo:select * from submit_manuscrito_tipo where journal_id = '.strzero(round($jid),7),'sdo_tipodoc',CharE('Anexo da submissão'),True,True,''));
+				array_push($cp,array('$Q sp_descricao:sp_codigo:select * from submit_manuscrito_tipo where journal_id = '.strzero(round($jid),7),'sdo_tipodoc',CharE('Anexo da submissão'),False,True,''));
 				array_push($cp,array('$H8','sdo_codigo','Pergunta',False,True,''));
 				array_push($cp,array('$S50','sdo_descricao','Documento',True,True,''));
 				array_push($cp,array('$Q doct_nome:doct_codigo:select * from submit_files_tipo where doct_ativo = 1','sdo_ged_tipo','Vinculo ao sistema',True,True,''));

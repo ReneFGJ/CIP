@@ -1,0 +1,75 @@
+.botao-geral{
+	background-color: #00929a;
+	color: #fff;
+	font-family: 'RobotoRegular', arial, sans-serif;
+	font-size: 12px;
+	padding: 5px 10px 5px 10px;
+	cursor: pointer;
+	border: none;
+}
+
+.botao-geral:active {
+	position:relative;
+	top:1px;
+}
+
+.botao-geral:hover{
+	background-color: #0099a1;
+}
+
+.botao-red {
+	position:relative;
+	top:1px;
+	background-color: #FF9393;
+}
+
+
+
+.botao-confirmar{
+	background-color: #DF8500;
+	
+	color: #000;
+	font-family: 'RobotoRegular', arial, sans-serif;
+	font-size: 12px;
+	padding: 5px 10px 5px 10px;
+	cursor: pointer;
+	border: none;
+	height:40px;
+}
+
+.botao-confirmar:active {
+	position:relative;
+	top:1px;
+}
+
+.botao-confirmar:hover{
+	background-color: #FFA500; 
+}
+
+.botao-finalizar {
+  font-family: 'RobotoRegular', Arial;
+  color: #ffffff;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  text-decoration: none;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 1px 1px #c2c2c2;
+  -moz-box-shadow: 0px 1px 1px #c2c2c2;
+  box-shadow: 0px 1px 1px #c2c2c2;
+  text-shadow: 1px 1px 1px #666666;
+  border: solid #0d6469 1px;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#00A5FF), to(#0085CF));
+  background: -moz-linear-gradient(top, #FFA500, #CF8500);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#00A5FF, endColorStr=#0085CF);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#00A5FF, endColorStr=#0085CF);
+  display:inline-block; /* IE is so silly */
+}
+.botao-finalizar:hover {
+  background: #0055AF;
+  cursor: pointer;
+}

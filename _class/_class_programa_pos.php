@@ -22,6 +22,53 @@ class programa_pos
 		var $tabela = 'programa_pos';
 		var $tabela_nota = "programa_pos_capes";
 		
+		function busca_secretaria($usuario)
+			{
+				$sql = "select * from ".$this->tabela." 
+						inner join usuario_perfis_ativo on pos_secretaria_peril = up_perfil
+						inner join usuario on us_codigo = up_usuario 
+						inner join pibic_aluno on us_cracha = pa_cracha
+						where us_login = '".$usuario."' and up_ativo = 1 ";
+				echo $sql;
+				$rlt = db_query($sql);
+				while ($line = db_read($rlt))
+					{
+						$id = $line['id_pos'];
+						return($id);
+					}
+				return(0);
+			}
+		
+		function mostra_secretarias_pos($programa)
+			{
+				$sql = "select * from ".$this->tabela." 
+						inner join usuario_perfis_ativo on pos_secretaria_peril = up_perfil
+						inner join usuario on us_codigo = up_usuario 
+						inner join pibic_aluno on us_cracha = pa_cracha
+						where pos_codigo = '".$programa."' and up_ativo = 1 ";
+				$rlt = db_query($sql);
+				$sx = '<table>';
+				$sx .= '<TR><TD class="lt3">Secretárias(os)';
+				$sx .= '<TR><TH>Login<TH>Nome<TH>e-mail<TH>Telefones';
+				$id = 0;
+				while ($line = db_read($rlt))
+					{
+						$id++;
+						$sx .= '<tr>';
+						$sx .= '<TD width="10%" class="tabela01">';
+						$sx .= $line['us_login'];
+						$sx .= '<TD width="40%" class="tabela01">';
+						$sx .= $line['pa_nome'].'&nbsp;';						
+						$sx .= '<TD width="40%" class="tabela01">';
+						$sx .= $line['pa_email'].'&nbsp;';
+						$sx .= '<TD width="10%" class="tabela01"><NOBR>';
+						$sx .= $line['pa_tel1'].'&nbsp;';			
+					}
+				$sx .= '</table>';
+				if ($id == 0) { $sx = ''; }
+				return($sx);
+			}
+		
 		
 		function programas_pos_notas_cronologico()
 			{

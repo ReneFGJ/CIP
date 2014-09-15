@@ -561,12 +561,17 @@ class parecer
 						select count(*) as total, pp_avaliador from ".$this->tabela." group by pp_avaliador 
 					) as tabela01 on pp_avaliador = pa_parecerista
 							
+					left join 
+					(
+						select count(*) as total_a, pp_avaliador as pp_avaliador_2 from ".$this->tabela." where (pp_status = '@' or pp_status = 'A') group by pp_avaliador 
+					) as tabela02 on pp_avaliador_2 = pa_parecerista
+
 					order by a_cnpq, us_nome
 					";
 			$rlt = db_query($sql);
 			
 			$sx = '<table class="tabela10" width="100%">';
-			$sx .= '<TR class="tabela_title"><td colspan=3><B>Marque os avaliadores</B>';
+			$sx .= '<TR class="tabela_title"><td colspan=3><B>Marque os avaliadores ...</B>';
 			$sx .= '<TR><TH width="25">M<TH>Avaliador';
 			$xarea = 'x';
 			$grs = array();
@@ -595,13 +600,20 @@ class parecer
 				$sx .= '<TR id="i'.strzero($idr,4).'" style="display: none;">
 						<TD>';
 				$sx .= '<input type="checkbox" name="ddi'.($idp++).'" value="'.$line['us_cracha'].'">';
-				$sx .= '<TD>'.$line['us_nome'];
+				$link = '<A HREF="mailto:'.trim($line['us_email']).'">';
+				$sx .= '<TD>'.$link.$line['us_nome'].'</A>';
 				$sx .= ' ('.trim($line['inst_abreviatura']).')';
 				
-				$tot = round($line['total']);
-				if ($tot ==0) { $tot = '-'; }
+				$tota = round($line['total']);
+				$totb = round($line['total_a']);
+				$tot = '<A Href="#" title="Indicações (Total)">'.round($line['total']).'</A>';
+				$tot2 = '<A Href="#" title="indicações (Em aberto)">'.round($line['total_a']).'</A>';
+				if ($tota ==0) { $tot = '-'; }
+				if ($totb ==0) { $tot2 = '-'; }
 				$sx .=' (';
 				$sx .= $tot;
+				$sx .= '/';
+				$sx .= $tot2;
 				$sx .= ')';
 				
 				$idr++;

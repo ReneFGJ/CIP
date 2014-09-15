@@ -102,6 +102,7 @@ class fomento {
 	}
 
 	function enviar_email($total) {
+		
 		$sql = "select * from " . $this -> tabela_fila_envio . "
 						order by id_fle
 						limit " . round($total);
@@ -167,7 +168,8 @@ class fomento {
 				if (strlen($titulo_email) > 0) {
 					$tit = '[PD&I] - ' . $titulo_email;
 				}
-				$tit .= ' ' . $nome;
+				$nnome = substr($nome,0,strpos($nome,';'));
+				$tit .= ' ' . $nnome;
 
 				$txta = '
 							<font style="font-size: 12px; font-family: tahoma, verdana, arial">
@@ -368,6 +370,12 @@ class fomento {
 		$sx .= '<TR><TD><BR> ';
 		//$sx .= '<TR><TD><I>Tags:</I> ';
 		//$sx .= $this->tags();
+		
+		$sx .= '<TR valign="top"><TD align="right"><BR><BR>';
+		$sx .= '55 (41) 3271.2128 - e-mail: <A href="mailto:pdi@pucpr.br">pdi@pucpr.br</A>';
+		$sx .= '<TR valign="top"><TD>';
+		$sx .= '<img src="' . $http . 'img/email_pdi_foot.png" ><BR>';
+				
 		$sx .= '</table>';
 		$sx .= '<BR><BR><BR>';
 		$this -> texto = $sx;

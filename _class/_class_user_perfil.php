@@ -10,36 +10,85 @@ class user_perfil
 		var $tabela = 'usuario_perfil';
 		var $tabela_perfil = 'usuario_perfis_ativo';
 		var $versao = '0.12.35';
-		
+
+	function excluir_perfil_todo($login)
+		{			
+			$sql = "select * 
+					from ".$this->tabela_perfil." 
+					inner join ".$this->tabela." on usp_codigo = up_perfil
+					inner join usuario on up_usuario = us_codigo 
+					where id_up = $id
+					order by usp_descricao, us_login
+					";
+			$rlt = db_query($sql);
+			if ($line = db_read($rlt))
+				{
+					$sql = "update ".$this->tabela_perfil." set up_ativo = 0 where id_up = ".$id;
+					$rlt = db_query($sql);
+					$id = trim($line['up_usuario']);
+				}
+			if (strlen($id) > 0) { $this->set($id); }
+			return(1);			
+		}
+
+	function excluir_perfil($id)
+		{			
+			$sql = "select * 
+					from ".$this->tabela_perfil." 
+					inner join ".$this->tabela." on usp_codigo = up_perfil
+					inner join usuario on up_usuario = us_codigo 
+					where id_up = $id
+					order by usp_descricao, us_login
+					";
+			$rlt = db_query($sql);
+			if ($line = db_read($rlt))
+				{
+					$sql = "update ".$this->tabela_perfil." set up_ativo = 0 where id_up = ".$id;
+					$rlt = db_query($sql);
+					$id = trim($line['up_usuario']);
+				}
+			if (strlen($id) > 0) { $this->set($id); }
+			return(1);			
+		}
 	function display_perfil_member()
 		{
 			$sql = "select * 
 					from ".$this->tabela_perfil." 
 					inner join ".$this->tabela." on usp_codigo = up_perfil
 					inner join usuario on up_usuario = us_codigo 
+					where usp_ativo = 1 and up_ativo = 1
 					order by usp_descricao, us_login
 					";
 			$rlt = db_query($sql);
 			$sx = '<table width="100%" class="tabela00">';
 			$xcargo = "";
+			$idx = 0;
 			while ($line = db_read($rlt))
 				{
 					$cargo = trim($line['up_perfil']);
 					if ($cargo != $xcargo)
 						{
+							$idx++;
 							$xcargo = $cargo;
+							$sx .= '<A name="'.$idx.'"></A>';
 							$sx .= '<TR><TD colspan=5 class="lt4">'.$line['usp_descricao'];
 							$sx .= ' - '.$line['usp_codigo'];
 						}
 					$sx .= '<TR>';
 					$sx .= '<TD class="tabela01">';
-					$sx .= $line['us_login'];					
+					$sx .= $line['us_login'].'&nbsp;';
 					$sx .= '<TD class="tabela01">';
-					$sx .= $line['us_cracha'];
+					$sx .= $line['us_cracha'].'&nbsp;';
 					$sx .= '<TD class="tabela01">';
-					$sx .= $line['us_nome'];
+					$sx .= $line['us_nome'].'&nbsp;';
 					$sx .= '<TD class="tabela01">';
-					$sx .= $line['us_email'];										
+					$sx .= $line['us_email'].'&nbsp;';
+					$sx .= '<TD class="tabela01" align="center">';
+					$sx .= '<A HREF="'.page().'?dd0='.$line['id_up'].'&dd1=DEL">';
+					$sx .= 'excluir';
+					$sx .= '</a>';
+					//print_r($line);
+					//exit;
 				}
 			$sx .= '</TABLE>';
 			return($sx);
@@ -136,7 +185,7 @@ class user_perfil
 				{
 					$per .= trim($line['usp_codigo']);
 				}
-			$per = substr($per,0,30);
+			$per = substr($per,0,90);
 			$sql = "update usuario set us_perfil = '".trim($per)."' where us_codigo = '".$id."' ";
 			$rlt = db_query($sql);
 			return(1);
@@ -231,7 +280,7 @@ class user_perfil
 			$sx .= '</select>';
 			$sx .= '<TD>';
 			
-			$sx .= '<select size=18 name="dd2" style="width: 200px;">';
+			$sx .= '<select size=18 name="dd2" style="width: 400px;">';
 			$sql = "select * from ".$this->tabela." where usp_ativo = 1 order by usp_descricao ";
 			$rlt = db_query($sql);
 			while ($line = db_read($rlt))

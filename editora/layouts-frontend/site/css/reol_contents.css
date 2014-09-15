@@ -1,0 +1,62 @@
+#main_content{
+	float: right;
+	padding: 0 20px;
+	width: 771px;
+	height: 100%;
+}
+
+/* CABAEÇALHO CONTENT*/
+.title_cab_content{
+	position: relative;
+	width: 100%;
+	height: 40px;
+	margin-bottom: 25px;
+}
+.title_cab_name{
+	position: absolute;
+	left: 50px;
+	padding: 0 10px;
+    background: url(../img/back_container_down.png) repeat;
+}
+.title_cab_revista{
+	float: right;
+}
+.title_cab_line{
+	float: left;
+	width: 100%;
+	height: 23px;
+	border-bottom: solid 1px #666666;
+}
+/* FIM CABEÇALHO DO CONTEÚDO */
+
+/*-------------------- DIVS internas */
+
+.main_internal_content{
+	float: left;
+	width: 771px;
+	height: 100%;
+} 
+.top_internal_content{
+	float: left;
+	width: 100%;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #c8c8c8;
+}
+.half_internal_content{
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #c8c8c8;
+}
+.bottom_internal_content{
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #c8c8c8;
+}
+.half_internal_content_block{
+	float: left;
+	width: 257px;
+	margin: 0 0 25px 0;
+	padding-top: 30px;
+}
+
+

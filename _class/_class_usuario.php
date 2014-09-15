@@ -243,6 +243,9 @@ class users
 				array_push($cp,array('$S100','us_email',msg('email'),False,True));
 				array_push($cp,array('$H8','us_email_alt',msg('email_alt'),False,False));
 				array_push($cp,array('$P20','us_senha',msg('senha'),False,False));
+				array_push($cp,array('$S10','us_fone_1','Telefone corporativo',False,False));
+				array_push($cp,array('$S10','us_fone_2','Telefone particular',False,False));
+				array_push($cp,array('$S10','us_fone_3','Outro telefone',False,False));
 				array_push($cp,array('$}','','',False,True));
 				array_push($cp,array('$B8','',msg('submit'),False,True));
 				return($cp);
@@ -286,7 +289,12 @@ class users
 				
 				array_push($cp,array('$O : '.$op,'us_ativo',msg('status'),'1',False,False));
 				array_push($cp,array('$}','','',False,True));
-				array_push($cp,array('$S8','us_codigo',msg('codigo'),False,False));								
+				array_push($cp,array('$S8','us_codigo',msg('codigo'),False,False));
+				
+				array_push($cp,array('$S10','us_fone_1','Telefone/Ramal',False,True));
+				array_push($cp,array('$S10','us_fone_2','Telefone particular',False,True));
+				array_push($cp,array('$S10','us_fone_3','Outro telefone',False,True));
+												
 				return($cp);
 			}
 			

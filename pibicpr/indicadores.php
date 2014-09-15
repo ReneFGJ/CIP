@@ -51,10 +51,15 @@ array_push($menu,array('Orientadores','Guia do estudante '.(date("Y")-1).'/'.dat
 /////////////////////////////////////////////////// MANAGERS
 $curso = $_SESSION['curso_nome'];
 $cursoc = $_SESSION['curso_codigo'];
+$campus = $_SESSION['campus'];
+if (strlen($campus) == 0)
+	{ $campus = 'Todos'; }
+
 array_push($menu,array('Indicadores de projetos','Curso','indicador_curso_01.php'));
 if (strlen($curso) > 0)
 	{
-	array_push($menu,array('Indicadores de projetos','__'.$curso,''));	 
+	array_push($menu,array('Indicadores de projetos','__'.$curso,''));
+	array_push($menu,array('Indicadores de projetos','__Campus: <B>'.$campus.'</B>','indicador_campus_sele.php'));		 
 	array_push($menu,array('Indicadores de projetos','__Docentes envolvidos (2)','indicador_curso_02.php'));
 	array_push($menu,array('Indicadores de projetos','__Dicentes envolvidos (3)','indicador_curso_03.php'));
 	}

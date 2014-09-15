@@ -28,13 +28,20 @@ if ((strlen($dd[20]) == 0) or (strlen($dd[50])==0))
 		<textarea name="dd50" cols="40" rows="3"><?=$dd[50];?></textarea>
 		<BR>
 		<input type="hidden" name="dd20" value="1">
+		<input type="hidden" name="dd5" value="<?php echo $dd[5];?>">
 		<input type="submit" name="acao" value="declinar submissão">
 		</form>
 		<?
 	} else {
+		if ($dd[5]=='reol_parecer_enviado')
+		{
+		$sql = "update reol_parecer_enviado set pp_status='D'
+				where id_pp = ".$dd[0];
+		} else {
 		$sql = "update submit_parecer_2013 set pp_status='D',
 				pp_abe_14 = '".$dd[50]."'
-				where id_pp = ".$dd[0];
+				where id_pp = ".$dd[0];			
+		}
 		$rlt = db_query($sql);
 		?>
 		<script>

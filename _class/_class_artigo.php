@@ -593,12 +593,11 @@ class artigo
 								//$this->historico('9');
 								}
 							break;																																		
-						case '90':
-							echo '==============='; 
+						case '90': 
 							if ($st != '90')
 								{
 								$this->acoes_90(); 
-								//$this->historico('9');
+								$this->historico('90');
 								}
 							break;					
 						default:
@@ -610,6 +609,8 @@ class artigo
 			$acoes = array();
 			switch ($st)
 				{
+				case '9': /* Cadastrado */
+					array_push($acoes,array('90','Finalizado'));					
 				case '8': /* Cadastrado */
 					array_push($acoes,array('10','Acatar para análise'));
 					array_push($acoes,array('9','Cancelar'));
@@ -622,23 +623,27 @@ class artigo
 					array_push($acoes,array('8','Devolvido ao professor para correções'));
 					array_push($acoes,array('11','Com bonificação'));
 					array_push($acoes,array('13','Sem bonificação'));
+					array_push($acoes,array('90','Finalizado'));
 					array_push($acoes,array('9','Cancelar'));
 					break;
 				case '11': /* Cadastrado */
 					array_push($acoes,array('8','Devolvido ao professor para correções'));
 					array_push($acoes,array('22','Validado pelo(a) Diretor(a) de Pesquisa'));
 					array_push($acoes,array('23','Indeferido  pelo(a) Diretor(a) de Pesquisa'));
+					array_push($acoes,array('90','Finalizado'));
 					array_push($acoes,array('9','Cancelado'));
 					break;					
 				case '1': /* Cadastrado */
 					array_push($acoes,array('8','Devolvido ao professor para correções'));
 					array_push($acoes,array('22','Validado pelo(a) Diretor(a) de Pesquisa'));
 					array_push($acoes,array('23','Indeferido  pelo(a) Diretor(a) de Pesquisa'));
+					array_push($acoes,array('90','Finalizado'));
 					array_push($acoes,array('9','Cancelado'));
 					break;	
 				case '22': /* Cadastrado */
 					array_push($acoes,array('24','Gerado formulário de pagamento'));
 					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));
+					array_push($acoes,array('90','Finalizado'));
 					array_push($acoes,array('8','Devolvido ao professor para correções'));				
 					break;										
 				case '23': /* Cadastrado */
@@ -655,7 +660,8 @@ class artigo
 					array_push($acoes,array('90','Finalizar'));
 					break;
 				case '90':
-					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));										
+					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));
+					array_push($acoes,array('90','Finalizado'));										
 				default:
 					
 					echo '-->'.$st;
@@ -722,8 +728,11 @@ class artigo
 			$sta = array(0=>'Em cadastro',10=>'Cadastrado','11'=>'Em análise',8=>'Correção do professor');
 			return($sta[$status]);
 		}
-	function lista_artigos($sta,$cracha)
+	function lista_artigos($sta,$cracha,$ss='')
 		{
+			//$sql = "update artigo set ar_status = 10 where ar_status = 25 ";
+			//$rlt = db_query($sql);
+			
 			if (strlen($cracha) > 0)
 				{
 					$wh = " where ar_professor = '".$cracha."' ";
@@ -731,7 +740,13 @@ class artigo
 						{ $wh .= ' and ar_status = '.$sta;	}
 				} else {
 					if (strlen($sta) > 0 )
-						{ $wh .= ' where ar_status = '.$sta;	}					
+						{
+							$wh .= ' where ar_status = '.$sta;
+							if (strlen($ss) > 0)
+								{
+									$wh .= " and pp_ss = '".$ss."' ";
+								}
+						}				
 				}
 			$sql = "select * from ".$this->tabela."
 					inner join pibic_professor on pp_cracha = ar_professor
@@ -882,9 +897,10 @@ class artigo
 				{
 					$wh = " where ar_professor = '".$cracha."' ";
 				}
-			$sql = "select count(*) as total, ar_tipo, ar_status from ".$this->tabela."
+			$sql = "select count(*) as total, ar_tipo, ar_status, pp_ss from ".$this->tabela."
+					inner join pibic_professor on ar_professor = pp_cracha
 				$wh 
-				group by ar_tipo, ar_status
+				group by ar_tipo, ar_status, pp_ss
 				order by ar_tipo, ar_status
 			";
 			
@@ -900,7 +916,13 @@ class artigo
 							$api[9] = $api[9] + $line['total'];
 							break;
 						case 10:
-							$api[0] = $api[0] + $line['total'];
+							$ss = trim($line['pp_ss']);
+							if ($ss == 'S')
+								{
+									$api[0] = $api[0] + $line['total'];
+								} else {
+									$api[1] = $api[1] + $line['total'];
+								}
 							break;
 						case 8:
 							$api[8] = $api[8] + $line['total'];
@@ -936,7 +958,7 @@ class artigo
 			$sx .= '<TH width="10%">Em cadastro pelo professor';
 			$sx .= '<TH width="10%">Para correção do professor';
 			$sx .= '<TH width="10%">Em validação do coordenador';
-			$sx .= '<TH width="10%">(Outros 1)';
+			$sx .= '<TH width="10%">Em validação do diretoria de pesquisa';
 			$sx .= '<TH width="10%">Análise do(a) Diretor(a) de Pesquisa';
 			$sx .= '<TH width="10%">(outros 2)';
 			$sx .= '<TH width="10%">Não bonificados para finalizar';
@@ -947,8 +969,8 @@ class artigo
 			
 			$link9 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=0&dd90='.checkpost(0).'">';
 			$link8 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=8&dd90='.checkpost(8).'">';
-			$link0 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=10&dd90='.checkpost(10).'">';
-			$link1 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=11&dd90='.checkpost(11).'">';
+			$link0 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=10&dd90='.checkpost(10).'&dd2=S">';
+			$link1 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=10&dd90='.checkpost(11).'&dd2=N">';
 			$link3 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=11&dd90='.checkpost(9).'">';
 			$link6 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=1&dd90='.checkpost(1).'">';
 			$link22 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=22&dd90='.checkpost(22).'">';
@@ -985,7 +1007,7 @@ class artigo
 				'98'=>'Validado, sem bonificação',
 				'10'=>'Validado pelo professor',
 				
-				'90'=>'Não validado pelo coordenador',
+				'90'=>'Finalizado',
 				
 				'1'=>'Com bonificação',
 				'2'=>'Sem bonificação',

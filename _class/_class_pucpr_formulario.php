@@ -3,7 +3,7 @@ class formulario
 	{
 	var $nr_ordem = 1;
 	var $nr_log = 'RENE.GABRIEL';
-	var $vinculo = "COLABORADOR COM VÍNCULO";
+	var $vinculo = "PROFESSOR COM VÍNCULO";
 	
 	var $solicitante;
 	var $solicitante_telefone;
@@ -13,6 +13,8 @@ class formulario
 	var $ig_centro_nome = "Administração da Pró-Reitoria de Pesquisa e Pós-Graduação";
 	var $ig_empresa = "Associação Paranaense de Cultura - APC";
 	var $ig_filial = "PUCPR - Campus Curitiba";
+	var $ig_cnpj = "";
+	//var $ig_cnpj = "76.659.820/0001-51";
 	var $ig_classificacao = "DESPESA";
 	var $ig_pa = "Repasse de 3% - projeto Atração e Retenção de Talentos";
 	var $ig_periodo_de = 'junho';
@@ -164,7 +166,7 @@ class formulario
 			if ($line = db_read($rlt))
 				{
 					$this->solicitante = trim($line['us_nome']);
-					$this->solicitante_telefone = trim($line['us_endereco']);
+					$this->solicitante_telefone = trim($line['us_fone_1']);
 					$this->solicitante_email = trim($line['us_email']);
 					if (strlen($this->solicitante_nome))
 						{
@@ -210,6 +212,7 @@ class formulario
 		}
 	function form_solicitacao_pagamento()
 		{
+			global $nw, $user, $hd;
 			$sx .= '
 			<style>
 				body { font-family: Arial, Tahoma, Verdana; font-size: 12px; }
@@ -236,10 +239,11 @@ class formulario
 						<TD width="15%">
 					';
 			/* TIPO */
-			$sx .= '<TR><TD class="sz14" colspan="10" style="padding: 4px; border: 2px solid #000000; background-color: #FFFF99;"><B>SOLICITAÇÃO DE PAGAMENTO</B></TR>';
-			$sx .= '<TR><TD class="sz10" colspan="10" style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"><B>TIPO DE PAGAMENTO</B></TR>';
-			$sx .= '<TR><TD rowspan=2 colspan=8 align="center" class="sz16 b1" ><B>'.$this->vinculo.'</B>';
-			$sx .= '<TD colspan=2 class="sz10 b1" align="center" >USO EXCLUSIVO SETOR DE FINANÇAS';
+			$sx .= '<TR><TD class="sz14" colspan="10" style="padding: 4px; border: 2px solid #000000; background-color: #0000FF;" align="center"><B><font color="white">SOLICITAÇÃO DE PAGAMENTO</font></B></TR>';
+			//$sx .= '<TR><TD class="sz10" colspan="10" style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"><B>TIPO DE PAGAMENTO</B></TR>';
+			$sx .= '<TR><TD rowspan=2 colspan=2><img src="../img/logo_marista.jpg" height="60" style="padding: 15px;">
+						<TD rowspan=2 colspan=6 align="center" class="sz16 b0" ><B>'.$this->vinculo.'</B>';
+			$sx .= '<TD colspan=2 class="sz10 b1" align="center" >USO EXCLUSIVO SETOR FISCAL';
 			$sx .= '<TR>';
 			$sx .= '<TD  colspan=1 class="sz10 b1" >Data<BR>&nbsp;';
 			$sx .= '<TD  colspan=1 class="sz10 b1" >AP<BR>&nbsp;';
@@ -254,8 +258,8 @@ class formulario
 			$sx .= '<TR><TD align="right" class="sz10">Empresa: 
 						<TD colspan=9 class="sz10"><B>'.$this->ig_empresa.'</B>';
 			
-			$sx .= '<TR><TD align="right" class="sz10">Filial: 
-						<TD colspan=9 class="sz10"><B>'.$this->ig_filial.'</B>';
+			$sx .= '<TR><TD align="right" class="sz10">CNPJ / Filial: 
+						<TD colspan=9 class="sz10"><B>'.$this->ig_filial.'</B> <B>'.$this->ig_cnpj.'</B>';
 			
 			$sx .= '<TR><TD align="right" class="sz10">Classificação: 
 						<TD colspan=9 class="sz10"><B>'.$this->ig_classificacao.'</B>';
@@ -326,7 +330,7 @@ class formulario
 			$sx .= '<TR><TD colspan=1 class="sz10" align="right">Solicitante:';
 			$sx .= '<TD colspan=9 class="sz10">&nbsp'.$this->solicitante;	
 
-			$sx .= '<TR><TD colspan=1 class="sz10" align="right">Telefone:';
+			$sx .= '<TR><TD colspan=1 class="sz10" align="right">Rama/Telefone:';
 			$sx .= '<TD colspan=2 class="sz10">&nbsp'.$this->solicitante_telefone;	
 
 			$sx .= '<TD colspan=1 class="sz10" align="right">e-mail:';
@@ -338,14 +342,15 @@ class formulario
 			$sx .= '<TR><TD class="sz10" 
 						colspan="5" 
 						style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"
-						><B>Ordenador da Necessidade:</B> ';
+						><B>Solicitante:</B> ';
 			$sx .= '<TD class="sz10" 
 						colspan="5" 
 						style="padding: 2px; border: 2px solid #000000; background-color: #C0C0C0;"
-						><B>Ordenador de Gasto:</B> ';
+						><B>Ordenador do Gasto:</B> ';
 												
 			$sx .= '<TR valign="top">
-						<TD colspan=4 height="40" class="sz10" align="left">Nome: <B>'.$this->ordenador_necessidade.'</B><BR>'.$this->ordenador_necessidade_funcao;
+						<TD colspan=4 height="40" class="sz10" align="left">Nome: <B>'.$this->solicitante.'</B>';
+			
 			$sx .= '<TD class="sz10" colspan=1>&nbsp';	
 
 			$sx .= '	<TD colspan=5 height="40" class="sz10" align="left">Nome: <B>'.$this->ordenador_gasto.'</B><BR>'.$this->ordenador_gasto_funcao;

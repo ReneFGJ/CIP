@@ -15,10 +15,11 @@ require($include.'sisdoc_debug.php');
 
 	$curso = $_SESSION['curso_nome'];
 	$cursoc = $_SESSION['curso_codigo'];
+	$campus = $_SESSION['campus'];
 
 	$clx = new curso;
 	$tabela = $clx->tabela;
-	echo $pb->indicador_bolsa_completadas($curso,'E');
+	echo $pb->indicador_bolsa_completadas($curso,'E',$campus);
 	echo '<BR><BR><BR>';	
 
 require("../foot.php");		

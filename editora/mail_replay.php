@@ -12,6 +12,16 @@ echo $hd->main_content('Mensages');
 
 global $email_adm, $admin_nome;
 
+if ($dd[50]=='del')
+{
+	$sql = "update mail set
+				mail_read_date = ".date("Ymd").",
+				mail_read = 1, mail_in_del = 1
+				where id_mail = ".round($dd[0]);
+	$rlt = db_query($sql); 
+	redirecina('mail.php');
+}
+
 $cap[6] = 'Sua mensagem foi enviada';
 $cap[7] = 'Clique aqui para voltar';
 $cap[8] = 'Click aqui para responder esta mensagem';
@@ -117,7 +127,7 @@ while ($line = db_read($rlt))
 	$slink .= '<A HREF="mail.php?dd0='.$line['id_mail'].'&dd50=replay&dd2='.$chk.'" title="Responder">';
 //	$s .= $slink;
 //	$s .= '<img src="img/mail_reply.png" width="16" height="16" alt="Responder" border="0"></A>';
-	$s .= '<A HREF="mail.php?dd0='.$line['id_mail'].'&dd50=del&dd2='.$chk.'"  title="Excluir mensagem">';
+	$s .= '<A HREF="mail_replay.php?dd0='.$line['id_mail'].'&dd50=del&dd2='.$chk.'"  title="Excluir mensagem">';
 	$s .= '<img src="img/mail_cut.png" width="16" height="16"  alt="Excluir" border="0"></A>';
 	$s .= '</TD>';
 	$s .= '<TD>';

@@ -11,10 +11,18 @@ echo '<H3>Comunicação por e-mail</h3>';
 
 	$tps = array();
 	array_push($tps,array('000','Informar a lista de e-mail manualmente'));
+	
+	array_push($tps,array('','-- Docentes ------------------------------'));
 	array_push($tps,array('003','Docentes com orientações IC (recuperar e-mail)'));
 	array_push($tps,array('004','Docentes Stricto Sensu com orientações IC (recuperar e-mail)'));
 	array_push($tps,array('005','Docentes Stricto Sensu vinculados a programas de Pós-Graduação'));
 	array_push($tps,array('006','Docentes com Doutorado'));
+	
+	array_push($tps,array('','-- Discentes -----------------------------'));
+	array_push($tps,array('060','Estudantes em IC/IT em '.date("Y")));
+	array_push($tps,array('061','Estudantes em IC/IT em '.(date("Y")-1)));
+	array_push($tps,array('062','Estudantes em IC/IT em '.(date("Y")-2)));
+	array_push($tps,array('063','Estudantes em IC/IT em '.(date("Y")-3)));
 	
 	array_push($tps,array('010','Professores que submeteram projetos em '.date("Y")));
 	array_push($tps,array('011','Professores que submeteram projetos (PIBITI) em '.date("Y")));
@@ -127,6 +135,8 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	array_push($menu,array('Iniciação Científica','Modelo de Mensagens Relatório Parcial','comunicacao_modelos.php?dd1=RPA'));
 	array_push($menu,array('Iniciação Científica','Modelos dos Termos de Contrato','comunicacao_modelos.php?dd1=termo_'));
 	array_push($menu,array('Iniciação Científica','Todos os modelos','comunicacao_ver.php'));
+	
+	array_push($menu,array('SEMIC','Mensagens e e-mail','comunicacao_modelos.php?dd1=semic_'));
 	} 
 $tela = menus($menu,"3");
 

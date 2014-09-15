@@ -353,6 +353,7 @@ class qualis
 				$xarea = "X";
 				$sx = troca($sx,'Atualizado','');
 				$cs = splitx(chr(13),$sx);
+				$sq = '<TABLe>';
 				for ($r=0;$r < count($cs);$r++)
 					{
 						$issn = substr($cs[$r],0,9);
@@ -397,16 +398,20 @@ class qualis
 										echo '<HR>';
 									}
 
-								echo '<BR>'.$issn.'-'.$area.'-['.$qualis.']-'.$journal_name;
+								$sq .=  '<TR><TD>'.$issn.'<TD>'.$area.'<TD>['.$qualis.']<TD>'.$journal_name;
 
 								if ($cod_area != '')
 									{
 									$rs = $this->cited_journal_insert($issn, $journal_name);
 									$ano = date("Y");
-									$this->qualis_estrado($issn,$area,$qualis,$ano,$cod_area);
+									$sq .= '<TD>'.$cod_area;
+									$sq .= '<TD>'.$ano;
+									$sq .= '<TD>'.$this->qualis_estrado($issn,$area,$qualis,$ano,$cod_area);
 									}
 							}					
 					}
+				$sq .= '</table>';
+				echo $sq;
 				exit;
 				
 				echo '<BR>Processado '.$loop.' registro.';
@@ -448,7 +453,7 @@ class qualis
 				$ano = trim($ano);
 				$area = trim($area);
 			
-				if ((strlen($area)==5) and (strlen($issn)==9) and (strlen($estrato)==2))
+				if ((strlen($area)==5) and (strlen($issn)==9) and (strlen($estrato) >= 1) and (strlen($estrato) <= 2))
 				{
 				$sql = "select * from ".$this->tabela_estrato."
 					where eq_issn = '$issn' and eq_area = '$area' 

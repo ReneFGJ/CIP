@@ -453,8 +453,8 @@ class semic
 					$rs1 = troca($rs1,' ',';');
 					$total = count(splitx(';',$rs1));
 					
-					if ($total < 150) { $erro .= '<BR>O Resumo tem menos de 150 palavras'; }
-					if ($total > 600) { $erro .= '<BR>O Resumo tem mais de 500 palavras'; }
+					if ($total < 150) { $erro .= '<BR><font color="red" class="lt2">O Resumo tem menos de 150 palavras</font>'; }
+					if ($total > 600) { $erro .= '<BR><font color="red" class="lt2">O Resumo tem mais de 500 palavras</font>'; }
 					
 					$rs1 = trim($line['sm_rem_11']).' ';
 					$rs1 .= trim($line['sm_rem_12']).' ';
@@ -464,12 +464,12 @@ class semic
 					$rs1 = troca($rs1,' ',';');
 					$total = count(splitx(';',$rs1));
 
-					if ($total < 150) { $erro .= '<BR>O Resumo em inglês tem menos de 150 palavras'; }
-					if ($total > 600) { $erro .= '<BR>O Resumo em inglês tem mais de 500 palavras'; }
+					if ($total < 150) { $erro .= '<BR><font color="red" class="lt2">O Resumo em inglês tem menos de 150 palavras</font>'; }
+					if ($total > 600) { $erro .= '<BR><font color="red" class="lt2">O Resumo em inglês tem mais de 500 palavras</font>'; }
 				}
 			if (strlen($erro) > 0)
 				{
-					$this->erro = 'do resumo é obrigatório<BR></font><BR>'.$erro.'Este item ';
+					$this->erro = 'do resumo é obrigatório<BR></font><BR>'.$erro.' ';
 					return('');
 				}
 			return('ok');			
@@ -640,11 +640,11 @@ class semic
 					$resumo = $link01.'<B>Introdução:</B> '.$linkx.$line['sm_rem_01'];
 					$resumo .= $link02.' <B>Objetivos:</B> '.$linkx.$line['sm_rem_02'];
 					$resumo .= $link03.' <B>Método:</B> '.$linkx.$line['sm_rem_03'];
-					if (strlen(trim($line['sm_rem_04'])) > 0)
+					if ((strlen(trim($line['sm_rem_04'])) > 0) or ($edit==1))
 						{
 							$resumo .= $link04.' <B>Resultados:</B> '.$linkx.$line['sm_rem_04'];
 						}
-					if (strlen(trim($line['sm_rem_05'])) > 0)
+					if ((strlen(trim($line['sm_rem_05'])) > 0) or ($edit==1))
 						{
 						$resumo .= $link05.' <B>Conclusão:</B> '.$linkx.$line['sm_rem_05'];
 						}
@@ -652,11 +652,11 @@ class semic
 					$abstract = $link11.'<B>Introduction:</B> '.$linkx.$line['sm_rem_11'];
 					$abstract .= $link12.' <B>Objectives:</B> '.$linkx.$line['sm_rem_12'];
 					$abstract .= $link13.' <B>Methods:</B> '.$linkx.$line['sm_rem_13'];
-					if (strlen(trim($line['sm_rem_14'])) > 0)
+					if ((strlen(trim($line['sm_rem_14'])) > 0) or ($edit==1))
 						{
 							$abstract .= $link14.' <B>Results:</B> '.$linkx.$line['sm_rem_14'];
 						}
-					if (strlen(trim($line['sm_rem_15'])) > 0)
+					if ((strlen(trim($line['sm_rem_15'])) > 0) or ($edit==1))
 						{
 							$abstract .= $link15.' <B>Conclusion:</B> '.$linkx.$line['sm_rem_15'];
 						}
@@ -735,9 +735,10 @@ class semic
 						 $inner
 						 where sm_status = '$status'
 						 $wh
+						 and sm_ano = '".date("Y")."'
 						 order by id_sm desc
 					";
-			
+
 			$rlt = db_query($sql);
 			$sx .= '<table width="100%" class="tabela00">';
 			$sx .= '<TR><TH width="60">Protocolo';
@@ -796,16 +797,25 @@ class semic
 				if (($edit==1) and (strlen($tipo)==0))
 					{
 						$link = '<A HREF="semic_submissao_novo.php?dd0='.$line['id_sm'].'&pag=1&dd90='.checkpost($line['id_sm']).'" class="link">';
-						$linkc = '<A HREF="semic_submissao_cancelar.php?dd0='.$line['id_sm'].'&pag=1&dd90='.checkpost($line['id_sm']).'" class="link">';
+						
+						if ($this->tabela != 'semic_ic_trabalho')
+							{
+								$linkc = '<A HREF="semic_submissao_cancelar.php?dd0='.$line['id_sm'].'&pag=1&dd90='.checkpost($line['id_sm']).'" class="link">cancelar</A>';
+							} else {
+								$linkc = '';
+								$link = '<A HREF="semic_submissao_detalhe_semic.php?dd0='.$line['id_sm'].'&pag=1&checkpost='.checkpost($line['id_sm']).'">';
+							}
 						$sx .= '<TD width="50">';
 						$sx .= $link;
 						$sx .= 'editar';
 						$sx .= '</A>';
 
-						$sx .= '<TD width="50">';
-						$sx .= $linkc;
-						$sx .= 'cancelar';
-						$sx .= '</A>';						
+						if (strlen($linkc) > 0)
+							{
+							$sx .= '<TD width="50">';
+							$sx .= $linkc;
+							$sx .= '</A>';						
+							}
 						
 					}
 					$tot++;
@@ -815,14 +825,15 @@ class semic
 			$sx .= '</table>';
 			return($sx);
 		}
-	
-	function submit_resume_mostra()
+
+	function submit_resume_mostra($page='')
 		{
 			global $ss;
 			$cracha = trim($ss->user_cracha);
 			$sql = "select count(*) as total, sm_status 
 						from ".$this->tabela."
 						 where sm_docente = '$cracha'
+						 and sm_ano = '".date("Y")."'
 						 group by sm_status
 					";
 			$rlt = db_query($sql);
@@ -830,7 +841,6 @@ class semic
 			$total = array(0,0,0,0,0,0,0,0);
 			while ($line = db_read($rlt))
 				{
-					print_r($line);
 					$tot = $line['total'];
 					$status = trim($line['sm_status']);
 					if (strlen($status)==0) { $status ='@'; }
@@ -855,12 +865,14 @@ class semic
 			$sx .= '<TH width="17%">Publicado';
 			$sx .= '<TH width="17%">Cancelado';
 			
-			if ($total[0] > 0) { $link0 = '<A HREF="semic_submissao_lista.php?dd1=@">'; }
-			if ($total[1] > 0) { $link1 = '<A HREF="semic_submissao_lista.php?dd1=A">'; }
-			if ($total[2] > 0) { $link2 = '<A HREF="semic_submissao_lista.php?dd1=B">'; }
-			if ($total[3] > 0) { $link3 = '<A HREF="semic_submissao_lista.php?dd1=C">'; }
-			if ($total[4] > 0) { $link4 = '<A HREF="semic_submissao_lista.php?dd1=D">'; }
-			if ($total[5] > 0) { $link5 = '<A HREF="semic_submissao_lista.php?dd1=X">'; }
+			if (strlen($page) == 0) { $page = 'mostra_submissao_lista.php'; }
+			
+			if ($total[0] > 0) { $link0 = '<A HREF="'.$page.'?dd1=@">'; }
+			if ($total[1] > 0) { $link1 = '<A HREF="'.$page.'?dd1=A">'; }
+			if ($total[2] > 0) { $link2 = '<A HREF="'.$page.'?dd1=B">'; }
+			if ($total[3] > 0) { $link3 = '<A HREF="'.$page.'?dd1=C">'; }
+			if ($total[4] > 0) { $link4 = '<A HREF="'.$page.'?dd1=D">'; }
+			if ($total[5] > 0) { $link5 = '<A HREF="'.$page.'?dd1=X">'; }
 			
 			$sx .= '<TR>';
 			$sx .= '<TD class="tabela01 lt5" align="center">'.$link0.$total[0].'</a>';
@@ -876,12 +888,17 @@ class semic
 	function submit_resume_mostra_adms($page='')
 		{
 			global $ss;
+			
+			$sqlx = "select * from ".$this->tabela." where sm_ano = '".date("Y")."' ";
+			$xrlt = db_query($sqlx);
+			$xline = db_read($xrlt);
+			
 			$cracha = $ss->user_cracha;
 			$sql = "select count(*) as total, sm_status 
 						 from ".$this->tabela."
+						 where sm_ano = '".date("Y")."'
 						 group by sm_status
 					";
-			echo $sql;
 			$rlt = db_query($sql);
 			
 			$total = array(0,0,0,0,0,0,0,0);
@@ -1063,13 +1080,15 @@ class semic
 			array_push($cp,array('$HV','sm_ano',date("Y"),False,True));
 			array_push($cp,array('$HV','sm_lastupdate',date("Ymd"),False,True));
 			$mod = ' : ';
-			$mod .= '&Projeto de pesquisa:Projeto de pesquisa';
-			$mod .= '&Em andamento:Proj. em andamento';
-			$mod .= '&Trabalho concluído:Trabalho concluído';
+			$mod .= '&Projeto de pesquisa:Projeto de pesquisa (somente poster)';
+			$mod .= '&Em andamento - Poster:Proj. em andamento (postêr)';			
+			$mod .= '&Trabalho concluído - Poster:Trabalho concluído (postêr)';
+			$mod .= '&Trabalho concluído - Oral:Trabalho concluído (apresentação oral)';
+			$mod .= '&Trabalho concluído - Oral em Inglês:Trabalho concluído (apresentação oral em inglês)';
 			
 			array_push($cp,array('$O M:Mestrado&D:Doutorado'.$modp,'sm_formacao','Formação',True,True));
 			array_push($cp,array('$O '.$mod,'sm_modalidade','Categoria',True,True));
-			//$sql = "ALTER TABLE ".$this->tabela." add column sm_formacao char(20)";
+			//$sql = "ALTER TABLE ".$this->tabela." alter column sm_modalidade type char(50)";
 			//$rlt = db_query($sql);
 			return($cp);			
 		}
@@ -1212,7 +1231,7 @@ class semic
 			$id = function_002($dd[0]);
 			$idx = $this->semic_resumo_checar($dd[0]);
 			if (strlen($idx)==0)
-				{ $id = ''; echo 'ZEROU'; }			
+				{ $id = ''; }			
 			$dd[3] = $id;
 			$cp = array();
 			array_push($cp,array('$H8','id_sm','',False,False));
@@ -1234,7 +1253,7 @@ class semic
 			$id = function_002($dd[0]);
 			$idx = $this->semic_resumo_checar($dd[0]);
 			if (strlen($idx)==0)
-				{ $id = ''; echo 'ZEROU'; }			
+				{ $id = ''; }			
 			$dd[3] = $id;
 			$cp = array();
 			array_push($cp,array('$H8','sm_codigo','',True,True));
@@ -1244,7 +1263,7 @@ class semic
 			array_push($cp,array('$M8','',$declaracao,False,True));
 			array_push($cp,array('$DECLA','','Declaração',True,True));
 			array_push($cp,array('$HV','sm_status','A',True,True));
-			array_push($cp,array('$M','',$this->erro,False,True));
+			array_push($cp,array('$M','','<font color="red">'.$this->erro.'</font>',False,True));
 			//array_push($cp,array('$M8','',$this->erro,False,True));
 			return($cp);			
 		}	
