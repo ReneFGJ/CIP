@@ -1501,9 +1501,9 @@ class captacao
 				$sx .= '<fieldset><legend>'.msg("vigencia").'</legend>';
 				$sx .= '<table width="100%" class="lt0" border=0>';
 				$sx .= '<TR><TD class="lt0" align="right">início: <font class="lt1"><B>';
-				$sx .= $this->inicio.'</font>';
-				$sx .= '<TD class="lt0" align="right">duração: <font class="lt1"><B>';
-				$sx .= $this->duracao.'</font>';
+				$sx .= $this->vigencia.'</font>';
+				//$sx .= '<TD class="lt0" align="right">duração: <font class="lt1"><B>';
+				//$sx .= $this->duracao.'</font>';
 				$sx .= '<TD class="lt0" align="right">prorrogação: <font class="lt1"><B>';
 				$sx .= $this->prorrogacao.'</font>';
 				$sx .= '</table>';
@@ -1585,16 +1585,22 @@ class captacao
 						
 						$this->line = $line;
 						
-						$this->inicio = strzero($line['ca_vigencia_ini_mes'],2).'/'.$line['ca_vigencia_ini_ano'];
-						$this->fim = strzero($line['ca_vigencia_fim_mes'],2).'/'.$line['ca_vigencia_fim_ano'];
+						$this->inicio = substr($line['ca_vigencia_final_ano'],4,2).'/'.substr($line['ca_vigencia_final_ano'],0,4);
+						//$this->fim = strzero($line['ca_vigencia_fim_mes'],2).'/'.$line['ca_vigencia_fim_ano'];
 						$this->duracao = $line['ca_duracao'] . ' mês(es)';
 						$this->prorrogacao = $line['ca_vigencia_prorrogacao'];
 						if ($this->prorrogacao == 0) { $this->prorrogacao = '-'; }
 						
-						$this->vigencia = $this->inicio.' - '.$this->fim;
+						//$this->vigencia = $this->inicio.' - '.$this->fim;
+						$this->vigencia = substr($line['ca_vigencia_final_ano'],0,4).'/'.substr($line['ca_vigencia_final_ano'],4,2);
 						if ($line['ca_duracao'] > 0)
-							{ $this->vigencia .= ' +'.$this->prorrogacao; }
-						
+							{
+								$this->vigencia .= ' - '.$line['ca_duracao'].' mes(es)'; 
+							}
+						if ($this->prorrogacao >0)
+							{
+								$this->vigencia .= ' +'.$this->prorrogacao;
+							}
 						$this->contexto = $line['ca_contexto'];
 						$this->comentario = $line['ca_comentario'];
 						$this->comentario_direcao = $line['ca_comentario_direcao'];

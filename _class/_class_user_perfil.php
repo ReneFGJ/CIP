@@ -235,7 +235,8 @@ class user_perfil
 			
 			if ($line = db_read($rlt))
 				{
-					
+					$sql = "update ".$this->tabela_perfil." set up_ativo = 1 where id_up = ".$line['id_up'];
+					$rlt = db_query($sql);
 				} else {
 					$data = date("Ymd");
 					$sql = "insert into ".$this->tabela_perfil." 

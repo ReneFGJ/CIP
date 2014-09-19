@@ -17,7 +17,7 @@ echo '<h2>'.msg('assign_to_user_profile').'</h2>';
 		echo 'o';
 		$perfil->set($dd[1]);
 		echo 'o';
-		echo $perfil->display();
+		echo $perfil->display($dd[1]);
 	}
 echo '</div>';
 require("foot.php");

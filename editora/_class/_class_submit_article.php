@@ -660,6 +660,8 @@ class submit
 			$rlt = db_query($sql);
 			if ($line = db_read($rlt))
 				{
+					$link = '<A HREF="producao_works_detalhe.php?dd0='.$line['doc_protocolo'].'" target="_new">'.$line['doc_protocolo'].'';
+					echo 'Artigo já enviado para editoração no protocolo da editora '.$link.', clique para visualizar.</A><BR>';
 					$sql = "update reol_submit set doc_issue = '".strzero($issue,7)."'
 										,doc_1_titulo = '".$titulo_doc."' 
 										,doc_section = '".strzero($secao,7)."'
@@ -755,7 +757,7 @@ class submit
 			$this->updatex_works();	
 			/* Marca Artigo já publicado */
 			$ok = 1;
-			return(1);	
+			return($ok);	
 		}
 	function updatex_works()
 		{

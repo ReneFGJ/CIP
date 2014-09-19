@@ -1611,7 +1611,7 @@ class docentes {
 	function rel_prof_mostra($rlt) {
 		global $tab_max;
 		$sx .= '<table width="98%" class="tabela00" align="center">';
-		$sx .= '<TR><TH>Nome<TH>Tót.<TH>Produtivade<TH>SS<TH>Cracha<TH>Campus<TH>Curso<TH>Escola<TH>Atualizado<TH>e-amil<TH>e-mail alt.';
+		$sx .= '<TR><TH>Nome<TH>Tót.<TH>CPF<TH>Produtivade<TH>SS<TH>Cracha<TH>Campus<TH>Curso<TH>Escola<TH>Atualizado<TH>e-amil<TH>e-mail alt.';
 		$tot = 0;
 		$prod = $this -> produtividade();
 		$prod_n = array('');
@@ -1633,6 +1633,8 @@ class docentes {
 			$sx .= $this -> link_lattes($line['pp_lattes']) . trim($line['pp_nome']) . '</A>';
 			$sx .= '<TD class="tabela01">';
 			$sx .= $line['pp_titulo'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_cpf'];
 			$sx .= '<TD class="tabela01">';
 			$sx .= $prod[$line['pp_prod']];
 			$sx .= '<TD class="tabela01">';
