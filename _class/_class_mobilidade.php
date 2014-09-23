@@ -19,8 +19,7 @@ class mobilidade
 					{ $wh .= "where mt_publico = '$tipo' ";}
 				
 				$sql = "select * from ".$this->tabela."
-						inner join ".$this->tabela_tipo." on mt_codigo = mb_tipo 
-						left join pibic_aluno on pa_cracha = mb_discente
+						left join ".$this->tabela_tipo." on mt_codigo = mb_tipo 
 						left join ajax_pais on pais_codigo = mb_pais
 						left join pibic_professor on pp_cracha = mb_docente and mb_docente <> ''
 						left join programa_pos on pos_codigo = mb_programa 
@@ -64,8 +63,7 @@ class mobilidade
 								$sx .= $pais;
 							} else {
 								$sx .= trim($line['mb_local']);		
-							}
-						
+							}						
 						
 						$sx .= '<TD class="tabela01" align="center">';
 						$sx .= stodbr($line['mb_data_inicio']);

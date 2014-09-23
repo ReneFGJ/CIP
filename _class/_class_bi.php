@@ -418,7 +418,7 @@ class bi
 			$sx = '<table class="tabela00" width="100%">';
 			
 			$sc .= '<TR><TD colspan=4><h3>'.$tit_rel.'</h3>';
-			$sc .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sc .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sc .= '<TR><TD class="tabela01">Indicador Total
 						<TD align="center" class="tabela01" width="15%">'.$ProfSS.'
 						<TD align="center" class="tabela01" width="15%">'.$ProfCap.'
@@ -431,12 +431,12 @@ class bi
 			/* Por programas */
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por Escolas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sx .= $sb;
 			
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por programas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sx .= $sa;
 			
 			
@@ -573,7 +573,7 @@ class bi
 			$sx = '<table class="tabela00" width="100%">';
 			
 			$sc .= '<TR><TD colspan=4><h3>'.$tit_rel.'</h3>';
-			$sc .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sc .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sc .= '<TR><TD class="tabela01">Indicador Total
 						<TD align="center" class="tabela01" width="15%">'.$ProfSS.'
 						<TD align="center" class="tabela01" width="15%">'.$ProfCap.'
@@ -586,12 +586,12 @@ class bi
 			/* Por programas */
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por Escolas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sx .= $sb;
 			
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por programas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sx .= $sa;
 			
 			
@@ -727,7 +727,7 @@ class bi
 			$sx = '<table class="tabela00" width="100%">';
 			
 			$sc .= '<TR><TD colspan=4><h3>'.$tit_rel.'</h3>';
-			$sc .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Val. Captação<TH>Razão';
+			$sc .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Val. Captação<TH>Razão';
 			$sc .= '<TR><TD class="tabela01">Indicador Total
 						<TD align="center" class="tabela01">'.$ProfSS.'
 						<TD align="center" class="tabela01">'.$ProfCap.'
@@ -742,12 +742,12 @@ class bi
 			/* Por programas */
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por Escolas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação<TH>Captação por<BR>Professor';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação<TH>Captação por<BR>Professor';
 			$sx .= $sb;
 			
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por programas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação<TH>Captação por<BR>Professor';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação<TH>Captação por<BR>Professor';
 			$sx .= $sa;
 
 			/* Por escolas */

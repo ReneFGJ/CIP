@@ -651,6 +651,8 @@ class docentes {
 		array_push($cp, array('${', '', 'Função administrativa na Instituição', False, True));
 		array_push($cp, array('$S100', 'pp_funcao', 'Função (opcional)', False, True));
 		array_push($cp, array('$}', '', 'Função administrativa na Instituição', False, True));
+		
+		array_push($cp, array('$S20', 'pp_fc', 'FC', False, True));
 
 		//$sql = "alter table pibic_professor add pp_funcao char(100)";
 		//$rlt = db_query($sql);
