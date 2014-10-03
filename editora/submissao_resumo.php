@@ -40,6 +40,8 @@ array_push($menu,array('Submissões','Correção do autor há mais de 15 dias','subm
 array_push($menu,array('Submissões','Com Parecerista','submit_works.php?dd1=C'));
 array_push($menu,array('Submissões','A mais de 20 dias com parecerista','submit_works.php?dd1=C&dd2='.$data15));
 array_push($menu,array('Submissões','Submissões por data','admin_user.php'));
+array_push($menu,array('Submissões','Submissões por Instituição','submit_instituicao.php'));
+array_push($menu,array('Submissões','Submissões não finalizadas por Instituição','submit_instituicao_nao_finalzadas.php'));
 
 $tab_max = '95%';
 $tela = menus($menu,"3");

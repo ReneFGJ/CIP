@@ -1,7 +1,7 @@
 <?php
 require("cab.php");
 require($include.'sisdoc_autor.php');
-$jid = 67;
+$jid = 85;
 /*
  * $breadcrumbs
  */

@@ -29,6 +29,8 @@ $menu = array();
 	array_push($menu,array('Participação','Ausência de Participação de alunos','semic_participacao_alunos.php?dd1=N'));
 	
 	array_push($menu,array('Classificação','Quartis','semic_quartis.php'));
+	array_push($menu,array('Anais do Seminário','Exportar','semic_exportar_anais.php'));
+	array_push($menu,array('Anais do Seminário','Exportar (old)','semic_trabalhos_semic.php'));
 
 ///////////////////////////////////////////////////// redirecionamento
 	$tela = menus($menu,"3");

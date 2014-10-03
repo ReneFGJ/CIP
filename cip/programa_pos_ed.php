@@ -5,9 +5,10 @@ require('../_class/_class_programa_pos.php');
 $ln = new message;
 
 global $acao,$dd,$cp,$tabela;
-require($include.'cp2_gravar.php');
+require($include.'_class_form.php');
+$form = new form;
+
 require($include.'sisdoc_colunas.php');
-require($include.'sisdoc_form2.php');
 require($include.'sisdoc_data.php');
 require($include.'sisdoc_debug.php');
 
@@ -24,17 +25,16 @@ require($include.'sisdoc_debug.php');
 	$tit = msg("titulo");
 
 	/** Comandos de Edição */
-	echo '<CENTER><font class=lt5>'.msg('titulo').'</font></CENTER>';
-	?><TABLE width="<?=$tab_max;?>" align="center" bgcolor="<?=$tab_color;?>"><TR><TD><?
-	editar();
-	?></TD></TR></TABLE><?	
+	$tela = $form->editar($cp,$tabela);
 	
 	/** Caso o registro seja validado */
-	if ($saved > 0)
+	if ($form->saved > 0)
 		{
 			echo 'Salvo';
 			$cl->updatex();
 			redirecina($tabela.'.php');
+		} else {
+			echo $tela;
 		}
 require("../foot.php");	
 ?>

@@ -17,6 +17,21 @@ class qualis
 	var $tabela_journal = "cited_journals";
 	var $tabela_area = "qualis_area";
 	
+		function excluir_qualis($ano)
+			{
+				$ano = (date("Y")-1);
+				$sql = "delete from qualis_estrato where eq_ano = '$ano' ";
+				$rlt = db_query($sql);
+
+				$ano = (date("Y")-2);
+				$sql = "delete from qualis_estrato where eq_ano = '$ano' ";
+				$rlt = db_query($sql);
+
+				$ano = (date("Y")-3);
+				$sql = "delete from qualis_estrato where eq_ano = '$ano' ";
+				$rlt = db_query($sql);
+			}
+	
 		function remover_print_online($termo,$termo2)
 			{
 				$sql = "select * from ".$this->tabela_journal."
@@ -280,6 +295,10 @@ class qualis
 
 		function qualis_area($area)
 			{
+				$area = troca($area,'-','');
+				$area = trim($area);
+				$sn = sonumero($area);
+				if (strlen($sn) > 0) { return(''); }
 				$sql = "select * from qualis_area where qa_descricao = '$area' ";
 				$rlt = db_query($sql);
 				if ($line = db_read($rlt))
@@ -287,7 +306,7 @@ class qualis
 						$this->update_area();
 						return($line['qa_codigo']);
 					} else {
-						return('');
+						//return('');
 						
 						$sql = "insert into qualis_area (
 						qa_descricao, qa_codigo, qa_ativo,

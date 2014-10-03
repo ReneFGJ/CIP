@@ -67,6 +67,7 @@ class docentes {
 						and pp_update = '" . date("Y") . "'
 						and pp_ativo = 1
 			";
+		echo $sql;
 		$rlt = db_query($sql);
 		while ($line = db_read($rlt)) {
 			$nome = $line['pp_nome'];

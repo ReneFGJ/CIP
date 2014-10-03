@@ -68,21 +68,23 @@ if ($perfil->valid('#CPS#ADM#COO'))
 		echo '<TR valign="top">';
 		echo '<TD width="50%">';
 		echo $art->acoes();
-		
+
 		echo '<TD>';
 		echo $art->pagamentos();
 		
-		echo '<TR><TD colspan=2>';
-		$proto = 'AR'.substr($art->protocolo,2,5);
-		echo $bon->mostra_bonificacoes_por_projeto($proto);
-		
-		echo '</table>';
-		
-	}
+}
+	
+echo '<TR><TD colspan=2>';
+$proto = 'AR'.substr($art->protocolo,2,5);
+echo $bon->mostra_bonificacoes_por_projeto($proto);
+
+				
 	//$tela = menus($menu,"3");
 	
 $protocolo = $art->protocolo;
-echo $art->historico_mostrar($protocolo, $protocolo_origem);	
+echo $art->historico_mostrar($protocolo, $protocolo_origem);
+echo '</table>';
+	
 require("../foot.php");
 ?>
 

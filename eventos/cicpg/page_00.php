@@ -18,7 +18,7 @@ echo $spot;
 </style>
 <div id="page00" class="page_min pg00">
 	
-	<table width="100%" cellpadding=0 cellspacing=0 align="center" border=0 style="min-height:800px;">
+	<table width="100%" cellpadding=0 cellspacing=0 align="center" border=0 style="min-height:500px;">
 		<TR valign="top">
 			<TD width="510"><img src="img/logo.png" height="306"></TD>
 			<TD valign="top" rowspan=3>
@@ -31,22 +31,12 @@ echo $spot;
 			Curitiba, Paraná </TD>
 		</TR>
 		<TR>
-			<TD><div style="min-height:300px;">Organizadores<BR>
-			<img src="img/logos/logo_pucpr.jpg" height="90" align="left" class="logo_pg">
-			<img src="img/logos/logo_ufpr.jpg" height="70" align="left" class="logo_pg">
-			<img src="img/logos/logo_utfpr.jpg" height="35" align="left" class="logo_pg">
-			<img src="img/logos/logo_fae.jpg" height="35" align="left" class="logo_pg">
-			<img src="img/logos/logo_fepar.jpg" height="40" align="left" class="logo_pg">
-			<img src="img/logos/logo_tecpar.jpg" height="35" align="left" class="logo_pg">
-			
-			<img src="img/logos/logo_unespar.jpg" height="40" align="left" class="logo_pg">
-			
-				
-				
-			</div>
-				
-				
+			<TD>
+			<a href="http://www.pucpr.br/arquivosUpload/5388495391409773801.pdf" target="_blank"><img src="img/organizacao_01.jpg" alt="Primeira Foto" /></a>
+			<!--<?php require("_banners.php"); ?>-->		
 			</TD>
 		</TR>
 	</table>
+	
+	
 </div>

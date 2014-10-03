@@ -7,6 +7,37 @@ class secoes
 	var $nome;
 	var $id;
 	
+	function copia_sessao_anterior($secao,$jid)
+		{
+			$sql = "select * from ".$this->tabela."  
+				where (title like '".$secao."%' or abbrev = '".$secao."' or identify_type = '".$secao."')			
+			";
+			$rlt = db_query($sql);
+			if ($line = db_read($rlt))
+				{
+					$title = $line['title'];
+					$abbrev = $line['abbrev'];
+					$seq = $line['seq'];
+					$identify_type = $line['identify_type'];
+					$seq_area = $line['seq_area'];
+					$section_area = $line['section_area'];
+					$hide_title = $line['hide_title'];
+					$sql = "
+					insert into ".$this->tabela." (
+						journal_id, title, abbrev, 
+						seq, editor_restricted, meta_indexed,
+						abstracts_disabled, identify_type, hide_title,
+						policy, seq_area, section_area	
+					) values (
+						$jid, '$title','$abbrev',
+						'$seq',0,1,
+						0,'$identify_type','$hide_title',
+						'0','$seq_area','$section_area'
+					)";
+					$rlt = db_query($sql);
+				}
+		}
+	
 	function busca_secao($secao,$jid)
 		{
 			if (strlen($secao) == 0) { return(''); }
@@ -26,6 +57,7 @@ class secoes
 				}
 			else
 				{
+					$this->copia_sessao_anterior($secao,$jid);
 					echo '<HR>Erro de seção - '.$secao.'<HR>';
 					exit;
 					return('');

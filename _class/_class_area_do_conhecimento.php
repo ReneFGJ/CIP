@@ -22,7 +22,69 @@ class area_do_conhecimento
 		if ($area == 'E') { $rr = 'Ciências Exatas'; }
 		return($rr);
 		}
-		
+
+function relatorio_areas($tp=0)
+		{
+			global $perfil,$nw;			
+			if ($tp==0)
+				{
+					$sx = '<h1>'.msg('areas_todas').'</h1>';
+					$wh = '';
+				}			
+			if ($tp==1)
+				{
+					$sx = '<h1>'.msg('areas_do_semic').'</h1>';
+					$wh = ' where a_semic = 1 ';
+				}
+			if ($tp==3)
+				{
+					$sx = '<h1>Área de submissão</h1>';
+					$wh = " where a_submit = '1' ";
+				}
+			
+			$sql = "select * from ".$this->tabela."
+				$wh 
+				order by a_cnpq ";
+			$rlt = db_query($sql);
+
+			while ($line = db_read($rlt))
+			{
+				$s .= '<TR '.coluna().'>';
+				$sf = '';
+				$cnpq = trim($line['a_cnpq']);
+				if (substr($cnpq,2,2) == '00')
+					{
+					$sf .= '<TD colspan="4"><B>';
+					} else {
+						if (substr($cnpq,5,2) == '00')
+						{
+						$sf .= '<TD><TD colspan="3"><I>';
+						} else {
+						if (substr($cnpq,8,2) == '00')
+							{
+							$sf .= '<TD><TD><TD colspan="2">';
+							} else {
+							$sf .= '<TD>&nbsp;&nbsp;<TD>&nbsp;&nbsp;<TD>&nbsp;&nbsp;<TD>';
+							}
+						}		
+					}
+				$s .= '<TD align="center"><TT>';
+				$s .= $line['a_cnpq'];
+				$s .= ''.$sf;
+				$s .= $line['a_descricao'];
+				//if (($perfil->valid('#ADM#PIB#COO')))
+				//	{
+				//		$s .= '<TD>a';
+				//	}
+			}
+			$sx .= '<table width="100%" class="tabela00">'.chr(13);
+			$sx .= '<TR>'.chr(13);
+			$sx .= '<TH width="20%">Código CNPq'.chr(13);
+			$sx .= '<TH colspan="5">Descrição'.chr(13);
+			$sx .= $s;
+			$sx .= '</table>';
+			return($sx);
+	}		
 	function row()
 		{
 			global $cdf,$cdm,$masc;

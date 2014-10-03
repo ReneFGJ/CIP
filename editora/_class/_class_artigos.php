@@ -119,10 +119,10 @@ class artigos
 					$sql = "update articles set
 							article_abstract = '".$this->resumo."',
 							article_2_abstract = '".$this->resumo_alt."',
-							article_title = '".$this->titulo."',
-							article_2_title = '".$this->titulo_en."',
-							article_keywords = '".$this->keyword."',
-							article_2_keywords = '".$this->keyword_alt."',
+							article_title = '".substr($this->titulo,0,254)."',
+							article_2_title = '".substr($this->titulo_en,0,254)."',
+							article_keywords = '".substr($this->keyword,0,254)."',
+							article_2_keywords = '".substr($this->keyword_alt,0,254)."',
 							article_autores = '".$this->autor."',
 							article_author = '".$this->autores."',
 							article_modalidade = '".$this->mod."',
@@ -131,7 +131,7 @@ class artigos
 							article_publicado = '".$this->publicado."',
 							article_author_pricipal = '".$this->article_author_pricipal."'												
 							where article_3_keywords = '".$this->protocolo."' ";
-					$rlt = db_query($sql);
+					//$rlt = db_query($sql);
 					return(0);
 				} else {
 					$sql = "insert into articles 
@@ -147,8 +147,8 @@ class artigos
 						article_apresentacao, article_ref, article_busca,
 						article_internacional, article_autores
 						) values (
-						'".$this->titulo."','".$this->resumo."','".$this->keyword."','pt_BR',
-						'".$this->titulo_alt."','".$this->resumo_alt."','".$this->keyword_alt."','en',
+						'".substr($this->titulo,0,254)."','".$this->resumo."','".substr($this->keyword,0,254)."','pt_BR',
+						'".substr($this->titulo_alt,0,254)."','".$this->resumo_alt."','".substr($this->keyword_alt,0,254)."','en',
 						'".$this->protocolo."',
 						
 						19000101, 19000101, '',
@@ -160,8 +160,8 @@ class artigos
 						'".$this->ingles."','".$this->autor."'
 						)
 					";
-					//$rlt = db_query($sql);
-					echo '<HR>'.$sql;
+					$rlt = db_query($sql);
+					//echo '<HR>'.$sql;
 					return(1);
 						
 				}
