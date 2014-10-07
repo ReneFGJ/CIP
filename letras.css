@@ -1,0 +1,63 @@
+<style>
+body {BACKGROUND-POSITION: center 50%; FONT-SIZE: 9px; BACKGROUND-IMAGE: url(/img/bg.gif); MARGIN: 0px; COLOR: ##dfefff; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10pt; font-weight: normal; color: #808080}
+
+a:hover   { font-family: Verdana; font-size: 10px; color: #6c6c6c; text-decoration: underline }
+A:link    { font-family: Verdana; font-size: 10px; color: #808080; text-decoration: none ; font-variant: normal;}
+A:visited { font-family: Verdana; font-size: 10px; color: #808080; text-decoration: none ; font-variant: normal;}
+A:active  { font-family: Verdana; font-size: 10px; color: #808080; text-decoration: none ; font-variant: normal;}
+
+.menu a:visited { font-family: Verdana; font-size: 11px; color: #404040; text-decoration: none ; font-variant: normal;}
+.menu a:link    { font-family: Verdana; font-size: 11px; color: #404040; text-decoration: none ; font-variant: normal;}
+.menu a:hover   { font-family: Verdana; font-size: 11px; color: #000000; text-decoration: underline }
+.menu a:active  { font-family: Verdana; font-size: 11px; color: #404040; text-decoration: none ; font-variant: normal;}
+.menu { font-family: Verdana; font-size: 11px; color: #808080; text-decoration: none ; font-variant: normal;}
+
+.lt0 a:visited { font-family: Verdana; font-size: 10px; color: #808080; text-decoration: none ; font-variant: normal;}
+.lt0 a:link    { font-family: Verdana; font-size: 10px; color: #808080; text-decoration: none ; font-variant: normal;}
+.lt0 a:hover   { font-family: Verdana; font-size: 10px; color: #6c6c6c; text-decoration: underline }
+.lt0 a:active  { font-family: Verdana; font-size: 10px; color: #a22009; text-decoration: none ; font-variant: normal;}
+.lt0 { font-family: Verdana; font-size: 10px; color: #808080; text-decoration: none ; font-variant: normal;}
+
+.ed a:visited { font-family: Verdana; font-size: 12px; color: #808080; text-decoration: none ; font-variant: small-caps;}
+.ed a:link    { font-family: Verdana; font-size: 12px; color: #808080; text-decoration: none ; font-variant: small-caps;}
+.ed a:hover   { font-family: Verdana; font-size: 12px; color: #6c6c6c; text-decoration: underline ; font-variant: small-caps;}
+.ed a:active  { font-family: Verdana; font-size: 12px; color: #a22009; text-decoration: none ; font-variant: small-caps;}
+.ed { font-family: Verdana; font-size: 12px; color: #808080; text-decoration: none ; font-variant: small-caps;}
+
+.ed0 a:visited { font-family: Verdana; font-size: 11px; color: #808080; text-decoration: none ; font-variant: small-caps;}
+.ed0 a:link    { font-family: Verdana; font-size: 11px; color: #808080; text-decoration: none ; font-variant: small-caps;}
+.ed0 a:hover   { font-family: Verdana; font-size: 11px; color: #6c6c6c; text-decoration: underline ; font-variant: small-caps;}
+.ed0 a:active  { font-family: Verdana; font-size: 11px; color: #a22009; text-decoration: none ; font-variant: small-caps;}
+.ed0 { font-family: Verdana; font-size: 11px; color: #808080; text-decoration: none ; font-variant: small-caps;}
+
+.lt1 a:visited { font-family: Verdana; font-size: 12px; color: #808080; text-decoration: none ; font-variant: normal;}
+.lt1 a:link    { font-family: Verdana; font-size: 12px; color: #808080; text-decoration: none ; font-variant: normal;}
+.lt1 a:hover   { font-family: Verdana; font-size: 12px; color: #6c6c6c; text-decoration: underline }
+.lt1 a:active  { font-family: Verdana; font-size: 12px; color: #a22009; text-decoration: none ; font-variant: normal;}
+.lt1 { font-family: Verdana; font-size: 12px; color: #808080; text-decoration: none ; font-variant: normal;}
+
+.lt2 a:visited { font-family: Verdana; font-size: 16px; color: #303030; text-decoration: none ; font-variant: normal;}
+.lt2 a:link    { font-family: Verdana; font-size: 16px; color: #303030; text-decoration: none ; font-variant: normal;}
+.lt2 a:hover   { font-family: Verdana; font-size: 16px; color: #6c6c6c; text-decoration: underline }
+.lt2 a:active  { font-family: Verdana; font-size: 16px; color: #a22009; text-decoration: none ; font-variant: normal;}
+.lt2 { font-family: Verdana; font-size: 16px; color: #303030; text-decoration: none ; font-variant: normal;}
+
+.lt3 a:visited { font-family: Verdana; font-size: 18px; color: #303030; text-decoration: none ; font-variant: normal;}
+.lt3 a:link    { font-family: Verdana; font-size: 18px; color: #303030; text-decoration: none ; font-variant: normal;}
+.lt3 a:hover   { font-family: Verdana; font-size: 18px; color: #6c6c6c; text-decoration: underline }
+.lt3 a:active  { font-family: Verdana; font-size: 18px; color: #a22009; text-decoration: none ; font-variant: normal;}
+.lt3 { font-family: Verdana; font-size: 18px; color: #303030; text-decoration: none ; font-variant: normal;}
+
+.lt4 a:visited { font-family: Verdana; font-size: 22px; color: #303030; text-decoration: none ; font-variant: normal;}
+.lt4 a:link    { font-family: Verdana; font-size: 22px; color: #303030; text-decoration: none ; font-variant: normal;}
+.lt4 a:hover   { font-family: Verdana; font-size: 22px; color: #6c6c6c; text-decoration: underline }
+.lt4 a:active  { font-family: Verdana; font-size: 22px; color: #a22009; text-decoration: none ; font-variant: normal;}
+.lt4 { font-family: Verdana; font-size: 22px; color: #303030; text-decoration: none ; font-variant: normal;}
+
+.lt5 a:visited { font-family: Verdana; font-size: 32px; color: #303030; text-decoration: none ; font-variant: normal;}
+.lt5 a:link    { font-family: Verdana; font-size: 32px; color: #303030; text-decoration: none ; font-variant: normal;}
+.lt5 a:hover   { font-family: Verdana; font-size: 32px; color: #6c6c6c; text-decoration: underline }
+.lt5 a:active  { font-family: Verdana; font-size: 32px; color: #a22009; text-decoration: none ; font-variant: normal;}
+.lt5 { font-family: Verdana; font-size: 32px; color: #303030; text-decoration: none ; font-variant: normal;}
+
+</style>

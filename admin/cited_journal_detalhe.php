@@ -10,6 +10,9 @@ require($include.'sisdoc_debug.php');
 	$clx = new qualis;
 	$clx->le($dd[0]);
 	
+	
+	echo $clx->excluir_qualis(date("Y")-1);
+	
 	echo $clx->mostra_dados();
 	echo $clx->mostra_qualis();
 

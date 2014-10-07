@@ -9,7 +9,7 @@ $tot = 0;
 //require("avaliacoes.php");
 
 require("avaliacoes_journals.php");
-require("avaliacoes_pibic.php");
+//require("avaliacoes_pibic.php");
 
 if ($tot == 0)
 	{

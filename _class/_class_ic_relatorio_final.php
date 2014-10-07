@@ -35,6 +35,7 @@ class ic_relatorio_final
 	
 	function relatorio_final_reprovado($ano='2010')
 		{
+			global $dd;
 			$pb = new pibic_bolsa_contempladas;
 				$sql = "select * from ".$pb->tabela."
 					left join pibic_parecer_".date("Y")." on pp_protocolo = pb_protocolo and pp_tipo='RFIN' and pp_status = 'B' 
@@ -49,13 +50,18 @@ class ic_relatorio_final
 					order by centro_nome, pp_nome, pa_nome					
 				";
 				$rlt = db_query($sql);
-					
 				$sx = '<table class="tabela00">';
 				$tot = 0;
 				$xesc = 'X';
 				$xpro = 'X';
 				while ($line = db_read($rlt))
 					{
+						if ($dd[1]=='1')
+							{
+							$sql = "update pibic_bolsa_contempladas set pb_semic_nota_original = 222 where pb_protocolo = '".$line['pb_protocolo']."'";
+							$rrr = db_query($sql);
+							}
+
 						$curso = trim($line['pa_curso']);	
 						$tot++;
 						$esc = $line['centro_nome'];

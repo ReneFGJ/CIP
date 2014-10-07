@@ -549,6 +549,7 @@ class article
 					$this->journal_path = trim($line['path']);
 					$this->publicado = $line['issue_dt_publica'];
 					$this->link_doi = $line['article_doi_link'];
+					$this->line = $line;
 
 					/* Pages */
 					$this->article_pages = $line['article_pages'];
