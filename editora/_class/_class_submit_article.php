@@ -21,9 +21,91 @@ class submit
 		
 	var $tabela = "submit_documento";
 	
+	
+	function lista_submissoes_instituicoes_nao_finalizada()
+		{
+			global $jid;
+			$wh2 = " (doc_status = '*' or doc_status = '@') ";
+			$wh = " doc_status <> 'X' ";
+			$order  = " doc_status,  doc_dt_atualizado desc, doc_hora desc ";
+			$sql = "select Upper(asc7(doc_1_titulo)) as tt,* from submit_documento 
+					left join submit_status on doc_status = s_status
+					left join submit_autor on doc_autor_principal = sa_codigo
+					where doc_journal_id = '".strzero($jid,7)."'
+						and (
+						$wh) and (doc_journal_id = '".strzero($jid,7)."')
+					order by sa_instituicao_text, doc_status, doc_update, s_descricao_1
+					";
+			$rlt = db_query($sql); 
+			$xses = 'x';
+			$xiss = 0;
+			$sx = '<table width="100%" class="tabela00">';
+			$id = 0;
+			while ($line = db_read($rlt))
+			{
+				$sx .= '<TR>';
+				$sx .= '<TD>';
+				$sx .= $line['sa_instituicao_text'];
+				$sx .= '<TD>';
+				$sx .= $line['sa_nome'];
+				$sx .= '<TD>';
+				$sx .= $line['tt'];
+				$sx .= '<TD>';
+				$sx .= $line['doc_status'];
+				$id++;
+			}
+			if ($id > 0)
+				{
+					$sx .= '<TR><TD colspan=5><B>Total de '.$id.' registro(s)</B>';
+				}
+			$sx .= '</table>';
+			return($sx);
+		}	
+
+	function lista_submissoes_instituicoes()
+		{
+			global $jid;
+			$order  = " doc_status,  doc_dt_atualizado desc, doc_hora desc ";
+			$sql = "select Upper(asc7(doc_1_titulo)) as tt,* from submit_documento 
+					left join submit_status on doc_status = s_status
+					left join submit_autor on doc_autor_principal = sa_codigo
+					where doc_journal_id = '".strzero($jid,7)."'
+						and ((doc_status <> '*' and doc_status <> '@' and doc_status <> 'X')
+						$wh) and (doc_journal_id = '".strzero($jid,7)."')
+					order by sa_instituicao_text, doc_status, doc_update, s_descricao_1
+					";
+			$rlt = db_query($sql); 
+			$xses = 'x';
+			$xiss = 0;
+			$sx = '<table width="100%" class="tabela00">';
+			$id = 0;
+			while ($line = db_read($rlt))
+			{
+				$sx .= '<TR>';
+				$sx .= '<TD>';
+				$sx .= $line['sa_instituicao_text'];
+				$sx .= '<TD>';
+				$sx .= $line['sa_nome'];
+				$sx .= '<TD>';
+				$sx .= $line['tt'];
+				$id++;
+			}
+			if ($id > 0)
+				{
+					$sx .= '<TR><TD colspan=5><B>Total de '.$id.' registro(s)</B>';
+				}
+			$sx .= '</table>';
+			return($sx);
+		}	
+	
 	function mostra_dados_complementares()
 		{
-			$sx = '<B>RESUMO</B><BR>';
+			$sec = trim($this->line['secao']);
+			if (strlen($sec) > 0)
+				{
+					$sx .= '<div>Seção: <B>'.$sec.'</B></div><BR>';
+				}
+			$sx .= '<B>RESUMO</B><BR>';
 			$sx .= '<DIV>'.$this->line['doc_resumo'].'</div>';
 			$sx .= '<BR><BR>';
 			$key = trim($line['doc_palavra_chave']);
@@ -1720,8 +1802,9 @@ class submit
 		{
 			if (strlen($id) > 0) { $this->id = $id; }
 			if (strlen($protocolo) > 0) { $this->protocolo = $protocolo; }
-			$sql = "select * from ".$this->tabela." 
-					left join submit_autor on doc_autor_principal = sa_codigo 
+			$sql = "select *, sections.title as secao from ".$this->tabela." 
+					left join submit_autor on doc_autor_principal = sa_codigo
+					left join sections on doc_sessao = section_id
 					where id_doc = ".round($this->id)."
 				or doc_protocolo = '$protocolo' ";
 			$rlt = db_query($sql);

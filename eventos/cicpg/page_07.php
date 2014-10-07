@@ -4,16 +4,49 @@
 	}
 </style>
 <div id="page07" class="page_min pg07">
-	<A HREF="index.php#page01"><img src="img/icone_top.jpg" align="right" border=0 class="top" title="retorna ao menu"></A>
+	<img src="img/logo.png" height="150" style="width: 180px; height: auto; float: left;" />
 	<h1>Conheça Curitiba</h1>
+	
+	<div id="sobre-curitiba" class="coluna-sobre-curitiba">
+		<p>Curitiba é um município brasileiro, capital do estado do Paraná, localizada a 934 metros de altitude no primeiro planalto paranaense, a aproximadamente 110 quilómetros do Oceano Atlântico. É a oitava cidade mais populosa do Brasil e a maior do sul do país, com uma população de 1.850.000 habitantes. É a principal cidade da Região Metropolitana de Curitiba, formada por 29 municípios e reunindo 3.400.000 habitantes sobre uma Área de 15.447 km<sup>2</sup>, o que a torna a oitava região metropolitana mais populosa do Brasil, e a maior da Região Sul, tendo ultrapassado recentemente a Região Metropolitana de Porto Alegre. A capital do Paraná ao longo dos últimos anos tem se consolidado como a cidade mais rica do Sul do país e a quarta em âmbito nacional. (fonte:Wikipédia) </p>
+		<p style="font-style: italic;">Curitiba is a Brazilian city, capital of the state of Paraná, located at 934 meters altitude in the first plateau of Paraná, approximately 110 km from the Atlantic Ocean. It is the eighth most populous of Brazil and the largest city in the south of the country, with a population of 1,850,000 inhabitants. It is the principal city of the metropolitan region of Curitiba, formed by 29 municipalities and has 3,400,000 inhabitants over an area of 15,447 km, making it the eighth most populous metropolitan area in Brazil, and the largest in the South, having recently overtaken the Metropolitan Region of Porto Alegre. The capital of Parana over the past few years has been established as the richest city in the South and fourth in national grade. (source: Wikipedia)</p>
+	</div>
+
+	<!--<div class="detalhes-curitiba">
+		<div class="item-detalhe">
+			<div>
+				<img src="img/turismo/infografico-turismo_r3_c1.jpg" />
+			</div>
+			<div>
+				<h3>Gastronomia</h3>
+				<ul>
+					<li>Barreado</li>
+					<li>Pinhão</li>
+					<li>Gengibirra (refrigerante de gengibre)</li>
+					<li>Carne de onça</li>
+					<li>Costela fogo de chão</li>
+					<li>Arroz carreteiro</li>
+					<li>Porco no rolete</li>
+					<li>Pierogui</li>
+					<li>Quirera lapeana</li>
+				</ul>
+			</div>
+		</div>
+		<div></div>
+		<div></div>
+	</div>-->
+
+
+
+
 	<table align="center" width="1000" class="lt2">
 		<TR valign="top">
 			<TD width="50%" align="center"></TD>
 			<TD width="50%" align="center"></TD>
 		</TR>
 		<TR>
-			<TD align="left"> Curitiba é um município brasileiro, capital do estado do Paraná, localizada a 934 metros de altitude no primeiro planalto paranaense, a aproximadamente 110 quilómetros do Oceano Atlântico. É a oitava cidade mais populosa do Brasil e a maior do sul do país, com uma população de 1.850.000 habitantes. É a principal cidade da Região Metropolitana de Curitiba, formada por 29 municípios e reunindo 3.400.000 habitantes sobre uma Área de 15.447 km<sup>2</sup>, o que a torna a oitava região metropolitana mais populosa do Brasil, e a maior da Região Sul, tendo ultrapassado recentemente a Região Metropolitana de Porto Alegre. A capital do Paraná ao longo dos últimos anos tem se consolidado como a cidade mais rica do Sul do país e a quarta em âmbito nacional. (fonte:Wikipédia) </TD>
-			<TD align="left">Curitiba is a Brazilian city, capital of the state of Paraná, located at 934 meters altitude in the first plateau of Paraná, approximately 110 km from the Atlantic Ocean. It is the eighth most populous of Brazil and the largest city in the south of the country, with a population of 1,850,000 inhabitants. It is the principal city of the metropolitan region of Curitiba, formed by 29 municipalities and has 3,400,000 inhabitants over an area of 15,447 km, making it the eighth most populous metropolitan area in Brazil, and the largest in the South, having recently overtaken the Metropolitan Region of Porto Alegre. The capital of Parana over the past few years has been established as the richest city in the South and fourth in national grade. (source: Wikipedia)</TD>
+			<TD align="left"> </TD>
+			<TD align="left"></TD>
 		</TR>
 	</table>
 	<table align="center" width="700" border=0 class="lt2">
@@ -237,6 +270,8 @@
 			<BR>
 			Suporte dos serviços de telecomunicações, permite, do mirante, uma visão de 360 graus da cidade. Seus 109,5 metros de altura equivalem a um edifício de 40 andares. </TD>
 		</TR>
+
+		
 
 	</table>
 	<BR><BR><BR><BR>

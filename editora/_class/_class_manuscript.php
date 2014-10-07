@@ -17,6 +17,24 @@ class manuscript
 		var $author_email_alt;
 		var $author_codigo;
 		
+		function lista_submissoes_instituicoes()
+			{
+				global $jid;
+				$id = substr($jid,7);
+				
+				$sql = "select * from ".$this->tabela." 
+						left join ".$this->tabela_autor." on doc_autor_principal = sa_codigo 
+						where doc_journal_id = '$id'
+						and doc_status <> '@'
+				";
+				$rlt = db_query($sql);
+				while ($line = db_read($rlt))
+				{
+					print_r($line);
+					echo '<HR>';
+				}
+			}
+		
 		function manuscript_cancel($id)
 			{
 				$sql = "update ".$this->tabela." set doc_status = 'X' 

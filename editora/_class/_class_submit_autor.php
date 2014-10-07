@@ -11,7 +11,6 @@ class submit_autor
 	function mostra_resumo_autor()
 		{
 			global $jid;
-			print_r($pb);
 			$sql = "select count(*) as total, doc_status from submit_documento 
 						where doc_autor_principal = '".$this->codigo."'
 						and doc_journal_id = '".strzero(round('0'.$jid),7)."' 

@@ -1,7 +1,7 @@
 <div id="page12" class="page_min pg12">
-	<A HREF="index.php#page01"><img src="img/icone_top.jpg" align="right" border=0 class="top" title="retorna ao menu"></A>
+	<img src="img/logo.png" height="150" style="width: 180px; height: auto; float: left;" />
 	<h1><span>Perguntas Frequentes - FAQ</span></h1>
-	<table width="900" align="center">
+	<table width="900" align="center" style="margin-left: 15%;">
 		<tr>
 			<td><h2>ACESSO (ao site)</h2><h3></h3>
 			<P>
@@ -19,7 +19,7 @@
 				<B>3) Esqueci minha senha, como recuperá-la?</B>
 			</P>
 			<P>
-				Utilize o link "Esqueci a senha", que está abaixo do painel de acesso, caso não consiga, entre em contato com Thales no e-mail oliveira.thales@pucpr.br para atualização do e-mail.
+				Utilize o link "Esqueci a senha", que está abaixo do painel de acesso, caso não consiga, entre em contato com Thales no e-mail cicpg@pucpr.br para atualização do e-mail.
 			</P><h2>TRABALHO</h2>
 			<P>
 				<B>1) Como sei se o meu trabalho foi enviado corretamente?</B>
@@ -39,7 +39,7 @@
 			<P>
 				As informações cadastradas no item "SUBMISSÂO" não poderão ser alteradas após submeter o trabalho. Verifique as informações antes de finalizar o processo. Essas informações aparecerão nos anais do evento, conforme foram cadastradas.
 				<BR>
-				Alteração nos dados de inscrição/submissão de trabalho pode ser solicitada via e-mail para oliveira.thales@pucpr.br para avaliação do comitê organizador. Dependendo do tipo de alteração solicitada, o comitê organizador poderá executar a solicitação.
+				Alteração nos dados de inscrição/submissão de trabalho pode ser solicitada via e-mail para cicpg@pucpr.br para avaliação do comitê organizador. Dependendo do tipo de alteração solicitada, o comitê organizador poderá executar a solicitação.
 			</P>
 			<P>
 		 	<B>4) Tentei enviar o meu trabalho faltando poucos minutos do vencimento do prazo e o sistema estava lento e não enviou, como devo proceder?</B>
@@ -48,7 +48,7 @@
 				Não deixe a submissão do trabalho para última hora, o congestionamento da rede pode não permitir o envio do trabalho. A organização não se responsabilizará por isto.
 			</P><h2>PAGAMENTO</h2>
 			<P>
-				<B>O III Congresso Sul Brasileiro não cobra nenhuma taxa para adesão.</B>
+				<B>O 3° Congresso Sul Brasileiro não cobra nenhuma taxa para adesão.</B>
 			</P></P><h2>APRESENTAÇÃO DO TRABALHO</h2>
 			<P>
 				<B>1) Existe algum modelo de Painel?</B>

@@ -75,12 +75,12 @@ require("../_class/_class_docentes.php");
 							$emails = $doc->docentes_email_escola('00001',$emails);
 							break;														
 						case '00040':
-							/* Prof. Escola Arquitetura e Desgin */
-							$emails = $doc->docentes_email_escola('00003',$emails);
+							/* Prof. Escola de Ciências Agrárias e Medicina Veterinária */
+							$emails = $doc->docentes_email_escola('00002',$emails);
 							break;														
 						case '00041':
-							/* Prof. Escola Comunicação e Artes */
-							$emails = $doc->docentes_email_escola('00004',$emails);
+							/* Prof. Escola de Ciências Agrárias e Medicina Veterinária  */
+							$emails = $doc->docentes_email_escola('00002',$emails);
 							break;														
 						case '00042':
 							/* Prof. Escola de Direito */

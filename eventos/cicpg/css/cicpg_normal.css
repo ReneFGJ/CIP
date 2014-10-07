@@ -1,22 +1,41 @@
-.pg04 { background-color: #F5F5DC; }
-.pg05 { background-color: #F0FFF0; }
-.pg06 { background-color: #D3D3D3; }
-.pg07 { background-color: #FFE4E1; }
-.pg08 { background-color: #F0FFFF; }
-.pg09 { background-color: #FFF0FF; }
-.pg10 { background-color: #FFFFF0; }
-.pg11 { background-color: #FFF0F0; }
-.pg12 { background-color: #F0F0FF; }
+.pg01{
+	margin-bottom: 100px;
+}
+.pg02 {
+	background-color: #fff;
+	height: 100%;
+	margin-top: 50px;
+	margin-bottom: 100px;
+
+}
+
 
 .foot
 	{
 		padding: 50px;
-		background-color: #C0C0C0;
+		background-color: #2d332d;
 		width: 100%;
 		font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
 		font-size: 14px;
-		margin-left: 10px;	
+		margin-left: -10px;
+		line-height: 170%;
+		
+		border-top: dashed 1px #2d332d;
+		clear: both;
 	}
+
+.foot p
+{
+	margin-left: 13%;
+	width: 500px;
+	margin-top: 0;
+	color: #f5f5f5;
+}
+
+.logos-org{
+	margin-left: 13%;
+}
+
 .logo_pg
 	{
 		padding: 10px;
@@ -55,7 +74,7 @@
 	letter-spacing: 1px;
 }
 h1 {
-	margin-left: 50px;
+	margin-left: 15%;
 	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
 }
 .lt4 {
@@ -77,7 +96,7 @@ h1 {
 	border: 1px solid #2D332D;
 }
 p {
-	line-height: 140%;
+	line-height: 150%;
 	font-family: 'CICPG', 'Tahoma', 'Arial';
 	font-size: 15px;
 }
@@ -306,3 +325,267 @@ a.link_bt {
 	color: #FFFFFF;
 	text-decoration: none;
 }
+
+.texto-apresentacao{
+	width: 940px;
+	margin-left: 15%;
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    -webkit-column-gap: 60px; /* Chrome, Safari, Opera */
+    -moz-column-gap: 60px; /* Firefox */
+    column-gap: 60px;
+    
+    background-color: #89ac4f;
+	padding: 40px;
+}
+
+.texto-apresentacao a{
+	color: #f9f9f9;
+	text-decoration: none;
+}
+
+
+.fa{
+		
+		margin-left: 6%;
+		margin-top: 1%;
+		padding-right: 10%;
+		font-size: 24px;
+	}
+
+.fac{
+	margin: 0;
+	padding: 0;
+}
+
+.submissao-botao{
+	background-color: #497c32;
+}
+
+
+#programacao-info{
+	width: 70%;
+	margin-left: 15%;
+	height: 100%;
+	clear: both;
+}
+
+.programacao-horario{
+	width: 33%;
+	float: left;
+}
+
+.estilo-horario{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.data-programacao{
+	background-color: rgba(73, 125, 47, 1);
+	float: left;
+	width: 100%;
+	color: #fff;
+}
+
+.cor-data-programacao_1{background-color: rgba(73, 125, 47, 1);}
+.cor-data-programacao_2{background-color: rgba(102, 36, 131, 1);}
+.cor-data-programacao_3{background-color: rgba(243, 146, 47, 1);}
+
+.data-programacao h5{
+	font-size: 20px;
+	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
+	margin-left: 40px;
+
+}
+
+.celula-tabela-horario{
+	float: left;
+	width: 100%;
+	color: #232323;
+}
+
+.celula-tabela-horario p{
+	padding: 10px 40px;
+}
+
+.estilo_data4_1{ background-color: rgba(73, 125, 47, 0.8);}
+.estilo_data4_2{ background-color: rgba(73, 125, 47, 0.6);}
+.estilo_data4_3{ background-color: rgba(73, 125, 47, 0.4);}
+.estilo_data4_4{ background-color: rgba(73, 125, 47, 0.3);}
+.estilo_data4_5{ background-color: rgba(73, 125, 47, 0.2);}
+
+.estilo_data5_1{ background-color: rgba(102, 36, 131, 0.7);}
+.estilo_data5_2{ background-color: rgba(102, 36, 131, 0.5);}
+.estilo_data5_3{ background-color: rgba(102, 36, 131, 0.3);}
+.estilo_data5_4{ background-color: rgba(102, 36, 131, 0.2);}
+
+.estilo_data6_1{ background-color: rgba(243, 146, 47, 0.8);}
+.estilo_data6_2{ background-color: rgba(243, 146, 47, 0.6);}
+.estilo_data6_3{ background-color: rgba(243, 146, 47, 0.4);}
+.estilo_data6_4{ background-color: rgba(243, 146, 47, 0.2);}
+
+#submissao-trab{
+	margin-left: 15%;
+	width: 60%;
+}
+
+#submissao-trab h6{
+	font-size: 18px;
+	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
+}
+
+.bt_submit
+		{
+			width: 250px;
+			height: 50px;
+			background-color: #4a7e30;
+			color: #fff;
+			font-size: 14px;
+			border: none;
+			cursor: pointer;
+			font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
+			text-transform: uppercase;
+			font-weight: bold;
+			float: right;
+			margin-top: 55px;
+		}
+.bt_submit:hover{
+	background-color: #94b65c;
+}
+
+.instrucoes-autores{
+	width: 250px;
+	cursor: pointer;
+	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
+	font-size: 14px;
+	border: none;
+	background-color: #f2f2f2;
+	padding: 10px 20px;
+	line-height: 150%;
+	float: left;
+	margin-bottom: 30px;
+}
+
+.instrucoes-autores a{
+	color: #47224a;
+}
+
+.instrucoes-autores a:hover{
+	color: #47224a;
+}
+
+.instrucoes-autores a:visited{
+	color: #47224a;
+}
+
+.breadcrumb{
+	margin-left: 15%;
+	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
+	font-size: 12px;
+}
+
+h3{
+	
+	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
+	font-size: 22px;
+}
+
+h4{
+	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
+	font-size: 14px;
+	text-align: center;
+}
+
+.titulo-politica-adesao{
+	margin-left: 15%;
+}
+
+#mapas{
+	width: 70%;
+	margin-left: 15%;
+}
+
+#hoteis{
+	width: 70%;
+	margin-left: 15%;
+}
+
+.hotel-descricao{
+	float: left;
+	width: 30%;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.hotel-descricao div:first-child{
+	height: 120px;
+}
+
+#sobre-curitiba{
+	width: 70%;
+	margin-left: 15%;
+}
+
+.coluna-sobre-curitiba{
+	-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
+
+.detalhes-curitiba{
+	width: 80%;
+	margin-left: 15%;
+}
+
+.item-detalhe{
+	width: 30%;
+	float: left;
+	border: 1px solid #000;
+}
+
+.item-detalhe div{
+	float: left;
+}
+
+h5{
+	
+	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
+	font-size: 14px;
+}
+
+.materiais-divulgacao{
+	width: 80%;
+	margin-left: 15%;
+
+}
+
+.materiais-facebook{
+	margin-bottom: 50px;
+	float: left;
+	width: 40%;
+	margin-right: 5%;
+}
+
+.materiais-impresso{
+	margin-bottom: 50px;
+	float: left;
+	width: 40%;
+}
+
+@media screen and (max-width: 600px) { 
+		.programacao-horario{
+			float: none;
+			margin:0;
+			width: 100%;
+		}
+
+		.hotel-descricao{
+			float: left;
+			width: 100%;
+			text-align: center;
+		}
+
+		
+	}
+

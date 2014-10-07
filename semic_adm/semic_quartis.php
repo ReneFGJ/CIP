@@ -2,6 +2,25 @@
 $breadcrumbs=array();
 require("cab_semic.php");
 
+$bls = array(
+		'A'=>'<font color="Blue">Apresentacao Oral</font> <font color="red">Inglês</font> (PIBIC)',
+		'B'=>'Apresentação Oral - CICPG (PIBIC)',
+		'C'=>'<font color="Green">Apresentação Oral</font> (PIBIC)',
+		
+		'D'=>'<font color="Blue">Apresentacao Oral</font> <font color="red">Inglês</font> (PIBITI)',
+		'E'=>'Apresentação Oral - CICPG (PIBITI)',
+		'F'=>'Apresentação Oral (PIBITI)',
+		
+		'L'=>'<font color="Blue">Poster</font> <font color="red">Inglês</font> (PIBIC)',
+		'M'=>'Poster (PIBIC)',
+		'N'=>'<font color="Blue">Poster</font> <font color="red">Inglês</font> (PIBITI)',
+		'O'=>'Poster (PIBITI)',
+		
+		'V'=>'<font color="red">**VERIFICAR**</font>',
+		'Z'=>'<font color="red">Não recomendado para apresentação</font>'
+		
+	);
+
 $sql = "select count(*) as total, pb_semic_area_nova, pbt_edital 
 			from pibic_bolsa_contempladas
 			inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo			
@@ -20,8 +39,9 @@ while ($line = db_read($rlt))
 		array_push($at,$line['total']);
 	}		
 
+/* SALDOS */
 $sql = "
-		select * from pibic_bolsa_contempladas 
+		select pb_semic_apresentacao, count(*) as total from pibic_bolsa_contempladas 
 		inner join ajax_areadoconhecimento on pb_semic_area_nova = a_cnpq
 		
 		inner join pibic_professor on pb_professor = pp_cracha
@@ -33,6 +53,33 @@ $sql = "
 		where pb_ano = '".(date("Y")-1)."'
 				and pb_status <> 'C'
 				and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI')
+		group by pb_semic_apresentacao
+		order by pb_semic_apresentacao
+		";
+$rlt = db_query($sql);
+while ($line = db_read($rlt))
+	{
+		$ap = trim($line['pb_semic_apresentacao']);
+		echo '<BR>';
+		echo $bls[$ap];
+		echo ' - '.$line['total'];
+	}
+
+/* Processo normal */
+
+$sql = "
+		select * from pibic_bolsa_contempladas 
+		inner join ajax_areadoconhecimento on pb_semic_area_nova = a_cnpq
+		
+		left join pibic_professor on pb_professor = pp_cracha
+		left join pibic_aluno on pb_aluno = pa_cracha
+		left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+		left join apoio_titulacao on ap_tit_codigo = pp_titulacao
+		left join centro on centro_codigo = pp_escola
+
+		where pb_ano = '".(date("Y")-1)."'
+				and pb_status <> 'C'
+				
 				order by pbt_edital, pb_semic_idioma, a_cnpq, 
 					pb_semic_nota desc, pb_semic_nota_original desc,
 					pb_semic_merito desc
@@ -40,20 +87,28 @@ $sql = "
 		";
 $rlt = db_query($sql);
 
-$sx = '<table>';
+$sx = '<table border=1>';
 $ia=0;
 $AREA = '';
 $pos = 0;
 $lim = 0;
+
+$ap = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+$po = 0;
+$np = 0;
 while ($line = db_read($rlt))
 	{
+		$save = 1;
+		$link = '<A HREF="/reol/pibicpr/pibic_detalhe.php?dd0='.$line['pb_protocolo'].'&dd90='.checkpost($line['pb_protocolo']).'" target="_new">';
 		$area = trim($line['a_cnpq']);
 		if ($area != $AREA)
 			{
+				$aa = trim($line['pbt_edital']).' '.$area;
 				$lin_in = array_search(trim($line['pbt_edital']).' '.$area,$ar);
 				$lin = $lin_in;
-				$tot = round(round($at[$lin] * 0.25 * 100)/100);
-				$sx .= '<TR><TD class="lt3" colspan=2>'.$area.' ('.$lin.'/'.$tot.')';
+				$tot = round(round($at[$lin] * 0.25 * 100)/100)+1;
+				if ($tot == 0) { $tot = 1; }
+				$sx .= '<TR><TD class="lt3" colspan=15>'.$area.' ('.$lin.'/'.$tot.')';
 				$sx .= '&nbsp;';
 				$sx .= $line['a_descricao'];
 				$AREA = $area;
@@ -64,17 +119,21 @@ while ($line = db_read($rlt))
 		$sx .= '<TD>';
 		$sx .= $pos.'.';
 		$sx .= '<TD>';
+		$sx .= $link;
 		$sx .= $line['pb_protocolo'];
+		$sx .= '</A>';
 		
 		$sx .= '<TD>';
 		$sx .= $line['pb_semic_idioma'];	
 			
-		$sx .= '<TD>';
-		$sx .= number_format($line['pb_semic_nota']/100,1);	
-		$sx .= '<TD>';
-		$sx .= number_format($line['pb_semic_nota_original']/100,1);	
-				$sx .= '<TD>';
-		$sx .= $line['pb_semic_merito'];	
+//		$sx .= '<TD>';
+//		$sx .= number_format($line['pb_semic_nota']/100,1);	
+//		$sx .= '<TD>';
+//		$sx .= number_format($line['pb_semic_nota_original']/100,1);	
+//		$sx .= '<TD>';
+//		$sx .= $line['pb_semic_merito'];
+//		$sx .= '<TD>'. $nota;
+	
 		$sx .= '<TD>';
 		$sx .= $line['pbt_edital'];	
 		
@@ -85,63 +144,74 @@ while ($line = db_read($rlt))
 		$meirto = $line['pb_semic_merito'];
 		$edital = trim($line['pbt_edital']);
 
-		$apre = $line['pb_semic_apresentacao'];
-		$save = 1;
-		switch ($apre)
+		$apre = trim($line['pb_semic_apresentacao']);
+		if (strlen($apre) > 0) { $save = 0; }
+		if ($save == 1)
+		{
+		if ($edital == 'PIBIC')
 			{
-				case 'O': $sx .= '<font color="blue">Apresentação Oral</font>'; $save = 0; break;
-				case 'P': $sx .= '<font color="Green">Apresentação Poster</font>'; $save = 0; break;
-				case 'N': $sx .= '<font color="Red">Não aprovado para apresentação</font>'; $save = 0; break;
-				case ' ': $sx .= '<font color="Orange">Em definição</font>'; $save = 0; break; 
+				if ($idioma == 'en_US')
+					{
+						/* Apresentação em Inglês */
+						$apres = 'Z';
+						if ($nota >= 400) { $apres = 'L'; }
+						if ($nota >= 800) { $apres = 'A'; }
+						if ($nota == 0) { $apres = 'V'; }
+					} else {
+						$apres = 'Z';
+						if ($nota >= 400) { $apres = 'M'; }
+						if ($nota >= 800) { $apres = 'C'; }
+						if (($pos > ($tot)) and ($apres=='C')) { $apres = 'M'; }
+						if ($pos <= ($tot/2)) { $apres = 'B'; }
+						if ($nota == 0) { $apres = 'V'; }						
+					} 
+						
 			}
-		/* Posicao */
+		if ($edital == 'PIBITI')
+			{
+				if ($idioma == 'en_US')
+					{
+						/* Apresentação em Inglês */
+						$apres = 'Z';
+						if ($nota >= 400) { $apres = 'L'; }
+						if ($nota >= 800) { $apres = 'A'; }
+						if ($nota == 0) { $apres = 'V'; }
+					} else {
+						$apres = 'Z';
+						if ($nota >= 400) { $apres = 'O'; }
+						if ($nota >= 850) { $apres = 'F'; }
+						if (($pos > ($tot)) and ($apres=='F')) { $apres = 'O'; }
+						if ($nota == 0) { $apres = 'V'; }						
+					} 				
+			}
+			$apre = $apres;
+		}
+		$sx .= '<TD>'. $bls[$apre];
+		$cor= '';
+		//if ($line['pb_relatorio_final'] < 20140101) { $cor = '<font color="red">'; }
+		//$sx .= '<TD>'.$cor.stodbr($line['pb_relatorio_final']);
+		$sx .= '<TD>'.$line['pp_nome'];
+		$sx .= '<TD>'.$line['pa_nome'];
 		$npos = 0;
-		if ($save == 1)
+
+		if (($save == 1) and (strlen($apres) > 0))
 			{
-				if ($pos <= $tot)
-					{ $tipo = 'O'; $npos = 1; }
-					
-				if ($nota < 6) { $tipo = 'N'; $npos = 1; }
-			}
-		if ($save == 1)
-			{		
-				grava_regras($protocolo,$idioma,$nota,$npos,$merito,$edital);
+				$tipo = '';	
+				grava_regras($protocolo,$apres);
 			}
 		}
 $sx .= '</table>';
+
 echo $sx;
 require("../foot.php");
 
-function grava_regras($protocolo,$idioma,$nota,$npos,$merito,$edital)
-	{
-		$tipo = '';
-		if ($idioma == 'en_US')
-			{
-				if ($nota > 850) { $tipo = 'O'; }
-				else {
-					if ($nota > 650) 
-					{ $tipo = 'P'; }
-					else { $tipo = 'N'; }
-				}
-			} else {
-				if ($npos == 1)
-					{
-						$tipo = 'O';
-					} else {
-						$tipo = 'P';
-					}
-				if ($edital == 'PIBITI') { $tipo = ' '; }
-				if ($nota < 6) { $tipo = 'N'; }
-			}
-			
-		if ($tipo != '')
-			{
+function grava_regras($protocolo,$tipo)
+	{	
 			$sql = "update pibic_bolsa_contempladas 
 					set pb_semic_apresentacao = '$tipo'
 				where pb_protocolo = '$protocolo'
 				";
-			$qqq = db_query($sql);
-			}
-		
+			$qqq = db_query($sql);		
 	}
+
 ?>

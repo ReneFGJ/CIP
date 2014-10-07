@@ -130,7 +130,8 @@ class header
 								<li id="menuA"><span class="font_menu menu2_af_class" id="menuA_af">Edições</span>				
 				                      <ul id="menuA_sub" class="menu_sub">
 				                      	<li><a href="edicoes.php">Fascículos</a></li>
-				                      	<li><a href="artigos_publicados.php">Artigos publicados</a></li>				                      	
+				                      	<li><a href="artigos_publicados.php">Artigos publicados</a></li>
+				                      	<li><a href="comunicar_leitores.php">Comunicar Leitores</a></li>				                      	
 				                      </ul>
 				                </li>				
 								

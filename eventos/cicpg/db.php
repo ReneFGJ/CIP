@@ -2,16 +2,17 @@
 ob_start();
 session_start();
 global $email_adm;
-$mostar_versao = 0;
-$include .= "../include/";
-$include = '../_include/_include/';
+//$mostar_versao = 0;
+//$include .= "../include/";
+//$include = '../_include/_include/';
 $include = "../../include/";
+$include = "../../_include/";
 //-------------------------------------- Paramentros para DEBUG
 //ini_set('display_errors', 255);
 //ini_set('error_reporting', 7);
-$email_adm = "info@cryogene.com.br";
+$email_adm = "cicpg@pucpr.br";
 
-//-------------------------------------- Diretórios de Arquivos e Imagens
+//-------------------------------------- Diretï¿½rios de Arquivos e Imagens
 $dir = $_SERVER['DOCUMENT_ROOT'];
 $dir_public = $dir . '/img/ic/';
 $img_dir = '/img/ic/';
@@ -24,7 +25,7 @@ $secu = "cryogene2009";
 require($include."sisdoc_char.php"); 
 require($include."sisdoc_sql.php"); 
 //require($include.'sisdoc_debug.php');
-//-------------------------------------- Definições Iniciais
+//-------------------------------------- Definiï¿½ï¿½es Iniciais
 define(site,'http://www.cryogene.inf.br');
 define(http,'http://www.cryogene.inf.br/');
 define(idioma,"pt_br");
@@ -39,12 +40,12 @@ for ($k=0;$k < 100;$k++)
 	{
 	$varf='dd'.$k;
 	$varf=$vars[$varf];
-	//if (isset($varf) and ($k > 1)) {	//$varf = str_replace($varf,"A","´"); }
-	$dd[$k] = troca($varf,"'","´");
+	//if (isset($varf) and ($k > 1)) {	//$varf = str_replace($varf,"A","ï¿½"); }
+	$dd[$k] = troca($varf,"'","ï¿½");
 	}
 $acao = $vars['acao'];
 $nocab = $vars['nocab'];
-//-------------------------------------- Determina o Idioma de Navegação
+//-------------------------------------- Determina o Idioma de Navegaï¿½ï¿½o
 $idv = $vars['idioma'];
 //-------------------------------------- Recuperar dados de GET / POST
 function getServerHost() {
@@ -54,5 +55,5 @@ return isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOS
 		: 'localhost'));
 }
 //require("db_cryogene.php");
-require("db_3cic.php");
+//require("db_3cic.php");
 ?>

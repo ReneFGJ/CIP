@@ -1,10 +1,10 @@
 <div id="page08" class="page_min pg08">
-	<A HREF="index.php#page01"><img src="img/icone_top.jpg" align="right" border=0 class="top" title="retorna ao menu"></A>
+	<img src="img/logo.png" height="150" style="width: 180px; height: auto; float: left;" />
 	<h1>Comissão Organizadora</h1>
 
-	<table align="center" width="700">
+	<table style="margin-left: 15%" width="700">
 		<TR>
-			<TD style="color: #101010;" align="left"><h3 style="border-top:1px solid #333f33;"><B>Representantes Institucionais</B></h3> FAE: Profa. <B>Cleonice B. Pompermayer</B>
+			<TD style="color: #101010;" align="left"><h3 style="border-top:1px solid #333f33;" class=""><B>Representantes Institucionais</B></h3> FAE: Profa. <B>Cleonice B. Pompermayer</B>
 			<BR>
 			(Diretora de Campus e Coordenadora do Núcleo de Pesquisa Acadêmica da FAE Centro Universitário)
 			<BR>
@@ -66,6 +66,11 @@
 			(representante da Escola de Comunicação e Artes)
             <BR>
 			<BR>
+            Profa. <B>Angela Cristiane Santos Povoa</B>
+			<BR>
+			(representante da Escola de Negócios)
+            <BR>
+            <BR>
             Profa. <B>Cristina Baena</B>
 			<BR>
 			(representante da Escola de Medicina)
@@ -97,11 +102,22 @@
             <BR>
 			<BR>
             <BR>
-			<h3 style="border-top:1px solid #333f33;"><B>Staff</B></h3><B>Edena Grein</B>
+			<h3 style="border-top:1px solid #333f33;"><B>Staff</B></h3>
+            <B>Alessandra Lacerda</B>
+			<BR>
+			(secretária da IC)
+            <BR>
+            <BR>
+            <B>Edena Grein</B>
 			<BR>
 			(secretária da IC)
 			<BR>
 			<BR>
+            <B>Mariani Barbosa</B>
+			<BR>
+			(secretária da IC)
+             <BR>
+             <BR>
            	<B>Felipe Machado</B>
 			<BR>
 			(design gráfico da Editora Champagnat)
@@ -117,10 +133,13 @@
 			(Analista da PRPPG e Web Developer)
 			<BR>
 			<BR>
-			<B>Thales Rosa</B>
+			<B>Marilia Ferreira</B>
 			<BR>
-			(Analista da coordenação de IC)
-						
+			(Estagiária em Web-Design)
+			<BR>
+			<BR>
+			<BR>
+			<BR>			
 		</TR>
 	</table>
 </div>

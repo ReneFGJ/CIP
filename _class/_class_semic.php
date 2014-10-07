@@ -2019,7 +2019,7 @@ class semic
 				{ $sql .= " and (article_modalidade = '$modalidade' or article_modalidade = 'IS' ) "; }
 			if (strlen($internacional) > 0)
 				{ $sql .= " and article_internacional = '$internacional' "; }
-			$sql .= " order by	article_internacional, identify_type, article_seq  
+			$sql .= " order by	article_internacional, article_ref, identify_type, article_seq  
 			";
 			// article_internacional, seq, article_seq
 			return($sql);	

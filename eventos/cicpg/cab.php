@@ -33,9 +33,14 @@ function msg($x)
 	    <link rel="stylesheet" href="css/cicpg-inport-font.css">
 		<link rel="stylesheet" href="css/cicpg-header-main.css">
 		<link rel="stylesheet" href="css/cicpg_normal.css">
+		<link rel="stylesheet" href="css/font-awesome-4.2.0/css/font-awesome.css">
+		<link rel="stylesheet" href="css/font-awesome-4.2.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/component.css">
 		<script src="js/jquery.js"></script>
         <script src="js/scrooling.js"></script>
 		<script src="js/jquery.maskedinput.js"></script>
+		
+		<script src="js/modernizr.custom.js"></script>
     	<script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
     	<script type="text/javascript"> 
         $(function(){
@@ -53,3 +58,9 @@ function msg($x)
 	<?
 	require("cab_top_menu.php");
 	?>
+
+	<script src="js/classie.js"></script>
+		<script src="js/gnmenu.js"></script>
+		<script>
+			new gnMenu( document.getElementById( 'gn-menu' ) );
+		</script>

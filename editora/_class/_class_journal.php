@@ -177,15 +177,19 @@ class journal
 			$op = array(0,0,0,0,0,0,0,0,0,0,0,0);
 			$sa = '';
 			$sb = '';
+			$col = 9;
+			$tot = 0;
 			while ($line = db_read($rlt))
 				{
 					$tot = $tot + $line['total'];
-					$sb .= '<TD align="center"><B>'.$line['total'].'</B>';
-					$sa .= '<TD align="center">'.$line['title'];					
+					if ($col > 1) { $col = 0; $sa .= '<TR>'; }
+					$col++;
+					$sa .= '<TD align="right">'.$line['title'];
+					$sa .= '<TD align="center"><B>'.$line['total'].'</B>';					
 				}
 			
-			$sx .= '<TR align="center">'.$sa;
-			$sx .= '<TR align="center" style="font-size: 30px;">'.$sb;
+			$sx .= $sa;
+			$sx .= '<TR><TD colspan=4><B>Total de '.$tot.' trabalhos publicados ';
 			$sx .= '</table>';
 			if ($tot == 0) { $sx = ''; }
 			return($sx);

@@ -97,6 +97,8 @@ if ($saved > 0)
 			}
 	echo "<center>Total de ".$tot." comunicados enviados</center>";
 	}
+echo '<A HREF="parecerista_email_importar.php">Importar e-mail</A>';
+
 echo '</div>';
 
 function coluna() { return(""); }	

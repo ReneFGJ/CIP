@@ -3,8 +3,7 @@ switch ($LANG)
 	{
 	default:
 		$bt_submit = 'Acessar >>>';
-		$texto  = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare odio nibh, vitae commodo mi semper quis. Integer aliquet ornare vestibulum.
-				   Maecenas quis dui odio. Nam et dignissim arcu, et ornare elit. Suspendisse orci massa, dictum at dapibus ac, aliquam sed quam. Morbi rhoncus libero hendrerit est tempus, id tempor lacus convallis. Quisque massa tellus, sollicitudin vitae mattis in, mollis vitae est. Praesent ipsum nulla, rutrum sit amet commodo eget, volutpat iaculis sapien. Praesent laoreet porta ligula eget laoreet. Phasellus venenatis neque sit amet turpis pharetra, ultricies sollicitudin felis tincidunt. Donec semper volutpat nulla non vestibulum. Suspendisse imperdiet gravida faucibus. Phasellus nulla arcu, lobortis at metus ac, pulvinar dictum orci.';
+		$texto  = '';
 		$lab_login = 'Submissão de trabalhos';
 		break;
 	}
