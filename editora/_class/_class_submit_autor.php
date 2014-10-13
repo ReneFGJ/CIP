@@ -151,6 +151,8 @@ class submit_autor
 			array_push($cp,array('$S100','sa_email','e-mail',False,True,''));
 			array_push($cp,array('$S100','sa_email_alt','e-mail (alt)',False,True,''));
 			
+			array_push($cp,array('$S100','sa_instituicao_text','Instituicao',False,True,''));
+			
 			array_push($cp,array('$S100','sa_lattes','Link para Lattes',False,True,''));
 			//array_push($cp,array('$T60:5','sa_biografia','Biografia',True,True,''));
 						

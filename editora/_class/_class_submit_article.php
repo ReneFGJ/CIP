@@ -31,27 +31,51 @@ class submit
 			$sql = "select Upper(asc7(doc_1_titulo)) as tt,* from submit_documento 
 					left join submit_status on doc_status = s_status
 					left join submit_autor on doc_autor_principal = sa_codigo
+					left join sections on doc_sessao = section_id
 					where doc_journal_id = '".strzero($jid,7)."'
 						and (
 						$wh) and (doc_journal_id = '".strzero($jid,7)."')
-					order by sa_instituicao_text, doc_status, doc_update, s_descricao_1
+					order by sa_instituicao_text, title, doc_status, doc_update, s_descricao_1
 					";
 			$rlt = db_query($sql); 
 			$xses = 'x';
 			$xiss = 0;
 			$sx = '<table width="100%" class="tabela00">';
+			$sx .= '<TR><TH>Instituição<TH>Seção<TH>Autor<TH>Título<TH>Status';
 			$id = 0;
 			while ($line = db_read($rlt))
 			{
+				$sta = trim($line['doc_status']);
+				$cor = '';
+				if ($sta=='@') { $cor = '<font color="red">'; }
+				//print_r($line);
+				//exit;
 				$sx .= '<TR>';
 				$sx .= '<TD>';
+				$sx .= $cor;
 				$sx .= $line['sa_instituicao_text'];
+				$sx .= '<TD>'.$line['title'];
+				$sx .= $cor;
 				$sx .= '<TD>';
+				$sx .= $cor;
 				$sx .= $line['sa_nome'];
 				$sx .= '<TD>';
+				$sx .= $cor;
+				$sx .= $line['sa_email'];				
+				$sx .= '<TD>';
+				$sx .= $cor;
 				$sx .= $line['tt'];
 				$sx .= '<TD>';
-				$sx .= $line['doc_status'];
+				$sta = trim($line['doc_status']);
+				switch ($sta)
+					{
+						case '@': $sx .= '<font color="red">Em submissão'; break;
+						case 'A': $sx .= '<font color="green">Submetido'; break;
+						case 'B': $sx .= '<font color="blue">Em análise'; break;
+						case 'X': $sx .= '<font color="red">Cancelado'; break;
+						default: $sx .= '['.$sta.']';
+					}
+				
 				$id++;
 			}
 			if ($id > 0)
@@ -203,10 +227,13 @@ class submit
 		{
 			global $http,$perfil;
 			/* Volta estatus perdidos para o editor */
-			$sql = "update ".$this->tabela." set doc_status = 'G' where (doc_status = '') and doc_journal_id = '".strzero($this->journal,7)."' ";
+			$sql = "update ".$this->tabela." set doc_status = 'D' where (doc_status = '' or (doc_status is null)) and doc_journal_id = '".strzero($this->journal,7)."' ";
 			$rlt = db_query($sql);
 			
-			$sql = "select count(*) as total, doc_status from ".$this->tabela." 
+			//$sql = "update ".$this->tabela." set doc_status = 'P' where (doc_status = 'D' or (doc_status is null)) and doc_journal_id = '".strzero($this->journal,7)."' ";
+			//$rlt = db_query($sql);
+
+						$sql = "select count(*) as total, doc_status from ".$this->tabela." 
 					where doc_journal_id = '".round($this->journal)."'
 					or doc_journal_id = '".strzero($this->journal,7)."'
 					group by doc_status
@@ -255,7 +282,7 @@ class submit
 			$link[1] = '<A HREF="'.$http.'editora/submit_works.php?dd1=A">';
 			$link[2] = '<A HREF="'.$http.'editora/submit_works.php?dd1=B">';
 			$link[3] = '<A HREF="'.$http.'editora/submit_works.php?dd1=X">';
-			$link[4] = '<A HREF="'.$http.'editora/submit_works.php?dd1=D">';
+			$link[4] = '<A HREF="'.$http.'editora/submit_works.php?dd1=P">';
 			$link[5] = '<A HREF="'.$http.'editora/submit_works.php?dd1=C">';
 			$link[6] = '<A HREF="'.$http.'editora/submit_works.php?dd1=L">';
 			$link[7] = '<A HREF="'.$http.'editora/submit_works.php?dd1=Z">';
@@ -1793,6 +1820,7 @@ class submit
 				'N'=>'Não aprovado',
 				'L'=>'Enviado para o autor para correções',
 				'Q'=>'Enviado para editora',
+				'P'=>'Outros',
 				'Z'=>'Aceito para publicação',
 				'X'=>'Cancelado'				
 			);

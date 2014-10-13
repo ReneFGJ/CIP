@@ -933,11 +933,13 @@ class captacao
 				$tot11 = array();
 				$tot12 = array();
 				$tot13 = array();
+				$tot14 = array();
 				
 				array_push($tot10,0);
 				array_push($tot11,0);
 				array_push($tot12,0);
-				array_push($tot13,0);				
+				array_push($tot13,0);
+				array_push($tot14,0);				
 				
 				for ($r=$anoi;$r <= $anof;$r++)
 					{
@@ -991,7 +993,7 @@ class captacao
 						//echo '<HR>';
 						/* Tipo de Agencias */
 						$ag = trim($line['agf_sigla']);
-						$vl = round(trim($line['ca_proponente_vlr'])/1000);
+						$vl = round($line['ca_proponente_vlr']);
 						switch ($ag)
 							{
 								case ('OF'): $of = $of + 1; $vof = $vof + $vl; break;
@@ -1011,6 +1013,7 @@ class captacao
 						$totx2 = round($line['ca_vlr_custeio']);
 						$totx3 = round($line['ca_vlr_bolsa']);
 						$totx4 = round($line['ca_vlr_outros']);
+						$totxo = ($tota-($totx1+$totx2+$totx3+$totx4));
 						
 						/* Metodologia 1 */
 						if ($tp==1)
@@ -1051,7 +1054,8 @@ class captacao
 						$tot10[0] = $tot10[0] + $totx1;
 						$tot11[0] = $tot11[0] + $totx2;
 						$tot12[0] = $tot12[0] + $totx3;
-						$tot13[0] = $tot13[0] + $totx4;						
+						$tot13[0] = $tot13[0] + $totx4;
+						$tot14[0] = $tot14[0] + $totxo;						
 						
 						$st .= $this->mostra_captacao_row($line);
 						}
@@ -1070,6 +1074,8 @@ class captacao
 					$sd3 = '';
 					$sd4 = '';
 					$sdtit = '';
+					$tb2 = '<TABLE>';
+					$tb3 = '<TABLE>';
 					for ($r=0;$r < count($tot1);$r++)
 						{
 							$s1 .= '<TR>';
@@ -1090,14 +1096,28 @@ class captacao
 							if (strlen($sd3) > 0) { $sd3 .= ', '.chr(13); }
 							$sd3 .= '["'.($anoi+$r).'", '.round($tot3[$r]/1000).', '.round(($tot2[$r]-$tot3[$r])/1000).'] ';	
 							$sd2 .= '["'.($anoi+$r).'", '.round($tot3[$r]/1000).', '.round($tot3[$r]/1000).'] ';
+							$tb2 .= '<TR><TD>'.($anoi+$r).'<TD>'.number_format($tot2[$r]/1000,2,',','.');
+							$tb3 .= '<TR><TD>'.($anoi+$r).'<TD>'.number_format($tot3[$r]/1000,2,',','.');
 						}
 					$sx .= $sh.$s1;
 					$sx .= '</table>';
+					$tb2 .= '</TABLE>';
+					$tb3 .= '</TABLE>';					
 
 					$sd4 .= '["Capital", '.round($tot10[0]/1000).'], '.chr(13);					
 					$sd4 .= '["Custeio", '.round($tot11[0]/1000).'], '.chr(13);					
 					$sd4 .= '["Bolsas", '.round($tot12[0]/1000).'], '.chr(13);					
-					$sd4 .= '["Serviços/Consultoria/Acessoria", '.round($tot13[0]/1000).'] '.chr(13);					
+					$sd4 .= '["Serviços/Consultoria/Acessoria", '.round($tot13[0]/1000).'] '.chr(13);
+					
+					$tt4 = '<table width="98%" align="center">';
+					$tt4 .= '<TR><TH>Rubrica<TH>Total';
+					$tt4 .= '<TR><TD>Capital<TD align="right">'.number_format(round($tot10[0]),2,',','.');
+					$tt4 .= '<TR><TD>Custeio<TD align="right">'.number_format(round($tot11[0]),2,',','.');
+					$tt4 .= '<TR><TD>Bolsas<TD align="right">'.number_format(round($tot12[0]),2,',','.');
+					$tt4 .= '<TR><TD>Serviços/Consultoria/Acessoria<TD align="right">'.number_format(round($tot13[0]),2,',','.');
+					$tt4 .= '<TR><TD>Outros/não indicado<TD align="right">'.number_format(round($tot14[0]),2,',','.');
+					$tt4 .= '<TR><TD>Total<TD align="right">'.number_format(round($tot13[0]+$tot12[0]+$tot11[0]+$tot10[0]+$tot14[0]),2,',','.');
+					$tt4 .= '</table>';					
 					
 					/* Grafico do Google */
 					$sg .= '
@@ -1248,12 +1268,30 @@ class captacao
     <div id="chart_div_5" style="width: 350px; height: 200px;"></div>
 					';	
 					
+					
+/*
+ */
+     $tb2 = '<table>';
+	 $tb2 .= '<TR><TH>Tipo<TH>Prjtos.<TH>Total';
+     $tb2 .= '<TR><TD>Agência de Fomento<TD align="center">'.$of.'<TD align="right">'.number_format($vof,2,',','.');
+     $tb2 .= '<TR><TD>Agência de Fomento Internacional<TD align="center">'.$ofi.'<TD align="right">'.number_format($vofi,2,',','.');
+     $tb2 .= '<TR><TD>Orgão Governamental<TD align="center">'.$og.'<TD align="right">'.number_format($vog,2,',','.');
+     $tb2 .= '<TR><TD>Orgão Governamental (Internacional)<TD align="center">'.$ogi.'<TD align="right">'.number_format($vogi,2,',','.');
+     $tb2 .= '<TR><TD>Empresa<TD align="center">'.$emp.'<TD align="right">'.number_format($vemp,2,',','.');
+     $tb2 .= '<TR><TD>Empresa Internacional<TD align="center">'.round($empi).'<TD align="right">'.number_format($vempi,2,',','.');
+	 $tb2 .= '<TR><TH>Total<TD align="center">'.round($emp+$empi+$of+$ofi+$og+$ogi).'<TD align="right">'.number_format(($vemp+$vempi+$vof+$vofi+$vog+$vogi),2,',','.');
+	 $tb2 .= '</table>';
+	 					
 	$this->sg2 = $sg2;
 	$this->sg3 = $sg3;
 	$this->sg4 = $sg4;
 	$this->sg5 = $sg5;
 	$this->sg6 = $sg6;
 	$this->sg7 = $sg7;
+	
+	$this->tabela_04 = $tt4;
+	$this->tabela_03 = $tb2;
+	$this->tabela_02 = $tb2;
 	
 							
 					$sx = $sg . $sx;
@@ -1636,15 +1674,16 @@ class captacao
 				global $dd,$acao,$ss,$nw;
 				$user = $ss->user_cracha;
 				$qsql = "select * from (select pdce_programa, pdce_docente from programa_pos_docentes group by pdce_programa, pdce_docente) as tabela inner join programa_pos on pdce_programa = pos_codigo where pdce_docente = '".$ss->user_cracha."' ";
+
 				$qrlt = db_query($qsql);
-				$opa = '';
+				$opa = ' : ';
 				while ($line = db_read($qrlt))
 				{
 					if (strlen($opa) > 0) { $opa .= '&'; }
 					$opa .= trim($line['pos_codigo']).':';
 					$opa .= trim($line['pos_nome']);
 				}
-				$opa .= '& : --sem vinculo com a pós-graduação--';
+				$opa .= '&00000: --sem vinculo com a pós-graduação--';
 				$op = ' : ';
 				for ($r=date("Y");$r > 2001;$r--)
 					{ for ($y=1;$y < 12;$y++) {

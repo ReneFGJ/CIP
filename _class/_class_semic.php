@@ -888,6 +888,8 @@ class semic
 	function submit_resume_mostra_adms($page='')
 		{
 			global $ss;
+			$sql= "update ".$this->tabela." set sm_status = 'B' where sm_status = 'L' ";
+			//$rlt = db_query($sql);
 			
 			$sqlx = "select * from ".$this->tabela." where sm_ano = '".date("Y")."' ";
 			$xrlt = db_query($sqlx);
@@ -914,19 +916,21 @@ class semic
 						case 'B': $total[2] = $total[2] + $tot; break;
 						case 'C': $total[3] = $total[3] + $tot; break;
 						case 'D': $total[4] = $total[4] + $tot; break;
-						case 'X': $total[5] = $total[5] + $tot; break;				
+						case 'X': $total[5] = $total[5] + $tot; break;
+						default:
+							echo '-->'.$status;				
 						}
 				}
 			$sx .= '<table class="tabela00" width="100%">';
 			$sx .= '<TR><TD colspan=5>';
 			$sx .= '<h1>Resumo das Submissões</h2>';
 			$sx .= '<TR>';
-			$sx .= '<TH width="17%">Em submissão';
-			$sx .= '<TH width="17%">Submetidos';
-			$sx .= '<TH width="17%">Para revisão do Inglês';
-			$sx .= '<TH width="17%">Para correções do professor';
-			$sx .= '<TH width="17%">Revisado';
-			$sx .= '<TH width="17%">Cancelado';
+			$sx .= '<TH width="13%">Em submissão';
+			$sx .= '<TH width="13%">Submetidos';
+			$sx .= '<TH width="13%">Para revisão do Inglês';
+			$sx .= '<TH width="13%">Para correções do professor';
+			$sx .= '<TH width="13%">Revisado';
+			$sx .= '<TH width="13%">Cancelado';
 			
 			if ($total[0] > 0) { $link0 = '<A HREF="'.$page.'?dd1=@">'; }
 			if ($total[1] > 0) { $link1 = '<A HREF="'.$page.'?dd1=A">'; }
@@ -2494,10 +2498,12 @@ class semic
 	
 	function recupera_jid_do_semic($ano=0)
 		{
+		if (date("Y") == '2014') { return(85); } /* III CICPG */
 		if ($ano==0)
 			{ $semic = 'semic'.(date("Y")-1992); }
 			else 
 			{ $semic = 'semic'.($ano-1992); }
+		
 		
 		$sql = "select * from journals where path = '$semic'";
 		$rlt = db_query($sql);
