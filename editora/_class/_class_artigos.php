@@ -108,14 +108,14 @@ class artigos
 		{
 			global $jid;
 			$sql = "select * from articles where article_3_keywords = '".$this->protocolo."' ";
+
 			$rlt = db_query($sql);
 			if ($line = db_read($rlt))
 				{
-					echo '<HR>';
+					$dt = 19000102;
 					//article_seq = ".round($this->article_seq).",
 					//article_ref = '".$this->ref."',
 					//article_section = '".$this->session."', 
-					
 					$sql = "update articles set
 							article_abstract = '".$this->resumo."',
 							article_2_abstract = '".$this->resumo_alt."',
@@ -129,9 +129,12 @@ class artigos
 							
 							article_internacional = '".$this->internacional."',
 							article_publicado = '".$this->publicado."',
-							article_author_pricipal = '".$this->article_author_pricipal."'												
+							article_author_pricipal = '".$this->article_author_pricipal."',
+							article_dt_envio = ".$dt.",
+							article_dt_aceite = ".$dt.", 
+							article_pages = ".$dt."												
 							where article_3_keywords = '".$this->protocolo."' ";
-					//$rlt = db_query($sql);
+					$rlt = db_query($sql);
 					return(0);
 				} else {
 					$sql = "insert into articles 
@@ -151,7 +154,7 @@ class artigos
 						'".substr($this->titulo_alt,0,254)."','".$this->resumo_alt."','".substr($this->keyword_alt,0,254)."','en',
 						'".$this->protocolo."',
 						
-						19000101, 19000101, '',
+						19000102, 19000102, '',
 						'S','".$this->autores."',$this->issue,
 						1,$this->session,$this->jid,
 						
@@ -160,8 +163,8 @@ class artigos
 						'".$this->ingles."','".$this->autor."'
 						)
 					";
+					
 					$rlt = db_query($sql);
-					//echo '<HR>'.$sql;
 					return(1);
 						
 				}

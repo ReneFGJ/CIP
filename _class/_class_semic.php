@@ -35,6 +35,44 @@ class semic
 	var $tabela_autor = "semic_trabalho_autor";
 	
 	
+	function lista_trabalhos_pos_graduacao($ano='')
+		{
+			$sql = "select * from ".$this->tabela." 
+					inner join pibic_professor on sm_docente = pp_cracha
+					inner join programa_pos on sm_programa = pos_codigo
+					where sm_edital = 'MOSTRA' and sm_ano = '$ano'
+					and (sm_status <> '@' and sm_status <> 'X')
+					order by pos_nome, pp_nome
+			";
+			$rlt = db_query($sql);
+			$xprof = '';
+			$xesco = '';
+			$sx .= '<table class="tabela00">';
+			$id = 0;
+			while ($line = db_read($rlt))
+				{
+					$id++;
+					$esco = $line['pos_nome'];
+					if ($esco != $xesco)
+						{
+							$xesco = $esco;
+							$sx .= '<TR><TD colspan=5 class="lt3">'.$esco;
+						}
+					
+					$prof = trim($line['pp_cracha']);
+					if ($prof != $xprof)
+						{
+							$xprof = $prof;
+							$sx .= '<TR><TD colspan=5>'.$line['pp_nome'].' ('.$prof.')';
+						}
+					$ln = $line;
+				}
+			$sx .= '<TR><TD>Total '.$id;
+			$sx .= '</table>';
+			print_r($ln);
+			return($sx);
+		}
+	
 	function pibic_semic_participacao($tipo='',$modalidade='')
 		{
 			$sql = "update pibic_semic_avaliador_notas set av_status = 9 where av_area = 'iPPGIa' ";

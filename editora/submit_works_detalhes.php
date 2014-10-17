@@ -35,6 +35,7 @@ require("_class/_class_parecer.php");
 echo $hd->menu();
 echo '<div id="conteudo">';
 	echo $hd->main_content('Trabalhos em avaliação');
+
 	/**** Processa Acao */
 	if ($dd[5]=='ACAO')
 		{
@@ -47,6 +48,8 @@ echo '<div id="conteudo">';
 	echo '<input type="submit" value="<< voltar" class="botao-geral">';
 	echo '</form>';
 
+	echo '<A HREF="submit_article_ed.php?dd0='.$dd[0].'">editar</A>';
+		
 	echo $ar->mostra_dados();
 	echo $ar->mostra_autor_principal();
 

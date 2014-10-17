@@ -402,7 +402,7 @@ class parecerista {
 
 		$sql = "select * from (
 						select * from " . $this -> tabela . " 
-						left join instituicoes on inst_codigo = us_instituicao
+						left join instituicao on inst_codigo = us_instituicao
 						where us_journal_id = " . round($jid) . "
 						and us_ativo = 1
 						) as tabela ";
