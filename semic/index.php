@@ -122,5 +122,5 @@ require ("cab.php");
 </div>
 <!-- fecha div lateral -->
 <?php
-require ("foot.php");
+require("foot.php");
 ?>

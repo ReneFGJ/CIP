@@ -28,7 +28,7 @@ if (checkpost($dd[0])==$dd[90])
 
 echo '<HR>';
 echo $site->abre_secao($art->modalidade);
-echo '<h3>'.$art->sigla.'</h3><BR>';
+echo '<h3>'.$art->sigla.' - '.$art->line['article_3_keywords'].'</h3><BR>';
 
 echo $art->mostrar_artigo();
 

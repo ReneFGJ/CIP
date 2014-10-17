@@ -21,12 +21,12 @@ if (strlen($acao) > 0)
 	{
 	$rst = $nw->login($dd[1],$dd[2]);
 	$rst = $nw->user_erro;
-	$msg_erro = 'Erro:'.abs($rst);
+	$msg_erro = abs($rst);
 	/* recupera mensagem */	
 	if ($rst < 0)
 		{
 			$rst = abs($rst);
-			$msg_erro = $msg['erro'.$rst]; 
+			$msg_erro = '<font color="red">'.$msg['erro'.$rst].'</font>'; 
 		} else {
 			if ($rst == 1)
 				{

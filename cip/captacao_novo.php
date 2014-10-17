@@ -25,6 +25,8 @@ $pag = $_GET["pag"];
 if (strlen($pag) ==0 ) { $pag = $_SESSION['pag_cap']; }
 if (strlen($pag)==0)
 	{ $pag = 1; }
+//if (strlen($cap->protocolo)==0) { $pag=1; }
+	
 $_SESSION['pag_cap'] = $pag;
 
 if (strlen($dd[0]) > 0) { $cap->le($dd[0]); }
@@ -55,6 +57,8 @@ if (date("Ymd") < 20131220)
 		
 	exit;
 	}
+	
+
 
 if ($pag == 1) { $cp = $cap->cp_01(); }
 if ($pag == 2) { $cp = $cap->cp_02(); }

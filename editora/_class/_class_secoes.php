@@ -63,12 +63,28 @@ class secoes
 					return('');
 				}
 		}
-	
+	function ordenar_sessoes($jid)
+		{
+			$sql = "select * from ".$this->tabela." 
+				where journal_id = ".round('0'.$jid)."
+				order by section_area, identify_type
+			";
+			$rlt = db_query($sql);
+			$seq = 10;
+			while ($line = db_read($rlt))
+				{
+					$id = $line['section_id'];
+					$sql = "update ".$this->tabela." set seq = $seq where section_id = $id";
+					//echo '<BR>'.$sql;
+					$rrlt = db_query($sql);
+					$seq = $seq + 2;
+				}
+		}
 	function row()
 		{
 			global $cdf, $cdm, $masc;
-			$cdf = array('section_id','title','abbrev','seq');
-			$cdm = array('Código','descricao','Abreviado','Seq.');
+			$cdf = array('section_id','title','abbrev','identify_type','seq','section_area');
+			$cdm = array('Código','descricao','Abreviado','Ref','Seq.','Área');
 			$masc = array('','','','','','','','','','','');
 			return(1);
 			

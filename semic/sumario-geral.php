@@ -58,6 +58,16 @@ require ("cab.php");
 	require ("sumario_12" . $tp . ".php");
 	echo '<A NAME="iPIBIC_EM"><A>';
 	require ("sumario_13" . $tp . ".php");
+	
+	echo '<A NAME="iPIBIC_EM"><A>';
+	require ("sumario_20" . $tp . ".php");
+	
+	echo '<A NAME="iPIBIC_EM"><A>';
+	//require ("sumario_20_en" . $tp . ".php");
+			
+	echo '<A NAME="iPIBIC_EM"><A>';
+	require ("sumario_30" . $tp . ".php");
+	//require ("sumario_30_en" . $tp . ".php");			
 	?>
 </DIV>
 <?

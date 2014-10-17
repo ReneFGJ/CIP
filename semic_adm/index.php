@@ -29,8 +29,10 @@ $menu = array();
 	array_push($menu,array('Participação','Ausência de Participação de alunos','semic_participacao_alunos.php?dd1=N'));
 	
 	array_push($menu,array('Classificação','Quartis','semic_quartis.php'));
-	array_push($menu,array('Anais do Seminário','Exportar','semic_exportar_anais.php'));
-	array_push($menu,array('Anais do Seminário','Exportar (old)','semic_trabalhos_semic.php'));
+//	array_push($menu,array('Anais do Seminário','Exportar (IC)','semic_exportar_anais.php'));
+//	array_push($menu,array('Anais do Seminário','Exportar (POS)','semic_exportar_mostra.php'));
+//	array_push($menu,array('Anais do Seminário','Exportar (CICPG)','semic_exportar_congresso.php'));
+	array_push($menu,array('Anais do Seminário','Atualiza o site','semic_trabalhos_semic.php'));
 
 ///////////////////////////////////////////////////// redirecionamento
 	$tela = menus($menu,"3");

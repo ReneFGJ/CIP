@@ -167,7 +167,7 @@ class header
 				                      	<li><a href="#">Comunicação</a></li>
 				                      	<li><a href="works_cadastro.php">Cadastros do sistema</a></li>
 				                      	<li><a href="cited_marcacao.php">Marcação DTD (Scielo)</a></li>
-				                      	<li><a href="#">Relatório de produção</a></li>
+				                      	<li><a href="realtorio_producao.php">Relatório de produção</a></li>
 				                      	
 				                      </ul> 
 						        <li id="menu4"><span class="font_menu menu2_af_class" id="menu4_af">Cadastro</span>

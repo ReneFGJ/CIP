@@ -1703,11 +1703,11 @@ class pibic_bolsa_contempladas
 		$sa .= '<TH>Ano</TH>';
 		$sa .= '<TH>Aluno</TH>';
 		$sa .= '<TH>Cracha</TH>';
-		$sa .= '<TH>Tï¿½tulo do projeto do aluno</TH>';
+		$sa .= '<TH>Título do projeto do aluno</TH>';
 		$sa .= '<TH>IC</TH>';
 		$sa .= '<TH>Protocolo</TH>';
 		$sa .= '<TH>Curso</TH>';
-		$sa .= '<TH>Ativaï¿½ï¿½o</TH>';
+		$sa .= '<TH>Ativação</TH>';
 		$sa .= '</TR>';
 		$sa .= $sx;
 		$sa .= '</table>';
@@ -1730,16 +1730,17 @@ class pibic_bolsa_contempladas
 				{
 				case 'A':
 						array_push($acao,array('010','Suspender bolsa*'));
-						array_push($acao,array('020','Substituiï¿½ï¿½o do aluno*'));
-						array_push($acao,array('050','Substituiï¿½ï¿½o do professor'));
+						array_push($acao,array('030','Cancelamento de projeto/bolsa'));
+						array_push($acao,array('020','Substituição do aluno*'));
+						array_push($acao,array('050','Substituiçãoo do professor'));
 						array_push($acao,array('021','Alterar modalidade da IC*'));
-						array_push($acao,array('022','Alterar Tï¿½tulo do plano do aluno'));
+						array_push($acao,array('022','Alterar Título do plano do aluno'));
 						
-						/* Cancelar submissï¿½o do relatï¿½rio parcial */
+						/* Cancelar submissiao do relatorio parcial */
 						
 						if (($rpar > 0) and ($rpar_nota < 1))
 							{
-								array_push($acao,array('030','Renviar para orientador relatï¿½rio parcial para resubmissï¿½o'));		
+								array_push($acao,array('030','Renviar para orientador relatório parcial para resubmissão'));		
 							}
 //					break;
 				case 'C':
@@ -1749,11 +1750,12 @@ class pibic_bolsa_contempladas
 						array_push($acao,array('011','Reativar bolsa'));
 						break;
 				}
-			array_push($acao,array('','Entrega de relatï¿½rio'));
-			array_push($acao,array('100','__Alterar dados do relatï¿½rio parcial'));
-			array_push($acao,array('200','__Alterar dados do relatï¿½rio final'));
+			array_push($acao,array('','Entrega de relatório'));
+			array_push($acao,array('100','__Alterar dados do relatório parcial'));
+			array_push($acao,array('200','__Alterar dados do relatório final'));
 			
-			$sx = '<fieldset><legend>'.msg("actions").'</legend>';
+			$sx = '<DIV style="text-align: left;">';
+			$sx .= '<fieldset><legend>'.msg("actions").'</legend>';
 			$sx .= '<UL>';
 			for ($r=0;$r < count($acao);$r++)
 				{
@@ -1779,11 +1781,13 @@ class pibic_bolsa_contempladas
 					$sx .= $sxf;
 				}
 			$sx .= '</UL>';
-			$sx .= '* Nï¿½o implementado';
+			$sx .= '* Não implementado';
 			$sx .= '</fieldset>';
+			$sx .= '</div>';
 			/* Java script */
 			$sx .= '
 				<script>
+					alert("OLA");
 					function ajax_acao(id)
 						{
 							var obj = "#tl" + id;
@@ -1798,6 +1802,7 @@ class pibic_bolsa_contempladas
 										$( obj ).html(msg);
 									});
 						}
+					alert("OLA2");
 				</script>
 			';
 			return($sx);
@@ -1838,7 +1843,9 @@ class pibic_bolsa_contempladas
 			$proto = $this->pb_protocolo;
 			$acao = $_POST['acao'];
 			
-			/* Alterar Tï¿½tulo de Trabalho */
+			
+			
+			/* Alterar Titulo de Trabalho */
 			if ($ac == '200')
 				{
 					if (strlen($acao) > 0)
@@ -1891,6 +1898,11 @@ class pibic_bolsa_contempladas
 				}
 
 
+			/* Cancelar trabalho */
+			if ($ac == '030')
+				{
+					echo '030';
+				}
 			/* Alterar Tï¿½tulo de Trabalho */
 			if ($ac == '021')
 				{
@@ -1927,7 +1939,7 @@ class pibic_bolsa_contempladas
 									$rrr = db_query($sql);
 									if ($line = db_read($rlt)) { $mod2 = $line['pbt_descricao']; }
 									
-									echo '<BR>Gerando Histï¿½rico';											
+									echo '<BR>Gerando Histórico';											
 									$historico = 'Troca de modalidade de bolsa<BR>De:<B><I>'.$mod1.'</I></B><BR>Para:<B>'.$mod2.'</B><BR><BR>Motivo:'.$dd[5];
 									$ph->inserir_historico($dd[0],021,$historico,$dd[3],'','SUB');
 
@@ -1952,11 +1964,10 @@ class pibic_bolsa_contempladas
 						} else {
 							$sx = $tela;		
 						}
-					
 					return($sx);				
 				}
 
-			/* Alterar Tï¿½tulo de Trabalho */
+			/* Alterar Titulo de Trabalho */
 			if ($ac == '022')
 				{
 					$cp = array();

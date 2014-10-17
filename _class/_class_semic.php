@@ -35,6 +35,44 @@ class semic
 	var $tabela_autor = "semic_trabalho_autor";
 	
 	
+	function lista_trabalhos_pos_graduacao($ano='')
+		{
+			$sql = "select * from ".$this->tabela." 
+					inner join pibic_professor on sm_docente = pp_cracha
+					inner join programa_pos on sm_programa = pos_codigo
+					where sm_edital = 'MOSTRA' and sm_ano = '$ano'
+					and (sm_status <> '@' and sm_status <> 'X')
+					order by pos_nome, pp_nome
+			";
+			$rlt = db_query($sql);
+			$xprof = '';
+			$xesco = '';
+			$sx .= '<table class="tabela00">';
+			$id = 0;
+			while ($line = db_read($rlt))
+				{
+					$id++;
+					$esco = $line['pos_nome'];
+					if ($esco != $xesco)
+						{
+							$xesco = $esco;
+							$sx .= '<TR><TD colspan=5 class="lt3">'.$esco;
+						}
+					
+					$prof = trim($line['pp_cracha']);
+					if ($prof != $xprof)
+						{
+							$xprof = $prof;
+							$sx .= '<TR><TD colspan=5>'.$line['pp_nome'].' ('.$prof.')';
+						}
+					$ln = $line;
+				}
+			$sx .= '<TR><TD>Total '.$id;
+			$sx .= '</table>';
+			print_r($ln);
+			return($sx);
+		}
+	
 	function pibic_semic_participacao($tipo='',$modalidade='')
 		{
 			$sql = "update pibic_semic_avaliador_notas set av_status = 9 where av_area = 'iPPGIa' ";
@@ -888,6 +926,8 @@ class semic
 	function submit_resume_mostra_adms($page='')
 		{
 			global $ss;
+			$sql= "update ".$this->tabela." set sm_status = 'B' where sm_status = 'L' ";
+			//$rlt = db_query($sql);
 			
 			$sqlx = "select * from ".$this->tabela." where sm_ano = '".date("Y")."' ";
 			$xrlt = db_query($sqlx);
@@ -914,19 +954,21 @@ class semic
 						case 'B': $total[2] = $total[2] + $tot; break;
 						case 'C': $total[3] = $total[3] + $tot; break;
 						case 'D': $total[4] = $total[4] + $tot; break;
-						case 'X': $total[5] = $total[5] + $tot; break;				
+						case 'X': $total[5] = $total[5] + $tot; break;
+						default:
+							echo '-->'.$status;				
 						}
 				}
 			$sx .= '<table class="tabela00" width="100%">';
 			$sx .= '<TR><TD colspan=5>';
 			$sx .= '<h1>Resumo das Submissões</h2>';
 			$sx .= '<TR>';
-			$sx .= '<TH width="17%">Em submissão';
-			$sx .= '<TH width="17%">Submetidos';
-			$sx .= '<TH width="17%">Para revisão do Inglês';
-			$sx .= '<TH width="17%">Para correções do professor';
-			$sx .= '<TH width="17%">Revisado';
-			$sx .= '<TH width="17%">Cancelado';
+			$sx .= '<TH width="13%">Em submissão';
+			$sx .= '<TH width="13%">Submetidos';
+			$sx .= '<TH width="13%">Para revisão do Inglês';
+			$sx .= '<TH width="13%">Para correções do professor';
+			$sx .= '<TH width="13%">Revisado';
+			$sx .= '<TH width="13%">Cancelado';
 			
 			if ($total[0] > 0) { $link0 = '<A HREF="'.$page.'?dd1=@">'; }
 			if ($total[1] > 0) { $link1 = '<A HREF="'.$page.'?dd1=A">'; }
@@ -1723,9 +1765,9 @@ class semic
 			$dd[1] = 'PIBIC';
 			$dd[2] = 'N';
 			
-			$fl = array('01','02','03','04','05','11','12','13','20');
-			$in = array('N' ,'N' ,'N' ,'N' ,'N' ,'S' ,'S' ,'S','N' );
-			$md = array('PIBIC' ,'PIBITI' ,'PIBIC_EM' ,'POS-G' ,'CSF' ,'PIBIC' ,'PIBITI' ,'PIBIC_EM','EVO' );
+			$fl = array('01','02','03','04','05','11','12','13','20', '30');
+			$in = array('N' ,'N' ,'N' ,'N' ,'N' ,'S' ,'S' ,'S','N' ,'N' );
+			$md = array('PIBIC' ,'PIBITI' ,'PIBIC_EM' ,'POS-G' ,'CSF' ,'PIBIC' ,'PIBITI' ,'PIBIC_EM','EVO', 'CICPG' );
 			$id = array('pt_BR','en');
 			
 			for ($y=0;$y < count($id);$y++)
@@ -2019,7 +2061,7 @@ class semic
 				{ $sql .= " and (article_modalidade = '$modalidade' or article_modalidade = 'IS' ) "; }
 			if (strlen($internacional) > 0)
 				{ $sql .= " and article_internacional = '$internacional' "; }
-			$sql .= " order by	article_internacional, article_ref, identify_type, article_seq  
+			$sql .= " order by	article_internacional, seq, article_ref, identify_type, article_seq  
 			";
 			// article_internacional, seq, article_seq
 			return($sql);	
@@ -2494,10 +2536,12 @@ class semic
 	
 	function recupera_jid_do_semic($ano=0)
 		{
+		if (date("Y") == '2014') { return(85); } /* III CICPG */
 		if ($ano==0)
 			{ $semic = 'semic'.(date("Y")-1992); }
 			else 
 			{ $semic = 'semic'.($ano-1992); }
+		
 		
 		$sql = "select * from journals where path = '$semic'";
 		$rlt = db_query($sql);

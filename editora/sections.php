@@ -10,6 +10,12 @@ require("include_journal.php");
 require("_class/_class_secoes.php");
 $sc = new secoes;
 
+/* Ordenar */
+if ($dd[1]=='SORT')
+	{
+		$sc->ordenar_sessoes($jid);
+	}
+
 echo $hd->menu();
 echo '<div id="conteudo">';
 echo $hd->main_content('Seções da revista');
@@ -29,7 +35,7 @@ $tab_max = "100%";
 echo '<TABLE width="'.$tab_max.'" align="center"><TR><TD>';
 require($include.'sisdoc_row.php');
 echo '</table>';
-
+echo '<A HREF="'.page().'?dd1=SORT">ordenar por referencia</A>';
 echo '</div>';
 
 require('foot.php');

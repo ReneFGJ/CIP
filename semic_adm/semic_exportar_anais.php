@@ -34,15 +34,15 @@ $sql = "select substring(pb_semic_area from 1 for 4) as area2,
 		inner join pibic_bolsa_contempladas on pb_protocolo = sm_codigo
 		inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
 		inner join pibic_professor on pb_professor = pp_cracha
+		left join centro on centro_codigo = pp_escola 
 		where (sm_status <> '@' and sm_status <> 'X')
 		and pb_ano = '".(date("Y")-1)."'
 		and (pbt_edital = 'PIBIC' or pbt_edital = 'IS' or pbt_edital = 'PIBITI')
 		$deli
-		and pb_resumo_nota <> '-1'
+		and pb_resumo > 20000101
 		order by pb_semic_idioma, area2, pb_semic_area, pbt_edital, pp_nome, pbt_descricao 
 ";
 $rlt = db_query($sql);
-$ar->issue = 606;
 $xpos = ''; $vpos = 1;
 $id = 0;
 while ($line = db_read($rlt))
@@ -61,6 +61,7 @@ while ($line = db_read($rlt))
 			{ $publicado = 'X'; }
 		if ($publicado == 'X')
 			{
+				echo '<BR>******** CANCELADO **********<BR>';
 				echo '-->'.trim($line['sm_titulo']);
 			}	
 		
@@ -76,15 +77,16 @@ while ($line = db_read($rlt))
 		if ($sigla == '2.02')
 			{
 				$xarea = trim($line['pb_semic_area']);
-				echo '->'.$area;
+				//echo '-área->'.$area;
 				if ($xarea == '2.02.00.00-X') { $sigla = '2.02.XX'; }
 			}
 		if ($sigla == '6.01')
 			{
-				$sigla = substr(trim($line['area']),0,7);	
+				$sigla = substr(trim($line['area']),0,7);
+				echo '<BR>'.$sigla;
 			}
 			
-		echo '==>'.$sigla;
+		//echo '=Sigla=>'.$sigla;
 		$session = trim($sec->busca_secao($sigla,$jid));
 		
 		/* variaveis */
@@ -101,7 +103,7 @@ while ($line = db_read($rlt))
 		/* Instituicao */
 		$instituicao = ($line['sma_instituicao']);
 		if (strlen($instituicao) == 0) { $instituicao = 'PUCPR'; }
-
+		
 		/* RESUMO */
 		$resumo_1 = trim($line['sm_resumo_01']);
 		$resumo_1 = troca($resumo_2,'Introdução:','<B>Introduction</B>:');
@@ -124,8 +126,10 @@ while ($line = db_read($rlt))
 			{ $ref = 'i'.$ref; }
 		if (trim($line['pbt_edital'])=='PIBITI')
 			{ $ref .= 'T'; }
+			
 		//$ref .= '('.$line['pb_resumo_nota'].')';
 		//echo '<BR>'.$ref;
+		$vpos++;
 		$vpos++;
 
 		/* Resumo 01A */
@@ -146,10 +150,8 @@ while ($line = db_read($rlt))
 		/* Resumo */
 		if (strlen($line['sm_resumo_01']) > 0) { $rs1 = $resumo_1; }
 		if (strlen($line['sm_resumo_02']) > 0) { $rs2 = $resumo_2; }
-		//exit;
 		
-		$sa = '';
-		$sa .= ' - '.trim($line['centro_nome']).'</I>'.chr(13);
+		$sa = '<I>'.trim($line['centro_nome']).'</I>'.chr(13);
 		$tipop = trim($line['pbt_edital']);
 		switch($tipop)
 			{
@@ -198,10 +200,51 @@ while ($line = db_read($rlt))
 				$sx .= chr(13);
 			}
 			/* tipo de apresentação */
+			$en = 0;
+			$oral = 0;
 			switch ($apresentacao)
 				{
-				case 'M': $sb .= 'Poster;';
+				case 'M': $sb .= 'Poster;'; 
+						$ar->issue = 606;
+						break;
+
+				case 'B': $sb .= 'Apresentação Oral Portugues - CICPG'; 
+						$ar->issue = 637;
+						$oral = 1;	
+						break;						
+
+				/* Casos Inglês */
+				case 'A': $sb .= 'Apresentação Oral Inglês'; 
+						$ar->issue = 636;
+						$en = 1;
+						$oral = 1;
+						break;				
+				case 'L': $sb .= 'Apresentação Poster Inglês';
+						$ar->issue = 641;
+						$en = 1;
+						break;				
+				/* Casos Atipicos */
+				case 'Z': $sb .= 'Poster - Verficar';
+						$ar->issue = 642; 
+						break;	
+				case 'V': $sb .= 'Poster - Verficar';
+						$ar->issue = 642; 
+						break;	
+				/* */						
+				case 'C': $sb .= 'Apresentação Oral Portugues'; 
+						$ar->issue = 636;	
+						$oral = 1;
+						break;						
+				case 'O': $sb .= 'Iniciação Tecnológica - Poster'; 
+						$ar->issue = 644;	
+						break;																
+				case 'F': $sb .= 'Iniciação Tecnológica - Oral'; 
+						$ar->issue = 643;	
+						$oral = 1;
+						break;																
 				default: $sb .= '['.$apresentacao.'];';
+					echo '['.$apresentacao.'];';
+				exit;
 				}
 			$sb .= '.';
 
@@ -209,27 +252,45 @@ while ($line = db_read($rlt))
 		$ar->autor = $sb;
 		$ar->session = $session;
 		$ar->protocolo = $proto;
-		echo '==>'.$internacional;
+		//echo '=Internacional=>'.$internacional;
 
-		$ar->titulo = trim($line['sm_titulo']);
-		$ar->titulo_en = trim($line['sm_titulo_en']);
-		$ar->resumo = $rs1;
-		$ar->resumo_alt = $rs2;				
-		$ar->keyword = trim($line['sm_rem_06']);
-		$ar->keyword_alt = trim($line['sm_rem_16']);
+		if ($en == 0)
+			{
+			$ar->titulo = trim($line['sm_titulo']);
+			$ar->titulo_en = trim($line['sm_titulo_en']);
+			$ar->resumo = $rs1;
+			$ar->resumo_alt = $rs2;				
+			$ar->keyword = trim($line['sm_rem_06']);
+			$ar->keyword_alt = trim($line['sm_rem_16']);
+			} else {
+			$ar->titulo_en = trim($line['sm_titulo']);
+			$ar->titulo = trim($line['sm_titulo_en']);
+			$ar->resumo_alt = $rs1;
+			$ar->resumo = $rs2;				
+			$ar->keyword_alt = trim($line['sm_rem_06']);
+			$ar->keyword = trim($line['sm_rem_16']);	
+			}
 
+		/* Oral */
+		if ($oral==1)
+			{
+				$ref .= '*';
+			}
+			
+		/* Envia Dados */
 		$ar->mod = trim($line['pbt_edital']);
 		$ar->ingles = 'N';
 		$ar->ref = $ref;
 		$ar->jid = $jid;
 		$ar->visible = 'S';
-		$ar->article_seq = $vpos*1	;
+		$ar->article_seq = $vpos*2	;
 		$ar->internacional = $internacional;
 		$ar->publicado = $publicado;
 		$ar->article_author_pricipal = trim($line['pp_cracha']);
+		//echo $ref.'-'.$line['pb_status'].'['.$publicado.']';
+		//echo '-titulo->'.$line['sm_titulo'];
 		
-		echo $ref.'-'.$line['pb_status'].'['.$publicado.']';
-		echo '-->'.$line['sm_titulo'];
+		
 		
 		if ($ar->insert_article() == 1)
 			{ echo '<BR>'.$ar->protocolo.'->NOVO '; }

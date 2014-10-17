@@ -18,8 +18,10 @@ $cp = array();
 $frm = array('1'=>'Captações vigentes no ano'
 			,'2'=>'Captações inicados ao ano' );
 
-$dd[1] = 20080101;
+if (strlen($dd[1]) == 0) { $dd[1] = 20080101; }
 $dd3 = round($dd[3]);
+
+echo '<div class="noprint"><A HREF="'.page().'?dd0=ALTERAR">alterar periodo</A></div>';
 
 echo '<H1>Captação de Recursos Vigentes</h1>';
 echo '<h3>'.$frm[$dd3].'</h3>';
@@ -50,9 +52,10 @@ echo ' <font class="lt1">'.substr($dd[1],0,4).' - '.substr($dd[2],0,4);
 		echo '<TD width="33%">';
 		echo $cap->sg5; 
 		echo '<TD width="33%">';
-		echo $cap->sg6; 
+		echo $cap->sg6;
+		echo $cap->tabela_04;  
 		echo '<TD width="33%">';
-		echo $cap->sg7; 
+		echo $cap->tabela_03; 
 				
 		echo '</table>';
 
