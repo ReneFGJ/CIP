@@ -28,6 +28,8 @@ $menu = array();
 	
 	array_push($menu,array('Participação','Ausência de Participação de alunos','semic_participacao_alunos.php?dd1=N'));
 	
+	array_push($menu,array('Submissões','Relatório Pós-Graduação','semic_mostra_pesquisa.php'));
+	
 	array_push($menu,array('Classificação','Quartis','semic_quartis.php'));
 //	array_push($menu,array('Anais do Seminário','Exportar (IC)','semic_exportar_anais.php'));
 //	array_push($menu,array('Anais do Seminário','Exportar (POS)','semic_exportar_mostra.php'));
@@ -36,6 +38,13 @@ $menu = array();
 
 ///////////////////////////////////////////////////// redirecionamento
 	$tela = menus($menu,"3");
+	
+	echo '<A HREF="semic_orais.php">APRESENTAÇÃO ORAL</A>&nbsp;';
+	echo '<A HREF="semic_orais_mostra.php">MOSTRA ORAL</A>&nbsp;';
 
+	echo '<A HREF="semic_exportar_anais_mostra.php">MOSTRA</A>&nbsp;';
+	
+	echo '<A HREF="semic_exportar_anais_mostra.php">MOSTRA</A>&nbsp;';
+	echo '<A HREF="semic_exportar_anais.php">SEMIC</A>';
 require("../foot.php");	
 ?>
