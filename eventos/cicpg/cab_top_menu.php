@@ -20,26 +20,33 @@ switch ($LANG)
 					<nav class="gn-menu-wrapper">
 						<div class="gn-scroller"> 
 							<ul class="gn-menu">
-								<li> <a href="index.php"><i class="fa fa-home"></i> Início</a></li>
-								<li> <a href="apresentacao.php"><i class="fa fa-comment"></i> Apresentação</a></li>
-								<li> <a href="programacao.php"><i class="fa fa-clock-o"></i> Programação</a></li>
-								<li> <a href="submissao-de-trabalhos.php"><i class="fa fa-file"></i> Submissão de trabalhos</a></li>
-								<li> <a href="comissoes.php"><i class="fa fa-users"></i> Comissão Organizadora</a></li>
-								<li> <a href="instituicoesparticipantes.php"><i class="fa fa-university"></i> Instituições Participantes</a></li>
-								<li> <a href="mapas.php"><i class="fa fa-map-marker"></i>  Localização e Hospedagem</a></li>
-								<li> <a href="materiais-para-divulgacao.php"><i class="fa fa-thumbs-up"></i> Materiais para divulgação</a></li>
-								<li> <a href="perguntas-frequentes.php"><i class="fa fa-question-circle"></i> Perguntas Frequentes</a></li>
-								<li> <a href="politicas-de-adesao.php"><i class="fa fa-check-square-o"></i> Políticas de Adesão</a></li>
-								<li> <a href="sobre-curitiba.php"><i class="fa fa-bus"></i> Sobre Curitiba</a></li><li> <a href="galeria-de-homenageados.php"><i class="fa fa-star"></i> Galeria de Homenageados</a></li>
-								<li> <a href="contato.php"><i class="fa fa-envelope"></i></i> Contato</a></li>
+								<li> <a href="index.php"><i class="fa fa-home faIcon"></i> Início</a></li>
+								<li> <a href="painel.php"><i class="fa fa-calendar faIcon"></i> Localize seu pôster</a></li>
+								<li> <a href="inscricao.php"><i class="fa fa-check-circle faIcon"></i> Inscrição de Mini-curso e Oficinas</a></li>
+								<li> <a href="apresentacao.php"><i class="fa fa-comment faIcon"></i> Apresentação</a></li>
+								<li> <a href="programacao.php"><i class="fa fa-clock-o faIcon"></i> Programação</a></li>
+								<li> <a href="instrucoes-para-autores.php"><i class="fa fa-file faIcon"></i> Instruções para autores</a></li>
+								<li> <a href="comissoes.php"><i class="fa fa-users faIcon"></i> Comissão Organizadora</a></li>
+								<li> <a href="instituicoesparticipantes.php"><i class="fa fa-university faIcon"></i> Instituições Participantes</a></li>
+								<li> <a href="mapas.php"><i class="fa fa-map-marker faIcon"></i>  Localização e Hospedagem</a></li>
+								<li> <a href="materiais-para-divulgacao.php"><i class="fa fa-thumbs-up faIcon"></i> Materiais para divulgação</a></li>
+								<li> <a href="perguntas-frequentes.php"><i class="fa fa-question-circle faIcon"></i> Perguntas Frequentes</a></li>
+								<li> <a href="politicas-de-adesao.php"><i class="fa fa-check-square-o faIcon"></i> Políticas de Adesão</a></li>
+								<li> <a href="sobre-curitiba.php"><i class="fa fa-bus faIcon"></i> Sobre Curitiba</a></li>
+								<li> <a href="galeria-de-homenageados.php"><i class="fa fa-star faIcon"></i> Galeria de Homenageados</a></li>
+								<li> <a href="contato.php"><i class="fa fa-envelope faIcon"></i></i> Contato</a></li>
 							</ul>
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li> 
 				
-				<li class="submissao-botao"><a href="submissao-de-trabalhos.php">Submissão de trabalhos</a></li>
-				<li><a class="codrops-icon codrops-icon-prev" href="calendario.php"><span>Prazos</span></a></li>
-				<li><a class="codrops-icon codrops-icon-drop" href=""><span></span></a></li>
+				<!--<li class="submissao-botao"><a href="submissao-de-trabalhos.php">Submissão de trabalhos</a></li>-->
+				<!--<li><a class="codrops-icon codrops-icon-prev" href="calendario.php"><span>Prazos</span></a></li>-->
+				<li class="submissao-botao"><a href="programacao.php">Programação</a></li>
+				<li><a href="sumario.php">Sumário</a></li>
+				<li><a href="certificado.php">Emissão de Certificados</a></li>
+				<li><a class="codrops-icon codrops-icon-prev" href="http://www2.pucpr.br/reol/eventos/cicpg/files/resultado-cicpg.pdf" target="new"><span>** Resultado das Premiações **</span></a></li>
+				<li><a class="codrops-icon codrops-icon-drop" href=""><span></span></a></li> 
 
 			</ul>
 <!--<nav id="menu">
