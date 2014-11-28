@@ -3783,28 +3783,30 @@ class pibic_bolsa_contempladas
 		
 		function indicador_orientandos($ano='',$tipo='')
 			{
-				$wh = " and ((pbt_edital = 'PIBIC') or (pbt_edital = 'PIBITI')) ";
+				$wh = " and ((pbt_edital = 'PIBIC') or (pbt_edital = 'PIBITI') or (pbt_edital = 'IS')) ";
 				$ano = date("Y");
 				$sql = "select count(*) as total, pb_professor, pb_ano,
-						ap_tit_titulo
+						ap_tit_titulo, pp_ss
 						from ".$this->tabela."
 						inner join pibic_professor on pb_professor = pp_cracha
 						inner join pibic_bolsa_tipo on pb_tipo = pbt_codigo
 						left join apoio_titulacao on pp_titulacao =  ap_tit_codigo
 						where pb_status <> 'C'
 						$wh
-						group by pb_professor, pb_ano, ap_tit_titulo
+						group by pb_professor, pb_ano, ap_tit_titulo, pp_ss
 				";
 				$rlt = db_query($sql);
 				$ano = array();
 				$mst = array();
 				$dor = array();
+				$sss = array();
 				
 				for ($r=2006;$r <= date("Y");$r++)
 					{
 						array_push($ano,$r);
 						array_push($mst,0);
 						array_push($dor,0);
+						array_push($sss,0);
 					}
 				$totp = 0;				
 				while ($line = db_read($rlt))
@@ -3826,12 +3828,19 @@ class pibic_bolsa_contempladas
 						
 						if ($mss == 1) { $mst[$ano] = $mst[$ano] + 1; }
 						if ($mss == 2) { $dor[$ano] = $dor[$ano] + 1; }
+						
+						if (trim($line['pp_ss'])=='S')
+							{
+								$sss[$ano] = $sss[$ano] + 1; 
+							}
 					}
 				
 				$st = '<table width="705" class="lt1" align="center" cellpadding=0 cellspacing=2 border=1>';
 				$st .= '<TR><TH>Ano';
 				$sm = '<TR><TD>Mestres';
+				$sg = '<TR><TD>Doutores (sem SS)';
 				$sd = '<TR><TD>Doutores';
+				$sf = '<TR><TD>SS';
 				$sx = '
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -3841,18 +3850,29 @@ class pibic_bolsa_contempladas
       function drawVisualization() {
         // Create and populate the data table.
         var data = google.visualization.arrayToDataTable([
-        [\'Ano\',   \'Mestre\', \'Doutor(a)\'],
+        [\'Ano\',   \'Mestre\',\'SS\', \'Doutor(a)\'],
       ';
 	  for ($r=1;$r < count($mst);$r++)
 	  		{
 	  			$totp = $mst[$r] + $dor[$r];
 	  			$st .= '<TH>'.(2006+$r);
+				
 				$sm .= '<TD align="center">'.$mst[$r];
-				if ($totp  > 0) { $sm .= ' ('.number_format($mst[$r] / $totp * 100,1,',','.').'%)'; }			
+				if ($totp  > 0) { $sm .= ' ('.number_format($mst[$r] / $totp * 100,1,',','.').'%)'; }
+							
 				$sd .= '<TD align="center">'.$dor[$r];
 				if ($totp > 0) { $sd .= ' ('.number_format($dor[$r] / $totp * 100,1,',','.').'%)'; }
+								
+				$sf .= '<TD align="center">'.$sss[$r];
+				if ($totp  > 0) { $sf .= ' ('.number_format($sss[$r] / $totp * 100,1,',','.').'%)'; }
+
+				$sg .= '<TD align="center">'.($dor[$r] - $sss[$r] );
+				if ($totp  > 0) { $sg .= ' ('.number_format(($dor[$r] - $sss[$r] )/ $totp * 100,1,',','.').'%)'; }
+
 	  			if ($r > 1) { $sx .= ', '.chr(13).chr(10); }
-          		$sx .= '[\''.($r + 2006).'\','.$mst[$r].','.$dor[$r];     
+          		$sx .= '[\''.($r + 2006).'\','.$mst[$r].','.
+          				$sss[$r] . ', ' .
+          				$dor[$r];   
           		$sx .= '  ]';
 			}
       $sx .= '])';
@@ -3860,7 +3880,7 @@ class pibic_bolsa_contempladas
         // Create and draw the visualization.
         new google.visualization.ColumnChart(document.getElementById(\'visualization\')).
             draw(data,
-                 {title:"Titulaï¿½ï¿½o dos pesquisadores em Iniciaï¿½ï¿½o Cientï¿½fica",
+                 {title:"Titulação dos pesquisadores em Iniciação Científica, Tecnológica e Inclusão Social",
                   width:700, height:300,
                   vAxis: {title: "Prof."},
                   hAxis: {title: "Ano"}}
@@ -3870,7 +3890,126 @@ class pibic_bolsa_contempladas
 	</script>
     <div id="visualization" style="width: 700px; height: 300px;"></div>';
 	
-	$sx .= $st . $sd . $sm . '</table>';
+	$sx .= $st .  $sf. $sg. $sd . $sm . '</table>';
+	return($sx);
+				
+	}
+		function indicador_orientandos_plano($ano='',$tipo='')
+			{
+				$wh = " and ((pbt_edital = 'PIBIC') or (pbt_edital = 'PIBITI') or (pbt_edital = 'IS')) ";
+				$ano = date("Y");
+				$sql = "select count(*) as total, pb_professor, pb_ano,
+						ap_tit_titulo, pp_ss
+						from ".$this->tabela."
+						inner join pibic_professor on pb_professor = pp_cracha
+						inner join pibic_bolsa_tipo on pb_tipo = pbt_codigo
+						left join apoio_titulacao on pp_titulacao =  ap_tit_codigo
+						where pb_status <> 'C'
+						$wh
+						group by pb_professor, pb_ano, ap_tit_titulo, pp_ss
+				";
+				$rlt = db_query($sql);
+				$ano = array();
+				$mst = array();
+				$dor = array();
+				$sss = array();
+				
+				for ($r=2006;$r <= date("Y");$r++)
+					{
+						array_push($ano,$r);
+						array_push($mst,0);
+						array_push($dor,0);
+						array_push($sss,0);
+					}
+				$totp = 0;				
+				while ($line = db_read($rlt))
+					{
+						$totp = $totp + $line['total'];
+						$t = $line['total'];
+						
+						$ano = $line['pb_ano']-2006;
+						if ($ano < 0) { $ano = 0; }
+						$tit = trim($line['ap_tit_titulo']);
+						$prof = trim($line['pb_professor']);
+						$total = $line['total'];
+	
+						$mss = 0;
+						if ($tit == 'Esp.') { $mss = 1; }
+						if ($tit == 'Msc.') { $mss = 1; }
+						if ($tit == 'Dr.') { $mss = 2; }
+						if ($tit == 'Dra.') { $mss = 2; }
+						if ($mss == 0) { $mss = 1; }
+						
+						if ($mss == 1) { $mst[$ano] = $mst[$ano] + $t; }
+						if ($mss == 2) { $dor[$ano] = $dor[$ano] + $t; }
+						
+						if (trim($line['pp_ss'])=='S')
+							{
+								$sss[$ano] = $sss[$ano] + $t;
+								$dor[$ano] = $dor[$ano] - $t;
+							}
+					}
+				
+				$st = '<table width="705" class="lt1" align="center" cellpadding=0 cellspacing=2 border=1>';
+				$st .= '<TR><TH>Ano';
+				$sm = '<TR><TD>Mestres';
+				$sg = '<TR><TD>Doutores (sem SS)';
+				$sd = '<TR><TD>Doutores';
+				$sf = '<TR><TD>SS';
+				$sr = '<TR><TD>Total';
+				$sx = '
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load(\'visualization\', \'1\', {packages: [\'corechart\']});
+    </script>
+    <script type="text/javascript">
+      function drawVisualization() {
+        // Create and populate the data table.
+        var data = google.visualization.arrayToDataTable([
+        [\'Ano\',   \'Mestre\',\'SS\', \'Doutor(a)\'],
+      ';
+	  for ($r=1;$r < count($mst);$r++)
+	  		{
+	  			$totp = $mst[$r] + $dor[$r] + $sss[$r];
+	  			$st .= '<TH>'.(2006+$r);
+				
+				$sm .= '<TD align="center">'.$mst[$r];
+				if ($totp  > 0) { $sm .= ' ('.number_format($mst[$r] / $totp * 100,1,',','.').'%)'; }
+							
+				$sg .= '<TD align="center">'.$dor[$r];
+				if ($totp > 0) { $sg .= ' ('.number_format($dor[$r] / $totp * 100,1,',','.').'%)'; }
+								
+				$sf .= '<TD align="center">'.$sss[$r];
+				if ($totp  > 0) { $sf .= ' ('.number_format($sss[$r] / $totp * 100,1,',','.').'%)'; }
+
+				$sd .= '<TD align="center">'.($dor[$r] + $sss[$r] );
+				if ($totp  > 0) { $sd .= ' ('.number_format(($dor[$r] + $sss[$r])/ $totp * 100,1,',','.').'%)'; }
+
+				$sr .= '<TD align="center">'.($dor[$r] + $mst[$r] +$sss[$r] );
+				if ($totp  > 0) { $sr .= ' ('.number_format(($dor[$r] + $mst[$r] )/ $totp * 100,1,',','.').'%)'; }
+
+	  			if ($r > 1) { $sx .= ', '.chr(13).chr(10); }
+          		$sx .= '[\''.($r + 2006).'\','.$mst[$r].','.
+          				$sss[$r] . ', ' .
+          				$dor[$r];   
+          		$sx .= '  ]';
+			}
+      $sx .= '])';
+	  $sx .= '
+        // Create and draw the visualization.
+        new google.visualization.ColumnChart(document.getElementById(\'visualization\')).
+            draw(data,
+                 {title:"Total de Planos por titulação em Iniciação Científica, Tecnológica e Inclusão Social",
+                  width:900, height:300,
+                  vAxis: {title: "Prof."},
+                  hAxis: {title: "Ano"}}
+            );
+      }
+      google.setOnLoadCallback(drawVisualization);
+	</script>
+    <div id="visualization" style="width: 700px; height: 300px;"></div>';
+	
+	$sx .= $st .  $sf. $sg. $sd . $sm . $sr. '</table>';
 	return($sx);
 				
 	}

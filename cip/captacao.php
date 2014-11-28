@@ -27,6 +27,8 @@ array_push($menu,array('Captação de projetos','Últimas Atualizações (data)','cap
 
 array_push($menu,array('Captação de projetos','Resumo dos status dos indicadores','captacao_status.php'));
 
+array_push($menu,array('Captação de recursos','Resumo das captações','captacao_resumo.php'));
+
 //array_push($menu,array('Captação de projetos (indicadores)','Captação por Vigência / Ano / Agência','captacao_ano_metodo_1.php'));
 //array_push($menu,array('Captação de projetos (indicadores)','Captação por Ano','captacao_ano_inicio.php'));
 //array_push($menu,array('Captação de projetos (indicadores)','Captação por Agências / ano','captacao_ano_agencia.php'));
