@@ -1,0 +1,26 @@
+<?php
+/*
+ *	$Id: sslclient.php,v 1.1 2004/01/09 03:23:42 snichol Exp $
+ *
+ *	SSL client sample.
+ *
+ *	Service: SOAP endpoint
+ *	Payload: rpc/encoded
+ *	Transport: https
+ *	Authentication: none
+ */
+//$xcodigo = '88958022';
+if (strlen($codigo) > 0) {
+	
+	require ('../include/nusoap/nusoap.php');
+
+	$param = array('pessoa' => $codigo);
+
+	/* create the client for my rpc/encoded web service */
+	$wsdl = 'https://sarch.pucpr.br:8100/services/ServicoConsultaPibic?wsdl';
+
+	$client = new soapclient($wsdl, true);
+	$result = $client -> call('opPesquisarPorCodigo', $param);
+	
+}
+?>
