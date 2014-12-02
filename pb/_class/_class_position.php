@@ -50,7 +50,7 @@ class posicao
 					if ($rm > $pos) { $class = $class1; }
 					$link = '<A HREF="'.$page.'" class="passo-numero">';
 					
-					if ($pos >= $total) { $link = ''; }
+					if ($pos > $total) { $link = ''; }
 					
 					//if (strlen($protocolo)==0) { $link = ''; }
 					$sx .= '<div class="'.$class.'">

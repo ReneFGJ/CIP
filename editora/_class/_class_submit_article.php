@@ -20,6 +20,48 @@ class submit {
 
 	var $tabela = "submit_documento";
 
+
+	function lista_submissoes_instituicoes_email($tipo=1) {
+		global $jid;
+		$tipo = 2;
+		$wh2 = " (doc_status = '*' or doc_status = '@') ";
+		//$wh = " doc_status <> 'X' ";
+		if ($tipo == 1)
+		{
+			$wh = " (doc_status = 'A' or doc_status = 'B' or doc_status = 'G' or doc_status = 'Z') ";
+		} else {
+			$wh = " not (doc_status = 'A' or doc_status = 'B' or doc_status = 'G' or doc_status = 'Z') ";
+		}
+		
+		$order = " doc_status,  doc_dt_atualizado desc, doc_hora desc ";
+		$sql = "select Upper(asc7(doc_1_titulo)) as tt,* from submit_documento 
+					left join submit_status on doc_status = s_status
+					left join submit_autor on doc_autor_principal = sa_codigo
+					left join sections on doc_sessao = section_id
+					where doc_journal_id = '" . strzero($jid, 7) . "'
+						and (
+						$wh) and (doc_journal_id = '" . strzero($jid, 7) . "')
+					order by sa_instituicao_text, title, doc_status, doc_update, s_descricao_1
+					";
+		$rlt = db_query($sql);
+		echo '<HR>'.$sql.'<HR>';
+		$xses = 'x';
+		$xiss = 0;
+		$sx = '<table width="100%" class="tabela00">';
+		$sx .= '<TR><TH>Instituição<TH>Seção<TH>Autor<TH>Título<TH>Status';
+		$id = 0;
+		while ($line = db_read($rlt)) {
+			$email = trim($line['sa_email']);
+			$email1 = trim($line['sa_email_alt']);
+			$id++;
+			if (strlen($email) > 0) { $sx .= $email.'; '; }
+			if (strlen($email1) > 0) { $sx .= $email1.'; '; }
+		}
+		echo $sx;
+		echo '-->'.$id;
+		return ($sx);
+	}
+
 	function lista_submissoes_instituicoes_nao_finalizada() {
 		global $jid;
 		$wh2 = " (doc_status = '*' or doc_status = '@') ";
@@ -611,50 +653,7 @@ class submit {
 		exit ;
 		return ($sx);
 	}
-	function execute_Y() {
-		global $dd;
-		
-		$issue = $dd[6];
-		$sessao = $dd[7];
-		$user = strzero($hd -> user_id, 7);
-		$protocolo = $this -> protocolo;
-		$email = $this -> autor_email;
-		$sx = '';
-		/* Publica artigo no Works */
-		echo '<BR>' . date("Y-m-d H:i:s");
-		$ok = $this -> transfere_submissao_para_publicacao($protocolo, $issue, $sessao);
-		if ($ok = 1) {
-			$link = '<A HREF="http://www2.pucpr.br/reol/editora/producao_works_detalhe.php?dd0=' . $this -> protocolo_novo . '">';
-			echo '<BR><font color="red">Artigo publicado em ' . $link . $this -> protocolo . '</A></font>';
-		} else {
-			echo '<BR><font color="green">Publicação atualizada</font>';
-		}
-		
-		/* Transfere arquivos */
-		echo '<BR>Transfere arquivos';
-		$works = $this -> recupera_procotolo_works($protocolo);
 
-		$this -> transfere_arquivos($protocolo, $works);
-
-		echo '3';
-		/* insere no historico */
-		$hs = new submit_historico;
-		$hs -> insere_historico($protocolo, 'APR', '', $user);
-
-		/* Modifica status */
-		$this -> alterar_status('Z');
-
-		/* Enviar e-mail ao responsável */
-		for ($r = 0; $r < count($email); $r++) {
-			$email_send = $email[$r];
-			if (strlen($email_send) > 0) {
-				enviaremail($email_send, '', $titulo, $ms);
-				echo '<BR>enviado ' . $email_send;
-			}
-		}
-		exit ;
-		return ($sx);
-	}
 	function transfere_arquivos_insere_works($line, $para) {
 		global $hd;
 
@@ -1162,7 +1161,7 @@ class submit {
 			$id++;
 			$sx .= chr(13) . chr(10);
 			$sx .= '<option value="' . $iline['section_id'] . '">';
-			$sx .= trim($iline['title']). ' ('.$iline['abbrev'].')  '.$iline['identify_type'];
+			$sx .= trim($iline['title']);
 			$sx .= '</option>';
 		}
 		$sx .= '</select>';
@@ -1412,24 +1411,7 @@ class submit {
 			';
 		return ($sx);
 	}
-	function action_Y() {
-		global $dd, $acao, $jid;
-		$pp = new parecer;
-		$issue = 1;
 
-		$sx .= '<table width="100%" class="tabela">
-					<TR class="tabela_title" valign="top">
-						<TH colspan="10" class="tabela_title">' . msg("actions") . '
-					<TR valign="top">
-						<TD width="49%">
-							' . $this -> show_button('confirmar >>>', $text, 1, 1, $form, $issue) . '
-						<td width="2%">&nbsp;
-						<TD width="49%">
-							' . $this -> ic("subm_Y") . '	
-					</table>
-			';
-		return ($sx);
-	}
 	function action_L() {
 		global $dd, $acao, $jid;
 		$pp = new parecer;
@@ -1455,6 +1437,7 @@ class submit {
 		switch ($sh) {
 			case '@' :
 				array_push($sn, 'X');
+				array_push($sn, 'B');
 				break;
 			case 'A' :
 				/* ok */
@@ -1463,7 +1446,6 @@ class submit {
 				array_push($sn, 'N');
 				array_push($sn, 'X');
 				array_push($sn, 'E');
-				array_push($sn, 'Y');
 				break;
 			case 'X' :
 				array_push($sn, 'E');
@@ -1604,9 +1586,6 @@ class submit {
 			case "G" :
 				$sx = $this -> action_G();
 				break;
-			case "Y" :
-				$sx = $this -> action_Y();
-				break;				
 			case "N" :
 				$sx = $this -> action_N();
 				break;
@@ -1706,6 +1685,51 @@ class submit {
 		}
 		$sx .= '</table>';
 		return ($sx);
+	}
+
+
+	function show_list_publicado($st = '', $data = 0, $datai = 0, $filtro = '') {
+		global $jid;
+		if (strlen($filtro) > 0) {
+			$wh .= " or ((doc_protocolo like '%" . $filtro . "%') ";
+			$wh .= " or (upper(ASC7(doc_1_titulo)) like '%" . UpperCaseSql($filtro) . "%')";
+			$wh .= " or (sa_nome_asc like '%" . UpperCaseSql($filtro) . "%'))";
+		}
+		$sql = "select * from (
+				select ASC7(article_title) as titulo, asc7(article_autores) as autores, * from articles
+					where journal_id = ".$jid." ) as tabela
+				where titulo like '%".$st."%' or autores like '%".trim($st)."%'
+				";
+		$rlt = db_query($sql);
+		
+		$id = 0;
+		$sx .= '<table width="100%">';
+		while ($line = db_read($rlt)) {
+			$ses = trim($line['title']);
+			if ($xses != $ses) {
+				$sx .= '<TR ><TD colspan=5><h3>' . $line['title'] . '</h3>';
+				$xses = $ses;
+			}
+			$sx .= $this -> show_publicado($line);
+			$ln = $line;
+			$id++;
+		}
+		if ($id > 0) {
+			$sx .= '<TR><TD colspan=5><B>Total de ' . $id . ' registro(s)</B>';
+		}
+		$sx .= '</table>';
+		return ($sx);
+	}
+
+	function show_publicado($line) {
+		$tot++;
+		$titulo = $line['titulo'];
+		$sr .= '<TR valign="top">';
+		$sr .= '<TD class="lt0">PROTOCOLO: ' . $line['id_article'].'</td>';
+		$sr .= '<TR><TD colspan="6" class="lt3"><B>' . $link . $titulo . '</TD>';
+		$sr .= '<TR><TD colspan="5" class="lt1"><I>'.$line['article_autores'].'</I>';
+		
+		return ($sr);
 	}
 
 	function show_work($line) {
@@ -1830,6 +1854,7 @@ class submit {
 		array_push($cp,array('$Q descricao:a_cnpq:select a_cnpq || \' \' || a_descricao as descricao, a_cnpq from ajax_areadoconhecimento order by a_cnpq','doc_field_1','Área',True,True));
 		array_push($cp,array('$Q title:section_id:select * from sections where journal_id = '.$jid,'doc_sessao','Sessão',True,True));
 		array_push($cp,array('$S20','doc_field_1','Área',False,False));
+		array_push($cp,array('$S1','doc_status','Status',False,False));
 		return($cp);
 
 	}

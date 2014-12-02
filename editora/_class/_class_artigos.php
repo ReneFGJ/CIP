@@ -108,7 +108,7 @@ class artigos
 		{
 			global $jid;
 			$sql = "select * from articles where article_3_keywords = '".$this->protocolo."' ";
-
+			echo '<HR><font color="blue">'.$sql.'</font>';
 			$rlt = db_query($sql);
 			if ($line = db_read($rlt))
 				{
@@ -126,17 +126,21 @@ class artigos
 							article_autores = '".$this->autor."',
 							article_author = '".$this->autores."',
 							article_modalidade = '".$this->mod."',
-							
-							article_internacional = '".$this->internacional."',
-							article_publicado = '".$this->publicado."',
-							article_author_pricipal = '".$this->article_author_pricipal."',
+							article_ref = '".$this->ref."',
+							article_issue = '".$this->issue."',
+							article_internacional = '".$this->internacional."', ";
+							//article_publicado = '".$this->publicado."',
+					$sql .= "article_author_pricipal = '".$this->article_author_pricipal."',
 							article_dt_envio = ".$dt.",
 							article_dt_aceite = ".$dt.", 
-							article_pages = ".$dt.", 	
-							article_issue = ".$this->issue.",
-							article_ref = '".$this->ref."' 										
+							article_pages = ".$dt."												
 							where article_3_keywords = '".$this->protocolo."' ";
+					echo '<HR>';
+					echo '================>'.$line['id_article'];							
+					//print_r($line);
+					echo '<HR>'.$sql;
 					$rlt = db_query($sql);
+					//exit;
 					return(0);
 				} else {
 					$sql = "insert into articles 
@@ -286,6 +290,7 @@ class artigos
 			array_push($cp,array('$O en:Ingles&pt_BR:Portugues&fr:Francês&es:Espanhol','article_2_idioma','Idioma',False,True,''));
 		
 			array_push($cp,array('$S20','article_3_keywords','Controle',False,True,''));
+			array_push($cp,array('$S20','article_ref','Ref',False,True,''));
 			/////////////////////
 			array_push($cp,array('$A','','Dados sobre o documento',False,True,''));
 			array_push($cp,array('$S20','article_pages','Páginas',False,True,''));
@@ -299,7 +304,7 @@ class artigos
 			array_push($cp,array('$O : &S:SIM&N:NÃO&X:CANCELADO','article_publicado','Publicado',True,True,''));
 			//array_push($cp,array('$S10','article_modalidade','Modalidade',False,True,''));
 			//rray_push($cp,array('$O N:N&S:S','article_internacional','Internacional',True,True,''));
-			array_push($cp,array('$S20','article_ref','Código do trabalho',False,True,''));
+			//array_push($cp,array('$S20','article_ref','Código do trabalho',False,True,''));
 			//array_push($cp,array('$O : &1:SIM','article_award','Trabalho Premiado (somente SEMIC)',False,True,''));
 		 	return($cp);
 		}

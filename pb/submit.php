@@ -19,7 +19,6 @@ if ($send_suspende == 1 or $send_open == 'N')
 	{ $sb = 'N'; $sbs = '1';  } else { $sb = 'S'; $sbs = '0'; }
 	
 /* Protocolo */
-
 $_SESSION['protocol_submit'] = '';
 
 $clx->author_id(0);
@@ -51,6 +50,15 @@ if ($login==0)
 						
 		$page = http.'pb/index.php/'.$path.'?dd99=submit_myaccount';
 		echo $clx->mostra_autor($page);		
+		
+		/* texto informativo */
+		$txt = 'smbt_'.strzero($jid,4);
+		if ($txt == msg($txt)) { $txt = '' ;}
+		else {
+			$txt = msg($txt);
+		}
+		echo ($txt);
+		
 		
 		$link = http.'pb/index.php/'.$path.'?';
 

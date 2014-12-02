@@ -1,3 +1,3 @@
 <?
-require("index.php");
+require("main_menu.php");
 ?>

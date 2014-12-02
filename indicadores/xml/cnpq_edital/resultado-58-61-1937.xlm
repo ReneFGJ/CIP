@@ -1,0 +1,1654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <lst name="responseHeader">
+    <int name="status">0</int>
+    <int name="QTime">1</int>
+  </lst>
+  <result name="response" numFound="235" start="0">
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4723504597674450</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Francisco de Assis Franco</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Cooperativa Central de Pesquisa Agrícola</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5768027040780831</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Rafael Teixeira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Vale do Rio dos Sinos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6470412191668476</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Ernesto Ruppert Filho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4194875028507925</str>
+      <str name="descricao_comite_t">Programa das Áreas Tecnológicas de Química e Geociências</str>
+      <str name="nome_candidato_t">Claudio Cerqueira Lopes</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Química</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3991220273958363</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Peter Rudolf Seidl</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2297326040072844</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Ana Maria Moro</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto Butantan</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7442068334410248</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Joao Victor Boechat Gomide</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade FUMEC</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2628271545163602</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Francisco José Becker Reifschneider</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5770976001832230</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Margareth Spangler Andrade</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro Tecnológico</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0353705043616506</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Ana Clara Guerrini Schenberg</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5428957813689731</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Aldo José Pinheiro Dillon</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade de Caxias do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8607700007895519</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Amir Mattar Valente</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6489168454179521</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Adriano Moehlecke</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8413177592763371</str>
+      <str name="descricao_comite_t">Programa das Tecnologias nas áreas Aeronáutica e Aeroespacial</str>
+      <str name="nome_candidato_t">Rudimar Riva</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Estudos Avançados</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3914999081096826</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Eric Ericson Fabris</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6503018517997465</str>
+      <str name="descricao_comite_t">Programa de Biodiversidade e Recursos Naturais</str>
+      <str name="nome_candidato_t">Elisabete Jose Vicente</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7447943300478765</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Ronaldo Mota</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro Universitário Franciscano</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9129454582576885</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Mario Henrique Macagnan</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Vale do Rio dos Sinos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9087347233405779</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Benito Guimaraes de Brito</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Pesquisas Veterinárias Desidério Finamor</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2772751144347110</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Claudio Angelo Agostinho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9359265122950763</str>
+      <str name="descricao_comite_t">Programa de Biodiversidade e Recursos Naturais</str>
+      <str name="nome_candidato_t">Jerusa de Souza Andrade</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Nilton Lins</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2169751971927037</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">José Arnaldo Barra Montevechi</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Itajubá</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1967590469495439</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Roberto Soares de Castro</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal Rural de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0801399035139894</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Abel Cavalcante Lima Filho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal da Paraíba</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1198809977746222</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Michael Anthony Stanton</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal Fluminense</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8514450520201861</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Luiz Eduardo Borges da Silva</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Itajubá</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6912817171205480</str>
+      <str name="descricao_comite_t">Programa das Tecnologias nas áreas Aeronáutica e Aeroespacial</str>
+      <str name="nome_candidato_t">Amilcar Porto Pimenta</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto Tecnológico de Aeronáutica</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2039751697422137</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Arthur Martins Barbosa Braga</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8152775457567731</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Pedro José Rolim Neto</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2761389246297718</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Alvaro Eduardo Eiras</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Ciências Biológicas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1485377417947780</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Isabella Montenegro Brasil</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6932390830998311</str>
+      <str name="descricao_comite_t">Programa das Tecnologias nas áreas Aeronáutica e Aeroespacial</str>
+      <str name="nome_candidato_t">Luís Gonzaga Trabasso</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto Tecnológico de Aeronáutica</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6381755382123529</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Fabio Queda Bueno da Silva</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Informática</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0112866192884217</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Telma Teixeira Franco</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9152983185617827</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Nubia Boechat</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1384125441325829</str>
+      <str name="descricao_comite_t">Divulgação Científica</str>
+      <str name="nome_candidato_t">Débora D'Avila Reis</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4649660104722379</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Petrus D Amorim Santa Cruz Oliveira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Química Fundamental</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9093778207598219</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Luis Henrique Rodrigues</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Vale do Rio dos Sinos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9968435526825444</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Osvaldo Toshiyuki Hamawaki</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Uberlândia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8315941974485040</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Antonio Carlos Bannwart</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1670758318835776</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Alberto José Alvares</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade de Brasília</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3084687587967112</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Joao Marcos Madurro</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Uberlândia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1701125733814614</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Auteliano Antunes dos Santos Junior</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Faculdade de Engenharia Mecânica</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9194471940037554</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Pedro Ramos da Costa Neto</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Tecnológica Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5440854176015363</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Vanya Marcia Duarte Pasa</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5462099563227635</str>
+      <str name="descricao_comite_t">Programa das Áreas Tecnológicas de Química e Geociências</str>
+      <str name="nome_candidato_t">Mariangela de Burgos Martins de Azevedo</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Pesquisas Energéticas e Nucleares</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6011782448349535</str>
+      <str name="descricao_comite_t">Programa de Biodiversidade e Recursos Naturais</str>
+      <str name="nome_candidato_t">Marta Cristina Teixeira Duarte</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0427692772445368</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Roberto Ierusalimschy</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0270466255375169</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Renato Rozental</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9219649053207449</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">José Roberto Pereira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Lavras</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9545152910170494</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Antonio Luis Pacheco Rotondaro</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Tecnologia da Informação Renato Archer</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1819902045004845</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Yuzo Iano</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Faculdade de Engenharia Elétrica e de Computação</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3659697507980563</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Henrique Antônio Carvalho Braga</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Circuitos Elétricos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7616109271123402</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Lorena Benathar Ballod Tavares</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Fundação Universidade Regional de Blumenau</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8256644098407834</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Ademar Benévolo Lugão</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Comissão Nacional de Energia Nuclear</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9715635839210153</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Jorge Carlos Santos da Costa</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5634939832159456</str>
+      <str name="descricao_comite_t">Programa das Áreas Tecnológicas da Física e Matemática</str>
+      <str name="nome_candidato_t">Luiz Alberto Luz de Almeida</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do ABC</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0062951606539398</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Francides Gomes da Silva Júnior</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Escola Superior de Agricultura Luiz de Queiroz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7939955411255742</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Renato Fernando Amabile</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0322468339868002</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Vinicius Farias Campos</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pelotas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4362724287992760</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Ricardo Marques Ribeiro</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal Fluminense</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3478230611350302</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Paulo Sérgio de Paula Herrmann Junior</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">PREMIER Vigilância e Segurança</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2629657837018086</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Gaby Renard</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Quatro G Pesquisa e Desenvolvimento Ltda</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4394162331037750</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Alberto Barbosa Raposo</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2483458145895884</str>
+      <str name="descricao_comite_t">Programa das Tecnologias Educacionais e Sociais</str>
+      <str name="nome_candidato_t">Marcelo Leandro Eichler</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4488816707615254</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Flávia Maria de Mello Bliska</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto Agronômico de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8974289881139128</str>
+      <str name="descricao_comite_t">Divulgação Científica</str>
+      <str name="nome_candidato_t">Daniela Franco Carvalho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Uberlândia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1115148358376830</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Herman Augusto Lepikson</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5691952912135312</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Maria Isabel Berto</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Tecnologia de Alimentos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4287227848714653</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Camilo Freddy Mendoza Morejon</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual do Oeste do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3335804315684184</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Isabella Fernandes Delgado</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6812943821298890</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Antonio Martins de Oliveira Júnior</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Sergipe</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3894445999140917</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Antonio Carlos Valdiero</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Regional do Noroeste do Estado do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2424417647486935</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Ana Patricia Yatsuda Natsui</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Faculdade de Ciências Farmacêuticas de Ribeirão Preto</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6027485870623631</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Analucia Vieira Fantin</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1775441236942704</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Fernando Soares Lameiras</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Desenvolvimento da Tecnologia Nuclear</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6909434144537391</str>
+      <str name="descricao_comite_t">Programa das Áreas Tecnológicas de Química e Geociências</str>
+      <str name="nome_candidato_t">Marcelo Gonçalves Montes D'Oca</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7762827952916478</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Wilhelmus Adrianus Maria Van Noije</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Engenharia de Sistema Eletrônicos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2230628461899396</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Fernando Vernilli Junior</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Escola de Engenharia de Lorena</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7561487411080800</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Aymbiré Francisco Almeida da Fonseca</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto Capixaba de Pesquisa, Assistência Técnica e Extensão Rural</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7529510499149375</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">André Luiz Jardini Munhoz</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Faculdade de Engenharia Química</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7524720020580309</str>
+      <str name="descricao_comite_t">Programa de Biodiversidade e Recursos Naturais</str>
+      <str name="nome_candidato_t">Antonio Manoel da Cruz Rodrigues</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3062238499531939</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Marcos Rogério Salvador</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Fundação Centro de Pesquisa e Desenvolvimento em Telecomunicações</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6086255513254644</str>
+      <str name="descricao_comite_t">Programa das Áreas Tecnológicas de Química e Geociências</str>
+      <str name="nome_candidato_t">Doneivan Fernandes Ferreira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto Interdisciplinar de Pesquisa e Desenvolvime</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2197900618750184</str>
+      <str name="descricao_comite_t">Programa do Complexo da Defesa</str>
+      <str name="nome_candidato_t">Oscar Rubem Klegues Montedo</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Extremo Sul Catarinense</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8141553841336538</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Emilio Takase</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0104124422364023</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Cláudio de Souza Baptista</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Campina Grande</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3150074537946167</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Fernando Thomé Kreutz</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">FK Biotecnologia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7661737809414762</str>
+      <str name="descricao_comite_t">Programa das Tecnologias Educacionais e Sociais</str>
+      <str name="nome_candidato_t">Patricia Alejandra Behar</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9318920743205236</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Oscar Salviano Silva Filho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Tecnologia da Informação Renato Archer</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8793599517370540</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Antero Silva Ribeiro de Andrade</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Desenvolvimento da Tecnologia Nuclear</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1244815830164728</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Lincoln Carlos Silva de Oliveira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Mato Grosso do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2463926294940237</str>
+      <str name="descricao_comite_t">Divulgação Científica</str>
+      <str name="nome_candidato_t">Rejane Maria Lira da Silva</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5876235086579618</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Pedro Luiz Scheeren</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6670462096159133</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Renato Carrhá Leitão</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1101846438208893</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Claudio Lima de Aguiar</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Escola Superior de Agricultura Luiz de Queiroz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1508679345970114</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Patrícia Guimarães Santos Melo</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Goiás</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2794026545404598</str>
+      <str name="descricao_comite_t">Programa das Tecnologias nas áreas Aeronáutica e Aeroespacial</str>
+      <str name="nome_candidato_t">Alexandre Cabral Mota</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Informática</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3660344606587105</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Francisco Henrique de Oliveira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Estado de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2415268403901573</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Darlila Aparecida Gallina</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Tecnologia de Alimentos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3720919394286410</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Papa Matar Ndiaye</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1920650157123774</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Alessandro Goedtel</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Campus Cornélio Procópio</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8414652619232683</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Neri Volpato</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Tecnológica Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9923270028346687</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Maria Augusta Silveira Netto Nunes</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Sergipe</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3135883930320419</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Rosane Angélica Ligabue</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0681322721384641</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Claudio Gabriel Rodrigues</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Biofísica e Radiobiologia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9920522039944455</str>
+      <str name="descricao_comite_t">Programa de Biodiversidade e Recursos Naturais</str>
+      <str name="nome_candidato_t">Franceli da Silva</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Recôncavo da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5104625876744263</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Alexandre Soares Leal</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Comissão Nacional de Energia Nuclear</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6828550034661765</str>
+      <str name="descricao_comite_t">Divulgação Científica</str>
+      <str name="nome_candidato_t">Ildeu de Castro Moreira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5202118426597590</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Herve Louis Ghislain Rogez</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0403732822984772</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Alexandre Sztajnberg</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Informática e Ciências da Computação</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6638220092000002</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Gisele Anne Camargo</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Tecnologia de Alimentos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1717412318563908</str>
+      <str name="descricao_comite_t">Programa das Áreas Tecnológicas de Química e Geociências</str>
+      <str name="nome_candidato_t">Petrônio Filgueiras de Athayde Filho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal da Paraíba</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6346720270200955</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Paulo Guilherme Salvador Wadt</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Pesquisa Agroflorestal do Acre</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8056542335438905</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Suzana Leitão Russo</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Sergipe</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7664631236694308</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Marcelo Lancellotti</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Bioquímica</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4580714393035134</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Simone Hickmann Flôres</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3660463365882211</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Alessandro Facure Neves de Salles Soares</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Comissão Nacional de Energia Nuclear</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6292879655540619</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Enderson Petrônio de Brito Ferreira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2413622335075405</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Maria da Penha Albuquerque Potiens</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Pesquisas Energéticas e Nucleares</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9888386354516064</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Cesar Albenes Zeferino</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Vale do Itajaí</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1793007242678493</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Simone Stülp</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro Universitário Univates</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9234210483544177</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Katia Christina Leandro</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9171674472400585</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Carlos Rodrigo de Mello Roesler</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2552141396889281</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Mario Roberto Dal Poz</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Estado do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0274624769533482</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Joaquim Paulo da Silva</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Lavras</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2656804839083572</str>
+      <str name="descricao_comite_t">Programa das Tecnologias nas áreas Aeronáutica e Aeroespacial</str>
+      <str name="nome_candidato_t">Milton Sergio Fernandes de Lima</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Estudos Avançados</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0897450065155760</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Rosali Maria Ferreira da Silva</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7716805104151473</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Carlos André Guimarães Ferraz</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Informática</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8228545724792492</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Carlos Itsuo Yamamoto</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0847897516772421</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">João Tavares Pinho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6995843406358075</str>
+      <str name="descricao_comite_t">Programa das Áreas Tecnológicas da Física e Matemática</str>
+      <str name="nome_candidato_t">Leonid Ruchko</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Física Aplicada</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5185800981925331</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Carlos Mauricio Soares de Andrade</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Pesquisa Agroflorestal do Acre</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9871865009697049</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Christiane de Arruda Rodrigues</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Campus Diadema</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5723385125570881</str>
+      <str name="descricao_comite_t">Programa das Tecnologias Educacionais e Sociais</str>
+      <str name="nome_candidato_t">Patrícia Augustin Jaques Maillard</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Vale do Rio dos Sinos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9163739520948219</str>
+      <str name="descricao_comite_t">Programa das Tecnologias Educacionais e Sociais</str>
+      <str name="nome_candidato_t">Antonio Valerio Netto</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Cientistas Associados</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2318564218901752</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Vitoldo Swinka Filho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Institutos Lactec</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1200043975932513</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">José Roberto Dias Pereira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Maringá</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8736739850536486</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Claudio Floridia</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Fundação Centro de Pesquisa e Desenvolvimento em Telecomunicações</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3542867700396961</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Paulo Schor</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Disciplina de Oftalmologia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4470479120061971</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Alvadi Antonio Balbinot Junior</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6333407087554681</str>
+      <str name="descricao_comite_t">Programa das Áreas Tecnológicas de Química e Geociências</str>
+      <str name="nome_candidato_t">Josealdo Tonholo</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Alagoas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8973387479411951</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Ferlando Lima Santos</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Recôncavo da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2087256689863426</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Jose Lamartine de Andrade Aguiar</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Cirurgia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7428513224190354</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Flábio Ribeiro de Araújo</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro Nacional de Pesquisa de Gado de Corte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0041349149649402</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Paulo Vitor Farago</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Ponta Grossa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2520874965506616</str>
+      <str name="descricao_comite_t">Programa das Tecnologias nas áreas Aeronáutica e Aeroespacial</str>
+      <str name="nome_candidato_t">Vilson Rosa de Almeida</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Estudos Avançados</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4864756921922423</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Roberto Lilles Tavares Machado</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Faculdade de Agronomia Eliseu Maciel (FAEM)</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0364342047724767</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Raimundo Wagner de Souza Aguiar</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Campus Universitário de Gurupi</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3769612369464149</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Ivanir Luiz de Oliveira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Campus Ponta Grossa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4445980482980663</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Fernando Pinhabel Marafão</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Campus Experimental de Sorocaba</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0458080121943649</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Maria Fâni Dolabela</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6501574961643171</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Flavio Miguel Varejao</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Espírito Santo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2139814271237417</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">João Batista Furlan Duarte</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade de Fortaleza</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7634477387447702</str>
+      <str name="descricao_comite_t">Programa das Tecnologias Educacionais e Sociais</str>
+      <str name="nome_candidato_t">José Leomar Todesco</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4652129296557267</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Katia Regina Evaristo de Jesus</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro Nacional de Pesquisa de Monitoramento e Avaliação Impacto Ambiental</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4063751977530416</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Patricia Helena Lucas Pranke</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4944557343632410</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Valdecir Luccas</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Tecnologia de Alimentos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9186923914430935</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Gilberto Petraconi Filho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto Tecnológico de Aeronáutica</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8711532631527267</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Lindomar Roberto Damasceno da Silva</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3978915151969003</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Maria Aparecida Faustino Pires</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Pesquisas Energéticas e Nucleares</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5020025882026312</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">José Alexandre Borges Valle</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Fundação Universidade Regional de Blumenau</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1328761093168892</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Antonio Augusto de Paula Xavier</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Tecnológica Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2405356819478086</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Luciana Mara Monti Fonseca</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Escola de Enfermagem de Ribeirão Preto</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4549950625515088</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Amedea Barozzi Seabra</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Ciências Exatas e da Terra</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1123376648713853</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Cesar Augusto Camillo Teixeira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Computação</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3183050056105009</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Gercina Ângela Borém de Oliveira Lima</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Escola de Ciência da Informação</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9654583466776897</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">João Alves Sampaio</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Tecnologia Mineral</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6863995673467942</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Rosa Maria Rabelo Junqueira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">SENAI - Departamento Regional de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1031606627086716</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Marcelo de Almeida Guimarães</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Ciências Agrárias</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4315400031062003</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Agenor De Noni Junior</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Extremo Sul Catarinense</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9188974272555318</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Cicero Martelli</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Tecnológica Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0566385360819334</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Alexandre Rasi Aoki</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Institutos Lactec</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3677072293273147</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Luiz Arnaldo Fernandes</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7506578377321090</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Roberto Pedroso de Oliveira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Pesquisa Agropecuária de Clima Temperado</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0670006721310285</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Célia Regina Tomachuk dos Santos Catuogno</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Escola de Engenharia de Lorena</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4765044162346741</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Alessandro Nogueira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Ponta Grossa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0729719587905292</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Helton Santos Pereira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro Nacional de Pesquisa de Arroz e Feijão</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4027049192000363</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Lionel Fernel Gamarra Contreras</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto Israelita de Ensino e Pesquisa Albert Einstein</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7273933338693343</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Leila Queiroz Zepka</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Maria</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2383628271548614</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Flávio Pietrobon Costa</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Santa Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6830071155932206</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Dejanira da Costa Lauria</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Radioproteção e Dosimetria</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7506594270002911</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Daniel Pedro Willemann</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8176944320967545</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Eduardo Antonio Ferraz Coelho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8098209307634371</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Jó Ueyama</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Ciências Matemáticas e de Computação</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7810502046917314</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Leila Maria Spadoti</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Tecnologia de Alimentos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1127532567066692</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Guilherme Rocha Lino de Souza</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Goiás</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9075952334039287</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Gilson Vieira Monteiro</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Amazonas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2376670019296363</str>
+      <str name="descricao_comite_t">Programa de Nanotecnologia e Novos Materiais</str>
+      <str name="nome_candidato_t">Ralph Santos-Oliveira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro Universitário da Zona Oeste</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8126174297312115</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Ambientais</str>
+      <str name="nome_candidato_t">Feliciane Andrade Brehm</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Vale do Rio dos Sinos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8013863352635494</str>
+      <str name="descricao_comite_t">Programa das Tecnologias Educacionais e Sociais</str>
+      <str name="nome_candidato_t">José Aguiomar Foggiatto</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Tecnológica Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1594166432902815</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Alex Álisson Bandeira Santos</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro Integrado de Manufatura e Tecnologia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2617773687973315</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Eduardo Atem de Carvalho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual do Norte Fluminense Darcy Ribeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5830956633939775</str>
+      <str name="descricao_comite_t">Programa de Biodiversidade e Recursos Naturais</str>
+      <str name="nome_candidato_t">Mary Ann Foglio</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6349150762819131</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Ederaldo Godoy Júnior</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade de Taubaté</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5331705076186659</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Paulo Roberto Lopes Lima</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Feira de Santana</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9099676593150810</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Vivian Stumpf Madeira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal da Paraíba</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3658176432597172</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Elisa Teshima</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Feira de Santana</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2100207320235478</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Adonis Marcelo Saliba Silva</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Pesquisas Energéticas e Nucleares</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1942930894399604</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">João Batista Rosolem</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Fundação Centro de Pesquisa e Desenvolvimento em Telecomunicações</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1154080332431618</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Katlin Ivon Barrios Eguiluz</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Tecnologia e Pesquisa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9350793734509585</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Alvaro Rodrigues Pereira Junior</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Ouro Preto</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8984999624053884</str>
+      <str name="descricao_comite_t">Programa das Tecnologias Educacionais e Sociais</str>
+      <str name="nome_candidato_t">Regina de Oliveira Heidrich</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Feevale</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6978383044915481</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Leandro Eugenio Cardamone Diniz</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Pesquisa Agropecuária dos Tabuleiros Costeiros</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6677649772093605</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Eder Dutra de Resende</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual do Norte Fluminense Darcy Ribeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6718373002908877</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Alexandre dos Santos Machado</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Centro de Tecnologia Industrial Pedro Ribeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2983321554384698</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Abelardo Silva Júnior</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5883827704465047</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Fabrício Aulo Ogliari</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pelotas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8784620034013411</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Cláudia Pinho Hartleben</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pelotas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2259298679224348</str>
+      <str name="descricao_comite_t">Programa de Energia</str>
+      <str name="nome_candidato_t">Adriano Friedrich Feil</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3940334896751761</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Caroline Costa Moraes</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pampa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6565158682566957</str>
+      <str name="descricao_comite_t">Divulgação Científica</str>
+      <str name="nome_candidato_t">Eloi Teixeira César</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Juiz de Fora</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2487879058181806</str>
+      <str name="descricao_comite_t">Programa de Biotecnologia</str>
+      <str name="nome_candidato_t">Gilmara de Nazareth Tavares Bastos</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8302650734477213</str>
+      <str name="descricao_comite_t">Programa das Áreas Tecnológicas de Química e Geociências</str>
+      <str name="nome_candidato_t">Wendell Karlos Tomazelli Coltro</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Química </str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4561316107765907</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Priscilla Efraim</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4480605521956487</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Renato Grimaldi</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8768632680429517</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Adriano Rogério Bruno Tech</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Faculdade de Zootecnia e Engenharia de Alimentos da USP</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3925953351129658</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Pierre Barnabé Escodro</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Alagoas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3061595319558530</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Christian Rodolfo Esteve Rothenberg</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Engenharia da Computação e Automação Industrial</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5832558504922244</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Benedito de Moraes Purquerio</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Escola de Engenharia de São Carlos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0753092188534632</str>
+      <str name="descricao_comite_t">Programa de Tecnologia e Inovação para Agropecuária</str>
+      <str name="nome_candidato_t">Kelly Cristina Tagliari de Brito</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto de Pesquisas Veterinárias Desidério Finamor</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2677193880642405</str>
+      <str name="descricao_comite_t">Programa das Tecnologias nas áreas Aeronáutica e Aeroespacial</str>
+      <str name="nome_candidato_t">Jose Pissolato Filho</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Departamento de Sistemas e Controles de Energia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2897081533264352</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Júlio César Rodrigues Fernandes de Oliveira</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Fundação Centro de Pesquisa e Desenvolvimento em Telecomunicações</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6234025640524218</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Adriano Antunes de Souza Araujo</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Sergipe</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7716631218495840</str>
+      <str name="descricao_comite_t">Programa das Tecnologias Educacionais e Sociais</str>
+      <str name="nome_candidato_t">Ryzia de Cássia Vieira Cardoso</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6754464380129137</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Jorge Luis Victória Barbosa</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade do Vale do Rio dos Sinos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2448703093928632</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Debora Christina Muchaluat Saade</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal Fluminense</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0288494962313241</str>
+      <str name="descricao_comite_t">Programa das Tecnologias nas áreas Aeronáutica e Aeroespacial</str>
+      <str name="nome_candidato_t">Valdemir Carrara</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Instituto Nacional de Pesquisas Espaciais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0950030473818532</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">María Esperanza Cortés Segura</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9763437636509266</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Paulo Roberto Stefani Sanches</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Hospital de Clínicas de Porto Alegre</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4644812253875832</str>
+      <str name="descricao_comite_t">Programa de Tecnologias Médicas e da Saúde</str>
+      <str name="nome_candidato_t">Carlos Roberto Valêncio</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9239372895737198</str>
+      <str name="descricao_comite_t">Programa de Biodiversidade e Recursos Naturais</str>
+      <str name="nome_candidato_t">Rose Gomes Monnerat Solon de Pontes</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2562159376424787</str>
+      <str name="descricao_comite_t">Programa de Desenvolvimento Tecnológico e Industrial</str>
+      <str name="nome_candidato_t">Ricardo de Araújo Kalid</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6045470959652684</str>
+      <str name="descricao_comite_t">Programa de Tecnologia da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Giordano Ribeiro Eulalio Cabral</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal Rural de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5240388600131197</str>
+      <str name="descricao_comite_t">Programa das Tecnologias para o Desenvolvimento Sustentável</str>
+      <str name="nome_candidato_t">Cristina Engel de Alvarez</str>
+      <str name="nome_chamada_t">Produtividade em Desenvolvimento Tecnológico e Extensão Inovadora - DT 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Espírito Santo</str>
+    </doc>
+  </result>
+</response>

@@ -40,7 +40,7 @@ $cpf = strzero($cpf, 11);
 					$sx .= '</table>';
 					echo $sx;
 				}
-			if ((($tot1 + $tot2) > 4) or ($dd[1]=='FREE'))
+			if ((($tot1 + $tot2) >= 4) or ($dd[1]=='FREE'))
 				{
 					$link = '<A HREF="http://www2.pucpr.br/reol/eventos/cicpg/declaracao_ouvinte.php?dd0='.$idc.'&dd90='.md5($idc.'2014').'" 
 							class="botao_certificado" target="_new"

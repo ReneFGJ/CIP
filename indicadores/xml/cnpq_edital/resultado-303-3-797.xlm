@@ -1,0 +1,2816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <lst name="responseHeader">
+    <int name="status">0</int>
+    <int name="QTime">1</int>
+  </lst>
+  <result name="response" numFound="401" start="0">
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6653223814715498</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Jose Antonio Eiras</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Carlos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8591926237097756</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Telmo Jorge Carneiro Amado</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Maria</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5014918663341911</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Raul Cavalcante Maranhao</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0862583266198572</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Ivan Antônio Izquierdo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7743112049924654</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Carlos Luiz Massard</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal Rural do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1203357643381228</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">João Carlos Costa dos Anjos</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Centro Brasileiro de Pesquisas Físicas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3554994385525333</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Ademir Farias Morel</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Maria</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4453170456921993</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Reinaldo Calixto de Campos</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4835658625152534</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Silvia Maria Franciscato Cozzolino</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4597417616952392</str>
+      <str name="descricao_comite_t">Oceanografia</str>
+      <str name="nome_candidato_t">Antonia Cecilia Zacagnini Amaral</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0542856843670457</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Elina Bastos Caramao</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9670001528699130</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">Marcos Assuncao Pimenta</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8208706217980581</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Jairo Pereira Neves</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de Brasília</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5043495454602083</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Glauce Socorro de Barros Viana</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6059056289615396</str>
+      <str name="descricao_comite_t">Ecologia e Limnologia</str>
+      <str name="nome_candidato_t">Flavio Antonio Maës dos Santos</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7946350215388090</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Rudi Weiblen</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Maria</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3632406161318635</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Raimundo Wilane de Figueiredo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0948290593868816</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Tsai Siu Mui</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0793325217875702</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Olivar Antônio Lima de Lima</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0220993427804509</str>
+      <str name="descricao_comite_t">Antrop., Arqueol., C. Política, Direito, Rel. Internacionais e Sociologia</str>
+      <str name="nome_candidato_t">Alba Maria Zaluar</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade do Estado do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7105492812353123</str>
+      <str name="descricao_comite_t">Multidisciplinar</str>
+      <str name="nome_candidato_t">Eduardo de Campos Valadares</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6336829539975412</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Rodrigo Costa Mattos</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9905593337419625</str>
+      <str name="descricao_comite_t">Farmácia</str>
+      <str name="nome_candidato_t">Dulcineia Saes Parra Abdalla</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8156673210851454</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Denis Martinez</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2446086662055314</str>
+      <str name="descricao_comite_t">Oceanografia</str>
+      <str name="nome_candidato_t">Rosangela Paula Teixeira Lessa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal Rural de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1694260923221276</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Ricardo Erthal Santelli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal Fluminense</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6187684824965648</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Luiz Carlos Forti</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8763211995326640</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Luiz Carlos Federizzi</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8218059267505950</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Heloisa de Oliveira Beraldo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6741344424648342</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Celio Pasquini</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4423660932752146</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Adilson Jose Curtius</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8841334894205599</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">Anderson Stevens Leonidas Gomes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5769183900819062</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">André Avelino Pasa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0668463334298785</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Fernando Antonio Santos Coelho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3839707881946865</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">Sérgio Carlos Zilio</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9971202585286967</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Sandra Helena Pulcinelli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2273093016939875</str>
+      <str name="descricao_comite_t">Matemática e Estatística</str>
+      <str name="nome_candidato_t">Jacob Palis Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Associação Instituto Nacional de Matemática Pura e Aplicada</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3330957069068672</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Euzenir Nunes Sarno</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6093921820124337</str>
+      <str name="descricao_comite_t">Administração, Contabilidade e Economia</str>
+      <str name="nome_candidato_t">Walter Fernando Araújo de Moraes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Associação Educacional Boa Viagem</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3977660018939385</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Paulo Eduardo Artaxo Netto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9770406908381251</str>
+      <str name="descricao_comite_t">Ciências da Computação</str>
+      <str name="nome_candidato_t">Claudio Luis de Amorim</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4447284158830848</str>
+      <str name="descricao_comite_t">Antrop., Arqueol., C. Política, Direito, Rel. Internacionais e Sociologia</str>
+      <str name="nome_candidato_t">Brasilio João Sallum Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Centro de Estudos de Cultura Contemporânea</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6443244380596194</str>
+      <str name="descricao_comite_t">Arquitetura, Demografia, Geografia, Turismo e Planejamento Urbano e Regional</str>
+      <str name="nome_candidato_t">Jose Marcos Pinto da Cunha</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4851172736404835</str>
+      <str name="descricao_comite_t">Administração, Contabilidade e Economia</str>
+      <str name="nome_candidato_t">João Luiz Becker</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9914659189514029</str>
+      <str name="descricao_comite_t">Energia Nuclear, Energia Renovável e Planejamento Estratégico</str>
+      <str name="nome_candidato_t">Chigueru Tiba</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2651666345446273</str>
+      <str name="descricao_comite_t">Zoologia</str>
+      <str name="nome_candidato_t">Luiz Roberto Malabarba</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2995820468418963</str>
+      <str name="descricao_comite_t">Zoologia</str>
+      <str name="nome_candidato_t">Jader Soares Marinho Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de Brasília</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8771103629794712</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Maria Luiza Petzl-Erler</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8000200381297402</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Reginaldo da Silva Romeiro</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1217083860799906</str>
+      <str name="descricao_comite_t">Imunologia</str>
+      <str name="nome_candidato_t">Wilson Savino</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2023603210832390</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Walter Araujo Zin</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8243497871129180</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Joel Camargo Rubim</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de Brasília</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8972540207861201</str>
+      <str name="descricao_comite_t">Farmácia</str>
+      <str name="nome_candidato_t">Maria José Soares Mendes Giannini</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5265254209364825</str>
+      <str name="descricao_comite_t">Microeletrônica</str>
+      <str name="nome_candidato_t">Marcelo Soares Lubaszewski</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6466300269003304</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Luiz Bezerra de Carvalho Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1595358007418855</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Gustavo Henrique Goldman</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8060514879935984</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Antoniana Ursine Krettli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Centro de Pesquisas René  Rachou</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5587901760491970</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Celia Regina Ribeiro da Silva Carlini</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9211345386050612</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Lileia Gonçalves Diotaiuti</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4626058435026904</str>
+      <str name="descricao_comite_t">Odontologia</str>
+      <str name="nome_candidato_t">Aronita Rosenblatt</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7398754661670478</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Pedro Manoel Galetti Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Carlos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7532968937685437</str>
+      <str name="descricao_comite_t">Engenharia Agrícola</str>
+      <str name="nome_candidato_t">Everardo Chartuni Mantovani</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5885518243056121</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">José Alfredo Gomes Arêas</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5621408950724946</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Luiz Henrique de Almeida</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0916805360400109</str>
+      <str name="descricao_comite_t">Imunologia</str>
+      <str name="nome_candidato_t">Manoel Barral Netto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Centro de Pesquisas Gonçalo Moniz - BA</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4128051734077960</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Maria Lúcia Calijuri</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5071492152716046</str>
+      <str name="descricao_comite_t">Engenharia Agrícola</str>
+      <str name="nome_candidato_t">Afranio Almir Righes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Centro Universitário Franciscano</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9692459351489725</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Zila Luz Paulino Simoes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7049037571438664</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Jose Paulo Gagliardi Leite</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9191945730512864</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Manoel Otávio da Costa Rocha</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0169869120306742</str>
+      <str name="descricao_comite_t">Engenharia Civil</str>
+      <str name="nome_candidato_t">Nilo Cesar Consoli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4036620320488024</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Ariene Gimenes Fernandes Van Dender</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto de Tecnologia de Alimentos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1091025573756924</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Rubens Caram Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2988437176012972</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Amilton Sinatora</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Escola Politécnica</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7441669258580942</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Clodomiro Alves Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Norte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7541914413496897</str>
+      <str name="descricao_comite_t">Educação Física, Fonoaudiologia, Fisioterapia e Terapia Ocupacional</str>
+      <str name="nome_candidato_t">Dirceu Costa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Nove de Julho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8658648734773264</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Carmem Lucia Moreira Gadelha</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal da Paraíba</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6405066726523936</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Dulciene Maria de Magalhães Queiroz</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Departamento de Propedêutica Complementar</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3706485752361520</str>
+      <str name="descricao_comite_t">Engenharia Química</str>
+      <str name="nome_candidato_t">Maria Helena Andrade Santana</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4928861472249930</str>
+      <str name="descricao_comite_t">Aqüicultura e Recursos Pesqueiros</str>
+      <str name="nome_candidato_t">Jaime Fernando Ferreira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8408544878890065</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Thereza Christina Monteiro de Lima</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3149224995606934</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Maria Victoria Eiras Grossmann</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Londrina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7239767187507584</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Alcides Nóbrega Sial</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1602984794287955</str>
+      <str name="descricao_comite_t">Ecologia e Limnologia</str>
+      <str name="nome_candidato_t">Sérgio Lucena Mendes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Espírito Santo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2208586595928201</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Maria Aparecida de Resende Stoianoff</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto de Ciências Biológicas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2181843215879409</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Izildinha Moreno</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto de Tecnologia de Alimentos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4733020887440354</str>
+      <str name="descricao_comite_t">Aqüicultura e Recursos Pesqueiros</str>
+      <str name="nome_candidato_t">Jayme da Cunha Bastos Neto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade do Estado do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6191152585879205</str>
+      <str name="descricao_comite_t">Enfermagem</str>
+      <str name="nome_candidato_t">Lucia Hisako Takase Gonçalves</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3423416922952576</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Jose Francisco Ferraz de Toledo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3280526055758093</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Ana Maria de Lauro Castrucci</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Departamento de Fisiologia Geral</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9612704468357790</str>
+      <str name="descricao_comite_t">Ciências da Computação</str>
+      <str name="nome_candidato_t">Nelson Luis Saldanha da Fonseca</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2653496390637757</str>
+      <str name="descricao_comite_t">Botânica</str>
+      <str name="nome_candidato_t">Silvia Rodrigues Machado</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1000688763895346</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Joao Farias Guerreiro</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0739840296573834</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Roberto Passetto Falcao</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2784637573130156</str>
+      <str name="descricao_comite_t">Educação Física, Fonoaudiologia, Fisioterapia e Terapia Ocupacional</str>
+      <str name="nome_candidato_t">Luci Fuscaldi Teixeira-Salmela</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1437430258647523</str>
+      <str name="descricao_comite_t">Psicologia e Serviço Social</str>
+      <str name="nome_candidato_t">Maria Juracy Filgueiras Toneli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2924779756458377</str>
+      <str name="descricao_comite_t">Botânica</str>
+      <str name="nome_candidato_t">José Carmine Dianese</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de Brasília</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9496835605175510</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Alfredo Mayall Simas</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0287848411905739</str>
+      <str name="descricao_comite_t">Arquitetura, Demografia, Geografia, Turismo e Planejamento Urbano e Regional</str>
+      <str name="nome_candidato_t">Marta Adriana Bustos Romero</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de Brasília</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8378753616240875</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Paulo Roberto de Souza Mendes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5720775873259528</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Ciro Antonio Rosolem</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6156546664055944</str>
+      <str name="descricao_comite_t">Engenharia Elétrica e Biomédica</str>
+      <str name="nome_candidato_t">Denizar Cruz Martins</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2834403735297272</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">José Luiz de Lima Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5346506512714946</str>
+      <str name="descricao_comite_t">Engenharia de Produção e de Transportes</str>
+      <str name="nome_candidato_t">Elton Fernandes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Alberto Luiz Coimbra de Pós Graduação e Pesquisa de Engenharia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5983081720502349</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Francisco Ricardo da Cunha</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de Brasília</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8976612631694154</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Erney Felicio Plessmann de Camargo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8073126093266658</str>
+      <str name="descricao_comite_t">Engenharia Elétrica e Biomédica</str>
+      <str name="nome_candidato_t">Paulo Sergio Ramirez Diniz</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8763487086911020</str>
+      <str name="descricao_comite_t">Ciências da Computação</str>
+      <str name="nome_candidato_t">Tarcisio Haroldo Cavalcante Pequeno</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4019150313777291</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Paulo Eigi Miyagi</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9572410339084315</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">Otaciro Rangel Nascimento</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2582725571935270</str>
+      <str name="descricao_comite_t">Engenharia Agrícola</str>
+      <str name="nome_candidato_t">José Helvecio Martins</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6762004196316452</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Rejane Helena Ribeiro da Costa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6454140832194917</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Norberto Mario Rodriguez</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8151916136602713</str>
+      <str name="descricao_comite_t">Engenharia Química</str>
+      <str name="nome_candidato_t">Evaristo Chalbaud Biscaia Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9197210255594409</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Quezia Bezerra Cass</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Carlos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4303587017025599</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Claudio Jose de Araujo Mota</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4910770400206109</str>
+      <str name="descricao_comite_t">Artes, Ciência da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Andre de Souza Parente</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0173687407965726</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Fernando Ferreira Costa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1030834608582624</str>
+      <str name="descricao_comite_t">Engenharia Química</str>
+      <str name="nome_candidato_t">Carlson Pereira de Souza</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Norte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5792248901353552</str>
+      <str name="descricao_comite_t">Ciências da Computação</str>
+      <str name="nome_candidato_t">Mário Fernando Montenegro Campos</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1862328080660655</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">Alex Antonelli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0510319144819921</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Nádia Regina do Nascimento</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3429770707790925</str>
+      <str name="descricao_comite_t">Engenharia Elétrica e Biomédica</str>
+      <str name="nome_candidato_t">Fernando Luiz Marcelo Antunes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5436713663763286</str>
+      <str name="descricao_comite_t">Engenharia Química</str>
+      <str name="nome_candidato_t">Rubens Maciel Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3085057149388157</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Maria do Socorro Pombo-de-Oliveira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Nacional de Câncer</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7081512949222824</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Helio Goldenstein</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7142823902123714</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Eliete Bouskela</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade do Estado do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9474380466558340</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Elizabeth Pacheco Batista Fontes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6443038320654989</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Luiz Armando Cunha De Marco</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2438486171976888</str>
+      <str name="descricao_comite_t">Engenharia Civil</str>
+      <str name="nome_candidato_t">Pedro Colmar Gonçalves da Silva Vellasco</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade do Estado do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0093760864518058</str>
+      <str name="descricao_comite_t">Energia Nuclear, Energia Renovável e Planejamento Estratégico</str>
+      <str name="nome_candidato_t">Paulo Augusto Berquo de Sampaio</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Comissão Nacional de Energia Nuclear</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1170240266075175</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">Claudia Lucia Mendes de Oliveira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6390399144540353</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Benedito dos Santos Lima Neto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4545538930522980</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Maria Aparecida Azevedo Pereira da Silva</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3087677954298076</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Mario Takayuki Kato</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5536791440834175</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">Claudio Lenz Cesar</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto de Física</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8711030043086711</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">José Soares de Andrade Júnior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6479420970768737</str>
+      <str name="descricao_comite_t">Engenharia Química</str>
+      <str name="nome_candidato_t">José Carlos Costa da Silva Pinto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9337611912907437</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Tercio Ambrizzi</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0390661714924664</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Sylvia Luisa Pincherle Cardoso Leao</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0551221018491812</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Paulo Rossi Menezes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0943484644044150</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Vanete Thomaz Soccol</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7900381645698082</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Alexandre Vaz Pires</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Escola Superior de Agricultura Luiz de Queiroz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2163698776105146</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Andre Paulo Tschiptschin</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1489528203687120</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">Alinka Lépine</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6687810331223819</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">José Roberto Postali Parra</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3696530797888724</str>
+      <str name="descricao_comite_t">Aqüicultura e Recursos Pesqueiros</str>
+      <str name="nome_candidato_t">Victoria Judith Isaac Nahum</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8362803632701207</str>
+      <str name="descricao_comite_t">Imunologia</str>
+      <str name="nome_candidato_t">Maria Cristina Roque Antunes Barreira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Faculdade de Medicina de Ribeirão Preto</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0619149612094266</str>
+      <str name="descricao_comite_t">Antrop., Arqueol., C. Política, Direito, Rel. Internacionais e Sociologia</str>
+      <str name="nome_candidato_t">Antonio David Cattani</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4595794486045839</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Walter Lindolfo Weingaertner</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9682325877004588</str>
+      <str name="descricao_comite_t">Microeletrônica</str>
+      <str name="nome_candidato_t">Diógenes Cecilio da Silva Jr</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7035924592908122</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Armando Borges de Castilhos Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3447608036151352</str>
+      <str name="descricao_comite_t">Ecologia e Limnologia</str>
+      <str name="nome_candidato_t">Stephen Francis Ferrari</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Sergipe</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8766584279754451</str>
+      <str name="descricao_comite_t">Administração, Contabilidade e Economia</str>
+      <str name="nome_candidato_t">Ruben Dario Mayorga Mera</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1226581980701642</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Paulo Lee Ho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Butantan</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8008069963450374</str>
+      <str name="descricao_comite_t">Imunologia</str>
+      <str name="nome_candidato_t">Orlando Garcia Ribeiro Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Butantan</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6286988721312780</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Theodoro Antoun Netto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8118855127368489</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Kaoru Yuyama</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Nacional de Pesquisas da Amazônia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7586955305848168</str>
+      <str name="descricao_comite_t">Engenharia Química</str>
+      <str name="nome_candidato_t">Diana Cristina Silva de Azevedo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0850119014604412</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Edvaldo Simões da Fonseca Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3724572927371418</str>
+      <str name="descricao_comite_t">Engenharia Agrícola</str>
+      <str name="nome_candidato_t">Luís Henrique Bassoi</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2139243762106923</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Fernando Queiroz de Almeida</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal Rural do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1372989549983849</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Roberto Germano Costa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal da Paraíba</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8721994758453503</str>
+      <str name="descricao_comite_t">Zoologia</str>
+      <str name="nome_candidato_t">Alexandre Bragio Bonaldo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Museu Paraense Emílio Goeldi</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0703029803945431</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Sandra Lúcia da Cunha e Silva</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual do Sudoeste da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3592032092912418</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Leonardo Silva Boiteux</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6310924501646771</str>
+      <str name="descricao_comite_t">Arquitetura, Demografia, Geografia, Turismo e Planejamento Urbano e Regional</str>
+      <str name="nome_candidato_t">Dulce Maria Tourinho Baptista</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3273084621532688</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Neidenêi Gomes Ferreira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Nacional de Pesquisas Espaciais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3554447149096438</str>
+      <str name="descricao_comite_t">Engenharia Elétrica e Biomédica</str>
+      <str name="nome_candidato_t">Wagner Coelho de Albuquerque Pereira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8987957543048852</str>
+      <str name="descricao_comite_t">Antrop., Arqueol., C. Política, Direito, Rel. Internacionais e Sociologia</str>
+      <str name="nome_candidato_t">Cristiana de Cerqueira Silva Santana</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade do Estado da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8398002862831981</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Margaret de Castro</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0252438295481654</str>
+      <str name="descricao_comite_t">Botânica</str>
+      <str name="nome_candidato_t">Fabio Murilo DaMatta</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3646626733210591</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Cleudmar Amaral de Araújo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Uberlândia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2765869242347731</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Jose Bento Borba da Silva</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3776663148814495</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Eliane Bezerra Cavalcanti</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto de Tecnologia e Pesquisa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2934503756437998</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Eduardo Antonio Conde Garcia</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Sergipe</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7181616799746888</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Thereza Christina Barja Fidalgo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade do Estado do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3220111929133519</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Carlos Nelson Elias</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Militar de Engenharia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5830465202966796</str>
+      <str name="descricao_comite_t">Farmácia</str>
+      <str name="nome_candidato_t">Vera Lucia Eifler-Lima</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5059420422594504</str>
+      <str name="descricao_comite_t">Odontologia</str>
+      <str name="nome_candidato_t">Marília Gerhardt de Oliveira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4379303732105896</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Kléber Tomás de Resende</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9387494555377448</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Eliane Lages Silva</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Triângulo Mineiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4775600104554147</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Claudio Brondani</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2836191867766633</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Lireny Aparecida Guaraldo Gonçalves</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1460780634829745</str>
+      <str name="descricao_comite_t">Ecologia e Limnologia</str>
+      <str name="nome_candidato_t">Maria Regina de Oliveira Casartelli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5914703519900890</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Mário Steindel</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1594685733520325</str>
+      <str name="descricao_comite_t">Imunologia</str>
+      <str name="nome_candidato_t">Maria Ilma Andrade Santos Araujo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4286197300821438</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Irene de Lourdes Noronha</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Departamento de Clínica Médica</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7363206320020147</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">José Baldin Pinheiro</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1322699438617278</str>
+      <str name="descricao_comite_t">Engenharia Elétrica e Biomédica</str>
+      <str name="nome_candidato_t">Joaquim Ferreira Martins Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4147198882685212</str>
+      <str name="descricao_comite_t">Engenharia Elétrica e Biomédica</str>
+      <str name="nome_candidato_t">Eliana Aparecida de Rezende Duek</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6760789832926234</str>
+      <str name="descricao_comite_t">Botânica</str>
+      <str name="nome_candidato_t">Arthur Germano Fett Neto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6354463850675291</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Armando de Oliveira Schubach</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3986790532175292</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Aylene Emilia Moraes Bousquat</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Católica de Santos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0380382997835517</str>
+      <str name="descricao_comite_t">Educação</str>
+      <str name="nome_candidato_t">Jose Andre Peres Angotti</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2163429510713972</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Adriane Belló Klein</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8546635518344761</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Carlos Alberto Saraiva Gonçalves</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9031045464982359</str>
+      <str name="descricao_comite_t">Letras e Lingüística</str>
+      <str name="nome_candidato_t">Izete Lehmkuhl Coelho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7436135069574190</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Emanuel Maltempi de Souza</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2291054769194665</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Maria Bernadete Amâncio Varesche</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3305390900674832</str>
+      <str name="descricao_comite_t">Ecologia e Limnologia</str>
+      <str name="nome_candidato_t">Jarcilene Silva de Almeida Cortez</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9728618349304707</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Nádia Regina Pereira Almosny</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal Fluminense</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7087724353350725</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Norberto Cysne Coimbra</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4273088280811983</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Leonardo José Richtzenhain</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2154986656715564</str>
+      <str name="descricao_comite_t">Educação</str>
+      <str name="nome_candidato_t">Mirian Jorge Warde</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Faculdade de Ciências e Letras de Araraquara</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3689773676364463</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Rodrigo Ruano</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2047801513928189</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Flavio Anastacio de Oliveira Camargo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5250087490365411</str>
+      <str name="descricao_comite_t">Odontologia</str>
+      <str name="nome_candidato_t">Maria Cristina Borsatto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2300911339136043</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Ricardo Ernesto Schaal</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4529940067300638</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Marilene Fancelli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8952311421483564</str>
+      <str name="descricao_comite_t">Enfermagem</str>
+      <str name="nome_candidato_t">Valéria Lerch Lunardi</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1260730935714266</str>
+      <str name="descricao_comite_t">Botânica</str>
+      <str name="nome_candidato_t">Iuri Goulart Baseia</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Norte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1085274416109765</str>
+      <str name="descricao_comite_t">Oceanografia</str>
+      <str name="nome_candidato_t">Francisco Carlos Rocha de Barros Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2238947545394339</str>
+      <str name="descricao_comite_t">Engenharia Química</str>
+      <str name="nome_candidato_t">Maria Regina Wolf Maciel</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9221640062810564</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Vivian Fischer</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3724041772362280</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Mauricio Leonardo Torem</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5739317705056424</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Fernando Flores Cardoso</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5272424305045755</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Sandro Froehner</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9899944862958163</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Jussara Borges Regitano</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8683914780987242</str>
+      <str name="descricao_comite_t">Ciências da Computação</str>
+      <str name="nome_candidato_t">Guido Costa Souza de Araújo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0863139085649116</str>
+      <str name="descricao_comite_t">Oceanografia</str>
+      <str name="nome_candidato_t">Lauro Julio Calliari</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3769826743537934</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Marília Dalva Turchi</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Goiás</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7308979392690336</str>
+      <str name="descricao_comite_t">Engenharia Química</str>
+      <str name="nome_candidato_t">Antonio Carlos Brandão de Araújo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Departamento de Engenharia Química</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0660837829928224</str>
+      <str name="descricao_comite_t">Enfermagem</str>
+      <str name="nome_candidato_t">Cibele Andrucioli de Mattos Pimenta</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5527724436785061</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Sergio Akira Uyemura</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4191011304306773</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Robert Weingart Barreto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1333516694233409</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Rafael Linden</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7909537302983812</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Maria Aparecida Juliano</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3903766210023732</str>
+      <str name="descricao_comite_t">Farmácia</str>
+      <str name="nome_candidato_t">Suely Lins Galdino</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8374411377376939</str>
+      <str name="descricao_comite_t">Ecologia e Limnologia</str>
+      <str name="nome_candidato_t">Renato Cintra</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Nacional de Pesquisas da Amazônia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9846878048388193</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Rosana Salles da Costa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8402272715765172</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Ana Cristina Gales</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6771146499326306</str>
+      <str name="descricao_comite_t">Enfermagem</str>
+      <str name="nome_candidato_t">Mirian Santos Paiva</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5942068988379022</str>
+      <str name="descricao_comite_t">Farmácia</str>
+      <str name="nome_candidato_t">Eliezer Jesus de Lacerda Barreiro</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6515097907583513</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Amauri Alcindo Alfieri</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Londrina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6729556803417571</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Sadek Crisostomo Absi Alfaro</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de Brasília</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8474196301666407</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Paulo César Peregrino Ferreira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9099587982889283</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Veronica Massena Reis</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4041211770858318</str>
+      <str name="descricao_comite_t">Oceanografia</str>
+      <str name="nome_candidato_t">Mauricio Magalhães Mata</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2141932552644466</str>
+      <str name="descricao_comite_t">Odontologia</str>
+      <str name="nome_candidato_t">Maria Aparecida de Andrade Moreira Machado</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Faculdade de Odontologia de Bauru</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3526964931609975</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Milena Botelho Pereira Soares</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5970065462334006</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Achilea Candida Lisboa Bittencourt</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7890362793618911</str>
+      <str name="descricao_comite_t">Botânica</str>
+      <str name="nome_candidato_t">Mauricio Pereira de Sales</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Norte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8157283633787279</str>
+      <str name="descricao_comite_t">Educação</str>
+      <str name="nome_candidato_t">Maria Suzana de Stefano Menin</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2841316086860579</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Narendra Narain</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Sergipe</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6769466465877287</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Osvaldo Pompilio de Melo Neto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0429581079142101</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Diógenes Santiago Santos</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2775550283624253</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Nadia Krieger</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3553837998751021</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Gloria Emilia Petto de Souza</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4398935552883378</str>
+      <str name="descricao_comite_t">Energia Nuclear, Energia Renovável e Planejamento Estratégico</str>
+      <str name="nome_candidato_t">Mauricio Moralles</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto de Pesquisas Energéticas e Nucleares</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6832381849558970</str>
+      <str name="descricao_comite_t">Aqüicultura e Recursos Pesqueiros</str>
+      <str name="nome_candidato_t">Rogério Tubino Vianna</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Sergipe</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2225353963790725</str>
+      <str name="descricao_comite_t">Imunologia</str>
+      <str name="nome_candidato_t">Marcello Andre Barcinski</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5304461218985295</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">Carlos Rettori</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3868264006150535</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Silvia Helena Barem Rabenhorst</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9311310817226781</str>
+      <str name="descricao_comite_t">Antrop., Arqueol., C. Política, Direito, Rel. Internacionais e Sociologia</str>
+      <str name="nome_candidato_t">Lucio Remuzat Rennó Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de Brasília</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6433828746058651</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Guilherme lanzi Sassaki</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9012848714931009</str>
+      <str name="descricao_comite_t">Zoologia</str>
+      <str name="nome_candidato_t">Paulo Christiano de Anchietta Garcia</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3350166863853054</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Juarez Antônio Simões Quaresma</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5191541542901913</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Joao Pereira Leite</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9083287224015423</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Sergio Agostinho Cenci</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7518042628566509</str>
+      <str name="descricao_comite_t">Engenharia Agrícola</str>
+      <str name="nome_candidato_t">Flávio Meira Borém</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Lavras</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3750344965379269</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Vicente de Paulo Rodrigues da Silva</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Campina Grande</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5916017746341882</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Fabio Ceneviva Lacerda Almeida</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5795038735188096</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Karen Glazer de Anselmo Peres</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1220024299686416</str>
+      <str name="descricao_comite_t">Artes, Ciência da Informação e Comunicação</str>
+      <str name="nome_candidato_t">Damián Keller</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Acre</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1562357566810393</str>
+      <str name="descricao_comite_t">Ciências da Computação</str>
+      <str name="nome_candidato_t">Luiz Marcos Garcia Goncalves</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Norte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0009613666274466</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Licio Augusto Velloso</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8137950998286858</str>
+      <str name="descricao_comite_t">Engenharia Química</str>
+      <str name="nome_candidato_t">Liliane Maria Ferrareso Lona</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1170651079171587</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Marcelo Britto Passos Amato</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Faculdade de Medicina da Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6269532115803649</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Maria Carolina Blassioli Moraes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9770622597949866</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Antonio Souza de Araujo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Norte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4649853685495071</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Odir Antonio Dellagostin</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pelotas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9205104985319983</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Francisco de Assis Alves Mourão Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2302301471457270</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">José Júlio Costa Sidrim</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7835009769826262</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Carlos Roberto de Souza Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7196393031415796</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Marcílio Alves</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2655854155812760</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Emiliano de Oliveira Barreto</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Alagoas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4585253466628293</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Helena Paula Brentani</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Fundação Antônio Prudente</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3697668612328236</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Cláudia Maria Nicoli Cândido</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Nacional de Pesquisas Espaciais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1106692234314291</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Carmen Silvia Passos Lima</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7503851885696045</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Catarina de Fatima Pereira Teixeira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Butantan</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2551909246317077</str>
+      <str name="descricao_comite_t">Antrop., Arqueol., C. Política, Direito, Rel. Internacionais e Sociologia</str>
+      <str name="nome_candidato_t">Yanko Marcius de Alencar Xavier</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Norte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7650827760595090</str>
+      <str name="descricao_comite_t">Morfologia</str>
+      <str name="nome_candidato_t">Luiz Renato de Franca</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7365554949786769</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Lucia de Fatima Henriques Lourenco</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6331441126716212</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Maurilio Alves Moreira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4503603092517892</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Paolo Di Mascio</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5408223929405036</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Maria de Fátima Ferreira Queiróz</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1625799595721574</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Eliana Badiale Furlong</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3850817367861711</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Eduardo Fávero Caires</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Ponta Grossa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7691049164365537</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Flávio Augusto Portela Santos</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2148828037195161</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Márcia Soares Chaves</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2341184189645578</str>
+      <str name="descricao_comite_t">Energia Nuclear, Energia Renovável e Planejamento Estratégico</str>
+      <str name="nome_candidato_t">Cláudio Márcio do Nascimento Abreu Pereira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Comissão Nacional de Energia Nuclear</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4005329512950942</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Celia Lucia de Luces Fortes Ferreira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9695030339751842</str>
+      <str name="descricao_comite_t">Odontologia</str>
+      <str name="nome_candidato_t">Paulo Sérgio Flores Campos</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7210230310551860</str>
+      <str name="descricao_comite_t">Engenharia Agrícola</str>
+      <str name="nome_candidato_t">Luiza Teixeira de Lima Brito</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2484665702538194</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">José Alexandre de Souza Crippa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Faculdade de Medicina de Ribeirão Preto</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0846508761438062</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Ricardo Sobhie Diaz</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3871066069541626</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">José Ricardo de Sousa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Amazonas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3179264934205423</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Jenifer Saffi</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Luterana do Brasil</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2512657001602098</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Mauro Cesar Marghetti Laranjeira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6775629541151867</str>
+      <str name="descricao_comite_t">História</str>
+      <str name="nome_candidato_t">Patricia Maria Melo Sampaio</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Amazonas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2225277526754064</str>
+      <str name="descricao_comite_t">Aqüicultura e Recursos Pesqueiros</str>
+      <str name="nome_candidato_t">Paulo César Falanghe Carneiro</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5277712394158254</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Paulo Roberto Gomes Brandao</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0742447443530425</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Ana Maria Carmona Ribeiro</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1329109472641366</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Jorge Mancini Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4017306470784388</str>
+      <str name="descricao_comite_t">Engenharia de Produção e de Transportes</str>
+      <str name="nome_candidato_t">Nair Maria Maia de Abreu</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8391579922979824</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Thales Renato Ochotorena de Freitas</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0654272159213814</str>
+      <str name="descricao_comite_t">Engenharia de Produção e de Transportes</str>
+      <str name="nome_candidato_t">Licinio da Silva Portugal</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3354714475605729</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Benedito Corrêa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5839043594908917</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Luiz Henrique Capparelli Mattoso</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Centro Nacional de Pesquisa Desenvolvimento de Instrumentação Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4568109140874315</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Maria de Fatima Andrade</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8948818160064698</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Rildo Sartori Barbosa Coelho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Agronômico de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3416239345799227</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Rosa Maria Formiga Johnsson</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade do Estado do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1197293193098486</str>
+      <str name="descricao_comite_t">Desenho Industrial</str>
+      <str name="nome_candidato_t">Lauren da Cunha Duarte</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5212730639831062</str>
+      <str name="descricao_comite_t">Ecologia e Limnologia</str>
+      <str name="nome_candidato_t">Flavio Jesus Luizão</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Nacional de Pesquisas da Amazônia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3212959956331239</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Adriana Pinheiro Martinelli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9221492835932795</str>
+      <str name="descricao_comite_t">Educação Física, Fonoaudiologia, Fisioterapia e Terapia Ocupacional</str>
+      <str name="nome_candidato_t">Simone Bezerra Alves</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal da Paraíba</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1885352323857497</str>
+      <str name="descricao_comite_t">Engenharia Civil</str>
+      <str name="nome_candidato_t">Philippe Jean Paul Gleize</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1903562429964967</str>
+      <str name="descricao_comite_t">Morfologia</str>
+      <str name="nome_candidato_t">Verônica Maria Morandi da Silva</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade do Estado do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2534479131206357</str>
+      <str name="descricao_comite_t">Recursos Florestais</str>
+      <str name="nome_candidato_t">Laura Jane Gomes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Sergipe</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5479882786360858</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Nathan Mendes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3346897244302980</str>
+      <str name="descricao_comite_t">Recursos Florestais</str>
+      <str name="nome_candidato_t">Edson José Vidal da Silva</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0572649289828640</str>
+      <str name="descricao_comite_t">Ciências da Computação</str>
+      <str name="nome_candidato_t">Fabrício Enembreck</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9985584992275325</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Luis Augusto Paim Rohde</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1494285940661111</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Ilma Simoni Brum da Silva</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2562022438053334</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Clistenes Williams Araujo do Nascimento</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal Rural de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0459361867767898</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Giuliano Elias Pereira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2929134246296993</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Pedro Manuel Oliveira Janeiro Neves</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Londrina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9634115210679435</str>
+      <str name="descricao_comite_t">Odontologia</str>
+      <str name="nome_candidato_t">Márcia Cristina da Costa Miguel</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Norte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5921185698230768</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Geovanni Dantas Cassali</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2923392000120182</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Gundisalvo Piratoba Morales</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade do Estado do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5893449692053937</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Renius de Oliveira Mello</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Roraima</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8927783174928205</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Denise Petrucci Gigante</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pelotas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1324105476558186</str>
+      <str name="descricao_comite_t">Engenharia Civil</str>
+      <str name="nome_candidato_t">Dênio Ramam Carvalho de Oliveira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2236330132553226</str>
+      <str name="descricao_comite_t">Antrop., Arqueol., C. Política, Direito, Rel. Internacionais e Sociologia</str>
+      <str name="nome_candidato_t">Rachel Meneguello</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6996687730224144</str>
+      <str name="descricao_comite_t">Engenharia Elétrica e Biomédica</str>
+      <str name="nome_candidato_t">Alexandre Balbinot</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do ABC</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6739735737794508</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Carlos Gilberto Carlotti Jr</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Faculdade de Medicina de Ribeirão Preto</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8293766070107110</str>
+      <str name="descricao_comite_t">Microeletrônica</str>
+      <str name="nome_candidato_t">Stanislav Moshkalev</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7249500407405478</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Edson Noriyuki Ito</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Norte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4629835197940139</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Bernadette Dora Gombossy de Melo Franco</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0452123469996239</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Alexandre Bryan Heinemann</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6921427427201791</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Gilson de Mendonça</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pampa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9290134143124508</str>
+      <str name="descricao_comite_t">Educação Física, Fonoaudiologia, Fisioterapia e Terapia Ocupacional</str>
+      <str name="nome_candidato_t">Naomi Kondo Nakagawa</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7767819982815154</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">José Barreto Campello Carvalheira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0142820797911175</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Tiago Campos Pereira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Departamento de Genética Médica</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0174325304693036</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">André Lopes Carvalho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Fundação Pio XII</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0375372674397504</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Sergio Crovella</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Laboratório de Imunopatologia Keizo Asami</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2430140773644443</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Francirose Shigaki</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Maranhão</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1005306580729150</str>
+      <str name="descricao_comite_t">Ciência e Tecnologia de Alimentos</str>
+      <str name="nome_candidato_t">Silvia Amelia Verdiani Tfouni</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto de Tecnologia de Alimentos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5130662662509830</str>
+      <str name="descricao_comite_t">Ecologia e Limnologia</str>
+      <str name="nome_candidato_t">Florian Karl Wittmann</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Nacional de Pesquisas da Amazônia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1912197785087128</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Luiz Fernando Cappa de Oliveira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Juiz de Fora</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4151544991447365</str>
+      <str name="descricao_comite_t">Recursos Florestais</str>
+      <str name="nome_candidato_t">Afonso Figueiredo Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual do Centro-Oeste</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6926501999438658</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Bernardo Galvão Castro Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Fundação Oswaldo Cruz</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5775091545458540</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Goncalo Amarante Guimarães Pereira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8566259644383407</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Gilberto Fernandes de Sá</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4868680076470040</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Antonio Claudio Lucas da Nóbrega</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal Fluminense</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9148354106985023</str>
+      <str name="descricao_comite_t">Imunologia</str>
+      <str name="nome_candidato_t">Ricardo Tostes Gazzinelli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto de Ciências Biológicas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8123478315205308</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Vicente José de Figueirêdo Freitas</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0762445046640965</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Zuleica Bruno Fortes</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6635523086396765</str>
+      <str name="descricao_comite_t">Ecologia e Limnologia</str>
+      <str name="nome_candidato_t">Francisco de Assis Esteves</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1075838747552442</str>
+      <str name="descricao_comite_t">Oceanografia</str>
+      <str name="nome_candidato_t">Luis Felipe Hax Niencheski</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5153504967210091</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">José Ricardo de Figueiredo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0004597502232092</str>
+      <str name="descricao_comite_t">Odontologia</str>
+      <str name="nome_candidato_t">Edgard Graner</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8624365405849433</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Jaime Eduardo Cecilio Hallak</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Departamento de Neurologia, Psiquiatria e Psicologia Médica</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5853314951388292</str>
+      <str name="descricao_comite_t">Aqüicultura e Recursos Pesqueiros</str>
+      <str name="nome_candidato_t">Denise Aparecida Andrade de Oliveira</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3662687391650257</str>
+      <str name="descricao_comite_t">Multidisciplinar</str>
+      <str name="nome_candidato_t">Jose Domingos Fontana</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Paraná</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7643216999108223</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Ruth Herta Goldschmidt Aliaga Kiminami</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Carlos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1800482670266921</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Patricia Rieken Macedo Rocco</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7504120886811849</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Marcos Fábio Gadelha Rocha</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Ceará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5366157471959981</str>
+      <str name="descricao_comite_t">Ecologia e Limnologia</str>
+      <str name="nome_candidato_t">Emmanoel Vieira da Silva-Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal Fluminense</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6731992487405650</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Ieda Maria Orioli</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3037862906040192</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Gloria Valeria da Veiga</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1375461125372492</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Joao Carlos Mendes Carvalho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Uberlândia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9018028705455552</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Reginaldo Teixeira Coelho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5713345383835064</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Melania Maria Ramos de Amorim</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Materno Infantil de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/4662273973783290</str>
+      <str name="descricao_comite_t">Farmácia</str>
+      <str name="nome_candidato_t">Sílvia Stanisçuaski Guterres</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7561722009076484</str>
+      <str name="descricao_comite_t">Engenharia Elétrica e Biomédica</str>
+      <str name="nome_candidato_t">Luis Guilherme Barbosa Rolim</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3205991038315072</str>
+      <str name="descricao_comite_t">Matemática e Estatística</str>
+      <str name="nome_candidato_t">Renato de Azevedo Tribuzy</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Amazonas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7329430744325373</str>
+      <str name="descricao_comite_t">Morfologia</str>
+      <str name="nome_candidato_t">Hernandes Faustino de Carvalho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2973582366436613</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Luís Carlos Vinhas Ítavo</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Católica Dom Bosco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6328263723211152</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Reinhardt Adolfo Fuck</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de Brasília</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0216519915668667</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Carlos Alberto de Almeida Gadelha</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal da Paraíba</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6358009621640820</str>
+      <str name="descricao_comite_t">Engenharia de Minas, Metalúrgica e de Materiais</str>
+      <str name="nome_candidato_t">Laura Hecker de Carvalho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Campina Grande</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5131155111475682</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">José Alberto Neder</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6353954532527478</str>
+      <str name="descricao_comite_t">Zootecnia</str>
+      <str name="nome_candidato_t">Marcos Vinicius Gualberto Barbosa da Silva</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Empresa Brasileira de Pesquisa Agropecuária</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0441695020411504</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Flavio Pereira Kapczinski</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Sul</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0970789513843822</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Antonio Egidio Nardi</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2479583060761727</str>
+      <str name="descricao_comite_t">Aqüicultura e Recursos Pesqueiros</str>
+      <str name="nome_candidato_t">Fábio Hissa Vieira Hazin</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal Rural de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8420962145466003</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Emilio Hideyuki Moriguchi</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade do Vale do Rio dos Sinos</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9705170158456125</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Jaime Tupiassú Pinho de Castro</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Pontifícia Universidade Católica do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0563872406702918</str>
+      <str name="descricao_comite_t">Arquitetura, Demografia, Geografia, Turismo e Planejamento Urbano e Regional</str>
+      <str name="nome_candidato_t">Sílvio Carlos Rodrigues</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Uberlândia</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8655277884027052</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Wilson Araújo da Silva Junior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Faculdade de Medicina de Ribeirão Preto</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9022700682390585</str>
+      <str name="descricao_comite_t">Agronomia</str>
+      <str name="nome_candidato_t">Luiz Antonio Maffia</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal de Viçosa</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5285352593069860</str>
+      <str name="descricao_comite_t">Odontologia</str>
+      <str name="nome_candidato_t">Adair Luiz Stefanello Busato</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Luterana do Brasil</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5072630975779407</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Fernando Barbosa Júnior</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6920886439060825</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Malaquias Batista Filho</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Instituto Materno Infantil de Pernambuco</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5045216268657919</str>
+      <str name="descricao_comite_t">Saúde Coletiva e Nutrição</str>
+      <str name="nome_candidato_t">Rodrigo Otavio Moretti-Pires</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Amazonas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0467875653372948</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Albina Messias de Almeida Milani Altemani</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5547874183666459</str>
+      <str name="descricao_comite_t">Medicina Veterinária</str>
+      <str name="nome_candidato_t">Otavio Mitio Ohashi</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Pará</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1259445348649589</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Zorano Sergio de Souza</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio Grande do Norte</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6744789031079665</str>
+      <str name="descricao_comite_t">Química</str>
+      <str name="nome_candidato_t">Carlos Roque Duarte Correia</str>
+      <str name="nome_chamada_t">Edital MCT/CNPq 14/2008 - Universal - Faixa C - De R$ 50.001,00 até R$ 150.000,00</str>
+      <str name="nome_instituicao_t">Universidade Estadual de Campinas</str>
+    </doc>
+  </result>
+</response>

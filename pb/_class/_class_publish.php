@@ -64,7 +64,7 @@ class publish
 	
 	function google_analytics()
 		{
-		$id = $this->$google_id;
+		$id = $this->google_id;
 		if (strlen($id)==0) { $id = "UA-12712904-1"; }
 		
 		$sx = '

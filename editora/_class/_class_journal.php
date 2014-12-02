@@ -162,7 +162,7 @@ class journal
 						from articles 
 						inner join sections on article_section = section_id 
 						where articles.journal_id = ".round($jid)."
-						and article_publicado <> 'N'
+						and article_publicado = 'S'
 						group by article_section, title
 						order by title
 						";

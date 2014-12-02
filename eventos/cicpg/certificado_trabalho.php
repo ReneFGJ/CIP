@@ -31,17 +31,24 @@ if (strlen($trab) > 0) {
 			or 
 			pp_protocolo = '=" . $trab . "*'
 			)
+			and pp_status <> '@' and pp_status <> 'D'
 			order by pp_abe_01
 			";
 		$rlt = db_query($sql);
 		$line = db_read($rlt);
 		
 		$na = trim($line['pp_abe_01']);
-		$p3 = round($line['pp_p03']);
+		$p3 = round(troca($line['pp_p03'],',','.'));
 		
 		
-		if ((strlen($na) > 0) or ($p3 == 0))
+		if ((strlen($na) > 0) and ($p3 == 0))
 			{
+				/*
+				echo '===>'.$p3;
+				echo '<BR>==na==>'.$na;
+				echo '<HR>';
+				print_r($line);
+				 */
 				$tela = '<h2><font color="red">O avaliador não localizou o estudante para análise do trabalho</font></h2>' . $tela;
 				
 			} else {

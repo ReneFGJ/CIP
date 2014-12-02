@@ -137,8 +137,8 @@ class manuscript
 					{
 						$total = $line['total'];
 						$sta = trim($line['doc_status']);
-						echo $sta.'.';
 						if ($sta == '@') { $res[0] = $res[0] + $total; $linkx[0] = '<A href="'.$page.'&dd1=@" class="linkG">'; }
+						if ($sta == 'A') { $res[1] = $res[1] + $total; $linkx[1] = '<A href="'.$page.'&dd1=A" class="linkG">';  }
 						if ($sta == 'N') { $res[4] = $res[4] + $total; $linkx[4] = '<A href="'.$page.'&dd1=N" class="linkG">';  }
 						if ($sta == 'X') { $res[6] = $res[6] + $total; $linkx[6] = '<A href="'.$page.'&dd1=X" class="linkG">';  }
 						if ($sta == 'L') { $res[3] = $res[3] + $total; $linkx[3] = '<A href="'.$page.'&dd1=L" class="linkG">';  }
@@ -491,17 +491,23 @@ class manuscript
 		}
 	function cp_05()
 		{
-			global $jid;
+			global $jid, $valid;
+			$t = function_004();
 			$cp = array();
 			array_push($cp,array('$H8','id_doc','',False,True));
 			array_push($cp,array('$H8','',msg('dados_incompletos'),False,True));
 			array_push($cp,array('$FC004','',msg('manuscript_files'),False,True));
 			array_push($cp,array('$HV','doc_update',date("Ymd"),False,True));			
 			array_push($cp,array('$HV','doc_dt_atualizado',date("Ymd"),False,True));
-			array_push($cp,array('$M','',msg('man_condicao'),False,True));
-			array_push($cp,array('$C1','',msg('man_condicao_01'),True,True));
-			array_push($cp,array('$C1','',msg('man_condicao_02'),True,True));
-			array_push($cp,array('$C1','',msg('man_condicao_03'),True,True));
+			if ($valid == 1)
+				{
+					array_push($cp,array('$M1','',msg('man_condicao'),False,True));
+					array_push($cp,array('$C1','',msg('man_condicao_01'),True,True));
+					array_push($cp,array('$C1','',msg('man_condicao_02'),True,True));
+					array_push($cp,array('$C1','',msg('man_condicao_03'),True,True));
+				} else {
+					array_push($cp,array('$M','',msg('man_erro'),True,True));
+				}
 			
 			return($cp);					
 		}
@@ -531,7 +537,14 @@ class manuscript
 				break;
 			case '4': 
 				/* Referencias */
-				$cp = $this->cp_04(); 
+				$proto = $this->protocolo;
+				require("../editora/_class/_class_submit_cp4.php");
+				$sm = new campo_04;
+				$cp = $sm->show_parecer($proto);
+				if (count($cp) == 1)
+					{
+						array_push($cp,array('$T60:10','doc_field_1','Referências do trabalho',True, True));
+					}	
 				break;			
 			case '5': 
 				/* Checklist */
@@ -906,7 +919,7 @@ function regra03($line,$tp=0)
 	}	
 function function_004()
 	{
-		global $d1,$d2,$d3,$d4,$d5,$d6,$d7;
+		global $d1,$d2,$d3,$d4,$d5,$d6,$d7,$valid;
 		$protocolo = $_SESSION['protocol_submit'];
 		
 		$sql = "select * from submit_documento where doc_protocolo = '".$protocolo."' or id_doc = ".round($protocolo);
@@ -988,14 +1001,19 @@ function function_004()
 		$sx .= '<TD align="center" class="tabela01">';
 		$sx .= mst_check($rg_file);
 		
-		/* item 4 - Referencias */
-		$sx .= '<TR>';
-		$sx .= '<TD class="tabela01" width="50%">';
-		$sx .= msg('manuscript_reference');
-		$sx .= '<TD class="tabela01" width="45%">';
-		$sx .= $d5;		
-		$sx .= '<TD align="center" class="tabela01">';
-		$sx .= mst_check($rg5);
+		$valid = 1;
+		if (($rg_file == 0) or ($rg_author==0) or ($rg1 == 0) or ($rg2 == 0) or ($rg3 == 0) or ($rg4 == 0))
+			{
+				$valid = 0;
+			}
+		/* item 4 - Dados complementares */
+		//$sx .= '<TR>';
+		//$sx .= '<TD class="tabela01" width="50%">';
+		//$sx .= msg('manuscript_reference');
+		//$sx .= '<TD class="tabela01" width="45%">';
+		//$sx .= $d5;		
+		//$sx .= '<TD align="center" class="tabela01">';
+		//$sx .= mst_check($rg5);
 				
 		$sx .= '</table>';
 		return($sx);
