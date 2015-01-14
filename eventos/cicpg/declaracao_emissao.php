@@ -22,7 +22,7 @@ $sql = "select * from pibic_bolsa_contempladas
 			 inner join pibic_aluno on pb_aluno = pa_cracha
 			";
 $sql .= " where pb_aluno = '" . $dd[0]."'";
-$sql .= " and pb_ano = '2013' ";
+$sql .= " and pb_ano = '2013' and pb_status <> 'C' ";
 
 $rlt = db_query($sql);
 $line = db_read($rlt);

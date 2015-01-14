@@ -7,6 +7,16 @@ body
         font-family: "CICPG", Arial, Tahoma;
     }
 
+table.tabela_resumo
+	{
+		font-size: 12px;
+		padding: 3px;
+		margin: 0px;
+	}
+table.tabela_resumo td { border-top: 1px solid #000000; padding: 4px; }	
+table.tabela_resumo tr:nth-child(even) {background: #FAFAFA; }
+table.tabela_resumo tr:nth-child(odd) {background: #FFFFFF; }
+
 #content
     {
         position: absolute;

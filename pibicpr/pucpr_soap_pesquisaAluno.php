@@ -16,7 +16,7 @@ if (strlen($secu) == 0) {
 
 /* Habilita consulta */
 $consulta = True;
-$debug = False;
+$debug = True;
 
 /* Se for enviado dd2=1 forca nova consulta */
 if ($dd[2] == '1') {
@@ -44,10 +44,6 @@ if ($consulta == true) {
 	$codigo = $cracha;
 	require("../admin/_pucpr_soap_consultaAluno.php");
 
-	$result = $result['DadoAluno'][0];
-	
-	print_r($result);
-	
 	/* Retorna parametro da consulta */
 	$al_centroAcademico = $result['centroAcademico'];
 	$al_cpf = $result['cpf'];

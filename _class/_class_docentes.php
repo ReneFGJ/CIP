@@ -36,6 +36,149 @@ class docentes {
 	var $line;
 
 	var $tabela = 'pibic_professor';
+	
+	function resumo_escolas()
+		{
+			$sql = "
+				select count(*) as total, pp_escola, centro_nome from pibic_professor 
+					inner join centro on pp_escola = centro_codigo
+					where pp_update = '" . date("Y") . "' 
+					and not (pp_centro like '%DOUTORA%')
+					and (pp_escola <> '00012')
+					and pp_ativo = 1
+					group by pp_escola, centro_nome
+					order by pp_escola
+			";
+			$rlt = db_query($sql);
+			
+			$sx = '<table class="tabela_resumo">';
+			$sx .= '<TR><TH>Escola
+							<TH width="80">Total
+							<TH width="80">% do total
+							<TH width="80">Doutores
+							<TH width="80">% Doutores';
+			$ar = array();
+			while ($line = db_read($rlt))
+				{
+					$tot = $tot + $line['total'];
+					array_push($ar,array(trim($line['centro_nome']),$line['total'],0));
+				}
+				
+			/* Doutores */
+			$sql = "
+				select count(*) as total, pp_escola, centro_nome from pibic_professor 
+					inner join centro on pp_escola = centro_codigo
+					where pp_update = '" . date("Y") . "' 
+					and not (pp_centro like '%DOUTORA%')
+					and (pp_escola <> '00012')
+					and (pp_titulacao = '002' or pp_titulacao = '003' or pp_titulacao = '006')
+					and pp_ativo = 1
+					group by pp_escola, centro_nome
+					order by pp_escola
+			";
+			$rlt = db_query($sql);
+			while ($line = db_read($rlt))
+				{
+					$tot = $tot + $line['total'];
+					$esc = trim($line['centro_nome']);
+					
+					for ($r=0;$r < count($ar);$r++)
+						{
+							if ($ar[$r][0] == $esc)
+								{
+									$ar[$r][2] = $ar[$r][2] + $line['total']; 
+								}
+						}
+					$ar[$at][2] = $ar[$at][2] + $tot;					
+				}	
+										
+			for ($r=0;$r < count($ar);$r++)
+				{
+					if (strlen($ar[$r][0]) > 0)
+					{
+					$porcetagem = number_format($ar[$r][1] / $tot * 100,1,',','.').'%';
+					$porcetagem_dr = 0;
+					if ($ar[$r][1] > 0)
+						{
+							$porcetagem_dr = number_format($ar[$r][2] / $ar[$r][1] * 100,1,',','.').'%';
+						}
+					$sx .= '<TR>';
+					$sx .= '<TD>';
+					$sx .= $ar[$r][0];
+					$sx .= '<TD>';
+					$sx .= $ar[$r][1];
+					$sx .= '<TD>';
+					$sx .= $porcetagem;
+					$sx .= '<TD>';
+					$sx .= $ar[$r][2];
+					$sx .= '<TD>';
+					$sx .= $porcetagem_dr;
+					}
+				}
+			$sx .= '</table>';
+			return($sx);
+		}
+
+	function resumo_professores() {
+		$sql = "select count(*) as total, pp_titulacao, pp_ss from pibic_professor 
+					where pp_update = '" . date("Y") . "' 
+					and not (pp_centro like '%DOUTORA%')
+					and pp_ativo = 1
+					and (pp_escola <> '00012')
+					group by pp_titulacao, pp_ss
+					";
+		$rlt = db_query($sql);
+		$total = 0;
+		$tot_dr = 0;
+		$tot_ss = 0;
+		$tot_ms = 0;
+		$tot_es = 0;
+		$tot_dr = 0;
+		$tot_gr = 0;
+		while ($line = db_read($rlt)) {
+			$total = $total + $line['total'];
+
+			/* Stricto Sensu */
+			if (trim($line['pp_ss']) == 'S') { $tot_ss = $tot_ss + $line['total'];
+			}
+
+			/* titulacao */
+			/* DR */
+			if ((trim($line['pp_titulacao']) == '002') or (trim($line['pp_titulacao']) == '003') or (trim($line['pp_titulacao']) == '006')) { $tot_dr = $tot_dr + $line['total'];
+			}
+			/* Msc */
+			if (trim($line['pp_titulacao']) == '001') { $tot_ms = $tot_ms + $line['total'];
+			}
+			/* Esp */
+			if ((trim($line['pp_titulacao']) == '005') or (trim($line['pp_titulacao']) == '007')) { $tot_es = $tot_es + $line['total'];
+			}
+			/* Grad */
+			if ((trim($line['pp_titulacao']) == '004') or (trim($line['pp_titulacao']) == '009')) { $tot_gr = $tot_gr + $line['total'];
+			}
+		}
+		if ($total > 0) {
+			$totp_ss = number_format(((int)($tot_ss / $total * 1000)) / 10,1,',','.');
+			$totp_ss .= '%';
+			$totp_dr = number_format(((int)($tot_dr / $total * 1000)) / 10,1,',','.');
+			$totp_dr .= '%';
+			$totp_ms = number_format(((int)($tot_ms / $total * 1000)) / 10,1,',','.');
+			$totp_ms .= '%';
+			$totp_es = number_format(((int)($tot_es / $total * 1000)) / 10,1,',','.');
+			$totp_es .= '%';
+			$totp_gr = number_format(((int)($tot_gr / $total * 1000)) / 10,1,',','.');
+			$totp_gr .= '%';
+		}
+		$sx .= '<table class="tabela_resumo">';
+		$sx .= '<TR><TD>NÚMERO TOTAL DE DOCENTES</TD><TD>' . $total . '</TD></TR>';
+		$sx .= '<TR><TD>NÚMERO TOTAL DE DOCENTES DOUTORES</TD><TD>' . $tot_dr . '</TD><TD>(' . $totp_dr . ')</TR>';
+		$sx .= '<TR><TD>NÚMERO TOTAL DE DOCENTES MESTRES</TD><TD>' . $tot_ms . '</TD><TD>(' . $totp_ms . ')</TR>';
+		$sx .= '<TR><TD>NÚMERO TOTAL DE DOCENTES ESPECIALISTAS</TD><TD>' . $tot_es . '</TD><TD>(' . $totp_es . ')</TR>';
+		$sx .= '<TR><TD>NÚMERO TOTAL DE DOCENTES COM SOMENTE GRADUAÇÃO</TD><TD>' . $tot_gr . '</TD><TD>(' . $totp_gr . ')</TR>';
+		$sx .= '<TR><TD>NÚMERO TOTAL DE PROFESSORES no <I>stricto sensu</I></TD><TD>' . $tot_ss . '</TD><TD>(' . $totp_ss . ')</TR>';
+		$sx .= '</table>';
+		echo $sx;
+
+	}
 
 	function arquivos_salva_quebrado($ln, $tipo) {
 		$lnh = $ln[0];
@@ -652,10 +795,11 @@ class docentes {
 		array_push($cp, array('${', '', 'Função administrativa na Instituição', False, True));
 		array_push($cp, array('$S100', 'pp_funcao', 'Função (opcional)', False, True));
 		array_push($cp, array('$}', '', 'Função administrativa na Instituição', False, True));
-		
+
 		array_push($cp, array('$[0-400]', 'pp_fc', 'FC', False, True));
-		
-		if (strlen($dd[31])==0) { $dd[31] = '0'; }
+
+		if (strlen($dd[31]) == 0) { $dd[31] = '0';
+		}
 
 		//$sql = "alter table pibic_professor add pp_funcao char(100)";
 		//$rlt = db_query($sql);

@@ -26,6 +26,8 @@ class artigos
 			if ($line = db_read($rlt))
 				{
 					echo '<HR>';
+					echo '================>'.$line['id_article'];
+					echo '<HR>';
 					$sql = "update articles set
 							article_ref = '".$this->ref."',
 							article_section = '".$this->session."', 

@@ -72,27 +72,78 @@ class semic_paineis
 					print_r($ln[$r]);
 					$this->inport_paineis_dia($ln[$r],$data);
 				}
-		}	
-	function lista_paineis($data)
-		{
-			$sql = "select * from ".$this->tabela." where spl_data = ".round($data)."
-					order by spl_data, spl_painel, spl_trabalho
+		}
+		
+	function etiqueta($id='')
+			{
+				global $jid;
+				$jid = 85;
+			$sql = "select * from semic_blocos 
+						inner join semic_trabalhos on blk_codigo = st_bloco
+						inner join ".$this->tabela." on st_codigo = spl_trabalho
+						inner join articles on article_ref = st_codigo
+						where blk_codigo = '$id'
+						and article_publicado = 'S' and journal_id = '$jid'
+						order by blk_data, blk_hora, blk_codigo, spl_painel, spl_trabalho
 			";
-			$rlt = db_query($sql);
-			$sx = '<table class="tabela00" width="100%">';
+			$rlt = db_query($sql);			
+			$sx .= '<table class="tabela00" >';
 			$xpan = 'x';
+			$xpai = 'x';
 			while ($line = db_read($rlt))
 				{
-					$painel = $line['spl_painel'];
-					if ($xpan != $painel)
+					$SC = sonumero($line['blk_titulo']);
+					$p = trim($line['spl_painel']);
+					$ref = '<font stlye="font-size: 18px;">'.$line['article_ref'].'</font>';
+					$ref = troca($ref,'=','');
+					$id = $line['id_article'];
+					$autor = $line['article_author'];
+					if (strpos($autor,';') > 0)
 						{
-							$sx .= '<TR>';
-							$sx .= '<TD>';
-							$sx .= trim($line['spl_painel']);
-							$xpan = $painel;							
+							$autor = substr($autor,0,strpos($autor,';'));
 						}
-					$sx .= '<TD>';
-					$sx .= trim($line['spl_trabalho']);
+					$sx .= '<TR>
+								<TD rowspan=3 width="60" style="height: 60px;" align="center">
+								sessão<BR>
+								<font style="font-size: 25px;">'.$SC.'</font>';
+					$sx .= '<TD width="300">'.$ref;
+					$sx .= '<TR><TD>'.$autor;
+					$sx .= '<TR><TD>'.$p;
+				}
+			$sx .= '</table>';
+			return($sx);	
+			}			
+	function lista_paineis()
+		{
+			//$this->structure();			
+			$sql = "select * from semic_blocos 
+						inner join semic_trabalhos on blk_codigo = st_bloco
+						left join ".$this->tabela." on st_codigo = spl_trabalho
+						where blk_titulo like 'P%'
+						order by blk_data, blk_hora, blk_codigo, spl_painel, spl_trabalho
+			";
+			$rlt = db_query($sql);			
+			$sx .= '<h1>Paineis</h1>';
+			$sx .= '<table class="tabela00" width="100%">';
+			$xpan = 'x';
+			$xpai = 'x';
+			while ($line = db_read($rlt))
+				{
+					$pan = $line['blk_codigo'];
+					$pai = $line['spl_painel'];
+					if ($pan != $xpan)
+						{
+							$link = '<A HREF="semic_paineis_inserir.php?dd1='.$line['blk_codigo'].'">';
+							$sx .= '<TR><TD colspan=4><h4>'.$link.$line['blk_titulo'].' '.stodbr($line['blk_data']).' '.$line['blk_hora'].'</A></h4>';
+							$sx .= '<A HREF="semic_painel_excel.php?dd0='.$line['blk_codigo'].'" target="new">EXCEL</A>';
+							$xpan = $pan;							
+						}
+					if ($xpai != $pai)
+						{
+							$sx .= '<TR><TD><B>'.$line['spl_painel'].'</B>';
+							$xpai = $pai;
+						}
+					$sx .= '<TD align="center">'.$line['spl_trabalho'];
 				}
 			$sx .= '</table>';
 			return($sx);
@@ -143,8 +194,39 @@ class semic_paineis
 			}
 			return(1);
 		}
+	function excluir_painel($tr,$pn)
+		{
+			$sql = "delete from ".$this->tabela." where 
+					spl_trabalho = '".$tr."'			
+			";
+			$rlt = db_query($sql);
+		}
+	function incluir_painel($tr,$pn)
+		{
+			$sql = "select * from ".$this->tabela." where 
+					spl_trabalho = '".$tr."'			
+			";
+			$rlt = db_query($sql);
+			if ($line = db_read($rlt))
+				{
+					echo 'Trabalho já está incluido';
+					return('');
+				} else {
+					$ano = date("Y");
+					$sql = "insert into ".$this->tabela." 
+							(spl_trabalho, spl_painel,
+							spl_ano, spl_ativo)
+							values
+							('$tr','$pn',
+							'$ano',1) ";
+					$rlt = db_query($sql);
+				}
+		}
 	function structure()
 		{
+			$sql = "drop table ".$this->tabela;
+			$rlt = db_query($sql);
+			
 			$sql = "
 			create table ".$this->tabela."
 				(
@@ -152,6 +234,8 @@ class semic_paineis
 					spl_trabalho char(15),
 					spl_painel char(5),
 					spl_data integer,
+					spl_block char(5),
+					spl_hora char(5),
 					spl_ano char(4),
 					spl_ativo integer
 				)

@@ -7,9 +7,13 @@ $tab_max = '100%';
 $menu = array();
 array_push($menu,array('Captação de Recursos','Captação de Recursos','indicador_captacao.php'));
 
+array_push($menu,array('Corpo Docente','Corpo docente','indicador_docentes.php'));
+
 
 array_push($menu,array('Panorama da Pesquisa','Iniciação Científica e Tecnológica','indicadores_ic.php'));
 array_push($menu,array('Panorama da Pesquisa','Pós-Graduação','indicadores_pos.php'));
+array_push($menu,array('Panorama da Pesquisa','Pós-Graduação (produção Q1/ExR)','indicadores_pos_q1.php'));
+
 //array_push($menu,array('Grupo de Pesquisa','Grupo de pesquisa','indicador_grupo.php'));
 echo menus($menu,3);
 

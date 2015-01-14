@@ -308,7 +308,9 @@ class article
 			array_push($cp,array('$H8','','',False,True,''));
 			array_push($cp,array('$H8','','',False,True,''));
 			array_push($cp,array('$T60:2','article_title','Título original',False,True,''));
-			array_push($cp,array('$T60:4','article_author','Autor',False,True,''));			
+			array_push($cp,array('$T60:4','article_author','Autor',False,True,''));
+			array_push($cp,array('$T60:3','article_autores','Autor (linha)',False,True,''));
+						
 			array_push($cp,array('$T60:15','article_abstract','Resumo',False,True,'')); 
 			array_push($cp,array('$T60:2','article_keywords','Palavras Chave',False,True,''));
 
@@ -319,6 +321,8 @@ class article
 			array_push($cp,array('$O 9:Não revisado&1:Revisado','article_revisado','Revisado',False,True,''));
 			array_push($cp,array('$S20','article_pages',msg('pages'),False,True,''));
 			array_push($cp,array('$B8','','Salvar Dados',False,True,''));
+			array_push($cp,array('$O : &S:SIM&N:NÃO&X:CANCELADO','article_publicado','Publicado',True,True,''));
+			array_push($cp,array('$S30','article_ref','Cod. Referência Documento',False,True,''));
 			return($cp);
 		}
 
@@ -463,6 +467,7 @@ class article
 					and article_origem = '$origem'
 				limit 1
 			";
+			echo $sql;
 			$rlt = db_query($sql);
 			if ($line = db_read($rlt))
 				{
@@ -474,7 +479,7 @@ class article
 							where article_protocolo_original = '$protocolo'							
 							and article_origem = '$origem'
 					";
-					$rlt = db_query($sql);
+					//$rlt = db_query($sql);
 					echo "Atualizado";
 				} else {
 					$sql = "insert into ".$this->tabela;
@@ -502,6 +507,8 @@ class article
 					'$autor',9,
 					'$protocolo','$origem'
 					)";
+					echo $sql;
+					exit;
 					$rlt = db_query($sql);
 				}
 				

@@ -34,6 +34,83 @@ class semic
 	var $tabela = "semic_trabalho";
 	var $tabela_autor = "semic_trabalho_autor";
 	
+	function semic_premiacao()
+		{
+			$sql = "drop table semic_premiacao_tipo";
+			//$rlt = db_query($sql);
+			
+			$sql = "create table semic_premiacao_tipo
+					(
+					id_spt serial not null,
+					spt_codigo char(5),
+					spt_descricao char(100)				
+					);
+			";
+			$rlt = db_query($sql);
+			
+			$sql= "";
+			/***/
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00001','Jovens ideias'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00002','Pesquisar é evoluir'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00003','PIBIC Jr'); ";
+			
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00005','Internacional oral'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00006','PIBITI oral '); ";
+
+			/***/
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00045','CICPG Oral - Vida'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00046','CICPG Oral - Exatas e Engenharia'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00047','CICPG Oral - Sociais Aplicadas'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00048','CICPG Oral - Humanidades e Letras'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00049','CICPG Oral - Sociais Aplicadas'); ";
+
+
+			/***/
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00055','CICPG pôster - Vida'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00056','CICPG pôster - Exatas e Engenharia'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00057','CICPG pôster - Sociais Aplicadas'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00058','CICPG pôster - Humanidades e Letras'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00059','CICPG pôster - Sociais Aplicadas'); ";
+
+			/***/
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00010','Internacional pôster'); ";
+
+			/***/
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00015','PIBIC pôster - Vida'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00016','PIBIC pôster - Exatas e Engenharia'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00017','PIBIC pôster - Sociais Aplicadas'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00018','PIBIC pôster - Humanidades e Letras'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00019','PIBIC pôster - Sociais Aplicadas'); ";
+													
+			/***/
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00020','PIBIC oral - Vida'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00021','PIBIC oral - Exatas e Engenharia'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00022','PIBIC oral - Sociais Aplicadas'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00023','PIBIC oral - Humanidades e Letras'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00024','PIBIC oral - Sociais Aplicadas'); ";
+																																
+			/***/
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00030','Pós-Graduação - Vida (Oral, Pôster, externo)'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00031','Pós-Graduação - Exatas e Engenharia (Oral, Pôster, externo)'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00032','Pós-Graduação - Sociais Aplicadas (Oral, Pôster, externo)'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00033','Pós-Graduação - Humanidades e Letras (Oral, Pôster, externo)'); ";
+			$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00034','Pós-Graduação - Sociais Aplicadas (Oral, Pôster, externo)'); ";
+			$rlt = db_query($sql);
+			
+			exit;
+																																					
+			$sql = "create table semic_premiacao
+					(
+					id_spp serial not null,
+					spp_codigo char(20),
+					spp_premiacao char(1),
+					spp_posicao int8,
+					spp_autores text					
+					)
+			";
+			//$rlt = db_query($sql);
+		}
+	
 	
 	function lista_trabalhos_pos_graduacao($ano='')
 		{
@@ -1055,8 +1132,8 @@ class semic
 				sma_ativo integer
 				)
 			";
-			$rlt = db_query($sql);
-			exit;
+			//$rlt = db_query($sql);
+			//exit;
 			
 			$sql = "
 			CREATE TABLE ".$this->tabela."
@@ -1762,12 +1839,15 @@ class semic
 	function lista_de_trabalhos_to_site()
 		{
 			global $dd;
+			
+			$this->lista_de_trabalhos_to_site_cicpg();
+			
 			$dd[1] = 'PIBIC';
 			$dd[2] = 'N';
 			
-			$fl = array('01','02','03','04','05','11','12','13','20', '30');
-			$in = array('N' ,'N' ,'N' ,'N' ,'N' ,'S' ,'S' ,'S','N' ,'N' );
-			$md = array('PIBIC' ,'PIBITI' ,'PIBIC_EM' ,'POS-G' ,'CSF' ,'PIBIC' ,'PIBITI' ,'PIBIC_EM','EVO', 'CICPG' );
+			$fl = array('01','02','03','04','05','11','12','13','20');
+			$in = array('N' ,'N' ,'N' ,'N' ,'N' ,'S' ,'S' ,'S','N' );
+			$md = array('PIBIC' ,'PIBITI' ,'PIBIC_EM' ,'POS-G' ,'CSF' ,'PIBIC' ,'PIBITI' ,'PIBIC_EM','EVO' );
 			$id = array('pt_BR','en');
 			
 			for ($y=0;$y < count($id);$y++)
@@ -1780,19 +1860,183 @@ class semic
 						$dd[2] = $in[$r];
 						$file = '../semic/sumario_'.$fl[$r];
 						if ($id[$y] == 'en') { $file .= '_en'; }
-						$fa = fopen($file.'.php','w');
 						echo ' ('.$file.')';
 						$tela = $this->lista_de_trabalhos();
 						$tela = troca($tela,'N - CSF','Ciência sem fronteiras');
 						$tela = troca($tela,'- POS-G','');
 						
+						$fa = fopen($file.'.php','w');
 						fwrite($fa,$tela);
 						fclose($fa);					
+
 					}
 			}
 			echo 'Exportação concluída';
+			
+			
 			return(1); 			
 		}
+
+	function comparacao_semic_pibic()
+		{
+			$sql = "select * from (
+					select pb_protocolo, trim('IC' || trim(pb_protocolo)) as pt, * from pibic_bolsa_contempladas
+					where pb_ano = '".(date("Y")-1)."'
+					and pb_status <> 'C'
+					) as tabela
+					left join articles on pt = trim(article_3_keywords) 
+					order by article_ref
+					";
+			$rlt = db_query($sql);
+			$err = 0;
+			$sx = '<table>';
+			$sx .= '<TR><TH>Protocolo<TH colspan=2>Cód. Trabalho Interno<TH>Código SEMIC<TH>ID Semic';
+			while ($line = db_read($rlt))
+				{
+					if (substr($line['pb_protocolo'],0,1) == '0')
+						{
+							$linka = '<A hREF="pibic_detalhe.php?dd0='.$line['pb_protocolo'].'" target="new">';
+							//$linkb = '<A hREF="" target="new">';
+							$cor = '';
+							$pb = trim($line['article_ref']);
+							if (strlen($pb) == 0)
+								{ $cor =  '<font color="red">'; $err++; }
+							$sx  .= '<TR><TD>'.$linka.$line['pb_protocolo'].'</A>';
+							$sx  .= '<TD>'.$line['pt'];
+							$sx  .= '<TD>'.$line['article_3_keywords'];
+							$sx  .= '<TD>'.$line['pb_titulo'];
+							$sx  .= '<TD>'.$linkb.$line['article_ref'];
+							$sx  .= '<TD>'.$line['pb_nota'];
+							$sx  .= '<TD>'.$line['id_article'];
+							if (strlen($cor) > 0)
+								{
+									$sx .= $line['pb_titulo'];
+								}
+						}
+				}
+			$sx .= '</table>';
+			return($sx);
+		}
+
+	function lista_trabalhos_cicpg($id)
+		{
+			global $secu;
+			$secu = 'CicPG2014';
+			$sql = "select * from articles
+					left join sections on article_section = section_id 
+					left join semic_trabalhos on article_ref = st_codigo
+					left join semic_blocos on st_bloco = blk_codigo 
+					left join semic_local on blk_sala = sl_codigo
+					where articles.journal_id = 85 and (article_publicado <> 'X' and article_publicado <> 'N')
+					and section_id = ".$id." 
+					order by article_ref
+					";
+			//echo '<BR>'.$sql;
+			$rlt = db_query($sql);
+			
+			while ($line = db_read($rlt))
+				{
+				$linkt = "trabalho.php?dd0=".$line['id_article'].'&dd90='.checkpost($line['id_article']);
+				$title = trim($line['article_title']);
+				$autores = trim($line['article_autores']);
+				$hora = trim($line['semic_hora']);
+				$id = trim($line['article_ref']);
+				$id = troca($id,'=','');
+				$img = "img/3-poster-grad.png";
+				$txt = '<font class="font-modalidade">Pôster</font>';
+				if (strpos($id,'*') > 0)
+					{
+						$img = "img/3-oral-grad.png";
+						$txt = '<font class="font-modalidade"><nobr>Apres. Oral</nobr></font>';	
+					}
+				/* Local */
+				$local = 'sessão de pôster';
+				$local = '(a definir)';
+				$link = '<A HREF="semic_dia.php?dd1='.$line['blk_data'].'">';
+				
+				$data = $link.stodbr($line['blk_data']).'</a>';
+				$hora = $line['blk_hora'];
+				
+				$lc = trim($line['sl_nome']).' '.$data.' '.$hora;				
+				if (strlen(trim($line['blk_data'])) > 0)
+					{ $local = $lc; }
+				
+				$sx .= '
+					<tr>
+						<td>'.$txt.'<BR><img src="'.$img.'" class="icone-modalidade" />						
+						<BR>
+						<B>'.$id.'</B>
+						</td>
+						<td><p><span class="estilo-horario4">'.$hora.'</span> 
+							<a href="'.$linkt.'" class="titulo-trabalho">'.$title.'</a><br />
+							<span class="autores-trabalho">'.$autores.'</span><br />
+							<strong>Local: '.$local.'</strong></p></td>
+					</tr>
+				';
+				}	
+			return($sx);		
+		}
+
+	function lista_de_trabalhos_to_site_cicpg()
+		{
+			global $dd;
+			$sql = "select identify_type, title, section_id from articles
+					left join sections on article_section = section_id 
+					where articles.journal_id = 85 and (article_publicado <> 'X' and article_publicado <> 'N') 
+					group by identify_type, title, section_id
+					order by title, identify_type					
+					";
+			$rlt = db_query($sql);
+			$tela = '';
+			$sa = '';
+			$sb = '';
+			while ($line = db_read($rlt))
+				{
+					$file_new = trim($line['identify_type']);
+					$file = '../eventos/cicpg/sumario_'.$line['section_id'].'.php';
+					$title = $line['title'];
+					if (strpos($title,'/') > 0)
+						{
+							$title = substr($title,0,strpos($title,'/'));
+						}					
+					$link = '<A HREF="sumario.php?dd0='.$line['section_id'].'#show_area"><li>';
+					$link .= $title.'</li></a>';
+					$sa .= $link.chr(13).chr(10);
+					echo '<BR>'.$file. ' - '.$title;
+					$area = trim($line['title']);
+
+					/* */
+					$tags = '<A name="show_area"></A>';
+					$txt = $this->lista_trabalhos_cicpg($line['section_id'],$title);
+					$sb .= '<TR><TD colspan=10 ><h3>'.$title.'</h3>';
+					$sb .= $txt;
+					$txt = $tags. '<BR><h2>'.$title.'<h2>'.$txt;
+					/* EXPORT */
+					$xxx = fopen($file,'w');
+					fwrite($xxx,$txt);
+					fclose($xxx);
+				}
+
+					$file = '../eventos/cicpg/sumario-geral-detalhes.php';
+					$xxx = fopen($file,'w');
+					fwrite($xxx,$sb);
+					fclose($xxx);
+
+			$sh = '
+			<div id="medicina" style="width: 902px;">
+				<h3>'.$area.'</h3>
+			</div>
+			';			
+				
+			$file = '../eventos/cicpg/sumario_areas.php';
+			
+			$rlt = fopen($file,'w');
+			fwrite($rlt,$sa);
+			fclose($rlt);
+			echo 'Exportação 2 concluída';
+			return(1); 			
+		}
+
 	function programacao_tabalho($jid)
 		{
 			$dd1 = date("Y").'0000';
@@ -2052,18 +2296,31 @@ class semic
 				{ $todos = 1; }
 			$internacional = trim($dd[2]);
 			$sx = '<A NAME="TRABALHOS">';
-			$sql = "select * from articles
-					left join sections on article_section = section_id
-					where articles.journal_id = $jid and (article_publicado <> 'X' and article_publicado <> '@')";
+			$sql = "select * from articles ";
+			$sql .= "  left join sections on article_section = section_id ";
+			$sql .= " where articles.journal_id = $jid and (article_publicado <> 'X' and article_publicado <> '@')";
 			if ($todos != 1)
 				{ $sql .= " and article_modalidade = '$modalidade' "; }
 			if (trim($dd[1])=='PIBIC')				
 				{ $sql .= " and (article_modalidade = '$modalidade' or article_modalidade = 'IS' ) "; }
 			if (strlen($internacional) > 0)
 				{ $sql .= " and article_internacional = '$internacional' "; }
-			$sql .= " order by	article_internacional, seq, article_ref, identify_type, article_seq  
+			$sql .= " order by	article_internacional, article_ref, identify_type, article_seq  
 			";
 			// article_internacional, seq, article_seq
+			//$qsql = "select * from articles 
+			//			left join sections on article_section = section_id 
+			//			where articles.journal_id = 85 
+			//			and (article_publicado <> 'X' and article_publicado <> '@') 
+			//			and article_modalidade = 'POS-G' and article_internacional = 'N' 
+			//			order by article_internacional, article_ref, identify_type, article_seq";
+			//$rlt = db_query($qsql); 
+			//if ($line = db_read($rlt))
+				//{
+					//print_r($line);
+				//}
+			//echo 'FIM';
+			//exit;
 			return($sql);	
 		}
 	
@@ -2217,9 +2474,48 @@ class semic
 			return($sx);
 		}
 			
+	function limpa2()
+		{
+			/* select * from articles left join sections on article_section = section_id 
+					where articles.journal_id = 85 and 
+					(article_publicado <> 'X' and article_publicado <> '@') and 
+					(article_modalidade = 'PIBIC' or article_modalidade = 'IS' ) 
+					and article_internacional = 'N' order by article_internacional, article_ref, identify_type, article_seq
+			 */ 
+			$sql = "select * from articles where article_autores like '%Poster%'
+						or article_autores like '%Oral Portugues%' 
+						order by id_article
+						limit 50";
+			$rlt = db_query($sql);
+			$id = 0;
+			while ($line = db_read($rlt))
+				{
+					$id++;
+					//print_r($line);
+					$au = ($line['article_autores']);
+					$au = troca($au,'Poster;',' - Pôster');
+					$au = troca($au,'Apresentação Poster Inglês',' - Pôster Inglês');
+					$au = troca($au,' - Poster.',' -  Pôster');
+					$au = troca($au,'Poster - Verficar',' - [confirmar]');
+					$au = troca($au,'Apresentação Oral Portugues',' - Apresentação Oral Português');
+					
+					 
+					$sql = "update articles set article_autores = '".$au."' where id_article = ".$line['id_article'];
+					$xrlt = db_query($sql);
+					echo '<BR>'.$sql;
+				}
+			if ($id > 0)
+				{
+					exit;
+				}
+		}
+
 	function mostra_trabalho_linha($sql)
 		{
-			global $jid,$dd;			
+			global $jid,$dd;	
+			
+			$this->limpa2();
+					
 			$rlt = db_query($sql);
 			$sec = '';
 			$tot1=0;
@@ -2240,7 +2536,7 @@ class semic
 						$idx = $id;
 						$narea = trim($line['section_area']);
 						$moda = trim($line['article_modalidade']);
-					
+						
 						if ($xarea != $narea)
 							{
 								if ($moda == 'POS-G')
@@ -2269,6 +2565,7 @@ class semic
 							}
 						
 						$id = $line['id_article'];
+						$link2 = 'http://www2.pucpr.br/reol/editora/article_ed.php?dd0='.$id.'&dd90='.checkpost($id).'&dd10=view.html';
 						$link = 'trabalho.php?dd0='.$id.'&dd90='.checkpost($id).'&dd10=view.html';
 						
 						$sx .= '<font class="art1">'.$line['article_ref'].'</font>';
@@ -2286,9 +2583,20 @@ class semic
 						//if (substr($title,0,2) == Substr(UpperCase($title),0,2))
 						//{ $title = substr($title,0,1).Lowercase($title,1,strlen($title)); }
 				
+
+
 						$sx .= $title;
 	
 						$sx .= '</B></A><BR>';
+						
+						$sx .= '<?php
+								if ($_SESSION[\'editmode\']=="1")
+									{
+										echo \'[<A HREF="'.$link2.'" target="_new">edit</A>]<BR>\'; 
+									} 
+								?>						
+						';
+						
 						$sx .= '<font class="art3"><I>'.$line['article_autores'].'</I></font><BR>&nbsp;</div>';
 						$tot1++;
 						$tot2++;
@@ -2850,6 +3158,7 @@ class semic
 	function area_resumo($tp='')
 		{
 		global $dd;
+		
 		$fld1 = "pb_relatorio_parcial";	
 		$fld2 = "pb_relatorio_final";	
 		/***** Calcula Gráfico ****/

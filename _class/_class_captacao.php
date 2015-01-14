@@ -1686,7 +1686,7 @@ class captacao
 				$opa .= '&00000: --sem vinculo com a pós-graduação--';
 				$op = ' : ';
 				for ($r=date("Y");$r > 2001;$r--)
-					{ for ($y=1;$y < 12;$y++) {
+					{ for ($y=1;$y <= 12;$y++) {
 							$op .= '&'.trim(strzero($r,4).strzero($y,2)).':'.strzero($y,2).'/'.$r; 
 						} }					
 				/* Duração */

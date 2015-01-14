@@ -49,6 +49,8 @@ array_push($menu,array(msg('SEMIC').' paineis','Listar Paineis','semic_paineis_l
 array_push($menu,array(msg('SEMIC').' avaliadores','Lista de avaliadores ativos','semic_avaliadores_ativos.php'));
 
 
+array_push($menu,array(msg('SEMIC').' ouvintes','Cadastro de Ouvintes','semic_ouvintes.php'));
+
 $tela = menus($menu,"3");
 
 require("../foot.php");	
