@@ -102,7 +102,7 @@ class fomento {
 	}
 
 	function enviar_email($total) {
-		
+
 		$sql = "select * from " . $this -> tabela_fila_envio . "
 						order by id_fle
 						limit " . round($total);
@@ -168,7 +168,7 @@ class fomento {
 				if (strlen($titulo_email) > 0) {
 					$tit = '[PD&I] - ' . $titulo_email;
 				}
-				$nnome = substr($nome,0,strpos($nome,';'));
+				$nnome = substr($nome, 0, strpos($nome, ';'));
 				$tit .= ' ' . $nnome;
 
 				$txta = '
@@ -325,12 +325,32 @@ class fomento {
 		$sx .= '<font style="font-size:25px">' . $tttt . '</font>';
 		$sx .= '<BR><BR>';
 
+		$cab = array('fomento_1' => 'Objetivo(s)', 'fomento_2' => 'Recursos', 'fomento_3' => 'Elegibilidade', 'fomento_4' => 'Contato', 'fomento_5' => '#(5)', 'fomento_6' => 'Áreas e categorias', 'fomento_7' => '#(7)', 'fomento_8' => '#(8)', 'fomento_9' => '#(9)', 'fomento_10' => '#(10)', 'fomento_11' => 'Submissão', 'fomento_12' => 'Contato na instituição',
+		'deadline1' => '<I>Deadline</I> para submissão eletrônica',
+		'deadline2' => 'Prazo para envio dos documentos',
+		'deadline3' => 'Predicting outcomes',
+		'deadline4' => 'Documentos e/ou assinaturas institucionais<BR>devem ser solicitados em até 3 dias úteis antes do deadline',
+		'access1'=>'Para acessar a chamada na íntegra e outras informações relevantes, acesse ',
+		'access2'=>'AQUI'
+		);
+		$idioma = trim($this -> line['ed_idioma']);
+
+		if ($idioma == 'us_EN') {
+			$cab = array('fomento_1' => 'Objective', 'fomento_2' => 'Covered costs', 'fomento_3' => 'Eligibility', 'fomento_4' => 'Contact', 'fomento_5' => '#(5)', 'fomento_6' => 'Research topics', 'fomento_7' => '#(7)', 'fomento_8' => '#(8)', 'fomento_9' => '#(9)', 'fomento_10' => '#(10)', 'fomento_11' => 'Submission process', 'fomento_12' => 'Instutional contact',
+			'deadline1' => 'Deadline for eletronic submission',
+			'deadline2' => 'Deadline for sending physical documments',
+			'deadline3' => 'Previsão dos resultados',
+			'deadline4' => 'Documents and / or institutional subscriptions<BR> must be requested within 3 working days before the deadline',
+ 			'access1'=>'To access the full call and other relevant information, please click ',
+			'access2'=>'HERE'
+			);
+		}
 		for ($r = 1; $r <= 12; $r++) {
 			$vl = trim($this -> line['ed_texto_' . $r]);
 			if (strlen($vl) > 0) {
 				//$sx .= '<TR><TD><B>'.UpperCase(msg('fomento_'.$r)).'</B>';
 				$sx .= chr(13) . chr(10);
-				$sx .= '<TR><TD><BR><B>' . msg('fomento_' . $r) . '</B></td></tr>';
+				$sx .= '<TR><TD><BR><B>' . $cab['fomento_' . $r] . '</B></td></tr>';
 				$sx .= chr(13) . chr(10);
 				$sx .= '<TR><TD>' . $vl . '<BR></td></tr>';
 			}
@@ -339,22 +359,21 @@ class fomento {
 		$sx .= '<BR><BR>';
 		$sx .= '<table width="500" align="center" border=0 style="border: 1px solid #000000; font-size: 14px; font-family: tahoma, verdana, arial;	">' . chr(13) . chr(10);
 		if (round($this -> line['ed_data_1']) > 20000101) {
-			$sx .= '<TR><TD align="right"><font style="font-size: 18px;"><I>Deadline</I> para submissão eletrônica <B><font color="red">' . stodbr($this -> line['ed_data_1']) . '</font>';
+			$sx .= '<TR><TD align="right"><font style="font-size: 18px;">'.$cab['deadline1'].' <B><font color="red">' . stodbr($this -> line['ed_data_1']) . '</font>';
 		} else {
 			//$sx .= '<TR><TD align="right"><font style="font-size: 18px;"><I>Deadline</I> para submissão eletrônica <B><font color="red">' . $this -> deadline($this -> line['ed_data_1']) . '</font>';
 		}
 
 		if ($this -> line['ed_data_2'] > 20000101) {
-			$sx .= '<TR><TD align="right"><font style="font-size: 18px;">Prazo para envio dos documentos <B>' . stodbr($this -> line['ed_data_2']) . '</font>';
+			$sx .= '<TR><TD align="right"><font style="font-size: 18px;">'.$cab['deadline2'].' <B>' . stodbr($this -> line['ed_data_2']) . '</font>';
 		}
 
 		if ($this -> line['ed_document_require'] == '1') {
 			$sx .= '<TR><TD align="right"><font style="font-size:12 px; color: #000080;">
-												Documentos e/ou assinaturas institucionais<BR>
-												devem ser solicitados em até 3 dias úteis antes do <I>deadline</I>';
+												'.$cab['deadline4'];
 			$sx .= '</font>';
 		}
-		if ($this -> line['ed_data_3'] > 20000101) { $sx .= '<TR><TD align="right"><font style="font-size:30 px;">Previsão dos resultados <B>' . stodbr($this -> line['ed_data_3']) . '';
+		if ($this -> line['ed_data_3'] > 20000101) { $sx .= '<TR><TD align="right"><font style="font-size:30 px;">'.$cab['deadline3'].' <B>' . stodbr($this -> line['ed_data_3']) . '';
 		}
 		$sx .= '</table>';
 
@@ -363,19 +382,19 @@ class fomento {
 			$url = '<A HREF="' . $http . 'fomento/edital_ver.php?dd0=' . trim($this -> line['ed_codigo']) . '&dd1=$CRACHA" target="_black">';
 			$sx .= '<TR><TD>';
 			$sx .= '<BR><BR>';
-			$sx .= 'Para acessar a chamada na íntegra e outras informações relevantes, acesse ';
-			$sx .= $url . 'AQUI</A>';
+			$sx .= $cab['access1'];
+			$sx .= $url . $cab['access2'].'</A>';
 		}
 
 		$sx .= '<TR><TD><BR> ';
 		//$sx .= '<TR><TD><I>Tags:</I> ';
 		//$sx .= $this->tags();
-		
+
 		$sx .= '<TR valign="top"><TD align="right"><BR><BR>';
 		$sx .= '55 (41) 3271.2128 - e-mail: <A href="mailto:pdi@pucpr.br">pdi@pucpr.br</A>';
 		$sx .= '<TR valign="top"><TD>';
 		$sx .= '<img src="' . $http . 'img/email_pdi_foot.png" ><BR>';
-				
+
 		$sx .= '</table>';
 		$sx .= '<BR><BR><BR>';
 		$this -> texto = $sx;
