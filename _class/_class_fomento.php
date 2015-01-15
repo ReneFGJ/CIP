@@ -350,8 +350,8 @@ class fomento {
 
 		if ($this -> line['ed_document_require'] == '1') {
 			$sx .= '<TR><TD align="right"><font style="font-size:12 px; color: #000080;">
-												As assinaturas institucionais<BR>
-												devem ser solicitadas em até 3 dias úteis antes do <I>deadline</I>';
+												Documentos e/ou assinaturas institucionais<BR>
+												devem ser solicitados em até 3 dias úteis antes do <I>deadline</I>';
 			$sx .= '</font>';
 		}
 		if ($this -> line['ed_data_3'] > 20000101) { $sx .= '<TR><TD align="right"><font style="font-size:30 px;">Previsão dos resultados <B>' . stodbr($this -> line['ed_data_3']) . '';

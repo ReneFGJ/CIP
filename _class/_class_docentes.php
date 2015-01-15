@@ -1279,7 +1279,7 @@ class docentes {
 				where (id_pp = " . round($this -> id_pp) . ") or (pp_cracha = '$id')";
 		$rlt = db_query($sql);
 		$prod = $this -> produtividade();
-
+		
 		if ($line = db_read($rlt)) {
 			$this -> id_pp = $line['id_pp'];
 			$this -> pp_nome = $line['pp_nome'];
