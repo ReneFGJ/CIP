@@ -340,7 +340,7 @@ class fomento {
 			'deadline1' => 'Deadline for eletronic submission',
 			'deadline2' => 'Deadline for sending physical documments',
 			'deadline3' => 'Previsão dos resultados',
-			'deadline4' => 'Documents and / or institutional subscriptions<BR> must be requested within 3 working days before the deadline',
+			'deadline4' => 'Documents and/or institutional signatures<BR> must be requested within 3 working days before the deadline',
  			'access1'=>'To access the full call and other relevant information, please click ',
 			'access2'=>'HERE'
 			);
