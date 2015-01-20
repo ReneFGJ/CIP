@@ -1362,7 +1362,7 @@ class captacao {
 
 		array_push($cp, array('${', '', 'Instituição Proponente', False, True));
 		//array_push($cp,array('$Q ','ca_duracao','Duração',True,True));
-		array_push($cp, array('$Q inst_nome:inst_codigo:select inst_codigo, substring(trim(inst_nome) from 1 for 50) || chr(47) || trim(inst_abreviatura) as inst_nome from instituicoes where inst_abreviatura <> \'\' order by inst_nome', 'ca_proponente', 'Instituição proponente', True, True));
+		array_push($cp, array('$Q inst_nome:inst_codigo:select inst_codigo, substring(trim(inst_nome) from 1 for 50) || chr(47) || trim(inst_abreviatura) as inst_nome from instituicao where inst_abreviatura <> \'\' order by inst_nome', 'ca_proponente', 'Instituição proponente', True, True));
 		array_push($cp, array('$N8', 'ca_proponente_vlr', 'Valor aplicado na PUCPR', True, True));
 		array_push($cp, array('$M', '', '<font class=lt0>O valor aplicado refere-se a quantidade de recursos que serão aplicados na PUCPR, podendo ser qualquer uma das modalidades, capital, custeio ou bolsas, informando qual o valor total.</font>', False, True));
 		array_push($cp, array('$}', '', 'Vigência', False, True));
@@ -1532,7 +1532,7 @@ class captacao {
 	function le($id) {
 		$sql = "select * from " . $this -> tabela . " 
 						left join agencia_de_fomento on ca_agencia = agf_codigo
-						left join instituicoes on ca_proponente = inst_codigo
+						left join instituicao on ca_proponente = inst_codigo
 						left join programa_pos on ca_programa = pos_codigo
 						left join centro on ca_escola = centro_codigo
 						left join pibic_professor on ca_professor = pp_cracha

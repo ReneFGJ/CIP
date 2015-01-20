@@ -250,8 +250,8 @@ class parecer_model
 				$xml = '<form>'.chr(13);
 				while ($line = db_read($rlt))
 					{
-						$answer = trim($_POST['dd'.$rx]);
-						$type = trim($line['pq_tipo']);
+						$answer = (trim($_POST['dd'.$rx]));
+						$type = (trim($line['pq_tipo']));
 						$answer_post = $answer;
 						
 						if ((strlen($answer) > 0) and ($type == 'N'))
@@ -261,10 +261,10 @@ class parecer_model
 							}
 						$xml .= '<query id="'.$rx.'">'.chr(13);
 						$xml .= '<type>'.$type.'</type>'.chr(13);
-						$xml .= '<name>'.trim($line['sf_nome']).'</name>'.chr(13);
-						$xml .= '<question>'.trim($line['pq_pergunta']).'</question>'.chr(13);
-						$xml .= '<answer>'.$answer.'</answer>'.chr(13);
-						$xml .= '<answer_post>'.$answer_post.'</answer_post>'.chr(13);
+						$xml .= '<name>'.htmlspecialchars(trim($line['sf_nome'])).'</name>'.chr(13);
+						$xml .= '<question>'.htmlspecialchars(trim($line['pq_pergunta'])).'</question>'.chr(13);
+						$xml .= '<answer>'.htmlspecialchars($answer).'</answer>'.chr(13);
+						$xml .= '<answer_post>'.htmlspecialchars($answer_post).'</answer_post>'.chr(13);
 						$xml .= '</query>'.chr(13);
 						$rx++;
 					}

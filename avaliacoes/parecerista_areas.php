@@ -72,7 +72,7 @@ require("parecerista_areas_avaliacao.php");
 	$tabela = "";
 	$tab_max = $tab_max -20;
 	$sql = "select * from pareceristas ";
-	$sql .= " inner join instituicoes on inst_codigo = us_instituicao ";
+	$sql .= " inner join instituicao on inst_codigo = us_instituicao ";
 	$sql .= " where id_us = ".$dd[0]." ";
 	$rlt = db_query($sql);
 	if ($line = db_read($rlt))

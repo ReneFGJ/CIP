@@ -15,20 +15,20 @@ $sql .= "SELECT count(*) as total, psa_p05, us_instituicao from (";
 $sql .= "(select 1, psa_p05, us_instituição from pibic_semic_avaliador group by psa_p05, us_instituicao, psa_p01 ) as tabela01 ";
 $sql .= " group by psa_p05, us_instituicao";
 $sql .= ") as laboratorio ";
-$sql .= " left join  instituicoes  on us_instituicao = inst_codigo ";
+$sql .= " left join  instituicao  on us_instituicao = inst_codigo ";
 $sql .= " order by psa_p05, inst_nome ";
 //$rlt = db_query($sql);
 
 
 $sql = "select count(*) as total, psa_p05, us_instituicao from ";
 $sql .= "(select 1, psa_p05, psa_p01 from pibic_semic_avaliador group by psa_p05, psa_p01 ) as tabela01 ";
-$sql .= " left join  instituicoes  on us_instituicao = inst_codigo ";
+$sql .= " left join  instituicao  on us_instituicao = inst_codigo ";
 $sql .= " group by psa_p05, us_instituicao";
 
 $sql = "select count(*) as total, inst_nome, psa_p05 from ";
 $sql .= "(select 1, psa_p05, psa_p01 from pibic_semic_avaliador group by psa_p05, psa_p01) as tabela01 ";
 $sql .= " left join  pareceristas  on us_codigo = psa_p01 ";
-$sql .= " left join  instituicoes  on us_instituicao = inst_codigo ";
+$sql .= " left join  instituicao  on us_instituicao = inst_codigo ";
 $sql .= " group by psa_p05, inst_nome";
 $sql .= " order by psa_p05, inst_nome ";
 $sql .= " ";

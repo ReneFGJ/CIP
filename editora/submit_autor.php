@@ -20,7 +20,7 @@ if ($user_nivel == 9)
 	$http_redirect = page();
 	$http_ver = 'submit_autor_ver.php';
 	$http_redirect = $tabela.'.php';
-	$cdf = array('id_'.$idcp,$idcp.'_nome',$idcp.'_email',$idcp.'_email_alt',$idcp.'_codigo');
+	$cdf = array('id_'.$idcp,$idcp.'_nome',$idcp.'_email',$idcp.'_instituicao_text',$idcp.'_codigo');
 	$cdm = array('Código','Nome','email','email','codigo');
 	$masc = array('','','','','','SN','');
 	

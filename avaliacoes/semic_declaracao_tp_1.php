@@ -34,7 +34,7 @@ $sql .= " group by psa_p01 ";
 $sql .= ") as avaliadores";
 
 $sql .= " left join  pareceristas  on us_codigo = psa_p01 ";
-$sql .= " left join  instituicoes  on us_instituicao = inst_codigo ";
+$sql .= " left join  instituicao  on us_instituicao = inst_codigo ";
 $sql .= " left join  pibic_documento on (doc_dd0 = us_codigo) and (doc_tipo = 'D2') ";
 $sql .= " order by us_nome ";
 
