@@ -42,11 +42,12 @@ if (strlen($programa_pos) == 0)
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Reconhecimento Internacional (9)','pos_graduacao_9.php'));
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Inserção Social (10)',''));
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Aspectos Relevantes (11)',''));
-				array_push($menu,array('Relatório Consultor Externo - Convidado','__Metas Previstas para 2013 (12))',''));		
-				array_push($menu,array('Relatório Consultor Externo - Convidado','__Relação Discente (12))','pos_graduacao_20.php'));
-				array_push($menu,array('Relatório Consultor Externo - Convidado','__Captação de Recursos (12))','pos_graduacao_21.php'));
-				array_push($menu,array('Relatório Consultor Externo - Convidado','__Captação de Recursos vigentes (12))','pos_graduacao_23.php'));
-				array_push($menu,array('Relatório Consultor Externo - Convidado','__Orientação PIBIC/PIBITI (12))','pos_graduacao_22.php'));
+				array_push($menu,array('Relatório Consultor Externo - Convidado','__Metas Previstas para 2013 (12)',''));		
+				array_push($menu,array('Relatório Consultor Externo - Convidado','__Relação Discente (12)','pos_graduacao_20.php'));
+				array_push($menu,array('Relatório Consultor Externo - Convidado','__Captação de Recursos (12)','pos_graduacao_21.php'));
+				array_push($menu,array('Relatório Consultor Externo - Convidado','__Captação de Recursos vigentes (12)','pos_graduacao_23.php'));
+				array_push($menu,array('Relatório Consultor Externo - Convidado','__Orientação PIBIC/PIBITI (12)','pos_graduacao_22.php'));
+				array_push($menu,array('Relatório Consultor Externo - Convidado','__Professor com artigos bonificados','pos_graduacao_30.php'));
 			}
 	}
  

@@ -9,6 +9,7 @@ $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font:
 $menu = array();
 
 array_push($menu,array('Captação','Relatório de captações','rel_captacao_detalhes.php'));
+array_push($menu,array('Captação','Pagamentos realizados','rel_pagamentos.php'));
 
 /////////////////////////////////////////////////// MANAGERS
 array_push($menu,array('Grupos e Linhas de pesquisa','Estados dos grupos de pesquisa','grupo_de_pesquisa_rel_status.php')); 
