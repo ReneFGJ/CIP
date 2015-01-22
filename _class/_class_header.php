@@ -105,6 +105,42 @@ class header
 			return($sx);
 		}	
 		
+	function mostra_novo($tp='')
+		{
+			$this->name = $tp;
+			$this->id_pagina($tp);	
+			$sx = $this->head();
+			$sx .= $this->cab_novo();
+	
+			$sx .= '<table cellpadding=0 cellspacing=0 id="total" align="center" border=0>'.$cr;
+			$sx .= '<TR><TD>';
+			$sx .= $this->breadcrumb();
+			return($sx);
+		}	
+				
+	function menus_novo()
+		{
+		global $menu;
+		if (empty($menu)) 
+				{
+				 $menu = array(); 
+				 array_push($menu,array('home','main.php'));
+				}
+		array_push($menu,array('voltar',http.'main.php'));
+				
+		$sx .= '<div id="menu-pagina-novo" class="cabecalho_menu_big">'.$cr;
+		$sx .= '<ul>'.$cr;
+		for ($r=0;$r < count($menu);$r++)
+			{
+			$sx .= '<a href="'.$menu[$r][1].'"><li>'.msg($menu[$r][0]).'</li></a>'.$cr;
+			}
+		$sx .= '</ul>'.$cr;
+		$sx .= '</div>'.$cr;
+			
+		return($sx);			
+		}
+
+
 	function menus()
 		{
 		global $menu;
@@ -115,7 +151,7 @@ class header
 				}
 		array_push($menu,array('voltar',http.'main.php'));
 				
-		$sx .= '<div id="menu-pagina">'.$cr;
+		$sx .= '<div id="menu-pagina" class="cabecalho_menu_big">'.$cr;
 		$sx .= '<ul>'.$cr;
 		for ($r=0;$r < count($menu);$r++)
 			{
@@ -167,6 +203,8 @@ class header
 		
 		$sx .= '<script language="JavaScript" type="text/javascript" src="'.http.'js/jquery-1.7.1.js"></script>'.$cr;
 		$sx .= '<script language="JavaScript" type="text/javascript" src="'.http.'js/jquery.corner.js"></script>'.$cr;
+		$sx .= '<script language="JavaScript" type="text/javascript" src="'.http.'js/jquery-ui.js"></script>'.$cr;
+		
     	$sx .= '<title>CIP | Centro Integrado de Pesquisa | PUCPR</title>'.$cr;
 		$sx .= '</head>';
 		
@@ -184,6 +222,114 @@ class header
 		
 		$LANG='pt_BR';
 		return($sx);
+		}
+
+
+
+	function cab_novo($titulo='') 
+		{
+		global $ss,$nw,$include,$perfil;
+		
+		require_once($include.'sisdoc_security_pucpr.php');
+		$nw = new usuario;
+		$nw->Security();
+		$nw->LiberarUsuario();
+		$ss = $nw;
+
+		$sx = '<body>'.$cr;
+		
+		/* Cabecalho para impressao */		
+			$sx .= '
+			<table width="100%" id="cabecalho-impressao-cip" border=0>
+			<TR><TD width="95%"><img  src="'.http.'cip/img/logo-cip-print.png" height="80" />
+			<TD align="right" width="5%"><img id="cabecalho-impressao-pucpr" src="'.http.'cip/img/logo-pucpr-pb.png" height="80" />
+			<TR class="lt0"><TD>'.date("d/m/Y H:i:s").' - '.$nw->user_nome.' ('.$nw->user_cracha.')
+			</table>
+			';
+		/* Cabecalho novo */
+		$sx = '<div id="cabecalho_novo" class="cabecalho_novo_big">';
+		$sx .= '<A HREF="http://www2.pucpr.br/reol/main.php"><div id="cabecalho_logo" class="cabecalho_logo_big"></div></A>';
+		$sx .= '<div id="cabecalho_texto">'.$titulo.'</div>';
+		$sx .= '<div id="cabecalho_user"></div>';
+		$sx .= '<div id="cabecalho_top"></div>';
+		$sx .= '<div id="menus" style="
+					clear: both;
+					postion: static;
+					hight: 100%;
+    				width: 100%;
+    				">';
+			$sx .= $this->menus_novo();
+		$sx .= '</div>';
+		$sx .= '</div>';
+		$js = '
+		<script>
+		$("body").addClass("margin120");
+		
+			$(document).on("scroll", function () {
+				
+				var $meuMenu = $("#cabecalho_novo");
+				var $logo = $("#cabecalho_logo");
+				var $menu = $("#menu-pagina-novo");					
+				var offset = $(document).scrollTop(); 
+				
+				if (offset > 1)
+					{
+						$("#cabecalho_novo").animate({
+							top: "0px" }, 500);
+						$($logo).switchClass("cabecalho_logo_big","cabecalho_logo_mini",500);
+						$($menu).switchClass("cabecalho_menu_big","cabecalho_menu_novo_mini",500);
+						
+					} else {
+						$("#cabecalho_novo").animate({
+							top: "0px" }, 500);
+						$($logo).switchClass("cabecalho_logo_mini","cabecalho_logo_big",500);
+						$($menu).switchClass("cabecalho_menu_novo_mini","cabecalho_menu_big",500);
+					}				
+			});
+		</script>
+		
+		';
+		$sx .= $js;
+		return($sx);
+
+		/* cabecalho da página */
+		$sx .= '<table border=0 width="100%" cellpadding=0 cellspacing=0 id="cabecalho-user-screen">';
+			$sx .= '<TR valign="top">';
+			$sx .= '<TD width="10%" rowspan=2>&nbsp;';
+		
+			$sx .= '<TD width="40%" >';
+				$sx .= '<a href="'.http.'main.php"><img src="'.http.'img/logo-cip.png" id="logo-cip" /></a>'.$cr;
+		
+			$sx .= '<TD width="40%" align="right" >';
+				$sx .= '</div>';
+			$sx .= '</ul>'.$cr;
+			
+		$sx .= '<TD width="10%" rowspan=2>&nbsp;';
+		
+		/* Parte II */
+		$sx .= '<TR valign="bottom">';
+	
+			/* Dados do usuario */
+			$nome = trim($nw->user_nome);
+			if (strlen($nome)==0) { $nome = $nw->user_login; }
+			$cracha = trim($nw->user_cracha);
+			if (strlen($cracha) > 0) { $nome .= ' ('.$cracha.')'; }
+			
+			$sx .= '<TD valign="top" height="20">';
+			if (strlen(trim($this->title)) > 0)
+				{
+				$sx .= '<div id="identificacao-pagina" class="'.$this->class.'">';
+				$sx .= $this->title;
+				$sx .= '</div>';
+				}
+			
+			$sx .= '<TD class="seja-bem-vindo" valign="top">';
+			$sx .= 'Seja bem-vindo, '.$nome.$cr;
+			$sx .= '</div>'.$cr;
+								
+		$sx .= '<TD width="10%">&nbsp;';
+		$sx .= '</table>';
+		return($sx);		
 		}
 
 	function cab() 
