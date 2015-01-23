@@ -1,3 +1,89 @@
+/*
+ * 
+ */
+/* titulo do cabecalho */
+#cabecalho_title
+	{
+		color: #fff;
+		font-family: 'CICPG','RobotoThin', sans-serif, arial;
+		font-size: 33px;
+		float: right;
+		padding: 4px;
+		width: 70%;
+		text-align: left;
+	}
+/* cabecalho_user */
+#cabecalho_user
+	{
+		color: #fff;
+		/* background-color:#004790; */
+		font-family: 'CICPG','Roboto', sans-serif, arial;
+		font-size: 12px;
+		float: right;
+		padding: 4px;
+		width: 70%;
+		text-align: right;
+	}
+/* Tools */
+#cabecalho_user_menu
+	{
+		color: #fff;
+		font-family: 'CICPG','Roboto', sans-serif, arial;
+		font-size: 12px;
+		float: right;
+		padding: 4px;	
+		width: 70%;	
+	}
+	
+#cabecalho_user_menu ul li
+	{
+		text-align: right;
+		color: #fff;
+		font-family: 'CICPG','Roboto', sans-serif, arial;
+		font-size: 12px;
+		float: right;
+		padding: 4px;
+		display: inline;		
+	}
+/* Menu novo */
+#menu-top
+	{
+	background-color: #4B0207;	
+	width: 100%;
+	padding: 0px;
+	height: 30px;
+	color: #fff;
+	font-family: 'CICPG','Roboto', sans-serif, arial;
+	font-size: 14px;
+	line-height: 30px;
+	}
+	
+#menu-top ul li {
+	color: #fff;
+	display: inline;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#menu-top ul li:hover {
+	background-color: #6B2227;
+	color: #fff;
+	display: inline;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#menu-top a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+#menu-pagina-novo a:visited {
+	color: #fff;
+}
+
+	
 /* Cabelacho Novo */
 #cabecalho {
 	width: 100%;
@@ -38,7 +124,7 @@
 	padding: 0px;
 	padding-top: 6px;
 		
-	height: 40px;
+	height: 50px;
 	color: #fff;
 	font-family: 'Roboto', sans-serif, arial;
 	font-size: 14px;
@@ -397,6 +483,11 @@ img {
 #menu-pagina {
 	background-color: #4B0207;	
 	width: 100%;
+	font-family: 'Roboto', sans-serif, arial;
+	font-size: 14px;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 6px;	
 }
 
 
@@ -404,26 +495,14 @@ img {
 	color: #fff;
 }
 
-#menu-pagina-novo a:visited {
-	color: #fff;
-}
 
 #menu-pagina a:hover {
 	color: #fff;
 	text-decoration: underline;
 }
 
-#menu-pagina-novo a:hover {
-	color: #fff;
-	text-decoration: underline;
-}
 
 #menu-pagina a {
-	color: #fff;
-	text-decoration: none;
-}
-
-#menu-pagina-novo a {
 	color: #fff;
 	text-decoration: none;
 }
@@ -432,8 +511,9 @@ img {
 	display: inline;
 }
 
-#menu-pagina-novo ul li {
-	display: inline;
+
+#menu-pagina-novo ul li:hover {
+	background-color: #6B2227;
 }
 
 #menu-pagina ul {
@@ -441,16 +521,8 @@ img {
 	padding-left: 14%;
 }
 
-#menu-pagina-novo ul {
-	padding-left: 2%;
-}
 
 #menu-pagina li {
-	list-style: none;
-	padding-right: 30px;
-}
-
-#menu-pagina-novo li {
 	list-style: none;
 	padding-right: 30px;
 }

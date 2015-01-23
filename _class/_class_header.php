@@ -110,11 +110,8 @@ class header
 			$this->name = $tp;
 			$this->id_pagina($tp);	
 			$sx = $this->head();
-			$sx .= $this->cab_novo();
-	
-			$sx .= '<table cellpadding=0 cellspacing=0 id="total" align="center" border=0>'.$cr;
-			$sx .= '<TR><TD>';
-			$sx .= $this->breadcrumb();
+			$sx .= $this->cab_novo($tp);
+			$sx .= '<div style="width:90%; margin: 0 auto;">';
 			return($sx);
 		}	
 				
@@ -128,7 +125,7 @@ class header
 				}
 		array_push($menu,array('voltar',http.'main.php'));
 				
-		$sx .= '<div id="menu-pagina-novo" class="cabecalho_menu_big">'.$cr;
+		$sx .= '<div id="menu-top" class="cabecalho_menu_big-2">'.$cr;
 		$sx .= '<ul>'.$cr;
 		for ($r=0;$r < count($menu);$r++)
 			{
@@ -150,6 +147,16 @@ class header
 				 array_push($menu,array('home','main.php'));
 				}
 		array_push($menu,array('voltar',http.'main.php'));
+
+		$sx = '
+			<nav id="menu-pagina">
+			<ul>';
+		for ($r=0;$r < count($menu);$r++)
+			{
+			$sx .= '<a href="'.$menu[$r][1].'"><li>'.msg($menu[$r][0]).'</li></a>'.$cr;
+			}				
+		$sx .= '</ul></nav>';
+		return($sx);		
 				
 		$sx .= '<div id="menu-pagina" class="cabecalho_menu_big">'.$cr;
 		$sx .= '<ul>'.$cr;
@@ -249,9 +256,28 @@ class header
 		/* Cabecalho novo */
 		$sx = '<div id="cabecalho_novo" class="cabecalho_novo_big">';
 		$sx .= '<A HREF="http://www2.pucpr.br/reol/main.php"><div id="cabecalho_logo" class="cabecalho_logo_big"></div></A>';
-		$sx .= '<div id="cabecalho_texto">'.$titulo.'</div>';
-		$sx .= '<div id="cabecalho_user"></div>';
-		$sx .= '<div id="cabecalho_top"></div>';
+
+		/* nome do usuario */
+			$sx .= '<div id="cabecalho_user">';
+			$sx .= 'Seja bem-vindo, '.$nw->user_nome.' ('.$nw->user_cracha.')';
+			$sx .= '<BR>'.$cr;
+			$sx .= '</div>';
+		
+		/* Outras dados */
+		$sx .= '<div id="cabecalho_user_menu">';
+				$sx .= '<ul>'.$cr;
+				/* Libera Item do Administrador */
+				$sx .= '<a href="'.http.'logout.php"><li><i class="icon-remove"></i> Sair</li></a>'.$cr;
+				$sx .= '<a href="'.http.'minha_conta.php"><li><i class="icon-refresh"></i> <NOBR>Atualizar dados</nobr></li></a>'.$cr;
+				if (($perfil->valid('#ADM#SCR#COO')))
+					{ $sx .= '<a href="'.http.'/admin/"><li><i class="icon-wrench"></i> Administração</li></a>'.$cr; }
+				
+		$sx .= '</div>';
+		
+		$sx .= '<div id="cabecalho_title">';
+		$sx .= $titulo;
+		$sx .= '</div>';
+		
 		$sx .= '<div id="menus" style="
 					clear: both;
 					postion: static;
@@ -269,21 +295,21 @@ class header
 				
 				var $meuMenu = $("#cabecalho_novo");
 				var $logo = $("#cabecalho_logo");
-				var $menu = $("#menu-pagina-novo");					
+				var $menu = $("#menu-top");					
 				var offset = $(document).scrollTop(); 
 				
 				if (offset > 1)
 					{
-						$("#cabecalho_novo").animate({
-							top: "0px" }, 500);
+						$("#cabecalho_novo").animate({top: "0px" }, 500);
 						$($logo).switchClass("cabecalho_logo_big","cabecalho_logo_mini",500);
-						$($menu).switchClass("cabecalho_menu_big","cabecalho_menu_novo_mini",500);
+						$("#cabecalho_title").fadeOut(100);
+						
 						
 					} else {
 						$("#cabecalho_novo").animate({
 							top: "0px" }, 500);
 						$($logo).switchClass("cabecalho_logo_mini","cabecalho_logo_big",500);
-						$($menu).switchClass("cabecalho_menu_novo_mini","cabecalho_menu_big",500);
+						$("#cabecalho_title").fadeIn(1000);
 					}				
 			});
 		</script>
@@ -291,45 +317,6 @@ class header
 		';
 		$sx .= $js;
 		return($sx);
-
-		/* cabecalho da página */
-		$sx .= '<table border=0 width="100%" cellpadding=0 cellspacing=0 id="cabecalho-user-screen">';
-			$sx .= '<TR valign="top">';
-			$sx .= '<TD width="10%" rowspan=2>&nbsp;';
-		
-			$sx .= '<TD width="40%" >';
-				$sx .= '<a href="'.http.'main.php"><img src="'.http.'img/logo-cip.png" id="logo-cip" /></a>'.$cr;
-		
-			$sx .= '<TD width="40%" align="right" >';
-				$sx .= '</div>';
-			$sx .= '</ul>'.$cr;
-			
-		$sx .= '<TD width="10%" rowspan=2>&nbsp;';
-		
-		/* Parte II */
-		$sx .= '<TR valign="bottom">';
-	
-			/* Dados do usuario */
-			$nome = trim($nw->user_nome);
-			if (strlen($nome)==0) { $nome = $nw->user_login; }
-			$cracha = trim($nw->user_cracha);
-			if (strlen($cracha) > 0) { $nome .= ' ('.$cracha.')'; }
-			
-			$sx .= '<TD valign="top" height="20">';
-			if (strlen(trim($this->title)) > 0)
-				{
-				$sx .= '<div id="identificacao-pagina" class="'.$this->class.'">';
-				$sx .= $this->title;
-				$sx .= '</div>';
-				}
-			
-			$sx .= '<TD class="seja-bem-vindo" valign="top">';
-			$sx .= 'Seja bem-vindo, '.$nome.$cr;
-			$sx .= '</div>'.$cr;
-								
-		$sx .= '<TD width="10%">&nbsp;';
-		$sx .= '</table>';
-		return($sx);		
 		}
 
 	function cab() 

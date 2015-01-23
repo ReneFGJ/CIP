@@ -38,5 +38,5 @@ $menu = array();
 
 require('../_class/_class_header.php');
 $hd = new header;
-echo $hd->mostra_novo('Grupos de Pesquisas');
+echo $hd->mostra_novo('Grupos de Pesquisas da PUCPR');
 ?>

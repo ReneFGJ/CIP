@@ -3,10 +3,6 @@ $include = '../';
 //require("../db.php");
 
 require($include."cab_root.php");
-require($include.'sisdoc_data.php');
-require($include.'sisdoc_debug.php');
-require($include.'sisdoc_breadcrumb.php');
-require($include.'sisdoc_colunas.php');
 require("../cab_institucional.php");
 
 $email_adm = 'cip@pucpr.br';
@@ -50,7 +46,13 @@ if (($perfil->valid('#ADM#SCR#COO')))
 
 require('../_class/_class_header.php');
 $hd = new header;
-echo $hd->mostra('cp'); 
+echo $hd->mostra_novo('Gestão do CIP - Diretoria');
+
+require($include.'sisdoc_data.php');
+require($include.'sisdoc_debug.php');
+require($include.'sisdoc_breadcrumb.php');
+require($include.'sisdoc_colunas.php');
+
 //if ($xcab != 1)
 //{ require("cab_top_menu.php"); }
 ?>
