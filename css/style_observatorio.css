@@ -1,0 +1,137 @@
+.observatorio_ver_mais
+	{
+		color: #FFFFFF;
+		font-size: 10px;
+		font-family: "CICPG", "Roboto", "Verdana", "Tahoma", "Arial";
+		text-decoration: none;
+	}
+.observatorio_ver_mais.a
+	{
+		text-decoration: none;
+	}
+.chamada {
+	width: 100%;
+	height: 100%;
+}
+.chamada_title {
+	font-size: 12px;
+	font-family: "CICPG", "Roboto", "Verdana", "Tahoma", "Arial";
+	line-height: 100%;
+}
+.chamada_hr {
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 5px;
+	color: #f00;
+	background-color: #f00;
+	height: 2px;
+	border: 0px solid #000000;
+}
+.chamada_imagem {
+	padding-right: 4px;
+	padding-bottom: 4px;
+}
+.chamada_texto {
+	font-size: 11px;
+	font-family: "CICPG", "Roboto", "Verdana", "Tahoma", "Arial";
+	text-transform: capitalize;
+	color: #333366;
+}
+.chamada_deadline
+	{
+		vertical-align : bottom;
+		font-size: 11px;
+		font-family: "CICPG", "Roboto", "Verdana", "Tahoma", "Arial";
+		display : table-row;
+		bottom: 0;
+	}
+	
+.pagina{
+  height:auto;
+  width: 100%;
+  padding: 0px;
+}
+  
+.linha{
+    width:auto;
+    padding:5px;
+    height:auto;
+    display:table;     
+}
+
+.tile4x4
+    {
+    height:220px;  
+    width:430px; 
+    
+    float:left;
+    margin:0px 0px;
+    padding:0px;  
+    
+    border: 0px solid #000000;
+    }
+
+.tile2x2
+    {
+    height:160px;  
+    width:217px; 
+    
+    float:left;
+    margin:0px 0px;
+    padding:0px;  
+    
+    border: 0px solid #000000;      
+    }
+    
+.tile{
+	background-color: #FFFFFF;
+	box-shadow: 0px 10px 6px -6px #777777;
+    height:150px;  
+    width:200px; 
+    
+    float:left;
+    margin:5px 5px;
+    padding:2px;
+
+    border-width: 1px; 
+    border-style: solid; 
+    
+    border-radius: 0px; 
+    opacity: 0.8;
+    cursor: pointer;
+}
+.tile:hover
+    {
+        opacity: 1;
+    }
+     
+.tileLargo{
+    width:420px;
+    float:left;
+}
+
+.tileMini{
+    width:92px;
+    height:150px;
+    float:left;
+    margin:4px 4px;    
+}
+.amarelo{
+    background:#DAA520;
+}
+  
+.vermelho{
+    background:#CD0000; 
+}
+  
+.azul{
+    background:#4682B4;
+}
+  
+.verde{
+    background-color: #2E8B57;
+}
+
+.selecionado{
+    background-color: #483D8B;
+}	
