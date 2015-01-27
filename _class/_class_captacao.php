@@ -22,6 +22,51 @@ class captacao {
 	var $grafico;
 
 	var $tabela = 'captacao';
+	
+	function relatorio_captacao_tabela($d1,$d2)
+		{
+			$sta = $this -> status();
+			$sql = "select * from ".$this->tabela."
+					left join pibic_professor on pp_cracha = ca_professor
+					where ca_status <> 0 and ca_status <> 9
+					order by ca_vigencia_ini_ano desc, ca_vigencia_ini_mes desc
+			 ";
+			$rlt = db_query($sql);
+			$sx .= '<table class="tabela00">';
+			while ($line = db_read($rlt))
+				{
+					$ln = $line;
+					$sx .= '<TR>';
+					$sx .= '<TD>';
+					$sx .= $line['ca_agencia'];
+					$sx .= '<TD>';
+					$sx .= $line['ca_processo'];					
+					$sx .= '<TD>';
+					$sx .= $line['ca_participacao'];
+					$sx .= '<TD>';
+					$sx .= $line['pp_nome'];
+					$sx .= '<TD>';
+					$sx .= $line['ca_descricao'];
+					$sx .= '<TD>';
+					$sx .= $line['ca_edital_ano'];
+					$sx .= '<TD>';
+					$sx .= '['.$line['ca_tipo_fomento'].']';					
+					$sx .= '<TD align=right>';
+					$sx .= number_format($line['ca_vlr_capital'],2,',','.');
+					$sx .= '<TD align=right>';
+					$sx .= number_format($line['ca_vlr_custeio'],2,',','.');
+					$sx .= '<TD align=right>';
+					$sx .= number_format($line['ca_vlr_bolsa'],2,',','.');
+					$sx .= '<TD align=right>';
+					$sx .= number_format($line['ca_vlr_outros'],2,',','.');
+					$sx .= '<TD>';
+					$sx .= $sta[$line['ca_status']];
+					
+				}
+			$sx .= '</table>';
+			print_r($ln);
+			return($sx);
+		}
 
 	function captacao_listar($sta) {
 		$wh = 'ca_status = ' . round($sta);
