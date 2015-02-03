@@ -83,7 +83,12 @@
 			$sx = '<nav id="topmenu"><UL>';
 			for ($r=0;$r < count($menu);$r++)
 				{
-					$link = $path.'?dd99='.lowercasesql($menu[$r]);
+					if (substr($menu[$r],0,4) == 'http')
+						{
+							$link = $menu[$r];
+						} else {
+							$link = $path.'?dd99='.lowercasesql($menu[$r]);		
+						}
 					$sx .= '	<LI><A HREF="'.$link.'"><span>';
 					$sx .= msg($menu[$r].'_'.strzero($jid,4));
 					$sx .= '</span></A></LI>';

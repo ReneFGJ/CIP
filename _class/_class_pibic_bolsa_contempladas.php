@@ -144,6 +144,68 @@ class pibic_bolsa_contempladas
 				array_push($cp,array('$}','','',False,True,''));
 				return($cp);
 			}
+
+		function renovacoes($ano1,$ano2)
+			{
+				$sql = "select * from (
+							select
+								t1.pb_professor as orientador , 
+								t1.pb_aluno as pb_aluno_t1 ,
+								t2.pb_aluno as pb_aluno_t2,
+								t1.pb_titulo_projeto as projeto,
+								t1.pb_tipo as bolsa,
+								t1.pb_semic_area as area_conhecimento
+							from ".$this->tabela." as t1 
+							left join ".$this->tabela." as t2 on t1.pb_aluno = t2.pb_aluno and t2.pb_ano = '$ano2'
+							where t1.pb_ano = '$ano1' and t1.pb_status <> 'C'
+						) as tabela01
+						inner join pibic_aluno on pb_aluno_t1 = pa_cracha
+						inner join pibic_professor on orientador = pp_cracha
+						inner join pibic_bolsa_tipo on bolsa = pbt_codigo
+						left join ajax_areadoconhecimento on area_conhecimento = a_cnpq
+						where pbt_edital <> 'CSF'
+						order by area_conhecimento, pa_nome
+						";
+				$rlt = db_query($sql);
+				$sx = '<h3>Entre '.$ano1.' e '.$ano2.'</h3>';
+				$sx .= '<table width="100%" class="tabela00">';
+				$sx .= '<TR>
+							<TH>Área Conhecimento
+							<TH>Descrição da Área
+							<TH>Edital
+							<TH>Modalidade
+							<TH>Aluno
+							<TH>Aluno (e-mail)
+							<TH>Orientador
+							<TH>Orientador (e-mail)
+							<TH>Projeto
+						</tr>';
+				$id = 0; $id2 = 0;
+				while ($line = db_read($rlt))
+					{
+						$id++;
+						if (strlen(trim($line['pb_aluno_t2'])) > 0)
+						{
+							$id2++;
+							$sx .= '<TR valign="top">';
+							$sx .= '<TD align="center">'.$line['area_conhecimento'];
+							$sx .= '<TD align="center">'.$line['a_descricao'];
+							$sx .= '<TD align="left">'.$line['pbt_edital'];
+							$sx .= '<TD align="left">'.$line['pbt_descricao'];
+							$sx .= '<TD align="left">'.$line['pa_nome'];
+							$sx .= '<TD align="left">'.$line['pa_email'];
+							$sx .= '<TD align="left">'.$line['pp_nome'];
+							$sx .= '<TD align="left">'.$line['pp_email'];
+							$sx .= '<TD align="left">'.$line['projeto'];
+						}
+					}
+				$sx .= '<TR><TD colspan=10>Total de '.$id;
+				$sx .= ', sendo '.$id2.' renovações ';
+				if ($id2 > 0)
+						{ $sx .= '('.number_format($id2/$id*100,1).'%) '; }
+				$sx .= '</table>';
+				return($sx);
+			}
 		
 		function atualiza_publicacao($proto,$rs,$txt)
 			{		
