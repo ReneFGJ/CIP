@@ -757,6 +757,7 @@ class bi
 		}	
 	function mobilidade_discente()
 		{
+			$data = 20060000;
 			$sql = "select count(*) as total from docente_orientacao 
 					where 
 						od_modalidade = 'D' and od_ano_ingresso >= ".(date("Y")-4)."
@@ -770,14 +771,14 @@ class bi
 			$sql = "select sum(total) as total, sum(visitante) as visitante from (
 					select count(*) as total, 0 as visitante  from mobilidade 
 					left join mobilidade_tipo on mt_codigo = mb_tipo
-					where mb_data_inicio >= ".date("Y")."0000 and
+					where mb_data_inicio >= $data and
 						  mb_data_inicio <= ".date("Ymd")."
 						  and mt_internacional = 'I'
 						  and mt_publico = 'I'
 					union
 					select 0, count(*) as visitante  from mobilidade 
 							left join mobilidade_tipo on mt_codigo = mb_tipo
-					where mb_data_inicio >= ".date("Y")."0000 and
+					where mb_data_inicio >= $data and
 						  mb_data_inicio <= ".date("Ymd")."
 						  and mt_internacional = 'I'
 						  and mt_publico = 'E'
@@ -818,7 +819,7 @@ class bi
 			$sqlv = "select 0 as professor, count(*) as visitante, mb_programa 
 							from mobilidade 
 							left join mobilidade_tipo on mt_codigo = mb_tipo
-							where mb_data_inicio >= ".date("Y")."0000 and
+							where mb_data_inicio >= $data and
 							  	mb_data_inicio <= ".date("Ymd")."
 						  		and mt_internacional = 'I'
 						  		and mt_publico = 'E'
@@ -827,7 +828,7 @@ class bi
 			$sqlp = "select count(*) as professor, 0 as visitante, mb_programa 
 							from mobilidade 
 							left join mobilidade_tipo on mt_codigo = mb_tipo
-							where mb_data_inicio >= ".date("Y")."0000 and
+							where mb_data_inicio >= $data and
 							  	mb_data_inicio <= ".date("Ymd")."
 						  		and mt_internacional = 'I'
 						  		and mt_publico = 'I'
@@ -908,7 +909,7 @@ class bi
 				select count(*) as total, mb_programa 
 						from mobilidade 
 						left join mobilidade_tipo on mt_codigo = mb_tipo
-						where mb_data_inicio >= ".date("Y")."0000 and
+						where mb_data_inicio >= $data and
 						  	mb_data_inicio <= ".date("Ymd")."
 						  	and mt_internacional = 'I'
 						  	and mt_publico = 'D'
@@ -987,6 +988,7 @@ class bi
 		}
 	function mobilidade_docente()
 		{
+			$data = 20060000;
 			$ProfSS = $this->ProfSS;
 			$sql = "select sum(total) as total, sum(visitante) as visitante from (
 					select count(*) as total, 0 as visitante  from mobilidade 
@@ -994,14 +996,14 @@ class bi
 						select pp_cracha from pibic_professor where pp_ss = 'S' and pp_update = '".date("Y")."' 
 						) as tabela01 on pp_cracha = mb_docente
 					left join mobilidade_tipo on mt_codigo = mb_tipo
-					where mb_data_inicio >= ".date("Y")."0000 and
+					where mb_data_inicio >= $data and
 						  mb_data_inicio <= ".date("Ymd")."
 						  and mt_internacional = 'I'
 						  and mt_publico = 'D'
 					union
 					select 0, count(*) as visitante  from mobilidade 
 							left join mobilidade_tipo on mt_codigo = mb_tipo
-					where mb_data_inicio >= ".date("Y")."0000 and
+					where mb_data_inicio >= $data and
 						  mb_data_inicio <= ".date("Ymd")."
 						  and mt_internacional = 'I'
 						  and mt_publico = 'V'
@@ -1042,7 +1044,7 @@ class bi
 			$sqlv = "select 0 as professor, count(*) as visitante, mb_programa 
 							from mobilidade 
 							left join mobilidade_tipo on mt_codigo = mb_tipo
-							where mb_data_inicio >= ".date("Y")."0000 and
+							where mb_data_inicio >= $data and
 							  	mb_data_inicio <= ".date("Ymd")."
 						  		and mt_internacional = 'I'
 						  		and mt_publico = 'V'
@@ -1051,7 +1053,7 @@ class bi
 			$sqlp = "select count(*) as professor, 0 as visitante, mb_programa 
 							from mobilidade 
 							left join mobilidade_tipo on mt_codigo = mb_tipo
-							where mb_data_inicio >= ".date("Y")."0000 and
+							where mb_data_inicio >= $data and
 							  	mb_data_inicio <= ".date("Ymd")."
 						  		and mt_internacional = 'I'
 						  		and mt_publico = 'D'
@@ -1132,7 +1134,7 @@ class bi
 				select count(*) as total, mb_programa 
 						from mobilidade 
 						left join mobilidade_tipo on mt_codigo = mb_tipo
-						where mb_data_inicio >= ".date("Y")."0000 and
+						where mb_data_inicio >= $data and
 						  	mb_data_inicio <= ".date("Ymd")."
 						  	and mt_internacional = 'I'
 						  	and mt_publico = 'D'

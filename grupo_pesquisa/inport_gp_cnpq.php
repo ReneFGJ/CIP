@@ -1,4 +1,9 @@
 <?php
+// grupo_de_pesquisa
+// grupo_de_pesquisa_membro
+// grupo_de_pesquisa_protocolo
+// grupo_de_pesquisa_protocolo_membro
+// grupo_de_pesquisa_status
 require ("cab.php");
 require ($include . 'sisdoc_debug.php');
 
@@ -12,6 +17,8 @@ while (!(feof($rlt)))
 		$rs .= fread($rlt,1024);
 	}
 fclose($rlt);
+$rs = utf8_decode($rs);
+
 echo $rs;
 $tx = $rs;
 
