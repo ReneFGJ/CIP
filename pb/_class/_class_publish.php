@@ -11,6 +11,7 @@ class publish
 	var $description;
 	var $tipo;
 	var $submission;
+	var $submission_link;
 	var $suspended;
 	
 	var $cor_bg;
@@ -37,9 +38,10 @@ class publish
 			$sx .= '	<TH>'.msg('document_required');
 			$sx .= '	<TH>'.msg('document_model');
 			$sx .= '	<TH>'.msg('document_content');
-			
+			$id=0;
 			while ($line = db_read($rlt))
 				{
+					$id++;
 					$modelo = trim($line['sdo_modelo']);
 					$obrigatorio = trim($line['sdo_obrigatorio']);
 					
@@ -58,7 +60,10 @@ class publish
 					$sx .= '<TD class="tabela01">';
 					$sx .= $line['sdo_content'];
 				}
+
 			$sx .= '</table>';
+
+			if ($id==0) { $sx = ''; }
 			return($sx);
 		}
 	
@@ -294,6 +299,7 @@ class publish
 					$this->email = $line['jn_email'];
 					$this->editor = $line['editor'];
 					$this->submission = $line['jn_send_suspense'];
+					$this->submission_link = $line['js_send_link'];
 					$this->layout = $line['layout'];
 					$this->tipo = $line['jnl_journals_tipo'];
 					$this->submission = $line['jn_send'];

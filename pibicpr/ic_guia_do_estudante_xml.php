@@ -1,6 +1,14 @@
 <?php
 $include = '../';
-require("cab.php");
+require("../db.php");
+
+header("Content-type: application/vnd.ms-excel; name='excel' ");
+header("Content-Disposition: filename=guia_do_estudante_".date("Y").".xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+require('../_class/_class_pibic_bolsa_contempladas.php');
+$pb = new pibic_bolsa_contempladas;
 
 require($include.'_class_form.php');
 $form = new form;
@@ -14,8 +22,7 @@ $tela = $form->editar($cp,'');
 
 if ($form->saved > 0)
 	{
-		redireciona('ic_guia_do_estudante_xml.php?dd1='.$dd[1].'&dd2='.$dd[2]);
-		exit;
+		echo $pb->guia_estudante($dd[1],$dd[2]);		
 	} else {
 		echo $tela;
 	}

@@ -24,7 +24,16 @@ if ($jid == 9)
 
 
 	/* SUBMIT OPEN */	
-	if ($pb->submission == 'S') { array_push($menu,'submit'); }
+	if ($pb->submission == 'S') {
+		$links = $pb->submission_link;
+		if (strlen($link) > 0)
+			{
+				array_push($menu,$link);
+			} else {
+				array_push($menu,'submit');
+			}
+		 
+	}
 
 	
 	//array_push($menu,'search');

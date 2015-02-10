@@ -153,6 +153,7 @@
 
 #cabecalho_novo {
 	background-color: #8B1217;
+	z-index: 99;
 }
 
 .fixe

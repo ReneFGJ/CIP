@@ -26,14 +26,17 @@ $menu = array();
 //if (($perfil->valid('#ADM#SCR#COO')))
 	{
 	array_push($menu,array(':: Início ::','index.php'));
-	array_push($menu,array('Eventos','eventos.php'));
-	array_push($menu,array('Pesq. Básica','basica.php'));
-	array_push($menu,array('Internacioanis','internacionais.php'));
+	array_push($menu,array('Bolsas / Recursos Humanos','editais_mostra.php?dd0=1'));
+	array_push($menu,array('Auxílio Pesquisa','editais_mostra.php?dd0=2'));
+	array_push($menu,array('Cooperação Internacional','editais_mostra.php?dd0=3'));
+	array_push($menu,array('Prêmios','editais_mostra.php?dd0=4'));
+	array_push($menu,array('Eventos','editais_mostra.php?dd0=5'));
 	}
 
 require('../_class/_class_header.php');
 $hd = new header;
 echo $hd->mostra_novo('Observatório de Pesquisa');
+echo '<link rel="stylesheet" href="http://www2.pucpr.br/reol/css/style_observatorio.css">'.chr(13).chr(10);
 
 require($include.'sisdoc_data.php');
 

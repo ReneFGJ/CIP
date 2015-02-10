@@ -1,59 +1,26 @@
 <script type="text/javascript" src="js/menu_windows.js"></script>
-<link rel="stylesheet" type="text/css" href="css/menu_windows.css">
-<h1>Editais abertos</h1>
-<center>
-<div class="pagina">
-	<div class="linha">
-		<div class="tile amarelo">
-			<span class="titulo">Tile 1</span>
-			<br/>
-		</div>
-		<div class="tile azul">
-			1
-		</div>
-		<div class="tile tileLargo vermelho">
-			2
-		</div>
-		<div class="tile verde">
-			3
-		</div>
-		<div class="tile tileLargo amarelo">
-			4
-		</div>
-		<div class="tile verde">
-			3
-		</div>		
-		<div class="tile tileLargo amarelo">
-			5
-		</div>
-		<div class="tile2x2">
-			<div class="tile tileMini verde">
-				3
-			</div>
-			<div class="tile tileMini verde">
-				3
-			</div>
-		</div>
-		<div class="tile azul">
-			6
-		</div>
-		<div class="tile verde">
-			7
-		</div>
-		<div class="tile vermelho">
-			8
-		</div>
-			
-		<div class="tile azul">
-			6
-		</div>
-		<div class="tile verde">
-			7
-		</div>
-		<div class="tile vermelho">
-			8
-		</div>
 
+<h1>Editais abertos</h1>
+
+<div class="pagina" style="z-index: -1">
+	<div class="linha">
+		
+<?php
+
+require("../_class/_class_fomento.php");
+$fm = new fomento;
+
+$sql = "select * from fomento_editais
+		left join agencia_de_fomento on agf_codigo = ed_agencia
+		where ed_data_1 >= ".date("Ymd")." 
+		order by ed_data_1
+		";
+$rlt = db_query($sql);
+while ($line = db_read($rlt)) {
+	$sx = $fm->mostra_chamada($line);
+	echo $sx;
+}
+?>
 
 	</div>
 </div>
