@@ -81,6 +81,10 @@ class captacao {
 					<TH>Tipo
 					<TH>Coordenador
 					<TH>Nome do Edital
+					
+					<TH>Capt.Inst.
+					<TH>Capt.Acad.
+					<TH>Capt.Empr.
 					<TH>Situação
 					';
 					
@@ -183,8 +187,13 @@ class captacao {
 					$sx .= '<TD>';
 					$sx .= '<NOBR>';
 					$sx .= $line['ca_descricao'];
-//					$sx .= '<TD>';
-//					$sx .= '['.$line['ca_tipo_fomento'].']';					
+					$sx .= '<TD>';
+					$sx .= $line['ca_insticional'];	
+					$sx .= '<TD>';
+					$sx .= $line['ca_academico'];	
+					$sx .= '<TD>';
+					$sx .= $line['ca_empresa'];	
+									
 					$sx .= '<TD>';
 					$sx .= '<NOBR>';
 					$sx .= $sta[$line['ca_status']];
@@ -1563,9 +1572,9 @@ class captacao {
 
 		array_push($cp, array('$C', 'ca_desmembramento', 'Desmembramento de Projeto de Coordenação Institucional (Recursos para infraestrutura, entre outros)', False, True));
 		$ag .= ' : ';
-		$ag .= '&A:Orgão Governamental (repasse de recursos via or. Gov. ou Fomente)';
+		$ag .= '&A:Orgão Governamental (repasse de recursos via or. Gov. ou Fomento)';
 		$ag .= '&E:Empresa';
-		$ag .= '&G:Orgão de Fomento (repasse de recursos via or. Gov. ou Fomente)';
+		$ag .= '&G:Orgão de Fomento (repasse de recursos via or. Gov. ou Fomento)';
 
 		$ag .= '&B:Orgão Governamental (Internacional)';
 		$ag .= '&F:Empresa  (Internacional)';
