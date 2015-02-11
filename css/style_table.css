@@ -95,3 +95,6 @@ tr.tabela00
 		font-size: 16px;
 	}
 	
+.tabela tr:nth-child(even) {background: #CCC}
+.tabela tr:nth-child(odd) {background: #FFF}	
+	
