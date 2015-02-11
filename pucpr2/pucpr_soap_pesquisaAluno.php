@@ -13,8 +13,7 @@
 if (strlen($secu) == 0)
 	{ require("db.php"); }
 
-/** Recupera informaces sobre o login e senha para consulta no WEBSERVICE */
-require("_pucpr_login.php");
+/** Recupera informacoes sobre o login e senha para consulta no WEBSERVICE */
 
 /* Habilita consulta */
 $consulta = True;
@@ -51,22 +50,15 @@ if ($consulta == true)
 
 	/* Objeto de consulta do WebService */
 	//$client = new soapclient('https://portalintranet.pucpr.br:8081/servicePibic?wsdl');
-	$client = new soapclient('http://haiti.cwb.pucpr.br:8280/services/ServicoConsultaPibic?wsdl');
-	$client->setCredentials($user, $pass); 
-	if ($debug) { $errc .=  '30.'; }
-	
-	$err = $client->getError();
-	if ($err) {
-		echo '<h2>Constructor error</h2><pre>' . $err . '</pre>';
-	}
+	$client = new soapclient('https://sarch.pucpr.br:8100/services/ServicoConsultaPibic?wsdl');
 	
 	//$param = array('arg0' => $cracha, 'arg1' => $senha);
 	/* Informa parametros para o WebService */
-	$param = array('arg0' => $cracha);
+	$param = array('pessoa' => $cracha);
 //	print_r($param);
 	//echo '<HR>';
 	/* Chama o metodo "call" da classe sopacliente */
-	$result = $client->call('pesquisarPorCodigo', $param,'http://consultas.servicos.apc.br/', '', false, true);
+	$result = $client->call('opPesquisarPorCodigo', $param);
 	
 	/* Retorna parametro da consulta */
 	$al_centroAcademico = $result['centroAcademico'];
@@ -80,7 +72,7 @@ if ($consulta == true)
 	$al_email1  = $result['email1'];
 	$al_email2  = $result['email2'];
 	
-	/* Corre��es de Centros dentro da Institui��o */
+	/* Corre��es de Centros dentro da Instituicao */
 	if ($al_nomeCurso == 'Biotecnologia') { $al_centroAcademico = 'Centro de Ci�ncias Biol�gicas e da Sa�de - CCBS'; }
 	
 	/* Se os dados j� existem informa */

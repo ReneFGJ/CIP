@@ -310,7 +310,7 @@ class issue
 			$sql = "select * from issue
 					inner join articles on article_issue = id_issue
 					inner join sections on article_section = section_id
-					where id_issue = $issue 
+					where id_issue = $issue and article_publicado = 'S' 
 					order by seq, seq_area, article_seq
 			";
 			

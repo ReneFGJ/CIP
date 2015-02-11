@@ -27,26 +27,37 @@ $sec = new secoes;
 //exit;
 //$deli = " and (pb_semic_area like '6.01%') ";
 $deli = '';
+//$deli = "and pb_semic_apresentacao = 'Z' ";
+//$deli .= ' and pb_resumo > 20000101 ';
+
+$deli = " and pb_protocolo = '".trim(strzero($dd[0],7))."' ";
+
+if (strlen($dd[0])==0) { echo 'Sem definição'; exit; }
 
 $sql = "select substring(pb_semic_area from 1 for 4) as area2,
 		substring(pb_semic_area from 1 for 10) as area, 
-		* from ".$sm->tabela." 
-		inner join pibic_bolsa_contempladas on pb_protocolo = sm_codigo
-		inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
-		inner join pibic_professor on pb_professor = pp_cracha
+		* from pibic_bolsa_contempladas 
+		left join ".$sm->tabela." on pb_protocolo = sm_codigo
+		left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+		left join pibic_professor on pb_professor = pp_cracha
+		left join pibic_aluno on pb_aluno = pa_cracha
 		left join centro on centro_codigo = pp_escola 
-		where (sm_status <> '@' and sm_status <> 'X')
+		where (pb_status <> 'C')
 		and pb_ano = '".(date("Y")-1)."'
-		and (pbt_edital = 'PIBIC' or pbt_edital = 'IS' or pbt_edital = 'PIBITI')
 		$deli
-		and pb_resumo > 20000101
 		order by pb_semic_idioma, area2, pb_semic_area, pbt_edital, pp_nome, pbt_descricao 
 ";
+//and (pbt_edital = 'PIBIC' or pbt_edital = 'IS' or pbt_edital = 'PIBITI' )
+//$sql = "select * from pibic_bolsa_contempladas where pb_protocolo = '".$dd[0]."' "; 
+echo '<HR>'.$sql.'<HR>';
 $rlt = db_query($sql);
-$xpos = ''; $vpos = 1;
+
+$xpos = ''; $vpos = 800;
 $id = 0;
 while ($line = db_read($rlt))
 	{
+		echo $line['pb_protocolo'];
+		echo '<BR>';
 		$id++;
 		/* Origem */
 		$origem = trim($line['pb_protocolo']);
@@ -71,7 +82,11 @@ while ($line = db_read($rlt))
 			{ $internacional = 'S'; }
 					
 		/* Sessão */
-		$sigla = substr(trim($line['area']),0,4);
+		$sigla = substr(trim($line['pb_semic_area_nova']),0,4);
+		if (strlen($sigla) == 0)
+			{
+				$sigla = substr(trim($line['pb_semic_area']),0,4);
+			}
 		
 		
 		if ($sigla == '2.02')
@@ -93,7 +108,7 @@ while ($line = db_read($rlt))
 		/* Sessão */
 		if ($sigla != $xpos)
 			{
-				$vpos = 1;
+				$vpos = 300;
 				$xpos = $sigla;
 			}
 		
@@ -168,7 +183,7 @@ while ($line = db_read($rlt))
 		if (strlen($session)==0)
 			{
 				print_r($line);
-				echo '<HR>'.$sigla.'<HR>';
+				echo '<HR>SIGLA:'.$sigla.'<HR>';
 				exit;
 			}
 
@@ -248,6 +263,13 @@ while ($line = db_read($rlt))
 				}
 			$sb .= '.';
 
+
+
+		$sx = nbr_autor(trim($line['pa_nome']),8).';'.trim($line['pbt_descricao']).chr(13).chr(10);
+		$sx .= nbr_autor(trim($line['pp_nome']),8).';Orientador'.chr(13).chr(10);
+		//$sx .= trim($line['centro_nome']).''.chr(13).chr(10);
+		$sb = nbr_autor(nbr_autor(trim($line['pa_nome']),8),1).'; ';
+		$sb .= nbr_autor(nbr_autor(trim($line['pp_nome']),8),1).''.chr(13).chr(10);
 		$ar->autores = $sx.$sa;
 		$ar->autor = $sb;
 		$ar->session = $session;
@@ -270,13 +292,22 @@ while ($line = db_read($rlt))
 			$ar->keyword_alt = trim($line['sm_rem_06']);
 			$ar->keyword = trim($line['sm_rem_16']);	
 			}
-
+		if (strlen($ar->titulo) == 0)
+			{
+				$ar->titulo = trim($line['pb_titulo_projeto']);
+				print_r($line);
+			}
 		/* Oral */
 		if ($oral==1)
 			{
 				$ref .= '*';
 			}
 			
+		$ref = $ref.'[-]';
+		if (strlen($ar->resumo) < 50)
+			{
+				$ar->resumo = 'sem resumo enviado';
+			}
 		/* Envia Dados */
 		$ar->mod = trim($line['pbt_edital']);
 		$ar->ingles = 'N';
@@ -290,7 +321,7 @@ while ($line = db_read($rlt))
 		//echo $ref.'-'.$line['pb_status'].'['.$publicado.']';
 		//echo '-titulo->'.$line['sm_titulo'];
 		
-		
+		echo "**FIM**";
 		
 		if ($ar->insert_article() == 1)
 			{ echo '<BR>'.$ar->protocolo.'->NOVO '; }

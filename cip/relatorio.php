@@ -9,6 +9,10 @@ $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font:
 $menu = array();
 
 array_push($menu,array('Captação','Relatório de captações','rel_captacao_detalhes.php'));
+array_push($menu,array('Captação','Pagamentos realizados','rel_pagamentos.php'));
+
+array_push($menu,array('Captação','Relatório de Projetos com captação','rel_captacao.php'));
+array_push($menu,array('Captação','Editais de Fomento','captacao_rel_docentes.php'));
 
 /////////////////////////////////////////////////// MANAGERS
 array_push($menu,array('Grupos e Linhas de pesquisa','Estados dos grupos de pesquisa','grupo_de_pesquisa_rel_status.php')); 
@@ -26,8 +30,6 @@ array_push($menu,array('Docentes','__Sobre o corpo docente','rel_docente_about.p
 
 array_push($menu,array('Pareceristas','Pareceristas (Comitê Local)','docentes_avaliador_rel.php?dd0=1')); 
 array_push($menu,array('Pareceristas','Pareceristas (Comitê Gestor)','docentes_avaliador_rel.php?dd0=2'));
-
-array_push($menu,array('Captação','Editais de Fomento','captacao_rel_docentes.php'));
 
 array_push($menu,array('Produção Científica','Docentes Stricto Sensu','producao_docentes.php?dd1=S'));
 

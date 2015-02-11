@@ -48,7 +48,7 @@ $sql = "select * from submit_documento
 			where doc_journal_id = '$xjid' and 
 				(doc_status <> 'D' and doc_status <> '@' and doc_status <> 'P' and doc_status <> 'X')
 				
-			order by doc_autor_principal
+			order by doc_field_1, doc_autor_principal
 ";
 $rlt = db_query($sql);
 $xpos = '';
@@ -252,7 +252,7 @@ while ($line = db_read($rlt)) {
 	echo '<HR>';
 	echo '<font color="blue">';
 	echo '<h2>' . $id . '</h2>';
-	print_r($ar);
+	echo $ref;
 	echo '</font>';
 
 	if ($ar -> insert_article() == 1) { echo '<BR>' . $ar -> protocolo . '->NOVO ';

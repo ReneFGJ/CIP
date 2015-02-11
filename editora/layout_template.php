@@ -19,7 +19,7 @@ echo '<div id="conteudo">';
 			$template = $dd[10];
 			$tmp->template_ativar($journal, $template);
 		}
-	
+	echo $tmp->template_atual();
 	echo $tmp->lista_templates();
 
 

@@ -138,9 +138,16 @@
 			if (strlen($pb->cor_menu) > 0) { $sxt .= ' style="background-color: '.$pb->cor_menu.';" '; }
 			$sx = '<div id="cssmenu" '.$sxt.'>'.chr(13);
 			$sx .= '<UL>'.chr(13);
+			
 			for ($r=0;$r < count($menu);$r++)
 				{
-					$link = $path.'?dd99='.lowercasesql($menu[$r]);
+					if (substr($menu[$r],0,4) == 'http')
+						{
+							$link = $menu[$r];
+						} else {
+							$link = $path.'?dd99='.lowercasesql($menu[$r]);		
+						}
+					
 					$sx .= '	<LI><A HREF="'.$link.'"><span>';
 					$sx .= msg($menu[$r].'_'.strzero($jid,4));
 					$sx .= '</span></A></LI>';

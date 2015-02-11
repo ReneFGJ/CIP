@@ -8,7 +8,13 @@ $clx = new submit;
 
 $clx->author_id(0);
 if (strlen($clx->author_codigo) > 0)
-	{ $login = 1; }
+	{ $login = 1; } else {
+		/* Envia para página de login */
+		$page = $_SERVER['REQUEST_URI']; 
+		$page = troca($page,'submit_myaccount','submit');
+		redirecina($page);		
+		exit;
+	}
 
 echo '<h1>'.msg('edit_my_account').'</h1>';
 $dd[0] = $clx->author_codigo;

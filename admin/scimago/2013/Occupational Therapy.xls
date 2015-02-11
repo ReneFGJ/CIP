@@ -1,0 +1,45 @@
+	<html>
+	<head>
+	<title>SJR : Scientific Journal Rankings</title>
+	<style>
+	<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+	-->
+	</style>
+	</head>
+	<body>
+	
+		<table class="tabla_datos">
+		<thead>
+			  <tr>
+				<th></th>
+				<th class="mitooltip" onmouseover="Tip('Journal title',OFFSETY,20)">Title</th>
+				<th class="mitooltip" onmouseover="Tip('Type of publication:<ul><li>b: Book</li><li>k: Book Series</li><li>p: Conferences and Proceedings</li><li>j: Journals</li><li>d: Trade Journals</li></ul>',OFFSETY,20)">Type</th>
+				<th>ISSN</th>
+				<th class="mitooltip"  colspan="2"  onmouseover="Tip('SCImago Journal Rank indicator. It is a measure of journal\'s impact,<br /> influence or prestige. It expresses the average number of<br /> weighted citations received in the selected year by the documents<br /> published in the journal in the three previous years',OFFSETY,20)">SJR</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s number of articles (h) that have<br /> received at least h citations over the whole period',OFFSETY,20)">H index</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2013.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (2013)</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2012, 2011 and 2010.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Number of references included in the<br /> journal\'s published articles in 2013',OFFSETY,20)">Total Refs.</th>
+				<th class="mitooltip" onmouseover="Tip('Citations in 2013 received by journal\'s documents<br /> published in 2012, 2011 and 2010',OFFSETY,20)">Total Cites (3years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s citable documents in 2012, 2011 and 2010.<br /> Citable documents include: articles, reviews<br /> and conference papers',OFFSETY,20)">Citable Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Average citation per document in a 2 year period.<br /> This metric is widely used as impact index',OFFSETY,20)">Cites / Doc. (2years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Average amount of references per document in 2013',OFFSETY,20)">Ref. / Doc.</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s Publication Country',OFFSETY,20)">Country</th>
+			  </tr>
+		</thead>
+		<tbody>
+<tr><td>1</td><td>Journal of Occupational Rehabilitation</td><td>j</td><td>="15733688"</td><td>Q1</td><td>1,166</td><td>43</td><td>91</td><td>172</td><td>4.202</td><td>415</td><td>169</td><td>2,08</td><td>46,18</td><td>United States</td><tr><td>2</td><td>American Journal of Occupational Therapy</td><td>j</td><td>="02729490"</td><td>Q1</td><td>0,772</td><td>51</td><td>102</td><td>296</td><td>3.442</td><td>516</td><td>287</td><td>1,80</td><td>33,75</td><td>United States</td><tr><td>3</td><td>OTJR Occupation, Participation and Health</td><td>j</td><td>="15394492"</td><td>Q1</td><td>0,715</td><td>26</td><td>26</td><td>72</td><td>989</td><td>74</td><td>59</td><td>0,95</td><td>38,04</td><td>United States</td><tr><td>4</td><td>Canadian Journal of Occupational Therapy</td><td>j</td><td>="00084174"</td><td>Q1</td><td>0,672</td><td>35</td><td>34</td><td>114</td><td>879</td><td>111</td><td>95</td><td>0,95</td><td>25,85</td><td>Canada</td><tr><td>5</td><td>Australian Occupational Therapy Journal</td><td>j</td><td>="14401630"</td><td>Q2</td><td>0,661</td><td>25</td><td>88</td><td>227</td><td>2.288</td><td>209</td><td>157</td><td>1,13</td><td>26,00</td><td>United Kingdom</td><tr><td>6</td><td>Physical and Occupational Therapy in Pediatrics</td><td>j</td><td>="15413144"</td><td>Q2</td><td>0,602</td><td>28</td><td>37</td><td>106</td><td>1.259</td><td>141</td><td>82</td><td>1,46</td><td>34,03</td><td>United Kingdom</td><tr><td>7</td><td>British Journal of Occupational Therapy</td><td>j</td><td>="14776006"</td><td>Q2</td><td>0,583</td><td>29</td><td>88</td><td>315</td><td>2.394</td><td>234</td><td>232</td><td>0,80</td><td>27,20</td><td>United Kingdom</td><tr><td>8</td><td>Occupational Therapy in Health Care</td><td>j</td><td>="15413098"</td><td>Q2</td><td>0,539</td><td>12</td><td>36</td><td>77</td><td>1.013</td><td>57</td><td>71</td><td>0,59</td><td>28,14</td><td>United Kingdom</td><tr><td>9</td><td>Journal of Vocational Rehabilitation</td><td>j</td><td>="10522263"</td><td>Q3</td><td>0,454</td><td>20</td><td>36</td><td>124</td><td>1.230</td><td>119</td><td>117</td><td>0,89</td><td>34,17</td><td>Netherlands</td><tr><td>10</td><td>Hong Kong Journal of Occupational Therapy</td><td>j</td><td>="15691861"</td><td>Q3</td><td>0,381</td><td>5</td><td>13</td><td>42</td><td>353</td><td>31</td><td>34</td><td>0,79</td><td>27,15</td><td>Singapore</td><tr><td>11</td><td>Occupational Therapy International</td><td>j</td><td>="09667903"</td><td>Q3</td><td>0,376</td><td>22</td><td>28</td><td>63</td><td>769</td><td>68</td><td>59</td><td>1,11</td><td>27,46</td><td>United Kingdom</td><tr><td>12</td><td>Journal of Occupational Therapy, Schools, and Early Intervention</td><td>j</td><td>="19411251"</td><td>Q3</td><td>0,214</td><td>3</td><td>28</td><td>81</td><td>857</td><td>21</td><td>71</td><td>0,09</td><td>30,61</td><td>United Kingdom</td><tr><td>13</td><td>Physical and Occupational Therapy in Geriatrics</td><td>j</td><td>="15413152"</td><td>Q4</td><td>0,189</td><td>13</td><td>27</td><td>92</td><td>938</td><td>39</td><td>89</td><td>0,26</td><td>34,74</td><td>United Kingdom</td><tr><td>14</td><td>Ergotherapie und Rehabilitation</td><td>j</td><td>="09428623"</td><td>Q4</td><td>0,139</td><td>3</td><td>67</td><td>216</td><td>550</td><td>4</td><td>171</td><td>0,03</td><td>8,21</td><td>Germany</td><tr><td>15</td><td>Physiotherapy Practice and Research</td><td>j</td><td></td><td>Q4</td><td>0,113</td><td>1</td><td>17</td><td>13</td><td>562</td><td>1</td><td>10</td><td>0,10</td><td>33,06</td><td>Netherlands</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+Retrieved from: http://www.scimagojr.com. 
+
+
+</div>
+</div>
+</body>
+</html>

@@ -38,6 +38,25 @@ class grupo_de_pesquisa {
 	var $membros;
 
 	var $tabela = 'grupo_de_pesquisa';
+	
+	function inport($id) 
+		{
+			$this->le($id);
+			$sx = $this->mostra_dados();
+			
+			$link = $this->gp_link_cnpq;
+			
+			echo '<HR>'.$link.'<HR>';
+			
+			$io = new io;
+			
+			$tx = $io->load_file_local($link);
+			//$tx = $io->load_file_curl($link);
+			
+			echo $tx;
+			
+			return($sx);
+		}
 
 	function lista_grupos($status = '') {
 		
@@ -68,7 +87,6 @@ class grupo_de_pesquisa {
 			$this -> gp_repercursao = $line['gp_repercursao'];
 			$this -> gr_area_01 = $line['gp_area_01'];
 			$this -> gr_area_02 = $line['gp_area_02'];
-
 			$this -> gp_cnpq_certificado = $line['gp_cnpq_certificado'];
 			$this -> gp_certificado = $line['gp_certificado'];
 			$this -> gp_cnpq_cod = trim(substr($this -> gp_link_cnpq, strpos($this -> gp_link_cnpq, '=') + 1, 100));
@@ -91,7 +109,22 @@ class grupo_de_pesquisa {
 
 		$xarea = '';
 		$xsubarea = '';
+		$id = 0;
 		while ($line = db_read($rlt)) {
+			$id++;
+			$link2 = trim($line['gp_site']);
+			
+			if (strlen($link2) > 0)
+				{
+					if (substr($link2,0,4)=='http')
+						{
+							
+						} else {
+							$link2 = 'http://'.$link2;
+						}
+					$link2 = '(<A HREF="'.$link2.'" target="_new">Link CNPq</A>)';		
+				}
+			
 			$area = trim($line['gp_area_01']);
 			$subarea = trim($line['gp_area_02']);
 			$mk = 0;
@@ -112,12 +145,12 @@ class grupo_de_pesquisa {
 			}
 
 			$link = '<A HREF="grupo_de_pesquisa_detalhes.php?dd0=' . $line['gp_codigo'] . '&dd90=' . checkpost($line['gp_codigo']) . '">';
-			$sx .= '<li>' . $link . trim($line['gp_nome']) . '</A></li>';
-			//print_r($line);
-			//echo '<HR>';
+			$sx .= '<li>' . $link . trim($line['gp_nome']) . '</A> '.$link2.'</li>';
+			
 		}
 		if (strlen($sx) > 0) { $sx .= '</UL>';
 		}
+		$sx .= 'Total de '.$id.' grupos.<BR>';
 		return ($sx);
 	}
 
@@ -434,7 +467,7 @@ class grupo_de_pesquisa {
 			$this -> gp_status = $line['gp_status'];
 			$this -> gp_cert_cnpq = $line['gp_cert_cnpq'];
 			$this -> gp_pp = $line['gp_pp'];
-			$this -> gp_link_cnpq = $line['gp_link_cnpq'];
+			$this -> gp_link_cnpq = $line['gp_site'];
 			$this -> gp_unidade = $line['gp_unidade'];
 			$this -> gp_instituicao = $line['gp_instituicao'];
 			$this -> gp_update = $line['gp_update'];
@@ -525,13 +558,10 @@ class grupo_de_pesquisa {
 						<TR>
 							<TD>
 							<TD align=right >" . msg('group_area2') . "<TD class=lt2>$gr_area_02
-														
-						
-						</table>
-						</fieldset>
-						</table>
-						</fieldset>
-																								
+					</table>
+					</fieldset>
+					</table>
+					</fieldset>																			
 					";
 		//$sx .= '</table></table>';
 		return ($sx);

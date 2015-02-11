@@ -1,6 +1,22 @@
 <?php
 class template
 	{
+		function template_atual()
+			{
+				global $jid;
+				$sql = "select * from journals 
+				inner join layout on layout = layout_cod
+						where journal_id = ".round($jid)."
+				";
+				
+				$rlt = db_query($sql);
+				
+				if ($line = db_read($rlt))
+					{
+						echo '<BR>Layout ativo:<BR>';
+						echo '<h2><B>'.$line['layout_descricao'].' ('.$line['layout_cod'].')</B></h2>';
+					}
+			}
 		function cp()
 			{
 				$cp = array();

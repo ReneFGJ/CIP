@@ -14,14 +14,12 @@ require_once('include/nusoap/nusoap.php');
 //$client = new soapclient('https://polux.pucpr.br:8084/servicePibic?wsdl');
 //$client = new soapclient('https://10.96.210.20:8084/servicePibic?wsdl');
 
-$client = new soapclient('https://200.192.112.23:8081/servicoLogin?wsdl');
-$client->setCredentials($user, $pass); 
+		$param = array('login' => $codigo, 'senha' => $senha);
 
-$err = $client->getError();
-if ($err) {
-	echo '<h2>Constructor error</h2><pre>' . $err . '</pre>';
-}
+		/* create the client for my rpc/encoded web service */
+		$wsdl = 'https://sarch.pucpr.br:8100/services/AutenticacaoSOA?wsdl';
+		
+		$client = new soapclient($wsdl, true);
+		$result = $client -> call('autenticarUsuario', $param);
 
-$param = array('arg0' => $codigo, 'arg1' => $senha);
-$result = $client->call('autenticarUsuario', $param,'http://servicos.apc.br/', '', false, true);
 ?>

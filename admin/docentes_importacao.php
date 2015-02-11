@@ -1,7 +1,7 @@
 <?
 require("cab.php");
-require("../_class/_class_docentes.php");
-$dc = new docentes;
+require("../_class/_class_importar_docente.php");
+$dc = new importa_docente;
 ?>
 <h1>Docentes Importação</h1>
 <center>

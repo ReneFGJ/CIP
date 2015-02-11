@@ -26,6 +26,12 @@ echo '<div id="conteudo">';
 		echo $ar->show_list($dd[1],0,0,$dd[1]);
 		}
 	
+	if ((strlen($dd[1]) > 0) and (strlen($acao) > 0))
+		{
+		echo $ar->show_list_publicado($dd[1],0,0,$dd[1]);
+		}
+
+	
 echo '</div>';
 	
 require("foot.php");	

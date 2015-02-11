@@ -213,6 +213,7 @@ class parecer
 					case '@': $sx = 'Indicado'; break;
 					case 'A': $sx = '<font color="#FF80FF">Em análise</font>'; break;
 					case 'B': $sx = '<font color="#8080FF">Avaliado</font>'; break;
+					case 'I': $sx = '<font color="green">Indicado</font>'; break;
 					case 'C': $sx = '<font color="#8080FF">Avaliado</font>'; break;
 					case 'D': $sx = '<font color="#C0C000">Declinado</font>'; break;
 					case 'X': $sx = '<font color="#808080">Cancelado</font>'; break;
@@ -244,7 +245,7 @@ class parecer
 				$link = '<span class="link" onclick="newxy2(\'parecer_resultado.php?dd0='.$line['id_pp'].'&dd90='.checkpost($line['id_pp']).'\')">';
 				$link .= 'ver parecer';
 				$link .= '</span>';
-				
+				if (trim($line['pp_status'] != 'B')) { $link = ''; }
 				$sx .= '<TR>';
 				$sx .= '<TD class="tabela01">';
 				$sx .= trim($line['pp_protocolo']);				
@@ -354,6 +355,8 @@ class parecer
 				$link = '<span class="link" onclick="newxy2(\'parecer_resultado.php?dd0='.$line['id_pp'].'&dd90='.checkpost($line['id_pp']).'\')">';
 				$link .= 'ver parecer';
 				$link .= '</span>';
+				
+				if ($line['pp_status'] != 'B') { $link = ''; }
 				
 				$sx .= '<TR>';
 				$sx .= '<TD class="tabela01">';

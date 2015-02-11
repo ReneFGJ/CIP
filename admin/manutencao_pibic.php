@@ -44,6 +44,8 @@ array_push($menu,array('Calendário','Tipos de eventos','admin_calender_type.php'
 
 array_push($menu,array('Calendário','Cadastro de Bolsas','pibic_bolsa_tipo.php'));
 
+array_push($menu,array('Comunicacao','Cadastro de Mensagens','comunicacao_ver.php'));
+RFIN_ic_indicacao 
 ?>
 
 <TABLE width="710" align="center" border="0">

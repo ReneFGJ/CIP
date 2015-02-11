@@ -28,7 +28,7 @@ array_push($menu,array('captacao','captacao.php'));
 array_push($menu,array('qualis','qualis.php'));
 array_push($menu,array('usuários','usuarios.php'));
 array_push($menu,array('discente','discente.php'));
-array_push($menu,array('manutencao','manutencao.php'));
+array_push($menu,array('dir.pesquisa','manutencao.php'));
 array_push($menu,array('manutencao pibic','manutencao_pibic.php'));
 
 require('../_class/_class_header.php');

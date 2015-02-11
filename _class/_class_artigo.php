@@ -18,6 +18,58 @@ class artigo
 		var $tabela = 'artigo';
 		var $result = 0;
 		
+		function lista_q1($ano1,$ano2)
+			{
+				$wh = '';
+				for ($r=$ano1;$r <= $ano2;$r++)
+					{
+						if (strlen($wh) > 0) { $wh .= ' or '; }
+						$wh .= "(la_ano = '$r') ";
+					}
+				$wh = 'and ('.$wh.')';
+				
+				$sql = "select * from lattes_artigos 
+							left join lattes_journals on j_codigo = la_periodico 
+							left join cited_journals on j_issn = cj_issn and cj_issn <> ''
+							inner join pibic_professor on la_professor = pp_cracha
+							where cj_scimago = 'Q1' $wh
+							order by pp_nome,la_ano desc, id_la desc
+						";
+				$rlt = db_query($sql);
+			
+				$sx = '<table>';
+				$xnome = '';
+				while ($line = db_read($rlt))
+					{
+						$issn = $line['cj_ano'].'-'.$line['cj_issn'];
+						$nome = $line['pp_cracha'];
+						if ($nome != $xnome)
+							{
+//						print_r($line);
+//						exit;
+								$id++;
+								$sx .= '<TR>';
+								$sx .= '<TD>';
+								$sx .= $line['la_professor'];
+								$sx .= '<TD>';
+								$sx .= $line['pp_nome'];
+								$sx .= '<TD>';
+								$sx .= $line['pp_ss'];
+								$sx .= '<TD>';
+								$sx .= $line['cj_scimago'];
+								$sx .= '<TD>';
+								$sx .= $line['pp_update'];
+								$sx .= '<TD>';
+								$sx .= $line['pp_ativo'];
+								$xnome = $nome;
+							}
+						$sx .= '<TD>'.$issn;
+					}
+				$sx .= '<TR><TD colspan=4>Total de '.$id;
+				$sx .= '</table>';
+				return($sx);
+			}
+		
 		function resultado_busca($sx)
 			{
 				
@@ -621,13 +673,15 @@ class artigo
 					break;					
 				case '10': /* Cadastrado */
 					array_push($acoes,array('8','Devolvido ao professor para correções'));
-					array_push($acoes,array('11','Com bonificação'));
-					array_push($acoes,array('13','Sem bonificação'));
+					array_push($acoes,array('10','Reencaminhado para Diretor(a) de Pesquisa'));
+					array_push($acoes,array('22','Validado pelo(a) Diretor(a) de Pesquisa'));
+					array_push($acoes,array('23','Indeferido  pelo(a) Diretor(a) de Pesquisa'));
 					array_push($acoes,array('90','Finalizado'));
-					array_push($acoes,array('9','Cancelar'));
+					array_push($acoes,array('9','Cancelado'));
 					break;
 				case '11': /* Cadastrado */
 					array_push($acoes,array('8','Devolvido ao professor para correções'));
+					array_push($acoes,array('10','Reencaminhado para Diretor(a) de Pesquisa'));
 					array_push($acoes,array('22','Validado pelo(a) Diretor(a) de Pesquisa'));
 					array_push($acoes,array('23','Indeferido  pelo(a) Diretor(a) de Pesquisa'));
 					array_push($acoes,array('90','Finalizado'));
@@ -642,7 +696,7 @@ class artigo
 					break;	
 				case '22': /* Cadastrado */
 					array_push($acoes,array('24','Gerado formulário de pagamento'));
-					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));
+					array_push($acoes,array('10','Reencaminhado para Diretor(a) de Pesquisa'));
 					array_push($acoes,array('90','Finalizado'));
 					array_push($acoes,array('8','Devolvido ao professor para correções'));				
 					break;										
@@ -650,7 +704,7 @@ class artigo
 					array_push($acoes,array('22','Validado pelo(a) Diretor(a) de Pesquisa'));
 					break;										
 				case '24': /* Cadastrado */
-					array_push($acoes,array('1','Reencaminhado para Diretor(a) de Pesquisa'));
+					array_push($acoes,array('10','Reencaminhado para Diretor(a) de Pesquisa'));
 					array_push($acoes,array('25','Comunicado pesquisador'));
 					array_push($acoes,array('90','Finalizar'));
 					break;										
@@ -927,6 +981,9 @@ class artigo
 						case 8:
 							$api[8] = $api[8] + $line['total'];
 							break;
+						case 11:
+							$api[11] = $api[11] + $line['total'];
+							break;							
 						case 1:
 							$api[6] = $api[6] + $line['total'];
 							break;
@@ -947,7 +1004,7 @@ class artigo
 							break;
 						default:
 							echo '==>'.$sta;
-							$api[11] = $api[11] + $line['total'];
+							//$api[11] = $api[11] + $line['total'];
 							break;
 					}
 				}
@@ -960,7 +1017,7 @@ class artigo
 			$sx .= '<TH width="10%">Em validação do coordenador';
 			$sx .= '<TH width="10%">Em validação do diretoria de pesquisa';
 			$sx .= '<TH width="10%">Análise do(a) Diretor(a) de Pesquisa';
-			$sx .= '<TH width="10%">(outros 2)';
+			$sx .= '<TH width="10%">Artigos de Graduação';
 			$sx .= '<TH width="10%">Não bonificados para finalizar';
 			$sx .= '<TH width="10%">Liberação da Secretaria';
 			$sx .= '<TH width="10%">Comunicar o professor';
@@ -971,6 +1028,7 @@ class artigo
 			$link8 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=8&dd90='.checkpost(8).'">';
 			$link0 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=10&dd90='.checkpost(10).'&dd2=S">';
 			$link1 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=10&dd90='.checkpost(11).'&dd2=N">';
+			$link11 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=11&dd90='.checkpost(11).'">';
 			$link3 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=11&dd90='.checkpost(9).'">';
 			$link6 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=1&dd90='.checkpost(1).'">';
 			$link22 = '<A HREF="'.$http.'cip/artigo_listar.php?dd0=22&dd90='.checkpost(22).'">';
@@ -985,7 +1043,7 @@ class artigo
 			$sx .= '<TD class="tabela01" align="center">'.$link0.$api[0].'</A>';
 			$sx .= '<TD class="tabela01" align="center">'.$link1.$api[1].'</A>';
 			$sx .= '<TD class="tabela01" align="center">'.$link6.$api[6].'</A>';
-			$sx .= '<TD class="tabela01" align="center">'.$link2.$api[2].'</A>';
+			$sx .= '<TD class="tabela01" align="center">'.$link11.$api[11].'</A>';
 			$sx .= '<TD class="tabela01" align="center">'.$link3.$api[3].'</A>';
 			$sx .= '<TD class="tabela01" align="center">'.$link22.$api[22].'</A>';
 			$sx .= '<TD class="tabela01" align="center">'.$link24.$api[24].'</A>';
@@ -1012,11 +1070,11 @@ class artigo
 				'1'=>'Com bonificação',
 				'2'=>'Sem bonificação',
 				
-				'11'=>'Com bonificação e isenção',
-				'12'=>'Com bonificação e sem isenção',
+				'11'=>'Indicado para bonificação',
+				'12'=>'Indicado para bonificação',
 				
-				'13'=>'Sem bonificação e com isenção',
-				'14'=>'Sem bonificação e sem isenção',
+				'13'=>'Bonificação Indeferida',
+				'14'=>'Bonificação Indeferida',
 				
 				'15'=>'Aceito trabalho pela coordenação',
 				

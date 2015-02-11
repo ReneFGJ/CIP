@@ -23,7 +23,8 @@ array_push($menu,array(msg('bonificacoes'),msg('bonificacoes'),'bonificacoes.php
 
 array_push($menu,array(msg('escolas'),msg('escolas'),'centro.php'));
 
-array_push($menu,array(msg('consistencias'),'Docentes x SS','docentes_ss_programas.php'));    
+array_push($menu,array(msg('consistencias'),'Docentes x SS','docentes_ss_programas.php'));
+array_push($menu,array('Centros de Resultado (CR)','Cadastro de CR´s','centro_resultado.php'));    
 
 ?>
 

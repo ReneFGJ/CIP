@@ -26,7 +26,7 @@ $sql .= " and pp_parecer_data <= ".$ano."9999 ";
 $sql .= " group by pp_avaliador ";
 $sql .= " ) as tabela ";
 $sql .= " inner join  pareceristas  on us_codigo = cod ";
-$sql .= " inner join  instituicoes  on us_instituicao = inst_codigo ";
+$sql .= " inner join  instituicao  on us_instituicao = inst_codigo ";
 $sql .= " left join  pibic_documento  on doc_dd0 = us_codigo and doc_tipo = 'D1' and doc_ano = '".$ano."' ";
 //$sql .= " where inst_abreviatura != 'PUCPR (c)' ";
 

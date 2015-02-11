@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <lst name="responseHeader">
+    <int name="status">0</int>
+    <int name="QTime">1</int>
+  </lst>
+  <result name="response" numFound="18" start="0">
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7846007377508002</str>
+      <str name="descricao_comite_t">Botânica</str>
+      <str name="nome_candidato_t">Jorge Fontella Pereira</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5957734402574596</str>
+      <str name="descricao_comite_t">Microbiologia e Parasitologia</str>
+      <str name="nome_candidato_t">Solange Lisboa de Castro</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Laboratório de Biologia Celular</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5783141369706484</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Jair de Jesus Mari</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0765555733544821</str>
+      <str name="descricao_comite_t">Medicina</str>
+      <str name="nome_candidato_t">Marco Antonio Barbieri</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Faculdade de Medicina de Ribeirão Preto</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/7440114883099242</str>
+      <str name="descricao_comite_t">Engenharia Elétrica e Biomédica</str>
+      <str name="nome_candidato_t">Renato Carlson</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1168899390311014</str>
+      <str name="descricao_comite_t">Oceanografia</str>
+      <str name="nome_candidato_t">Jean Louis Valentin</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8776757457144680</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Augusto Shinya Abe</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade Estadual Paulista Júlio de Mesquita Filho</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6415383294641273</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Sergio Henrique Ferreira</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/6685482900121622</str>
+      <str name="descricao_comite_t">Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências</str>
+      <str name="nome_candidato_t">Giles Alexander Rae</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Santa Catarina</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1966681921407235</str>
+      <str name="descricao_comite_t">Letras e Lingüística</str>
+      <str name="nome_candidato_t">Antonio Arnoni Prado</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Instituto de Estudos da Linguagem</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1216400530715171</str>
+      <str name="descricao_comite_t">Engenharia Mecânica, Naval e Oceânica e Aeroespacial</str>
+      <str name="nome_candidato_t">Sergio Hamilton Sphaier</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0828507755265572</str>
+      <str name="descricao_comite_t">Antrop., Arqueol., C. Política, Direito, Rel. Internacionais e Sociologia</str>
+      <str name="nome_candidato_t">Roberto Mauro Cortez Motta</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Departamento de Ciências Sociais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8273682924802665</str>
+      <str name="descricao_comite_t">Genética</str>
+      <str name="nome_candidato_t">Sergio Olavo Pinto da Costa</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/5234437458436721</str>
+      <str name="descricao_comite_t">Física e Astronomia</str>
+      <str name="nome_candidato_t">Luiz Nunes de Oliveira</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Departamento de Física e Informática</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8383022780236277</str>
+      <str name="descricao_comite_t">Letras e Lingüística</str>
+      <str name="nome_candidato_t">Heloisa Helena Oliveira Buarque de Hollanda</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/8458559657676452</str>
+      <str name="descricao_comite_t">Engenharia Química</str>
+      <str name="nome_candidato_t">Cesar Costapinto Santana</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade Tiradentes</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/3719659803766075</str>
+      <str name="descricao_comite_t">Farmácia</str>
+      <str name="nome_candidato_t">Alaide Braga de Oliveira</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade Federal de Minas Gerais</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9273702863744424</str>
+      <str name="descricao_comite_t">Ciências Ambientais</str>
+      <str name="nome_candidato_t">Pedro Leite da Silva Dias</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2013</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+  </result>
+</response>

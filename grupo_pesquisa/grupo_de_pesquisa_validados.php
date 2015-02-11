@@ -12,6 +12,7 @@ require('../_class/_class_grupo_de_pesquisa.php');
 $clx = new grupo_de_pesquisa;
 
 echo '<h1>Grupos de Pesquisa</h1>';
+$clx->structure();
 echo $clx->grupos_validados_por_area();
 
 $link = ' onclick="location.href=\'gp_cadastro.php\'" ';

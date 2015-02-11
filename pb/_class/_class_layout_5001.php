@@ -58,6 +58,20 @@
 			$sx .= '</div>'.chr(13);
 			$sx .= '<center>'.chr(13);
 			
+			$sx .= '
+				<script type="text/javascript">
+			  		var _gaq = _gaq || [];
+  						_gaq.push([\'_setAccount\', \'UA-12712904-1\']);
+  						_gaq.push([\'_trackPageview\']);
+			
+  					(function() {
+    					var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;
+    					ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';
+    					var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);
+  					})();
+				</script>			
+			';
+			
 			$sx .= '<div id="content">'.chr(13);
 			
 			
@@ -69,7 +83,12 @@
 			$sx = '<nav id="topmenu"><UL>';
 			for ($r=0;$r < count($menu);$r++)
 				{
-					$link = $path.'?dd99='.lowercasesql($menu[$r]);
+					if (substr($menu[$r],0,4) == 'http')
+						{
+							$link = $menu[$r];
+						} else {
+							$link = $path.'?dd99='.lowercasesql($menu[$r]);		
+						}
 					$sx .= '	<LI><A HREF="'.$link.'"><span>';
 					$sx .= msg($menu[$r].'_'.strzero($jid,4));
 					$sx .= '</span></A></LI>';

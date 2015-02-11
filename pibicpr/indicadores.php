@@ -45,6 +45,7 @@ array_push($menu,array('Orientações','__Professores x Formação','professores_ori
 array_push($menu,array('Orientadores','Orientadores '.(date("Y")-1).'-'.(date("Y")),'ic_professores.php?dd1='.(date("Y")).'&dd2='.(date("Y")-1)));
 array_push($menu,array('Orientadores','Histórico dos orientadores ','ic_professores_first.php?dd1='.(date("Y")).'&dd2='.(date("Y")-1)));
 array_push($menu,array('Orientadores','Guia do estudante '.(date("Y")-1).'/'.date("Y"),'ic_guia_do_estudante.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));
+array_push($menu,array('Orientadores','Profissao IC (Renovações) '.(date("Y")-1).'/'.date("Y"),'ic_alunos_ic.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));
 
 
 
@@ -63,7 +64,8 @@ if (strlen($curso) > 0)
 	array_push($menu,array('Indicadores de projetos','__Docentes envolvidos (2)','indicador_curso_02.php'));
 	array_push($menu,array('Indicadores de projetos','__Dicentes envolvidos (3)','indicador_curso_03.php'));
 	}
-array_push($menu,array('Perfil dos Orientadores','Perfil','indicador_orientador_01.php'));	
+array_push($menu,array('Perfil dos Orientadores','Perfil','indicador_orientador_01.php'));
+array_push($menu,array('Perfil dos Orientadores','Perfil por Planos','indicador_orientador_02.php'));	
 ///////////////////////////////////////////////////// redirecionamento
 if ((isset($dd[1])) and (strlen($dd[1]) > 0))
 	{

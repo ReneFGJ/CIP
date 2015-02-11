@@ -105,7 +105,17 @@ class header
 			return($sx);
 		}	
 		
-	function menus()
+	function mostra_novo($tp='')
+		{
+			$this->name = $tp;
+			$this->id_pagina($tp);	
+			$sx = $this->head();
+			$sx .= $this->cab_novo($tp);
+			$sx .= '<div style="width:90%; margin: 0 auto;">';
+			return($sx);
+		}	
+				
+	function menus_novo()
 		{
 		global $menu;
 		if (empty($menu)) 
@@ -115,7 +125,40 @@ class header
 				}
 		array_push($menu,array('voltar',http.'main.php'));
 				
-		$sx .= '<div id="menu-pagina">'.$cr;
+		$sx .= '<div id="menu-top" class="cabecalho_menu_big-2">'.$cr;
+		$sx .= '<ul>'.$cr;
+		for ($r=0;$r < count($menu);$r++)
+			{
+			$sx .= '<a href="'.$menu[$r][1].'"><li>'.msg($menu[$r][0]).'</li></a>'.$cr;
+			}
+		$sx .= '</ul>'.$cr;
+		$sx .= '</div>'.$cr;
+			
+		return($sx);			
+		}
+
+
+	function menus()
+		{
+		global $menu;
+		if (empty($menu)) 
+				{
+				 $menu = array(); 
+				 array_push($menu,array('home','main.php'));
+				}
+		array_push($menu,array('voltar',http.'main.php'));
+
+		$sx = '
+			<nav id="menu-pagina">
+			<ul>';
+		for ($r=0;$r < count($menu);$r++)
+			{
+			$sx .= '<a href="'.$menu[$r][1].'"><li>'.msg($menu[$r][0]).'</li></a>'.$cr;
+			}				
+		$sx .= '</ul></nav>';
+		return($sx);		
+				
+		$sx .= '<div id="menu-pagina" class="cabecalho_menu_big">'.$cr;
 		$sx .= '<ul>'.$cr;
 		for ($r=0;$r < count($menu);$r++)
 			{
@@ -167,6 +210,8 @@ class header
 		
 		$sx .= '<script language="JavaScript" type="text/javascript" src="'.http.'js/jquery-1.7.1.js"></script>'.$cr;
 		$sx .= '<script language="JavaScript" type="text/javascript" src="'.http.'js/jquery.corner.js"></script>'.$cr;
+		$sx .= '<script language="JavaScript" type="text/javascript" src="'.http.'js/jquery-ui.js"></script>'.$cr;
+		
     	$sx .= '<title>CIP | Centro Integrado de Pesquisa | PUCPR</title>'.$cr;
 		$sx .= '</head>';
 		
@@ -183,6 +228,94 @@ class header
 			";
 		
 		$LANG='pt_BR';
+		return($sx);
+		}
+
+
+
+	function cab_novo($titulo='') 
+		{
+		global $ss,$nw,$include,$perfil;
+		
+		require_once($include.'sisdoc_security_pucpr.php');
+		$nw = new usuario;
+		$nw->Security();
+		$nw->LiberarUsuario();
+		$ss = $nw;
+
+		$sx = '<body>'.$cr;
+		
+		/* Cabecalho para impressao */		
+			$sx .= '
+			<table width="100%" id="cabecalho-impressao-cip" border=0>
+			<TR><TD width="95%"><img  src="'.http.'cip/img/logo-cip-print.png" height="80" />
+			<TD align="right" width="5%"><img id="cabecalho-impressao-pucpr" src="'.http.'cip/img/logo-pucpr-pb.png" height="80" />
+			<TR class="lt0"><TD>'.date("d/m/Y H:i:s").' - '.$nw->user_nome.' ('.$nw->user_cracha.')
+			</table>
+			';
+		/* Cabecalho novo */
+		$sx = '<div id="cabecalho_novo" class="cabecalho_novo_big">';
+		$sx .= '<A HREF="http://www2.pucpr.br/reol/main.php"><div id="cabecalho_logo" class="cabecalho_logo_big"></div></A>';
+
+		/* nome do usuario */
+			$sx .= '<div id="cabecalho_user">';
+			$sx .= 'Seja bem-vindo, '.$nw->user_nome.' ('.$nw->user_cracha.')';
+			$sx .= '<BR>'.$cr;
+			$sx .= '</div>';
+		
+		/* Outras dados */
+		$sx .= '<div id="cabecalho_user_menu">';
+				$sx .= '<ul>'.$cr;
+				/* Libera Item do Administrador */
+				$sx .= '<a href="'.http.'logout.php"><li><i class="icon-remove"></i> Sair</li></a>'.$cr;
+				$sx .= '<a href="'.http.'minha_conta.php"><li><i class="icon-refresh"></i> <NOBR>Atualizar dados</nobr></li></a>'.$cr;
+				if (($perfil->valid('#ADM#SCR#COO')))
+					{ $sx .= '<a href="'.http.'/admin/"><li><i class="icon-wrench"></i> Administração</li></a>'.$cr; }
+				
+		$sx .= '</div>';
+		
+		$sx .= '<div id="cabecalho_title">';
+		$sx .= $titulo;
+		$sx .= '</div>';
+		
+		$sx .= '<div id="menus" style="
+					clear: both;
+					postion: static;
+					hight: 100%;
+    				width: 100%;
+    				">';
+			$sx .= $this->menus_novo();
+		$sx .= '</div>';
+		$sx .= '</div>';
+		$js = '
+		<script>
+		$("body").addClass("margin120");
+		
+			$(document).on("scroll", function () {
+				
+				var $meuMenu = $("#cabecalho_novo");
+				var $logo = $("#cabecalho_logo");
+				var $menu = $("#menu-top");					
+				var offset = $(document).scrollTop(); 
+				
+				if (offset > 1)
+					{
+						$("#cabecalho_novo").animate({top: "0px" }, 500);
+						$($logo).switchClass("cabecalho_logo_big","cabecalho_logo_mini",500);
+						$("#cabecalho_title").fadeOut(100);
+						
+						
+					} else {
+						$("#cabecalho_novo").animate({
+							top: "0px" }, 500);
+						$($logo).switchClass("cabecalho_logo_mini","cabecalho_logo_big",500);
+						$("#cabecalho_title").fadeIn(1000);
+					}				
+			});
+		</script>
+		
+		';
+		$sx .= $js;
 		return($sx);
 		}
 

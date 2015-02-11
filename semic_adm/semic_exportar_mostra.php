@@ -36,7 +36,14 @@ $ar->issue = 640;
 $xpos = ''; $vpos = 100;
 while ($line = db_read($rlt))
 	{
+		$oral = 'N';
+		$internacional = 'N';
+		
+		$mod = trim($line['sm_modalidade']);
 		/* variaveis */
+		$ar->issue = 640;		
+		if ($mod=='Trabalho concluído - Oral') { $oral = 'S'; $ar->issue = 632; }
+		if ($mod=='Trabalho concluído - Oral em Inglês') { $oral = 'S';  $internacional = 'S'; $ar->issue = 639;}
 		/* Programa de Pós */
 		$npos = trim($line['pos_nome']);
 		if ($npos != $xpos)
@@ -76,6 +83,8 @@ while ($line = db_read($rlt))
 				
 		/* Referencia do trabalho */
 		$ref = trim($sec->abbrev).strzero($vpos,2);
+		if ($internaciona=='S') { $ref = 'i'.$ref; }
+		if ($oral=='S') { $ref = $ref.'*'; }
 		
 		
 		/* Resumo 01A */
@@ -160,13 +169,13 @@ while ($line = db_read($rlt))
 		$ar->keyword = trim($line['sm_rem_06']);
 		$ar->keyword_alt = trim($line['sm_rem_16']);
 		$ar->mod = 'POS-G';
-		$ar->ingles = 'N';
+		$ar->ingles = $internacional;
 		$ar->ref = $ref;
 		$ar->jid = $jid;
 		$ar->article_author_pricipal = trim($line['sm_docente']);
 		$ar->visible = 'S';
 		$ar->article_seq = $vpos;
-		$ar->internacional = 'N';
+		$ar->internacional = $internacional;
 		if (trim($line['sm_status'])=='X')
 			{
 				$ar->ref = 'CANCELADO';
@@ -175,7 +184,6 @@ while ($line = db_read($rlt))
 				//echo '<BR>'.$ar->titulo;
 			} else {
 				$ar->publicado = 'S';
-				$vpos++;
 				$vpos++;		
 			}
 		echo '<BR>-->'.$ar->ref;

@@ -1,20 +1,25 @@
 <?php
-require("cab.php");
-require("../_class/_class_scimago.php");
+require ("cab.php");
+require ("../_class/_class_scimago.php");
 $sci = new scimago;
 
-print_r($sci);
+require ("../_class/_class_qualis.php");
 
-$file = 'scimago/2012/Accounting.xls';
-$file = 'scimago/2012/Water Science and Technology.xls';
-echo $file;
-echo '<HR>';
-
-require("../_class/_class_qualis.php");
-
-require("../_class/_class_cited.php");
+require ("../_class/_class_cited.php");
 $jl = new cited;
-$jl->updatex_journal();
+$jl -> updatex_journal();
 
-$sci->process($file);
+$dir = 'scimago/2013/';
+$arq = $sci -> buscar_arquivos_pastas($dir);
+echo '<HR>PROCESS<HR>';
+
+$id = $dd[0];
+
+	$file = $arq[$id];
+	echo '<HR><h1>'.$file.'</h1><hr>';	
+	$sci -> process($dir.$file);
+
+echo '<META http-equiv="refresh" content="5;URL='.page().'?dd0='.($id+1).'">';
 ?>
+
+

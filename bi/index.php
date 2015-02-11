@@ -39,6 +39,7 @@ array_push($menu,array('Indicadores da Pesquisa','__Pesquisadores da Instituição
 
 array_push($menu,array('Captação de recursos','__Captação de projetos - Vigentes','captacao_ano_metodo_1.php?dd4=1&dd3=001&dd5=0&dd1=200301&dd2='.date("Y01").'&acao=busca'));
 array_push($menu,array('Captação de recursos','__Captação de projetos - Captação do Ano','captacao_ano_metodo_1.php?dd4=1&dd3=002&dd5=0&dd1=200301&dd2='.date("Y01").'&acao=busca'));
+array_push($menu,array('Captação de recursos','__Captação dos editais Univesal CNPq','captacao_cnpq_universal.php'));
 
 array_push($menu,array('Captação de recursos institucional','__Captação de projetos - Vigentes','captacao_ano_metodo_1.php?dd7=1&dd4=1&dd3=001&dd5=0&dd1=200301&dd2='.date("Y01").'&acao=busca'));
 array_push($menu,array('Captação de recursos institucional','__Captação de projetos - Captação do Ano','captacao_ano_metodo_1.php?dd7=1&dd4=1&dd3=002&dd5=0&dd1=200301&dd2='.date("Y01").'&acao=busca'));

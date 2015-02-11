@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <lst name="responseHeader">
+    <int name="status">0</int>
+    <int name="QTime">1</int>
+  </lst>
+  <result name="response" numFound="5" start="0">
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/9577818173126430</str>
+      <str name="descricao_comite_t">Administração, Contabilidade e Economia</str>
+      <str name="nome_candidato_t">Suzana Braga Rodrigues</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2012</str>
+      <str name="nome_instituicao_t">Universidade FUMEC</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/1193370786873409</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Marta Silvia Maria Mantovani</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2012</str>
+      <str name="nome_instituicao_t">Universidade de São Paulo</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/0933479366464990</str>
+      <str name="descricao_comite_t">Morfologia</str>
+      <str name="nome_candidato_t">Leny Alves Cavalcante</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2012</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2217996079132051</str>
+      <str name="descricao_comite_t">Letras e Lingüística</str>
+      <str name="nome_candidato_t">Eduardo Mattos Portella</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2012</str>
+      <str name="nome_instituicao_t">Universidade Federal do Rio de Janeiro</str>
+    </doc>
+    <doc>
+      <str name="curriculo_candidato_t">http://lattes.cnpq.br/2916849932837997</str>
+      <str name="descricao_comite_t">Geociências</str>
+      <str name="nome_candidato_t">Edson Emanoel Starteri Sampaio</str>
+      <str name="nome_chamada_t">Produtividade Sênior - PQ-Sr - 2012</str>
+      <str name="nome_instituicao_t">Universidade Federal da Bahia</str>
+    </doc>
+  </result>
+</response>

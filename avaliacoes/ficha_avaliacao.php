@@ -14,7 +14,7 @@ $idart = "COMP01";
 
 $sql = " select * from pibic_semic_avaliador ";
 $sql .= " left join  pareceristas  on us_codigo = psa_p01 ";
-$sql .= " left join  instituicoes  on us_instituicao = inst_codigo ";
+$sql .= " left join  instituicao  on us_instituicao = inst_codigo ";
 $sql .= " left join  sections on psa_p04 = abbrev ";
 $sql .= " left join  articles on (article_section = section_id) and (to_number(psa_p02,'999') = article_seq)  and (psa_p05 = '".$semic."') ";
 ///////////////////////// se avaliado único

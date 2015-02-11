@@ -9,9 +9,17 @@ if (strlen($pages) > 0) { $pag = $pages; } else { $pag = $_COOKIE['pages']; }
 if (strlen($pag)==0) { $pag = 1; }
 
 /* ************************************ */
-$proto = $_SESSION['protocol_submit'];
-$author_id = $_SESSION['autor_cod'];
+$proto = trim($_SESSION['protocol_submit']);
+$author_id = trim($_SESSION['autor_cod']);
 
+/* Autentica usuário */
+if (strlen($author_id)==0)
+	{
+		/* Envia para página de login */
+		$page = http.'pb/'.page().'/'.$path.'?dd99='.$dd[99].'&pag=submit';		
+		redirecina($page);		
+		exit;
+	}
 
 /* ************************************ */
 require("_class/_class_manuscript.php");
@@ -31,11 +39,20 @@ $desc  = array();
 echo $sb->top_menu('1');
 
 $page = http.'pb/'.page().'/'.$path.'?dd99='.$dd[99].'&pag=';
-array_push($pages,$page.'1');	array_push($desc,array(msg('man_pag_1')));
-array_push($pages,$page.'2');
-array_push($pages,$page.'3');
-array_push($pages,$page.'4');
-array_push($pages,$page.'5');
+if (strlen(trim($proto)) > 0)
+	{
+		array_push($pages,$page.'1');	array_push($desc,array(msg('man_pag_1')));
+		array_push($pages,$page.'2');
+		array_push($pages,$page.'3');
+		array_push($pages,$page.'4');
+		array_push($pages,$page.'5');
+	} else {
+		array_push($pages,'#');	array_push($desc,array(msg('man_pag_1')));
+		array_push($pages,'#');
+		array_push($pages,'#');
+		array_push($pages,'#');
+		array_push($pages,'#');		
+	}
 echo $pos->show($pag,count($pages),$desc,$pages);
 
 //* ************************************ */

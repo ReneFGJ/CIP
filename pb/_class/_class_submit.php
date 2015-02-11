@@ -875,7 +875,6 @@ class submit
 					where doc_autor_principal = '".$this->author_codigo."' 
 					and doc_journal_id = '$jidr'
 					group by doc_status ";
-				
 				$rlt = db_query($sql);
 				$res = array(0,0,0,0,0,0);
 				$linkx = array('','','','','','');
@@ -892,6 +891,7 @@ class submit
 						$total = $line['total'];
 						$sta = trim($line['doc_status']);
 						if ($sta == '@') { $res[0] = $res[0] + $total; $linkx[0] = '<A href="'.$page.'&dd1=@" class="linkG">'; }
+						//if ($sta == 'A') { $res[1] = $res[1] + $total; $linkx[1] = '<A href="'.$page.'&dd1=A" class="linkG">';  }
 						if ($sta == 'N') { $res[4] = $res[4] + $total; $linkx[4] = '<A href="'.$page.'&dd1=N" class="linkG">';  }
 						if ($sta == 'X') { $res[6] = $res[6] + $total; $linkx[6] = '<A href="'.$page.'&dd1=X" class="linkG">';  }
 						if ($sta == 'L') { $res[3] = $res[3] + $total; $linkx[3] = '<A href="'.$page.'&dd1=L" class="linkG">';  }				

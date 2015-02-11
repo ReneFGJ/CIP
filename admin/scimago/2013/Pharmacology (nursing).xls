@@ -1,0 +1,45 @@
+	<html>
+	<head>
+	<title>SJR : Scientific Journal Rankings</title>
+	<style>
+	<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+	-->
+	</style>
+	</head>
+	<body>
+	
+		<table class="tabla_datos">
+		<thead>
+			  <tr>
+				<th></th>
+				<th class="mitooltip" onmouseover="Tip('Journal title',OFFSETY,20)">Title</th>
+				<th class="mitooltip" onmouseover="Tip('Type of publication:<ul><li>b: Book</li><li>k: Book Series</li><li>p: Conferences and Proceedings</li><li>j: Journals</li><li>d: Trade Journals</li></ul>',OFFSETY,20)">Type</th>
+				<th>ISSN</th>
+				<th class="mitooltip"  colspan="2"  onmouseover="Tip('SCImago Journal Rank indicator. It is a measure of journal\'s impact,<br /> influence or prestige. It expresses the average number of<br /> weighted citations received in the selected year by the documents<br /> published in the journal in the three previous years',OFFSETY,20)">SJR</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s number of articles (h) that have<br /> received at least h citations over the whole period',OFFSETY,20)">H index</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2013.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (2013)</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2012, 2011 and 2010.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Number of references included in the<br /> journal\'s published articles in 2013',OFFSETY,20)">Total Refs.</th>
+				<th class="mitooltip" onmouseover="Tip('Citations in 2013 received by journal\'s documents<br /> published in 2012, 2011 and 2010',OFFSETY,20)">Total Cites (3years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s citable documents in 2012, 2011 and 2010.<br /> Citable documents include: articles, reviews<br /> and conference papers',OFFSETY,20)">Citable Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Average citation per document in a 2 year period.<br /> This metric is widely used as impact index',OFFSETY,20)">Cites / Doc. (2years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Average amount of references per document in 2013',OFFSETY,20)">Ref. / Doc.</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s Publication Country',OFFSETY,20)">Country</th>
+			  </tr>
+		</thead>
+		<tbody>
+<tr><td>1</td><td>Journal of the American Pharmacists Association : JAPhA</td><td>j</td><td>="15443450"</td><td>Q1</td><td>0,436</td><td>47</td><td>109</td><td>382</td><td>1.916</td><td>322</td><td>344</td><td>0,82</td><td>17,58</td><td>United States</td><tr><td>2</td><td>Drug Information Journal</td><td>j</td><td>="00928615"</td><td>Q1</td><td>0,421</td><td>31</td><td>19</td><td>256</td><td>359</td><td>125</td><td>226</td><td>0,54</td><td>18,89</td><td>United States</td><tr><td>3</td><td>MCN The American Journal of Maternal Child Nursing</td><td>j</td><td>="15390683"</td><td>Q2</td><td>0,336</td><td>27</td><td>91</td><td>289</td><td>1.205</td><td>137</td><td>143</td><td>0,95</td><td>13,24</td><td>United States</td><tr><td>4</td><td>Journal of Exercise Science and Fitness</td><td>j</td><td>="1728869X"</td><td>Q2</td><td>0,234</td><td>9</td><td>16</td><td>51</td><td>633</td><td>32</td><td>51</td><td>0,68</td><td>39,56</td><td>Netherlands</td><tr><td>5</td><td>Australian Journal of Medical Herbalism</td><td>j</td><td>="10338330"</td><td>Q2</td><td>0,140</td><td>6</td><td>33</td><td>84</td><td>363</td><td>24</td><td>67</td><td>0,34</td><td>11,00</td><td>Australia</td><tr><td>6</td><td>Arzneimitteltherapie</td><td>j</td><td>="07236913"</td><td>Q3</td><td>0,119</td><td>4</td><td>152</td><td>441</td><td>874</td><td>25</td><td>233</td><td>0,12</td><td>5,75</td><td>Germany</td><tr><td>7</td><td>Metiers de la Petite Enfance</td><td>j</td><td>="1258780X"</td><td>Q3</td><td>0,110</td><td>3</td><td>87</td><td>337</td><td>204</td><td>7</td><td>242</td><td>0,04</td><td>2,34</td><td>Italy</td><tr><td>8</td><td>International Journal of Pharmaceutical Compounding</td><td>j</td><td>="10924221"</td><td>Q4</td><td>0,103</td><td>4</td><td>61</td><td>358</td><td>0</td><td>22</td><td>338</td><td>0,07</td><td>0,00</td><td>United States</td><tr><td>9</td><td>Pharmacy News</td><td>j</td><td>="1448207X"</td><td>Q4</td><td>0,100</td><td>1</td><td>0</td><td>244</td><td>0</td><td>0</td><td>93</td><td>0,00</td><td>0,00</td><td>United Kingdom</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+Retrieved from: http://www.scimagojr.com. 
+
+
+</div>
+</div>
+</body>
+</html>
