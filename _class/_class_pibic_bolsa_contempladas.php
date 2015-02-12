@@ -9,6 +9,7 @@
 	 * @package Bolsas PIBIC Contempladas
 	 * @subpackage classe
     */
+    
 class pibic_bolsa_contempladas
 	{
 		var $id_pb;
@@ -68,10 +69,10 @@ class pibic_bolsa_contempladas
 		var $resumo;
 		var $keywords;
 		
-		var $tabela = 'pibic_bolsa_contempladas';
+		var $tabela     = 'pibic_bolsa_contempladas';
 		var $tabela_ged = 'pibic_ged_documento';
-		var $tipo = 'RELAP';
-		var $pg_valida = 'pa_relatorio_parcial_ajax.php';
+		var $tipo       = 'RELAP';
+		var $pg_valida  = 'pa_relatorio_parcial_ajax.php';
 		var $autores_semic;
 		
 		function cp()
@@ -86,11 +87,10 @@ class pibic_bolsa_contempladas
 				array_push($cp,array('$S10','pb_codigo','Codigo da Bolsa',False,False,''));
 				array_push($cp,array('$Q pbt_descricao:pbt_codigo:select * from pibic_bolsa_tipo order by pbt_descricao','pb_tipo','Bolsa',True,True,''));
 				array_push($cp,array('$S1','pb_status','Status',False,True,''));
-								//array_push($cp,array('$S10','pb_status','Status',False,True,''));
+				//array_push($cp,array('$S10','pb_status','Status',False,True,''));
 				array_push($cp,array('$S10','pb_contrato','Contrato',False,True,''));
 				
 				array_push($cp,array('$S8','pb_aluno','Aluno (Cracha)',False,True,''));
-
 
 				array_push($cp,array('${','','PIBICJr',False,True,''));
 				array_push($cp,array('$S100','pb_aluno_nome','Nome do Aluno (PIBICJr)',False,True,''));
@@ -206,16 +206,16 @@ class pibic_bolsa_contempladas
 				$sx .= '</table>';
 				return($sx);
 			}
-		
+	
 		function atualiza_publicacao($proto,$rs,$txt)
 			{		
 				if (strlen($proto) > 0)
-				
 				{
+				    
 				$sql = "update ".$this->tabela." set 
-					pb_publicacao = '$rs',
-					pb_publicacao_desc = '$txt'
-				where pb_protocolo = '$proto'
+    					pb_publicacao = '$rs',
+    					pb_publicacao_desc = '$txt'
+    				    where pb_protocolo = '$proto'
 				";
 				$rlt = db_query($sql);
 				}
@@ -270,7 +270,7 @@ class pibic_bolsa_contempladas
 							<TH>e-mail (est.)
 							<TH>e-mail alt (est.)
 							<TH>ï¿½rea CNPq
-							<TH>CNPq Descriï¿½ï¿½o						
+							<TH>CNPq Descriï¿½ï¿½o	
 							';
 				$tot = 0;
 				while ($line = db_read($rlt))
@@ -303,10 +303,10 @@ class pibic_bolsa_contempladas
 												
 						//$sx .= '<TD>';
 						//$sx .= $line['pa_codigo'];
-																								
+						
 						$sx .= '<TD>';
 						$sx .= $line['pa_nome'];
-																														$sx .= '<TD>';
+						$sx .= '<TD>';
 						$sx .= '<TD>';
 						$sx .= $line['pa_curso'];
 
@@ -620,6 +620,7 @@ class pibic_bolsa_contempladas
 			return($sx);					
 				
 			}
+                    
 		function alunos_ativos_ic($ano='',$tipo=1)
 			{
 				if($tipo==1)
@@ -895,12 +896,14 @@ class pibic_bolsa_contempladas
 				$sx = $this->show_works($wh);
 				return($sx);
 			}
+            
 		function work_aproved()
 			{
 				$wh = "and (pp_p01 = '20' or pp_p01 = '10' or pp_p01 = '5' or pp_p01 = '2') ";
 				$sx = $this->show_works($wh);
 				return($sx);				
 			}
+            
 		function show_works($wh)
 			{
 				$sql = "select * from pibic_parecer_".date("Y")."
@@ -2342,66 +2345,6 @@ class pibic_bolsa_contempladas
 			return($sx);
 		}
 		
-	function bolsa_duplicatas($ano=2012)
-		{
-				$sql = "
-					select * from ".$this->tabela." 
-				 	inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
-				 	left join pibic_aluno on pb_aluno = pa_cracha
-					where (pb_status <> 'C') and pb_ano = '$ano'
-					and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')
-					order by pa_nome, pbt_auxilio
-					 ";
-				$sx .= '<table width="100%">';
-				$sx .= '<TR><TD colspan=5><h2>Bolsas ativas para pagamento</h2>';
-				$sx .= '<TR>
-						<TH width="5%">Protocolo
-						<Th width="5%">Cracha<TH width="50%">Nome
-						<TH width="10%" align="left">Data ativaï¿½ï¿½o
-						<TH width="20%" align="left">Bolsa
-						<TH width="10%" align="left">Benefï¿½cio';
-				$rlt = db_query($sql);
-				$id = 0;
-				$tot = 0;
-				$xcra = 'x';
-				$idx = 0;
-				while ($line = db_read($rlt))
-					{
-						$idx++;
-						$cra = $line['pb_aluno'];
-						$cor = '<font color="red">';
-
-								
-								$tot = $tot + $line['pbt_auxilio'];
-								$sxa = '<TR>';
-								$sxa .= '<TD class="tabela01">';
-								$sxa .= $cor.$line['pb_protocolo'];								
-								$sxa .= '<TD class="tabela01">';
-								$sxa .= $cor.$line['pb_aluno'];
-								$sxa .= '<TD class="tabela01">';
-								$sxa .= $cor.$line['pa_nome'];
-							
-								$sxa .= '<TD class="tabela01" align="center">';
-								$sxa .= $cor.stodbr($line['pb_ativacao']);
-						
-								$sxa .= '<TD class="tabela01">';
-								$sxa .= $cor.$line['pbt_descricao'];
-								$sxa .= '<TD class="tabela01" align="right">';
-								$sxa .= $cor.number_format($line['pbt_auxilio'],2,',','.');
-
-						if ($xcra == $cra)
-							{
-								$id++;
-								$sx .= $sxb.$sxa;
-							} 
-						$sxb = $sxa;							
-						$xcra = $cra;
-						}
-				$sx .= '<TR class="lt1"><TD colspan=10>';
-				$sx .= '<B><I>'.msg("total").' '.msg('bolsas_duplicadas').' ('.$id.') de ('.$idx.' analisadas)';
-				$sx .= '</table>';
-				return($sx);
-		}		
 		
 	function ativos_por_bolsa($bolsa,$credito,$ano=2012,$tipo='')
 		{
@@ -5776,6 +5719,254 @@ class pibic_bolsa_contempladas
 					}
 				return($rsp);					
 			}
+        
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: mostrar_resumo_de_bolsas()
+ *          Metodo mostra o resumos de bolsas implantadas no CIP
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 06/02/2015 
+ */ 
+    function mostrar_resumo_de_bolsas()
+    {
+            $sql = "select count(*) as total,  
+                                       pb_tipo, 
+                                       pbt_descricao, 
+                                       pbt_edital, 
+                                       pb_ano
+                    from pibic_bolsa_contempladas 
+                    left join pibic_bolsa_tipo 
+                    on pbt_codigo = pb_tipo 
+                    where (pb_status <> 'C' 
+                    and pb_status <> '@') 
+                    and pb_data_ativacao > 20000000 
+                    group by pb_tipo, 
+                             pbt_descricao, 
+                             pbt_edital, 
+                             pb_ano
+                    order by pb_ano desc, 
+                             pbt_edital, 
+                             pb_tipo 
+                    ";  
+                $rlt  = db_query($sql);
+                $sz   = "";
+                $sc   = "";
+                $sp   = "";
+                $tot0 = 0;
+                $tot1 = 0;
+                $tot2 = 0;
+                $ano  = "X";
+                $editalx = "";
+                
+            while ($line = db_read($rlt))
+            {
+                $ano = $line['pb_ano'];
+                $edital = UpperCase($line['pbt_edital']);
+                
+                if (($edital != $editalx) or ($xano != $ano))
+                {
+                     if ($tot2 > 0) 
+                     {
+                      $sx .= '<TR><TD colspan="4" align="right">Sub-total <I>'.number_format($tot2,0).'</B></TD></TR>';     
+                     }
+                        $tot2 = 0;
+                        /////////////// Separa por ano
+                        if ($xano != $ano)
+                        {
+                            $ano = $line['pb_ano'];
+                            if ($tot0 > 0) 
+                            {
+                                $sx .= '<TR><TD colspan="4" align="right">Total <B>'.number_format($tot0,0).'</B></TD></TR>';       
+                            }
+                                $tot0 = 0;
+                                $xano = $ano;
+                        }
+                            $sx .= '<TR><TD colspan=5 class=lt3 >'.$ano.' - '.$edital.'</TD></TR>';
+                            $editalx = $edital;
+                            $col = 0;
+                }
+
+                //$link = '<a href="rel_bolsa_aluno.php?dd0='.$line['pb_tipo'].'&dd1='.$pb_tipo.'&dd2='.$ano.'">';//<--Linha com o link ativo 
+                $link = '<a href="#'.$line['pb_tipo'].'&dd1='.$pb_tipo.'&dd2='.$ano.'">'; //<--Linha sem o link declarado              
+                $bolsa = $line['pb_tipo'];
+                $total = $line['total'];
+                $bolsa_descricao = '';
+                //require("bolsa_tipo.php");    
+                $bolsa_descricao = $line['pbt_descricao'];
+        
+                $sx .= '<TR '.coluna().'>';
+                $sx .= '<TD>';
+                $sx .= $bolsa;
+                $sx .= '</TD>';
+                $sx .= '<TD align="center">';
+                $sx .= '<font color="#0000ff">';
+                $sx .= UpperCase($line['pbt_edital']);
+                $sx .= '<TD>';
+                $sx .= $link;
+                $sx .= $bolsa_descricao;
+                $sx .= '</TD>';
+                $sx .= '<TD align="right">';
+                $sx .= number_format($total,0);
+                $sx .= '</TD>';
+                $sx .= '</TR>';
+                $tot0 = $tot0 + $total;
+                $tot2 = $tot2 + $total;
+                $tot1++;
+                    
+            }
+            
+        $sx .= '<TR><TD colspan="4" align="right">Sub-total <I>'.number_format($tot2,0).'</B></TD></TR>';       
+        $ss  =  '<BR><BR>';
+        $ss .= '<CENTER><font class="lt4">Bolsas Implantadas</font></CENTER>';
+        $ss .='<table border="0" width="650" align="center" class="tabela00 lt2">';
+        $ss .= '<TR><TH>C</TH><TH width=50>Edital</TH><TH>Bolsa</TH><TH width=50>Total</TH></TR>';
+        $ss .= $sx;
+        $ss .= '<TR><TD colspan="4" align="right">Total <B>'.number_format($tot0,0).'</B></TD></TR>';
+        $ss .= '</table>';
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        $sql  = "select count(*) as total,  
+                                    pb_tipo 
+                 from pibic_bolsa_contempladas ";
+        $sql .= "left join pibic_aluno 
+                      on pb_aluno = pa_cracha ";
+        $sql .= "left join pibic_professor 
+                      on pb_professor = pp_cracha ";
+        $sql .= "left join pibic_submit_documento 
+                      on doc_protocolo = pb_protocolo_mae ";
+        $sql .= " where (pb_tipo = 'C' 
+                         or pb_tipo = 'I' 
+                         or pb_tipo = 'P' 
+                         or pb_tipo = 'F' 
+                         or pb_tipo = 'A') ";
+        $sql .= " and pb_status = '@' ";
+        $sql .= " and pb_data_ativacao < 20000000 ";
+        $sql .= " group by pb_tipo ";
+        
+        $rlt = db_query($sql);
+        
+        $sz = "";
+        $sc = "";
+        $sp = "";
+        $tot0 = 0;
+        $tot1 = 0;
+        $sx = '';
+        
+    while ($line = db_read($rlt))
+        {
+            $link = '<a href="rel_bolsa_aluno.php?dd0='.$line['pb_tipo'].'&dd1=@&dd2='.$ano.'">';
+            $bolsa = $line['pb_tipo'];
+            $total = $line['total'];
+            $bolsa_descricao = '';
+            
+            if ($bolsa == 'P') { $bolsa_descricao = 'Bolsista PUCPR'; }
+            if ($bolsa == 'F') { $bolsa_descricao = 'Bolsista Fundação Araucária'; }
+            if ($bolsa == 'C') { $bolsa_descricao = 'Bolsista CNPq'; }
+            if ($bolsa == 'I') { $bolsa_descricao = 'Bolsista ICV'; }
+            if ($bolsa == 'A') { $bolsa_descricao = 'Qualificados'; }
+            
+            $sx .= '<TR>';
+                        $sx .= '<TD>';  $sx .= $bolsa;  $sx .= '</TD>';
+                        $sx .= '<TD>';  $sx .= $link;   $sx .=  $bolsa_descricao;   $sx .= '</TD>';
+                        $sx .= '<TD align="right">';$sx .= number_format($total,0); $sx .= '</TD>';
+            $sx .= '</TR>';
+            
+            $tot0 = $tot0 + $total;
+            $tot1++;
+        }
+
+        $sx .= '<BR><BR>';
+        $sx .= '<CENTER><font class="lt4">Bolsas Implantadas sem efetivação</font></CENTER>';
+        $sx .= '<table border="0" width="650" align="center" class="lt0">';
+        $sx .= '<TR><TH>C</TH><TH>Bolsa</TH><TH>Total</TH></TR>';
+        $sx .= $sx;
+        $sx .= '<TR><TD colspan="3" align="right">Total <B>'.number_format($tot0,0).'</B></TD></TR>';
+        $sx .= '</table>';  
+
+        return($ss);
+}
+
+//**************************** Fim do metodo *****************************************
+
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: alunos_com_bolsa_duplicatas()
+ *          Metodo mostra o resumos de alunos com bolsas duplicadas no CIP
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 09/02/2015
+ */ 
+
+    function rel_aluno_com_bolsa_duplicada($ano) {//Recebe valor da variavel vindo da classe seleciona_ano.php
+       
+        //Busca alunos com mais de uma bolsa   
+        $sql = "
+                select * from ".$this->tabela." 
+                inner join pibic_bolsa_tipo 
+                on pbt_codigo = pb_tipo
+                left join pibic_aluno 
+                on pb_aluno = pa_cracha
+                where (pb_status <> 'C') 
+                and pb_ano = '$ano'
+                and (pbt_edital = 'PIBIC' 
+                     or pbt_edital = 'PIBITI' 
+                     or pbt_edital = 'IS')
+                order by pa_nome, 
+                         pbt_auxilio
+                ";
+        //Monta tabela       
+        $sx .= '<table width="100%">';
+        $sx .= '<TR><TD colspan=5><h2>Bolsas ativas para pagamento no ano de '.msg("$ano").'</h2>';
+        $sx .= '<TR>
+                <TH width="5%">Protocolo
+                <Th width="5%">Cracha<TH width="50%">Nome
+                <TH width="10%" align="left">Data ativação
+                <TH width="20%" align="left">Bolsa
+                <TH width="10%" align="left">Benefício';
+        $rlt    = db_query($sql);
+        $id     = 0;
+        $tot    = 0;
+        $xcra   = 'x';
+        $idx    = 0;
+       //Exibe resultados
+        while ($line = db_read($rlt))
+            {
+                $idx++;
+                $cra = $line['pb_aluno'];
+                $cor = '<font color="FF6347">';       
+                $tot  = $tot + $line['pbt_auxilio'];
+                $sxa  = '<TR>';
+                $sxa .= '<TD class="tabela01">';
+                $sxa .= $cor.$line['pb_protocolo'];                             
+                $sxa .= '<TD class="tabela01">';
+                $sxa .= $cor.$line['pb_aluno'];
+                $sxa .= '<TD class="tabela01">';
+                $sxa .= $cor.$line['pa_nome'];
+                $sxa .= '<TD class="tabela01" align="center">';
+                $sxa .= $cor.stodbr($line['pb_ativacao']);          
+                $sxa .= '<TD class="tabela01">';
+                $sxa .= $cor.$line['pbt_descricao'];
+                $sxa .= '<TD class="tabela01" align="right">';
+                $sxa .= $cor.number_format($line['pbt_auxilio'],2,',','.');
+
+                if ($xcra == $cra)
+                    {
+                        $id++;
+                        $sx .= $sxb.$sxa;
+                    } 
+                $sxb = $sxa;                            
+                $xcra = $cra;
+                }
+        //Resumo da tabela
+        $sx .= '<TR class="lt1"><TD colspan=10>';     
+        $sx .= '<I>'.msg("Encontrado").' ('.$id.') '.msg("alunos com bolsa duplicada").' de ('.$idx.' alunos analisados)';
+        $sx .= '</table>';
+        
+        return($sx);
+    }
+           
+//**************************** Fim do metodo *****************************************       
+                                              
 		function bolsa_substituir_estudante()
 			{}
 		function bolsa_substituir_professor()
