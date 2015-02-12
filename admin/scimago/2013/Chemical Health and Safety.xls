@@ -1,0 +1,45 @@
+	<html>
+	<head>
+	<title>SJR : Scientific Journal Rankings</title>
+	<style>
+	<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+	-->
+	</style>
+	</head>
+	<body>
+	
+		<table class="tabla_datos">
+		<thead>
+			  <tr>
+				<th></th>
+				<th class="mitooltip" onmouseover="Tip('Journal title',OFFSETY,20)">Title</th>
+				<th class="mitooltip" onmouseover="Tip('Type of publication:<ul><li>b: Book</li><li>k: Book Series</li><li>p: Conferences and Proceedings</li><li>j: Journals</li><li>d: Trade Journals</li></ul>',OFFSETY,20)">Type</th>
+				<th>ISSN</th>
+				<th class="mitooltip"  colspan="2"  onmouseover="Tip('SCImago Journal Rank indicator. It is a measure of journal\'s impact,<br /> influence or prestige. It expresses the average number of<br /> weighted citations received in the selected year by the documents<br /> published in the journal in the three previous years',OFFSETY,20)">SJR</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s number of articles (h) that have<br /> received at least h citations over the whole period',OFFSETY,20)">H index</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2013.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (2013)</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2012, 2011 and 2010.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Number of references included in the<br /> journal\'s published articles in 2013',OFFSETY,20)">Total Refs.</th>
+				<th class="mitooltip" onmouseover="Tip('Citations in 2013 received by journal\'s documents<br /> published in 2012, 2011 and 2010',OFFSETY,20)">Total Cites (3years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s citable documents in 2012, 2011 and 2010.<br /> Citable documents include: articles, reviews<br /> and conference papers',OFFSETY,20)">Citable Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Average citation per document in a 2 year period.<br /> This metric is widely used as impact index',OFFSETY,20)">Cites / Doc. (2years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Average amount of references per document in 2013',OFFSETY,20)">Ref. / Doc.</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s Publication Country',OFFSETY,20)">Country</th>
+			  </tr>
+		</thead>
+		<tbody>
+<tr><td>1</td><td>Journal of Analytical Toxicology</td><td>j</td><td>="01464760"</td><td>Q1</td><td>1,180</td><td>52</td><td>104</td><td>287</td><td>2.400</td><td>711</td><td>270</td><td>2,73</td><td>23,08</td><td>United States</td><tr><td>2</td><td>Therapeutics and Clinical Risk Management</td><td>j</td><td>="11766336"</td><td>Q1</td><td>0,497</td><td>23</td><td>57</td><td>68</td><td>2.370</td><td>130</td><td>66</td><td>1,73</td><td>41,58</td><td>New Zealand</td><tr><td>3</td><td>Dose-Response</td><td>j</td><td>="15593258"</td><td>Q2</td><td>0,448</td><td>17</td><td>41</td><td>129</td><td>1.803</td><td>217</td><td>125</td><td>1,29</td><td>43,98</td><td>United States</td><tr><td>4</td><td>Drug and Chemical Toxicology</td><td>j</td><td>="15256014"</td><td>Q2</td><td>0,409</td><td>28</td><td>61</td><td>187</td><td>2.844</td><td>233</td><td>186</td><td>1,15</td><td>46,62</td><td>United Kingdom</td><tr><td>5</td><td>Journal of Chemical Health and Safety</td><td>j</td><td>="18715532"</td><td>Q3</td><td>0,281</td><td>12</td><td>80</td><td>230</td><td>672</td><td>45</td><td>85</td><td>0,58</td><td>8,40</td><td>United States</td><tr><td>6</td><td>Chemical Speciation and Bioavailability</td><td>j</td><td>="09542299"</td><td>Q3</td><td>0,221</td><td>20</td><td>35</td><td>91</td><td>1.353</td><td>38</td><td>91</td><td>0,41</td><td>38,66</td><td>United Kingdom</td><tr><td>7</td><td>Safety and Health at Work</td><td>j</td><td>="20937997"</td><td>Q4</td><td>0,202</td><td>4</td><td>30</td><td>107</td><td>1.287</td><td>66</td><td>104</td><td>0,69</td><td>42,90</td><td>South Korea</td><tr><td>8</td><td>25th International Conference of the Center for Chemical Process Safety 2010 - Topical Conference at the 2010 AIChE Spring Meeting and 6th Global Conference on Process Safety</td><td>p</td><td></td><td ></td><td>0,101</td><td>0</td><td>0</td><td>27</td><td>0</td><td>0</td><td>26</td><td>0,00</td><td>0,00</td><td>United States</td><tr><td>9</td><td>26th Center for Chemical Process Safety International Conference 2011, CCPS - Topical Conference at the 2011 AIChE Spring Meeting and 7th Global Congress on Process Safety</td><td>p</td><td></td><td ></td><td>0,101</td><td>0</td><td>0</td><td>34</td><td>0</td><td>0</td><td>33</td><td>0,00</td><td>0,00</td><td>United States</td><tr><td>10</td><td>Society of Petroleum Engineers - SPE Americas E and P Health, Safety, Security, and Environmental Conference 2011</td><td>p</td><td></td><td ></td><td>0,100</td><td>0</td><td>0</td><td>52</td><td>0</td><td>0</td><td>51</td><td>0,00</td><td>0,00</td><td>United States</td><tr><td>11</td><td>Society of Petroleum Engineers - SPE International Conference on Health, Safety and Environment in Oil and Gas Exploration and Production 2011</td><td>p</td><td></td><td ></td><td>0,100</td><td>0</td><td>0</td><td>62</td><td>0</td><td>0</td><td>61</td><td>0,00</td><td>0,00</td><td>United States</td><tr><td>12</td><td>10AIChE - 2010 AIChE Spring Meeting and 6th Global Congress on Process Safety</td><td>p</td><td></td><td ></td><td>0,100</td><td>0</td><td>0</td><td>408</td><td>0</td><td>0</td><td>408</td><td>0,00</td><td>0,00</td><td>United States</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+Retrieved from: http://www.scimagojr.com. 
+
+
+</div>
+</div>
+</body>
+</html>

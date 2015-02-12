@@ -16,7 +16,8 @@ $menu = array();
 /////////////////////////////////////////////////// MANAGERS
 array_push($menu,array('Scimago','Enviar arquivos',''));
 array_push($menu,array('Scimago','Processar','scimago_process.php'));
-array_push($menu,array('Scimago','__Cadastro Journals','cited_journal.php'));  
+array_push($menu,array('Scimago','__Cadastro Journals','cited_journal.php'));
+array_push($menu,array('Scimago','__Associar ISSN/eISSN','cited_journal_issn.php'));  
 
 $tela = menus($menu,"3");
 

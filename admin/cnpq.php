@@ -25,6 +25,9 @@ array_push($menu,array(msg('Lattes'),'__'.msg('processar_arquivo_lattes'),'cnqp_
 
 array_push($menu,array(msg('Lattes'),msg('lattes_producao'),'admin_lattes.php'));
 
+array_push($menu,array(msg('Lattes'),'Journals Scimago','cited_journal.php'));
+
+
 
 //array_push($menu,array('Manutenção','Criar Tabelas','create_table.php')); 
 ///////////////////////////////////////////////////// redirecionamento

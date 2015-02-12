@@ -285,7 +285,7 @@ class parecerista
 				
 				$sql = "select count(*) as total, us_aceito, us_ativo from (
 						select * from ".$this->tabela." 
-						left join instituicao on inst_codigo = us_instituicao
+						left join instituicoes on inst_codigo = us_instituicao
 						where us_journal_id = ".round($jid)."
 						and us_ativo = 1
 						and char_length(trim(us_codigo))=7
@@ -746,7 +746,7 @@ class parecerista
 			global $jid;
 			
 			$sql = "select * from pareceristas  ";
-			$sql .= "inner join instituicao on us_instituicao = inst_codigo ";
+			$sql .= "inner join instituicoes on us_instituicao = inst_codigo ";
 			$sql .= " and us_journal_id = '".intval($jid)."' ";
 			$sql .= " where us_aceito = 9 ";
 			$sql .= " and us_ativo = 1 ";
@@ -809,7 +809,7 @@ class parecerista
 			{
 				global $jid;
 				$sql = "select count(*) as total, us_aceito from pareceristas  ";
-	//			$sql .= "inner join instituicao on us_instituicao = inst_codigo ";
+	//			$sql .= "inner join instituicoes on us_instituicao = inst_codigo ";
 				$sql .= " where us_ativo <> 0 ";
 				$sql .= " and us_journal_id = '".$jid."' 
 							and us_aceito = 9 ";

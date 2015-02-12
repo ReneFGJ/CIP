@@ -5896,9 +5896,18 @@ class pibic_bolsa_contempladas
  * @author Elizandro Santos de Lima[Analista de Projetos]
  * @date: 09/02/2015
  */ 
+<<<<<<< HEAD
 
     function rel_aluno_com_bolsa_duplicada($ano) {//Recebe valor da variavel vindo da classe seleciona_ano.php
        
+=======
+   var $anoBase;
+   
+   
+   
+    function rel_aluno_com_bolsa_duplicada($ano) // <--Setar o ano para a busca
+    {
+>>>>>>> a4e575d262cc8831deb901f984831e61fb9abcad
         //Busca alunos com mais de uma bolsa   
         $sql = "
                 select * from ".$this->tabela." 
@@ -5933,6 +5942,7 @@ class pibic_bolsa_contempladas
             {
                 $idx++;
                 $cra = $line['pb_aluno'];
+<<<<<<< HEAD
                 $cor = '<font color="FF6347">';       
                 $tot  = $tot + $line['pbt_auxilio'];
                 $sxa  = '<TR>';
@@ -5948,6 +5958,24 @@ class pibic_bolsa_contempladas
                 $sxa .= $cor.$line['pbt_descricao'];
                 $sxa .= '<TD class="tabela01" align="right">';
                 $sxa .= $cor.number_format($line['pbt_auxilio'],2,',','.');
+=======
+                $cor = '<font color="FF6347">';
+                        
+                    $tot  = $tot + $line['pbt_auxilio'];
+                    $sxa  = '<TR>';
+                    $sxa .= '<TD class="tabela01">';
+                    $sxa .= $cor.$line['pb_protocolo'];                             
+                    $sxa .= '<TD class="tabela01">';
+                    $sxa .= $cor.$line['pb_aluno'];
+                    $sxa .= '<TD class="tabela01">';
+                    $sxa .= $cor.$line['pa_nome'];
+                    $sxa .= '<TD class="tabela01" align="center">';
+                    $sxa .= $cor.stodbr($line['pb_ativacao']);          
+                    $sxa .= '<TD class="tabela01">';
+                    $sxa .= $cor.$line['pbt_descricao'];
+                    $sxa .= '<TD class="tabela01" align="right">';
+                    $sxa .= $cor.number_format($line['pbt_auxilio'],2,',','.');
+>>>>>>> a4e575d262cc8831deb901f984831e61fb9abcad
 
                 if ($xcra == $cra)
                     {
