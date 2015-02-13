@@ -1429,10 +1429,10 @@ $sg = '
 			
 			$sql = "select * from ".$this->tabela."_docentes
 				inner join ".$this->tabela." on pdce_programa = pos_codigo 
-				inner join programa_pos_linhas on pdce_programa_linha = posln_codigo
+				inner join programa_pos_linhas on pdce_programa_linha = posln_codigo 
 				left join docentes on pdce_docente = pp_cracha  
 				 where pdce_docente = '".$docente."'
-				 and pdce_ativo = 1
+				 and pdce_ativo = 1 and posln_ativo = 1
 				order by pdce_ano_saida, pp_nome ";
 			$rlt = db_query($sql);
 

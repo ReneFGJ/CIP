@@ -23,48 +23,187 @@ class captacao {
 
 	var $tabela = 'captacao';
 	
+	function atualiza_instituicoes_tabela()
+		{
+			$sql = "update ".$this->tabela." set ca_proponente = '0000012' where ca_proponente = '0000455' ";
+			//$rlt = db_query($sql);
+		}
+	
 	function relatorio_captacao_tabela($d1,$d2)
 		{
 			$sta = $this -> status();
 			$sql = "select * from ".$this->tabela."
 					left join pibic_professor on pp_cracha = ca_professor
 					where ca_status <> 0 and ca_status <> 9
-					order by ca_vigencia_ini_ano desc, ca_vigencia_ini_mes desc
+					and ca_participacao <> 'O'
+					order by ca_agencia, ca_vigencia_ini_ano desc, ca_vigencia_ini_mes desc
 			 ";
 			$rlt = db_query($sql);
-			$sx .= '<table class="tabela00">';
+			$sx .= '<table class="tabela00 tabela">';
+			$sx .= '<TR>
+						<TH colspan=5>
+						<TH colspan=3>Convênios Vigêntes
+						<TH colspan=3>Custeio
+						<TH colspan=3>Bolsas
+						<TH colspan=3>OPEX
+						<TH colspan=3>CAPEX
+						<TH colspan=3>BOLSA';
+			$sx .= '<TR>
+					<TH>Empresa
+					<TH>Concedente
+					<TH>Convênio
+					
+					<TH>Valor Cadastrado
+					<TH>Somatória das rubricas
+					<TH>Qtda
+					<TH>Início Vigência
+					
+					<TH>ano do edital
+					
+					<TH>Custeio Ano
+					<TH>Acumulado Custeio
+					<TH>Custeio Ano/Dez.
+					
+					<TH>Bolsa Ano
+					<TH>Acumulado Bolsa
+					<TH>Bolsa Ano/Dez.
+					
+					<TH>OPEX Ano
+					<TH>Acumulado OPEX
+					<TH>OPEX Ano/Dez.
+					
+					<TH>CAPEX Ano
+					<TH>Acumulado CAPEX
+					<TH>CAPEX Ano/Dez.
+					
+					<TH>Categoria
+					
+					<TH>Tipo
+					<TH>Coordenador
+					<TH>Nome do Edital
+					
+					<TH>Capt.Inst.
+					<TH>Capt.Acad.
+					<TH>Capt.Empr.
+					<TH>Situação
+					';
+					
 			while ($line = db_read($rlt))
 				{
 					$ln = $line;
 					$sx .= '<TR>';
+					$sx .= '<TD>PUC';
+					$sx .= '<TD>Educação';
 					$sx .= '<TD>';
-					$sx .= $line['ca_agencia'];
-					$sx .= '<TD>';
-					$sx .= $line['ca_processo'];					
-					$sx .= '<TD>';
-					$sx .= $line['ca_participacao'];
-					$sx .= '<TD>';
-					$sx .= $line['pp_nome'];
-					$sx .= '<TD>';
-					$sx .= $line['ca_descricao'];
-					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$sx .= $line['ca_processo'];
+					
+					/* TOTAL - CADASTRO */
+					$sx .= '<TD align="right">';
+					$sx .= number_format($line['ca_vlr_total'],2,',','.');
+																										
+					/* TOTAL */
+					$sx .= '<TD align=right><B>';
+					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros']+$line['ca_vlr_bolsa']+$line['ca_vlr_capital'],2,',','.');
+					$sx .= '</B>';
+					
+					/* Quantidade */
+					$sx .= '<TD align="center">1';
+					
+					/* Vigência */
+					$dt = $line['ca_vigencia_ini_ano'];
+					$dt1 = strzero(round($line['ca_vigencia_ini_mes']),2);
+					
+					if (strlen($dt)==4) { $dt .= $dt1; }	
+					$sx .= '<TD>'.'01/'.substr($dt,4,2).'/'.substr($dt,0,4);
+															
+					/* Edital Ano */
+					$sx .= '<TD align="center">';
+					$sx .= '<NOBR>';
 					$sx .= $line['ca_edital_ano'];
-					$sx .= '<TD>';
-					$sx .= '['.$line['ca_tipo_fomento'].']';					
+					
+					/* Custeio */
+					$sx .= '<TD align="right">';
+					$sx .= '<NOBR>';
+					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros'],2,',','.');
+					$sx .= '<TD align="right">';
+					$sx .= '<NOBR>';
+					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros'],2,',','.');
+					$sx .= '<TD align="right">';
+					$sx .= '<NOBR>';
+					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros'],2,',','.');
+					
+					/* Bolsa */
+					$sx .= '<TD align="right">';
+					$sx .= number_format($line['ca_vlr_bolsa'],2,',','.');
+					$sx .= '<TD align="right">';
+					$sx .= number_format($line['ca_vlr_bolsa'],2,',','.');
+					$sx .= '<TD align="right">';
+					$sx .= number_format($line['ca_vlr_bolsa'],2,',','.');
+					
+					/* OPEX */
+					$sx .= '<TD align=right>';
+					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros']+$line['ca_vlr_bolsa'],2,',','.');
+					$sx .= '<TD align=right>';
+					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros']+$line['ca_vlr_bolsa'],2,',','.');
+					$sx .= '<TD align=right>';
+					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros']+$line['ca_vlr_bolsa'],2,',','.');
+								
+					/* CAPEX */
 					$sx .= '<TD align=right>';
 					$sx .= number_format($line['ca_vlr_capital'],2,',','.');
 					$sx .= '<TD align=right>';
-					$sx .= number_format($line['ca_vlr_custeio'],2,',','.');
+					$sx .= number_format($line['ca_vlr_capital'],2,',','.');
 					$sx .= '<TD align=right>';
-					$sx .= number_format($line['ca_vlr_bolsa'],2,',','.');
-					$sx .= '<TD align=right>';
-					$sx .= number_format($line['ca_vlr_outros'],2,',','.');
-					$sx .= '<TD>';
-					$sx .= $sta[$line['ca_status']];
+					$sx .= number_format($line['ca_vlr_capital'],2,',','.');
 					
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$sx .= $line['ca_agencia'];
+					
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$cp = $line['ca_participacao'];
+					switch ($cp)
+						{
+						case 'P':
+							$sx .= 'Coordenador na Institucão';
+							break;
+						case 'C':
+							$sx .= 'Coordenador do projeto';
+							break;
+						case 'E':
+							$sx .= 'Coordenado Institucional';
+							break;
+						case 'O':
+							$sx .= 'Colaborador';
+							break;
+						default:
+							$sx .= '['.$cp.']';
+						}
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$sx .= $line['pp_nome'];
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$sx .= $line['ca_descricao'];
+					$sx .= '<TD>';
+					$sx .= $line['ca_insticional'];	
+					$sx .= '<TD>';
+					$sx .= $line['ca_academico'];	
+					$sx .= '<TD>';
+					$sx .= $line['ca_empresa'];	
+									
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$sx .= $sta[$line['ca_status']];
+										
 				}
 			$sx .= '</table>';
-			print_r($ln);
+			
+			//$sql = "delete from captacao where id_ca = 178 ";
+			//$rlt = db_query($sql);
+			
 			return($sx);
 		}
 
@@ -228,14 +367,14 @@ class captacao {
 
 		$sx .= '<TR>';
 		$sx .= '<TD align="right">Captações';
-		$sx .= '<TD class="tabela01" align="center">' . $link9 . $api[0] . '</A>';
-		$sx .= '<TD class="tabela01" align="center">' . $link8 . $api[8] . '</A>';
-		$sx .= '<TD class="tabela01" align="center">' . $link0 . $api[2] . '</A>';
-		$sx .= '<TD class="tabela01" align="center">' . $link1 . $api[1] . '</A>';
+		$sx .= '<TD align="center">' . $link9 . $api[0] . '</A>';
+		$sx .= '<TD align="center">' . $link8 . $api[8] . '</A>';
+		$sx .= '<TD align="center">' . $link0 . $api[2] . '</A>';
+		$sx .= '<TD align="center">' . $link1 . $api[1] . '</A>';
 
-		$sx .= '<TD class="tabela01" align="center">' . $link5 . $api[5] . '</A>';
-		$sx .= '<TD class="tabela01" align="center">' . $link6 . $api[6] . '</A>';
-		$sx .= '<TD class="tabela01" align="center">' . $link7 . $api[7] . '</A>';
+		$sx .= '<TD align="center">' . $link5 . $api[5] . '</A>';
+		$sx .= '<TD align="center">' . $link6 . $api[6] . '</A>';
+		$sx .= '<TD align="center">' . $link7 . $api[7] . '</A>';
 
 		$sx .= '</table>';
 		return ($sx);
@@ -1324,10 +1463,8 @@ class captacao {
 
 	function cp() {
 		global $dd;
-		//$sql = "alter table ".$this->tabela." add column ca_escola char(7) ";
-		//$rlt = db_query($sql);
-		$sql = "update " . $this -> tabela . " set ca_professor = '00000000' where ca_protocolo = '0000605' ";
-		$rlt = db_query($sql);
+
+		$this->atualiza_instituicoes_tabela();
 
 		$this -> atualiza_vigencia();
 		$op = ' : ';
@@ -1435,9 +1572,9 @@ class captacao {
 
 		array_push($cp, array('$C', 'ca_desmembramento', 'Desmembramento de Projeto de Coordenação Institucional (Recursos para infraestrutura, entre outros)', False, True));
 		$ag .= ' : ';
-		$ag .= '&A:Orgão Governamental (repasse de recursos via or. Gov. ou Fomente)';
+		$ag .= '&A:Orgão Governamental (repasse de recursos via or. Gov. ou Fomento)';
 		$ag .= '&E:Empresa';
-		$ag .= '&G:Orgão de Fomento (repasse de recursos via or. Gov. ou Fomente)';
+		$ag .= '&G:Orgão de Fomento (repasse de recursos via or. Gov. ou Fomento)';
 
 		$ag .= '&B:Orgão Governamental (Internacional)';
 		$ag .= '&F:Empresa  (Internacional)';

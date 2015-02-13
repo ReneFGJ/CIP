@@ -29,7 +29,9 @@ require($include.'sisdoc_debug.php');
 	
 	if ($order == 0) { $order  = $cdf[1]; }
 	
-	echo '<TABLE width="'.$tab_max.'" align="center"><TR><TD>';
+	$tab_max = '100%';
+	
+	echo '<TABLE width="100%" align="center"><TR><TD>';
 	require($include.'sisdoc_row.php');	
 	echo '</table>';	
 

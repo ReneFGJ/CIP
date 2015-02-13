@@ -7,9 +7,17 @@ require($include."sisdoc_email.php");
 require($include."cp2_gravar.php");
 require("_email.php");
 
+require("_class/_class_users.php");
+
 echo $hd->menu();
 echo '<div id="conteudo">';
 echo $hd->main_content('Comunicação Pareceristas');
+
+if ($dd[20] == 'DEL')
+	{
+		$sql = "delete from user_fila_envio ";
+		$rlt = db_query($sql);
+	}
 
 	$tps = array();
 	array_push($tps,array('000','Informar a lista de e-mail manualmente'));
@@ -84,7 +92,7 @@ if ($saved > 0)
 		/* */
 			
 		$dx = ' '.$dd[3].';';
-		require("_class/_class_users.php");
+		
 		
 		$titulo = $dd[7];
 		$conteudo = $e4;
@@ -100,6 +108,14 @@ if ($saved > 0)
 	redirecina('comunicacao_enviar.php');
 	}
 echo '<A HREF="parecerista_email_importar.php">Importar e-mail</A>';
+echo '&nbsp;&nbsp;';
+
+$user = new users;
+$tot = $user->email_resumo_enviar();
+if ($tot > 0)
+	{
+		echo '<A HREF="comunicar_leitores.php?dd20=DEL">Cancelar e-mail ('.$tot.')</A>';
+	}
 
 echo '</div>';
 

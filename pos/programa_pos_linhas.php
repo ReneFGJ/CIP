@@ -23,10 +23,10 @@ require($include.'sisdoc_debug.php');
 	
 	/* Não alterar - dados comuns */
 	$label = msg($tabela);
-	$http_edit = $tabela.'_ed.php'; 
-	$http_ver = $tabela.'_detalhe.php'; 
+	$http_edit = 'programa_pos_linhas_ed.php'; 
+	//$http_ver = 'programa_pos_linhas_detalhe.php'; 
+	$http_redirect = 'programa_pos_linhas.php';
 	$editar = True;
-	$http_redirect = $tabela.'.php';
 	$clx->row();
 	$busca = true;
 	$offset = 20;

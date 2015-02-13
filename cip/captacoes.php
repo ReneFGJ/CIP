@@ -34,7 +34,7 @@ array_push($menu,array('Captação de Recursos','Cadastrar novo projeto','captacao
 
 if ($total > 0)
 	{
-	array_push($menu,array('Isenções','Indicar insenções','../atividades.php'));
+	array_push($menu,array('Isenções','Indicar isenções','../atividades.php'));
 	}
 
 if (($total2 > 0) and (date("Ymd") > 20140116))
