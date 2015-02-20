@@ -1,0 +1,45 @@
+	<html>
+	<head>
+	<title>SJR : Scientific Journal Rankings</title>
+	<style>
+	<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+	-->
+	</style>
+	</head>
+	<body>
+	
+		<table class="tabla_datos">
+		<thead>
+			  <tr>
+				<th></th>
+				<th class="mitooltip" onmouseover="Tip('Journal title',OFFSETY,20)">Title</th>
+				<th class="mitooltip" onmouseover="Tip('Type of publication:<ul><li>b: Book</li><li>k: Book Series</li><li>p: Conferences and Proceedings</li><li>j: Journals</li><li>d: Trade Journals</li></ul>',OFFSETY,20)">Type</th>
+				<th>ISSN</th>
+				<th class="mitooltip"  colspan="2"  onmouseover="Tip('SCImago Journal Rank indicator. It is a measure of journal\'s impact,<br /> influence or prestige. It expresses the average number of<br /> weighted citations received in the selected year by the documents<br /> published in the journal in the three previous years',OFFSETY,20)">SJR</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s number of articles (h) that have<br /> received at least h citations over the whole period',OFFSETY,20)">H index</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2013.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (2013)</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2012, 2011 and 2010.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Number of references included in the<br /> journal\'s published articles in 2013',OFFSETY,20)">Total Refs.</th>
+				<th class="mitooltip" onmouseover="Tip('Citations in 2013 received by journal\'s documents<br /> published in 2012, 2011 and 2010',OFFSETY,20)">Total Cites (3years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s citable documents in 2012, 2011 and 2010.<br /> Citable documents include: articles, reviews<br /> and conference papers',OFFSETY,20)">Citable Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Average citation per document in a 2 year period.<br /> This metric is widely used as impact index',OFFSETY,20)">Cites / Doc. (2years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Average amount of references per document in 2013',OFFSETY,20)">Ref. / Doc.</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s Publication Country',OFFSETY,20)">Country</th>
+			  </tr>
+		</thead>
+		<tbody>
+<tr><td>1</td><td>Foot and Ankle Specialist</td><td>j</td><td>="19387636"</td><td>Q1</td><td>0,436</td><td>10</td><td>76</td><td>189</td><td>1.478</td><td>166</td><td>171</td><td>0,86</td><td>19,45</td><td>United Kingdom</td><tr><td>2</td><td>Foot</td><td>j</td><td>="15322963"</td><td>Q1</td><td>0,401</td><td>18</td><td>45</td><td>151</td><td>794</td><td>130</td><td>137</td><td>1,04</td><td>17,64</td><td>United Kingdom</td><tr><td>3</td><td>Journal of the American Podiatric Medical Association</td><td>j</td><td>="87507315"</td><td>Q3</td><td>0,370</td><td>38</td><td>95</td><td>251</td><td>2.054</td><td>237</td><td>232</td><td>0,83</td><td>21,62</td><td>United States</td><tr><td>4</td><td>Diabetic Foot and Ankle</td><td>j</td><td>="2000625X"</td><td>Q3</td><td>0,237</td><td>3</td><td>17</td><td>44</td><td>778</td><td>40</td><td>39</td><td>1,03</td><td>45,76</td><td>Sweden</td><tr><td>5</td><td>Revue du Podologue</td><td>j</td><td>="17667313"</td><td>Q3</td><td>0,123</td><td>2</td><td>22</td><td>137</td><td>67</td><td>3</td><td>102</td><td>0,05</td><td>3,05</td><td>Italy</td><tr><td>6</td><td>Journal of Applied Probability and Statistics</td><td>j</td><td>="19306792"</td><td>Q4</td><td>0,112</td><td>1</td><td>7</td><td>16</td><td>89</td><td>1</td><td>15</td><td>0,07</td><td>12,71</td><td>Pakistan</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+Retrieved from: http://www.scimagojr.com. 
+
+
+</div>
+</div>
+</body>
+</html>

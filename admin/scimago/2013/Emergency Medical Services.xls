@@ -1,0 +1,45 @@
+	<html>
+	<head>
+	<title>SJR : Scientific Journal Rankings</title>
+	<style>
+	<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+	-->
+	</style>
+	</head>
+	<body>
+	
+		<table class="tabla_datos">
+		<thead>
+			  <tr>
+				<th></th>
+				<th class="mitooltip" onmouseover="Tip('Journal title',OFFSETY,20)">Title</th>
+				<th class="mitooltip" onmouseover="Tip('Type of publication:<ul><li>b: Book</li><li>k: Book Series</li><li>p: Conferences and Proceedings</li><li>j: Journals</li><li>d: Trade Journals</li></ul>',OFFSETY,20)">Type</th>
+				<th>ISSN</th>
+				<th class="mitooltip"  colspan="2"  onmouseover="Tip('SCImago Journal Rank indicator. It is a measure of journal\'s impact,<br /> influence or prestige. It expresses the average number of<br /> weighted citations received in the selected year by the documents<br /> published in the journal in the three previous years',OFFSETY,20)">SJR</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s number of articles (h) that have<br /> received at least h citations over the whole period',OFFSETY,20)">H index</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2013.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (2013)</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2012, 2011 and 2010.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Number of references included in the<br /> journal\'s published articles in 2013',OFFSETY,20)">Total Refs.</th>
+				<th class="mitooltip" onmouseover="Tip('Citations in 2013 received by journal\'s documents<br /> published in 2012, 2011 and 2010',OFFSETY,20)">Total Cites (3years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s citable documents in 2012, 2011 and 2010.<br /> Citable documents include: articles, reviews<br /> and conference papers',OFFSETY,20)">Citable Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Average citation per document in a 2 year period.<br /> This metric is widely used as impact index',OFFSETY,20)">Cites / Doc. (2years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Average amount of references per document in 2013',OFFSETY,20)">Ref. / Doc.</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s Publication Country',OFFSETY,20)">Country</th>
+			  </tr>
+		</thead>
+		<tbody>
+<tr><td>1</td><td>Rural and Remote Health</td><td>j</td><td>="14456354"</td><td>Q2</td><td>0,430</td><td>19</td><td>109</td><td>385</td><td>2.854</td><td>399</td><td>332</td><td>1,06</td><td>26,18</td><td>Australia</td><tr><td>2</td><td>Australian Journal of Emergency Management</td><td>j</td><td>="13241540"</td><td>Q4</td><td>0,297</td><td>5</td><td>28</td><td>129</td><td>471</td><td>53</td><td>92</td><td>0,45</td><td>16,82</td><td>Australia</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+Retrieved from: http://www.scimagojr.com. 
+
+
+</div>
+</div>
+</body>
+</html>

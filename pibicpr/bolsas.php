@@ -12,10 +12,10 @@ echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 $menu = array();
 /////////////////////////////////////////////////// MANAGERS
 
-array_push($menu,array(msg('gestao_de_bolsas'),'Bolsas implementadas',''));
-array_push($menu,array(msg('gestao_de_bolsas'),'Resumo','bolsas_01.php'));
-array_push($menu,array(msg('gestao_de_bolsas'),'__Bolsas implementadas','pibic_implementacao_bolsas_relatorio.php'));
-array_push($menu,array(msg('gestao_de_bolsas'),'__Bolsas suspensas','bolsas_indicacao_status.php'));
+array_push($menu,array(msg('gestao_de_bolsas'),'Bolsas implantadas','pibic_rel_bolsa_aluno_implantada.php'));//<--ElizandroLima[@date:06/02/2015] Pagina para o rel_bolsa_aluno_implantada
+array_push($menu,array(msg('gestao_de_bolsas'),'Resumo de bolsas','bolsas_01.php')); 
+array_push($menu,array(msg('gestao_de_bolsas'),'Bolsas implementadas','pibic_implementacao_bolsas_relatorio.php'));
+array_push($menu,array(msg('gestao_de_bolsas'),'Bolsas suspensas','bolsas_indicacao_status.php'));
 
 array_push($menu,array(msg('indicacao_bolsas'),'Indicar Bolsas para Implementação','bolsas_indicacao.php'));
 array_push($menu,array(msg('indicacao_bolsas'),'Status das Bolsas Indicadas','bolsas_indicacao_status.php'));

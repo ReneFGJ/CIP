@@ -11,7 +11,7 @@ echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 
 
 $file = '../messages/msg_index.php';
-if (file_exists($file)) { require($file); }
+if (file_exists($file)) { require($file); } 
 
 require($include."sisdoc_menus.php");
 $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
@@ -47,10 +47,11 @@ array_push($menu,array('Orientadores','Histórico dos orientadores ','ic_professo
 array_push($menu,array('Orientadores','Guia do estudante '.(date("Y")-1).'/'.date("Y"),'ic_guia_do_estudante.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));
 array_push($menu,array('Orientadores','Profissao IC (Renovações) '.(date("Y")-1).'/'.date("Y"),'ic_alunos_ic.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));
 
-
+//array_push($menu,array('Validação','Alunos com duas bolsas','pibic_rel_bolsa_aluno_duplicadas.php'));
+array_push($menu,array('Validação','Alunos com duas bolsas','seleciona_ano.php'));
 
 /////////////////////////////////////////////////// MANAGERS
-$curso = $_SESSION['curso_nome'];
+$curso = $_SESSION['curso_nome'];   
 $cursoc = $_SESSION['curso_codigo'];
 $campus = $_SESSION['campus'];
 if (strlen($campus) == 0)

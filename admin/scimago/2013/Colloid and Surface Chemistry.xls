@@ -1,0 +1,45 @@
+	<html>
+	<head>
+	<title>SJR : Scientific Journal Rankings</title>
+	<style>
+	<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+	-->
+	</style>
+	</head>
+	<body>
+	
+		<table class="tabla_datos">
+		<thead>
+			  <tr>
+				<th></th>
+				<th class="mitooltip" onmouseover="Tip('Journal title',OFFSETY,20)">Title</th>
+				<th class="mitooltip" onmouseover="Tip('Type of publication:<ul><li>b: Book</li><li>k: Book Series</li><li>p: Conferences and Proceedings</li><li>j: Journals</li><li>d: Trade Journals</li></ul>',OFFSETY,20)">Type</th>
+				<th>ISSN</th>
+				<th class="mitooltip"  colspan="2"  onmouseover="Tip('SCImago Journal Rank indicator. It is a measure of journal\'s impact,<br /> influence or prestige. It expresses the average number of<br /> weighted citations received in the selected year by the documents<br /> published in the journal in the three previous years',OFFSETY,20)">SJR</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s number of articles (h) that have<br /> received at least h citations over the whole period',OFFSETY,20)">H index</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2013.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (2013)</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2012, 2011 and 2010.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Number of references included in the<br /> journal\'s published articles in 2013',OFFSETY,20)">Total Refs.</th>
+				<th class="mitooltip" onmouseover="Tip('Citations in 2013 received by journal\'s documents<br /> published in 2012, 2011 and 2010',OFFSETY,20)">Total Cites (3years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s citable documents in 2012, 2011 and 2010.<br /> Citable documents include: articles, reviews<br /> and conference papers',OFFSETY,20)">Citable Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Average citation per document in a 2 year period.<br /> This metric is widely used as impact index',OFFSETY,20)">Cites / Doc. (2years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Average amount of references per document in 2013',OFFSETY,20)">Ref. / Doc.</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s Publication Country',OFFSETY,20)">Country</th>
+			  </tr>
+		</thead>
+		<tbody>
+<tr><td>1</td><td>Journal of the American Chemical Society</td><td>j</td><td>="15205126"</td><td>Q1</td><td>6,317</td><td>377</td><td>2.899</td><td>9.609</td><td>149.476</td><td>109.159</td><td>9.420</td><td>11,57</td><td>51,56</td><td>United States</td><tr><td>2</td><td>Current Opinion in Colloid and Interface Science</td><td>j</td><td>="13590294"</td><td>Q1</td><td>2,493</td><td>91</td><td>60</td><td>187</td><td>4.416</td><td>1.217</td><td>167</td><td>6,67</td><td>73,60</td><td>Netherlands</td><tr><td>3</td><td>Advances in Colloid and Interface Science</td><td>j</td><td>="00018686"</td><td>Q1</td><td>2,474</td><td>108</td><td>54</td><td>223</td><td>5.225</td><td>1.679</td><td>207</td><td>8,88</td><td>96,76</td><td>Netherlands</td><tr><td>4</td><td>Colloids and Surfaces B: Biointerfaces</td><td>j</td><td>="09277765"</td><td>Q1</td><td>1,297</td><td>75</td><td>822</td><td>1.421</td><td>32.401</td><td>6.591</td><td>1.412</td><td>4,43</td><td>39,42</td><td>Netherlands</td><tr><td>5</td><td>Journal of Colloid and Interface Science</td><td>j</td><td>="10957103"</td><td>Q2</td><td>1,252</td><td>139</td><td>916</td><td>2.921</td><td>39.403</td><td>10.886</td><td>2.907</td><td>3,71</td><td>43,02</td><td>United States</td><tr><td>6</td><td>Colloids and Surfaces A: Physicochemical and Engineering Aspects</td><td>j</td><td>="09277757"</td><td>Q2</td><td>0,851</td><td>100</td><td>659</td><td>1.811</td><td>25.941</td><td>4.698</td><td>1.789</td><td>2,43</td><td>39,36</td><td>Netherlands</td><tr><td>7</td><td>Colloid and Polymer Science</td><td>j</td><td>="14351536"</td><td>Q2</td><td>0,800</td><td>62</td><td>339</td><td>623</td><td>13.020</td><td>1.382</td><td>596</td><td>2,36</td><td>38,41</td><td>Germany</td><tr><td>8</td><td>Journal of Microencapsulation</td><td>j</td><td>="14645246"</td><td>Q3</td><td>0,637</td><td>51</td><td>83</td><td>243</td><td>3.244</td><td>470</td><td>242</td><td>2,00</td><td>39,08</td><td>United Kingdom</td><tr><td>9</td><td>Journal of Coatings Technology Research</td><td>j</td><td>="15470091"</td><td>Q3</td><td>0,555</td><td>19</td><td>108</td><td>256</td><td>3.397</td><td>375</td><td>252</td><td>1,47</td><td>31,45</td><td>United States</td><tr><td>10</td><td>International Journal of Cosmetic Science</td><td>j</td><td>="14682494"</td><td>Q3</td><td>0,437</td><td>33</td><td>88</td><td>202</td><td>3.017</td><td>307</td><td>199</td><td>1,56</td><td>34,28</td><td>United Kingdom</td><tr><td>11</td><td>Colloid Journal of the Russian Academy of Sciences: Kolloidnyi Zhurnal</td><td>j</td><td>="16083067"</td><td>Q4</td><td>0,310</td><td>19</td><td>104</td><td>322</td><td>2.768</td><td>200</td><td>322</td><td>0,59</td><td>26,62</td><td>Russian Federation</td><tr><td>12</td><td>Progress in Colloid and Polymer Science</td><td>k</td><td>="0340255X"</td><td>Q4</td><td>0,204</td><td>27</td><td>0</td><td>67</td><td>0</td><td>34</td><td>66</td><td>0,60</td><td>0,00</td><td>Germany</td><tr><td>13</td><td>JCT CoatingsTech</td><td>j</td><td>="15470083"</td><td>Q4</td><td>0,119</td><td>8</td><td>53</td><td>207</td><td>223</td><td>5</td><td>161</td><td>0,05</td><td>4,21</td><td>United States</td><tr><td>14</td><td>International Lubricants and Waxes Meeting 2010</td><td>p</td><td></td><td ></td><td>0,104</td><td>0</td><td>0</td><td>5</td><td>0</td><td>0</td><td>5</td><td>0,00</td><td>0,00</td><td>United States</td><tr><td>15</td><td>Studies in Interface Science</td><td>k</td><td>="13837303"</td><td>Q4</td><td>0,100</td><td>10</td><td>0</td><td>43</td><td>0</td><td>0</td><td>40</td><td>0,00</td><td>0,00</td><td>Netherlands</td><tr><td>16</td><td>American Association of Textile Chemists and Colorists International Conference 2010</td><td>p</td><td></td><td ></td><td>0,100</td><td>1</td><td>0</td><td>52</td><td>0</td><td>0</td><td>51</td><td>0,00</td><td>0,00</td><td>United States</td><tr><td>17</td><td>Proceedings of the ASME/STLE International Joint Tribology Conference 2009, IJTC2009</td><td>p</td><td></td><td ></td><td>0,100</td><td>1</td><td>0</td><td>130</td><td>0</td><td>1</td><td>128</td><td>0,00</td><td>0,00</td><td>United States</td><tr><td>18</td><td>17th International Colloquium Tribology 2010 - Solving Friction and Wear Problems</td><td>p</td><td></td><td ></td><td>0,100</td><td>1</td><td>0</td><td>117</td><td>0</td><td>0</td><td>117</td><td>0,00</td><td>0,00</td><td>United States</td><tr><td>19</td><td>European Corrosion Congress 2011, EUROCORR 2011</td><td>p</td><td></td><td ></td><td>0,100</td><td>1</td><td>0</td><td>118</td><td>0</td><td>1</td><td>118</td><td>0,01</td><td>0,00</td><td>Sweden</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+Retrieved from: http://www.scimagojr.com. 
+
+
+</div>
+</div>
+</body>
+</html>

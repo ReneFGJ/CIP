@@ -18,11 +18,11 @@ $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font:
 
 $menu = array();
 /////////////////////////////////////////////////// MANAGERS
-array_push($menu,array(msg('users'),msg('users_actives'),'admin_user.php')); 
-array_push($menu,array(msg('users'),msg('perifs'),'admin_perfil.php'));
-array_push($menu,array(msg('users'),msg('perfis_association'),'admin_perfil_member.php'));
+array_push($menu,array("Usuários",'Usuários do CIP','admin_user.php')); 
 
-array_push($menu,array(msg('users'),'Lista de usuários por perfil','admin_perfil_lista.php')); 
+array_push($menu,array("Perfil",'Atribuição de perfil ao usuário','admin_perfil_member.php'));
+array_push($menu,array("Perfil",'__Categorias dos perfis do CIP','admin_perfil.php'));
+array_push($menu,array("Relatório",'Usuários por perfil','admin_perfil_lista.php')); 
 
 //array_push($menu,array('Manutenção','Criar Tabelas','create_table.php')); 
 ///////////////////////////////////////////////////// redirecionamento

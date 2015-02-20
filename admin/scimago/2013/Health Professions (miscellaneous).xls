@@ -1,0 +1,45 @@
+	<html>
+	<head>
+	<title>SJR : Scientific Journal Rankings</title>
+	<style>
+	<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+	-->
+	</style>
+	</head>
+	<body>
+	
+		<table class="tabla_datos">
+		<thead>
+			  <tr>
+				<th></th>
+				<th class="mitooltip" onmouseover="Tip('Journal title',OFFSETY,20)">Title</th>
+				<th class="mitooltip" onmouseover="Tip('Type of publication:<ul><li>b: Book</li><li>k: Book Series</li><li>p: Conferences and Proceedings</li><li>j: Journals</li><li>d: Trade Journals</li></ul>',OFFSETY,20)">Type</th>
+				<th>ISSN</th>
+				<th class="mitooltip"  colspan="2"  onmouseover="Tip('SCImago Journal Rank indicator. It is a measure of journal\'s impact,<br /> influence or prestige. It expresses the average number of<br /> weighted citations received in the selected year by the documents<br /> published in the journal in the three previous years',OFFSETY,20)">SJR</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s number of articles (h) that have<br /> received at least h citations over the whole period',OFFSETY,20)">H index</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2013.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (2013)</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2012, 2011 and 2010.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Number of references included in the<br /> journal\'s published articles in 2013',OFFSETY,20)">Total Refs.</th>
+				<th class="mitooltip" onmouseover="Tip('Citations in 2013 received by journal\'s documents<br /> published in 2012, 2011 and 2010',OFFSETY,20)">Total Cites (3years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s citable documents in 2012, 2011 and 2010.<br /> Citable documents include: articles, reviews<br /> and conference papers',OFFSETY,20)">Citable Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Average citation per document in a 2 year period.<br /> This metric is widely used as impact index',OFFSETY,20)">Cites / Doc. (2years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Average amount of references per document in 2013',OFFSETY,20)">Ref. / Doc.</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s Publication Country',OFFSETY,20)">Country</th>
+			  </tr>
+		</thead>
+		<tbody>
+<tr><td>1</td><td>Journal of Learning Disabilities</td><td>j</td><td>="00222194"</td><td>Q1</td><td>1,448</td><td>49</td><td>46</td><td>136</td><td>2.580</td><td>342</td><td>130</td><td>2,29</td><td>56,09</td><td>United States</td><tr><td>2</td><td>Prosthetics and Orthotics International</td><td>j</td><td>="03093646"</td><td>Q1</td><td>1,061</td><td>33</td><td>69</td><td>166</td><td>1.804</td><td>237</td><td>150</td><td>1,18</td><td>26,14</td><td>United Kingdom</td><tr><td>3</td><td>Diabetes Educator</td><td>j</td><td>="15546063"</td><td>Q1</td><td>0,813</td><td>45</td><td>69</td><td>210</td><td>2.051</td><td>431</td><td>186</td><td>2,01</td><td>29,72</td><td>United States</td><tr><td>4</td><td>European Journal of Special Needs Education</td><td>j</td><td>="1469591X"</td><td>Q1</td><td>0,721</td><td>23</td><td>34</td><td>104</td><td>1.368</td><td>132</td><td>99</td><td>1,04</td><td>40,24</td><td>United States</td><tr><td>5</td><td>Learning Disability Quarterly</td><td>j</td><td>="07319487"</td><td>Q1</td><td>0,684</td><td>28</td><td>21</td><td>61</td><td>923</td><td>70</td><td>52</td><td>1,07</td><td>43,95</td><td>United States</td><tr><td>6</td><td>Health Care Management Science</td><td>j</td><td>="15729389"</td><td>Q1</td><td>0,663</td><td>33</td><td>49</td><td>95</td><td>1.896</td><td>135</td><td>91</td><td>1,40</td><td>38,69</td><td>Netherlands</td><tr><td>7</td><td>Research and Practice for Persons with Severe Disabilities</td><td>j</td><td>="15407969"</td><td>Q1</td><td>0,576</td><td>28</td><td>18</td><td>59</td><td>540</td><td>48</td><td>50</td><td>1,03</td><td>30,00</td><td>United States</td><tr><td>8</td><td>Psychiatric Rehabilitation Journal</td><td>j</td><td>="1095158X"</td><td>Q2</td><td>0,559</td><td>42</td><td>46</td><td>155</td><td>1.251</td><td>178</td><td>139</td><td>1,08</td><td>27,20</td><td>United States</td><tr><td>9</td><td>Assessment for Effective Intervention</td><td>j</td><td>="15345084"</td><td>Q2</td><td>0,488</td><td>6</td><td>23</td><td>75</td><td>880</td><td>54</td><td>71</td><td>0,50</td><td>38,26</td><td>United States</td><tr><td>10</td><td>Disability and Society</td><td>j</td><td>="13600508"</td><td>Q2</td><td>0,467</td><td>40</td><td>110</td><td>193</td><td>3.467</td><td>197</td><td>181</td><td>1,03</td><td>31,52</td><td>United Kingdom</td><tr><td>11</td><td>Journal of Aggression, Maltreatment and Trauma</td><td>j</td><td>="1545083X"</td><td>Q2</td><td>0,451</td><td>23</td><td>66</td><td>149</td><td>2.898</td><td>153</td><td>145</td><td>0,72</td><td>43,91</td><td>United Kingdom</td><tr><td>12</td><td>Journal of Intellectual Disabilities</td><td>j</td><td>="17446309"</td><td>Q2</td><td>0,447</td><td>41</td><td>31</td><td>76</td><td>1.024</td><td>55</td><td>65</td><td>0,70</td><td>33,03</td><td>United Kingdom</td><tr><td>13</td><td>Health Care for Women International</td><td>j</td><td>="10964665"</td><td>Q2</td><td>0,387</td><td>33</td><td>104</td><td>249</td><td>3.791</td><td>182</td><td>198</td><td>0,80</td><td>36,45</td><td>United Kingdom</td><tr><td>14</td><td>Journal of Extra-Corporeal Technology</td><td>j</td><td>="00221058"</td><td>Q3</td><td>0,363</td><td>23</td><td>46</td><td>163</td><td>739</td><td>103</td><td>135</td><td>0,68</td><td>16,07</td><td>United States</td><tr><td>15</td><td>Australian Journal of Emergency Management</td><td>j</td><td>="13241540"</td><td>Q3</td><td>0,297</td><td>5</td><td>28</td><td>129</td><td>471</td><td>53</td><td>92</td><td>0,45</td><td>16,82</td><td>Australia</td><tr><td>16</td><td>International Journal of Disability, Development and Education</td><td>j</td><td>="1465346X"</td><td>Q3</td><td>0,286</td><td>18</td><td>29</td><td>86</td><td>1.019</td><td>56</td><td>76</td><td>0,51</td><td>35,14</td><td>United Kingdom</td><tr><td>17</td><td>Arts in Psychotherapy</td><td>j</td><td>="18735878"</td><td>Q3</td><td>0,280</td><td>16</td><td>61</td><td>153</td><td>2.517</td><td>123</td><td>150</td><td>0,75</td><td>41,26</td><td>United Kingdom</td><tr><td>18</td><td>Health Marketing Quarterly</td><td>j</td><td>="15450864"</td><td>Q3</td><td>0,276</td><td>17</td><td>25</td><td>67</td><td>930</td><td>38</td><td>67</td><td>0,51</td><td>37,20</td><td>United Kingdom</td><tr><td>19</td><td>Journal of Visual Communication in Medicine</td><td>j</td><td>="17453062"</td><td>Q3</td><td>0,198</td><td>8</td><td>28</td><td>132</td><td>183</td><td>18</td><td>106</td><td>0,13</td><td>6,54</td><td>United Kingdom</td><tr><td>20</td><td>International Journal of Therapeutic Massage and Bodywork: Research, Education, and Practice</td><td>j</td><td>="1916257X"</td><td>Q3</td><td>0,189</td><td>5</td><td>14</td><td>29</td><td>344</td><td>14</td><td>23</td><td>0,60</td><td>24,57</td><td>Canada</td><tr><td>21</td><td>Journal of Dementia Care</td><td>j</td><td>="13518372"</td><td>Q4</td><td>0,156</td><td>9</td><td>66</td><td>211</td><td>441</td><td>12</td><td>163</td><td>0,03</td><td>6,68</td><td>United Kingdom</td><tr><td>22</td><td>Therapeutic Communities: the International Journal for Therapeutic and Supportive Organizations</td><td>j</td><td>="09641866"</td><td>Q4</td><td>0,149</td><td>10</td><td>14</td><td>57</td><td>406</td><td>19</td><td>50</td><td>0,13</td><td>29,00</td><td>United Kingdom</td><tr><td>23</td><td>Activities, Adaptation and Aging</td><td>j</td><td>="01924788"</td><td>Q4</td><td>0,146</td><td>7</td><td>18</td><td>62</td><td>530</td><td>16</td><td>59</td><td>0,23</td><td>29,44</td><td>United States</td><tr><td>24</td><td>Social Development Issues</td><td>j</td><td>="01471473"</td><td>Q4</td><td>0,123</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0,00</td><td>0,00</td><td>United States</td><tr><td>25</td><td>Canadian Journal of Respiratory Therapy</td><td>j</td><td>="12059838"</td><td>Q4</td><td>0,117</td><td>3</td><td>14</td><td>80</td><td>153</td><td>7</td><td>56</td><td>0,16</td><td>10,93</td><td>Canada</td><tr><td>26</td><td>Behavioral Healthcare</td><td>j</td><td>="19317093"</td><td>Q4</td><td>0,101</td><td>5</td><td>142</td><td>426</td><td>17</td><td>11</td><td>376</td><td>0,03</td><td>0,12</td><td>United States</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+Retrieved from: http://www.scimagojr.com. 
+
+
+</div>
+</div>
+</body>
+</html>

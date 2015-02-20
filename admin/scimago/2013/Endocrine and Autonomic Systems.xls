@@ -1,0 +1,45 @@
+	<html>
+	<head>
+	<title>SJR : Scientific Journal Rankings</title>
+	<style>
+	<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+	-->
+	</style>
+	</head>
+	<body>
+	
+		<table class="tabla_datos">
+		<thead>
+			  <tr>
+				<th></th>
+				<th class="mitooltip" onmouseover="Tip('Journal title',OFFSETY,20)">Title</th>
+				<th class="mitooltip" onmouseover="Tip('Type of publication:<ul><li>b: Book</li><li>k: Book Series</li><li>p: Conferences and Proceedings</li><li>j: Journals</li><li>d: Trade Journals</li></ul>',OFFSETY,20)">Type</th>
+				<th>ISSN</th>
+				<th class="mitooltip"  colspan="2"  onmouseover="Tip('SCImago Journal Rank indicator. It is a measure of journal\'s impact,<br /> influence or prestige. It expresses the average number of<br /> weighted citations received in the selected year by the documents<br /> published in the journal in the three previous years',OFFSETY,20)">SJR</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s number of articles (h) that have<br /> received at least h citations over the whole period',OFFSETY,20)">H index</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2013.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (2013)</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s published articles in 2012, 2011 and 2010.<br /> All type of documents are considered',OFFSETY,20)">Total Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Number of references included in the<br /> journal\'s published articles in 2013',OFFSETY,20)">Total Refs.</th>
+				<th class="mitooltip" onmouseover="Tip('Citations in 2013 received by journal\'s documents<br /> published in 2012, 2011 and 2010',OFFSETY,20)">Total Cites (3years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Journal\'s citable documents in 2012, 2011 and 2010.<br /> Citable documents include: articles, reviews<br /> and conference papers',OFFSETY,20)">Citable Docs. (3years)</th>
+				<th class="mitooltip" onmouseover="Tip('Average citation per document in a 2 year period.<br /> This metric is widely used as impact index',OFFSETY,20)">Cites / Doc. (2years)</th> 
+				<th class="mitooltip" onmouseover="Tip('Average amount of references per document in 2013',OFFSETY,20)">Ref. / Doc.</th>
+				<th class="mitooltip" onmouseover="Tip('Journal\'s Publication Country',OFFSETY,20)">Country</th>
+			  </tr>
+		</thead>
+		<tbody>
+<tr><td>1</td><td>Frontiers in Neuroendocrinology</td><td>j</td><td>="10956808"</td><td>Q1</td><td>3,632</td><td>87</td><td>27</td><td>103</td><td>4.684</td><td>884</td><td>96</td><td>8,18</td><td>173,48</td><td>United States</td><tr><td>2</td><td>Brain, Behavior, and Immunity</td><td>j</td><td>="10902139"</td><td>Q1</td><td>2,967</td><td>81</td><td>223</td><td>544</td><td>12.450</td><td>3.160</td><td>494</td><td>6,32</td><td>55,83</td><td>United States</td><tr><td>3</td><td>Psychoneuroendocrinology</td><td>j</td><td>="03064530"</td><td>Q1</td><td>2,603</td><td>107</td><td>329</td><td>553</td><td>17.953</td><td>3.129</td><td>532</td><td>5,69</td><td>54,57</td><td>United Kingdom</td><tr><td>4</td><td>Hormones and Behavior</td><td>j</td><td>="10956867"</td><td>Q1</td><td>2,064</td><td>94</td><td>205</td><td>541</td><td>15.941</td><td>2.438</td><td>528</td><td>4,66</td><td>77,76</td><td>United States</td><tr><td>5</td><td>Neurogastroenterology and Motility</td><td>j</td><td>="13652982"</td><td>Q1</td><td>1,706</td><td>65</td><td>221</td><td>628</td><td>8.528</td><td>2.148</td><td>589</td><td>3,68</td><td>38,59</td><td>United Kingdom</td><tr><td>6</td><td>Hormones and Cancer</td><td>j</td><td>="18688500"</td><td>Q1</td><td>1,604</td><td>11</td><td>31</td><td>104</td><td>1.585</td><td>325</td><td>91</td><td>3,52</td><td>51,13</td><td>United States</td><tr><td>7</td><td>Journal of Neuroendocrinology</td><td>j</td><td>="09538194"</td><td>Q2</td><td>1,417</td><td>83</td><td>128</td><td>431</td><td>8.504</td><td>1.571</td><td>408</td><td>3,87</td><td>66,44</td><td>United Kingdom</td><tr><td>8</td><td>Neuroendocrinology</td><td>j</td><td>="14230194"</td><td>Q2</td><td>1,399</td><td>73</td><td>71</td><td>207</td><td>3.339</td><td>917</td><td>200</td><td>5,25</td><td>47,03</td><td>Switzerland</td><tr><td>9</td><td>Stress: the International Journal on Biology of Stress</td><td>j</td><td>="16078888"</td><td>Q2</td><td>1,315</td><td>51</td><td>77</td><td>196</td><td>3.633</td><td>650</td><td>195</td><td>3,49</td><td>47,18</td><td>United Kingdom</td><tr><td>10</td><td>Neuropeptides</td><td>j</td><td>="01434179"</td><td>Q2</td><td>0,958</td><td>51</td><td>63</td><td>168</td><td>3.862</td><td>437</td><td>164</td><td>2,79</td><td>61,30</td><td>United States</td><tr><td>11</td><td>International Journal of Endocrinology</td><td>j</td><td>="16878345"</td><td>Q2</td><td>0,696</td><td>15</td><td>221</td><td>221</td><td>10.904</td><td>464</td><td>215</td><td>1,79</td><td>49,34</td><td>United States</td><tr><td>12</td><td>Endocrine Development</td><td>j</td><td>="16622979"</td><td>Q3</td><td>0,679</td><td>22</td><td>33</td><td>90</td><td>1.172</td><td>180</td><td>82</td><td>1,27</td><td>35,52</td><td>Switzerland</td><tr><td>13</td><td>NeuroImmunoModulation</td><td>j</td><td>="14230216"</td><td>Q3</td><td>0,664</td><td>42</td><td>49</td><td>154</td><td>1.790</td><td>269</td><td>148</td><td>1,61</td><td>36,53</td><td>Switzerland</td><tr><td>14</td><td>Autonomic Neuroscience: Basic and Clinical</td><td>j</td><td>="18727484"</td><td>Q3</td><td>0,658</td><td>58</td><td>128</td><td>374</td><td>5.238</td><td>642</td><td>350</td><td>1,36</td><td>40,92</td><td>Netherlands</td><tr><td>15</td><td>Thyroid Research</td><td>j</td><td>="17566614"</td><td>Q3</td><td>0,651</td><td>7</td><td>25</td><td>56</td><td>746</td><td>88</td><td>55</td><td>1,47</td><td>29,84</td><td>United Kingdom</td><tr><td>16</td><td>Clinical Autonomic Research</td><td>j</td><td>="16191560"</td><td>Q3</td><td>0,581</td><td>42</td><td>43</td><td>135</td><td>1.039</td><td>253</td><td>128</td><td>2,18</td><td>24,16</td><td>Germany</td><tr><td>17</td><td>Journal of Circadian Rhythms</td><td>j</td><td>="17403391"</td><td>Q3</td><td>0,577</td><td>18</td><td>12</td><td>29</td><td>475</td><td>68</td><td>28</td><td>1,94</td><td>39,58</td><td>United Kingdom</td><tr><td>18</td><td>Journal of Neuroscience Nursing</td><td>j</td><td>="08880395"</td><td>Q3</td><td>0,432</td><td>27</td><td>63</td><td>170</td><td>1.708</td><td>175</td><td>150</td><td>0,93</td><td>27,11</td><td>United States</td><tr><td>19</td><td>Neuroendocrinology Letters</td><td>j</td><td>="0172780X"</td><td>Q4</td><td>0,412</td><td>44</td><td>125</td><td>503</td><td>4.632</td><td>540</td><td>482</td><td>1,00</td><td>37,06</td><td>Sweden</td><tr><td>20</td><td>Open Neuroendocrinology Journal</td><td>j</td><td>="18765289"</td><td>Q4</td><td>0,176</td><td>2</td><td>0</td><td>18</td><td>0</td><td>10</td><td>17</td><td>0,59</td><td>0,00</td><td>United States</td><tr><td>21</td><td>Acta Endocrinology</td><td>j</td><td>="18410987"</td><td>Q4</td><td>0,138</td><td>6</td><td>74</td><td>193</td><td>1.869</td><td>47</td><td>164</td><td>0,25</td><td>25,26</td><td>Romania</td><tr><td>22</td><td>Advances in Neuroimmune Biology</td><td>j</td><td>="18789498"</td><td>Q4</td><td>0,132</td><td>3</td><td>28</td><td>63</td><td>2.615</td><td>18</td><td>59</td><td>0,31</td><td>93,39</td><td>Netherlands</td><tr><td>23</td><td>European Endocrinology</td><td>j</td><td>="17583772"</td><td>Q4</td><td>0,108</td><td>2</td><td>31</td><td>49</td><td>1.806</td><td>6</td><td>45</td><td>0,13</td><td>58,26</td><td>United Kingdom</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+Retrieved from: http://www.scimagojr.com. 
+
+
+</div>
+</div>
+</body>
+</html>
