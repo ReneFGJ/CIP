@@ -1822,65 +1822,64 @@ class parecerista
 		function banco_professores_avaliadores()
 			{
 				
-				$sql = "select  pp_cracha, 
-								pp_nome,
-								pp_centro,								
-								CASE pp_titulacao 
-									 WHEN '002' THEN 'Dr.' 
-									 WHEN '003' THEN 'Dra.' 
-									 WHEN '006' THEN 'PHD' 
-								ELSE 'pp_titulacao' 
-								END as titulacao, 
-								pp_escola, 
-								pp_curso, 
-								pp_carga_semanal,
-								pp_avaliador																				
+				$sql = "select  *																				
 						from pibic_professor
 						left join apoio_titulacao on pp_titulacao = ap_tit_codigo
-						left join centro on centro_codigo = pp_centro
+						left join centro on centro_codigo = pp_escola
+						left join pareceristas_area on pa_parecerista = pp_cracha 
+						left join ajax_areadoconhecimento on pa_area = a_codigo
 						where ap_tit_codigo in ('003','002','006')
 						and pp_update = '".date("Y")."'
 						and pp_ativo = '1'
-						
-						group by	pp_cracha, 
-									pp_nome,
-									pp_centro,	
-									titulacao,
-									pp_escola, 
-									pp_curso, 
-									pp_ativo, 
-									pp_ss,
-									pp_avaliador,
-									pp_carga_semanal,
-									pp_update
-				
-					order by pp_escola, pp_nome, pp_curso";
+						order by pp_escola, pp_nome, pp_curso";
 								
 				$rlt = db_query($sql);		
+				
+				/* Categorias */
+				$xescola = '';
+				$xtot = 0;
+				$xtotp = 0;
 								
 				$sx = '<table width="100%">';
 				$sx .= 	'<H2>Banco de Professores Avaliadores da PUCPR</h2>';
-				$sx .= '<TR>
-							<TH>Cracha<TH>Nome<TH>Centro<TH>Titulação<TH>Escola<TH>Curso<TH>Carga Horaria<TH>Avaliador';
+				$sh .= '<TR>
+							<TH>Cracha<TH>Nome<TH>Centro<TH>Titulação<TH>Escola<TH>Curso<TH>Carga Horaria<TH>Área 01<TH>Área 02<TH>Área 03';
 							
 							$id = 0;
 							$xpp = '';
 							
 							while ($line = db_read($rlt)){
+									$escola = $line['pp_escola'];
+									if ($escola != $xescola)
+										{
+											if ($xtotp > 0)
+												{
+													$sx .= '<TR><TD colspan=10 align="right">
+															subtotal de professores '.$xtotp;
+												}
+											/* zera total parcial da escola */
+											$xtotp = 0;
+											
+											$xescola = $escola;
+											$sx .= '<TR>
+														<TD colspan=10>
+														<h3>'.$line['centro_nome'].'</h3>'; 
+											$sx .= $sh;
+										}
 										
 									$pp = $line['pp_cracha'];
-								
+									
+																		
+									
 									if ($pp != $xpp) {
 											
+										/* acrescenta total geral */
 										$id++;
-										$av = $line['pp_avaliador'];
 										
-										if ($av==1) {
-											 $av = '<font color="green">'.msg('ativo').'</font>'; 
-										} else { 
-												$av = '<font color="red">'.msg('inativo').'</font>'; 
-												}
+										/* acrescenta total parcial */
+										$xtotp++;										
 										
+
 									$link = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
 									$sx .= '<TR>';
 									$sx .= 		'<TD class="tabela01" align="center">';
@@ -1895,7 +1894,7 @@ class parecerista
 									$sx .= 		$line['pp_centro'];									
 									
 									$sx .= 		'<TD class="tabela01">';
-									$sx .= 		$line['pp_titulacao'];
+									$sx .= 		$line['ap_tit_titulo'];
 																
 										
 									$sx .= 		'<TD class="tabela01">';
@@ -1904,15 +1903,15 @@ class parecerista
 									$sx .= 		'<TD class="tabela01">';
 									$sx .= 		$line['pp_curso'];									
 									
-									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		'<TD class="tabela01" align="center">';
 									$sx .= 		$line['pp_carga_semanal'];	
 																		
-									$sx .= 		'<TD class="tabela01" align="center">';
-									$sx .= 		$av;
 									$xpp = 		$pp;
 									
-									$sx .= 		'<TD class="tabela01" align="center">';
-									$sx .= 		$line['total'];
+									$sx .= '<TD width="120" class="tabela01">&nbsp</TD>';
+									$sx .= '<TD width="120" class="tabela01">&nbsp</TD>';
+									$sx .= '<TD width="120" class="tabela01">&nbsp</TD>';
+							
 									}
 								if ($line['a_semic']==1)
 								{
@@ -1932,3 +1931,4 @@ class parecerista
 			
 }	
 ?>
+
