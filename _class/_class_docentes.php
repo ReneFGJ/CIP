@@ -766,7 +766,7 @@ class docentes {
 		array_push($cp, array('$S30', 'pp_negocio', 'Negócio', False, True));
 		array_push($cp, array('$S11', 'pp_cracha', 'Cracha', False, True));
 
-		array_push($cp, array('$O N:NÃO&S:SIM', 'pp_ss', 'Stricto Sensu', False, True));
+		array_push($cp, array('$O N:NÃO&S:SIM', 'pp_ss', 'Professor do <I>Stricto Sensu</I>', False, True));
 		array_push($cp, array('$S40', 'pp_centro', 'Campus', False, True));
 
 		array_push($cp, array('$Q ap_tit_titulo:ap_tit_codigo:select * from apoio_titulacao order by ap_tit_titulo', 'pp_titulacao', 'Titulação', False, True));
@@ -1331,7 +1331,7 @@ class docentes {
 		return (0);
 	}
 
-	function sobre_corpo_docente($mod = '', $ss = '') {
+	function sobre_corpo_docente($mod = '', $ss = '') {		
 		$sql = "select * from " . $this -> tabela . "
 					inner join apoio_titulacao on pp_titulacao = ap_tit_codigo
 					where pp_ativo = 1
@@ -1360,6 +1360,8 @@ class docentes {
 
 			$tit = trim($line['ap_tit_titulo']);
 			$id_tit = -1;
+			if ($tit == 'Res. Médica') { $id_tit = 2;
+			}			
 			if ($tit == 'Dr.') { $id_tit = 0;
 			}
 			if ($tit == 'Dra.') { $id_tit = 0;
@@ -1368,7 +1370,11 @@ class docentes {
 			}
 			if ($tit == 'Esp.') { $id_tit = 2;
 			}
+			if ($tit == 'Pós-Grad.') { $id_tit = 2;
+			}
 			if ($tit == 'Grad.') { $id_tit = 3;
+			}
+			if ($tit == 'Graduando') { $id_tit = 3;
 			}
 			if ($tit == 'PhD') { $id_tit = 0;
 			}
@@ -1396,7 +1402,7 @@ class docentes {
 		}
 		$sx = '<CENTER><h2>Sobre o corpo docente</h2>';
 		$sx .= '<table width="704" border=1 class="tabela00">';
-		$sx .= '<TR><TH>Titulação<TH>40 horas<TH>20-39 horas<TH>1-19 horas<TH>Stricto<BR>Sensu<TH>Proporção';
+		$sx .= '<TR><TH>Titulação<TH>40 horas<TH>20-39 horas<TH>1-19 horas<TH>Stricto<BR>Sensu<TH>Total<TH>Proporção';
 		$sx .= '<TR><TD class="tabela01">Dr.';
 		$sx .= '<TD class="tabela01" align="center">' . $rst[0][1];
 		$sx .= '<TD class="tabela01" align="center">' . $rst[0][2];
@@ -1404,6 +1410,7 @@ class docentes {
 		$sx .= '<TD class="tabela01" align="center">' . $rst[0][4];
 		if ($tot > 0) {
 			$drs = $rst[0][1] + $rst[0][2] + $rst[0][3];
+			$sx .= '<TD align="center">' . number_format(($drs),0);
 			$sx .= '<TD align="center">' . number_format(($drs / $tot * 100), 1) . '%';
 		}
 
@@ -1414,6 +1421,7 @@ class docentes {
 		$sx .= '<TD class="tabela01" align="center">' . $rst[1][4];
 		if ($tot > 0) {
 			$drs = $rst[1][1] + $rst[1][2] + $rst[1][3];
+			$sx .= '<TD align="center">' . number_format(($drs),0);
 			$sx .= '<TD align="center">' . number_format(($drs / $tot * 100), 1) . '%';
 		}
 
@@ -1424,6 +1432,7 @@ class docentes {
 		$sx .= '<TD class="tabela01" align="center">' . $rst[2][4];
 		if ($tot > 0) {
 			$drs = $rst[2][1] + $rst[2][2] + $rst[2][3];
+			$sx .= '<TD align="center">' . number_format(($drs),0);
 			$sx .= '<TD align="center">' . number_format(($drs / $tot * 100), 1) . '%';
 		}
 
@@ -1434,6 +1443,7 @@ class docentes {
 		$sx .= '<TD class="tabela01" align="center">' . $rst[3][4];
 		if ($tot > 0) {
 			$drs = $rst[3][1] + $rst[3][2] + $rst[3][3];
+			$sx .= '<TD align="center">' . number_format(($drs),0);
 			$sx .= '<TD align="center">' . number_format(($drs / $tot * 100), 1) . '%';
 		}
 
@@ -1453,7 +1463,8 @@ class docentes {
 		$sx .= '<TD align="center">' . ($tot_msc);
 		$sx .= '<TD align="center">' . ($tot_esp);
 		$sx .= '<TD align="center">' . ($tot_gra);
-		$sx .= '<TD class="tabela01" align="center">-';
+		$sx .= '<TD align="center">' . number_format(($tot),0);
+		$sx .= '<TD class="tabela01" align="center">100%';
 
 		$sx .= '<TR><TD colspan=6 class="tabela01"><I>Total de docentes: ' . $tot;
 		$sx .= '</table>';

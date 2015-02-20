@@ -141,6 +141,8 @@ class parecerista
 		
 		function lista_professores_ic_enviar_email()
 			{
+				
+				
 				global $dd;
 				$sql = "select * from (				
 						select pp_cracha, pp_nome, pp_update, pp_curso, pp_email, pp_email_1 from pibic_bolsa_contempladas 
@@ -200,19 +202,25 @@ class parecerista
 							if (strlen($email2) > 0) { enviaremail($email2,'',$title,$txt); echo ', '.$email2;}
 							$area = '';
 						}					
-				return($sx);	
+				return($sx);
+					
 			}
+
 
 		function lista_professores_ic()
 			{
-				/*				
+				
+			/**
 				$sql = "update pibic_professor set pp_avaliador = 0";
 				$rlt = db_query($sql);
 				$sql = "update pibic_professor set pp_avaliador = 1 
 						where pp_titulacao = '002' and pp_update = '".date("Y")."' ";
 				$rlt = db_query($sql);
 				 */
-						
+			
+			
+			
+	
 				$pb = new pibic_bolsa_contempladas;
 				$sql = "select * from (				
 						select total, avaliador, pp_cracha, pp_nome, pp_update, pp_avaliador, pp_curso from pibic_bolsa_contempladas 
@@ -274,7 +282,15 @@ class parecerista
 				$sx .= '<TR><TD colspan=5>Total '.$id;
 				$sx .= '</table>';
 				return($sx);
-			}
+		
+}
+		
+
+
+
+
+
+		
 		function resumo_avaliadore_externos()
 			{
 				global $jid;
@@ -285,7 +301,7 @@ class parecerista
 				
 				$sql = "select count(*) as total, us_aceito, us_ativo from (
 						select * from ".$this->tabela." 
-						left join instituicao on inst_codigo = us_instituicao
+						left join instituicoes on inst_codigo = us_instituicao
 						where us_journal_id = ".round($jid)."
 						and us_ativo = 1
 						and char_length(trim(us_codigo))=7
@@ -746,7 +762,7 @@ class parecerista
 			global $jid;
 			
 			$sql = "select * from pareceristas  ";
-			$sql .= "inner join instituicao on us_instituicao = inst_codigo ";
+			$sql .= "inner join instituicoes on us_instituicao = inst_codigo ";
 			$sql .= " and us_journal_id = '".intval($jid)."' ";
 			$sql .= " where us_aceito = 9 ";
 			$sql .= " and us_ativo = 1 ";
@@ -809,7 +825,7 @@ class parecerista
 			{
 				global $jid;
 				$sql = "select count(*) as total, us_aceito from pareceristas  ";
-	//			$sql .= "inner join instituicao on us_instituicao = inst_codigo ";
+	//			$sql .= "inner join instituicoes on us_instituicao = inst_codigo ";
 				$sql .= " where us_ativo <> 0 ";
 				$sql .= " and us_journal_id = '".$jid."' 
 							and us_aceito = 9 ";
@@ -1794,6 +1810,82 @@ class parecerista
 					$sql = "update ".$this->tabela." set us_nome_asc = '".UpperCaseSql($line['us_nome'])."' where id_us = ".$line['id_us'];
 					$rltx = db_query($sql);
 				}
-			}			
+			}
+			
+
+							
+	function banco_professores_ic()
+			{
+
+				echo "Aqui o";
+				/**
+				$pb = new pibic_bolsa_contempladas;
+				$sql = "select * from (				
+						select total, avaliador, pp_cracha, pp_nome, pp_update, pp_avaliador, pp_curso from pibic_bolsa_contempladas 
+						inner join pibic_professor on pb_professor = pp_cracha ";
+				$sql .= " left join (
+								select count(*) as total, pp_avaliador as avaliador 
+									from pibic_parecer_".date("Y")." 
+									where pp_tipo = 'SUBMI' and substr(pp_protocolo,1,1) = '1'
+									group by avaliador
+								) as tabela02 on avaliador = pp_cracha ";	
+				$sql .= "					
+						where pp_titulacao = '002' and pp_update = '".date("Y")."' 
+						group by total, pp_cracha, pp_nome, pp_update, pp_curso, pibic_professor.pp_avaliador, avaliador	
+						) as tabela
+						
+				";
+				$sql .= " left join pareceristas_area on pa_parecerista = pp_cracha ";
+				$sql .= " left join ajax_areadoconhecimento on pa_area = a_codigo ";
+				$sql .= " order by pp_nome, a_cnpq ";
+								
+				$rlt = db_query($sql);
+				$sx = '<table width="100%">';
+				$sx .= '<H2>Professores Doutores da PUCPR/IC</h2>';
+				$sx .= '<TR><TH>Cracha<TH>Nome<TH>Curso<TH>Atualizado<TH>Avaliador';
+				$id = 0;
+				$xpp = ''; 
+				while ($line = db_read($rlt))
+					{
+						$pp = $line['pp_cracha'];
+						if ($pp != $xpp)
+						{
+							$id++;
+							$av = $line['pp_avaliador'];
+							if ($av==1) { $av = '<font color="green">'.msg('ativo').'</font>'; }
+							else { $av = '<font color="red">'.msg('inativo').'</font>'; }
+							$link = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
+							$sx .= '<TR>';
+							$sx .= '<TD class="tabela01" align="center">';
+							$sx .= $link;
+							$sx .= $line['pp_cracha'];
+							$sx .= '</A>';
+							$sx .= '<TD class="tabela01">';
+							$sx .= $line['pp_nome'];
+							$sx .= '<TD class="tabela01">';
+							$sx .= $line['pp_curso'];
+							$sx .= '<TD class="tabela01" align="center">';
+							$sx .= $line['pp_update'];
+							$sx .= '<TD class="tabela01" align="center">';
+							$sx .= $av;
+							$xpp = $pp;
+							$sx .= '<TD class="tabela01" align="center">';
+							$sx .= $line['total'];
+						}
+					if ($line['a_semic']==1)
+						{
+						$sx .= '<TR><TD><TD colspan=2>'.$line['a_cnpq'].' - '.$line['a_descricao'];
+						}
+					}
+				$sx .= '<TR><TD colspan=5>Total '.$id;
+				$sx .= '</table>';
+				return($sx);
+		*/		 	 	
+}
+			
+						
 	}
+	
+
+	
 ?>

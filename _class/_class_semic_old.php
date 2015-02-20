@@ -1358,7 +1358,7 @@ class semic
 			$sql = "select * from (";			
 			$sql .= "select trim(trim(psa_p04)||trim(psa_p02)) as codigo, * from pibic_semic_avaliador ";
 			$sql .= " left join  pareceristas  on trim(to_char(id_us,'".strzero(0,7)."')) = psa_p01 ";
-			$sql .= " left join  instituicao  on us_instituicao = inst_codigo ";
+			$sql .= " left join  instituicoes  on us_instituicao = inst_codigo ";
 			$sql .= " left join  pibic_documento on (doc_dd0 = us_codigo) ";
 			$sql .= ") as tabela ";			
 			$sql .= " left join articles on codigo = article_ref ";				
@@ -1538,7 +1538,7 @@ class semic
 			$mostra = $this->mostra;
 			$sql = "select * from pibic_semic_avaliador ";
 			$sql .= " left join  pareceristas  on us_codigo = psa_p01 ";
-			$sql .= " left join  instituicao  on us_instituicao = inst_codigo ";
+			$sql .= " left join  instituicoes  on us_instituicao = inst_codigo ";
 			$sql .= " left join  pibic_documento on (doc_dd0 = us_codigo) and (doc_tipo = 'D2') ";	
 			$sql .= " where (psa_p05 = '$evento' or psa_p05 = '$mostra') ";
 			$sql .= " order by us_nome ";		

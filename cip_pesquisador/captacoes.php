@@ -38,7 +38,7 @@ if ($total4 > 0)
 		array_push($menu,array('Captação de Recursos','<font color="red">Captacações para correção (devolvido pela diretoria)</font>','captacao_list.php?dd9=1'));
 	}
 
-array_push($menu,array('Captação de Recursos','Cadastrar novo projeto','captacao_novo.php'));
+array_push($menu,array('Captação de Recursos','Cadastrar novo projeto','captacao_novo.php?pag=1'));
 
 if ($total > 0)
 	{
