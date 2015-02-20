@@ -141,6 +141,8 @@ class parecerista
 		
 		function lista_professores_ic_enviar_email()
 			{
+				
+				
 				global $dd;
 				$sql = "select * from (				
 						select pp_cracha, pp_nome, pp_update, pp_curso, pp_email, pp_email_1 from pibic_bolsa_contempladas 
@@ -200,19 +202,25 @@ class parecerista
 							if (strlen($email2) > 0) { enviaremail($email2,'',$title,$txt); echo ', '.$email2;}
 							$area = '';
 						}					
-				return($sx);	
+				return($sx);
+					
 			}
+
 
 		function lista_professores_ic()
 			{
-				/*				
+				
+			/**
 				$sql = "update pibic_professor set pp_avaliador = 0";
 				$rlt = db_query($sql);
 				$sql = "update pibic_professor set pp_avaliador = 1 
 						where pp_titulacao = '002' and pp_update = '".date("Y")."' ";
 				$rlt = db_query($sql);
 				 */
-						
+			
+			
+			
+	
 				$pb = new pibic_bolsa_contempladas;
 				$sql = "select * from (				
 						select total, avaliador, pp_cracha, pp_nome, pp_update, pp_avaliador, pp_curso from pibic_bolsa_contempladas 
@@ -274,7 +282,15 @@ class parecerista
 				$sx .= '<TR><TD colspan=5>Total '.$id;
 				$sx .= '</table>';
 				return($sx);
-			}
+		
+}
+		
+
+
+
+
+
+		
 		function resumo_avaliadore_externos()
 			{
 				global $jid;
@@ -1794,6 +1810,124 @@ class parecerista
 					$sql = "update ".$this->tabela." set us_nome_asc = '".UpperCaseSql($line['us_nome'])."' where id_us = ".$line['id_us'];
 					$rltx = db_query($sql);
 				}
-			}			
-	}
+			}
+			
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: banco_professores_ic()
+ *          Metodo retorna lista de professores avaliadores (Dra, Dro e PHD)
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 19/02/2015
+ */ 
+		function banco_professores_avaliadores()
+			{
+				
+				$sql = "select  pp_cracha, 
+								pp_nome,
+								pp_centro,								
+								CASE pp_titulacao 
+									 WHEN '002' THEN 'Dr.' 
+									 WHEN '003' THEN 'Dra.' 
+									 WHEN '006' THEN 'PHD' 
+								ELSE 'pp_titulacao' 
+								END as titulacao, 
+								pp_escola, 
+								pp_curso, 
+								pp_carga_semanal,
+								pp_avaliador																				
+						from pibic_professor
+						left join apoio_titulacao on pp_titulacao = ap_tit_codigo
+						left join centro on centro_codigo = pp_centro
+						where ap_tit_codigo in ('003','002','006')
+						and pp_update = '".date("Y")."'
+						and pp_ativo = '1'
+						group by	pp_cracha, 
+									pp_nome,
+									pp_centro,	
+									titulacao,
+									pp_escola, 
+									pp_curso, 
+									pp_ativo, 
+									pp_ss,
+									pp_avaliador,
+									pp_carga_semanal,
+									pp_update
+				
+					order by pp_escola, pp_nome, pp_curso";
+								
+				$rlt = db_query($sql);		
+								
+				$sx = '<table width="100%">';
+				$sx .= 	'<H2>Banco de Professores Avaliadores da PUCPR</h2>';
+				$sx .= '<TR>
+							<TH>Cracha<TH>Nome<TH>Centro<TH>Titulação<TH>Escola<TH>Curso<TH>Carga Horaria<TH>Avaliador';
+							
+							$id = 0;
+							$xpp = '';
+							
+							while ($line = db_read($rlt)){
+										
+									$pp = $line['pp_cracha'];
+								
+									if ($pp != $xpp) {
+											
+										$id++;
+										$av = $line['pp_avaliador'];
+										
+										if ($av==1) {
+											 $av = '<font color="green">'.msg('ativo').'</font>'; 
+										} else { 
+												$av = '<font color="red">'.msg('inativo').'</font>'; 
+												}
+										
+									$link = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
+									$sx .= '<TR>';
+									$sx .= 		'<TD class="tabela01" align="center">';
+									$sx .= 		$link;
+									$sx .= 		$line['pp_cracha'];
+									$sx .= 		'</A>';
+									
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_nome'];
+									
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_centro'];									
+									
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_titulacao'];
+																
+										
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_escola'];									
+									
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_curso'];									
+									
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_carga_semanal'];	
+																		
+									$sx .= 		'<TD class="tabela01" align="center">';
+									$sx .= 		$av;
+									$xpp = 		$pp;
+									
+									$sx .= 		'<TD class="tabela01" align="center">';
+									$sx .= 		$line['total'];
+									}
+								if ($line['a_semic']==1)
+								{
+								$sx .= '<TR><TD><TD colspan=2>'.$line['a_cnpq'].' - '.$line['a_descricao'];
+								}
+						
+							}
+
+				$sx .= '<TR>
+						<TD colspan=5>Total '.$id;
+				$sx .= '</table>';
+				
+	return($sx);
+}
+//**************************** Fim do metodo ***************************************** 	
+	
+			
+}	
 ?>

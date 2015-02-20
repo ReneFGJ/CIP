@@ -6,7 +6,8 @@ require($include."sisdoc_menus.php");
 $menu = array();
 
 	array_push($menu,array('Avaliadores','Avaliadores PUCPR','professores_ic.php'));
-	array_push($menu,array('Avaliadores','Avaliadores Externos','avaliadores_ic.php')); 
+	array_push($menu,array('Avaliadores','Avaliadores Externos','avaliadores_ic.php'));
+	array_push($menu,array('Avaliadores','Banco de Avaliadores PUCPR','banco_professores_ic.php')); 
 
 	array_push($menu,array('Avaliadores','Avaliadores','')); 
 	array_push($menu,array('Avaliadores','__Resumo','paraceristas_rel_resumo.php'));

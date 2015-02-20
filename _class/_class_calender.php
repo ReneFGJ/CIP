@@ -18,7 +18,7 @@ class calendar
 				$sx = '';
 				if (count($act) > 0)
 				{
-				$sx = '<table width="100%" class="lt1">';
+				$sx =  '<table width="100%" class="lt1">';
 				$sx .= '<TR><TH width="6%" align="center">'.msg('day');
 				$sx .= '<TH width="10%" align="center">'.msg('hour');
 				$sx .= '<TH width="44%">'.msg('description');
@@ -48,11 +48,12 @@ class calendar
 				$mes1 = $mes.'00';
 				$mes2 = $mes.'99';
 				$sql = "select * from ".$this->tabela."
-							inner join ".$this->tabela_type." on cal_cod = calt_codigo  
-					where 
-							cal_date >= '$mes1' and cal_date <= '$mes2'
-							order by cal_date, cal_time
-				";
+					    inner join    ".$this->tabela_type." 
+					    on cal_cod = calt_codigo  
+					    where cal_date >= '$mes1' 
+					    and cal_date <= '$mes2'
+						order by cal_date, cal_time
+				       ";
 				$rlt = db_query($sql);
 				$act = array();
 				while ($line = db_read($rlt))
@@ -70,6 +71,7 @@ class calendar
 			$masc = array('','D','','','SN','','','','');
 			return(True);
 		}
+		
 		function row_type()
 		{
 			global $tabela,$http_edit,$http_edit_para,$cdf,$cdm,$masc,$offset,$order;
@@ -185,6 +187,7 @@ class calendar
 				
 				return($cp);
 			}		
+		
 		function updatex()
 			{
 				global $base;
