@@ -83,7 +83,7 @@ if ($total3 > 0) {
 }
 
 /* CIP */
-//if (($perfil->valid('#ADM#SCR#COO#SPG')))
+if (($perfil->valid('#ADM#SCR#COO#SPG')))
 {
 	array_push($mn, array('Centro Integrado de Pesquisa, Grupos e Linhas de Pesquisa', 'b2', 'cip/', 'CIP', "icone-pesquisa", ''));
 }
@@ -111,12 +111,12 @@ if (!($perfil -> valid('#CNQ'))) {
 	array_push($mn, array('Programa de Iniciação Científica, PIBIC, PIBITI, PIBIC Jr, CsF, Inclusão Social', 'b1', 'pibic/', 'Iniciação Científica', 'icone-iniciacao-cientifica', ''));
 	$cap = "Captação de recursos, isenção de estudantes e bonificações";
 	//if (($perfil->valid('#RES#ADM#SCR#COO')))
-	array_push($mn, array($cap, 'b2', 'cip/captacoes.php', 'Captação de recursos', "icone-pesquisa", $ativ3));
+	array_push($mn, array($cap, 'b2', 'cip_pesquisador/captacoes.php', 'Captação de recursos', "icone-pesquisa", $ativ3));
 }
 
 /* Bonificação de artigos */
 $cap = "Bonificação de artigos A1, A2, Q1 e Excelence Rate";
-array_push($mn, array($cap, 'b2', 'cip/artigos_resumo.php', 'Bonificação de artigos', "icone-pesquisa", $ativ3));
+array_push($mn, array($cap, 'b2', 'cip_pesquisador/artigos_resumo.php', 'Bonificação de artigos', "icone-pesquisa", $ativ3));
 
 if (($perfil -> valid('#ADM#PIB#PIT#SPI'))) { array_push($mn, array('Administração SEMIC e Mostra de Pesquisa', 'b1', 'semic_adm/', 'SEMIC & MOSTRA', 'icone-iniciacao-cientifica', ''));
 }

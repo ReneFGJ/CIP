@@ -1267,7 +1267,9 @@ $sg = '
 				array_push($cp,array('$Q centro_nome:centro_codigo:select * from centro order by centro_nome','pos_escola','Escola/Centro',true,true));
 				
 				array_push($cp,array('$S100','pos_email_1','e-mail da secretaria (1)',False,True));
-				array_push($cp,array('$S100','pos_email_2','e-mail da secretaria (2)',False,True));				
+				array_push($cp,array('$S100','pos_email_2','e-mail da secretaria (2)',False,True));
+				
+				array_push($cp,array('$S60','pos_telefone','Telefone',False,True));				
 
 				array_push($cp,array('$T80:6','pos_descricao',msg('descricao'),False,true));
 
@@ -1291,9 +1293,9 @@ $sg = '
 				
 				
 				array_push($cp,array('${','',msg('area_avaliacao'),False,true));
-				array_push($cp,array('$Q qa_descricao:qa_codigo:select * from qualis_area order by qa_descricao','pos_avaliacao_1',msg('avaliacao_capes'),true,true));
-				array_push($cp,array('$Q qa_descricao:qa_codigo:select * from qualis_area order by qa_descricao','pos_avaliacao_2',msg('avaliacao_alternativa'),true,true));
-				array_push($cp,array('$Q qa_descricao:qa_codigo:select * from qualis_area order by qa_descricao','pos_avaliacao_3',msg('avaliacao_alternativa'),true,true));
+				array_push($cp,array('$Q qa_descricao:qa_codigo:select * from qualis_area order by qa_descricao','pos_avaliacao_1',msg('avaliacao_capes'),False,true));
+				array_push($cp,array('$Q qa_descricao:qa_codigo:select * from qualis_area order by qa_descricao','pos_avaliacao_2',msg('avaliacao_alternativa'),False,true));
+				array_push($cp,array('$Q qa_descricao:qa_codigo:select * from qualis_area order by qa_descricao','pos_avaliacao_3',msg('avaliacao_alternativa'),False,true));
 				
 				array_push($cp,array('$}','','',False,true));
 				
@@ -1337,6 +1339,12 @@ $sg = '
 						$this->area_avaliacao = $line['qa_descricao'];
 						$this->area_avaliacao_codigo = $line['qa_codigo'];
 						$this->coordenador = trim($line['pp_nome']).' ('.trim($line['pp_cracha']).')';
+						$this->telefone_secretaria = trim($line['pos_telefone']);
+						$this->email_secretaria = trim($line['pos_email_1']);
+						if (strlen($line['pos_email_2']) > 0)
+							{
+								$this->email_secretaria .= '; '. trim($line['pos_email_2']);		
+							}  
 					}
 				return(1);
 			}	
@@ -1406,7 +1414,10 @@ $sg = '
 				
 				$sx .= '<TR class="lt1">';
 				$sx .= '<TD colspan=3><B>'.$this->coordenador;
-
+				
+				$sx .= '<TR class="lt1">';
+				$sx .= '<TD colspan=2>e-mail da secretaria: <B>'.$this->email_secretaria.'</B></td>';
+				$sx .= '<TD colspan=2>telefone: <B>'.$this->telefone_secretaria.'</B></td>';
 
 				$sx .= '</table>';
 				$sx .= '</fieldset>';
@@ -1429,10 +1440,10 @@ $sg = '
 			
 			$sql = "select * from ".$this->tabela."_docentes
 				inner join ".$this->tabela." on pdce_programa = pos_codigo 
-				inner join programa_pos_linhas on pdce_programa_linha = posln_codigo
+				inner join programa_pos_linhas on pdce_programa_linha = posln_codigo 
 				left join docentes on pdce_docente = pp_cracha  
 				 where pdce_docente = '".$docente."'
-				 and pdce_ativo = 1
+				 and pdce_ativo = 1 and posln_ativo = 1
 				order by pdce_ano_saida, pp_nome ";
 			$rlt = db_query($sql);
 

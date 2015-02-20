@@ -317,11 +317,12 @@ class artigo
 
 				$sx .= '<TD align="center" class="tabela01">'.$sss[$line['ar_status']];
  
+ 				//print_r($line);
 				
 				if (($editar==1) and ($user->user_cracha == trim($line['ca_professor'])))
 					{
 						$sx .= '<TD class="tabela01">'.$cor;
-						$sx .= '<A HREF="'.http.'/cip/captacao_novo.php?dd0='.$line['id_ca'].'&pag=1&dd90='.checkpost($line['id_ca']).'">';
+						$sx .= '<A HREF="'.http.'cip_pesquisador/artigo_novo.php?dd0='.$line['id_ar'].'&pag=1&dd90='.checkpost($line['id_ar']).'">';
 						$sx .= 'editar';
 						$sx .= '</A>';
 					}

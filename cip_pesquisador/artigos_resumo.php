@@ -29,26 +29,9 @@ $total3 = $ati->total_artigos_validar($professor);
 
 $menu = array();
 /////////////////////////////////////////////////// MANAGERS
-array_push($menu,array('Captação de Recursos','Meus projetos cadastrados','captacao_my.php'));
+array_push($menu,array('Artigos para bonificação','Meus artigos cadastrados','artigos_my.php'));
+array_push($menu,array('Artigos para bonificação','Cadastrar novo artigo','artigo_novo.php'));
 
-/* Trabalhos para Correção */
-$total4 = $ati->total_captacao_correcao($professor);
-if ($total4 > 0)
-	{ 
-		array_push($menu,array('Captação de Recursos','<font color="red">Captacações para correção (devolvido pela diretoria)</font>','captacao_list.php?dd9=1'));
-	}
-
-array_push($menu,array('Captação de Recursos','Cadastrar novo projeto','captacao_novo.php'));
-
-if ($total > 0)
-	{
-	array_push($menu,array('Isenções','Indicar isenções','../atividades.php'));
-	}
-
-if (($total2 > 0) and (date("Ymd") > 20140116))
-	{
-	array_push($menu,array('Captação de Recursos','<B>Validar captações de pesquisadores</B>','captacaoes_validar.php'));
-	}
 if (($total3 > 0) and (date("Ymd") > 20140116))
 	{
 	array_push($menu,array('Bonificação de artigos','<B>Validar bonificação de artigos</B>','artigos_validar.php'));

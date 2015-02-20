@@ -181,7 +181,7 @@ class atividades
 					$sx .= '<TD> Isenção de estudante Pós-Graduação (strico sensu)';
 					$sx .= '<TD>';
 					$sx .= $link;
-					$sx .= '<span class="botao-geral">Indicar Insenção >></span>';
+					$sx .= '<span class="botao-geral">Indicar Isenção >></span>';
 					$sx .= '</A>';	
 				}
 			$this->sx = $sx;

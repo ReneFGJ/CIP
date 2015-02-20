@@ -16,6 +16,7 @@ echo '<H3>Comunicação por e-mail</h3>';
 	array_push($tps,array('004','Docentes Stricto Sensu com orientações IC (recuperar e-mail)'));
 	array_push($tps,array('005','Docentes Stricto Sensu vinculados a programas de Pós-Graduação'));
 	array_push($tps,array('006','Docentes com Doutorado'));
+	array_push($tps,array('007','Todos os docentes'));
 	
 	array_push($tps,array('100','Bolsistas produtividades da Instituição'));
 	

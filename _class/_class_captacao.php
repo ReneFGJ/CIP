@@ -639,7 +639,7 @@ class captacao {
 		return ($sx);
 	}
 
-	function total_captacoes_validar($professor = '') {
+function total_captacoes_validar($professor = '') {
 		global $cap;
 		$sql = "select * from captacao
 					inner join 
@@ -3170,12 +3170,17 @@ class captacao {
 	}
 
 	/* Captação */
-	function mostra_captacao() {
+	function mostra_captacao($id=0) {
 		global $editar;
+		$wh = '';
+		if ($id > 0) { $wh .= ' and (ca_status = 8) '; }
+
 		$sql = "select * from " . $this -> tabela . " 
 					where ca_professor = '" . $this -> docente . "' 
+					$wh
 					order by ca_vigencia_ini_ano desc, ca_vigencia_ini_mes desc, ca_descricao
 				";
+		
 		$rlt = db_query($sql);
 		$sx = '';
 		$sx .= '<fieldset>';
@@ -3198,7 +3203,7 @@ class captacao {
 			$sta = round($line['ca_status']);
 			if (($sta == 0) or ($sta == 8)) { $editar = 1;
 			}
-			$sx .= $this -> mostra_captacao_lista($line);
+			$sx .= $this -> mostra_captacao_lista($line,$editar);
 		}
 		if ($tot == 0) {
 			$sx .= '<TR><TD colspan=9><font class="lt4"><center><font color="orange">sem projetos cadastrado';
@@ -3268,7 +3273,7 @@ class captacao {
 	}
 
 	function mostra_captacao_lista($line, $tipo = 0) {
-		global $editar, $user, $perfil;
+		global $editar, $user, $perfil, $nw;
 
 		$sss = $this -> status();
 		$pa = trim($line['ca_participacao']);
@@ -3332,10 +3337,10 @@ class captacao {
 			} else { $sx .= '<TD class="tabela01">&nbsp;';
 			}
 		}
-
-		if (($editar == 1) and ($user -> user_cracha == trim($line['ca_professor']))) {
+		if (($editar == 1) and ($nw -> user_cracha == trim($line['ca_professor']))) {
 			$sx .= '<TD class="tabela01">' . $cor;
-			$sx .= '<A HREF="' . http . '/cip/captacao_novo.php?dd0=' . $line['id_ca'] . '&pag=1&dd90=' . checkpost($line['id_ca']) . '">';
+			$sx .= '<A HREF="' . http . '/cip_pesquisador/captacao_novo.php?dd0=' . $line['id_ca'] . 
+						'&pag=1&dd90=' . checkpost($line['id_ca']) . '">';
 			$sx .= 'editar';
 			$sx .= '</A>';
 		}

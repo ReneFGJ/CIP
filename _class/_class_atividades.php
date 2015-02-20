@@ -34,6 +34,29 @@ class atividades
 			return($id);
 		}	
 	
+
+	function total_captacao_correcao($professor='')
+		{
+			global $cap;
+			$cap = new captacao;
+			
+			$sql = "select * from captacao
+					where ca_professor = '$professor'
+					and ca_status = 8
+			 ";
+			$rlt = db_query($sql);
+			$id = 0;
+			$sx = '<table>';
+			while ($line = db_read($rlt))
+				{
+					$id++;
+					$sx .= $cap->mostra_captacao_row($line);
+					$ln = $line;					
+				}
+			$sx = '</table>';				
+			return($id);
+		}
+		
 	function total_captacoes_validar($professor='')
 		{
 			global $cap;
