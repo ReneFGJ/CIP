@@ -1821,8 +1821,7 @@ class parecerista
  */ 
 		function banco_professores_avaliadores()
 			{
-				
-				$sql = "select  *																				
+				$sql = "select *																				
 						from pibic_professor
 						left join apoio_titulacao on pp_titulacao = ap_tit_codigo
 						left join centro on centro_codigo = pp_escola
@@ -1842,8 +1841,9 @@ class parecerista
 								
 				$sx = '<table width="100%">';
 				$sx .= 	'<H2>Banco de Professores Avaliadores da PUCPR</h2>';
+				
 				$sh .= '<TR>
-							<TH>Cracha<TH>Nome<TH>Centro<TH>Titulação<TH>Escola<TH>Curso<TH>Carga Horaria<TH>Área 01<TH>Área 02<TH>Área 03';
+							<TH>Cracha<TH>Nome<TH>Campus<TH>Titulação<TH>Curso<TH>Carga Horaria<TH>Área 01<TH>Área 02<TH>Área 03';
 							
 							$id = 0;
 							$xpp = '';
@@ -1855,7 +1855,8 @@ class parecerista
 											if ($xtotp > 0)
 												{
 													$sx .= '<TR><TD colspan=10 align="right">
-															subtotal de professores '.$xtotp;
+															<font color=green>subtotal de professores '.$xtotp;
+													$sx .=	'<hr size="1" style="border: 1px dashed green;">';
 												}
 											/* zera total parcial da escola */
 											$xtotp = 0;
@@ -1869,8 +1870,6 @@ class parecerista
 										
 									$pp = $line['pp_cracha'];
 									
-																		
-									
 									if ($pp != $xpp) {
 											
 										/* acrescenta total geral */
@@ -1878,8 +1877,7 @@ class parecerista
 										
 										/* acrescenta total parcial */
 										$xtotp++;										
-										
-
+									
 									$link = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
 									$sx .= '<TR>';
 									$sx .= 		'<TD class="tabela01" align="center">';
@@ -1890,18 +1888,14 @@ class parecerista
 									$sx .= 		'<TD class="tabela01">';
 									$sx .= 		$line['pp_nome'];
 									
-									$sx .= 		'<TD class="tabela01">';
-									$sx .= 		$line['pp_centro'];									
+									$sx .= 		'<TD class="tabela01"><nobr>';
+									$sx .= 		ucwords(strtolower($line['pp_centro']));// ucwords(strtolower($variavel)) transforma o texto caixa alta para caixa baixa									
 									
-									$sx .= 		'<TD class="tabela01">';
-									$sx .= 		$line['ap_tit_titulo'];
-																
-										
-									$sx .= 		'<TD class="tabela01">';
-									$sx .= 		$line['pp_escola'];									
+									$sx .= 		'<TD class="tabela01" align="center">';
+									$sx .= 		$line['ap_tit_titulo'];								
 									
-									$sx .= 		'<TD class="tabela01">';
-									$sx .= 		$line['pp_curso'];									
+									$sx .= 		'<TD width=30% class="tabela01" style="width:200px;">';
+									$sx .= 		ucwords(strtolower($line['pp_curso']));// ucwords(strtolower($variavel)) transforma o texto caixa alta para caixa baixa									
 									
 									$sx .= 		'<TD class="tabela01" align="center">';
 									$sx .= 		$line['pp_carga_semanal'];	
@@ -1915,13 +1909,14 @@ class parecerista
 									}
 								if ($line['a_semic']==1)
 								{
-								$sx .= '<TR><TD><TD colspan=2>'.$line['a_cnpq'].' - '.$line['a_descricao'];
+									$sx .= '<TR><TD><TD colspan=2><nobr>'.$line['a_cnpq'].' - '.$line['a_descricao'];
 								}
 						
 							}
 
+				
 				$sx .= '<TR>
-						<TD colspan=5>Total '.$id;
+						<TD colspan=9 align="right"><font color=red><b>Total de Professores Avaliadores '.$id;
 				$sx .= '</table>';
 				
 	return($sx);
