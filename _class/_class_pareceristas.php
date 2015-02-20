@@ -1812,80 +1812,125 @@ class parecerista
 				}
 			}
 			
-
-							
-	function banco_professores_ic()
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: banco_professores_ic()
+ *          Metodo retorna lista de professores avaliadores (Dra, Dro e PHD)
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 19/02/2015
+ */ 
+		function banco_professores_avaliadores()
 			{
-
-				echo "Aqui o";
-				/**
-				$pb = new pibic_bolsa_contempladas;
-				$sql = "select * from (				
-						select total, avaliador, pp_cracha, pp_nome, pp_update, pp_avaliador, pp_curso from pibic_bolsa_contempladas 
-						inner join pibic_professor on pb_professor = pp_cracha ";
-				$sql .= " left join (
-								select count(*) as total, pp_avaliador as avaliador 
-									from pibic_parecer_".date("Y")." 
-									where pp_tipo = 'SUBMI' and substr(pp_protocolo,1,1) = '1'
-									group by avaliador
-								) as tabela02 on avaliador = pp_cracha ";	
-				$sql .= "					
-						where pp_titulacao = '002' and pp_update = '".date("Y")."' 
-						group by total, pp_cracha, pp_nome, pp_update, pp_curso, pibic_professor.pp_avaliador, avaliador	
-						) as tabela
+				
+				$sql = "select  pp_cracha, 
+								pp_nome,
+								pp_centro,								
+								CASE pp_titulacao 
+									 WHEN '002' THEN 'Dr.' 
+									 WHEN '003' THEN 'Dra.' 
+									 WHEN '006' THEN 'PHD' 
+								ELSE 'pp_titulacao' 
+								END as titulacao, 
+								pp_escola, 
+								pp_curso, 
+								pp_ativo, 
+								pp_ss,
+								pp_avaliador,
+								pp_carga_semanal,
+								pp_update												
+						from pibic_professor
+						left join apoio_titulacao on pp_titulacao = ap_tit_codigo
+						left join centro on centro_codigo = pp_centro
+						where ap_tit_codigo in ('003','002','006')
+						and pp_update = '".date("Y")."'
+						and pp_ativo = '1'
 						
-				";
-				$sql .= " left join pareceristas_area on pa_parecerista = pp_cracha ";
-				$sql .= " left join ajax_areadoconhecimento on pa_area = a_codigo ";
-				$sql .= " order by pp_nome, a_cnpq ";
+						group by	pp_cracha, 
+									pp_nome,
+									pp_centro,	
+									titulacao,
+									pp_escola, 
+									pp_curso, 
+									pp_ativo, 
+									pp_ss,
+									pp_avaliador,
+									pp_carga_semanal,
+									pp_update
+				
+					order by pp_escola, pp_nome, pp_curso";
 								
-				$rlt = db_query($sql);
+				$rlt = db_query($sql);		
+								
 				$sx = '<table width="100%">';
-				$sx .= '<H2>Professores Doutores da PUCPR/IC</h2>';
-				$sx .= '<TR><TH>Cracha<TH>Nome<TH>Curso<TH>Atualizado<TH>Avaliador';
-				$id = 0;
-				$xpp = ''; 
-				while ($line = db_read($rlt))
-					{
-						$pp = $line['pp_cracha'];
-						if ($pp != $xpp)
-						{
-							$id++;
-							$av = $line['pp_avaliador'];
-							if ($av==1) { $av = '<font color="green">'.msg('ativo').'</font>'; }
-							else { $av = '<font color="red">'.msg('inativo').'</font>'; }
-							$link = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
-							$sx .= '<TR>';
-							$sx .= '<TD class="tabela01" align="center">';
-							$sx .= $link;
-							$sx .= $line['pp_cracha'];
-							$sx .= '</A>';
-							$sx .= '<TD class="tabela01">';
-							$sx .= $line['pp_nome'];
-							$sx .= '<TD class="tabela01">';
-							$sx .= $line['pp_curso'];
-							$sx .= '<TD class="tabela01" align="center">';
-							$sx .= $line['pp_update'];
-							$sx .= '<TD class="tabela01" align="center">';
-							$sx .= $av;
-							$xpp = $pp;
-							$sx .= '<TD class="tabela01" align="center">';
-							$sx .= $line['total'];
-						}
-					if ($line['a_semic']==1)
-						{
-						$sx .= '<TR><TD><TD colspan=2>'.$line['a_cnpq'].' - '.$line['a_descricao'];
-						}
-					}
-				$sx .= '<TR><TD colspan=5>Total '.$id;
-				$sx .= '</table>';
-				return($sx);
-		*/		 	 	
-}
-			
+				$sx .= 	'<H2>Banco de Professores Avaliadores da PUCPR</h2>';
+				$sx .= '<TR>
+							<TH>Cracha<TH>Nome<TH>Carga Horaria<TH>Centro<TH>Titulação<TH>Escola<TH>Curso<TH>Avaliador';
+							
+							$id = 0;
+							$xpp = '';
+							
+							while ($line = db_read($rlt)){
+										
+									$pp = $line['pp_cracha'];
+								
+									if ($pp != $xpp) {
+											
+										$id++;
+										$av = $line['pp_avaliador'];
+										
+										if ($av==1) {
+											 $av = '<font color="green">'.msg('ativo').'</font>'; 
+										} else { 
+												$av = '<font color="red">'.msg('inativo').'</font>'; 
+												}
+										
+									$link = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
+									$sx .= '<TR>';
+									$sx .= 		'<TD class="tabela01" align="center">';
+									$sx .= 		$link;
+									$sx .= 		$line['pp_cracha'];
+									$sx .= 		'</A>';
+									
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_nome'];
+									
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_centro'];									
+									
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_titulacao'];
+									
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_carga_semanal'];									
+										
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_escola'];									
+									
+									$sx .= 		'<TD class="tabela01">';
+									$sx .= 		$line['pp_curso'];									
+									
+									$sx .= 		'<TD class="tabela01" align="center">';
+									$sx .= 		$av;
+									$xpp = 		$pp;
+									
+									$sx .= 		'<TD class="tabela01" align="center">';
+									$sx .= 		$line['total'];
+									}
+								if ($line['a_semic']==1)
+								{
+								$sx .= '<TR><TD><TD colspan=2>'.$line['a_cnpq'].' - '.$line['a_descricao'];
+								}
 						
-	}
-	
+							}
 
+				$sx .= '<TR>
+						<TD colspan=5>Total '.$id;
+				$sx .= '</table>';
+				
+	return($sx);
+}
+//**************************** Fim do metodo ***************************************** 	
 	
+			
+}	
 ?>
