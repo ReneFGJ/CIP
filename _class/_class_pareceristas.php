@@ -1841,6 +1841,7 @@ class parecerista
 						where ap_tit_codigo in ('003','002','006')
 						and pp_update = '".date("Y")."'
 						and pp_ativo = '1'
+						
 						group by	pp_cracha, 
 									pp_nome,
 									pp_centro,	

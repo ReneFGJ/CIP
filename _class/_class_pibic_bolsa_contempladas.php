@@ -5865,7 +5865,7 @@ class pibic_bolsa_contempladas{
                     on pbt_codigo = pb_tipo 
                     where (pb_status <> 'C' 
                        and pb_status <> '@') 
-                    and pb_data_ativacao > 20000000 
+                    and pb_data_ativacao > 19000000 
                     group by pb_tipo, 
                              pbt_descricao, 
                              pbt_edital, 
@@ -5951,7 +5951,7 @@ class pibic_bolsa_contempladas{
 	        $ss .= '</table>';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/**$sql  = "	select count(*) as total, pb_tipo 
+$sql  = "	select count(*) as total, pb_tipo 
 			from pibic_bolsa_contempladas
 			left join pibic_aluno 
 				on pb_aluno = pa_cracha
@@ -5965,9 +5965,9 @@ class pibic_bolsa_contempladas{
 				or pb_tipo  = 'F' 
 				or pb_tipo  = 'A')
 			and pb_status = '@'
-			and pb_data_ativacao < 20000000
+			and pb_data_ativacao < 19000000
 			group by pb_tipo ";
-*/
+/**
         $sql  = "select count(*) as total,  
                                     pb_tipo 
                  from pibic_bolsa_contempladas ";
@@ -5983,9 +5983,9 @@ class pibic_bolsa_contempladas{
                          or pb_tipo = 'F' 
                          or pb_tipo = 'A') ";
         $sql .= " and pb_status = '@' ";
-        $sql .= " and pb_data_ativacao < 20000000 ";
+        $sql .= " and pb_data_ativacao < 19000000 ";
         $sql .= " group by pb_tipo ";
-
+ * */
         
         $rlt = db_query($sql);
         
