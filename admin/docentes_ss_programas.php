@@ -52,7 +52,7 @@ while ($line = db_read($rlt))
 	$sx .= '<TD>'.$line['pp_nome'];
 	$sx .= '<TD>'.$line['pp_ss'];
 	$sx .= '<TD>'.$line['pp_update'];
-	$sx .= '<TD align="center">'.$line['pdce_ano_entrada'];
+	$sx .= '<TD align="center">'.$line['pdce_anol_entrada'];
 	
 	$sqlu .= "update pibic_professor set pp_ss = 'N' 
 					where pp_cracha = '".$line['pp_cracha']."'; ".chr(13);
@@ -60,14 +60,47 @@ while ($line = db_read($rlt))
 }	
 $sx .= '</table>';
 
+/* Regra dos doutorando */
+$sql = "select * from pibic_professor where pp_centro like 'DOUTORAN%' and pp_titulacao <> '011' ";
+$rlt = db_query($sql);
+$sx .= '<table width="100%">';
+$sx .= '<TR><TD colspan="10" class="lt4">Doutorandos com titulação de doutor';
+while ($line = db_read($rlt))
+{
+	$id++;
+	$sx .= '<TR>';
+	$sx .= '<TD>'.$line['pp_nome'];
+	$sx .= '<TD>'.$line['pp_centro'];
+	$sx .= '<TD>'.$line['pp_titulacao'];
+	$sx .= '<TD>'.$line['pp_ss'];
+	$sx .= '<TD>'.$line['pp_update'];
+	$sx .= '<TD align="center">'.$line['pdce_ano_entrada'];
+	
+	$sqlu .= "update pibic_professor set pp_ativo = 1, pp_titulacao = '011', pp_ss = 'N' ,
+					pp_centro = 'DOUTORANDO'
+					where pp_cracha = '".$line['pp_cracha']."'; ".chr(13);
+	
+}	
+$sx .= '</table>';
+/* Grava */
+if (($dd[1]=='1') and (strlen($sqlu) > 0))
+	{
+		$rlt = db_query($sqlu); 
+	}
+
 /*
  * Docentes Demetidos marcados como ativos
  * 
  * 
  * 
  */ 
-$sql = "select * from pibic_professor where pp_ativo = 1 and pp_update <> '".date("Y")."'";
+$sql = "select * from pibic_professor where 
+				(pp_ativo = 1 and pp_update <> '".date("Y")."')
+				or
+				((pp_centro = '' or pp_centro isnull) and (pp_ativo = 1))
+				";
 $sx .= ' ';
+$rlt = db_query($sql);
 $sx .= '<table width="100%">';
 $sx .= '<TR><TD colspan="10" class="lt4">Professores ativos sem atualização';
 while ($line = db_read($rlt))
