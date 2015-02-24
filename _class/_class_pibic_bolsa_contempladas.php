@@ -257,11 +257,13 @@ class pibic_bolsa_contempladas{
 							<TH>Plano
 							<TH>Ano
 							<TH>Professor
+							<TH>CPF
 							<TH>Campus
 							<TH>Carga Horária
 							<TH>Edital
 							<TH>Modalidade
 							<TH>Estudande
+							<TH>CPF (Estud.)
 							<TH>Curso
 							<TH>Colégio (Jr)
 							<TH>Orientador Colégio
@@ -270,8 +272,8 @@ class pibic_bolsa_contempladas{
 							<TH>email alternativo
 							<TH>Titulação
 							<TH>SS
-							<TH>e-mail (est.)
-							<TH>e-mail alt (est.)
+							<TH>e-mail (Estud.)
+							<TH>e-mail alt (Estud.)
 							<TH>Área CNPq
 							<TH>CNPq Descrição	
 							';
@@ -296,6 +298,9 @@ class pibic_bolsa_contempladas{
 						$sx .= $line['pp_nome'];
 										
 						$sx .= '<TD>';
+						$sx .= $line['pp_cpf'];
+
+						$sx .= '<TD>';
 						$sx .= $line['pp_centro'];
 						
 						$sx .= '<TD>';
@@ -313,6 +318,9 @@ class pibic_bolsa_contempladas{
 						$sx .= '<TD>';
 						$sx .= $line['pa_nome'];
 							
+						$sx .= '<TD>';
+						$sx .= $line['pa_cpf'];
+
 						$sx .= '<TD>';
 						$sx .= $line['pa_curso'];
 
@@ -1886,7 +1894,6 @@ class pibic_bolsa_contempladas{
 			/* Java script */
 			$sx .= '
 				<script>
-					alert("OLA");
 					function ajax_acao(id)
 						{
 							var obj = "#tl" + id;
@@ -1901,7 +1908,6 @@ class pibic_bolsa_contempladas{
 										$( obj ).html(msg);
 									});
 						}
-					alert("OLA2");
 				</script>
 			';
 			return($sx);
