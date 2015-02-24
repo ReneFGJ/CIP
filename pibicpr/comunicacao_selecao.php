@@ -1,5 +1,4 @@
 <?
-echo '-->'.$dd[1];
 if ((substr($dd[1],0,1)=='0') or (substr($dd[1],0,1)=='1'))
 	{
 		$op = $dd[1];
@@ -135,7 +134,7 @@ if ((substr($dd[1],0,1)=='0') or (substr($dd[1],0,1)=='1'))
 		{
 			$sql = "
 				select pp_email, pp_email_1 from pibic_professor
-					where pp_ativo = 1 and pp_titulacao = '002'
+					where pp_ativo = 1 and pp_titulacao = '002' and pp_update = '".date("Y")."'
 			";
 			$rlt = db_query($sql);
 		}		
