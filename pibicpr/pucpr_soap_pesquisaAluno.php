@@ -16,7 +16,7 @@ if (strlen($secu) == 0) {
 
 /* Habilita consulta */
 $consulta = True;
-$debug = True;
+//$debug = True;
 
 /* Se for enviado dd2=1 forca nova consulta */
 if ($dd[2] == '1') {
@@ -42,7 +42,7 @@ if ($rline = db_read($rrlt)) {
 if ($consulta == true) {
 	/** Chama biblioteca do SOAP */
 	$codigo = $cracha;
-	require("../admin/_pucpr_soap_consultaAluno.php");
+	require ("../admin/_pucpr_soap_consultaAluno.php");
 
 	/* Retorna parametro da consulta */
 	$al_centroAcademico = $result['centroAcademico'];
@@ -57,30 +57,31 @@ if ($consulta == true) {
 	$al_email2 = $result['email2'];
 	$genero = $result['sexo'];
 	$nasc = trim($result['dataNascimento']);
-	echo $nasc;
-	$nasc = substr($nasc,6,4).substr($nasc,3,2).substr($nasc,0,2);
-	
-	
+	$nasc = substr($nasc, 6, 4) . substr($nasc, 3, 2) . substr($nasc, 0, 2);
+
 	/* Correcoes de Centros dentro da Instituicao */
 	if ($al_nomeCurso == 'Biotecnologia') { $al_centroAcademico = 'Centro de Ciências Biológicas e da Saúde - CCBS';
 	}
-	
+
 	/* Se os dados ja existem informa */
+
 	if (trim($cracha) == trim($al_pessoa)) {
-		echo '<TABLE width="600" border="1"><TR><TD><TT>';
-		echo '<BR>Nome.......: <B>' . UpperCase($al_nomeAluno) . '</B>';
-		echo '<BR>Centro.....:' . $al_centroAcademico . '</B>';
-		echo '<BR>Curso......:' . $al_nomeCurso . '</B>';
-		echo '<BR>Telefone(1):' . $al_tel1 . '</B>';
-		echo '<BR>Telefone(2):' . $al_tel2 . '</B>';
+		if ($debug == True) {
+			echo '<TABLE width="600" border="1"><TR><TD><TT>';
+			echo '<BR>Nome.......: <B>' . UpperCase($al_nomeAluno) . '</B>';
+			echo '<BR>Centro.....:' . $al_centroAcademico . '</B>';
+			echo '<BR>Curso......:' . $al_nomeCurso . '</B>';
+			echo '<BR>Telefone(1):' . $al_tel1 . '</B>';
+			echo '<BR>Telefone(2):' . $al_tel2 . '</B>';
 
-		echo '<BR>e-mail.....:' . $al_email1 . '</B>';
-		echo '<BR>e-mail(alt):' . $al_email2 . '</B>';
+			echo '<BR>e-mail.....:' . $al_email1 . '</B>';
+			echo '<BR>e-mail(alt):' . $al_email2 . '</B>';
+
+			echo '<BR>Nascimento.:' . $nasc . '</B>';
+
+			echo '</TD></TR></TABLE>';
+		}
 		
-		echo '<BR>Nascimento.:' . $nasc . '</B>';
-
-		echo '</TD></TR></TABLE>';
-
 		/* Grava dados no banco de dados */
 		$ssql = "select * from pibic_aluno ";
 		$ssql .= " where pa_cracha = '" . $cracha . "' ";
@@ -95,6 +96,7 @@ if ($consulta == true) {
 			$ssql .= "pa_update='" . date("Ymd") . "',";
 			$ssql .= "pa_email='" . $al_email1 . "',";
 			$ssql .= "pa_email_1='" . $al_email2 . "' ";
+			$ssql .= "pa_nasc='" . $nasc . "' ";
 			$ssql .= " where pa_cracha = '" . $cracha . "' ";
 			$rrlt = db_query($ssql);
 			$rst = True;
@@ -108,7 +110,7 @@ if ($consulta == true) {
 			$ssql .= ",pa_email,pa_email_1";
 			$ssql .= ") ";
 			$ssql .= " values ";
-			$ssql .= "('" . UpperCase($al_nomeAluno) . "','" . UpperCaseSQL($al_nomeAluno) . "','',";
+			$ssql .= "('" . UpperCase($al_nomeAluno) . "','" . UpperCaseSQL($al_nomeAluno) . "',$nasc,";
 			$ssql .= "'" . $al_pessoa . "','" . $al_cpf . "','" . $al_centroAcademico . "',";
 			$ssql .= "'" . $al_nomeCurso . "','" . $al_tel1 . "','" . $al_tel2 . "',";
 			$ssql .= "'" . $al_nivelCurso . "','" . date("Ymd") . "'";
@@ -128,9 +130,10 @@ if ($consulta == true) {
 		//		print_r($rline);
 	}
 
-	if ($rst == true) { echo 'consulta realizada com sucesso!';
-		echo '<BR>' . $msg;
-	} else { echo 'erro de consulta';
+	if ($debug == True) {
+		if ($rst == true) { echo 'consulta realizada com sucesso!';
+			echo '<BR>' . $msg;
+		} else { echo 'erro de consulta'; }
 	}
 
 	//	print_r($result);

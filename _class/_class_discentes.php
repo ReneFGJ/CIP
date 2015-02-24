@@ -502,7 +502,7 @@ class discentes
 			if ($rline = db_read($rrlt))
 				{
 				$data = substr($rline['pa_update'],0,6);
-				/* Se j� foi consultado no dia n�o realiza nova consulta */
+				/* Se jefoi consultado no dia n�o realiza nova consulta */
 				if (($data == date("Ym")) and ($force != '1'))
 					{
 					$consulta = False;
@@ -587,71 +587,14 @@ class discentes
 
 	function consulta_pucpr($cracha)
 		{
-			global $secu;
+			global $secu, $debug;
 			require("../pibicpr2/_pucpr_login.php");
 			if ($cracha != '00000000') {
-				require_once('../include/nusoap/nusoap.php'); 
-				/* Objeto de consulta do WebService */
-			$client = new soapclient('https://portalintranet.pucpr.br:8081/servicePibic?wsdl');
-			$client->setCredentials($user, $pass);
-			
-			$err = $client->getError();
-			if ($err) { echo '<h2>Constructor error</h2><pre>' . $err . '</pre>'; } 
-			$param = array('arg0' => $cracha);
-			$result = $client->call('pesquisarPorCodigo', $param,'http://consultas.servicos.apc.br/', '', false, true);
-
-			/* Retorna parametro da consulta */
-			$al_centroAcademico = $result['centroAcademico'];
-			$al_cpf = $result['cpf'];
-			$al_nivelCurso = $result['nivelCurso'];
-			$al_nomeAluno = troca($result['nomeAluno'],"'","`");
-			$al_nomeCurso = troca($result['nomeCurso'],"'","`");
-			$al_pessoa = $result['pessoa'];
-			$al_tel1 = $result['tel1'];
-			$al_tel2 = $result['tel2'];
-			$al_email1  = $result['email1'];
-			$al_email2  = $result['email2'];			
-
-			/* Grava dados no banco de dados */
-			$ssql = "select * from pibic_aluno ";
-			$ssql .= " where pa_cracha = '".$cracha."' ";
-			$rrlt = db_query($ssql);
-			if ($rline = db_read($rrlt))
-				{
-					$ssql = "update ".$this->tabela." set ";
-					$ssql .= "pa_centro='".$al_centroAcademico."',";
-					$ssql .= "pa_curso='".$al_nomeCurso."',";
-					$ssql .= "pa_tel1='".$al_tel1."',";
-					$ssql .= "pa_tel2='".$al_tel2."',";
-					$ssql .= "pa_escolaridade='".$al_nivelCurso."',";
-					$ssql .= "pa_update='".date("Ymd")."',";
-					$ssql .= "pa_email='".$al_email1."',";
-					$ssql .= "pa_email_1='".$al_email2."' ";
-					$ssql .= " where pa_cracha = '".$cracha."' ";
-					$rrlt = db_query($ssql);
-					$rst = True;
-					$msg = 'Atualizado';
-				} else {
-					$ssql = "insert into ".$this->tabela." ";
-					$ssql .= "(pa_nome,pa_nome_asc,pa_nasc,";
-					$ssql .= "pa_cracha,pa_cpf,pa_centro,";
-					$ssql .= "pa_curso,pa_tel1,pa_tel2,";
-					$ssql .= "pa_escolaridade,pa_update ";
-					$ssql .= ",pa_email,pa_email_1";
-					$ssql .= ") ";
-					$ssql .= " values ";
-					$ssql .= "('".UpperCase($al_nomeAluno)."','".UpperCaseSQL($al_nomeAluno)."','',";
-					$ssql .= "'".$al_pessoa."','".$al_cpf."','".$al_centroAcademico."',";
-					$ssql .= "'".$al_nomeCurso."','".$al_tel1 ."','".$al_tel2."',";
-					$ssql .= "'".$al_nivelCurso."','".date("Ymd")."'";
-					$ssql .= ",'".$al_email1."','".$al_email2."'";
-					$ssql .= ")";
-					$rrlt = db_query($ssql);
-					$msg = 'Inserido';
-					$rst = True;
-				}
+			$debug = 0;
+			$reativar = '1';
+			require('../pibicpr/pucpr_soap_pesquisaAluno.php');
+			}			
 			return(1);	
-			}
 		}
 
 	function mostra_dados_pessoais()

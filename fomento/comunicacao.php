@@ -1,79 +1,35 @@
 <?
 require("cab_fomento.php");
-echo '<link rel="stylesheet" href="../css/style_form_001.css" type="text/css" />';
-require($include."sisdoc_windows.php");
-require($include."sisdoc_colunas.php");
-require($include."sisdoc_form2.php");
-require($include."sisdoc_email.php");
-require($include."cp2_gravar.php");
+//require($include.'sisdoc_debug.php');
 require("_email.php");
 
-echo '<H3>Comunicação por e-mail</h3>';
+if (!(function_exists('msg')))
+{ function msg($x) { return($x); } }
 
-	$tps = array();
-	array_push($tps,array('000','Informar a lista de e-mail manualmente'));
-	array_push($tps,array('003','Docentes com orientações IC (recuperar e-mail)'));
-	array_push($tps,array('004','Docentes Stricto Sensu com orientações IC (recuperar e-mail)'));
-	array_push($tps,array('005','Docentes Stricto Sensu vinculados a programas de Pós-Graduação'));
-	array_push($tps,array('006','Docentes com Doutorado'));
-	array_push($tps,array('007','Todos os docentes'));
-	
-	array_push($tps,array('100','Bolsistas produtividades da Instituição'));
-	
-	$op .= ' : ';
-	for ($r=0;$r < count($tps);$r++)
-		{
-			if ($dd[1]==$tps[$r][0]) { $tipo = trim($tps[$r][1]); }
-			$op .= '&'.$tps[$r][0].':'.$tps[$r][1];
-		}
+require("_class_comunicacao.php");
+$cm = new comunicacao;
 
-	$tabela = '';
-	
-	if ((strlen($dd[1]) > 0) and (strlen($dd[3])==0))
-		{
-			$page = '../pibicpr/'.page();
-			$page = troca($page,'.php','_selecao=php');
-			$page = troca($page,'=','.');
-			if ($dd[1] != '000') { require($page); }
-		}
-	
-	$cp = array();
-	if (strlen($dd[1]) > 0)
-		{
-			$estilo = ' class="input_001" ';
-			array_push($cp,array('${','','Destinatários',False,True,''));
-			array_push($cp,array('$H8','','',True,True,''));			
-			array_push($cp,array('$M','','Destinatários: <B>'.$tipo.'</B>',False,True,''));
-			array_push($cp,array('$T60:10','','Lista de e-mail',True,True,''));
-			array_push($cp,array('$M','','Os e-mail deve estar separados por ponto e vírgula (;)',False,True,''));
-			array_push($cp,array('$}','','',False,True,''));
-						
-			array_push($cp,array('${','','Conteúdo do e-mail',False,True,''));			
-			array_push($cp,array('$S200','','Título do e-mail',True,True,''));
-			array_push($cp,array('$T60:10','','Texto para enviar',True,True,''));
-			array_push($cp,array('$O TXT:Texto&HTML:HTML','','Formato',True,True,''));
-			array_push($cp,array('$}','','',False,True,''));
-			
-			array_push($cp,array('$B8','','Enviar mensagem',false,True,''));
-		} else {
-			array_push($cp,array('$H8','','',False,True,''));
-			array_push($cp,array('$O'.$op,'','Informe os destinatários',True,True,''));
-			array_push($cp,array('$H8','','',True,True,''));
-			array_push($cp,array('$B8','','Avançar >>>',false,True,'botao-geral'));		
-		}
+require($include.'_class_form.php');
+$form = new form;
+echo utf8_decode('<h1>ComunicaÃ§Ã£o por e-mail</h1>');
+$cp = $cm->cp();
+$tela = $form->editar($cp,'comunicacao');
 
-	
+if ($form->saved > 0)
+	{
+		$id = $cm->last_id();
+		if ($id > 0)
+			{
+				redirecina("comunicacao_preview.php?dd0=".$id."&dd90=".checkpost($id));
+			} else {
+				echo $tela;
+			}
+				
+	} else {
+		echo $tela;		
+	}
 
-	echo '<TABLE width="940" align="center">';
-	echo '<TR><TD colspan=2>';
-	echo '<H10>'.msg('comunication').'</h10>';
-	echo '<TR><TD>';
-		editar();
-	echo '<TR><TD colspan="2">';
-	echo '</TD></TR>';
-	echo '</TABLE>';	
-		
-$id = 'pdi';
+
 		
 if ($saved > 0)
 	{
@@ -112,7 +68,7 @@ if ($saved > 0)
 require($include."sisdoc_menus.php");
 if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
-	array_push($menu,array('Iniciação Científica','Modelo de Mensagens','comunicacao_modelos.php?dd1=bon'));
+	array_push($menu,array('Iniciaï¿½ï¿½o Cientï¿½fica','Modelo de Mensagens','comunicacao_modelos.php?dd1=bon'));
 	} 
 $tela = menus($menu,"3");
 

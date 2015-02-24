@@ -23,9 +23,7 @@ if (strlen($codigo) > 0) {
 	$result = $client -> call('opPesquisarPorCodigo', $param);
 
 		//$result = $result['DadoAluno'][0];
-	echo '<h1>Total de cursos: ';
-	echo count($result['DadoAluno']);
-	echo '</h1>';
+		
 	$ct = count($result['DadoAluno']);
 	if (($ct > 1) and ($ct < 8))
 		{
