@@ -1,32 +1,31 @@
 <?php
 $include = '../';
-
-require($include."cab_root.php");
-require("../cab_institucional.php");
-require($include.'sisdoc_breadcrumb.php');
+require("../db.php");
 require($include.'sisdoc_data.php');
 require($include.'sisdoc_colunas.php');
 require($include.'sisdoc_windows.php');
 require($include.'sisdoc_debug.php');
+require($include.'sisdoc_breadcrumb.php');
 
-$email_adm = 'cip@pucpr.br';
-$admin_nome = 'Centro Integrado de Pesquisa (CIP)';
+require("../_class/_class_ajax.php");
 
 /* Segurança do Login */
-require_once($include.'sisdoc_security_pucpr.php');
+require($include.'sisdoc_security_pucpr.php');
 $nw = new usuario;
 $sec = $nw->Security();
-require("_email.php");
+
 require("../_class/_class_message.php");
 $file = '../messages/msg_pt_BR.php';
 require($file);
 
+require("../_class/_class_user_perfil.php");
+$perfil = new user_perfil; 
+
+require("../cab_institucional.php");
+
 /* Messages */
-$LANG="pt_BR";
 $file = '../messages/msg_pt_BR.php';
 require($file);
-
-$menu = array();
 
 $menu = array();
 array_push($menu,array(':: Início ::','index.php'));
@@ -42,13 +41,12 @@ array_push($menu,array('Indicadores','indicadores.php'));
 
 require('../_class/_class_header.php');
 $hd = new header;
-echo $hd->mostra('ic');
+echo $hd->mostra_novo('Gestão Iniciação Científica');
 
 if (!($perfil->valid('#ADM#CPI#SPI')))
 	{
 		redirecina("../pibic/");
 		echo 'Acesso Bloqueado!';
 		exit;
-	}
-
+	} 
 ?>

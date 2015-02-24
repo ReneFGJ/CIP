@@ -496,7 +496,7 @@ class fomento {
 		$idioma = trim($this -> line['ed_idioma']);
 
 		if ($idioma == 'us_EN') {
-			$cab = array('fomento_1' => 'Objective', 'fomento_2' => 'Covered costs', 'fomento_3' => 'Eligibility', 'fomento_4' => 'Contact', 'fomento_5' => '#(5)', 'fomento_6' => 'Research topics', 'fomento_7' => '#(7)', 'fomento_8' => '#(8)', 'fomento_9' => '#(9)', 'fomento_10' => '#(10)', 'fomento_11' => 'Submission process', 'fomento_12' => 'Instutional contact', 'deadline1' => 'Deadline for eletronic submission', 'deadline2' => 'Deadline for sending documents', 'deadline3' => 'Previsão dos resultados', 'deadline4' => 'Documents and/or institutional signatures<BR> must be requested within 3 working days before the deadline', 'access1' => 'To access the full call and other relevant information, please click ', 'access2' => 'HERE');
+			$cab = array('fomento_1' => 'Objective', 'fomento_2' => 'Covered costs', 'fomento_3' => 'Eligibility', 'fomento_4' => 'Contact', 'fomento_5' => '#(5)', 'fomento_6' => 'Research topics', 'fomento_7' => '#(7)', 'fomento_8' => '#(8)', 'fomento_9' => '#(9)', 'fomento_10' => '#(10)', 'fomento_11' => 'Submission process', 'fomento_12' => 'Instutional contact', 'deadline1' => 'Deadline for electronic submission', 'deadline2' => 'Deadline for sending documents', 'deadline3' => 'Previsão dos resultados', 'deadline4' => 'Documents and/or institutional signatures<BR> must be requested within 3 working days before the deadline', 'access1' => 'To access the full call and other relevant information, please click ', 'access2' => 'HERE');
 		}
 		for ($r = 1; $r <= 12; $r++) {
 			$vl = trim($this -> line['ed_texto_' . $r]);
@@ -620,6 +620,9 @@ class fomento {
 
 		array_push($cp, array('$D8', 'ed_data_2', 'Deadline (envio da documentação)', False, True));
 		array_push($cp, array('$D8', 'ed_data_3', 'Previsão de divulgação dos resultados', False, True));
+		
+		array_push($cp, array('$O 0:Não&1:Sim', 'ed_fluxo_continuo', 'Fluxo continuo', True, True));		
+		
 		array_push($cp, array('$C1', 'ed_document_require', 'Requer assinatura de documento', False, True));
 
 		array_push($cp, array('$S15', 'ed_login', 'Responsável (LOGIN)', True, True));

@@ -7,7 +7,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
 ini_set('display_errors', 0);
 ini_set('error_reporting', 0);
 $include .= "include/";
-$debug = True;
+$debug = False;
 if($debug == true)
 	{
 	ini_set('display_errors', 1);

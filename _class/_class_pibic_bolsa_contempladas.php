@@ -258,13 +258,13 @@ class pibic_bolsa_contempladas{
 							<TH>Ano
 							<TH>Professor
 							<TH>Campus
+							<TH>Carga Horária
 							<TH>Edital
 							<TH>Modalidade
 							<TH>Estudande
-							<TH>??
 							<TH>Curso
-							<TH>??
-							<TH>??
+							<TH>Colégio (Jr)
+							<TH>Orientador Colégio
 							<TH>Status
 							<TH>email
 							<TH>email alternativo
@@ -294,9 +294,12 @@ class pibic_bolsa_contempladas{
 
 						$sx .= '<TD>';
 						$sx .= $line['pp_nome'];
-						
+										
 						$sx .= '<TD>';
 						$sx .= $line['pp_centro'];
+						
+						$sx .= '<TD>';
+						$sx .= $line['pp_carga_semanal'];
 						
 						$sx .= '<TD>';
 						$sx .= $line['pbt_edital'];
@@ -309,7 +312,7 @@ class pibic_bolsa_contempladas{
 						
 						$sx .= '<TD>';
 						$sx .= $line['pa_nome'];
-						$sx .= '<TD>';
+							
 						$sx .= '<TD>';
 						$sx .= $line['pa_curso'];
 
