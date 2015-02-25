@@ -28,20 +28,22 @@ else
 		exit;
 	}
 
+/////////////////////////////////////////////////// MANAGERS //////////////////////////////////////////////////////////
 $menu = array();
-/////////////////////////////////////////////////// MANAGERS
 //if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
-	array_push($menu,array('PIBIC/PIBITI','Panorama da Pesquisa','pibic_panorama.php'));
+		array_push($menu,array('Acontecendo Agora','Entregas do relatório Parcial','pibic_panorama.php'));
 	} 
 
-///////////////////////////////////////////////////// redirecionamento
+////////////////////////////////////////////////// calendario index/////////////////////////////////////////////////////
 
 	$tela = menus($menu,"3");
 	
 	$mes = date("Ym01");
 	$cals = $cal->actions($mes);
-	array_push($cals,array(date("Ymd"),'Hoje','Hoje','teste','#E0E0E0'));
+	
+	array_push($cals,array(date("Ymd"),'teste','teste','teste','#E0E0E0'));	
+	//array_push($cals,array(date("Ymd"),'teste','Reunião Comitê Gestor','16:30 às 17:30','#E0E0E0'));
 	
 	echo '<table class="tabela00" width="98%" border=1>';
 	echo '<TR><TD class="tabela00" align="center" width="200">';
@@ -60,6 +62,8 @@ $menu = array();
 	echo '<TD>'.$cal->actions_list($cals);
 	
 	echo '<TR><TD class="tabela00" align="center">';
+	
+	array_push($cals,array(date("Ymd"),'teste','teste','teste','#E0E0E0'));
 	
 	$mes = DateAdd('m',1,$mes);
 	$cals = $cal->actions($mes);

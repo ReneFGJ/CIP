@@ -1,0 +1,3 @@
+<?
+require("mensagens.php");
+?>

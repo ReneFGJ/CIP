@@ -1513,7 +1513,7 @@ class projetos {
 
 	}
 
-	function resumo_projetos_area($ano = '2013', $edital = '', $status = 'B') {
+	function resumo_projetos_area($ano = '2014', $edital = '', $status = 'B') {
 		/* pj_professor */
 		$ano = $this -> ano;
 		if (strlen($ano) == 0) { $ano = date("Y");
