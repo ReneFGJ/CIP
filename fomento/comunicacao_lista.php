@@ -31,40 +31,13 @@ echo '<H3>Comunicação por e-mail</h3>';
 	
 	if ((strlen($dd[1]) > 0) and (strlen($dd[3])==0))
 		{
-			$page = '../pibicpr/'.page();
+			$page = '../pibicpr/comunicacao.php';
 			$page = troca($page,'.php','_selecao=php');
 			$page = troca($page,'=','.');
 			if ($dd[1] != '000') { require($page); }
 		}
 	
-	$cp = array();
-	array_push($cp,array('$H8','','',False,True,''));
-	array_push($cp,array('$O'.$op,'','Informe os destinatários',True,True,''));
-	array_push($cp,array('$H8','','',True,True,''));
-	array_push($cp,array('$B8','','Avançar >>>',false,True,'botao-geral'));		
-
-	echo '<TABLE width="940" align="center">';
-	echo '<TR><TD colspan=2>';
-	echo '<H10>'.msg('comunication').'</h10>';
-	echo '<TR><TD>';
-		editar();
-	echo '<TR><TD colspan="2">';
-	echo '</TD></TR>';
-	echo '</TABLE>';	
-		
-$id = 'pdi';
-		
-if ($saved > 0)
-	{
-		echo $dd[3];
-	}
-
-require($include."sisdoc_menus.php");
-if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
-	{
-	array_push($menu,array('Iniciação Científica','Modelo de Mensagens','comunicacao_modelos.php?dd1=bon'));
-	} 
-$tela = menus($menu,"3");
+	echo $dd[3];
 
 require("../foot.php");
 

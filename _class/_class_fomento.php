@@ -80,9 +80,13 @@ class fomento {
 		
 		$id = 1;
 		$sx = '';
-		
+		$sx .= '<h4><font style="color: white;">Bolsas / Recursos Humanas</font></h4>';
 		$sx .= $this->chamadas_abertas_icones_show($id);
+<<<<<<< HEAD
 		$sx .= '<a href="/reol/observatorio/editais_mostra.php?dd0=1" class="observatorio_ver_mais" style="font-color: white;">
+=======
+		$sx .= '<a href="/reol/observatorio/editais_mostra.php?dd0=1" class="observatorio_ver_mais" style="font-color: white; text-decoration: none;">
+>>>>>>> origin/master
 				ver todos...
 				</A>';
 		$sx .= '<HR width="50%">';
@@ -100,8 +104,13 @@ class fomento {
 				</script>';	
 /* parte 2 */
 		$id = 2;
+		$sx .= '<h4 style="color: white;">Auxílio a Pesquisa</h4>';
 		$sx .= $this->chamadas_abertas_icones_show($id);
+<<<<<<< HEAD
 		$sx .= '<a href="/reol/observatorio/editais_mostra.php?dd0='.$id.'" class="observatorio_ver_mais" style="font-color: white;">
+=======
+		$sx .= '<a href="/reol/observatorio/editais_mostra.php?dd0='.$id.'" class="observatorio_ver_mais" style="font-color: white; text-decoration: none;">
+>>>>>>> origin/master
 				ver todos...
 				</A>';
 		$sx .= '<HR width="50%">';		
@@ -123,8 +132,13 @@ class fomento {
 				</script>';	
 /* parte 3 */
 		$id = 3;
+		$sx .= '<h4 style="color: white;">Cooperação Internacional</h4>';
 		$sx .= $this->chamadas_abertas_icones_show($id);
+<<<<<<< HEAD
 		$sx .= '<a href="/reol/observatorio/editais_mostra.php?dd0='.$id.'" class="observatorio_ver_mais" style="font-color: white;">
+=======
+		$sx .= '<a href="/reol/observatorio/editais_mostra.php?dd0='.$id.'" class="observatorio_ver_mais" style="font-color: white; text-decoration: none;">
+>>>>>>> origin/master
 				ver todos...
 				</A>';
 		$sx .= '<HR width="50%">';
@@ -134,19 +148,25 @@ class fomento {
 					{
 						if (id_'.$id.' > 1)
 						{
-						var obj = "#eve_'.$id.'_" + id_1_pos;
-						$(obj).hide();
-						id_'.$id.'_pos = id_'.$id.'_pos + 1;
-						if (id_'.$id.'_pos > id_'.$id.') { id_'.$id.'_pos = 1; }
-						var obj = "#eve_'.$id.'_" + id_'.$id.'_pos;
-						$(obj).fadeIn();
+							var obj = "#eve_'.$id.'_" + id_'.$id.'_pos;
+							$(obj).hide();
+							id_'.$id.'_pos = id_'.$id.'_pos + 1;
+							if (id_'.$id.'_pos > id_'.$id.') { id_'.$id.'_pos = 1; }
+							var obj = "#eve_'.$id.'_" + id_'.$id.'_pos;
+							$(obj).fadeIn();
 						}
-					}, 7000);
+					}, 6000);
+					
 				</script>';	
 /* parte 4 */
 		$id = 4;
+		$sx .= '<h4 style="color: white;">Prêmios</h4>';
 		$sx .= $this->chamadas_abertas_icones_show($id);
+<<<<<<< HEAD
 		$sx .= '<a href="/reol/observatorio/editais_mostra.php?dd0='.$id.'" class="observatorio_ver_mais" style="font-color: white;">
+=======
+		$sx .= '<a href="/reol/observatorio/editais_mostra.php?dd0='.$id.'" class="observatorio_ver_mais" style="font-color: white; text-decoration: none;">
+>>>>>>> origin/master
 				ver todos...
 				</A>';
 		$sx .= '<HR width="50%">';
@@ -168,8 +188,13 @@ class fomento {
 
 /* parte 5 */
 		$id = 5;
+		$sx .= '<h4 style="color: white;">Eventos</h4>';
 		$sx .= $this->chamadas_abertas_icones_show($id);
+<<<<<<< HEAD
 		$sx .= '<a href="/reol/observatorio/editais_mostra.php?dd0='.$id.'" class="observatorio_ver_mais" style="font-color: white;">
+=======
+		$sx .= '<a href="/reol/observatorio/editais_mostra.php?dd0='.$id.'" class="observatorio_ver_mais" style="font-color: white; text-decoration: none;">
+>>>>>>> origin/master
 				ver todos...
 				</A>';
 		$sx .= '<HR width="50%">';
@@ -196,7 +221,9 @@ class fomento {
 		{
 		$sql = "select * from " . $this -> tabela . "
 			left join agencia_de_fomento on agf_codigo = ed_agencia
-			where ed_status = 'A' and ed_data_1 > " . date("Ymd") . "
+			where ((ed_status = 'A' and ed_data_1 > " . date("Ymd") . ")
+					or 
+				  (ed_fluxo_continuo = 1))
 			and ed_edital_tipo = '$tipo'
 			order by ed_data_1
 			";

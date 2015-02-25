@@ -7,6 +7,13 @@ require($include.'sisdoc_colunas.php');
 require($include.'sisdoc_form2.php');
 require($include.'sisdoc_debug.php');
 
+require($include."sisdoc_menus.php");
+$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+
+array_push($menu,array('Listas de e-mail','Lista de e-mail','comunicacao_lista.php'));
+$tela = menus($menu,"3");
+echo $tela;
+
 	$clx = new comunicacao;
 	$tabela = $clx->tabela;
 	

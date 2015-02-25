@@ -15,10 +15,15 @@ echo '<h1>Editais abertos - '.$descricao[$tipo].'</h1>';
 <?php
 $tipo = round($dd[0]);
 
-
 $sql = "select * from fomento_editais
 		left join agencia_de_fomento on agf_codigo = ed_agencia
-		where ed_data_1 >= ".date("Ymd")."
+		where 
+			(
+				(ed_data_1 >= ".date("Ymd")." or ed_data_2 >= ".date("Ymd")." or ed_data_3 >= ".date("Ymd").")
+				or 
+				(ed_fluxo_continuo = 1)
+			)
+		
 		and ed_edital_tipo = '$tipo' 
 		order by ed_data_1
 		";

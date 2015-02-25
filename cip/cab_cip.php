@@ -8,8 +8,6 @@ require($include.'sisdoc_debug.php');
 require($include.'sisdoc_breadcrumb.php');
 
 require("../_class/_class_ajax.php");
-$email_adm = 'pibicpr@pucpr.br';
-$admin_nome = 'Iniciação Científica PUCPR';
 
 /* Segurança do Login */
 require($include.'sisdoc_security_pucpr.php');
@@ -30,24 +28,15 @@ $file = '../messages/msg_pt_BR.php';
 require($file);
 
 $menu = array();
-//array_push($menu,array('Relatório Parcial','atividade_IC1.php'));
-//array_push($menu,array('Indicadores','indicadores.php'));
-//array_push($menu,array('pareceristas','parecerista.php'));
-//array_push($menu,array('discentes','discentes.php'));
-//array_push($menu,array('pagamentos','pagamentos.php'));
-
-$menu = array();
 
 //if (($perfil->valid('#ADM#SCR#COO')))
 	{
 	array_push($menu,array(':: Início ::','index.php'));
 	}
-//if (($perfil->valid('#ADM#SCR#COO#SPG')))
+//print_r($nw);
+//if (($perfil->valid('#ADM')) or ($perfil->valid('#SCR')) or ($perfil->valid('#COO')) or ($perfil->valid('#SPG')))
 	{
 	array_push($menu,array('Pós-graduação','../bi/pos_graduacao.php'));
-	}
-//if (($perfil->valid('#ADM#SCR#COO')))
-	{
 	//array_push($menu,array('Grupos de pesquisa','grupo_pesquisa.php'));
 	array_push($menu,array('Captação','captacao.php'));
 	array_push($menu,array('Isenção','isencoes.php'));

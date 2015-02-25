@@ -3027,20 +3027,20 @@ function total_captacoes_validar($professor = '') {
 							<TH>FINEP<TH>OPAS<TH>Outros';
 		//<TH>Empresas<TH>Outras';
 		$sx .= '<TR><TD width="6%">' . $datai . '-' . $dataf;
-		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[0], 2, ',', '.') . ' (' . $qf[0] . ' prj)';
-		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[1], 2, ',', '.') . ' (' . $qf[1] . ' prj)';
+		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[0], 2, ',', '.') . ' (' . $qf[0] . ' projetos)';
+		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[1], 2, ',', '.') . ' (' . $qf[1] . ' projetos)';
 		;
-		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[2], 2, ',', '.') . ' (' . $qf[2] . ' prj)';
+		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[2], 2, ',', '.') . ' (' . $qf[2] . ' projetos)';
 		;
-		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[3], 2, ',', '.') . ' (' . $qf[3] . ' prj)';
+		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[3], 2, ',', '.') . ' (' . $qf[3] . ' projetos)';
 		;
-		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[4], 2, ',', '.') . ' (' . $qf[4] . ' prj)';
+		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[4], 2, ',', '.') . ' (' . $qf[4] . ' projetos)';
 		;
 		//$sx .= '<TD class="tabela01" align="center" width="10%">'.number_format($finan[5],2,',','.');;
-		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[6], 2, ',', '.') . ' (' . $qf[6] . ' prj)';
+		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[6], 2, ',', '.') . ' (' . $qf[6] . ' projetos)';
 		;
 		//$sx .= '<TD class="tabela01" align="center" width="10%">'.number_format($finan[7],2,',','.');;
-		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[8], 2, ',', '.') . ' (' . $qf[8] . ' prj)';
+		$sx .= '<TD class="tabela01" align="center" width="10%">' . number_format($finan[8], 2, ',', '.') . ' (' . $qf[8] . ' projetos)';
 
 		$sx .= '</table>';
 		return ($sx);
