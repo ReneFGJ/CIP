@@ -105,6 +105,8 @@ if ($perfil->valid('#ADM'))
 		array_push($menu,array('Pareceres','Indicados e não avaliados','rel_parecer_01.php'));	
 	}	
 ///////////////////////////////////////////////////// redirecionamento
+///////////////////////////////////////////////////// redirecionamento
+echo '<img src="'.$http.'img/logo_ic_pibic.png">';
 //echo $mn->menus($menu,"4");
 //echo '<HR>OLA<HR>';
 	$tela = menus($menu,"3");

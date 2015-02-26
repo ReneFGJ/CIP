@@ -20,7 +20,7 @@ $menu = array();
 array_push($menu,array('Bolsas implementadas','Resumo de bolsas','ic_resumo.php'));
 
 array_push($menu,array('Bolsas implementadas','PIBIC',''));
-array_push($menu,array('Bolsas implementadas','__resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBIC&dd5=1&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','__resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBIC&dd5=1&dd4='.'2014'));
 array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBIC&dd5=1&dd4='.date("Y")));
 array_push($menu,array('Bolsas implementadas','__resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBIC&dd5=1&dd4='.date("Y")));
 array_push($menu,array('Bolsas implementadas','__detalhe por Campi','ic_resumo_campi.php?dd2=D&dd3=PIBIC&dd5=1&dd4='.date("Y")));

@@ -16,13 +16,17 @@ array_push($menu,array(msg('gestao_de_bolsas'),'Bolsas implantadas','pibic_rel_b
 array_push($menu,array(msg('gestao_de_bolsas'),'Resumo de bolsas','bolsas_01.php')); 
 array_push($menu,array(msg('gestao_de_bolsas'),'Bolsas implementadas','pibic_implementacao_bolsas_relatorio.php'));
 array_push($menu,array(msg('gestao_de_bolsas'),'Bolsas suspensas','bolsas_indicacao_status.php'));
+if ($perfil->valid('#ADM') or $perfil->valid >= 9)
+	{	
+	array_push($menu,array(msg('gestao_de_bolsas'),'Próximas indicações PIBIC','bolsa_proximas_indicacoes.php')); 
+	array_push($menu,array(msg('gestao_de_bolsas'),'Próximas indicações PIBITI','bolsa_proximas_indicacoes_pibiti.php'));	 
+	}
 
 array_push($menu,array(msg('indicacao_bolsas'),'Indicar Bolsas para Implementação','bolsas_indicacao.php'));
 array_push($menu,array(msg('indicacao_bolsas'),'Status das Bolsas Indicadas','bolsas_indicacao_status.php'));
 
 
-
-if ($perfil->valid('#ADM'))
+if ($perfil->valid('#ADM')) 
 	{
 		array_push($menu,array(msg('ativar_bolsas'),'Ativar um protocolo de pesquisa com ICV','bolsas_indicacao_status.php'));		
 	}

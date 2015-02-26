@@ -1,10 +1,7 @@
 <?
 require("cab_fomento.php");
 echo '<link rel="stylesheet" href="../css/style_form_001.css" type="text/css" />';
-require($include."sisdoc_windows.php");
-require($include."sisdoc_colunas.php");
-require($include."sisdoc_form2.php");
-require($include."sisdoc_email.php");
+require($include."_class_form.php");
 require($include."cp2_gravar.php");
 require("_email.php");
 
@@ -29,6 +26,9 @@ echo '<H3>Comunicação por e-mail</h3>';
 
 	$tabela = '';
 	
+	$tela = $form->editar($cp,'');
+	if ($form->saved > 0)
+	{
 	if ((strlen($dd[1]) > 0) and (strlen($dd[3])==0))
 		{
 			$page = '../pibicpr/comunicacao.php';
@@ -38,6 +38,9 @@ echo '<H3>Comunicação por e-mail</h3>';
 		}
 	
 	echo $dd[3];
+	} else {
+		echo $tela;		
+	}
 
 require("../foot.php");
 

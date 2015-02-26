@@ -53,7 +53,7 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 
 
 ///////////////////////////////////////////////////// redirecionamento
-echo '<img src="'.$http.'img/logo_ic_pibic_em.png">';
+echo '<img src="'.$http.'img/logo_ic_pibicem.png">';
 //echo $mn->menus($menu,"4");
 //echo '<HR>OLA<HR>';
 	$tela = menus($menu,"3");
