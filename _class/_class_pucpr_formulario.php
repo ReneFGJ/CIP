@@ -42,6 +42,8 @@ class formulario
 					break;
 				case '103309': $ncr = 'Núcleo do Fundo de Pesquisa';
 					break;
+				case '101122': $ncr = 'Convênios Educação';
+					break;					
 				default:
 					$ncr = '??????';
 				}
@@ -56,6 +58,8 @@ class formulario
 			$cr .= '&103507:103507 - Adminstração da Pró-Reitoria de Pesquisa e Pós-Graduação';
 			$cr .= '&103300:103300 - Diretoria de Pesquisa e Programas Stricto Sensu';
 			$cr .= '&103309:103309 - Núcleo do Fundo de Pesquisa';
+			$cr .= '&101122:101122 - Convênios Educação';
+			
 			$hv = 0;
 		
 			$cp = array();
@@ -71,6 +75,7 @@ class formulario
 			$cr .= '&103507:103507 - Adminstração da Pró-Reitoria de Pesquisa e Pós-Graduação';
 			$cr .= '&103300:103300 - Diretoria de Pesquisa e Programas Stricto Sensu';
 			$cr .= '&103309:103309 - Núcleo do Fundo de Pesquisa';
+			$cr .= '&101122:101122 - Convênios Educação';
 			$hv = 0;
 
 			$dd[6] = $user->user_login;

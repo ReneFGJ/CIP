@@ -24,7 +24,8 @@ array_push($menu,array('Docentes','__Todos Docentes','docentes_rel.php'));
 array_push($menu,array('Docentes','__Docentes Produtividade','docentes_rel.php?dd2=1'));
 array_push($menu,array('Docentes','__Docentes Stricto Sensu','docentes_rel.php?dd1=S'));
 array_push($menu,array('Docentes','__Docentes SS X Programas Pós-Graduação SS','docentes_rel.php?dd1=P'));
-array_push($menu,array('Docentes','__Docentes Graduação','docentes_rel.php?dd1=N')); 
+array_push($menu,array('Docentes','__Docentes Graduação','docentes_rel.php?dd1=N'));
+array_push($menu,array('Docentes','__Docentes Pesquisadores','docentes_pesquisadores.php')); 
 
 array_push($menu,array('Docentes','__Sobre o corpo docente','rel_docente_about.php'));
 

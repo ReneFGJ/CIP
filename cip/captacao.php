@@ -56,6 +56,7 @@ if ($perfil->valid('#CPS'))
 
 array_push($menu,array('Bonificação - Relatório','Relatório de bonificação','bonificacao_rel.php')); 
 array_push($menu,array('Bonificação - Relatório','Relatório de isenção','bonificacao_rel_isencao.php'));
+array_push($menu,array('Bonificação - Relatório','Relatório de pagamento CR','bonificacao_cr.php'));
 
 
 //$sql = "delete from bonificacao where bn_codigo = '00162'";

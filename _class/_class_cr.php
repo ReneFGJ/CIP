@@ -5,6 +5,14 @@ class cr
 		var $recupera_ordenador_necessidade_funcao;
 		var $recupera_ordenador_gasto_funcao;
 		
+		function sql()
+			{
+				$sql = "insert into centro_resultado (cr_ncr, cr_descricao, cr_ordenador_necessidade, cr_ordenador_gasto )
+						values ('101122','Convênio Educação','70004750','88888951')
+				";
+				$rlt = db_query($sql);				
+			}
+		
 		function row()
 			{
 				global $cdf,$cdm,$masc;
@@ -58,11 +66,6 @@ class cr
 					cr_ordenador_necessidade char(8),
 					cr_ordenador_gasto char(8)
 					)
-				";
-				//$rlt = db_query($sql);
-				
-				$sql = "insert into centro_resultado (cr_ncr, cr_descricao, cr_ordenador_necessidade, cr_ordenador_gasto )
-						values ('103309','Núcleo do Fundo de Pesquisa','70004750','88888951')
 				";
 				//$rlt = db_query($sql);		
 			}

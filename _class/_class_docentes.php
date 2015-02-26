@@ -481,8 +481,8 @@ class docentes {
 		returnc($sx);
 	}
 
-	function pesquisadores() {
-		$sql = "select pp_ss, ap_tit_titulo, pp_cracha, pp_nome, max(pibic) as pibic, max(ss) as ss from
+	function pesquisadores($ano) {
+		$sql = "select pp_ss, ap_tit_titulo, pp_cracha, pp_nome, max(pibic) as pibic, max(ss) as ss, pp_cpf from
 				(
 					select 1 as pibic, 0 as ss, pb_professor as professor from pibic_bolsa_contempladas where pb_status = 'A'
 					union
@@ -490,9 +490,9 @@ class docentes {
 				) as tabela
 				inner join pibic_professor on professor = pp_cracha
 				left join apoio_titulacao on pp_titulacao = ap_tit_codigo
-				where pp_ativo = 1 and pp_update = '2013'
-				group by pp_ss, ap_tit_titulo, pp_cracha, pp_nome
-				order by pp_ss desc, pp_nome
+				where pp_ativo = 1 and pp_update = '" . date("Y") . "'
+				group by pp_ss, ap_tit_titulo, pp_cracha, pp_nome, pp_cpf
+				order by pp_nome, pp_ss desc 
 			";
 		$rlt = db_query($sql);
 		$sx = '<table class="tabela00" width="100%">';
@@ -503,6 +503,7 @@ class docentes {
 		$sx .= '<TH>Pesquisador';
 		$sx .= '<TH>Título';
 		$sx .= '<TH>Crachá';
+		$sx .= '<TH>CPF';
 		$sx .= '<TH>Pós-Graduação';
 		$sx .= '<TH>Orientação';
 		$id = 0;
@@ -511,12 +512,14 @@ class docentes {
 		$sss = 0;
 
 		while ($line = db_read($rlt)) {
+
 			if (UpperCaseSQL(trim($line['ap_tit_titulo'])) == 'DR.') { $dr++;
 			}
 			if (UpperCaseSQL(trim($line['ap_tit_titulo'])) == 'MSC.') { $msc++;
 			}
 			if (UpperCaseSQL(trim($line['pp_ss'])) == 'S') { $sss++;
 			}
+			$ss = trim($line['pp_ss']);
 			$id++;
 			$sx .= '<TR>';
 			$sx .= '<TD class="tabela01">';
@@ -528,6 +531,9 @@ class docentes {
 			$sx .= '<TD class="tabela01" align="center">';
 			$sx .= $line['pp_cracha'];
 
+			$sx .= '<TD class="tabela01" align="center">';
+			$sx .= $line['pp_cpf'];
+			
 			$sx .= '<TD class="tabela01" align="center">';
 			if ($ss == 'S') {
 				$sx .= 'Stricto Sensu';
@@ -541,6 +547,7 @@ class docentes {
 			if ($pibic > 0) { $pibic_mst = 'PIBIC';
 			}
 			$sx .= $pibic_mst;
+
 		}
 		$sx .= '<TR><TD colspan=10>Total ' . $id . ' pesquisadores, ' . $dr . ' doutores, ' . $msc . ' mestres. Deste ' . $sss . ' são do Stricto Sensu';
 		$sx .= '</table>';

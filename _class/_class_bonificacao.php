@@ -34,6 +34,70 @@ class bonificacao {
 		$tp['A'] = 'Artigo bonificado';
 		return ($tp);
 	}
+	
+	function relatorio_pagamento_cr($d1,$d2)
+		{
+			$sql = "select * from ".$this->tabela." 
+						inner join pibic_professor on bn_professor = pp_cracha
+						inner join centro_resultado on bn_cr = cr_ncr
+						where bn_valor > 1
+						and (bn_data >= $d1 and bn_data < $d2)
+						order by bn_data, pp_nome
+			";
+			$rlt = db_query($sql);
+			$sx = '<table width="100%" class="tabela00">';
+
+			
+			$sa = '';
+			$id = 0;
+			$tot = 0;
+			while ($line = db_read($rlt))
+				{
+					$id++;
+					$tot = $tot + $line['bn_valor'];
+					$l = $line;
+					
+					$sa .= '<TR>';
+					$sa .= '<TD align="center" class="tabela01">';
+					$sa .= $line['bn_cr'];
+								
+					$sa .= '<TD align="center" class="tabela01"><NOBR>';
+					$sa .= $line['cr_descricao'];
+					
+					$sa .= '<TD class="tabela01"><NOBR>';
+					$sa .= $line['pp_cracha'];					
+					
+					$sa .= '<TD class="tabela01"><NOBR>';
+					$sa .= $line['pp_nome'];
+					
+					$sa .= '<TD align="right" class="tabela01">';
+					$sa .= number_format($line['bn_valor'],2,',','.');		
+					
+					$sa .= '<TD class="tabela01">';
+					$sa .= $line['bn_descricao'];
+					
+
+					$sa .= '<TD align="center" class="tabela01">';
+					$sa .= 'REPASSE';								
+					
+					$sa .= '<TD class="tabela01">';
+					$sa .= stodbr($line['bn_data']);				
+				}
+			$sx .= '<TR><TD colspan=2>Total de <B>'.$id.'</B> documentos<TD colspan=5>Valor total: <B>'.number_format($tot,2,',','.').'</B>';
+			$sx .= '<TR>
+					<TH>CR
+					<TH>NOME CR
+					<TH>CÓDIGO RH
+					<TH>NOME COMPLETO
+					<TH>VALOR
+					<TH>JUSTIFICATIVA
+					<TH>EVENTO
+					<TH>Entregue em:
+					';			
+			$sx .= $sa;
+			$sx .= '</table>';
+			return($sx);
+		}
 
 	function resumo_dos_pagamentos($d1, $d2) {
 		//$sql = "update ".$this->tabela." set bn_status = 'A' where bn_status = 'P' and bn_original_tipo = 'BNI' ";
