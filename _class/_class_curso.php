@@ -12,6 +12,8 @@ class curso
 		var $centro_codigo;
 		var $curso_centro;
 		
+		var $curso_grupo;		
+		
 		var $tabela = "curso";
 		
 		function relatorio_escolas_cursos()
@@ -71,6 +73,8 @@ class curso
 				array_push($cp,array('$S10','curso_sigla',msg('sigla'),False,True));
 				array_push($cp,array('$O 1:SIM&0:NÃO','curso_ativo',msg('ativo'),False,True));
 				array_push($cp,array('$S5','curso_codigo_use',msg('remissiva'),False,True));
+				
+				array_push($cp,array('$S4','curso_grupo',msg('grupo_de_avaliacao'),True,True));
 				
 				array_push($cp,array('$I8','curso_carga_1' ,msg('carga_1') ,True,True));
 				array_push($cp,array('$I8','curso_carga_2' ,msg('carga_2') ,True,True));

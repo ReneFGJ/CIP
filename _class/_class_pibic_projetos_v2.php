@@ -1589,7 +1589,7 @@ class projetos {
 		return ($sx);
 	}
 
-	function resumo_planos_area_conhecimento($ano = '2013', $edital = '', $status = 'B') {
+	function resumo_planos_area_conhecimento($ano = '2014', $edital = '', $status = 'B') {
 		/* pj_professor */
 		$ano = $this -> ano;
 		if (strlen($ano) == 0) { $ano = date("Y");
@@ -1664,7 +1664,7 @@ class projetos {
 		return ($sx);
 	}
 
-	function resumo_planos_area($ano = '2013', $edital = '', $status = 'B') {
+	function resumo_planos_area($ano = '2014', $edital = '', $status = 'B') {
 		/* pj_professor */
 		$ano = $this -> ano;
 		if (strlen($ano) == 0) { $ano = date("Y");
@@ -1740,7 +1740,7 @@ class projetos {
 		return ($sx);
 	}
 
-	function resumo_planos_area_estrategica($ano = '2013', $edital = '', $status = 'B') {
+	function resumo_planos_area_estrategica($ano = '2014', $edital = '', $status = 'B') {
 		/* pj_professor */
 		$ano = $this -> ano;
 		if (strlen($ano) == 0) { $ano = date("Y");
