@@ -55,10 +55,7 @@ class fomento {
 
 	function chamadas_abertas() {
 		$sql = "select * from " . $this -> tabela . "
-			where 
-			((ed_status = 'A' and ed_data_1 > " . date("Ymd") . ")
-					or 
-				  (ed_fluxo_continuo = 1))			
+			where ed_status = 'A' and ed_data_1 > " . date("Ymd") . "
 			order by ed_data_1
 			";
 		$rlt = db_query($sql);
