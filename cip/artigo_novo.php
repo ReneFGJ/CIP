@@ -2,7 +2,7 @@
 $xcab = 1;
 $breadcrumbs=array();
 array_push($breadcrumbs, array('main.php','principal'));
-array_push($breadcrumbs, array('captacao.php','Captação'));
+array_push($breadcrumbs, array('aritigo_novo.php','Artigos'));
 
 require("cab_cip.php");
 require($include.'sisdoc_windows.php');

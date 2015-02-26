@@ -26,7 +26,7 @@ class captacao {
 	function atualiza_instituicoes_tabela()
 		{
 			$sql = "update ".$this->tabela." set ca_proponente = '0000012' where ca_proponente = '0000455' ";
-			//$rlt = db_query($sql);
+			$rlt = db_query($sql);
 		}
 	
 	function relatorio_captacao_tabela($d1,$d2)
@@ -639,16 +639,20 @@ class captacao {
 		return ($sx);
 	}
 
-function total_captacoes_validar($professor = '') {
+function total_captacoes_validar($professor = '',$gestor=0) {
 		global $cap;
+		$wh = " (pos_coordenador = '$professor') ";
+		if ($gestor == 1) {
+			$wh = " ((pos_codigo is null) or (pos_codigo = ''))";
+		}
 		$sql = "select * from captacao
-					inner join 
+					left join 
 						( 
 						select pdce_programa, pdce_docente from programa_pos_docentes group by pdce_programa, pdce_docente
 						) as tabela on ca_professor = pdce_docente
-					inner join programa_pos on pdce_programa = pos_codigo
-					inner join pibic_professor on pp_cracha = ca_professor
-					where pos_coordenador = '$professor'
+					left join programa_pos on pdce_programa = pos_codigo
+					left join pibic_professor on pp_cracha = ca_professor
+					where $wh
 					and ca_status = 10
 			 ";
 		$rlt = db_query($sql);

@@ -60,7 +60,7 @@ class curso
 		function cp()
 			{
 				global $dd;		
-
+				
 				$dd[2] = uppercasesql(utf8_decode($dd[1]));
 				$cp = array();
 				array_push($cp,array('$H8','id_curso','',False,True));

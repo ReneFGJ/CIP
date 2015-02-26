@@ -24,8 +24,10 @@ $professor = trim($ss->user_cracha);
 
 $total = $ati->total_isencoes($professor);
 
-$total2 = $ati->total_captacoes_validar($professor);
-$total3 = $ati->total_artigos_validar($professor);
+$gestor = ($perfil -> valid('#DIP'));
+
+$total2 = $ati->total_captacoes_validar($professor,$gestor);
+$total3 = $ati->total_artigos_validar($professor,$gestor);
 
 $menu = array();
 /////////////////////////////////////////////////// MANAGERS
@@ -38,7 +40,7 @@ if ($total4 > 0)
 		array_push($menu,array('Captação de Recursos','<font color="red">Captacações para correção (devolvido pela diretoria)</font>','captacao_list.php?dd9=1'));
 	}
 
-array_push($menu,array('Captação de Recursos','Cadastrar novo projeto','captacao_novo.php?pag=1'));
+array_push($menu,array('Captação de Recursos','Cadastrar novo projeto','captacao_novo.php'));
 
 if ($total > 0)
 	{

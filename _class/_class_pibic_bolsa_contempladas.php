@@ -1753,7 +1753,7 @@ class pibic_bolsa_contempladas{
 							) ";
 			}
 			$sql .= " and pb_status <> 'C' ";
-			$sql .= " and pb_ano = '2012' ";
+			$sql .= " and pb_ano = '$ano' ";
 			$sql .= "order by pa_curso, pp_nome";
 			$rlt = db_query($sql);
 
@@ -1774,47 +1774,89 @@ class pibic_bolsa_contempladas{
 				$tipo_d = trim($line['pbt_descricao']);
 			
 				$col = '';
-				$sx .= '<TR valign="top"><TD>'.$line['pp_nome'].'<TD>'.$line['pa_cracha'].'</TD>';
-			
-				$sx .= '<TD>'.$line['pbt_edital'];
-				$sx .= '<TD>'.$line['pb_ano'];
+				$sx .= '<TR valign="top"><TD>'.$line['pp_nome'];
+					$sx .= '<TD>'.$line['pa_cracha'].'</TD>';
+					$sx .= "<TD>'".$line['pp_cpf'].'</TD>';
+					//print_r($line);
+					//exit;
+					$sx .= '<TD>';
+					$sx .= $line['pb_edital'];
+					$sx .= '<TD>';
+					$sx .= $line['pb_ano'];
+					$sx .= '<TD>';
+					$sx .= $line['pa_nome'];
+					$sx .= '<TD>'.$line['pp_cracha'];
+					$sx .= '<TD>'.$line['pa_pai'];
+					$sx .= '/ '.$line['pa_mae'];
+					$sx .= "<TD>'";
+					$sx .= $line['pa_cpf'];
 
-				$sx .= '<TD>';
-				$sx .= $line['pa_nome'];
-				$sx .= '<TD>'.$line['pp_cracha'];
-				$sx .= '<TD>';
-				$sx .= $line['pb_titulo_projeto'];
-				$sx .= '<TD>';
-				$sx .= $tipo_d;
-				$sx .= '<TD>';
-				$sx .= $doc_protocolo;
-				$sx .= '<TD>';
-				$sx .= $line['pa_curso'];
-				
-				$sx .= '<TD>';
-				if ($line['pb_ativacao'] != '19000101')
-				{
-					$sx .= 'Data ativação'.stodbr($line['pb_ativacao']);
-				} else {
-					$sx .= '&nbsp;';
-				}
-			$sx .= '</TR>';
+					$sx .= "<TD>'";
+					$sx .= $line['pa_cc_banco'];
+					$sx .= "<TD>'";
+					$sx .= $line['pa_cc_agencia'];
+					$sx .= "<TD>'";
+					$sx .= $line['pa_cc_conta'];
+					$sx .= "<TD>'";
+					$sx .= $line['pa_cc_tipo'];
+
+					$sx .= "<TD>'";
+					$sx .= $line['pa_rg'];
+					$sx .= '<TD>';
+					$sx .= $line['pa_email'];
+					$sx .= $line['pa_email_alt'];
+					$sx .= '<TD>';
+					$sx .= $line['pa_telefone'].' '.$pp['pa_celular'];
+					$sx .= ' '.$line['pa_tel1'].' '.$pp['pa_cel2'];
+					$sx .= '<TD>';
+					$sx .= trim($line['pa_endereco']).', '.trim($line['pa_bairro']).'. '.trim($line['pa_cidade']).'-'.trim($line['pa_estado']);
+		
+						$sx .= '<TD>';
+					$sx .= $line['pb_titulo_projeto'];
+					$sx .= '<TD>';
+					$sx .= $tipo_d;
+					$sx .= '<TD>';
+					$sx .= $doc_protocolo;
+					$sx .= '<TD>';
+					$sx .= $curso;
+					$sx .= '<TD>';
+					if ($line['pb_ativacao'] != '19000101')
+						{
+						$sx .= 'Data ativação '.stodbr($line['pb_ativacao']);
+						} else {
+						$sx .= '&nbsp;';
+						}
+					$sx .= '</TR>';			
 			}
+
 		$sx .= '<TR><TD colspan=10>Total '.$tot2.' projetos ativos';
 		$sa = '<table border="0" class="tabela00">';
-		$sa .= '<TR>';
-		$sa .= '<TH>Orientador</TH>';
-		$sa .= '<TH>Cod.Funcional</TH>';
-		$sa .= '<TH>Edital</TH>';
-		$sa .= '<TH>Ano</TH>';
-		$sa .= '<TH>Aluno</TH>';
-		$sa .= '<TH>Cracha</TH>';
-		$sa .= '<TH>Título do projeto do aluno</TH>';
-		$sa .= '<TH>IC</TH>';
-		$sa .= '<TH>Protocolo</TH>';
-		$sa .= '<TH>Curso</TH>';
-		$sa .= '<TH>Ativação</TH>';
-		$sa .= '</TR>';
+$sa .= '<TR>';
+$sa .= '<TH>Orientador</TH>';
+$sa .= '<TH>Cod.Funcional</TH>';
+$sa .= '<TH>CPF.Orientador</TH>';
+$sa .= '<TH>Edital</TH>';
+$sa .= '<TH>Ano</TH>';
+$sa .= '<TH>Aluno</TH>';
+$sa .= '<TH>Cracha</TH>';
+$sa .= '<TH>Filiação</TH>';
+$sa .= '<TH>CPF</TH>';
+
+$sa .= '<TH>CC.Banco</TH>';
+$sa .= '<TH>CC.Age.</TH>';
+$sa .= '<TH>CC.Conta</TH>';
+$sa .= '<TH>CC.Tipo</TH>';
+
+$sa .= '<TH>RG</TH>';
+$sa .= '<TH>e-mail</TH>';
+$sa .= '<TH>telefone</TH>';
+$sa .= '<TH>endereço</TH>';
+$sa .= '<TH>Título do projeto do aluno</TH>';
+$sa .= '<TH>IC</TH>';
+$sa .= '<TH>Protocolo</TH>';
+$sa .= '<TH>Curso</TH>';
+$sa .= '<TH>Ativação</TH>';
+$sa .= '</TR>';
 		$sa .= $sx;
 		$sa .= '</table>';
 		return($sa);

@@ -173,8 +173,10 @@ for ($r = 0; $r < count($mn); $r++) {
 			$sq .= $observatorio -> chamadas_abertas_icones();
 
 			$sx .= '
+							<a href="/reol/observatorio/index.php">
 							<h2 class="' . $class . '-cor"><nobr><font color="white"><B>Editais abertos</B></font></nobr></h2>
-							' . $sq . '						
+							' . $sq . '
+							</a>						
 							</div>
 							</a>
 							</td>' . chr(13);

@@ -16,7 +16,10 @@ require ("cab.php");
 		$tipo = $r;
 		$sql = "select * from fomento_editais
 		left join agencia_de_fomento on agf_codigo = ed_agencia
-		where ed_data_1 >= " . date("Ymd") . "
+		where 
+				((ed_status = 'A' and ed_data_1 > " . date("Ymd") . ")
+					or 
+				  (ed_fluxo_continuo = 1))		
 		and ed_edital_tipo = '$tipo' 
 		order by ed_data_1
 		";
@@ -28,6 +31,10 @@ require ("cab.php");
 		}
 		echo '</div>';
 	}
+echo '<BR><BR><BR>
+</div></div>
+';
+echo $hd->foot();
 ?>
 </div>
 </div>

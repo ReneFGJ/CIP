@@ -24,8 +24,10 @@ $professor = trim($ss->user_cracha);
 
 $total = $ati->total_isencoes($professor);
 
-$total2 = $ati->total_captacoes_validar($professor);
-$total3 = $ati->total_artigos_validar($professor);
+$gestor = ($perfil -> valid('#DIP'));
+
+$total2 = $ati->total_captacoes_validar($professor,$gestor);
+$total3 = $ati->total_artigos_validar($professor,$gestor);
 
 $menu = array();
 /////////////////////////////////////////////////// MANAGERS

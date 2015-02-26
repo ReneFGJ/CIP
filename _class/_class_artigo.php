@@ -276,7 +276,7 @@ class artigo
 								$xano = $ano;
 							}
 						$editar = 0;
-						$sta = round($line['ca_status']);
+						$sta = round($line['ar_status']);
 						if (($sta==0) or ($sta==8)) { $editar = 1; }
 						$sx .= $this->mostra_artigo_lista($line);
 					}
@@ -832,28 +832,32 @@ class artigo
 			return($sx);
 			
 		}
-	function total_artigos_validar($professor='')
+	function total_artigos_validar($professor='',$gestor=0)
 		{
 			global $art;
+		$wh = " (pos_coordenador = '$professor') ";
+			if ($gestor == 1) {
+				$wh = " ((pos_codigo is null) or (pos_codigo = ''))";
+			}
 			$sql = "select * from artigo
-					inner join 
+					left join 
 						( 
 						select pdce_programa, pdce_docente 
 							from programa_pos_docentes 
 							where pdce_ativo = 1
 							group by pdce_programa, pdce_docente
 						) as tabela on ar_professor = pdce_docente
-					inner join programa_pos on pdce_programa = pos_codigo
-					inner join pibic_professor on pp_cracha = ar_professor
-					where pos_coordenador = '$professor'
-					and ar_status = 10
+					left join programa_pos on pdce_programa = pos_codigo
+					left join pibic_professor on pp_cracha = ar_professor
+					where $wh
+					and (ar_status = 10)
 					order by pp_nome, ar_titulo
-			 ";						 
+			 ";					 
 			$rlt = db_query($sql);
 						
 			$id = 0;
 			$sx = '';
-			$sx .= '<h3>Captações para validação do Coordenador</h3>';
+			$sx .= '<h3>Artigos para validação do Coordenador</h3>';
 			$sx .= '<table class="tabela00" width="100%">';
 			$sx .= '<TR><TH>Journal / Revista
 					<TH colspan=1>ISSN
@@ -1149,7 +1153,7 @@ class artigo
 		{
 			global $dd, $acao, $ss;
 			$sta = $this->status();
-			
+			if (strlen($dd[0]) > 0) { $this->id = $dd[0]; }
 			if (strlen($acao) > 0)
 				{
 					$sql = "update artigo set 
@@ -1157,7 +1161,6 @@ class artigo
 							ar_coordenador = ".$ss->user_cracha.",
 							ar_comentario = '".$dd[2]."' 
 							where id_ar = ".round($this->id);
-					
 					$rlt = db_query($sql);
 					$this->historico_inserir($this->protocolo,'VAC','Validado por '.trim($ss->user_login).' - '.$sta[round($dd[3])]);					
 					redirecina('../cip/artigos_validar.php');					
@@ -1395,6 +1398,10 @@ class artigo
 				$op .= '&SIP:SIM, alunos de Pós-Graduação';
 				$op .= '&SIG:SIM, alunos de Graduação';
 				$op .= '&SIG:SIM, alunos de Graduação e Pós-Graduação';
+				$op .= '&SEP:SIM, alunos de Pós-Graduação (Egresso)';
+				$op .= '&SEG:SIM, alunos de Graduação (Egresso)';
+				$op .= '&SEG:SIM, alunos de Graduação e Pós-Graduação (Egresso)';
+
 				array_push($cp,array('$O : &'.$op,'ar_estudante','Estudantes',True,True));
 				array_push($cp,array('$M','',$ex_tips,False,True));
 		
