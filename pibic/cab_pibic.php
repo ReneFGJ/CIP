@@ -7,10 +7,9 @@ require($include.'sisdoc_windows.php');
 require($include.'sisdoc_debug.php');
 require($include.'sisdoc_breadcrumb.php');
 
-$tdoc = "pibic_submit_documento";
-$tdov = "pibic_submit_documento_valor";
-$tdoco = "submit_documentos_obrigatorio";
-$cdoc = "pibic_submit_sub_orcamento";
+$email_adm = 'pibicpr@pucpr.br';
+$admin_nome = 'Iniciação Científica PUCPR';
+
 $ged_files ="pibic_ged_files";
 $faq = "faq";
 $submit_autores = "submit_autores";
@@ -21,8 +20,6 @@ $table_pesquisador = 'reol_pesquisador';
 $submit_crono_orca = "submit_crono_orca";
 
 require("../_class/_class_ajax.php");
-$email_adm = 'pibicpr@pucpr.br';
-$admin_nome = 'Iniciação Científica PUCPR';
 
 /* Segurança do Login */
 require($include.'sisdoc_security_pucpr.php');
@@ -43,6 +40,7 @@ $file = '../messages/msg_pt_BR.php';
 require($file);
 
 $menu = array();
+
 array_push($menu,array('Início','index.php'));
 $data = round(date("m"));
 
@@ -56,15 +54,8 @@ if (($data >= 6) and ($data < 8))
 		array_push($menu,array('Relatório Final','atividade_IC3.php'));
 		array_push($menu,array('Resumos','atividade_IC4.php'));
 	}
-//array_push($menu,array('Indicadores','indicadores.php'));
-//array_push($menu,array('pareceristas','parecerista.php'));
-//array_push($menu,array('discentes','discentes.php'));
-//array_push($menu,array('pagamentos','pagamentos.php'));
-
-$id_pesq = $nw->user_cracha;
-$nome = $nw->user_nome;
 
 require('../_class/_class_header.php');
 $hd = new header;
-echo $hd->mostra('ic');
+echo $hd->mostra_novo('Iniciação Científica');
 ?>

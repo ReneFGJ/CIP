@@ -8,7 +8,8 @@ require($include.'sisdoc_debug.php');
 echo '<a href="curso.php">voltar</A>';
 
 $b1 = 'associar >>>';
-$b2 = '';
+$b2 = '<< remover';
+
 $curso = strzero($dd[0],5);
 $area = $dd[2];
 
@@ -29,6 +30,13 @@ if ($acao == $b1)
 			$rlt = db_query($sql);
 		}
 }
+
+if ($acao == $b2)
+{
+	$sql = "delete from curso_area where id_cuar = ".round('0'.$dd[3]);
+	$rlt = db_query($sql);
+}
+
 	/* Dados da Classe */
 	require('../_class/_class_curso.php');
 	//$sql = "update pibic_mirror set mr_status = 'A' ";
@@ -74,7 +82,7 @@ if ($acao == $b1)
 	$sa .= '<select name="dd3" id="dd3" style="width: 500px;" size="20">';
 	while ($line = db_read($rlt))
 		{
-			$sa .= '<option value="'.trim($line['a_cnpq']).'">';
+			$sa .= '<option value="'.trim($line['id_cuar']).'">';
 			$sa .= $line['a_cnpq'];
 			$sa .= ' ';
 			$sa .= $line['a_descricao'];
@@ -89,7 +97,7 @@ if ($acao == $b1)
 	echo '<BR><BR><BR><BR>';
 	echo '<input type="submit" value="'.$b1.'" name="acao">';
 	echo '<BR><BR>';
-	echo '<input type="submit" value="<< remover" name="acao">';
+	echo '<input type="submit" value="'.$b2.'" name="acao">';
 	echo '<TD>';
 	echo $sa;
 	echo '</table>';

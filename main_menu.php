@@ -107,7 +107,8 @@ if ($perfil -> valid('#PIB')) {
 if ($perfil -> valid('#SEP#SPG')) {
 	array_push($mn, array('Programas de Pós-Graduação', 'b1', 'pos/', 'Coordenação e Secretaria dos PPGs', 'icone-iniciacao-cientifica', ''));
 }
-if (!($perfil -> valid('#CNQ'))) {
+//if (!($perfil -> valid('#CNQ'))) 
+{
 	array_push($mn, array('Programa de Iniciação Científica, PIBIC, PIBITI, PIBIC Jr, CsF, Inclusão Social', 'b1', 'pibic/', 'Iniciação Científica', 'icone-iniciacao-cientifica', ''));
 	$cap = "Captação de recursos, isenção de estudantes e bonificações";
 	//if (($perfil->valid('#RES#ADM#SCR#COO')))

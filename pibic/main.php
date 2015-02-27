@@ -7,17 +7,14 @@ if (strlen($user->cracha)==0)
 	{ redirecina('index.php'); }
 
 /*
- * Submiss�o aberta
+ * Submissao aberta
  */
 $submit_open = 1;
 
 require("../_class/_class_pibic_bolsa_contempladas.php");
 require("../_class/_class_pibic_submit_documento.php");
 
-require($include.'sisdoc_form2.php');
-require($include.'cp2_gravar.php');
-
-echo '<TABLE align="center" width="'.$tab_max.'" border="0" >';
+echo '<TABLE align="center" width="'.$tab_max.'" border="1" >';
 echo '<TR valign="top" width="'.$tab_max.'" align="center">';
 echo '<TD align="left">';
 
@@ -35,7 +32,7 @@ echo '<TD align="left">';
 	if (file_exists($link_msg)) { require($link_msg); }
 	
 /**
- * Entrega de relat�rio parcial e final
+ * Entrega de relatorio parcial e final
  */
 	$tab_max = '100%';
 	$pb = new pibic_bolsa_contempladas;

@@ -4,6 +4,7 @@ array_push($breadcrumbs, array('main.php', 'principal'));
 array_push($breadcrumbs, array('relatorio.php', 'relatórios'));
 
 require ("cab_cip.php");
+require($include.'sisdoc_data.php');
 
 require ($include . "_class_form.php");
 $form = new form;
@@ -22,6 +23,8 @@ $tela = $form -> editar($cp, '');
 
 if ($form -> saved > 0) {
 	$tipo = $dd[3];
+	
+	echo '<A HREF="bonificacao_cr_excel.php?dd0='.$dd[0].'&dd1='.$dd[1].'&dd2='.$dd[2].'">Exportar para o Excel</A>';
 
 	require ("../_class/_class_bonificacao.php");
 	$cl = new bonificacao;

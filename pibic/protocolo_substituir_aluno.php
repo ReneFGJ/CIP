@@ -1,5 +1,5 @@
 <?
-require("cab.php");
+require("cab_pibic.php");
 require($include.'sisdoc_form2.php');
 require($include."sisdoc_search.php");
 require($include."sisdoc_autor.php");
@@ -21,8 +21,7 @@ $sql = "select * from ic_noticia where nw_ref = 'PIBIC_SUBST' and nw_idioma = '"
 $rrr = db_query($sql);
 if ($eline = db_read($rrr)) { echo '<font class="lt1"><BR>'.$eline['nw_descricao']; }
 
-////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////
+/* */
 $cp = array();
 $pos = 0;
 if (strlen($dd[1]) == 12) { $dd[1] = substr($dd[1],3,8); }
@@ -53,12 +52,10 @@ if (strlen($msg)> 100) ///////////////// ALUNO DA PUCPR
 <BR>
 <? require("resume_menu_left_3.php");?>
 <BR>
-<? require("resume_menu_left_2.php");?>
-<BR>
-<? require("resume_menu_left_mail.php");?>
 
 </table>
 <?
-require("foot_body.php");
-require("foot.php");
+
+echo '</div></div>';
+echo $hd->foot();
 ?>

@@ -54,8 +54,10 @@ class bonificacao {
 			while ($line = db_read($rlt))
 				{
 					$id++;
+
 					$tot = $tot + $line['bn_valor'];
 					$l = $line;
+					$proto = $line['bn_codigo'];
 					
 					$sa .= '<TR>';
 					$sa .= '<TD align="center" class="tabela01">';
@@ -71,7 +73,23 @@ class bonificacao {
 					$sa .= $line['pp_nome'];
 					
 					$sa .= '<TD align="right" class="tabela01">';
-					$sa .= number_format($line['bn_valor'],2,',','.');		
+					$sa .= number_format($line['bn_valor'],2,',','.');
+					
+					$sa .= '<TD class="tabela01">';
+					$tipo = trim($line['bn_original_tipo']);
+					switch ($tipo)
+						{
+							case 'BNI':
+								$sa .= 'Repasse referente ao artigo científico AR'.$proto;
+								break;
+							case 'PRJ':
+								$sa .= 'Repasse referente ao projeto de pesquisa '.$proto;
+								break;
+							default:
+								$sa .= 'Repasse referente ao protocolo '.$proto;
+								break;
+						}
+												
 					
 					$sa .= '<TD class="tabela01">';
 					$sa .= $line['bn_descricao'];
@@ -82,7 +100,10 @@ class bonificacao {
 					
 					$sa .= '<TD class="tabela01">';
 					$sa .= stodbr($line['bn_data']);				
+					$sa .= '<TD class="tabela01">';
+					$sa .= '<NOBR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';				
 				}
+			$sx .= '<TR><TD colspan=10><h1>Relatório de Repasse '.stodbr($d1).' até '.stodbr($d2).'</h1>';
 			$sx .= '<TR><TD colspan=2>Total de <B>'.$id.'</B> documentos<TD colspan=5>Valor total: <B>'.number_format($tot,2,',','.').'</B>';
 			$sx .= '<TR>
 					<TH>CR
@@ -91,7 +112,9 @@ class bonificacao {
 					<TH>NOME COMPLETO
 					<TH>VALOR
 					<TH>JUSTIFICATIVA
+					<TH>JUSTIFICATIVA
 					<TH>EVENTO
+					<TH>Emitido em:
 					<TH>Entregue em:
 					';			
 			$sx .= $sa;
