@@ -21,7 +21,8 @@ require($include.'sisdoc_debug.php');
 	/* Não alterar - dados comuns */
 	$label = msg($tabela);
 	$http_edit = $tabela.'_ed.php'; 
-	//$http_ver = 'pibic_bolsa_tipo_detalhe.php'; 
+	
+	$http_ver = 'curso_areas.php'; 
 	$editar = True;
 	$http_redirect = $tabela.'.php';
 	$clx->row();

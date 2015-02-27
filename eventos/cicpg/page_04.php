@@ -20,7 +20,12 @@
 					O evento ocorrerá nos dias 4, 5 e 6 de novembro de 2014 a Pontifícia Universidade Católica do Paraná sediará o 3° Congresso Sul Brasileiro de Iniciação Cientifica e Pós-Graduação junto ao XXII SEMIC.
 				</P>
 				<P>
-					Para submeter trabalhos clique <A href="index.php#page03">aqui</A>.
+					<a href="files/modelo-apresentacao.pptx">Baixar modelo de apresentação oral [formato .PPTX]</a> <br />
+					<a href="files/modelo-apresentacao-ppt-97-2003.ppt">Baixar modelo de apresentação oral [formato .PPT]</a>
+					<br />
+
+					<a href="files/Modelo de Banner.pptx">Baixar modelo de banner/poster [formato .PPTX]</a> <br />
+					<a href="files/Modelo de Banner2.ppt">Baixar modelo de banner/poster [formato .PPT]</a>
 				<P>
 			  	<BR><BR><BR><BR><BR>
 			</div></TD>

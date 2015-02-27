@@ -32,8 +32,8 @@ echo $spot;
 		</TR>
 		<TR>
 			<TD>
-			<a href="http://www2.pucpr.br/reol/eventos/cicpg/files/resultado-jovens-ideias.pdf" target="_blank"><img src="img/organizacao_01.jpg" alt="Primeira Foto" /></a>
-			<!--<?php require("_banners.php"); ?>-->		
+			<a href="material-minicurso.php" target="_blank"><img src="img/organizacao_01.jpg" alt="Primeira Foto" /></a>
+			<!--<?php require("_banners.php"); ?>-->  		
 			</TD>
 		</TR>
 	</table>

@@ -31,10 +31,10 @@
             	<BR>
             UNESPAR: Profa. <B>Gisele Miyoko Onuki</B>
 			<BR>
-			(Chefe da Divisão de Extensão e Cultura)
+			(Diretora de Extensão)
 			<BR>
             	<BR>
-            UTFPR: Profa. <B>Gilson Yukio Sato</B>
+            UTFPR: Prof. <B>Gilson Yukio Sato</B>
 			<BR>
 			(Pró-Reitor Adjunto de Pesquisa e Pós-graduação)
 			<BR>

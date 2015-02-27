@@ -11,7 +11,7 @@
  */
 
 if (strlen($secu) == 0) {
-	require ("db.php");
+	require_once ("db.php");
 }
 
 /* Habilita consulta */
@@ -42,7 +42,7 @@ if ($rline = db_read($rrlt)) {
 if ($consulta == true) {
 	/** Chama biblioteca do SOAP */
 	$codigo = $cracha;
-	require ("../admin/_pucpr_soap_consultaAluno.php");
+	require_once ("../admin/_pucpr_soap_consultaAluno.php");
 
 	/* Retorna parametro da consulta */
 	$al_centroAcademico = $result['centroAcademico'];

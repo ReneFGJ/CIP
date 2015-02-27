@@ -7,6 +7,10 @@
 		<img SRC="img/mapa/mapa_pucpr_2014.jpg" width="100%" />
 	</div>
 
+	<h3 style="margin-left: 15%">Salas</h3>
+	<p style="margin-left: 15%;">Nossas salas estão listadas no Guia que você receberá no primeiro dia do evento, na hora do credenciamento. 
+		No Guia, você vai encontrar os mapas de todos os blocos e nomes das salas.</p>
+
 	<h3 style="margin-left: 15%">Hospedagem</h3>
 	<p style="margin-left: 15%;">Nossas sugestões de hotéis:</p>
 

@@ -16,6 +16,19 @@ class curso
 		
 		var $tabela = "curso";
 		
+		function structure()
+			{
+				$sql = "
+				CREATE TABLE curso_area
+					(
+						id_cuar serial not null,
+						cuar_curso char(5),
+						cuar_area char(12)
+					)
+				";
+				//$rlt = db_query($sql);
+			}
+		
 		function relatorio_escolas_cursos()
 			{
 				$sql = "select * from curso 

@@ -2,6 +2,7 @@
 require ("cab.php");
 require ("../../db_reol2_pucpr.php");
 /* header */
+require($include.'sisdoc_debug.php');
 require ($include . '_class_form.php');
 $form = new form;
 $form -> required_message = 0;
