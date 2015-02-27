@@ -648,13 +648,25 @@ class pibic_bolsa_contempladas{
 			{
 				if($tipo==1)
 					{
-						$wh = "and (pp_centro = 'DOUTORANDO' or pp_centro = '' or pp_centro = 'PUC CURITIBA' or pp_centro = 'PUC PR CAMPUS CURITIBA' or pp_centro = 'PUC SAO JOSE')";
+						$wh = "and (pp_centro = 'DOUTORANDO' 
+									or pp_centro = '' 
+									or pp_centro = 'PUC CURITIBA' 
+									or pp_centro = 'PUC PR CAMPUS CURITIBA' 
+									or pp_centro = 'PUC SAO JOSE'
+									or pp_centro = 'Curitiba'
+									or pp_centro = 'São José dos Pinhais')";
 						$ind = 0.34; /* Alterado em 07/03/2014 */
 						$ind = 0.0662;
 					}
 				if($tipo==2)
 					{
-						$wh = "and not (pp_centro = 'DOUTORANDO' or pp_centro = '' or pp_centro = 'PUC CURITIBA' or pp_centro = 'PUC PR CAMPUS CURITIBA' or pp_centro = 'PUC SAO JOSE')";
+						$wh = "and not (pp_centro = 'DOUTORANDO' 
+									or pp_centro = '' 
+									or pp_centro = 'PUC CURITIBA' 
+									or pp_centro = 'PUC PR CAMPUS CURITIBA' 
+									or pp_centro = 'PUC SAO JOSE'
+									or pp_centro = 'Curitiba'
+									or pp_centro = 'São José dos Pinhais')";
 						$ind = 0.34; /* Alterado em 07/03/2014 */
 						$ind = 0.2645; 
 					}

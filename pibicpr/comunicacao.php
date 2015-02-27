@@ -121,8 +121,10 @@ if ($saved > 0)
 			$dx = ' '.substr($dx,strpos($dx,';')+1,strlen($dx));
 			$email_2 = $e1;
 			
+			$anti_spam = ' - [IC-'.substr(md5($tot.date("dmYs")),5,10).']';
+			
 			echo '<BR>enviado ';
-			if (strlen($email_2) > 0) { enviaremail($email_2,$e2,$e3,$e4); echo $email_2.'<BR>'; }
+			if (strlen($email_2) > 0) { enviaremail($email_2,$e2,$e3.$anti_spam,$e4); echo $email_2.''; }
 			}
 	echo "<center>Total de ".$tot." comunicados enviados</center>";
 	}

@@ -2,13 +2,14 @@
 require("cab_fomento.php");
 echo '<link rel="stylesheet" href="../css/style_form_001.css" type="text/css" />';
 require($include."_class_form.php");
-require($include."cp2_gravar.php");
+$form = new form;
+
 require("_email.php");
 
 echo '<H3>Comunicação por e-mail</h3>';
 
 	$tps = array();
-	array_push($tps,array('000','Informar a lista de e-mail manualmente'));
+	//array_push($tps,array('000','Informar a lista de e-mail manualmente'));
 	array_push($tps,array('003','Docentes com orientações IC (recuperar e-mail)'));
 	array_push($tps,array('004','Docentes Stricto Sensu com orientações IC (recuperar e-mail)'));
 	array_push($tps,array('005','Docentes Stricto Sensu vinculados a programas de Pós-Graduação'));
@@ -25,8 +26,16 @@ echo '<H3>Comunicação por e-mail</h3>';
 		}
 
 	$tabela = '';
+	$cp = array();
+	array_push($cp,array('$H8','','',False,False));
+	array_push($cp,array('$O '.$op,'','',False,False));
+	array_push($cp,array('$H8','','',False,False));
+	array_push($cp,array('$H8','','',False,False));
+	array_push($cp,array('$H8','','',False,False));
+	array_push($cp,array('$B8','','Selecionar >>>',False,False));
 	
 	$tela = $form->editar($cp,'');
+	
 	if ($form->saved > 0)
 	{
 	if ((strlen($dd[1]) > 0) and (strlen($dd[3])==0))
@@ -39,7 +48,7 @@ echo '<H3>Comunicação por e-mail</h3>';
 	
 	echo $dd[3];
 	} else {
-		echo $tela;		
+		echo $tela;			
 	}
 
 require("../foot.php");
