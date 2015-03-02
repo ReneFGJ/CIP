@@ -134,6 +134,7 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
 	array_push($menu,array('Iniciação Científica','Modelo de Mensagens','comunicacao_modelos.php?dd1=ic'));
 	array_push($menu,array('Iniciação Científica','Modelo de Mensagens Pareceristas','comunicacao_modelos.php?dd1=PARIC_'));
+	array_push($menu,array('Iniciação Científica','Modelo de Mensagens Protocolo de Serviço','comunicacao_modelos.php?dd1=prot_'));
 	array_push($menu,array('Iniciação Científica','Modelo de Mensagens Relatório Parcial','comunicacao_modelos.php?dd1=RPA'));
 	array_push($menu,array('Iniciação Científica','Modelos dos Termos de Contrato','comunicacao_modelos.php?dd1=termo_'));
 	array_push($menu,array('Iniciação Científica','Todos os modelos','comunicacao_ver.php'));

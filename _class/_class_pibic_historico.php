@@ -6,6 +6,8 @@ class pibic_historico
 		function inserir_historico($proto,$ac,$hist,$aluno1,$aluno2,$motivo,$obs='')
 			{
 				global $nw;
+				
+				$sx = '';
 
 					ini_set('display_errors',255);
 					ini_set('error_reporting',255);				
@@ -22,7 +24,7 @@ class pibic_historico
 				
 				if ($line = db_read($rlt))
 					{
-						
+								
 					} else {
 						$sql = "insert into ".$this->tabela." 
 							(bh_protocolo, bh_data, bh_hora,

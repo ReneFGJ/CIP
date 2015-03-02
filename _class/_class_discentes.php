@@ -41,7 +41,6 @@ class discentes
 	
 	var $tabela = 'pibic_aluno';
 	
-
 	function sem_genero()
 		{
 			$sql = "select pa_nome, id_pa from ".$this->tabela." 
@@ -495,6 +494,8 @@ class discentes
 			if (strlen($cracha) < 8) { return(0); }
 			if (strlen($cracha) == 12) { $cracha = substr($cracha,3,8); }
 			if (strlen($cracha) == 11) { $cracha = substr($cracha,3,8); }
+			
+			$this->cracha = $cracha;
 
 			$ssql = "select * from pibic_aluno ";
 			$ssql .= " where pa_cracha = '".$cracha."' ";
@@ -502,7 +503,7 @@ class discentes
 			if ($rline = db_read($rrlt))
 				{
 				$data = substr($rline['pa_update'],0,6);
-				/* Se jefoi consultado no dia n�o realiza nova consulta */
+				/* Se jefoi consultado no dia nao realiza nova consulta */
 				if (($data == date("Ym")) and ($force != '1'))
 					{
 					$consulta = False;

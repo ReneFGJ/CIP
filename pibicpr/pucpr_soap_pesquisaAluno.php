@@ -95,7 +95,7 @@ if ($consulta == true) {
 			$ssql .= "pa_escolaridade='" . $al_nivelCurso . "',";
 			$ssql .= "pa_update='" . date("Ymd") . "',";
 			$ssql .= "pa_email='" . $al_email1 . "',";
-			$ssql .= "pa_email_1='" . $al_email2 . "' ";
+			$ssql .= "pa_email_1='" . $al_email2 . "', ";
 			$ssql .= "pa_nasc='" . $nasc . "' ";
 			$ssql .= " where pa_cracha = '" . $cracha . "' ";
 			$rrlt = db_query($ssql);

@@ -15,6 +15,9 @@ $pb = new pibic_bolsa_contempladas;
 require("../_class/_class_calender.php");
 $cal = new calendar;
 
+require("../_class/_class_protocolo.php");
+$pr = new protocolo;
+
 require($include."sisdoc_menus.php");
 $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
 
@@ -30,10 +33,19 @@ else
 
 /////////////////////////////////////////////////// MANAGERS //////////////////////////////////////////////////////////
 $menu = array();
-//if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
+if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
 		array_push($menu,array('Acontecendo Agora','Entregas do relatório Parcial','pibic_panorama.php'));
 	} 
+if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
+	{
+		$total_pr = $pr->protocolos_abertos('IC');
+		if ($total_pr > 0)
+			{
+				array_push($menu,array('Protocolos de atendimento','Existe(m) '.$total_pr.' protocolo(s) de atendimento abertos','protocolos.php'));		
+			}
+		
+	}	
 
 ////////////////////////////////////////////////// calendario index/////////////////////////////////////////////////////
 

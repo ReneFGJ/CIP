@@ -41,12 +41,14 @@ echo '<TR valign="top">';
 echo '<TD>';
 echo $pb -> resumo();
 echo '<TD width="300">';
-if ($professor == '88958022') {
+//if ($professor == '88958022') 
+{
 	echo '<h3> Solicitação</h3>';
 	echo '<UL>';
 	
 	echo '<LI><A HREF="protocolo_abrir.php?dd1=ALT">Alteração de título do Plano do Aluno</A></LI>';
 	echo '<LI><A HREF="protocolo_abrir.php?dd1=SBS">Substituição do aluno</A></LI>';
+	echo '<LI><A HREF="protocolo_abrir.php?dd1=CAN">Cancelamento de orientação</A></LI>';
 	//echo '<LI><A HREF="protocolo_abrir.php">Substituição do aluno</A></LI>';
 	echo '</UL>';
 	echo $rc -> resumo_recurso_professor($professor);

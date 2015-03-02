@@ -53,7 +53,7 @@ if ($acao == $b2)
 	/* Mostra áreas */
 	$sql = "select * from ajax_areadoconhecimento 
 				left join curso_area on a_cnpq = cuar_area
-			where a_semic = 1 and cuar_area is null
+			where a_semic = 1 
 			order by a_cnpq
 	";
 	$rlt = db_query($sql);

@@ -74,6 +74,24 @@ class pibic_bolsa_contempladas{
 	var $tipo       = 'RELAP';
 	var $pg_valida  = 'pa_relatorio_parcial_ajax.php';
 	var $autores_semic;
+	
+	
+	function substituicao_motivo()
+		{
+			$mt=array();
+			$mt['001'] = 'Por insuficiência de desempenho do aluno';
+			$mt['002'] = 'Falecimento';
+			$mt['003'] = 'Bolsista obteve concessão de outra agência';
+			$mt['004'] = 'Cancelamento por término da graduação';
+			$mt['005'] = 'Desistência do Bolsista';
+			$mt['006'] = 'Outros motivos';
+			$mt['007'] = 'Cancelamento para troca de orientador';
+			$mt['008'] = 'Cancelamento da indicação do bolsista';
+			$mt['009'] = 'Não indicação do aluno no momento da Inscrição';
+			$mt['010'] = 'Saúde pessoal';
+			$mt['011'] = 'Saúde de um membro da família';
+			return($mt);
+		}	
 		
 	function cp(){
 				$cp = array();
@@ -144,6 +162,20 @@ class pibic_bolsa_contempladas{
 				return($cp);
 			}
 
+	function alterar_titulo_plano($proto,$titulo)
+		{
+			$tit = LowerCase($titulo);
+			$titulo = UpperCase(substr($titulo,0,1)).substr($tit,1,strlen($tit));
+			
+			$sql = "update ".$this->tabela." set
+						pb_titulo_plano = '$titulo',
+						pb_titulo_projeto = '$titulo'
+					where pb_protocolo = '$proto'
+					and pb_status = 'A'
+			";
+			$rlt = db_query($sql);
+			return(1);
+		}
 
 	function renovacoes($ano1,$ano2){
 					
@@ -2345,7 +2377,13 @@ $sa .= '</TR>';
 				}				
 		}
 
-
+	function cancela_plano_do_aluno($protocolo)
+		{
+			$sql = "update ".$this->tabela." set pb_status = 'C'
+					where pb_protocolo = '".$protocolo."'";
+			$rlt = db_query($sql);
+			return(1);			
+		}
 	function troca_orientador($protocolo,$o1,$o2)
 		{
 			$sql = "update ".$this->tabela." set pb_professor = '".$o2."'
@@ -2353,8 +2391,13 @@ $sa .= '</TR>';
 			$rlt = db_query($sql);
 			return(1);
 		}
-
-		
+	function troca_estudante($protocolo,$o1,$o2)
+		{
+			$sql = "update ".$this->tabela." set pb_aluno = '".$o2."'
+					where pb_aluno = '".$o1."' and pb_protocolo = '".$protocolo."'";
+			$rlt = db_query($sql);
+			return(1);
+		}
 	function alterar_status($para)
 		{
 			$proto = $this->pb_protocolo;
@@ -4946,7 +4989,7 @@ $sa .= '</TR>';
 				/* 
 				 * 
 				 */
-				$sx .= '<fieldset class="fieldset01">';
+				$sx = '<fieldset class="fieldset01">';
 				$sx .= '<legend class="legend01">'.msg('data_main').'</legend>';
 				$sx .= '<table width="100%" class="tabela00">';
 				$sx .= '<TR class="lt0">';
@@ -5053,6 +5096,7 @@ $sa .= '</TR>';
 	
 	function mostra_data_relatorio($d1,$n1)
 		{
+			$sx = '';
 			$d1 = round($d1);
 			if ($d1 <= 19000101) 
 				{
@@ -5622,7 +5666,7 @@ $sa .= '</TR>';
 			}
 	
 		
-	function idioma_mst($nm)
+	function idioma_mst($nm='')
 			{
 				$rs = $this->idioma();
 				$sx = $rs[$nm];

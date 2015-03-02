@@ -3,10 +3,18 @@ require("cab_pibic.php");
 
 require("../_class/_class_pibic_bolsa_contempladas.php");
 
-if (strlen($dd[2]) > 0)
+if (strlen($acao) > 0)
 	{
-		print_r($dd);
-		exit;
+		$tipo = trim($dd[1]);
+		$proto = trim($dd[2]);
+		$check = trim($dd[3]);
+		
+		if ($check == checkpost($proto))
+			{
+				$_SESSION['ic_protocolo'] = $proto;
+				redireciona($http.'protocolo/protocolo_abrir_'.$tipo.'.php');
+				exit;				
+			}
 	}
 
 $b1 = 'Avançar >>>';
@@ -24,9 +32,9 @@ $sql = "select * from ".$pb->tabela."
 			left join ajax_areadoconhecimento on pb_semic_area = a_cnpq
 			where pbt_edital <> 'CSF'
 			and pb_professor = '".$professor."' 
-			and pb_status = 'C' 
+			and pb_status = 'A'
+			and (a_ativo = '1' or a_semic = '1') 
 			";
-
 $rlt = db_query($sql);
 
 while ($line = db_read($rlt))
@@ -44,7 +52,7 @@ while ($line = db_read($rlt))
 		$sx .= '<input type="hidden" name="dd2" value="'.$proto.'">';
 		$sx .= '<input type="hidden" name="dd3" value="'.checkpost($proto).'">';		
 		$sx .= '<TD colspan=5>';
-		$sx .= '<input type="submit" name="acao" value="Alterar este protocolo >>>">';
+		$sx .= '<input type="submit" name="acao" value="Solicitar alterar desse protocolo >>>">';
 		$sx .= '</form>';
 	}
 echo '<table width="100%" class="tabela00" border=0 >'.$sx.'</table>';

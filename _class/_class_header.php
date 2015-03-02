@@ -24,7 +24,7 @@ class header
 	
 	function foot()
 		{
-			$sx .= '
+			$sx = '
 				</table>
 				<table width="100%" cellpading=0 cellspacing=0 border=0 class="tabela00">
 				<TR><TD>
