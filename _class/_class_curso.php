@@ -1,6 +1,6 @@
 <?
 class curso
-	{
+	{ 	
 		var $id_curso;
 		var $curso_nome;
 		var $curso_codigo;
@@ -181,4 +181,57 @@ class curso
 
 			}
 		
+		
+function relatorio_cursos_areas()
+			{
+				$sql = "select curso_nome, curso_area, a_cnpq, a_descricao
+						from curso 
+						inner join curso_area on cuar_curso = curso_codigo
+						inner join ajax_areadoconhecimento on cuar_area = a_cnpq												
+						group by curso_nome, curso_area, a_cnpq, a_descricao
+						order by curso_nome";
+				
+				$rlt = db_query($sql) or die(mysql_error());;
+				
+				$xescola = '';
+				$xtot = 0;
+				$xtotp = 0;
+				
+				$sx = '<table width="100%">';
+				$sx .= 	'<H2>Áreas Associadas ao Cursos</h2>';
+				$sh .= '<TR>
+							<TH>Codigo<TH>Área';
+							
+							$id = 0;
+
+					$xpp = '';
+						
+				while ($line = db_read($rlt))
+						{
+							$sx .= '<TR>';
+							$sx .= 		'<TD class="tabela01" align="left">';
+							$sx .= 		$line['curso_nome'];	
+		
+							$pp = $line['curso_nome'];
+									
+							if ($pp != $xpp) {
+						
+						
+						
+									$sx .= '<TR><TD><TD colspan=2><nobr>'.$line['a_cnpq'].' - '.$line['a_descricao'];
+								
+						
+						}
+						}
+						
+						$sx .= '<TR>
+								<TD align="right"><font color=red><b>Total  '.$id;
+						$sx .= '</table>';	
+			
+				return($sx);
+				 
+				 
+			}		
+		
 	}
+	

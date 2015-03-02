@@ -68,6 +68,8 @@ if (strlen($curso) > 0)
 	}
 array_push($menu,array('Perfil dos Orientadores','Perfil','indicador_orientador_01.php'));
 array_push($menu,array('Perfil dos Orientadores','Perfil por Planos','indicador_orientador_02.php'));	
+
+array_push($menu,array('Àreas e subáreas','Relatório de associação de curso à áreas','curso_area.php'));
 ///////////////////////////////////////////////////// redirecionamento
 if ((isset($dd[1])) and (strlen($dd[1]) > 0))
 	{
