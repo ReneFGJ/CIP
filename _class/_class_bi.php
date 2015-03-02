@@ -295,6 +295,7 @@ class bi
 	
 	function professor_com_captacao($tp=0)
 		{
+			$ano = $this->ano_ini;
 			$wh = ''; $tit_rel = '% Professores com Projetos de Captação Aprovados / Andamento';
 			$cp = "";
 			$sql = "select count(*) as total from (
@@ -311,7 +312,7 @@ class bi
 					select 1 as total, pp_cracha from captacao 
 					inner join pibic_professor on pp_cracha = ca_professor
 					inner join agencia_de_fomento on agf_codigo = ca_agencia_gr
-					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".date("Y")."
+					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$ano." and ca_vigencia_ini_ano <= ".$ano." 
 					and ca_proponente_vlr > 0 $wh
 					group by pp_cracha
 					) as tabela
@@ -329,7 +330,7 @@ class bi
 					inner join pibic_professor on pp_cracha = ca_professor
 					inner join programa_pos_docentes on pp_cracha = pdce_docente
 					inner join agencia_de_fomento on agf_codigo = ca_agencia_gr
-					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".date("Y")."
+					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$ano." and ca_vigencia_ini_ano <= ".$ano."
 					and ca_proponente_vlr > 0 $wh
 					group by pdce_programa, pp_cracha
 					) as tabela
@@ -378,7 +379,7 @@ class bi
 					inner join programa_pos_docentes on pp_cracha = pdce_docente
 					inner join programa_pos on pos_codigo = pdce_programa
 					inner join agencia_de_fomento on agf_codigo = ca_agencia_gr
-					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".date("Y")."
+					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$ano." and ca_vigencia_fim_ano >= ".$ano." 
 					and ca_proponente_vlr > 0 $wh
 					group by pp_cracha, pos_centro
 					) as tabela
@@ -418,25 +419,25 @@ class bi
 			$sx = '<table class="tabela00" width="100%">';
 			
 			$sc .= '<TR><TD colspan=4><h3>'.$tit_rel.'</h3>';
-			$sc .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sc .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sc .= '<TR><TD class="tabela01">Indicador Total
 						<TD align="center" class="tabela01" width="15%">'.$ProfSS.'
 						<TD align="center" class="tabela01" width="15%">'.$ProfCap.'
 						<TD align="center" class="tabela01" width="15%">'.$razao01;
 			
-			$sc .= '<TR><TD colspan=4 class="lt0">Razão entre o professores com captação (ProfCap) pelo total de professores vinculados a programas de <I>Stricto Sensu</I> (ProfSS) no ano de '.date("Y");
+			$sc .= '<TR><TD colspan=4 class="lt0">Razão entre o professores com captação (ProfCap) pelo total de professores vinculados a programas de <I>Stricto Sensu</I> (ProfSS) no ano de '.$ano;
 			
 			$sx .= $sc;			
 
 			/* Por programas */
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por Escolas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sx .= $sb;
 			
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por programas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sx .= $sa;
 			
 			
@@ -445,10 +446,11 @@ class bi
 			$sx .= '</table>';
 			return($sx);
 		}
+
 	function professor_com_captacao_vigente($tp=0)
 		{
 			$wh = ''; 
-			
+			$ano = $this->ano_ini;
 			$tit_rel = '% Professores com Projetos de Captação Aprovados / Vigentes ';
 			$cp = "";
 			$sql = "select count(*) as total from (
@@ -465,7 +467,7 @@ class bi
 					select 1 as total, pp_cracha from captacao 
 					inner join pibic_professor on pp_cracha = ca_professor
 					inner join agencia_de_fomento on agf_codigo = ca_agencia_gr
-					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$this->ano."
+					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$ano."
 					and ca_proponente_vlr > 0 $wh
 					group by pp_cracha
 					) as tabela
@@ -483,7 +485,7 @@ class bi
 					inner join pibic_professor on pp_cracha = ca_professor
 					inner join programa_pos_docentes on pp_cracha = pdce_docente
 					inner join agencia_de_fomento on agf_codigo = ca_agencia_gr
-					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$this->ano."
+					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$ano."
 					and ca_proponente_vlr > 0 $wh
 					group by pdce_programa, pp_cracha
 					) as tabela
@@ -532,7 +534,7 @@ class bi
 					inner join programa_pos_docentes on pp_cracha = pdce_docente
 					inner join programa_pos on pos_codigo = pdce_programa
 					inner join agencia_de_fomento on agf_codigo = ca_agencia_gr
-					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$this->ano."
+					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$ano." and ca_vigencia_fim_ano >= ".$ano."
 					and ca_proponente_vlr > 0 $wh
 					group by pp_cracha, pos_centro
 					) as tabela
@@ -573,25 +575,25 @@ class bi
 			$sx = '<table class="tabela00" width="100%">';
 			
 			$sc .= '<TR><TD colspan=4><h3>'.$tit_rel.'</h3>';
-			$sc .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sc .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sc .= '<TR><TD class="tabela01">Indicador Total
 						<TD align="center" class="tabela01" width="15%">'.$ProfSS.'
 						<TD align="center" class="tabela01" width="15%">'.$ProfCap.'
 						<TD align="center" class="tabela01" width="15%">'.$razao01;
 			
-			$sc .= '<TR><TD colspan=4 class="lt0">Razão entre o professores com captação (ProfCap) pelo total de professores vinculados a programas de <I>Stricto Sensu</I> (ProfSS) no ano de '.date("Y");
+			$sc .= '<TR><TD colspan=4 class="lt0">Razão entre o professores com captação (ProfCap) pelo total de professores vinculados a programas de <I>Stricto Sensu</I> (ProfSS) no ano de '.$ano;
 			
 			$sx .= $sc;			
 
 			/* Por programas */
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por Escolas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sx .= $sb;
 			
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por programas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação / nº prof.<BR> do program.';
 			$sx .= $sa;
 			
 			
@@ -602,6 +604,7 @@ class bi
 		}	
 	function professor_com_captacao_ag_gov()
 		{
+			$ano = $this->ano_ini;
 			$wh = "and (agf_sigla like 'O%' and agf_ativo = 2) ";
 			$tit_rel = 'Captação de Recursos via Agências de Fomento e Governamentais';
 			
@@ -611,7 +614,7 @@ class bi
 					select 1 as total, max(ca_proponente_vlr) as ca_proponente_vlr, pp_cracha from captacao 
 					inner join pibic_professor on pp_cracha = ca_professor
 					inner join agencia_de_fomento on agf_codigo = ca_agencia_gr
-					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".date("Y")."
+					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$ano." and ca_vigencia_fim_ano <= ".$ano." 
 					and ca_proponente_vlr > 0 $wh
 					group by pp_cracha
 					) as tabela
@@ -632,7 +635,7 @@ class bi
 					inner join pibic_professor on pp_cracha = ca_professor
 					inner join programa_pos_docentes on pp_cracha = pdce_docente
 					inner join agencia_de_fomento on agf_codigo = ca_agencia_gr
-					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".date("Y")."
+					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$ano." and ca_vigencia_fim_ano <= ".$ano."
 					and ca_proponente_vlr > 0 $wh
 					group by pdce_programa, pp_cracha
 					) as tabela
@@ -684,7 +687,7 @@ class bi
 					inner join programa_pos_docentes on pp_cracha = pdce_docente
 					inner join programa_pos on pos_codigo = pdce_programa
 					inner join agencia_de_fomento on agf_codigo = ca_agencia_gr
-					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".date("Y")."
+					where pp_ss = 'S' and ca_vigencia_ini_ano >= ".$ano." and ca_vigencia_fim_ano <= ".$ano."
 					and ca_proponente_vlr > 0 $wh
 					group by pp_cracha, pos_centro
 					) as tabela
@@ -727,7 +730,7 @@ class bi
 			$sx = '<table class="tabela00" width="100%">';
 			
 			$sc .= '<TR><TD colspan=4><h3>'.$tit_rel.'</h3>';
-			$sc .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Val. Captação<TH>Razão';
+			$sc .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Val. Captação<TH>Razão';
 			$sc .= '<TR><TD class="tabela01">Indicador Total
 						<TD align="center" class="tabela01">'.$ProfSS.'
 						<TD align="center" class="tabela01">'.$ProfCap.'
@@ -735,19 +738,19 @@ class bi
 						<TD align="center" class="tabela01">'.number_format($Razao01,2,',','.');
 			
 			$sc .= '<TR><TD colspan=4 class="lt0"> 
-					Razão entre o Valor total de captação dos professores da pós-graduaçãp (ValProfCap) pelo total de professores vinculados a programas de <I>Stricto Sensu</I> (ProfSS) no ano de '.date("Y");
+					Razão entre o Valor total de captação dos professores da pós-graduação (ValProfCap) pelo total de professores vinculados a programas de <I>Stricto Sensu</I> (ProfSS) no ano de '.$ano;
 			
 			$sx .= $sc;			
 
 			/* Por programas */
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por Escolas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação<TH>Captação por<BR>Professor';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação<TH>Captação por<BR>Professor';
 			$sx .= $sb;
 			
 			$sx .= '<TR><TD><BR><BR>';
 			$sx .= '<TR><TD colspan=4 class="lt4">Resultados por programas';
-			$sx .= '<TR><TH>Descrição<TH>Tot. Proj.<TH>Tot. Prof com Captação<TH>Captação<TH>Captação por<BR>Professor';
+			$sx .= '<TR><TH>Descrição<TH>Tot. Prof.<TH>Tot. Prof com Captação<TH>Captação<TH>Captação por<BR>Professor';
 			$sx .= $sa;
 
 			/* Por escolas */

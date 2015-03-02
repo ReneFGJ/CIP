@@ -104,7 +104,13 @@ if ($perfil -> valid('#PIB')) {
 	array_push($mn, array('Fomento (Editais)', 'b1', 'fomento_old/', 'Editais', 'icone-iniciacao-cientifica', ''));
 }
 
-if ($perfil -> valid('#SEP#SPG')) {
+/* Recupera coordenadores */
+$sql = "select * from programa_pos where pos_coordenador = '".$nw->user_cracha."' and pos_corrente = '1' ";
+$rlt = db_query($sql);
+if ($line = db_read($rlt))
+	{ $coordenador = 1; } else { $coordenador = 0; }
+
+if (($perfil -> valid('#SEP#SPG')) or ($coordenador == 1)) {
 	array_push($mn, array('Programas de Pós-Graduação', 'b1', 'pos/', 'Coordenação e Secretaria dos PPGs', 'icone-iniciacao-cientifica', ''));
 }
 //if (!($perfil -> valid('#CNQ'))) 

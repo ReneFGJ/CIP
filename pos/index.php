@@ -11,6 +11,7 @@ $menu = array();
 //array_push($menu,array('Iniciação Científica','Indicadores Bolsas PIBIC','pibic_indicadores_bolsas.php?dd1=PIBIC'));
 
 array_push($menu,array('PPG','Programas de Pós-Graduação','pos_graduacao_resume.php'));
+array_push($menu,array('PPG','Programas de Pós-Graduação (indicadores)',$http.'/bi/pos_graduacao.php'));
 if ($perfil->valid('#SEP'))
 	{
 		array_push($menu,array('PPG','Programas de Pós-Graduação (cadastro)','../cip/programa_pos.php'));

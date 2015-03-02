@@ -7,6 +7,8 @@ require("../_class/_class_lattes.php");
 
 require("../_class/_class_bi.php");
 $bi = new bi;
+$bi->ano_ini = $dd[1];
+$bi->ano_fim = $dd[1];
 
 header("Content-Type: application/vnd.ms-excel; charset=utf-8");
 header("Content-type: application/x-msexcel; charset=utf-8");
