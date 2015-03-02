@@ -136,9 +136,9 @@ if ($line = db_read($rlt))
 			$e4 = $texto;
 			// e-mail de segurança
 			$e1 = 'pibicpr@pucpr.br';
-			//enviaremail($e1,$e2,$e3,$e4);
-			$e1 = 'renefgj@gmail.com';
 			enviaremail($e1,$e2,$e3,$e4);
+			//$e1 = 'renefgj@gmail.com';
+			//enviaremail($e1,$e2,$e3,$e4);
 		
 			//// Enviar para professor
 			echo 'Confirmação para ';

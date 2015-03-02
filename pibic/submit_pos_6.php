@@ -69,7 +69,7 @@ if ($ok==1)
 		$rlt = db_query($sql);
 		
 		
-		enviaremail('renefgj@gmail.com','','Comprovante de submissão - '.$dd[1],$sa);
+		//enviaremail('renefgj@gmail.com','','Comprovante de submissão - '.$dd[1],$sa);
 		
 		$sql = "select * from ".$pb->tabela." where pj_codigo = '$proto' ";
 		$rlt = db_query($sql);

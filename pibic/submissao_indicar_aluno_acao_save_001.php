@@ -45,7 +45,7 @@ if ((strlen($dd[3]) == 8) and (strlen($dd[4]) == 8) and ($dd[5] == 'S') and (str
 			$texto .= '<BR><BR>Solicitação atendida em '.date("d/m/Y H:i").chr(13).chr(10);
 			$e4 = mst($texto);
 			echo '<BR><BR>enviado para:';
-			enviaremail('renefgj@gmail.com',$e2,$e3,$e4); 
+			//enviaremail('renefgj@gmail.com',$e2,$e3,$e4); 
 			//echo 'renefgj@gmail.com,';
 			enviaremail('pibicpr@pucpr.br',$e2,$e3,$e4); echo 'pibicpr@pucpr.br,';
 			if (strlen($email) > 0) { enviaremail($email_alt,$e2,$e3,$e4); echo ' '.$email; }

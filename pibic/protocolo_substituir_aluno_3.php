@@ -113,7 +113,7 @@ if ($line = db_read($rlt))
 			$tt = $ta.'<BR><BR>'.$tb;
 			$tit = 'Solicitação de substituição';
 
-			$e1 = 'renefgj@gmail.com';
+			$e1 = 'pibicpr@pucpr.br';
 			$e3 = '[PIBIC] - Solicitação de substituição de aluno - '.$proto ;
 			$tt = troca($tt,'$protocolo',$proto);
 			$e4 = $texto.'<BR>'.$tt.'<BR><BR><BR>'.$est1.' '.$est2;

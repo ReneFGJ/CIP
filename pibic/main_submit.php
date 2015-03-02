@@ -45,7 +45,7 @@ $pb->protocolo = $dd[1];
 $sa .= $pb->mostra_projeto();
 $sa .= '<BR><BR><HR><CENTER>Planos de Alunos<CENTER></HR>';
 $sa .= $pb->mostra_plano();
-enviaremail('renefgj@gmail.com','','Comprovante de submissão - '.$dd[1],$sa);
+enviaremail('pibicpr@pucpr.br','','Comprovante de submissão - '.$dd[1],$sa);
 
 $sql = "select * from ".$pb->tabela." where pj_codigo = '$proto' ";
 $rlt = db_query($sql);

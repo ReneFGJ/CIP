@@ -42,8 +42,8 @@ $txt .= 'postado em '.date("d/m/Y H:m:s").'<BR>';
 $txt .= $pb->mostar_dados();
 $txt .= $ged->filelist();
 
-$email = 'renefgj@gmail.com';
-enviaremail($email,'',$titulo.' (copia)',$txt);
+//$email = 'renefgj@gmail.com';
+//enviaremail($email,'',$titulo.' (copia)',$txt);
 $email = 'pibicpr@pucpr.br';
 enviaremail($email,'',$titulo.' (copia)',$txt);
 

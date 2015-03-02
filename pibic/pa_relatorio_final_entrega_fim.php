@@ -72,7 +72,6 @@ $tabela = 'pa_relatorio_final_entrega_fim';
 
 		echo 'Relatório Final entregue com sucesso!';
 				
-		$ml = enviaremail('renefgj@gmail.com','',$it.'-'.$protocolo,$ic);
 		$ml = enviaremail('pibicpr@pucpr.br','',$it.'-'.$protocolo,$ic);
 		if (strlen($email_1) > 0) { $ml = enviaremail($email_1,'',$it.'-'.$protocolo,$ic); echo '<BR>'.msg('send_to').' '.$email_1; }
 		if (strlen($email_2) > 0) { $ml = enviaremail($email_2,'',$it.'-'.$protocolo,$ic); echo '<BR>'.msg('send_to').' '.$email_2; }
