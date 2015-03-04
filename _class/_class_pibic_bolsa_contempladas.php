@@ -390,8 +390,8 @@ class pibic_bolsa_contempladas{
 						$sx .= '<TD><nobr>';
 						$sx .= $line['a_descricao'];
 						$sx .= '<TD><nobr>';
-						$sx .= $line['pbt_descricao'];												
-						$sx .= '</nobr>';																	
+						$sx .= $line['pb_titulo_projeto'];												
+						$sx .= '</nobr>';													
 					}
 				$sx .= '</table>';
 				$sx .= $tot.' total';

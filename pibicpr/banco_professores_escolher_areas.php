@@ -7,7 +7,7 @@ require("../_class/_class_docentes.php");
 
 $par = new parecerista;
 
-echo $par->banco_professores_avaliadores();
+echo $par->banco_professores_relacao_avaliadores();
 
 require("../foot.php");	
 

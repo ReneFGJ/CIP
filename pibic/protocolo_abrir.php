@@ -52,11 +52,27 @@ while ($line = db_read($rlt))
 		$sx .= '<input type="hidden" name="dd2" value="'.$proto.'">';
 		$sx .= '<input type="hidden" name="dd3" value="'.checkpost($proto).'">';		
 		$sx .= '<TD colspan=5>';
+		$SX .= '<BR><BR>';
 		$sx .= '<input type="submit" name="acao" value="Solicitar alterar desse protocolo >>>">';
 		$sx .= '</form>';
 	}
+	
+	
 echo '<table width="100%" class="tabela00" border=0 >'.$sx.'</table>';
 echo '</form>';
+echo '<BR><BR>';
+echo '<p align="left">	Prezado Professor Orientador, </p>
+						<p>Esclarecemos que todas as substituições de projetos com BOLSA deverão ser solicitadas 
+						até o dia 05 de cada mês para que o aluno vigente receba referente ao mês solicitado.
+						Caso contrário a bolsa será paga no mês seguinte à solicitação. </p>
+						<p>Cancelamentos de bolsas serão aceitos somente até 30 de abril de 2015, com justificativa,
+						sendo analisada pelo Comitê Gestor a possibilidade de devolução dos valores recebidos. O professor 
+						orientador deverá entregar as atividades previstas neste termo e será analisada a motivação do 
+						cancelamento, podendo ou não ocorrer penalidade na próxima seleção. Após 1º de maio todos os projetos 
+						vigentes deverão participar obrigatoriamente do SEMIC, conforme o item 3.2. Compromissos e Direitos do 
+						professor orientador, letra x.
+	  </p>';
+
 
 echo '<BR><BR><BR><BR><BR><BR><BR>';
 
