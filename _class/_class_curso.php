@@ -181,7 +181,13 @@ class curso
 
 			}
 		
-		
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: relatorio_cursos_areas()
+ *          Metodo retorna area do conhecimento associadas ao curso
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 02/03/2015
+ */		
 function relatorio_cursos_areas()
 			{
 				$sql = "select curso_nome, curso_area, a_cnpq, a_descricao
@@ -216,12 +222,9 @@ function relatorio_cursos_areas()
 									
 							if ($pp != $xpp) {
 						
-						
-						
 									$sx .= '<TR><TD><TD colspan=2><nobr>'.$line['a_cnpq'].' - '.$line['a_descricao'];
 								
-						
-						}
+								}
 						}
 						
 						$sx .= '<TR>
@@ -232,6 +235,7 @@ function relatorio_cursos_areas()
 				 
 				 
 			}		
+//**************************** Fim do metodo ***************************************** 	
 		
 	}
 	

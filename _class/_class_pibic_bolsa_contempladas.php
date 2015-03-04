@@ -307,7 +307,8 @@ class pibic_bolsa_contempladas{
 							<TH>e-mail (Estud.)
 							<TH>e-mail alt (Estud.)
 							<TH>Área CNPq
-							<TH>CNPq Descrição	
+							<TH>CNPq Descrição
+							<TH>Projeto	
 							';
 				$tot = 0;
 				while ($line = db_read($rlt))
@@ -388,6 +389,8 @@ class pibic_bolsa_contempladas{
 						$sx .= '</nobr>';	
 						$sx .= '<TD><nobr>';
 						$sx .= $line['a_descricao'];
+						$sx .= '<TD><nobr>';
+						$sx .= $line['pbt_descricao'];												
 						$sx .= '</nobr>';																	
 					}
 				$sx .= '</table>';
@@ -1043,7 +1046,7 @@ class pibic_bolsa_contempladas{
 			$rlt = db_query($sql);
 			
 			$sx .= '<table class="tabela00" width="100%" align="center">';
-			$sx .= '<TR><TH>Edital<TH>Modalidade<TH>Total';
+			$sx .= '<TR><TH>Edital<TH>Modalidade aqui<TH>Total';
 
 			$tot = 0;
 			$ano = 0;
@@ -1198,7 +1201,7 @@ class pibic_bolsa_contempladas{
 			}		
 
 
-	function resumo_bolsas_campi($ano=2013,$modalidade='PIBIC')
+	function resumo_bolsas_campi($ano=2015,$modalidade='PIBIC')
 			{
 			$cp = 'pbt_edital, pbt_descricao, pb_ano, pp_centro';
 			$sql = "select count(*) as total, $cp from pibic_bolsa_contempladas
@@ -1287,7 +1290,7 @@ class pibic_bolsa_contempladas{
 			}
 
 		
-	function resumo_bolsas($ano=2013)
+	function resumo_bolsas($ano=2015)
 			{
 			$cp = 'pbt_edital, pbt_descricao, pb_ano';
 			$sql = "select count(*) as total, $cp from pibic_bolsa_contempladas 
@@ -1519,22 +1522,18 @@ class pibic_bolsa_contempladas{
 					array_push($an,$line['a_descricao']);
 				}
 
-				$sql = "select a1.a_cnpq as yy, a1.a_descricao as a_descricao_1, * from pibic_bolsa_contempladas 
-			 	left join pibic_professor on pp_cracha = pb_professor
-			 	left join 
-			 			(
-			 			select pj_codigo, pj_titulo from pibic_projetos 
-			 			group by pj_codigo , pj_titulo
-			 			) as projetos
-			 			on pb_protocolo_mae = pj_codigo    
-			 	
-			 	left join ajax_areadoconhecimento as a1 on a1.a_cnpq = pb_semic_area 
-			 	
- 				left join pibic_aluno on pa_cracha = pb_aluno 
- 				left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
- 				where pb_ano = '".$ano."'
- 				 ";
-
+				$sql = "select a1.a_cnpq as yy, a1.a_descricao as a_descricao_1, * 
+				        from pibic_bolsa_contempladas 
+			 			left join pibic_professor on pp_cracha = pb_professor
+			 			left join(select pj_codigo, pj_titulo from pibic_projetos 
+			 						group by pj_codigo , pj_titulo
+			 						) as projetos
+			 			on pb_protocolo_mae = pj_codigo
+					 	left join ajax_areadoconhecimento as a1 on a1.a_cnpq = pb_semic_area
+		 				left join pibic_aluno on pa_cracha = pb_aluno 
+		 				left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+		 				where pb_ano = '".$ano."'
+		 				 ";
 			$sql .= " and pbt_edital = '".$edital."' ";
 			$sql .= " and pb_status <> 'C' ";
 			if (strlen($modalidade) > 0)
@@ -1570,26 +1569,20 @@ class pibic_bolsa_contempladas{
 				//$sx .= '<TD align="center">'.$edital.'/'.$ano.'</TD>';
 				$sx .= '<TD class="tabela01">'.$prof_nome.'</TD>';
 				$sx .= '<TD class="tabela01">'.$line['pp_cpf'].'</TD>';
-				$sx .= '<TD class="tabela01">'.$line['pp_lattes'].'</TD>';
-				
+				$sx .= '<TD class="tabela01">'.$line['pp_lattes'].'</TD>';				
 				$sx .= '<TD class="tabela01">'.$line['pj_titulo'].'</TD>';
 				
-				$sx .= '<TD class="tabela01">'.$area.'</TD>';
-				
-				
+				$sx .= '<TD class="tabela01">'.$line['pb_semic_area'].'</TD>';
+												
+				$sx .= '<TD class="tabela01">'.$area.'</TD>';		
 				$az = substr($line['pb_semic_area'],0,4);
 				$ai = array_search($az,$ar);
-				$sx .= '<TD class="tabela01">'.$an[$ai];
-				
-				$sx .= '<TD class="tabela01">'.$line['a_descricao_1'].'</TD>';
-				
-				$sx .= '<TD class="tabela01">'.$line['pb_titulo_projeto'].'</TD>';
-				
+				$sx .= '<TD class="tabela01">'.$an[$ai];			
+				$sx .= '<TD class="tabela01">'.$line['a_descricao_1'].'</TD>';				
+				$sx .= '<TD class="tabela01">'.$line['pb_titulo_projeto'].'</TD>';				
 				$sx .= '<TD class="tabela01">'.$line['pa_nome'].'</TD>';								
 				$sx .= '<TD class="tabela01">'.$line['pa_cpf'].'</TD>';
 				$sx .= '<TD class="tabela01">'.$line['pa_lattes'].'</TD>';
-				
-				
 				$sx .= '</TR>';
 		}
 
@@ -1599,6 +1592,9 @@ class pibic_bolsa_contempladas{
 		$sa .= '<TH>CPF do Orientador</TH>';
 		$sa .= '<TH>Link do Currículo Lattes do Orientador</TH>';
 		$sa .= '<TH>Título do projeto do bolsista</TH>';
+		
+		$sa .= '<TH>cnpq</TH>';	
+			
 		$sa .= '<TH>Grande área do conhecimento</TH>';
 		$sa .= '<TH>Área do conhecimento</TH>';
 		$sa .= '<TH>Sub-área</TH>';
