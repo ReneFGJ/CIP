@@ -1138,7 +1138,7 @@ class bonificacao {
 		$mod = array('D' => 'Doutorado', 'M' => 'Mestrado');
 		$modalidade = $mod[$doc -> line['od_modalidade']];
 		$ano_ingresso = $doc -> line['od_ano_ingresso'];
-
+		
 		$pdf -> AddPage();
 		$pdf -> Image('../img/logo_instituicao.jpg', 10, 6, 20);
 		$pdf -> SetFont('Arial', 'B', 16);
@@ -1177,7 +1177,7 @@ class bonificacao {
 		$pdf -> SetXY(10, $Y + 3);
 		$pdf -> Cell(30, 5, $doc -> pp_cpf, 1, 1, 'L', false);
 		$pdf -> SetXY(40, $Y + 3);
-		$pdf -> Cell(160, 5, $dis -> pa_curso, 1, 1, 'L', false);
+		$pdf -> Cell(160, 5, $doc -> line['pos_nome'], 1, 1, 'L', false);
 
 		/* dADOS DO ESTUDANTE */
 

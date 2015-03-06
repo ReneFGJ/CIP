@@ -12,6 +12,7 @@ $email_adm="rene@sisdoc.com.br";
 $email_nome="RE<SUP>2</SUP>ol v.2";
 $site_titulo = "Repositório Eletronico & Revistas Eletronicas Online";
 //-------------------------------------- Paramentros da Base de Dados PostGres
+$base = 'pgsql';
 $base_user=$vars['base_user'];
 $base_port = '8130';
 $base_host="10.100.1.131";

@@ -370,19 +370,20 @@ class grupo_de_pesquisa {
 
 	}
 
-	function recupera_id_do_grupo($nome) {
+	function recupera_id_do_grupo($cracha) {
 		$this -> id = '';
-		$sql = "select id_gp, gp_nome from " . $this -> tabela . "  
-					where upper(asc7(gp_nome)) = '" . uppercasesql($nome) . "' ";
-
+		$sql = "select id_gp from " . $this -> tabela . "  
+					where gp_lider = '$cracha' ";
 		$rlt = db_query($sql);
+		
 		if ($line = db_read($rlt)) {
 			$this -> id = $line['id_gp'];
+			echo "Found ".$this->id;
 			return ($line['id_gp']);
 		} else {
 			echo 'Not FOUND';
+			return(0);
 		}
-		return ('');
 	}
 
 	function cp_membros() {

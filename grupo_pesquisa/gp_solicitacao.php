@@ -43,11 +43,40 @@ $tela = $form->editar($cp,'');
 
 if ($form->saved > 0)
 	{
-		$id = $gp->recupera_id_do_grupo($dd[1]);
-		if (strlen($id) > 0) { $dd[0] = $id; }
-		$tela = $form->editar($cp,$tabela);
+		$cracha = $nw->user_cracha;
+		$id = $gp->recupera_id_do_grupo($cracha);
+		
+		echo 'Recupera ID:'.$id;
+		if (round($id) > 0) 
+			{
+				 $dd[0] = $id; 
+			} else {
+				 $titulo = $dd[1];
+				 $anof = $dd[2];
+				 $area = $dd[4];
+				 $repercursao = $dd[5];
+				 $site = $dd[7];
+				 $data = date("Ymd");
+				 $cracha = $nw->user_cracha;
+
+				 $sql = "insert into ".$gp->tabela." 
+				 		(
+				 		gp_nome, gp_ano_formacao, gp_area_1,
+				 		gp_repercursao, gp_ativo, gp_site,
+				 		gp_update, gp_codigo, gp_lider,
+				 		gp_status
+				 		) values (
+				 		'$titulo','$anof','$area',
+				 		'$repercursao',1,'$site',
+				 		$data,'','$cracha',
+				 		'!'
+				 		)
+				 ";
+				 $rlt = db_query($sql);
+			}
+		
 		$gp->updatex();
-		$id = $gp->recupera_id_do_grupo($dd[1]);		
+		$id = $gp->recupera_id_do_grupo($cracha);
 		redirecina('gp_solicitacao_2.php?dd1='.$gp->id);
 	} else {
 		echo $tela;

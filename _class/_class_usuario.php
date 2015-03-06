@@ -113,8 +113,8 @@ class users
 				$this->user_msg = 'login_required';
 				return(-3);
 			} else {
-				$login = troca($login,"'","Â´");
-				$pass = troca($pass,"'","Â´");
+				$login = troca($login,"'","´");
+				$pass = troca($pass,"'","´");
 				
 				$sql = "select * from ".$this->usuario_tabela;
 				$sql .= " where ".$this->usuario_tabela_email." = '".LowerCase($login)."' ";

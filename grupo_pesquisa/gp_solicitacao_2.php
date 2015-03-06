@@ -17,9 +17,13 @@ $gp = new grupo_de_pesquisa;
 $gp->le($dd[1]);
 
 echo $gp->mostra_dados();
-echo $gp->grupo_de_pesquisa_membros_listar();
 
-echo '<A HREF="inport_gp_cnpq.php?dd0='.$dd[1].'">atualizar dados do DGP/CNPq</A>';
+require("_ged_grupo_pesquisa.php");
+
+$ged->protocolo = strzero($dd[0],7);
+
+echo $ged->filelist();
+echo $ged->upload_botton_with_type();
 
 
 ?>
