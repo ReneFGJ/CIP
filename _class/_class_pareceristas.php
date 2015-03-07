@@ -1140,27 +1140,89 @@ class parecerista
 				return(0);
 			}
 			
-		function areas_novas()
+	function areas_novas_ic($curso = '') {
+		global $dd;
+		if (strlen($curso) > 0) {
+			$ad = " left join curso_area on cuar_area = a_cnpq and cuar_curso = '$curso' ";
+		} else {
+			$ad = "  ";
+		}
+		/*
+		 * Area simples
+		 */
+
+		$sql = "select * from ajax_areadoconhecimento
+						$ad 
+						left join " . $this -> tabela . "_area on ((pa_area = a_codigo) and (pa_parecerista = '" . $this -> codigo . "'))
+						left join curso on cuar_curso = curso_codigo
+						 
+						where ";
+
+		$sql .= " (a_semic = 1) and a_cnpq <> '' and cuar_curso <> '' ";
+		$sql .= " order by a_cnpq ";
+		$rlt = db_query($sql);
+
+		$sx .= '<table width=98% border=0 class="lt1">';
+		$sx .= '<TR><TH>Ação
+					<TH>Área					
+					<TH>Nome da área
+					<TH>Curso do professor';
+		while ($line = db_read($rlt)) {
+			$id = 9;
+			$sl = '';
+			$at = trim($line['cuar_curso']);
+
+				$idc = trim($line['a_codigo']);
+				/* Já associado */
+				$sss = trim($line['pa_area']);
+				
+				if (strlen($sss) == 0)
+				{
+				$sx .= '<tr class="lt2" style="border-top: 1px solid #000000;">';
+
+				$sx .= '<TD width="5%" class="tabela01">';
+				$sx .= '<a href="'.page().'?dd1=ADD&dd2='.$line['a_codigo'].'" class="botao-geral">';
+				$sx .= 'ADICIONAR';
+				$sx .= '</A>';
+						
+				$sx .= '<TD height="40" class="tabela01">';
+				$sx .= trim($line['a_cnpq']);
+
+				$sx .= '<TD class="tabela01">';
+				$sx .= trim($line['a_descricao']);
+				$sx .= ' ('.$sss.')';
+				$sx .= '<TD class="tabela01">';
+				$sx .= trim($line['curso_nome']);
+				$sx .= chr(13);
+				}
+			}
+		$sx .= '</table>' . chr(13);
+		return ($sx);
+	}
+			
+			
+		function areas_novas($curso='')
 			{
 				global $dd;
-				
 				/*
 				 * Area simples
 				 */
 					$sx .= '<table width=98% border=1 class="lt1" cellpadding=2 cellspacing=0 >';
-					$sql = "select * from ajax_areadoconhecimento 
-						left join ".$this->tabela."_area on ((pa_area = a_codigo) and (pa_parecerista = '".$this->codigo."')) 
+					$sql = "select * from ajax_areadoconhecimento
+						$ad 
+						left join ".$this->tabela."_area on ((pa_area = a_codigo) and (pa_parecerista = '".$this->codigo."'))
+						 
 						where ";
-					$sql .= " (a_semic = 1 or a_submit = '1') and not (a_cnpq like 'X%' or a_cnpq like '%-X%') and a_cnpq <> '' ";
+			
+					$sql .= " (a_semic = 1 or a_submit = '1') and a_cnpq <> '' ";
 					$sql .= " order by a_cnpq ";
-					
 					$rlt = db_query($sql);
 					
 					while ($line = db_read($rlt))
 						{
 							$id = 9;
 							$sl = '';
-							$style = 'style="display: none; "';
+							//$style = 'style="display: none; "';
 							
 							if (substr($line['a_cnpq'],5,2) != '00') { $id = 2; $sln = '</I></font>'; $sl = '<font class="lt2"><I>'; $style = 'style="padding: 0px 0px 0px 20px;" '; }
 							if (substr($line['a_cnpq'],5,2) == '00') { $id = 1; $sln = '</I></font>'; $sl = '<A name="'.substr($line['a_cnpq'],0,4).'"><font class="lt2"><I>'; $style = 'style="padding: 0px 0px 0px 20px;" '; }
@@ -1298,6 +1360,7 @@ class parecerista
 					}			
 				return($sx);
 			}
+		
 		function mostra_areas()
 			{
 				global $date,$edit,$dd,$acao;
@@ -1333,8 +1396,8 @@ class parecerista
 									<i class="icon-refresh icon-large icon_color_padrao"></i>&nbsp;&nbsp;&nbsp;'.stodbr($line['pa_update']).'
 									</td>
 									
-									<td class="tabela01">
-									<i class="icon-refresh icon-large icon_color_padrao"></i>&nbsp;&nbsp;&nbsp;<A HREF="'.page().'?dd0='.$dd[0].'&dd12=DEL&dd11='.checkpost($line['id_pa']).'&dd10='.$line['id_pa'].'">excluir</A></I>
+									<td class="tabela01" height="40">
+									<i class="icon-refresh icon-large icon_color_padrao"></i>&nbsp;&nbsp;&nbsp;<A HREF="'.page().'?dd0='.$dd[0].'&dd12=DEL&dd11='.checkpost($line['id_pa']).'&dd10='.$line['id_pa'].'" class="botao-geral">excluir</A></I>
 									</td>';																											
 					}
 
