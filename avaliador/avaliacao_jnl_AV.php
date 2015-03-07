@@ -6,9 +6,6 @@ require($include.'sisdoc_colunas.php');
 require($include.'sisdoc_windows.php');
 require($include.'sisdoc_data.php');
 require($include.'sisdoc_email.php');
-ini_set('display_errors', 255);
-ini_set('error_reporting', 255);
-
 $modelo = 3;
 
 require("../editora/_class/_class_parecer.php");
