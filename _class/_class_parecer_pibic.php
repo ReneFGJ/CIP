@@ -190,7 +190,7 @@ class parecer_pibic
 			$email = array();
 			array_push($email,$par->email);
 			array_push($email,$par->email_alt);
-			array_push($email,'monitoramento@sisdoc.com.br');
+			array_push($email,'renefgj@gmail.com');
 			array_push($email,$admin_email);
 			$linka = $par->link_avaliador;
 			
@@ -198,7 +198,7 @@ class parecer_pibic
 			$icname = 'ic_'.$rtipo."_indicacao";
 			$line = $ic->ic($icname);
 			
-			$email_copia = 'monitoramento@sisdoc.com.br';
+			$email_copia = 'pibicpr@pucpr.br';
 			$titulo = trim($line['nw_titulo']);
 			$texto = mst(trim($line['nw_descricao'])).'<BR><BR>'.$icnane;
 
@@ -230,7 +230,7 @@ class parecer_pibic
 					if (strlen($email_send) > 0)
 						{
 							 enviaremail($email_send,'',$titulo,$texto);
-							 //echo '<BR>E-mail enviado para '.$email_send;
+							 echo '<BR>E-mail enviado para '.$email_send;
 						}
 				}
 			echo '<font color="green">Indicado!</font>';

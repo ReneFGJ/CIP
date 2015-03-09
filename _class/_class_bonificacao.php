@@ -41,7 +41,7 @@ class bonificacao {
 						inner join pibic_professor on bn_professor = pp_cracha
 						inner join centro_resultado on bn_cr = cr_ncr
 						where bn_valor > 1
-						and (bn_data >= $d1 and bn_data < $d2)
+						and (bn_data >= $d1 and bn_data <= $d2)
 						order by bn_data, pp_nome
 			";
 			$rlt = db_query($sql);

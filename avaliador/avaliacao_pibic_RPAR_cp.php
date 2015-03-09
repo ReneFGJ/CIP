@@ -97,6 +97,22 @@ array_push($cp,array('$R '.$opc,'pp_p01',$cap,True,True));
 $cap = $sp.'<B>Outros comentários (o avaliador fica livre para suas sugestões e comentários sobre a apreciação geral do trabalho)</B><BR>.';
 array_push($cp,array('$T80:8','pp_abe_13',$cap,True,True));
 
+/** Questão quatro **/
+$cap = $sp.'<B>Comitê de Ética em Pesquisa - O projeto de pesquisa envolve participação individual ou coletivamente,
+seres humano ou animais em seus experimentos, sendo necessário avaliação dos Comitês de Ética da PUCPR/PR</B><BR>.';
+
+$s = 'Não necessita passar pelos Comitês de Ética (não se aplica)';
+$ope = $s.':'.$s.'<BR>';
+
+$s = 'É necessário o parecer do Comitê de Ética e não foi apresentado';
+$ope .= '&'.$s.':'.$s.'<BR>';
+
+$s = 'Foi apresentado o parecer do Comitê de Ética';
+$ope .= '&'.$s.':'.$s.'<BR>';
+
+array_push($cp,array('$R '.$ope,'pp_abe_09',$cap,True,True));
+
+
 $nota = ' :Nota';
 for ($r=0;$r <= 10;$r = $r + 0.5)
 	{

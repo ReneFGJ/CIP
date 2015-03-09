@@ -1663,8 +1663,8 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 
 		$sx .= '<table width="100%" class="lt0">';
 
-		$sx .= '<TR><TD align="right">Instituição proponente';
-		$sx .= '<TD class="lt1"><B>' . $this -> instituicao . '</B>';
+		//$sx .= '<TR><TD align="right">Instituição proponente';
+		//$sx .= '<TD class="lt1"><B>' . $this -> instituicao . '</B>';
 
 		$sx .= '<TR><TD align="right">Valores aplicado na instituição (PUCPR)&nbsp;';
 		$sx .= '<TD class="lt1"><B>' . number_format($this -> total2, 2, ',', '.') . '</B>';

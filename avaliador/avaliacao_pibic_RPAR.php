@@ -16,6 +16,12 @@ $bolsa = new pibic_bolsa_contempladas;
 /* Le dados da Indicação */
 $parecer_pibic->tabela = 'pibic_parecer_'.date("Y");
 $ok = $parecer_pibic->le($dd[0]);
+
+if (($parecer_pibic->status == 'B') or ($parecer_pibic->status != 'D'))
+	{
+		echo '<h1>Esta avaliação já está finalizada</h1>';
+		//exit;
+	}
 	
 /* Recupera protocolo do projeto */
 $protocolo = $parecer_pibic->protocolo;

@@ -41,7 +41,7 @@ $total = $total + $ati -> total_atividades_reconsideracao($user_id);
 
 $total3 = $ati -> total_captacoes_validar($ss -> user_cracha);
 
-if ($total > 0) {
+if ($total > 999) {
 	$ativ = '
 		<div id="nova-atividade" class="nova-atividade">
 			<p id="numero-atividade" class="numero-atividade">' . $total . '</p>

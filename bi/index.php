@@ -48,7 +48,7 @@ array_push($menu,array('Captação de recursos institucional','__Captação de proje
 if (($perfil->valid('#CPS')))
 	{
 	array_push($menu,array('Relatório da Pós-Graduação','Relatório de metas','indicador_01.php'));
-	array_push($menu,array('Relatório da Pós-Graduação','__Exportar Excel','indicador_01_excel.php'));
+	//array_push($menu,array('Relatório da Pós-Graduação','__Exportar Excel','indicador_01_excel.php'));
 	
 	array_push($menu,array('Relatório da Pós-Graduação','Captação por programas & escolas','indicador_02.php'));
 	array_push($menu,array('Relatório da Pós-Graduação','__Exportar Excel','indicador_02_excel.php'));

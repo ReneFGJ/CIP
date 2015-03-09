@@ -23,9 +23,9 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	array_push($menu,array('Relatório Parcial','Acompanhamento (resumo das entregas)','rp_acompanhamento.php'));
 	
 	array_push($menu,array('Relatório Parcial','Relatório não entregues',''));
-	array_push($menu,array('Relatório Parcial','__Enviar e-mail','rp_enviar_atividade.php'));
+	//array_push($menu,array('Relatório Parcial','__Enviar e-mail','rp_enviar_atividade.php'));
 	array_push($menu,array('Relatório Parcial','__Relatórios não entregues','rp_relatorio_nao_entregues.php'));
-	array_push($menu,array('Relatório Parcial','__Gerar Atividade (processar)','rp_gerar_atividade.php'));
+	//array_push($menu,array('Relatório Parcial','__Gerar Atividade (processar)','rp_gerar_atividade.php'));
 	} 
 
 	array_push($menu,array('Relatório Parcial','Avaliação',''));

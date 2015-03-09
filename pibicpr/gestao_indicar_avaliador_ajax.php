@@ -131,7 +131,7 @@ if ($acao == 'INDICAR')
 					$pp->enviar_email_indicacao($proto,$par,$rtipo,$trocas);
 					}
 				$pp->inserir_idicacao_avaliacao($proto,$avaliador,$rtipo);
-				$pp->avaliacoes_mudar_deadline($rtipo,20140815);
+				$pp->avaliacoes_mudar_deadline($rtipo,20150322);
 				
 				$sql = "update pibic_bolsa_contempladas 
 						set ".$field."_nota = -90

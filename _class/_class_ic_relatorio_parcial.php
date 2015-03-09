@@ -16,6 +16,16 @@ class ic_relatorio_parcial
 			return(1);
 		}
 	
+	function  acompanhamento_avaliacao_estatistica()
+		{
+			$sql = "select count(*) as total, pp_p01
+					from pibic_parecer_".date("Y")."
+					where pp_tipo = 'RPAR' and pp_status = 'B'
+					group by pp_p01
+					";
+			return('Em construção');
+		}
+			
 	function idicacao_avaliador_correcao_email($tst)
 		{
 			global $dd;
