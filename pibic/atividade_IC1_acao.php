@@ -16,7 +16,7 @@ echo $pb->mostar_dados();
 
 $data_rp = round($pb->pb_rp);
 
-if ($data_rp < 20141001)
+if ($data_rp < 20151001)
 	{
 			$file = "__submit_RPAR.php";
 			$open = 0;

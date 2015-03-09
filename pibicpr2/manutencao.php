@@ -32,6 +32,7 @@ $menu = array();
 
 	array_push($menu,array('Banco de dados','__Zerar Editais','manutencao_zerar_editais.php'));
 	array_push($menu,array('Banco de dados','__Vaccum','manutencao_vaccum.php'));
+	//array_push($menu,array('Banco de dados','__Select_Tabble','select.php'));	
 ///////////////////////////////////////////////////// redirecionamento
 
 ?>

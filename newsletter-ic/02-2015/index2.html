@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+<script type="text/javascript">
+	// pega instância do select
+	// pega instância do select
+	var meu_select = $('#meu_select');
+	// adiciona evento quando o usuário selecionar outro valor
+	meu_select.change(function() {
+	  // pega valor do option selecionado
+	  var valor = meu_select.val()
+	  alert('Seu valor é: ' + valor);
+	  // muda url do navegador
+	  location.href = '#?param1=' + valor;
+	}) 	
+</script>
+</head>
+<body>
+<!--20007161-->
+<input id="meu_select" type="text" />
+<input type="button" value="Mostrar mensagem" onclick="mostrarMensagem()" />
+
+<select id='meu_select'>
+<option value='1'>Valor 1</option>
+<option value='2'>Valor 2</option>
+</select
+</body>
+</html>
