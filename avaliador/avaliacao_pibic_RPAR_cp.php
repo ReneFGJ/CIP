@@ -90,7 +90,7 @@ array_push($cp,array('$R '.$opc,'pp_abe_14',$cap,True,True));
 array_push($cp,array('$T80:4','pp_abe_16',$comentarios,False,True));
 
 
-/** Sétima Questão **/
+/** Sétima Questão **/ 	
 $cap = $sp.'<B>7) Outros comentários (o avaliador fica livre para suas sugestões e comentários sobre a apreciação geral do trabalho)</B><BR>.';
 array_push($cp,array('$T80:8','pp_abe_13',$cap,True,True));
 
