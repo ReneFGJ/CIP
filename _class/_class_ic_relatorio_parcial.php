@@ -20,7 +20,7 @@ class ic_relatorio_parcial
 	function  acompanhamento_avaliacao_estatistica()
 		{
 			$sql = "select count(*) as total, pp_p01
-					from pibic_parecer_".date("Y"-1)."
+					from pibic_parecer_".date("Y")."
 					where pp_tipo = 'RPAR' and pp_status = 'B'
 					group by pp_p01
 					";

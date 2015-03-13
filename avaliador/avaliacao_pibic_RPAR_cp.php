@@ -109,6 +109,13 @@ seres humano ou animais em seus experimentos, sendo necessário avaliação dos Com
 	
 }
 
+/** Oitava Questão **/
+$cap = $sp . '9)	Resultado da avaliação:';
+$opc = '1:<font color=Green>Aprovado - comentários e sugestões devem ser incorporados no relatório final</font><BR>&';
+$opc .= '2:<font color=red>Pendências - relatório parcial deve ser reapresentado realizando as devidas correções</font>';
+array_push($cp, array('$R ' . $opc, 'pp_p01', $cap, True, True));
+
+
 $nota = ' :Nota';
 for ($r = 0; $r <= 10; $r = $r + 0.5) {
 	$nota .= '&' . $r . ':' . number_format($r, 1);
