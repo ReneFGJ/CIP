@@ -277,7 +277,7 @@ class pibic_bolsa_contempladas{
 						left join apoio_titulacao on ap_tit_codigo = pp_titulacao
 						left join centro on centro_codigo = pp_escola
 						left join ajax_areadoconhecimento on pb_semic_area = a_cnpq
-						where pb_ano = '$ano1' or pb_ano = '$ano2' 
+						where pb_ano between '$ano1' and '$ano2' 
 						order by centro_nome, pp_curso, pp_nome
 						";
 				$rlt = db_query($sql);
@@ -1031,7 +1031,7 @@ class pibic_bolsa_contempladas{
 			}
 
 			
-	function resumo_bolsas_escolas_detalhado($ano=2013,$modalidade='PIBIC',$tipo='1')
+	function resumo_bolsas_escolas_detalhado($ano,$modalidade,$tipo='1')
 			{
 			$cp = 'pbt_edital, pbt_descricao, pb_ano, centro_nome';
 			$sql = "select * from pibic_bolsa_contempladas
@@ -1112,7 +1112,7 @@ class pibic_bolsa_contempladas{
 			}			
 		
 		
-	function resumo_bolsas_escolas($ano=2013,$modalidade='PIBIC')
+	function resumo_bolsas_escolas($ano,$modalidade)
 			{
 			$cp = 'pbt_edital, pbt_descricao, pb_ano, centro_nome';
 			$sql = "select count(*) as total, $cp from pibic_bolsa_contempladas

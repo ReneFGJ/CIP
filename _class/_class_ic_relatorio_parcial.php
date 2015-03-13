@@ -16,15 +16,40 @@ class ic_relatorio_parcial
 			return(1);
 		}
 	
+	
 	function  acompanhamento_avaliacao_estatistica()
 		{
 			$sql = "select count(*) as total, pp_p01
-					from pibic_parecer_".date("Y")."
+					from pibic_parecer_".date("Y"-1)."
 					where pp_tipo = 'RPAR' and pp_status = 'B'
 					group by pp_p01
 					";
-			return('Em construção');
+					
+					$rlt = db_query($sql);
+					
+            $sx  = '<table width="100%">';
+			$sx .= '<TR><TH colspan=2 align="left"><H2>Trabalhos aprovados e pendentes.</h2>';
+			$sx .= '<TR><TH width="5%"	>Col 01
+						<TH width="30%"	>Col 02';
+			$id = 0;
+
+			while ($line = db_read($rlt))
+				{
+					$id++;
+					
+					$proto = $line['total'];
+					$avali = $line['pp_p01'];
+					
+					$sx .= '<TR>';
+					$sx .= '<TD>'.$proto;
+					
+				}
+			$sx .= '<TR><TD colspan=5>Total '.$id.' Nome';
+			$sx .= '</table>';
+			return($sx);
+
 		}
+			
 			
 	function idicacao_avaliador_correcao_email($tst)
 		{

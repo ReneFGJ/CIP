@@ -17,27 +17,32 @@ require($include."sisdoc_menus.php");
 $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
 
 $menu = array();
-array_push($menu,array('Bolsas implementadas','Resumo de bolsas','ic_resumo.php'));
+
+array_push($menu,array('Bolsas implementadas','Resumo de bolsas',''));
+array_push($menu,array('Bolsas implementadas','__Resumo de bolsas','ic_resumo.php'));
 
 array_push($menu,array('Bolsas implementadas','PIBIC',''));
-array_push($menu,array('Bolsas implementadas','__resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBIC&dd5=1&dd4='.'2014'));
-array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBIC&dd5=1&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBIC&dd5=1&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__detalhe por Campi','ic_resumo_campi.php?dd2=D&dd3=PIBIC&dd5=1&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','__resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBIC&dd5=1&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','__Detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBIC&dd5=1&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','__Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBIC&dd5=1&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','__Detalhe por Campi','ic_resumo_campi.php?dd2=D&dd3=PIBIC&dd5=1&dd4='.date("Y")));
 
-array_push($menu,array('Bolsas implementadas','PIBITI - Resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBITI&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBITI&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','PIBITI - Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBITI&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_campi.php?dd2=D&dd3=PIBITI&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','PIBITI',''));
+array_push($menu,array('Bolsas implementadas','__Resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBITI&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','__Detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBITI&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','__Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBITI&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','__Detalhe por Escolas','ic_resumo_campi.php?dd2=D&dd3=PIBITI&dd4='.date("Y")));
 
-array_push($menu,array('Bolsas implementadas','PIBIC_EM - Resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBICE&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','PIBIC_EM',''));
+array_push($menu,array('Bolsas implementadas','__Resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBICE&dd4='.date("Y")));
 array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBICE&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','PIBIC_EM - Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBICE&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','__Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBICE&dd4='.date("Y")));
 array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_campi.php?dd2=D&dd3=PIBICE&dd4='.date("Y")));
 
-array_push($menu,array('Bolsas implementadas','CSF - Resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBIC&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','CSF',''));
+array_push($menu,array('Bolsas implementadas','__Resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBIC&dd4='.date("Y")));
 array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBIC&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','CSF - Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBIC&dd4='.date("Y")));
+array_push($menu,array('Bolsas implementadas','__Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBIC&dd4='.date("Y")));
 array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_campi.php?dd2=D&dd3=PIBIC&dd4='.date("Y")));
 
 array_push($menu,array('Orientações','__Professores x Formação','professores_orientacoes.php'));
