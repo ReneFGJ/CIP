@@ -20,9 +20,9 @@ $cap = "1) Clareza, legibilidade e objetividade (português, organização geral do
 $opc = 'Excelente';
 $opc .= ':Excelente<BR>&';
 $opc .= 'Bom';
-$opc .= ':Bom' . $ccor . ' (existem pequenos ajustes que precisem ser corrigidos, justificar).</font>.<BR>&';
+$opc .= ':Bom' . $ccor . ' (texto).</font>.<BR>&';
 $opc .= 'Regular';
-$opc .= ':Regular' . $ccor . ' (muitas correções são necessárias, assinalar no campo dos comentários ).</font><BR>&';
+$opc .= ':Regular' . $ccor . ' (muitas correções são necessárias, assinalar no campo dos comentários ).</font>.<BR>&';
 $opc .= 'Ruim';
 $opc .= ':Ruim ' . $ccor . ' (o relatório precisa ser refeito)</font>.';
 array_push($cp, array('$H8', 'id_pp', '', True, True));
@@ -88,34 +88,43 @@ array_push($cp, array('$T80:4', 'pp_abe_16', $comentarios, False, True));
 $cap = $sp . '<B>7) Outros comentários (o avaliador fica livre para suas sugestões e comentários sobre a apreciação geral do trabalho)</B><BR>.';
 array_push($cp, array('$T80:8', 'pp_abe_13', $cap, True, True));
 
-if (strlen($ceua_s1 . $cep_s1) > 0) {
-	/** Questão quatro **/
-	$cap = $sp . '8) <B>Comitê de Ética em Pesquisa - O projeto de pesquisa envolve participação individual ou coletivamente,
-seres humano ou animais em seus experimentos, sendo necessário avaliação dos Comitês de Ética da PUCPR/PR ?</B><BR>.';
+/** Oitava Questão **/
+$cap = $sp . '8)	Resultado da avaliação:';
+$opc = '1:<font color=Green>Aprovado - comentários e sugestões devem ser incorporados no relatório final</font><BR>&';
+$opc .= '2:<font color=red>Pendências - relatório parcial deve ser reapresentado realizando as devidas correções</font>';
+array_push($cp, array('$R ' . $opc, 'pp_p01', $cap, True, True));
+//array_push($cp,array('$HV','pp_p02','1',True,True));
+//array_push($cp,array('$HV','','1',True,True));
 
-	$s = 'Não apresentou o protocolo de aprovação';
-	$ope .= $s . ':' . $s . '<BR>';
-
-	$s = 'Foi aprovado pelo Comitê de Ética';
-	$ope .= '&' . $s . ':' . $s . '<BR>';
-
-	array_push($cp, array('$R ' . $ope, 'pp_abe_09', $cap, True, True));
-} else {
-	$cap = $sp . '8) <B>Comitê de Ética em Pesquisa - O projeto de pesquisa envolve participação individual ou coletivamente,
-seres humano ou animais em seus experimentos, sendo necessário avaliação dos Comitês de Ética da PUCPR/PR ?</B><BR>.';
-
-	$s = 'Não necessita passar pelos Comitês de Ética (não se aplica)';
-	array_push($cp, array('$HV', 'pp_abe_09', $s, True, True));
-	
-}
-
+/** Nona Questão **/
+$cap = $sp . '<B>9) Resultado da avaliação:</B><BR>.';
 $nota = ' :Nota';
 for ($r = 0; $r <= 10; $r = $r + 0.5) {
 	$nota .= '&' . $r . ':' . number_format($r, 1);
 }
-
 array_push($cp, array('$M', '', 'Atribuia uma nota de 0 a 10 para o trabalho no geral', False, True));
 array_push($cp, array('$O ' . $nota, 'pp_abe_15', 'Nota', True, True));
+
+/** Nona Questão **/
+$cap = $sp . '<h3>Campos a serem preenchidos: <br></h3>Comitê de Ética em Pesquisa<BR>.';
+$s = 'Aprovado';
+$ope = $s . ':' . $s . '<BR>';
+$s = 'Não apresentou o protocolo';
+$ope .= '&' . $s . ':' . $s . '<BR>';
+array_push($cp, array('$R ' . $ope, 'pp_abe_09', $cap, True, True));
+
+$cap = $sp . '</h3>Pedido de ajuste no escopo do projeto e mudança de título:<BR>.';
+$s = 'Não se aplica';
+$ope = $s . ':' . $s . '<BR>';
+$s = 'Aprovado';
+$ope = $s . ':' . $s . '<BR>';
+$s = 'Encaminho para comitê gestor com  indicação de cancelamento do projeto';
+$ope .= '&' . $s . ':' . $s . '<BR>';
+array_push($cp, array('$R ' . $ope, 'pp_abe_09', $cap, True, True));
+
+/** Justifico **/
+$cap = $sp . '<B>Justifico:</B><BR>.';
+array_push($cp, array('$T50:5', 'pp_abe_13', $cap, True, True));
 
 array_push($cp, array('$B8', '', 'Finaliza avaliação >>', False, True));
 ?>

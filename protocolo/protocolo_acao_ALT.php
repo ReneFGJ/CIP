@@ -1,9 +1,6 @@
 <?php
 require ("../pibicpr/_email.php");
 
-require ("../_class/_class_pibic_bolsa_contempladas.php");
-$pb = new pibic_bolsa_contempladas;
-
 $cp = array();
 $cp[0] = array('$HV', '', $dd[0], False, False);
 $cp[1] = array('$HV', '', $dd[1], False, False);

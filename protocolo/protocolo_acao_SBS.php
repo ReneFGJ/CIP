@@ -1,9 +1,6 @@
 <?php
 require ("../pibicpr/_email.php");
 
-require ("../_class/_class_pibic_bolsa_contempladas.php");
-$pb = new pibic_bolsa_contempladas;
-
 /* motivos */
 $motivos = $pb->substituicao_motivo();
 $mot = substr($pr->line['pr_justificativa'],0,3);
@@ -30,7 +27,7 @@ if ($form -> saved > 0) {
 	$proto_nr = strzero($pr -> line['id_pr'], 5) . '/' . $pr -> line['pr_ano'];
 	$proto = $pr -> line['pr_protocolo_original'];
 	$pb -> le('', $proto);
-	$aluno_antigo = $pb -> line['pb_aluno'];
+	$aluno_antigo = substr($pb -> line['pb_aluno'],0,8);
 	$descricao = $dd[3];
 
 	/* Recupera dados do projeto */
@@ -41,7 +38,11 @@ if ($form -> saved > 0) {
 	$ac = 90;
 	$hist = 'Substituição de estudante (troca de aluno)';
 	$aluno1 = $aluno_antigo;
-	$aluno2 = $aluno_novo;
+	$aluno2 = trim($aluno_novo);
+	$dc->consulta($aluno2);
+	print_r($dc);
+	exit;
+
 	$motivo = '';
 	$dc->le('',$aluno_antigo);
 	$obs = 'DE: <I>'.$dc->pa_nome. '</I> ('.$aluno_antigo.')';

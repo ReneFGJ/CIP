@@ -303,7 +303,7 @@ class ged {
 			$link .= '&dd91=' . $secu;
 			$link = newwin($link, 300, 150);
 			$sx .= '<TR>';
-			$sx .= '<TD class="tabela00">xx' . $link . $this -> show_shortname($line['doc_filename']) . '</A>';
+			$sx .= '<TD class="tabela00">' . $link . $this -> show_shortname($line['doc_filename']) . '</A>';
 			$sx .= '<TD class="tabela00" align="right" class="lt0">' . $this -> size_mask($line['doc_size']) . '</A>';
 			$sx .= '<TD class="tabela00" align="center" class="lt0">' . stodbr($line['doc_data']) . ' ' . $line['doc_hora'] . '</A>';
 			$sx .= '<TD class="tabela00">' . $link . $line['us_nome'] . '</A>';
@@ -499,7 +499,7 @@ class ged {
 				} else {
 					$link = page() . '?dd0=' . $dd[0] . '&page=' . $page . '&ddf=' . $line['id_doc'] . '&ddg=DEL';
 					$link .= '&ddh=' . checkpost($line['id_doc'] . $secu);
-					$sx .= '<A href="' . $link . '">xx';
+					$sx .= '<A href="' . $link . '">';
 					$sx .= '<img src="img/icone_remove.png" id="remove' . $line['id_doc'] . '" border=0 style="cursor: pointer;">';
 					$sx .= '</A>';
 				}

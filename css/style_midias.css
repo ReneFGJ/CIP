@@ -14,6 +14,7 @@
 	#cabecalho-impressao-cip{
 		float: left;
 		display: block;
+		margin-top: 0px;		
 	}
 	
 	#cabecalho-impressao-pucpr{

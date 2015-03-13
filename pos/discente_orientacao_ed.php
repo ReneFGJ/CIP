@@ -33,7 +33,12 @@ require("../_class/_class_docentes.php");
 					/* Recupera nome dos alunos não inseridos */
 					$crachas = $cl->docente_orientacao_sem_nome_aluno();
 					if (count($crachas) > 0)
-					{ for ($r=0;$r < count($crachas);$r++) { $dis->consulta($crachas[$r]); } }
+					{ for ($r=0;$r < count($crachas);$r++) 
+					{
+						$cracha = $crachas[$r];
+						$debug = 0;
+						require('pucpr_soap_pesquisaAluno.php'); 
+					}
 				}
 			
 			//$cl->updatex();

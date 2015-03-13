@@ -254,7 +254,7 @@ class header
 			</table>
 			';
 		/* Cabecalho novo */
-		$sx = '<div id="cabecalho_novo" class="cabecalho_novo_big">';
+		$sx = '<div idx="cabecalho_novo" class="cabecalho_novo_big" id="cabecalho-user-screen">';
 		$sx .= '<A HREF="http://www2.pucpr.br/reol/main.php"><div id="cabecalho_logo" class="cabecalho_logo_big"></div></A>';
 
 		/* nome do usuario */

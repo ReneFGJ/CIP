@@ -1,6 +1,11 @@
 <?php
 require ("cab.php");
 require ("../_class/_class_protocolo.php");
+require('../_include/sisdoc_debug.php');
+
+require("../_class/_class_pibic_bolsa_contempladas.php");
+$pb = new pibic_bolsa_contempladas;
+
 $LANG = 'pt_BR';
 require ($include . 'sisdoc_email.php');
 
@@ -18,10 +23,14 @@ $pr -> le($dd[0]);
 $sta = trim($pr -> line['pr_status']);
 
 echo $pr -> mostra();
+$proto = $pr->line['pr_protocolo_original'];
+$pb->le('',$proto);
+
+echo $pb -> mostar_dados();
 
 $tipo = $pr -> tipo;
-
-if ($sta == '@') {
+if ($sta == '@') 
+	{
 
 	$arq = "protocolo_acao_" . $tipo . '.php';
 	if (file_exists($arq)) {

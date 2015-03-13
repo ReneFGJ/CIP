@@ -41,6 +41,7 @@ array_push($menu,array('Indicadores','indicadores.php'));
 
 require('../_class/_class_header.php');
 $hd = new header;
+//echo $hd->mostra_novo('Gestão Iniciação Científica');
 echo $hd->mostra_novo('Gestão Iniciação Científica');
 
 if (!($perfil->valid('#ADM#CPI#SPI')))

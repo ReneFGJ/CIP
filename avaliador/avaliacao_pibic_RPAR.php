@@ -26,6 +26,9 @@ if (($parecer_pibic->status == 'B') or ($parecer_pibic->status != 'D'))
 /* Recupera protocolo do projeto */
 $protocolo = $parecer_pibic->protocolo;
 
+/* Projeto origial */
+require("../_class/_class_pibic_projetos.php");
+$prj = new projetos;
 
 echo '<table width=95% align=center >';
 echo '<TR><TD>';
@@ -40,6 +43,38 @@ $qrlt = db_query($sql);
 /* Recupera dados da bolsa */
 $bolsa->le('',$protocolo);
 echo $bolsa->mostar_dados();
+
+$proto_projeto = $bolsa->line['pb_protocolo_mae'];
+$prj->le($proto_projeto);
+
+$ceua = $prj->line['pj_ceua'];
+$ceua_status = $prj-> mostra_sn(trim($prj->line['pj_ceua_status']));
+$cep = $prj->line['pj_cep'];
+$cep_status = $prj-> mostra_sn(trim($prj->line['pj_cep_status']));
+
+$cep_s1 = $prj->line['pj_cep_status'];
+$ceua_s1 = $prj->line['pj_ceua_status'];
+if ($cep_s1 == 'N') { $cep_s1 = ''; }
+if ($ceua_s1 == 'N') { $ceua_s1 = ''; }
+
+
+if ((strlen($cep_s1) > 0) or (strlen($ceua_s1) > 0))
+	{
+		echo '<fieldset class="lt1"><legend class="lt2">Comitê de Ética</legend>';
+		if (strlen($ceua_s1 . $cep_s1) > 0)
+			{
+				echo 'Prezado avaliador, o pesquisador quando submeteu o projeto de pesquisa indicou a situação abaixo da avaliação de seu protocolo, favor confirmar a indicação e responder a questão 8.';
+			}
+		if (strlen($ceua_s1) > 0)
+			{
+			echo '<BR>CEUA: '.$ceua.' '.$ceua_status.' ('.$ceua_s1.')';
+			}
+		if (strlen($cep_s1) > 0)
+			{
+			echo '<BR>CEP: '.$cep.' '.$cep_status.' ('.$cep_s1.')';
+			}
+		echo '</fieldset><BR><BR>';
+	}
 
 /** GED **/
 require_once('../_class/_class_ged.php');

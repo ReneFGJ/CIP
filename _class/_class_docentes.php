@@ -36,10 +36,9 @@ class docentes {
 	var $line;
 
 	var $tabela = 'pibic_professor';
-	
-	function resumo_escolas()
-		{
-			$sql = "
+
+	function resumo_escolas() {
+		$sql = "
 				select count(*) as total, pp_escola, centro_nome from pibic_professor 
 					inner join centro on pp_escola = centro_codigo
 					where pp_update = '" . date("Y") . "' 
@@ -49,23 +48,22 @@ class docentes {
 					group by pp_escola, centro_nome
 					order by pp_escola
 			";
-			$rlt = db_query($sql);
-			
-			$sx = '<table class="tabela_resumo">';
-			$sx .= '<TR><TH>Escola
+		$rlt = db_query($sql);
+
+		$sx = '<table class="tabela_resumo">';
+		$sx .= '<TR><TH>Escola
 							<TH width="80">Total
 							<TH width="80">% do total
 							<TH width="80">Doutores
 							<TH width="80">% Doutores';
-			$ar = array();
-			while ($line = db_read($rlt))
-				{
-					$tot = $tot + $line['total'];
-					array_push($ar,array(trim($line['centro_nome']),$line['total'],0));
-				}
-				
-			/* Doutores */
-			$sql = "
+		$ar = array();
+		while ($line = db_read($rlt)) {
+			$tot = $tot + $line['total'];
+			array_push($ar, array(trim($line['centro_nome']), $line['total'], 0));
+		}
+
+		/* Doutores */
+		$sql = "
 				select count(*) as total, pp_escola, centro_nome from pibic_professor 
 					inner join centro on pp_escola = centro_codigo
 					where pp_update = '" . date("Y") . "' 
@@ -76,48 +74,42 @@ class docentes {
 					group by pp_escola, centro_nome
 					order by pp_escola
 			";
-			$rlt = db_query($sql);
-			while ($line = db_read($rlt))
-				{
-					$tot = $tot + $line['total'];
-					$esc = trim($line['centro_nome']);
-					
-					for ($r=0;$r < count($ar);$r++)
-						{
-							if ($ar[$r][0] == $esc)
-								{
-									$ar[$r][2] = $ar[$r][2] + $line['total']; 
-								}
-						}
-					$ar[$at][2] = $ar[$at][2] + $tot;					
-				}	
-										
-			for ($r=0;$r < count($ar);$r++)
-				{
-					if (strlen($ar[$r][0]) > 0)
-					{
-					$porcetagem = number_format($ar[$r][1] / $tot * 100,1,',','.').'%';
-					$porcetagem_dr = 0;
-					if ($ar[$r][1] > 0)
-						{
-							$porcetagem_dr = number_format($ar[$r][2] / $ar[$r][1] * 100,1,',','.').'%';
-						}
-					$sx .= '<TR>';
-					$sx .= '<TD>';
-					$sx .= $ar[$r][0];
-					$sx .= '<TD>';
-					$sx .= $ar[$r][1];
-					$sx .= '<TD>';
-					$sx .= $porcetagem;
-					$sx .= '<TD>';
-					$sx .= $ar[$r][2];
-					$sx .= '<TD>';
-					$sx .= $porcetagem_dr;
-					}
+		$rlt = db_query($sql);
+		while ($line = db_read($rlt)) {
+			$tot = $tot + $line['total'];
+			$esc = trim($line['centro_nome']);
+
+			for ($r = 0; $r < count($ar); $r++) {
+				if ($ar[$r][0] == $esc) {
+					$ar[$r][2] = $ar[$r][2] + $line['total'];
 				}
-			$sx .= '</table>';
-			return($sx);
+			}
+			$ar[$at][2] = $ar[$at][2] + $tot;
 		}
+
+		for ($r = 0; $r < count($ar); $r++) {
+			if (strlen($ar[$r][0]) > 0) {
+				$porcetagem = number_format($ar[$r][1] / $tot * 100, 1, ',', '.') . '%';
+				$porcetagem_dr = 0;
+				if ($ar[$r][1] > 0) {
+					$porcetagem_dr = number_format($ar[$r][2] / $ar[$r][1] * 100, 1, ',', '.') . '%';
+				}
+				$sx .= '<TR>';
+				$sx .= '<TD>';
+				$sx .= $ar[$r][0];
+				$sx .= '<TD>';
+				$sx .= $ar[$r][1];
+				$sx .= '<TD>';
+				$sx .= $porcetagem;
+				$sx .= '<TD>';
+				$sx .= $ar[$r][2];
+				$sx .= '<TD>';
+				$sx .= $porcetagem_dr;
+			}
+		}
+		$sx .= '</table>';
+		return ($sx);
+	}
 
 	function resumo_professores() {
 		$sql = "select count(*) as total, pp_titulacao, pp_ss from pibic_professor 
@@ -157,15 +149,15 @@ class docentes {
 			}
 		}
 		if ($total > 0) {
-			$totp_ss = number_format(((int)($tot_ss / $total * 1000)) / 10,1,',','.');
+			$totp_ss = number_format(((int)($tot_ss / $total * 1000)) / 10, 1, ',', '.');
 			$totp_ss .= '%';
-			$totp_dr = number_format(((int)($tot_dr / $total * 1000)) / 10,1,',','.');
+			$totp_dr = number_format(((int)($tot_dr / $total * 1000)) / 10, 1, ',', '.');
 			$totp_dr .= '%';
-			$totp_ms = number_format(((int)($tot_ms / $total * 1000)) / 10,1,',','.');
+			$totp_ms = number_format(((int)($tot_ms / $total * 1000)) / 10, 1, ',', '.');
 			$totp_ms .= '%';
-			$totp_es = number_format(((int)($tot_es / $total * 1000)) / 10,1,',','.');
+			$totp_es = number_format(((int)($tot_es / $total * 1000)) / 10, 1, ',', '.');
 			$totp_es .= '%';
-			$totp_gr = number_format(((int)($tot_gr / $total * 1000)) / 10,1,',','.');
+			$totp_gr = number_format(((int)($tot_gr / $total * 1000)) / 10, 1, ',', '.');
 			$totp_gr .= '%';
 		}
 		$sx .= '<table class="tabela_resumo">';
@@ -330,18 +322,20 @@ class docentes {
 	}
 
 	function docente_orientacao_sem_nome_aluno() {
-		$sql = "select od_aluno from docente_orientacao 
+		$sql = "select * from docente_orientacao 
 					left join pibic_professor on od_professor = pp_cracha
 					left join pibic_aluno on od_aluno = pa_cracha
-					left join programa_pos_linhas on od_linha = posln_codigo
-					where pa_nome isnull
-					order by pp_nome, posln_descricao, od_ano_ingresso desc, od_modalidade
+					where od_aluno = '10064024'
 			";
 		$rlt = db_query($sql);
 
 		$crachas = array();
 		while ($line = db_read($rlt)) {
-			array_push($crachas, trim($line['od_aluno']));
+			$nome = trim($line['pa_nome']);
+			$crac = trim($line['od_aluno']);
+			if ((strlen($nome) == 0) and (strlen($crac) == 8)) {
+				array_push($crachas, trim($crac));
+			}
 		}
 		return ($crachas);
 	}
@@ -533,7 +527,7 @@ class docentes {
 
 			$sx .= '<TD class="tabela01" align="center">';
 			$sx .= $line['pp_cpf'];
-			
+
 			$sx .= '<TD class="tabela01" align="center">';
 			if ($ss == 'S') {
 				$sx .= 'Stricto Sensu';
@@ -1286,7 +1280,7 @@ class docentes {
 				where (id_pp = " . round($this -> id_pp) . ") or (pp_cracha = '$id')";
 		$rlt = db_query($sql);
 		$prod = $this -> produtividade();
-		
+
 		if ($line = db_read($rlt)) {
 			$this -> id_pp = $line['id_pp'];
 			$this -> pp_nome = $line['pp_nome'];
@@ -1338,7 +1332,7 @@ class docentes {
 		return (0);
 	}
 
-	function sobre_corpo_docente($mod = '', $ss = '') {		
+	function sobre_corpo_docente($mod = '', $ss = '') {
 		$sql = "select * from " . $this -> tabela . "
 					inner join apoio_titulacao on pp_titulacao = ap_tit_codigo
 					where pp_ativo = 1
@@ -1368,7 +1362,7 @@ class docentes {
 			$tit = trim($line['ap_tit_titulo']);
 			$id_tit = -1;
 			if ($tit == 'Res. Médica') { $id_tit = 2;
-			}			
+			}
 			if ($tit == 'Dr.') { $id_tit = 0;
 			}
 			if ($tit == 'Dra.') { $id_tit = 0;
@@ -1417,7 +1411,7 @@ class docentes {
 		$sx .= '<TD class="tabela01" align="center">' . $rst[0][4];
 		if ($tot > 0) {
 			$drs = $rst[0][1] + $rst[0][2] + $rst[0][3];
-			$sx .= '<TD align="center">' . number_format(($drs),0);
+			$sx .= '<TD align="center">' . number_format(($drs), 0);
 			$sx .= '<TD align="center">' . number_format(($drs / $tot * 100), 1) . '%';
 		}
 
@@ -1428,7 +1422,7 @@ class docentes {
 		$sx .= '<TD class="tabela01" align="center">' . $rst[1][4];
 		if ($tot > 0) {
 			$drs = $rst[1][1] + $rst[1][2] + $rst[1][3];
-			$sx .= '<TD align="center">' . number_format(($drs),0);
+			$sx .= '<TD align="center">' . number_format(($drs), 0);
 			$sx .= '<TD align="center">' . number_format(($drs / $tot * 100), 1) . '%';
 		}
 
@@ -1439,7 +1433,7 @@ class docentes {
 		$sx .= '<TD class="tabela01" align="center">' . $rst[2][4];
 		if ($tot > 0) {
 			$drs = $rst[2][1] + $rst[2][2] + $rst[2][3];
-			$sx .= '<TD align="center">' . number_format(($drs),0);
+			$sx .= '<TD align="center">' . number_format(($drs), 0);
 			$sx .= '<TD align="center">' . number_format(($drs / $tot * 100), 1) . '%';
 		}
 
@@ -1450,7 +1444,7 @@ class docentes {
 		$sx .= '<TD class="tabela01" align="center">' . $rst[3][4];
 		if ($tot > 0) {
 			$drs = $rst[3][1] + $rst[3][2] + $rst[3][3];
-			$sx .= '<TD align="center">' . number_format(($drs),0);
+			$sx .= '<TD align="center">' . number_format(($drs), 0);
 			$sx .= '<TD align="center">' . number_format(($drs / $tot * 100), 1) . '%';
 		}
 
@@ -1470,7 +1464,7 @@ class docentes {
 		$sx .= '<TD align="center">' . ($tot_msc);
 		$sx .= '<TD align="center">' . ($tot_esp);
 		$sx .= '<TD align="center">' . ($tot_gra);
-		$sx .= '<TD align="center">' . number_format(($tot),0);
+		$sx .= '<TD align="center">' . number_format(($tot), 0);
 		$sx .= '<TD class="tabela01" align="center">100%';
 
 		$sx .= '<TR><TD colspan=6 class="tabela01"><I>Total de docentes: ' . $tot;
