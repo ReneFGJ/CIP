@@ -34,10 +34,11 @@ $menu = array();
 	array_push($menu,array(':: Início ::','index.php'));
 	}
 //print_r($nw);
-//if (($perfil->valid('#ADM')) or ($perfil->valid('#SCR')) or ($perfil->valid('#COO')) or ($perfil->valid('#SPG')))
+if (($perfil->valid('#ADM')) or ($perfil->valid('#SCR')) or ($perfil->valid('#COO')) or ($perfil->valid('#SPG')))
 	{
 	array_push($menu,array('Pós-graduação','../bi/pos_graduacao.php'));
 	//array_push($menu,array('Grupos de pesquisa','grupo_pesquisa.php'));
+	
 	array_push($menu,array('Captação','captacao.php'));
 	array_push($menu,array('Isenção','isencoes.php'));
 	array_push($menu,array('Artigos','artigos.php'));
