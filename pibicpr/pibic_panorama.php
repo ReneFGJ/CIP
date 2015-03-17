@@ -5,12 +5,12 @@
 			
 		$pb = new pibic_bolsa_contempladas;
 	
-		//echo "Em desenvolvimento!";
+		echo "11 a 22 Março, Período de avaliação do relatório parcial PIBIC/PIBITI(2014/2015)";
 		
-		echo $pb->acompanhamento_relatorio_parcial();
-		echo $pb->acompanhamento_idioma();	
-		echo $pb->semic_area_de_apresentacao(date("Y")-1);	
-		echo $pb->semic_area_de_apresentacao_geral(date("Y")-1);
+		//echo $pb->acompanhamento_relatorio_parcial();
+		//echo $pb->acompanhamento_idioma();	
+		//echo $pb->semic_area_de_apresentacao(date("Y")-1);	
+		//echo $pb->semic_area_de_apresentacao_geral(date("Y")-1);
 				
 	require("../foot.php");	
 ?>

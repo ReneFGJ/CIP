@@ -35,7 +35,7 @@ else
 $menu = array();
 if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
-		array_push($menu,array('Acontecendo Agora','Entregas do relatório Parcial','pibic_panorama.php'));
+		array_push($menu,array('Acontecendo Agora','Avaliação do relatório Parcial','pibic_panorama.php'));
 	} 
 if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
