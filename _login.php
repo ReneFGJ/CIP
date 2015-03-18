@@ -64,13 +64,20 @@ require("db.php");
 					<p>
 						<li><h1>Contato CIP</h1></li>
 						<li>
-							<span class="corpo-texto-explicativo"><B>Contato Iniciação Científica</B></span>
-						<span class="corpo-texto-explicativo">pibicpr@pucpr.br<br>
-							(041) 3271-1165<br>  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp3271-2112</span>
-													
+							<span class="corpo-texto-explicativo"><B>Contatos Iniciação Científica</B></span>
+						<span class="corpo-texto-explicativo">
+							<a href="mailto:pibicpr@pucpr.br">pibicpr@pucpr.br</a>
+							<br>
+							Telefones:<br>
+							(041) 3271-1165<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp3271-2112
+							<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp3271-1602<br>
+							</span>
+							<br>						
 						<li>
 							<span class="corpo-texto-explicativo"><B>Contato Diretoria de Pesquisa</B></span>
-						<span class="corpo-texto-explicativo">cip@pucpr.br<br>
+						<span class="corpo-texto-explicativo">
+						<a href="mailto:cip@pucpr.br">cip@pucpr.br</a>		
+							<br>Telefone:<br>
 							(041) 3271-2582</span>
 
 					</p>
