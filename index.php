@@ -1,4 +1,8 @@
-<? require('db.php');
+<? 
+/*
+ * @author PUCPR  
+ */
+require('db.php');
 
 $oai =  strpos(lowercasesql($_SERVER['PATH_INFO']),'/oai');
 $google = 'UA-12712904-2';
