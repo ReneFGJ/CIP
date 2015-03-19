@@ -8,7 +8,6 @@ require($include.'sisdoc_windows.php');
 require($include.'sisdoc_debug.php');
 require($include.'sisdoc_breadcrumb.php');
 
-require("../_class/_class_ajax.php");
 $email_adm = 'pibicpr@pucpr.br';
 $admin_nome = 'Iniciação Científica PUCPR';
 

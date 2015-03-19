@@ -19,8 +19,6 @@ $submit_manuscrito_tipo = "submit_manuscrito_tipo";
 $table_pesquisador = 'reol_pesquisador';
 $submit_crono_orca = "submit_crono_orca";
 
-require("../_class/_class_ajax.php");
-
 /* Segurança do Login */
 require($include.'sisdoc_security_pucpr.php');
 $nw = new usuario;

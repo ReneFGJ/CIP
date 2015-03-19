@@ -6,6 +6,47 @@ class header
 	var $path;
 	var $name;
 	
+	function enable_ajax_animate()
+		{
+		global $http;
+		$sx = '
+		<div id="loading" class="lt1" >
+			<center>wait...<BR><BR>
+			<img src="'.$http.'img/icone_ajax_waiting.gif"></center>
+		</div>
+		<style>
+			#loading
+			{
+			display: none;
+			border: 1px solid black;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 300px;
+			height: 80px;
+			background: white;
+			margin-left: -150px;
+			margin-top: -30px;
+		}
+		</style>
+		<script>
+   		$("body").ajaxSend(function()
+     		{
+     			$("#loading").fadeIn();
+        		$("div#error").remove();   
+        		$("#conteudo").children().not(\'#loading\').css({\'opacity\':0.22});
+     		});
+    		$("body").ajaxComplete(function()
+     		{
+     			$("#conteudo").children().not(\'#loading\').css({\'opacity\':1});
+        		$("#loading").hide();
+		        
+     		});
+		</script>
+		';
+		return($sx);
+		}
+	
 	function search()
 		{
 			global $dd;
@@ -255,7 +296,9 @@ class header
 			';
 		/* Cabecalho novo */
 		$sx = '<div idx="cabecalho_novo" class="cabecalho_novo_big" id="cabecalho-user-screen">';
-		$sx .= '<A HREF="http://www2.pucpr.br/reol/main.php"><div id="cabecalho_logo" class="cabecalho_logo_big"></div></A>';
+		$sx .= '<A HREF="http://www2.pucpr.br/reol/main.php">
+					<div id="cabecalho_logo" class="cabecalho_logo_big"></div>
+				</A>';
 
 		/* nome do usuario */
 			$sx .= '<div id="cabecalho_user">';
@@ -287,26 +330,29 @@ class header
 			$sx .= $this->menus_novo();
 		$sx .= '</div>';
 		$sx .= '</div>';
+		
+		$sx .= $this->enable_ajax_animate();
+		
 		$js = '
 		<script>
 		$("body").addClass("margin120");
 		
 			$(document).on("scroll", function () {
 				
-				var $meuMenu = $("#cabecalho_novo");
+				var $meuMenu = $("#cabecalho-user-screen");
 				var $logo = $("#cabecalho_logo");
 				var $menu = $("#menu-top");					
 				var offset = $(document).scrollTop(); 
 				
 				if (offset > 1)
 					{
-						$("#cabecalho_novo").animate({top: "0px" }, 500);
+						$("#cabecalho-user-screen").animate({top: "0px" }, 500);
 						$($logo).switchClass("cabecalho_logo_big","cabecalho_logo_mini",500);
 						$("#cabecalho_title").fadeOut(100);
 						
 						
 					} else {
-						$("#cabecalho_novo").animate({
+						$("#cabecalho-user-screen").animate({
 							top: "0px" }, 500);
 						$($logo).switchClass("cabecalho_logo_mini","cabecalho_logo_big",500);
 						$("#cabecalho_title").fadeIn(1000);

@@ -34,6 +34,8 @@ class captacao {
 			$sta = $this -> status();
 			$sql = "select * from ".$this->tabela."
 					left join pibic_professor on pp_cracha = ca_professor
+					left join programa_pos on ca_programa = pos_codigo
+					left join centro on pos_escola = centro_codigo
 					where ca_status <> 0 and ca_status <> 9
 					and ca_participacao <> 'O'
 					order by ca_agencia, ca_vigencia_ini_ano desc, ca_vigencia_ini_mes desc
@@ -41,17 +43,20 @@ class captacao {
 			$rlt = db_query($sql);
 			$sx .= '<table class="tabela00 tabela">';
 			$sx .= '<TR>
-						<TH colspan=5>
+						<TH colspan=7>
 						<TH colspan=3>Convênios Vigêntes
 						<TH colspan=3>Custeio
 						<TH colspan=3>Bolsas
 						<TH colspan=3>OPEX
 						<TH colspan=3>CAPEX
-						<TH colspan=3>BOLSA';
+						<TH colspan=3>BOLSA
+						<TH colspan=3>Outros dados';
 			$sx .= '<TR>
 					<TH>Empresa
 					<TH>Concedente
 					<TH>Convênio
+					<TH>Tipo
+					<TH>Rateio
 					
 					<TH>Valor Cadastrado
 					<TH>Somatória das rubricas
@@ -81,15 +86,20 @@ class captacao {
 					<TH>Tipo
 					<TH>Coordenador
 					<TH>Nome do Edital
+					<TH>Escola
+					<TH>Programa Pós-Graduação
 					
 					<TH>Capt.Inst.
 					<TH>Capt.Acad.
 					<TH>Capt.Empr.
 					<TH>Situação
+					<TH>ID
 					';
 					
 			while ($line = db_read($rlt))
 				{
+					//print_r($line);
+					//exit;
 					$ln = $line;
 					$sx .= '<TR>';
 					$sx .= '<TD>PUC';
@@ -98,6 +108,14 @@ class captacao {
 					$sx .= '<NOBR>';
 					$sx .= $line['ca_processo'];
 					
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$sx .= $line['ca_tipo'];
+
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$sx .= $line['ca_rateio'];
+
 					/* TOTAL - CADASTRO */
 					$sx .= '<TD align="right">';
 					$sx .= number_format($line['ca_vlr_total'],2,',','.');
@@ -181,12 +199,25 @@ class captacao {
 						default:
 							$sx .= '['.$cp.']';
 						}
+					
 					$sx .= '<TD>';
 					$sx .= '<NOBR>';
 					$sx .= $line['pp_nome'];
+										
 					$sx .= '<TD>';
 					$sx .= '<NOBR>';
 					$sx .= $line['ca_descricao'];
+					
+					/* Programa & Escola */
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$sx .= $line['pos_nome'];
+										
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					//$sx .= $line['pos_escola'];
+					$sx .= $line['centro_nome'];
+					
 					$sx .= '<TD>';
 					$sx .= $line['ca_insticional'];	
 					$sx .= '<TD>';
@@ -197,7 +228,16 @@ class captacao {
 					$sx .= '<TD>';
 					$sx .= '<NOBR>';
 					$sx .= $sta[$line['ca_status']];
+					
+					/* ID */
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$sx .= $line['id_ca'];
 										
+					/* ID */
+					$sx .= '<TD>';
+					$sx .= '<NOBR>';
+					$sx .= $line['pp_ss'];
 				}
 			$sx .= '</table>';
 			

@@ -7,8 +7,6 @@ require($include.'sisdoc_windows.php');
 require($include.'sisdoc_debug.php');
 require($include.'sisdoc_breadcrumb.php');
 
-require("../_class/_class_ajax.php");
-
 /* Segurança do Login */
 require($include.'sisdoc_security_pucpr.php');
 $nw = new usuario;
