@@ -3,14 +3,19 @@ require("cab.php");
 require("../_class/_class_pibic_projetos.php");
 $pj = new projetos;
 
-$ano = date("Y");
+if (strlen($dd[1]) == 0)
+	{
+		$ano = date("Y");		
+	} else {
+		$ano = $dd[1];
+	}
+
 $meta = 1100;
 
 require($include.'_class_form.php');
 $form = new form;
 
-echo '<H3>Edital por áreas estratégicas</h3>';
-
+echo '<H3>Edital por Áreas estratégicas para bolsa juventude</h3>';
 
 $sql = "select * from pibic_submit_documento 
 		inner join pibic_projetos on pj_codigo = doc_protocolo_mae
@@ -19,20 +24,19 @@ $sql = "select * from pibic_submit_documento
 		left join centro on pp_escola = centro_codigo
 		left join (
 			select count(*) as nota, pp_protocolo 
-			from pibic_parecer_2014 where pp_p05='1' 
+			from pibic_parecer_$ano where pp_p05='1' 
 			group by pp_protocolo
 		) as tabela on pp_protocolo = doc_protocolo
 		left join pibic_bolsa_contempladas on doc_protocolo = pb_protocolo and pb_status = 'A'
 		left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
-		where (doc_ano = '".date("Y")."') 
+		where (doc_ano = '".$ano."') 
 			and (pj_status <> 'X')
 			and (doc_status <> 'X')
-			and pj_ano = '2014'
-			and a_descricao ilike '%Juventudes%'
+			and pj_ano = '$ano'
+			and (pj_area_estra = '9.00.00.01-X')
 		order by pj_area_estra, doc_nota desc, pp_nome, doc_protocolo_mae, doc_protocolo
 		";
 		
-	
 $rlt = db_query($sql);
 /*
  * 			and  pj_area_estra like '9.%'
@@ -40,10 +44,25 @@ $rlt = db_query($sql);
  * 
  */
 $sx = '<Table width="98%" align="center" class="tabela00">';
-//$sh = '<TR><TH>Proto<TH>Projeto do professor<TH>Proto<TH>Plano de trabalho<TH>Nota';
+$sx .= '<TR>
+		<TH width="10%">	Col 01
+		<TH width="10%">	Col 02
+		<TH width="5%">		Col 03
+		<TH width="40%">	Col 04
+		<TH width="5%">		Col 05
+		<TH width="40%">	Col 06
+		<TH width="5%">		Col 07
+		<TH width="5%">		Col 08
+		<TH width="5%">		Col 09
+		<TH width="5%">		Col 10
+		<TH width="5%">		Col 11
+		<TH width="5%">		Col 12
+		<TH width="5%">		Col 13		
+		';
 $tot = 0;
 while ($line = db_read($rlt))
 	{
+		
 		$area = $line['pj_area_estra'];
 		$area_descricao = $line['a_descricao'];
 		$titpl = $line['doc_1_titulo'];
@@ -54,24 +73,22 @@ while ($line = db_read($rlt))
 		$prot = $line['doc_protocolo'];
 		$protj = $line['doc_protocolo_mae'];
 		
-		//if ($area != $xarea)
+		if ($area != $xarea)
 			{	
-			$sx .= '<TR><TD><font color="blue">';
+			$sx .= '<TR><TD colspan=10><font color="blue" class="lt4">';
 			$sx .= $area;
 			$sx .= $area_descricao;
 			$xarea = $area;
 			$sx .= '</font>';
 			}
 		
-		//if ($prof != $xprof)
-			{
-			//$sx .= '<TR>';
-			$sx .= '<TD>';
-			$sx .= $prof;
-			$xprof = $prof;
-			$sx .= $sh;
-			}
+			$sx .= '<TR>';
+			
 		//$sx .= '<TR valign="top">';
+		$sx .= '<TD class="tabela01">';
+		$sx .= $prof;
+		$xprof = $prof;
+		$sx .= $sh;
 		$sx .= '<TD class="tabela01">';
 		$sx .= $line['centro_nome'];		
 		$sx .= '<TD class="tabela01">';
