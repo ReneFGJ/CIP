@@ -55,18 +55,18 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	array_push($menu,array('Edital '.date("Y"),'Montar Edital (PIBIC Jr)','pibic_edital_3_pibicem.php'));		
 	array_push($menu,array('Edital '.date("Y"),'Projetos do Edital','pibic_edital.php'));
 	
-	array_push($menu,array('Edital '.date("Y"),'Áreas estratégicas','pibic_edital_estrategicas.php'));
+	array_push($menu,array('Edital '.date("Y"),'Áreas estratégicas','pibic_edital_estrategicas.php?dd1='.date("Y").''));
+	array_push($menu,array('Edital '.date("Y"),'__Bolsas Juventude','pibic_edital_estrategicas_bolsas_juventudes.php?dd1='.date("Y").''));	
 	array_push($menu,array('Edital '.date("Y"),'Edital (PIBIC) - Professores com bolsas','pibic_edital_professores.php'));
 	
 	array_push($menu,array('Edital '.date("Y"),'Projetos avaliados com víes PIBITI','pibic_vies_pibiti.php'));
-
-	array_push($menu,array(	'Edital (Publicação)','Edital (PIBIC) - Resultado Final','edital.php?dd0=H&dd1=PIBIC&dd2='.date("Y").'&printer=S'));
-	array_push($menu,array(	'Edital (Publicação)','Edital (PIBITI) - Resultado Final','edital_pibiti.php?dd0=H&dd1=PIBITI&dd2='.date("Y").'&printer=S'));
-	array_push($menu,array(	'Edital (Publicação)','Edital (PIBIC_EM) - Resultado Final','edital_pibic_em.php?dd0=H&dd1=PIBICE&dd2='.date("Y").'&printer=S'));
-	array_push($menu,array(	'Edital (Publicação)','Edital (Inclusão Social) - Resultado Final','edital_inclusao.php?dd0=H&dd1=PIBIC&dd2='.date("Y").'&printer=S'));
+	array_push($menu,array('Edital (Publicação)','Edital (PIBIC) - Resultado Final','edital.php?dd0=H&dd1=PIBIC&dd2='.date("Y").'&printer=S'));
+	array_push($menu,array('Edital (Publicação)','Edital (PIBITI) - Resultado Final','edital_pibiti.php?dd0=H&dd1=PIBITI&dd2='.date("Y").'&printer=S'));
+	array_push($menu,array('Edital (Publicação)','Edital (PIBIC_EM) - Resultado Final','edital_pibic_em.php?dd0=H&dd1=PIBICE&dd2='.date("Y").'&printer=S'));
+	array_push($menu,array('Edital (Publicação)','Edital (Inclusão Social) - Resultado Final','edital_inclusao.php?dd0=H&dd1=PIBIC&dd2='.date("Y").'&printer=S'));
 	
-	array_push($menu,array(	'Edital (Recursos)','Recursos para o edital','recurso_lista.php'));
-	array_push($menu,array(	'Edital (Recursos)','__Cadastrar Recurso','recurso.php'));	
+	array_push($menu,array('Edital (Recursos)','Recursos para o edital','recurso_lista.php'));
+	array_push($menu,array('Edital (Recursos)','__Cadastrar Recurso','recurso.php'));	
 		
 	} 
 
