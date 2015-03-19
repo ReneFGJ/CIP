@@ -996,7 +996,7 @@ class docentes {
 
 		$rlt = db_query($sql);
 		$xprof = 'x';
-		$sx .= '<H2>Docentes Orientaçães</H2>';
+		$sx .= '<H2>Docentes Orientações</H2>';
 		$sx .= '<table class="lt1" width="100%" class="tabela00">';
 		$sh = '<TR><TH>Mod<TH>Estudante<TH>Linha de pesquisa<TH>Entrada<TH>Defesa<TH>Status';
 		$stt = array('A' => 'Matriculado sem orientador', 'C' => 'Ativo (cursando)', 'T' => 'Titulado', 'R' => 'Desistente', 'G' => 'Aguardando entrega da Tese/Dissertação', 'D' => 'Desligado', 'N' => 'Trancado');
