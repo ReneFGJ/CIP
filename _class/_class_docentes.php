@@ -737,6 +737,7 @@ class docentes {
 		array_push($cp, array('$H8', 'id_pp', 'id_pp', False, True));
 		array_push($cp, array('$C1', 'pp_bl', 'Blacklist', False, True));
 		array_push($cp, array('$T60:4', 'pp_bl_motivo', 'Blacklist (motivo)', False, True));
+		array_push($cp, array('$[0-50]', 'pp_bl_pts', 'Pontos', True, True));
 		return ($cp);
 	}
 
