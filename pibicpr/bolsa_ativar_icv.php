@@ -11,7 +11,8 @@ $cp = array();
 array_push($cp,array('$H4','','',False,True,''));
 array_push($cp,array('$S8','','Protocolo do aluno',True,True,''));
 array_push($cp,array('$Q pbt_descricao:pbt_codigo:select * from pibic_bolsa_tipo order by pbt_edital, pbt_descricao','','Tipo de bolsa',True,True,''));
-array_push($cp,array('$['.(date("Y")-1).'-'.(date("Y")).']','','Protocolo do aluno',True,True,''));
+array_push($cp,array('$['.(date("Y")-1).'-'.(date("Y")).']','','Ano do edital',True,True,''));
+array_push($cp,array('$S8','','Código do aluno (opcional)',False,True,''));
 
 	echo '<CENTER><font class=lt5>Ativar projetos ICV</font></CENTER>';
 	?><TABLE width="<?=$tab_max?>" align="center"><TR><TD><?
@@ -31,6 +32,10 @@ array_push($cp,array('$['.(date("Y")-1).'-'.(date("Y")).']','','Protocolo do alu
 				{
 				$docm = trim($line['doc_protocolo_mae']);
 				$aluno = $line['doc_aluno'];
+				if (strlen($dd[4])==8)
+					{
+						$aluno = $dd[4];
+					}
 				$professor = $line['doc_autor_principal'];
 				$protocolo = $line['doc_protocolo'];
 				$titulo = $line['doc_1_titulo'];
@@ -86,7 +91,7 @@ array_push($cp,array('$['.(date("Y")-1).'-'.(date("Y")).']','','Protocolo do alu
 						$sql .= "'".date("H:i")."',1,19000101,";
 						
 						$sql .= "19000101,'','".$tit_projeto."',";
-						$sql .= "'".$titulo."','','@',";
+						$sql .= "'".$tit_projeto."','','@',";
 						$sql .= "'".$doc_area."','',19000101,";
 						$sql .= "19000101,0,";
 						$sql .= $dd[3];

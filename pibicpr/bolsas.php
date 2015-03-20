@@ -22,13 +22,14 @@ if ($perfil->valid('#ADM') or $perfil->valid >= 9)
 	array_push($menu,array(msg('gestao_de_bolsas'),'Próximas indicações PIBITI','bolsa_proximas_indicacoes_pibiti.php'));	 
 	}
 
-array_push($menu,array(msg('indicacao_bolsas'),'Indicar Bolsas para Implementação','bolsas_indicacao.php'));
+array_push($menu,array(msg('indicacao_bolsas'),'Indicar Bolsas para Implementação','bolsas_indicacao.php')); 
+
 array_push($menu,array(msg('indicacao_bolsas'),'Status das Bolsas Indicadas','bolsas_indicacao_status.php'));
 
 
 if ($perfil->valid('#ADM')) 
 	{
-		array_push($menu,array(msg('ativar_bolsas'),'Ativar um protocolo de pesquisa com ICV','bolsas_indicacao_status.php'));		
+		array_push($menu,array(msg('ativar_bolsas'),'Ativar um protocolo de pesquisa com ICV','bolsa_ativar_icv.php'));		
 	}
 
 array_push($menu,array('Fundação Araucária - Bolsas Implementação','ANEXO II','bolsas_anexo_ii.php'));
