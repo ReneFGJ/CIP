@@ -33,6 +33,24 @@ if ((date("Ymd") <= 20140424) or ($ic_on == 1)) {
 	array_push($mn, array('botao_pibic', 'b1', http . 'pibic/submit_project.php', 'botao_pibic_02.jpg', 'imgs', ''));
 }
 
+/* Botao Avaliação */
+// Alteração de data
+//	$sql = "update pibic_parecer_2015 set pp_data = 20150323 where pp_tipo = 'RPAR' ";
+//	$rlt = db_query($sql);
+	
+	$sql = "select count(*) as total from pibic_parecer_2015 
+				where pp_tipo = 'RPAR' and pp_status <> 'B' and pp_status <> 'D' 
+				and pp_avaliador = '".$nw->user_cracha."'";
+	$rlt = db_query($sql);
+	$line = db_read($rlt);
+	$total = $line['total'];
+	
+	if ($total > 0)
+		{
+		$link = 'http://www2.pucpr.br/reol/avaliador/acesso.php?dd0='.$nw->user_cracha.'&dd90='.checkpost($nw->user_cracha.' ');
+		array_push($mn, array('botao_av', 'b1',$link, 'botao_av_02.jpg', 'imgs', ''));
+		}
+
 /* Total de Atividades */
 $ati -> total_isencoes($user_id);
 $total = $ati -> total_atividades($user_id);
@@ -196,30 +214,31 @@ for ($r = 0; $r < count($mn); $r++) {
 
 	$tips = $mn[$r][4];
 	if ($tips == 'imgs') {
-		$img1 = '<img src="img/' . $mn[$r][0] . '_01.jpg" id="img" border=0 >';
+		$img1 = '<img src="img/' . $mn[$r][0] . '_01.jpg" id="img'.$r.'" border=0 >';
+		//echo '<BR>'.$img1;
 
 		$sx .= '<td width="25%">';
 		$sx .= '<A HREF="' . $mn[$r][2] . '">';
 		$sx .= $img1;
 		$sx .= $img2;
 		$sx .= '</A>';
-		$sx .= '<script>
+		$sx .= '		<script>
 							var tela=1;
 							setInterval("troca();", 2000);
 							function troca()
 								{
 									if (tela == 1)
 										{
-											$("#img").attr("src", "img/' . $mn[$r][0] . '_01.jpg");
+											$("#img'.$r.'").attr("src", "img/' . $mn[$r][0] . '_01.jpg");
 											tela = tela + 1;
 										} else {
 											if (tela == 2)
 												{
 													tela = 3;
-													$("#img").attr("src", "img/' . $mn[$r][0] . '_02.jpg");													
+													$("#img'.$r.'").attr("src", "img/' . $mn[$r][0] . '_02.jpg");													
 												} else {
 													tela = 1;
-													$("#img").attr("src", "img/' . $mn[$r][0] . '_03.jpg");																										
+													$("#img'.$r.'").attr("src", "img/' . $mn[$r][0] . '_03.jpg");																										
 												}
 										}				
 																		
