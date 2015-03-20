@@ -19,8 +19,10 @@ echo '<H3>Edital por Áreas estratégicas para bolsa juventude</h3>';
 
 $sql = "select * from pibic_submit_documento 
 		inner join pibic_projetos on pj_codigo = doc_protocolo_mae
-		inner join pibic_professor on pj_professor = pp_cracha
+		inner join pibic_professor on pj_professor = pp_cracha       	
 		inner join ajax_areadoconhecimento on pj_area_estra = a_cnpq
+		inner join pibic_aluno on pa_cracha	= doc_aluno
+        left join apoio_titulacao on pp_titulacao = ap_tit_codigo		
 		left join centro on pp_escola = centro_codigo
 		left join (
 			select count(*) as nota, pp_protocolo 
@@ -45,80 +47,75 @@ $rlt = db_query($sql);
  */
 $sx = '<Table width="98%" align="center" class="tabela00">';
 $sx .= '<TR>
-		<TH width="10%">	Col 01
-		<TH width="10%">	Col 02
-		<TH width="5%">		Col 03
-		<TH width="40%">	Col 04
-		<TH width="5%">		Col 05
-		<TH width="40%">	Col 06
-		<TH width="5%">		Col 07
-		<TH width="5%">		Col 08
-		<TH width="5%">		Col 09
-		<TH width="5%">		Col 10
-		<TH width="5%">		Col 11
-		<TH width="5%">		Col 12
-		<TH width="5%">		Col 13		
+		<TH width="10%">	Aluno
+		<TH width="10%">	Curso_Aluno
+		<TH width="15%">	Professor
+		<TH width="5%">		Titulação
+		<TH width="5%">		SS
+		<TH width="7%">		Escola
+		<TH width="5%">		Campus
+		<TH width="15%">	Nome_Projeto
+		<TH width="5%">		Modalidade
+		<TH width="5%">		Edital
+		<TH width="5%">		Status
+		<TH width="5%">		Ano		
+				
 		';
-$tot = 0;
 while ($line = db_read($rlt))
 	{
-		
-		$area = $line['pj_area_estra'];
-		$area_descricao = $line['a_descricao'];
-		$titpl = $line['doc_1_titulo'];
-		$titpj = $line['pj_titulo'];
-		$nota = $line['doc_nota'];
-		$aval = $line['doc_avaliacoes'];
-		$prof = $line['pp_nome'];
-		$prot = $line['doc_protocolo'];
-		$protj = $line['doc_protocolo_mae'];
-		
+			
+		$aluno			=	$line['pa_nome'];
+		$curso			=	$line['pp_curso'];
+		$prof 			= 	$line['pp_nome'];
+		$titulacao		= 	$line['ap_tit_titulo'];
+		$strictu 		=  	$line['pp_ss'];	
+		$nome_centro	= 	$line['centro_nome'];
+		$centro  		= 	$line['pp_centro'];
+		$titpj 	 		= 	$line['pj_titulo'];	
+		$edital 		= 	$line['doc_edital'];			
+		$modali 		= 	$line['pbt_descricao'];
+		$status		    = 	$line['pb_status'];	
+		$ano		    = 	$line['doc_ano'];			
+				
+
 		if ($area != $xarea)
 			{	
-			$sx .= '<TR><TD colspan=10><font color="blue" class="lt4">';
-			$sx .= $area;
-			$sx .= $area_descricao;
-			$xarea = $area;
-			$sx .= '</font>';
+				$sx .= '<TR><TD colspan=10><font color="blue" class="lt4">';
+				$sx .= $area;
+				$sx .= $area_desc;
+				$xarea = $area;
+				$sx .= '</font>';
 			}
-		
-			$sx .= '<TR>';
-			
-		//$sx .= '<TR valign="top">';
+						
+		$sx .= '<TR>';	
 		$sx .= '<TD class="tabela01">';
-		$sx .= $prof;
-		$xprof = $prof;
-		$sx .= $sh;
+		$sx .= $aluno;		
 		$sx .= '<TD class="tabela01">';
-		$sx .= $line['centro_nome'];		
+		$sx .= $curso;		
 		$sx .= '<TD class="tabela01">';
-		$sx .= $protj;
+		$sx .= $prof;			
 		$sx .= '<TD class="tabela01">';
-		$sx .= $titpj;
+		$sx .= $titulacao;			
 		$sx .= '<TD class="tabela01">';
-		$sx .= $prot;
+		$sx .= $strictu;			
 		$sx .= '<TD class="tabela01">';
-		$sx .= $titpl;
+		$sx .= $nome_centro;
 		$sx .= '<TD class="tabela01">';
-		$sx .= $nota;
+		$sx .= $centro;
 		$sx .= '<TD class="tabela01">';
-		$sx .= $line['doc_ano'];
+		$sx .= $titpj;						
 		$sx .= '<TD class="tabela01">';
-		$sx .= $line['pb_protocolo'];
+		$sx .= $edital;	
 		$sx .= '<TD class="tabela01">';
-		$sx .= $line['doc_edital'];
+		$sx .= $modali;	
 		$sx .= '<TD class="tabela01">';
-		$sx .= $line['pbt_edital'];
+		$sx .= $status;	
 		$sx .= '<TD class="tabela01">';
-		$sx .= $line['pb_vies'];
-		$sx .= '<TD class="tabela01">[';
-		$sx .= $line['nota'].']';
+		$sx .= $ano;			
 		$tot++;
 	}
 $sx .= '<TR><TD colspan=5>'.msg('total').' '.$tot;
 $sx .= '</table>';
 echo $sx;
-
-
 
 ?>
