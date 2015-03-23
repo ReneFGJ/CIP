@@ -112,7 +112,7 @@ class header
 				}			
 			if ($tp=='ic') {
 					$this->class="identificacao-iniciacao-cientifica";
-					$this->title='Iniciação Científica'; 
+					$this->title='Iniciaï¿½ï¿½o Cientï¿½fica'; 
 					$this->path = '../';
 				}
 			if ($tp=='in') {
@@ -125,7 +125,7 @@ class header
 				}	
 			if ($tp=='po') {
 					$this->class="identificacao-indicadores";
-					$this->title='Pós-Graduação';
+					$this->title='Pï¿½s-Graduaï¿½ï¿½o';
 				}	
 			if ($tp=='sm') {
 					$this->class="identificacao-pesquisa";
@@ -158,13 +158,13 @@ class header
 				
 	function menus_novo()
 		{
-		global $menu;
+		global $menu,$http;
 		if (empty($menu)) 
 				{
 				 $menu = array(); 
 				 array_push($menu,array('home','main.php'));
 				}
-		array_push($menu,array('voltar',http.'main.php'));
+		array_push($menu,array('voltar',$http.'main.php'));
 				
 		$sx .= '<div id="menu-top" class="cabecalho_menu_big-2">'.$cr;
 		$sx .= '<ul>'.$cr;
@@ -386,7 +386,7 @@ class header
 			</table>
 			';
 
-		/* cabecalho da página */
+		/* cabecalho da pï¿½gina */
 		$sx .= '<table border=0 width="100%" cellpadding=0 cellspacing=0 id="cabecalho-user-screen">';
 			$sx .= '<TR valign="top">';
 			$sx .= '<TD width="10%" rowspan=2>&nbsp;';
