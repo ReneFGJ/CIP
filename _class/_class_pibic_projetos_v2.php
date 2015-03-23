@@ -3543,12 +3543,12 @@ class projetos {
 		if (($this -> status == '!') or ($this -> status == '@')) {
 			array_push($t1, $this -> mostra_plano_botao(1));
 			array_push($t1, $this -> mostra_plano_botao(2));
-			array_push($t1, $this -> mostra_plano_botao(3));
+			//array_push($t1, $this -> mostra_plano_botao(3));
 			array_push($t1, $this -> mostra_plano_botao(4));
 		} else {
 			array_push($t1, 'Sem plano submetido');
 			array_push($t1, 'Sem plano submetido');
-			array_push($t1, 'Sem plano submetido');
+			//array_push($t1, 'Sem plano submetido');
 			array_push($t1, 'Sem plano submetido');
 		}
 		$ic1 = 0;
@@ -3576,14 +3576,10 @@ class projetos {
 
 		$sx .= '<table width="100%" border=0 class="tabela00">';
 		$sx .= '<TR valign="top">';
-		$sx .= '<TD width="25%">
-							<div class="plano01">' . $t1[0] . '</div>';
-		$sx .= '<TD width="25%">
-							<div class="plano01">' . $t1[1] . '</div>';
-		$sx .= '<TD width="25%">
-							<div class="plano01">' . $t1[2] . '</div>';
-		$sx .= '<TD width="25%">
-							<div class="plano01">' . $t1[3] . '</div>';
+		$sx .= '<TD width="33%"><div class="plano01">' . $t1[0] . '</div>';
+		$sx .= '<TD width="33%"><div class="plano01">' . $t1[1] . '</div>';
+		$sx .= '<TD width="33%"><div class="plano01">' . $t1[2] . '</div>';
+		//$sx .= '<TD width="25%"><div class="plano01">' . $t1[3] . '</div>';
 
 		if ($tot == 0) {
 			$sx .= '<TR><TD colspan=4><font color="red" style="font-size: 16px;">Nenhum plano cadastrado';
@@ -3600,7 +3596,7 @@ class projetos {
 	function submit_button_project() {
 		$sx .= '<form method="post" action="submit_pos_6.php">';
 		$sx .= '<input type="hidden" name="dd89" value="' . $this -> protocolo . '">';
-		$sx .= '<input type="submit" value="enviar projeto e plano" name="acao">';
+		$sx .= '<input type="submit" value="enviar projeto e plano" name="acao" class="botao-confirmar">';
 		$sx .= '</form>';
 		return ($sx);
 	}
