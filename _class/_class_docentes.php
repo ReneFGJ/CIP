@@ -979,18 +979,24 @@ class docentes {
 		return ($v);
 	}
 
-	function docentes_orientacoes($programa = '', $area = '') {
+	function docentes_orientacoes($programa = '', $area = '', $idprof = '') {
 		global $http;
 		//$sql = "alter table docente_orientacao add column od_linha char(7) ";
 		//$rlt = db_query($sql);
+        if(strlen($idprof > 0)){
+           $whProf = "and id_pp = $idprof"; 
+        }else{
+            $whProf = "";
+        }
 
+        
 		$sql = "select * from docente_orientacao 
 					left join pibic_professor on od_professor = pp_cracha
 					left join pibic_aluno on od_aluno = pa_cracha
 					left join programa_pos_linhas on od_linha = posln_codigo
-					where od_programa = '$programa'
-					order by pp_nome, posln_descricao, od_ano_ingresso desc, od_modalidade
-			";
+					where od_programa = '$programa'".$whProf."
+					order by pp_nome, posln_descricao, od_ano_ingresso desc, od_modalidade";
+        
 		$totd = 0;
 		$toto = 0;
 
