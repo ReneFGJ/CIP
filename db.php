@@ -7,19 +7,19 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
 ini_set('display_errors', 0);
 ini_set('error_reporting', 0);
 $include .= "include/";
-$debug = False;
+$debug = True;
 if($debug == true)
 	{
 	ini_set('display_errors', 1);
 	ini_set('error_reporting', 7);
 	}
 $debug = false;
-//-------------------------------------- Includes Padrões
+//-------------------------------------- Includes Padrï¿½es
 require($include.'sisdoc_sql.php');
 require($include.'sisdoc_char.php');
 require($include.'sisdoc_cookie.php');
 $tab_max = 780;
-//-------------------------------------- Diretórios de Arquivos e Imagens
+//-------------------------------------- Diretï¿½rios de Arquivos e Imagens
 $dir = $_SERVER['DOCUMENT_ROOT'];
 $dir_public = $dir . '/reol/public/';
 $img_dir = '/reol/img/';
@@ -29,7 +29,7 @@ $http_public = '/reol/public/';
 
 
 $secu = "reol";
-//-------------------------------------- Definições Iniciais
+//-------------------------------------- Definiï¿½ï¿½es Iniciais
 define(site,'http://www2.pucpr.br');
 define(http,'http://www2.pucpr.br/reol/');
 define(site,'pucpr.br');
@@ -57,9 +57,9 @@ for ($k=0;$k < 100;$k++)
 	{
 	$varf='dd'.$k;
 	$varf=$vars[$varf];
-	//if (isset($varf) and ($k > 1)) {	//$varf = str_replace($varf,"A","´"); }
+	//if (isset($varf) and ($k > 1)) {	//$varf = str_replace($varf,"A","ï¿½"); }
 	$varf = troca($varf,chr(92),'');
-	$dd[$k] = troca($varf,"'","´");
+	$dd[$k] = troca($varf,"'","ï¿½");
 	}
 $acao = $vars['acao'];
 $nocab = $vars['nocab'];
@@ -68,7 +68,7 @@ $base = 'pgsql';
 
 $http = 'http://www2.pucpr.br/reol/';
 
-//-------------------------------------- Determina o Idioma de Navegação
+//-------------------------------------- Determina o Idioma de Navegaï¿½ï¿½o
 $idv = $vars['idioma'];
 if (strlen($idv) > 0)
 	{
@@ -91,7 +91,10 @@ $base_name="ojsbr";
 if (strlen($base_user)==0) { $base_user="ojsbr"; }
 $base_pass="ojsbr-2006";
 
-
+if (($_SERVER['HTTP_HOST'] == '10.96.155.166') or ($_SERVER['HTTP_HOST'] == '10.96.155.166'))
+	{
+	$base_host="localhost";	
+	}
 $ok = db_connect();
 //require("db_reol2_pucpr.php");
 

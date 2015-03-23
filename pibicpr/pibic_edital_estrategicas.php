@@ -15,7 +15,7 @@ $meta = 1100;
 require($include.'_class_form.php');
 $form = new form;
 
-echo '<H3>Edital por Áreas estratégicas</h3>';
+echo '<H3>Edital por ï¿½reas estratï¿½gicas</h3>';
 
 $sql = "select * from pibic_submit_documento 
 		inner join pibic_projetos on pj_codigo = doc_protocolo_mae
@@ -27,7 +27,7 @@ $sql = "select * from pibic_submit_documento
 			from pibic_parecer_$ano where pp_p05='1' 
 			group by pp_protocolo
 		) as tabela on pp_protocolo = doc_protocolo
-		left join pibic_bolsa_contempladas on doc_protocolo = pb_protocolo and pb_status = 'A'
+		left join pibic_bolsa_contempladas on doc_protocolo = pb_protocolo 
 		left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
 		where (doc_ano = '".$ano."') 
 			and (pj_status <> 'X')
