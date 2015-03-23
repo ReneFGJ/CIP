@@ -266,7 +266,6 @@ class pibic_bolsa_contempladas{
 					}
 				return($ano);
 			}
-	
 		
 	function guia_estudante($ano1,$ano2)
 			{
@@ -344,9 +343,6 @@ class pibic_bolsa_contempladas{
 
 						$sx .= '<TD>';
 						$sx .= $line['pbt_descricao'];
-												
-						//$sx .= '<TD>';
-						//$sx .= $line['pa_codigo'];
 						
 						$sx .= '<TD>';
 						$sx .= $line['pa_nome'];
@@ -386,9 +382,11 @@ class pibic_bolsa_contempladas{
 										
 						$sx .= '<TD><nobr>';
 						$sx .= $line['a_cnpq'];
+						
 						$sx .= '</nobr>';	
 						$sx .= '<TD><nobr>';
 						$sx .= $line['a_descricao'];
+						
 						$sx .= '<TD><nobr>';
 						$sx .= $line['pb_titulo_projeto'];												
 						$sx .= '</nobr>';													
