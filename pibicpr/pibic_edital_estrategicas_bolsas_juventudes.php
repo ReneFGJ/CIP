@@ -23,10 +23,10 @@ $sql = "select * from pibic_submit_documento
 		inner join ajax_areadoconhecimento on pj_area_estra = a_cnpq
 		left join centro on pp_escola = centro_codigo
 		left join (
-			select count(*) as nota, pp_protocolo 
-			from pibic_parecer_$ano where pp_p05='1' 
-			group by pp_protocolo
-		) as tabela on pp_protocolo = doc_protocolo
+					select count(*) as nota, pp_protocolo 
+					from pibic_parecer_$ano where pp_p05='1' 
+					group by pp_protocolo
+					) as tabela on pp_protocolo = doc_protocolo
 		left join pibic_bolsa_contempladas on doc_protocolo = pb_protocolo
 		left join pibic_aluno on pa_cracha = pb_aluno	
 		left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
@@ -49,7 +49,7 @@ $sx .= '<TR>
 			<TH width="15%">Projeto do professor
 			<TH width="5%">Protocolo
 			<TH width="15%">Plano de trabalho
-			<!--<TH width="3%">Nota-->
+				<!--<TH width="3%">Nota-->
 			<TH width="5%">Ano
 			<TH width="5%">Doc. aluno
 			<TH width="5%">Edital
@@ -71,6 +71,7 @@ while ($line = db_read($rlt))
 		$prof 				= ucwords(strtolower($line['pp_nome']));	
 		$prot 				= $line['doc_protocolo'];
 		$protj 				= $line['doc_protocolo_mae'];
+		//Busca o status da tabela [pibic_bolsa_contempladas]
 		$status				= $line['pb_status'];	
 			if ($status == '@') { $bolsa_status = 'Não implementada'; }	
 	        if ($status == 'A') { $bolsa_status = 'Ativa'; }
@@ -78,7 +79,7 @@ while ($line = db_read($rlt))
 	        if ($status == 'F') { $bolsa_status = 'Finalizada'; }
 	        if ($status == 'C') { $bolsa_status = 'Cancelada'; }
 	        if ($status == 'S') { $bolsa_status = 'Suspensa'; }
-
+		//Busca o tipo de bolsa da tabela [pibic_bolsa_contempladas]
 		$bolsa = $line['pb_tipo'];
 			if ($bolsa == 'P') { $bolsa_descricao = 'Bolsista PUCPR'; }
 			if ($bolsa == 'F') { $bolsa_descricao = 'Bolsista Fundação Araucária'; }
