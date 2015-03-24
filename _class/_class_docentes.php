@@ -36,6 +36,62 @@ class docentes {
 	var $line;
 
 	var $tabela = 'pibic_professor';
+	
+	function docentes_sem_email()
+		{
+			$sql = "select * 
+						from pibic_professor		  	
+						where pp_email = ''
+							and pp_ativo = '1'
+							and pp_titulacao = '002'
+						order by pp_nome
+							
+							";
+			$rlt = db_query($sql);
+			$tot = 0;
+			$sx = '<h1>Docentes Dr sem e-mail</h1>';
+			$sx .= '<table width="100%" class="tabela00">';
+			$sx .= '<TR><TH>Cracha
+						<TH>Nome
+						<TH>e-mail
+						<TH>e-mail (alt)
+						<TH>Atualizado
+						<TH>Tipo';
+			while ($line = db_read($rlt))
+			{
+				$tot++;
+				$link = '<A HREF="http://www2.pucpr.br/reol/cip/docentes_ed.php?dd0='.$line['id_pp'].'" target="_new">';
+				$sx .= '<TR>';
+				$sx .= '<TD class="tabela01">';
+				$sx .= $link;
+				$sx .= $line['pp_cracha'];
+				$sx .= '</A>';
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_nome'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_email_1'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_email_2'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_update'];		
+				$av = round($line['pp_avaliador']);
+				$sx .= '<TD class="tabela01">';
+				switch($av)
+					{
+					case '1':
+						$sx .= '<font color="blue">Avaliador</font>';
+						break;
+					default:
+						$sx .= '<font color="red">Não avaliador</font>';
+						break;
+					}		
+								
+			}
+			$sx .= '<tr><td colspan=10>Total '.$tot.' de docentes';
+			$sx .= '</table>';
+			return($sx);
+		}
+		
 
 	function resumo_escolas() {
 		$sql = "
