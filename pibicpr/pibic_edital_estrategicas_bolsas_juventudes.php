@@ -54,7 +54,7 @@ $sx .= '<TR>
 			<TH width="5%">Doc. aluno
 			<TH width="5%">Edital
 			<TH width="5%">Cod. Aluno
-			<TH width="10%">Nome Auno
+			<TH width="10%">Nome Aluno
 			<TH width="1%">Status
 			<TH width="5%">Modalidade bolsa									
 			';
