@@ -40,6 +40,8 @@ $sql = "select * from pibic_submit_documento
 		
 $rlt = db_query($sql);
 
+$tot = 0;
+
 $sx = '<Table width="98%" align="center" class="tabela00">';
 $sx .= '<TR>
 			<TH width="10%">Professor
@@ -59,7 +61,7 @@ $sx .= '<TR>
 			<TH width="5%">Modalidade bolsa									
 			';
 			
-$tot = 0;
+
 while ($line = db_read($rlt))
 	{
 		$area  				= $line['pj_area_estra'];
@@ -73,12 +75,13 @@ while ($line = db_read($rlt))
 		$protj 				= $line['doc_protocolo_mae'];
 		//Busca o status da tabela [pibic_bolsa_contempladas]
 		$status				= $line['pb_status'];	
-			if ($status == '@') { $bolsa_status = 'Não implementada'; }	
-	        if ($status == 'A') { $bolsa_status = 'Ativa'; }
-	        if ($status == 'B') { $bolsa_status = 'Concluida'; }
-	        if ($status == 'F') { $bolsa_status = 'Finalizada'; }
-	        if ($status == 'C') { $bolsa_status = 'Cancelada'; }
-	        if ($status == 'S') { $bolsa_status = 'Suspensa'; }
+			if ($status == '@')  { $bolsa_status = 'Não implementada'; }	
+	        if ($status == 'A')  { $bolsa_status = 'Ativa'; }
+	        if ($status == 'B')  { $bolsa_status = 'Concluida'; }
+	        if ($status == 'F')  { $bolsa_status = 'Finalizada'; }
+	        if ($status == 'C')  { $bolsa_status = 'Cancelada'; }
+	        if ($status == 'S')  { $bolsa_status = 'Suspensa'; }
+			if ($status == null) { $bolsa_status = 'Não implementada'; }
 		//Busca o tipo de bolsa da tabela [pibic_bolsa_contempladas]
 		$bolsa = $line['pb_tipo'];
 			if ($bolsa == 'P') { $bolsa_descricao = 'Bolsista PUCPR'; }
@@ -90,12 +93,12 @@ while ($line = db_read($rlt))
 		
 		if ($area != $xarea)
 			{	
-				$sx .= '<TR><TD colspan=10><font color="blue" class="lt4">';
-				$sx .= $area;
-				$sx .= $area_descricao;
-				$xarea = $area;
-				$sx .= $ano;			
-				$sx .= '</font>';
+				$sx 	.= '<TR><TD colspan=10><font color="blue" class="lt4">';
+				$sx 	.= $area;
+				$sx 	.= $area_descricao;
+				$xarea 	 = $area;
+				$sx 	.= $ano;			
+				$sx 	.= '</font>';
 			}	
 		{			
 		$sx .= '<TR>';
