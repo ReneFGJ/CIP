@@ -37,6 +37,26 @@ class docentes {
 
 	var $tabela = 'pibic_professor';
 	
+	function valida_titulacao_orientador($orientador) {
+		$sql = "select * from pibic_professor where pp_cracha = '" . $orientador . "' ";
+		$rlt = db_query($sql);
+		if ($line = db_read($rlt)) {
+			$ok = 0;
+			$titu = $line['pp_titulacao'];
+			if ($titu = '002') { $ok = 1 ; }
+			if ($titu = '001') { $ok = 1 ; }
+			if ($titu = '008') { $ok = 1 ; }
+			if ($titu = '003') { $ok = 1 ; }
+			if ($titu = '006') { $ok = 1 ; }
+			if ($titu = '011') { $ok = 1 ; }
+			if (trim($line['pp_centro']) == 'DOUTORANDO') { $ok = 1 ; }
+			
+			return ($ok);
+		} else {
+			return (0);
+		}
+	}	
+	
 	function docentes_sem_email()
 		{
 			$sql = "select * 
