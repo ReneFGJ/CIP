@@ -291,7 +291,7 @@ class header
 			<table width="100%" id="cabecalho-impressao-cip" border=0>
 			<TR><TD width="95%"><img  src="'.http.'cip/img/logo-cip-print.png" height="80" />
 			<TD align="right" width="5%"><img id="cabecalho-impressao-pucpr" src="'.http.'cip/img/logo-pucpr-pb.png" height="80" />
-			<TR class="lt0"><TD>'.date("d/m/Y H:i:s").' - '.$nw->user_nome.' ('.$nw->user_cracha.')
+			<TR class="lt0"><TD>'.date("d/m/Y H:i:s").' - '.$nw->user_login.' ('.$nw->user_cracha.')
 			</table>
 			';
 		/* Cabecalho novo */
