@@ -20,11 +20,6 @@ $chk = checkpost($id.$secu);
 
 if (strlen($dd[0])==8)
 	{
-		if (date("m") < 10)
-			{
-			echo '<H1>Em processamento</h1>';
-			exit;
-			}
 		require("../_class/_class_docentes.php");
 		$par = new docentes;		
 		$par->le($parecerista); 

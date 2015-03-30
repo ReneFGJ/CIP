@@ -2,6 +2,10 @@
 require("badlist.php");
 ob_start();
 session_start();
+
+//$path_info = trim($_SERVER['PATH_INFO']);
+date_default_timezone_set('GMT');
+
 header("Content-Type: text/html; charset=ISO-8859-1",true);
 //-------------------------------------- Paramentros para DEBUG
 ini_set('display_errors', 0);
@@ -91,9 +95,13 @@ $base_name="ojsbr";
 if (strlen($base_user)==0) { $base_user="ojsbr"; }
 $base_pass="ojsbr-2006";
 
-if (($_SERVER['HTTP_HOST'] == '10.96.155.166') or ($_SERVER['HTTP_HOST'] == '10.96.155.166'))
+if (
+	($_SERVER['HTTP_HOST'] == '10.96.155.166') or ($_SERVER['HTTP_HOST'] == '10.96.155.166')
+	or ($_SERVER['HTTP_HOST'] == 'localhost')
+	)
 	{
 	$base_host="localhost";	
+	$http = '/reol/';
 	}
 $ok = db_connect();
 //require("db_reol2_pucpr.php");
