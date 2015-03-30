@@ -4,8 +4,9 @@ class graphic
 		var $scale = 5;
 		function gr_bolinhas($dados,$title='',$texto='')
 			{
+				global $http;
 				$bmax = 10;
-				$site = 'http://www2.pucpr.br/reol/';
+				$site = $http;
 				$img = array('infografico_gr1_blue.png','infografico_gr1_green.png',
 							'infografico_gr1_orange.png','infografico_gr1_red.png',
 							'infografico_gr1_yellow.png','infografico_gr1_green2.png'

@@ -1401,7 +1401,7 @@ class bonificacao {
 	}
 
 	function isencao_proj_mostra($rlt) {
-		global $tab_max;
+		global $tab_max, $http;
 		$doc = new docentes;
 		$sx .= '<table width="' . $tab_max . '" class="table_proj" border=0>';
 		//$sx .= '<TR><TH>Nome<TH>Tít.<TH>Produtivade<TH>SS<TH>Cracha<TH>Campus<TH>Escola<TH>Atualizado<TH>Isenção';
@@ -1410,7 +1410,7 @@ class bonificacao {
 		while ($line = db_read($rlt)) {
 			$ln = $line;
 
-			$linkp = '<A HREF="http://www2.pucpr.br/reol/cip/captacao_detalhe.php?dd0=' . $line['id_ca'] . '&dd90=' . checkpost($line['id_ca']) . '" Target="new" >';
+			$linkp = '<A HREF="'.$http.'cip/captacao_detalhe.php?dd0=' . $line['id_ca'] . '&dd90=' . checkpost($line['id_ca']) . '" Target="new" >';
 
 			$ano = round(trim($line['ca_vigencia_ini_ano']) . strzero($line['ca_vigencia_ini_mes'], 2) . '01');
 			$anof = round(trim($line['ca_vigencia_fim_ano']) . strzero($line['ca_vigencia_fim_mes'], 2) . '01');

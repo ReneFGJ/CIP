@@ -789,12 +789,6 @@ class parecerista
 					$area .= $iline['a_descricao'];
 					$area .= '</B><BR>'.chr(13).chr(10);
 					}
-//				$link = '<A HREF="http://www2.pucpr.br/reol/pibicpr/parecerista_resposta.php?dd0='.$line['id_us'];
-//				$link .= '&dd1='.substr(md5($line['id_us'].$secu),0,8);
-//				$link .= '" target="new"><font color=blue>Link para responder este e-mail</A>'.chr(13).chr(10).'<BR>';
-//				$link .= 'http://www2.pucpr.br/reol/pibicpr/parecerista_resposta.php?dd0='.$line['id_us'];
-//				$link .= '&dd1='.substr(md5($line['id_us'].$secu),0,8);
-//				$link .= '</font></A>';
 				
 				$http = 'http://'.$_SERVER['HTTP_HOST'];
 				$chk = substr(md5('pibic'.date("Y").$line['us_codigo']),0,10);

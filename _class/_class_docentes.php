@@ -59,6 +59,7 @@ class docentes {
 	
 	function docentes_sem_email()
 		{
+			global $http;
 			$sql = "select * 
 						from pibic_professor		  	
 						where pp_email = ''
@@ -80,7 +81,7 @@ class docentes {
 			while ($line = db_read($rlt))
 			{
 				$tot++;
-				$link = '<A HREF="http://www2.pucpr.br/reol/cip/docentes_ed.php?dd0='.$line['id_pp'].'" target="_new">';
+				$link = '<A HREF="'.$http.'cip/docentes_ed.php?dd0='.$line['id_pp'].'" target="_new">';
 				$sx .= '<TR>';
 				$sx .= '<TD class="tabela01">';
 				$sx .= $link;
@@ -401,7 +402,6 @@ class docentes {
 		$sql = "select * from docente_orientacao 
 					left join pibic_professor on od_professor = pp_cracha
 					left join pibic_aluno on od_aluno = pa_cracha
-					where od_aluno = '10064024'
 			";
 		$rlt = db_query($sql);
 
@@ -1397,7 +1397,7 @@ class docentes {
 			$this -> pp_ass = $line['pp_ass'];
 			$this -> pp_instituicao = $line['pp_instituicao'];
 			$this -> pp_update = $line['pp_update'];
-			$this -> pp_pagina = 'http://www2.pucpr.br/reol/a.php?dd0=' . trim($this -> pp_cracha) . '&dd90=' . substr(md5('pesquisador' . $this -> pp_cracha), 0, 2);
+			$this -> pp_pagina = $http.'a.php?dd0=' . trim($this -> pp_cracha) . '&dd90=' . substr(md5('pesquisador' . $this -> pp_cracha), 0, 2);
 			$this -> pp_avaliador = $line['pp_avaliador'];
 
 			/* ShortLink */

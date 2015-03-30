@@ -116,18 +116,7 @@ if ($form -> saved > 0) {
     $crachas = $doc -> docente_orientacao_sem_nome_aluno();
 
     if (count($crachas) > 0) {
-        for ($r = 0; $r < count($crachas); $r++) {
-            $crac = $crachas[$r];
-            echo '<BR>Consultando ' . $crac;
-            $cracha = $crachas[$r];
-            $debug = 0;
-            //echo '<div style="diplay: none;">';
-            //require ('../pibicpr/pucpr_soap_pesquisaAluno.php');
-            //echo '</div>';
-        }
-    }
-    if (count($crachas) > 0) {
-        echo '<BR>Buscando nome de ' . count($crachas) . ' alunos<BR>';
+        redireciona('_busca_alunos.php');
     }
 
     $doc -> docente_orientacao_excluir_cancelados();

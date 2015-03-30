@@ -618,7 +618,7 @@ class projetos {
 	}
 
 	function acao_enviar_email_avaliacao($avaliador, $tipo = '', $data) {
-		global $email_adm, $admin_nome;
+		global $email_adm, $admin_nome,$http;
 
 		$sql = "select * from pareceristas where us_codigo = '" . $avaliador . "' ";
 		$rlt = db_query($sql);
@@ -638,7 +638,7 @@ class projetos {
 			$texto = troca($texto, '$parecerista', $nome);
 
 			$chk = substr(md5('pibic' . date("Y") . $avaliador), 0, 10);
-			$linkx = 'http://www2.pucpr.br/reol/avaliador/';
+			$linkx = $http.'avaliador/';
 			$linkx .= 'acesso.php?dd0=' . $avaliador . '&dd90=' . $chk;
 			$link = '<A HREF="' . $linkx . '" target="new">';
 			$link .= $linkx;
