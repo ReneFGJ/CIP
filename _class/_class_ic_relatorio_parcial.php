@@ -203,6 +203,8 @@ class ic_relatorio_parcial
 						<TH width=20%>Centro';
 			$id = 0;
 			$idt = 0;
+			$ee = '';
+			
 			while ($line = db_read($rlt))
 				{
 					$link = http.'avaliador/acesso.php?dd0='.($line['pp_cracha']);
@@ -229,6 +231,9 @@ class ic_relatorio_parcial
 					$email1 = trim($line['pp_email']);
 					$email2 = trim($line['pp_email_1']);
 					
+					if (strlen($email1) > 0) { $ee .= $email1.'; '; }
+					if (strlen($email2) > 0) { $ee .= $email2.'; '; }
+					
 					$texto = $email_texto;
 					$texto = troca($texto,'$link',$link);
 					$texto = troca($texto,'$nome',$avali);
@@ -251,6 +256,7 @@ class ic_relatorio_parcial
 				}
 			$sx .= '<TR><TD colspan=10>Total '.$id.' avaliadores com '.$idt.' avaliações.';
 			$sx .= '</table>';
+			$sx .= '<BR><BR><BR>'.$ee;
 			return($sx);
 		}	
 	function idicacao_avaliador_email_correcao($tst,$tipo='RPAC')

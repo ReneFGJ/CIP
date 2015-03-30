@@ -3245,7 +3245,7 @@ class projetos {
 							<input type="hidden" name="dd89" value="' . $this -> protocolo . '" >
 							<input type="hidden" name="dd10" value="" >
 							<input type="hidden" name="dd0" value="NEW" >
-							<input type="submit" value="submeter novo plano' . chr(13) . 'PIBIC/PIBITI" class="plano_novo">
+							<input type="submit" value="submeter plano do aluno' . chr(13) . 'PIBIC/PIBITI" class="plano_novo">
 							</form>
 							</center>';
 				break;
@@ -3255,7 +3255,7 @@ class projetos {
 							<input type="hidden" name="dd89" value="' . $this -> protocolo . '" >
 							<input type="hidden" name="dd10" value="" >
 							<input type="hidden" name="dd0" value="NEW" >
-							<input type="submit" value="submeter novo plano' . chr(13) . 'PIBIC EM" class="plano_novo_pibicem">
+							<input type="submit" value="submeter plano do aluno' . chr(13) . 'PIBIC EM" class="plano_novo_pibicem">
 							</form>
 							</center>';
 				break;
@@ -3265,7 +3265,7 @@ class projetos {
 							<input type="hidden" name="dd89" value="' . $this -> protocolo . '" >
 							<input type="hidden" name="dd10" value="" >
 							<input type="hidden" name="dd0" value="NEW" >
-							<input type="submit" value="submeter novo plano' . chr(13) . 'PIBIC Internacional" class="plano_novo_ici">
+							<input type="submit" value="submeter plano do aluno' . chr(13) . 'PIBIC Internacional" class="plano_novo_ici">
 							</form>
 							</center>';
 				break;
