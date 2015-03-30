@@ -188,9 +188,10 @@ class parecer_pibic
 			$aluno = $pb->pb_est_nome;
 			$instituicao = $par->instituicao;
 			$email = array();
+			array_push($email,'pibicpr@pucpr.br');
+			array_push($email,'renefgj@gmail.com');
 			array_push($email,$par->email);
 			array_push($email,$par->email_alt);
-			array_push($email,'renefgj@gmail.com');
 			array_push($email,$admin_email);
 			$linka = $par->link_avaliador;
 			
@@ -224,16 +225,16 @@ class parecer_pibic
 			$texto = '<img src="'.$http.'img/email_ic_header.png"><BR>'.$texto;
 			$texto .= '<BR><BR><img src="'.$http.'img/email_ic_foot.png"><BR>'.$icname;
 										
-			for ($r=0;$r < count($email);$r++)
+			for ($rq=0;$r < count($email);$r++)
 				{
-					$email_send = trim($email[$r]);
+					$email_send = trim($email[$rq]);
 					if (strlen($email_send) > 0)
 						{
 							 enviaremail($email_send,'',$titulo,$texto);
 							 echo '<BR>E-mail enviado para '.$email_send;
 						}
 				}
-			echo '<font color="green">Indicado!</font>';
+			echo '<font color="green">Indicado e enviado e-mail!</font>';
 			return(True);
 		}
 	

@@ -101,7 +101,8 @@ if($dd[1]!=""){
 echo $form -> editar($cp, '');
 
 /* se tiver somente um programa passa direto */
-if (count($prg) == 1){
+if (count($prg) == 1)
+{
     $form -> saved = 1;
     $dd[1] = $prg[0];
 }
