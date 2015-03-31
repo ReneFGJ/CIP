@@ -50,6 +50,7 @@ class docentes {
 			if ($titu = '006') { $ok = 1 ; }
 			if ($titu = '011') { $ok = 1 ; }
 			if (trim($line['pp_centro']) == 'DOUTORANDO') { $ok = 1 ; }
+			if (trim($line['pp_centro']) == 'POSDOUTORANDO') { $ok = 1 ; }
 			
 			return ($ok);
 		} else {

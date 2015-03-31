@@ -43,7 +43,11 @@ if (strlen($dd[90]) > 0)
 
 /* redireciona se em branco */
 if (strlen($proto)==0)
-	{ redirecina('main.php'); }
+	{
+		echo 'Protocolo não localizado';
+		exit;
+		redirecina('main.php'); 
+	}
 	
 $prj->le($proto);
 $line = $prj->line;

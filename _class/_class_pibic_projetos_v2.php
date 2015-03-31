@@ -143,7 +143,7 @@ class projetos {
 	
 
 	function demandas($ano = '') {
-		$sx = '<table class="tabela00 lt3">';
+		$sx = '<table class="tabela00 lt3" width="100%">';
 		$sx .= '<TR><TD>Projetos de Professor';
 		$sx .= '<TD>' . $this -> demandas_projetos_submetidos($ano);
 
@@ -618,7 +618,7 @@ class projetos {
 	}
 
 	function acao_enviar_email_avaliacao($avaliador, $tipo = '', $data) {
-		global $email_adm, $admin_nome,$http;
+		global $email_adm, $admin_nome;
 
 		$sql = "select * from pareceristas where us_codigo = '" . $avaliador . "' ";
 		$rlt = db_query($sql);
@@ -638,7 +638,7 @@ class projetos {
 			$texto = troca($texto, '$parecerista', $nome);
 
 			$chk = substr(md5('pibic' . date("Y") . $avaliador), 0, 10);
-			$linkx = $http.'avaliador/';
+			$linkx = 'http://www2.pucpr.br/reol/avaliador/';
 			$linkx .= 'acesso.php?dd0=' . $avaliador . '&dd90=' . $chk;
 			$link = '<A HREF="' . $linkx . '" target="new">';
 			$link .= $linkx;
@@ -2840,7 +2840,7 @@ class projetos {
 			$line = db_read($rlt);
 			$proto = $line['doc_protocolo'];
 			$_SESSION["proto_aluno"] = $proto;
-			redirecina('submit_phase_4.php');
+			redirecina(page() . '?dd90=' . $proto);
 		}
 		return (1);
 	}
@@ -3543,12 +3543,12 @@ class projetos {
 		if (($this -> status == '!') or ($this -> status == '@')) {
 			array_push($t1, $this -> mostra_plano_botao(1));
 			array_push($t1, $this -> mostra_plano_botao(2));
-			//array_push($t1, $this -> mostra_plano_botao(3));
+			array_push($t1, $this -> mostra_plano_botao(3));
 			array_push($t1, $this -> mostra_plano_botao(4));
 		} else {
 			array_push($t1, 'Sem plano submetido');
 			array_push($t1, 'Sem plano submetido');
-			//array_push($t1, 'Sem plano submetido');
+			array_push($t1, 'Sem plano submetido');
 			array_push($t1, 'Sem plano submetido');
 		}
 		$ic1 = 0;
@@ -3574,13 +3574,22 @@ class projetos {
 			}
 		}
 
+		
+		$sz = '33%';
 		$sx .= '<table width="100%" border=0 class="tabela00">';
 		$sx .= '<TR valign="top">';
-		$sx .= '<TD width="33%"><div class="plano01">' . $t1[0] . '</div>';
-		$sx .= '<TD width="33%"><div class="plano01">' . $t1[1] . '</div>';
-		$sx .= '<TD width="33%"><div class="plano01">' . $t1[2] . '</div>';
-		//$sx .= '<TD width="25%"><div class="plano01">' . $t1[3] . '</div>';
-
+		$sx .= '<TD width="'.$sz.'">
+							<div class="plano01">' . $t1[0] . '</div>';
+		$sx .= '<TD width="'.$sz.'">
+							<div class="plano01">' . $t1[1] . '</div>';
+		$sx .= '<TD width="'.$sz.'">
+							<div class="plano01">' . $t1[3] . '</div>';
+		/* Bloqueio Internacional */
+		/*
+		$sx .= '<TD width="25%">
+							<div class="plano01">' . $t1[2] . '</div>';
+		*/
+			
 		if ($tot == 0) {
 			$sx .= '<TR><TD colspan=4><font color="red" style="font-size: 16px;">Nenhum plano cadastrado';
 		} else {
@@ -3596,7 +3605,7 @@ class projetos {
 	function submit_button_project() {
 		$sx .= '<form method="post" action="submit_pos_6.php">';
 		$sx .= '<input type="hidden" name="dd89" value="' . $this -> protocolo . '">';
-		$sx .= '<input type="submit" value="enviar projeto e plano" name="acao" class="botao-confirmar">';
+		$sx .= '<input type="submit" value="enviar projeto e plano" name="acao">';
 		$sx .= '</form>';
 		return ($sx);
 	}
