@@ -1,5 +1,5 @@
 <?
-$parecer_pibic->tabela = 'pibic_parecer_'.date("Y");
+$parecer_pibic -> tabela = 'pibic_parecer_' . date("Y");
 echo '<HR>';
 //$tela = $parecer_pibic->resumo_avaliador_pendencia($par->codigo);
 
@@ -10,39 +10,31 @@ echo '<HR>';
  */
 //$sql = "update ".$parecer_pibic->tabela." set pp_data = 20140417 where pp_tipo = 'RPAR' ";
 //$rlt = db_query($sql);
-$tala = ''; 
-if (date("m") < 4) 
-	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAR'); } 
-	//{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAC'); } 
+$tela = array();
 
-if ((date("m") >= 5) and (date("m") < 8))
-	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'SUBMI'); }
-	 
-if ((date("m") >= 7) and (date("m") <= 9))
-	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RFIN'); } 
+if (date("m") < 5) { $tela[0] = $parecer_pibic -> resumo_avaliador($par -> codigo, 'RPAR');
+}
+if (date("m") < 5) { $tela[1] = $parecer_pibic -> resumo_avaliador($par -> codigo, 'RPAC');
+}
 
-$tot = $tot + $tela[0];
-if ($tela[0] > 0) { echo $tela[1]; }
-$tela[1] = '';
-/*
- * CORRECAO DO RELATORIO PARCIAL
- */
-//$sql = "update ".$parecer_pibic->tabela." set pp_data = 20140318 where pp_tipo = 'RPAC' ";
-//$rlt = db_query($sql);
- 
-if (date("m") < 4)
-	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAC'); }
-if ((date("m") >= 4) and (date("m") <= 4))
-	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RFIN'); }
-		 
-$tot = $tot + $tela[0];
-if ($tela[0] > 0) { echo $tela[0]; }
+if ((date("m") >= 5) and (date("m") < 8)) { $tela[2] = $parecer_pibic -> resumo_avaliador($par -> codigo, 'SUBMI');
+}
+
+if ((date("m") >= 7) and (date("m") <= 9)) { $tela[3] = $parecer_pibic -> resumo_avaliador($par -> codigo, 'RFIN');
+}
+
+for ($rx = 0; $rx < count($tela); $rx++) {
+	if ($tela[$rx][0] > 0) { echo $tela[$rx][1];
+	}
+	$tot = $tot + $tela[$rx][0];
+}
+
 
 /*
  * CORRECAO DO RELATORIO JUNIOR
  */
 //if (date("m") < 4)
-//	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAJ'); } 
+//	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAJ'); }
 //$tot = $tot + $tela[0];
 //if ($tela[0] > 0) { echo '<h2>PIBIC Jr</h2>'; echo $tela[1]; }
 
@@ -54,9 +46,7 @@ if ($tela[0] > 0) { echo $tela[0]; }
 //$rlt = db_query($sql);
 
 //if (date("m") < 6)
-//	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'SUBMI'); } 
+//	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'SUBMI'); }
 //$tot = $tot + $tela[0];
 //if ($tela[0] > 0) { echo '<h2>Submissão IC Internacional</h2>'; echo $tela[0]; }
-
-	 
 ?>

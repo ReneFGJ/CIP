@@ -1973,19 +1973,23 @@ class parecer_pibic
 			switch ($tipo)
 				{
 				case 'RPAC': $ntipo = 'Correção Relatório Parcial'; break;
+				case 'RPAR': $ntipo = 'Relatório Parcial'; break;
+				case 'RPAJ': $ntipo = 'Relatório Parcial - PIBIC Jr'; break;
+				case 'RPAC': $ntipo = 'Correção Relatório Parcial'; break;
 				case 'SUBMI': $ntipo = 'Projeto IC/IT'; break;
 				}
 			$sx .= '<TR><TD>';
 			$sx .= "<TR valign=top ><TD rowspan=2 width=90>
 					<img src=../editora/img_edicao/$img   height=80>
-					<TD>Protocolo: <B>".$link.$protocolo."</A></B> - (".$ntipo.")</TD>
-					
-					<TD>Prazo para avalição:<I> $data_prazo [$status]</I></TD>
-					<TD width=50 aling=center class=lt5 rowspan=2>
+					<TD>Protocolo: <B>".$link.$protocolo."</A></B> - (".$ntipo.")</TD>";
+			/*
+				$sx .= '<TD>Prazo para avalição:<I> $data_prazo [$status]</I></TD>';
+				$sx .= '<TD width=50 aling=center class=lt5 rowspan=2>
 					<center><font color=$cor >
 					<font class=lt0>faltam<BR></font>$dias<BR>
-					<font class=lt0>dias$lido</font></font>
-					<TR>
+					<font class=lt0>dias$lido</font></font>';
+			*/
+			$sx .= "<TR>
 					<TD colspan=3 ><B>".$link.$titulo_plano." </A></TD>
 					</TR>
 					<TR><TD colspan=4><HR width=80% size=1></TR>";

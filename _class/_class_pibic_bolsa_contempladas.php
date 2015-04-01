@@ -1031,7 +1031,7 @@ class pibic_bolsa_contempladas{
 			}
 
 			
-	function resumo_bolsas_escolas_detalhado($ano,$modalidade,$tipo='1')
+	function resumo_bolsas_escolas_detalhado($ano,$modalidade,$tipo)
 			{
 			$cp = 'pbt_edital, pbt_descricao, pb_ano, centro_nome';
 			$sql = "select * from pibic_bolsa_contempladas
@@ -1112,7 +1112,7 @@ class pibic_bolsa_contempladas{
 			}			
 		
 		
-	function resumo_bolsas_escolas($ano,$modalidade)
+	function resumo_bolsas_escolas($ano,$modalidade,$tipo)
 			{
 			$cp = 'pbt_edital, pbt_descricao, pb_ano, centro_nome';
 			$sql = "select count(*) as total, $cp from pibic_bolsa_contempladas
@@ -2761,11 +2761,11 @@ $sa .= '</TR>';
 		}
 		
 		
-	function acompanhamento_avaliacao_relatorio_parcial()
+	function acompanhamento_avaliacao_relatorio_parcial($tipo = 'RPAR')
 		{
 			$sql = "select 'IC' as pp_tipo, count(*) as total, pp_status
 					from pibic_parecer_".date("Y")."
-					where pp_tipo = 'RPAR' and pp_status <> 'X'
+					where pp_tipo = '$tipo' and pp_status <> 'X'
 					group by pp_status
 					";
 			$rlt = db_query($sql);
@@ -3276,15 +3276,13 @@ $sa .= '</TR>';
 			//$sql = "update ".$this->tabela." set pb_relatorio_parcial_correcao_nota = 0 where pb_ano = '2013' ";
 			//$rlt = db_query($sql);
 			
-			$sql = "select (pb_relatorio_parcial_correcao > 20100101) as valid, 
-					count(*) as total, pb_ano, pbt_edital
+			$sql = "select *
 				from ".$this->tabela." 
 				 inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
 					where (pb_status <> 'C')
 					and pb_ano = '".(date("Y")-1)."' 
 					and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')
 					and (pb_relatorio_parcial_nota = 2)
-					group by pb_ano, pbt_edital, valid
 					order by pbt_edital
 					";				
 			$rlt = db_query($sql);
@@ -3297,18 +3295,19 @@ $sa .= '</TR>';
 			$tot1 = 0;
 			while ($line = db_read($rlt))
 				{
-					$tot0 = $tot0 + $line['total'];
+					$tot0 = $tot0 + 1;
 					$tp = trim($line['pbt_edital']);
-					$vl = UpperCase(trim($line['valid']));
+					$vl = round($line['pb_relatorio_parcial_correcao']);
 					$x=-1;
 		
 					for ($r=0;$r < count($ar);$r++)
 						{ if (trim($ar[$r]) == $tp) { $x = $r; } }
 						
-					if ($vl=='F')
-						{ $tp0 = $line['total']; $tp1 = 0; } else 
-						{ $tp0 = 0; $tp1 = $line['total']; }
+					if ($vl > 20010101)
+						{ $tp0 = 1; $tp1 = 0; } else 
+						{ $tp0 = 0; $tp1 = 1; }
 					$tot1 = $tot1 + $tp0;
+					
 					if ($x==-1)
 						{
 							array_push($ar,$tp);
