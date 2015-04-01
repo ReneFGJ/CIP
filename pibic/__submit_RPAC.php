@@ -1,3 +1,3 @@
 <?php
- $open = 0
+ $open = 1
 ?>

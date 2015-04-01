@@ -1,6 +1,6 @@
 <?php
 /**
- * Esse arquivo contém as classes e definições do sistema de envio de editais (ver http://www2.pucpr.br/reol/fomento/index.php)
+ * Esse arquivo contém as classes e definições do sistema de envio de editais
  * @author Marco Kawajiri <kawajirimarco@googlemail.com>
  * @version v.0.13.41
  * @package fomento

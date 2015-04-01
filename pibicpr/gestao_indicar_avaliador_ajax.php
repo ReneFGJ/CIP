@@ -126,12 +126,10 @@ if ($acao == 'INDICAR')
 				
 				$trocas = array();
 				array_push($trocas,array('$TITULO',$pb->pb_titulo_projeto));
-				if (date("Ymd") > 20140805)
-					{
-					$pp->enviar_email_indicacao($proto,$par,$rtipo,$trocas);
-					}
+				$pp->enviar_email_indicacao($proto,$par,$rtipo,$trocas);
+
 				$pp->inserir_idicacao_avaliacao($proto,$avaliador,$rtipo);
-				$pp->avaliacoes_mudar_deadline($rtipo,20150322);
+				$pp->avaliacoes_mudar_deadline($rtipo,20150330);
 				
 				$sql = "update pibic_bolsa_contempladas 
 						set ".$field."_nota = -90
@@ -143,7 +141,9 @@ if ($acao == 'INDICAR')
 				<script>
 					$("#TR'.$proto.'").hide();
 					$("#TRI'.$proto.'").hide();
-					alert("Indicado");
+					$("#TR'.$proto.'").show();
+					$("#TRI'.$proto.'").show();					
+					alert("Indicado!");
 				</script>
 				';
 				echo $sx;

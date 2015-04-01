@@ -78,6 +78,7 @@ $pdf->AddPage();
 						
 							if ($cp[$r][1]=='pp_p01')
 								{
+									$dd[$r] = round($dd[$r]);
 									$pdf->SetFont('Arial','',14);
 									if ($dd[$r]==1) { $text = 'Aprovado'; }
 									if ($dd[$r]==2) { $text = 'Necessita correções e resubmissão'; }

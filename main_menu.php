@@ -39,7 +39,7 @@ if ((date("Ymd") <= 20140424) or ($ic_on == 1)) {
 //	$rlt = db_query($sql);
 	
 	$sql = "select count(*) as total from pibic_parecer_2015 
-				where pp_tipo = 'RPAR' and pp_status <> 'B' and pp_status <> 'D' 
+				where pp_status <> 'B' and pp_status <> 'D' 
 				and pp_avaliador = '".$nw->user_cracha."'";
 	$rlt = db_query($sql);
 	$line = db_read($rlt);

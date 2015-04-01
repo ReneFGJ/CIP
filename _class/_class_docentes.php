@@ -36,6 +36,84 @@ class docentes {
 	var $line;
 
 	var $tabela = 'pibic_professor';
+	
+	function valida_titulacao_orientador($orientador) {
+		$sql = "select * from pibic_professor where pp_cracha = '" . $orientador . "' ";
+		$rlt = db_query($sql);
+		if ($line = db_read($rlt)) {
+			$ok = 0;
+			$titu = $line['pp_titulacao'];
+			if ($titu = '002') { $ok = 1 ; }
+			if ($titu = '001') { $ok = 1 ; }
+			if ($titu = '008') { $ok = 1 ; }
+			if ($titu = '003') { $ok = 1 ; }
+			if ($titu = '006') { $ok = 1 ; }
+			if ($titu = '011') { $ok = 1 ; }
+			if (trim($line['pp_centro']) == 'DOUTORANDO') { $ok = 1 ; }
+			if (trim($line['pp_centro']) == 'POSDOUTORANDO') { $ok = 1 ; }
+			
+			return ($ok);
+		} else {
+			return (0);
+		}
+	}	
+	
+	function docentes_sem_email()
+		{
+			global $http;
+			$sql = "select * 
+						from pibic_professor		  	
+						where pp_email = ''
+							and pp_ativo = '1'
+							and pp_titulacao = '002'
+						order by pp_nome
+							
+							";
+			$rlt = db_query($sql);
+			$tot = 0;
+			$sx = '<h1>Docentes Dr sem e-mail</h1>';
+			$sx .= '<table width="100%" class="tabela00">';
+			$sx .= '<TR><TH>Cracha
+						<TH>Nome
+						<TH>e-mail
+						<TH>e-mail (alt)
+						<TH>Atualizado
+						<TH>Tipo';
+			while ($line = db_read($rlt))
+			{
+				$tot++;
+				$link = '<A HREF="'.$http.'cip/docentes_ed.php?dd0='.$line['id_pp'].'" target="_new">';
+				$sx .= '<TR>';
+				$sx .= '<TD class="tabela01">';
+				$sx .= $link;
+				$sx .= $line['pp_cracha'];
+				$sx .= '</A>';
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_nome'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_email_1'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_email_2'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_update'];		
+				$av = round($line['pp_avaliador']);
+				$sx .= '<TD class="tabela01">';
+				switch($av)
+					{
+					case '1':
+						$sx .= '<font color="blue">Avaliador</font>';
+						break;
+					default:
+						$sx .= '<font color="red">Não avaliador</font>';
+						break;
+					}		
+								
+			}
+			$sx .= '<tr><td colspan=10>Total '.$tot.' de docentes';
+			$sx .= '</table>';
+			return($sx);
+		}
+		
 
 	function resumo_escolas() {
 		$sql = "
@@ -325,7 +403,6 @@ class docentes {
 		$sql = "select * from docente_orientacao 
 					left join pibic_professor on od_professor = pp_cracha
 					left join pibic_aluno on od_aluno = pa_cracha
-					where od_aluno = '10064024'
 			";
 		$rlt = db_query($sql);
 
@@ -979,18 +1056,24 @@ class docentes {
 		return ($v);
 	}
 
-	function docentes_orientacoes($programa = '', $area = '') {
+	function docentes_orientacoes($programa = '', $area = '', $idprof = '') {
 		global $http;
 		//$sql = "alter table docente_orientacao add column od_linha char(7) ";
 		//$rlt = db_query($sql);
+        if(strlen($idprof > 0)){
+           $whProf = "and id_pp = $idprof"; 
+        }else{
+            $whProf = "";
+        }
 
+        
 		$sql = "select * from docente_orientacao 
 					left join pibic_professor on od_professor = pp_cracha
 					left join pibic_aluno on od_aluno = pa_cracha
 					left join programa_pos_linhas on od_linha = posln_codigo
-					where od_programa = '$programa'
-					order by pp_nome, posln_descricao, od_ano_ingresso desc, od_modalidade
-			";
+					where od_programa = '$programa'".$whProf."
+					order by pp_nome, posln_descricao, od_ano_ingresso desc, od_modalidade";
+        
 		$totd = 0;
 		$toto = 0;
 
@@ -1315,7 +1398,7 @@ class docentes {
 			$this -> pp_ass = $line['pp_ass'];
 			$this -> pp_instituicao = $line['pp_instituicao'];
 			$this -> pp_update = $line['pp_update'];
-			$this -> pp_pagina = 'http://www2.pucpr.br/reol/a.php?dd0=' . trim($this -> pp_cracha) . '&dd90=' . substr(md5('pesquisador' . $this -> pp_cracha), 0, 2);
+			$this -> pp_pagina = $http.'a.php?dd0=' . trim($this -> pp_cracha) . '&dd90=' . substr(md5('pesquisador' . $this -> pp_cracha), 0, 2);
 			$this -> pp_avaliador = $line['pp_avaliador'];
 
 			/* ShortLink */

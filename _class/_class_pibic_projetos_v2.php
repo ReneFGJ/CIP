@@ -143,7 +143,7 @@ class projetos {
 	
 
 	function demandas($ano = '') {
-		$sx = '<table class="tabela00 lt3">';
+		$sx = '<table class="tabela00 lt3" width="100%">';
 		$sx .= '<TR><TD>Projetos de Professor';
 		$sx .= '<TD>' . $this -> demandas_projetos_submetidos($ano);
 
@@ -2840,7 +2840,7 @@ class projetos {
 			$line = db_read($rlt);
 			$proto = $line['doc_protocolo'];
 			$_SESSION["proto_aluno"] = $proto;
-			redirecina('submit_phase_4.php');
+			redirecina(page() . '?dd90=' . $proto);
 		}
 		return (1);
 	}
@@ -3245,7 +3245,7 @@ class projetos {
 							<input type="hidden" name="dd89" value="' . $this -> protocolo . '" >
 							<input type="hidden" name="dd10" value="" >
 							<input type="hidden" name="dd0" value="NEW" >
-							<input type="submit" value="submeter novo plano' . chr(13) . 'PIBIC/PIBITI" class="plano_novo">
+							<input type="submit" value="submeter plano do aluno' . chr(13) . 'PIBIC/PIBITI" class="plano_novo">
 							</form>
 							</center>';
 				break;
@@ -3255,7 +3255,7 @@ class projetos {
 							<input type="hidden" name="dd89" value="' . $this -> protocolo . '" >
 							<input type="hidden" name="dd10" value="" >
 							<input type="hidden" name="dd0" value="NEW" >
-							<input type="submit" value="submeter novo plano' . chr(13) . 'PIBIC EM" class="plano_novo_pibicem">
+							<input type="submit" value="submeter plano do aluno' . chr(13) . 'PIBIC EM" class="plano_novo_pibicem">
 							</form>
 							</center>';
 				break;
@@ -3265,7 +3265,7 @@ class projetos {
 							<input type="hidden" name="dd89" value="' . $this -> protocolo . '" >
 							<input type="hidden" name="dd10" value="" >
 							<input type="hidden" name="dd0" value="NEW" >
-							<input type="submit" value="submeter novo plano' . chr(13) . 'PIBIC Internacional" class="plano_novo_ici">
+							<input type="submit" value="submeter plano do aluno' . chr(13) . 'PIBIC Internacional" class="plano_novo_ici">
 							</form>
 							</center>';
 				break;
@@ -3574,17 +3574,22 @@ class projetos {
 			}
 		}
 
+		
+		$sz = '33%';
 		$sx .= '<table width="100%" border=0 class="tabela00">';
 		$sx .= '<TR valign="top">';
-		$sx .= '<TD width="25%">
+		$sx .= '<TD width="'.$sz.'">
 							<div class="plano01">' . $t1[0] . '</div>';
-		$sx .= '<TD width="25%">
+		$sx .= '<TD width="'.$sz.'">
 							<div class="plano01">' . $t1[1] . '</div>';
+		$sx .= '<TD width="'.$sz.'">
+							<div class="plano01">' . $t1[3] . '</div>';
+		/* Bloqueio Internacional */
+		/*
 		$sx .= '<TD width="25%">
 							<div class="plano01">' . $t1[2] . '</div>';
-		$sx .= '<TD width="25%">
-							<div class="plano01">' . $t1[3] . '</div>';
-
+		*/
+			
 		if ($tot == 0) {
 			$sx .= '<TR><TD colspan=4><font color="red" style="font-size: 16px;">Nenhum plano cadastrado';
 		} else {

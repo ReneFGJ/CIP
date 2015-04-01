@@ -19,6 +19,7 @@ echo '<h3>Relatório Final e Resumo</h3>';
 echo '<A HREF="'.page().'?dd10=1" class="botao-geral">Confirma envio!</A>';
 echo '&nbsp;';
 echo '<A HREF="'.page().'?dd10=-1" class="botao-geral">Enviar teste!</A>';
+
 echo $par->idicacao_avaliador_email($confirma);
 
 require("../foot.php");	

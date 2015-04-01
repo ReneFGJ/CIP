@@ -65,7 +65,7 @@ require("../_class/_class_pibic_edital.php");
 $ed = new pibic_edital;
 
 $ano = date("Y");
-if (date("m") < 4)
+if (date("m") < 5)
 {
 $ano = $ano - 1;
 }
@@ -98,14 +98,14 @@ echo $ed->show_protocolo_professor($nw->user_cracha);
 }
 
 /* Relatorio Parcial */
-if (date("m") < 4) { require("atividade_IC1_row.php"); }
+if (date("m") < 5) { require("atividade_IC1_row.php"); }
 /* RelatÃ³rio Parcial - Correcoes */
-if (date("m") < 4) { require("atividade_IC7_row.php"); }
+if (date("m") < 5) { require("atividade_IC7_row.php"); }
 /* Relatório Final e resumo */
 if (file_exists('__submit_RFIN.php'))
 {
 require("__submit_RFIN.php");
-if ((date("m") > 5) and (date("m") < 11) and ($open == 1))
+if ((date("m") >= 5) and (date("m") < 11) and ($open == 1))
 {
 require("atividade_IC3_row.php");
 require("atividade_IC4_row.php");

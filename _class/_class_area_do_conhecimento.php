@@ -5,7 +5,6 @@
 	 * @copyright Copyright (c) 2011, PUCPR
 	 * @access public
      * @version v0.11.30;
-	 * @link http://www2.pucpr.br/reol2/
 	 * @package Classe
 	 * @subpackage Geral
      */

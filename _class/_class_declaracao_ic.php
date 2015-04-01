@@ -3,7 +3,7 @@ class declaracao_ic
 	{
 	var $ano = '2014';
 	var $tabela = "submit_parecer_2013";
-	var $tabela_pibic = 'pibic_parecer_2014';
+	var $tabela_pibic = 'pibic_parecer_2015';
 	
 	var $secu = 'decla2014ic';
 	
@@ -13,7 +13,9 @@ class declaracao_ic
 						
 						where pp_avaliador = '$avaliador'
 							and (pp_status = 'B' or pp_status = 'C')
-							and (pp_tipo = 'SUBMI') and (substr(pp_protocolo,1,1) = '1')
+							and 
+								(((pp_tipo = 'SUBMI') and (substr(pp_protocolo,1,1) = '1'))
+								or (pp_tipo = 'RPAR'))
 					order by pp_parecer_data desc, pp_parecer_hora desc
 			";
 			//left join journals on pp_journal = id_journal_id

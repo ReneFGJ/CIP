@@ -564,6 +564,19 @@ class bonificacao {
 
 	}
 
+	function status_isencao()
+		{
+			$si = array();
+			$si['!'] = 'Para ser indicado';
+			$si['#'] = 'Para ser indicado';
+			$si['A'] = 'Indicado (em processso de isenção)';
+			$si['X'] = '<font color="red">Cancelado isenção</font>';
+			$si['Z'] = '<font color="red">Cancelado isenção (por expiração do projeto)</font>';
+			$si['E'] = 'Aguardando documentação'; 
+			$si['F'] = 'Isenção finalizada';
+			$si['G'] = 'Concessão encerrada';
+			return($si);  
+		}
 	function cp_editar() {
 		global $dd;
 		$cp = array();
@@ -587,6 +600,7 @@ class bonificacao {
 			$op .= '&#:Para ser indicado (#)';
 			$op .= '&A:Indicado (em processso de isenção)';
 			$op .= '&X:Cancelado isenção';
+			$op .= '&Z:Cancelado isenção (por expiração do projeto)';
 			$op .= '&E:Aguardando documentação';
 			$op .= '&F:Isenção finalizada';
 			$op .= '&G:Concessão encerrada';
@@ -857,16 +871,10 @@ class bonificacao {
 		//print_r($line);
 		$sta = trim($this -> line['bn_status']);
 		$proto = trim($this -> line['bn_codigo']);
-		if ($sta == '!') { $sta = 'Não Indicado';
-		}
-		if ($sta == '#') { $sta = 'Não informado pesquisador';
-		}
-		if ($sta == 'A') { $sta = 'Aguardando Liberação da Diretoria de Pesquisa';
-		}
-		if ($sta == 'X') { $sta = '** Cancelado **';
-		}
-		if ($sta == 'F') { $sta = 'Isentado';
-		}
+		
+		$status = $this->status_isencao();
+		$sta = $status[$sta]; 
+
 		$sx .= '<fieldset><legend>Isenção de mensalidade</legend>';
 		$sx .= '<table width=100% class="lt1" border=0>';
 		$sx .= '<TR><TD rowspan=4 width="30">';
@@ -1335,6 +1343,7 @@ class bonificacao {
 		$sx .= '<TH>' . msg('parc.');
 		$sx .= '<TH>' . msg('valor');
 		$sx .= '<TH>' . msg('modalidade');
+		$sx .= '<TH>' . msg('vigência');
 		$id = 0;
 		$xmod = 'x';
 		$modt = 0;
@@ -1383,6 +1392,41 @@ class bonificacao {
 
 			$sx .= '<TD>';
 			$sx .= msg('mod_' . $line['bn_modalide']);
+
+			$sx .= '<TD>';
+			$sx .= $line['bn_modalide'];
+			
+			$vf = $line['ca_vigencia_final_ano'].'01';
+			$du = $line['ca_duracao'];
+			$pr = $line['ca_vigencia_prorrogacao'];
+			$ano = substr($vf,0,4);
+			$mes = round(substr($vf,4,2));
+			$df = mktime(0,0,0,$mes,1,$ano,0);
+			$da = mktime(0,0,0,$mes,1,$ano,0);
+			
+			/* inseres meses de vigencia */
+			$df = date('Ymd', strtotime("+".($du+$pr)." month", $df));	
+									
+			$sx .= '<TD align="left">';
+			$sx .= substr($vf,4,2).'/'.substr($vf,0,4);
+			$sx .= '+'.$du.' meses';
+			if ($pr > 0)
+				{
+					$sx .= '+'.$pr.' meses (prorrogação)';
+				} 			
+			
+			$sx .= '<TD align="center">';
+			$sx .= stodbr($df);
+			$dc = date("Ym").'01';
+			if ($df < $dc)
+				{
+					$sx .= '<TD><font color="red">Encerrado</font>';
+				} else {
+					$sx .= '<TD><font color="blue">Vigente</font>';
+				}
+			
+
+			
 			$modt++;
 		}
 		$sx .= '<TR><TD align="right" colspan=10>';
@@ -1401,7 +1445,7 @@ class bonificacao {
 	}
 
 	function isencao_proj_mostra($rlt) {
-		global $tab_max;
+		global $tab_max, $http;
 		$doc = new docentes;
 		$sx .= '<table width="' . $tab_max . '" class="table_proj" border=0>';
 		//$sx .= '<TR><TH>Nome<TH>Tít.<TH>Produtivade<TH>SS<TH>Cracha<TH>Campus<TH>Escola<TH>Atualizado<TH>Isenção';
@@ -1410,7 +1454,7 @@ class bonificacao {
 		while ($line = db_read($rlt)) {
 			$ln = $line;
 
-			$linkp = '<A HREF="http://www2.pucpr.br/reol/cip/captacao_detalhe.php?dd0=' . $line['id_ca'] . '&dd90=' . checkpost($line['id_ca']) . '" Target="new" >';
+			$linkp = '<A HREF="'.$http.'cip/captacao_detalhe.php?dd0=' . $line['id_ca'] . '&dd90=' . checkpost($line['id_ca']) . '" Target="new" >';
 
 			$ano = round(trim($line['ca_vigencia_ini_ano']) . strzero($line['ca_vigencia_ini_mes'], 2) . '01');
 			$anof = round(trim($line['ca_vigencia_fim_ano']) . strzero($line['ca_vigencia_fim_mes'], 2) . '01');
@@ -2107,6 +2151,7 @@ class bonificacao {
 
 	function historico_inserir($protocolo, $ope, $historico) {
 		global $user;
+		
 		$data = date("Ymd");
 		$hora = date("H:i");
 		$login = $user -> user_id;
@@ -2122,6 +2167,13 @@ class bonificacao {
 					values
 					($data,'$hora','$historico',
 					'$ope','$login','$protocolo')";
+			$rlt = db_query($sql);
+		} else {
+			$sql = "update ".$this->tabela."_historico
+					set bnh_data = $data, 
+						bnh_hora = '$hora',
+						bnh_historico = '$historico'
+					where id_bnh = ".$line['id_bnh'];
 			$rlt = db_query($sql);
 		}
 		return (1);

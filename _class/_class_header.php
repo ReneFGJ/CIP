@@ -112,7 +112,7 @@ class header
 				}			
 			if ($tp=='ic') {
 					$this->class="identificacao-iniciacao-cientifica";
-					$this->title='Iniciação Científica'; 
+					$this->title='Iniciaï¿½ï¿½o Cientï¿½fica'; 
 					$this->path = '../';
 				}
 			if ($tp=='in') {
@@ -125,7 +125,7 @@ class header
 				}	
 			if ($tp=='po') {
 					$this->class="identificacao-indicadores";
-					$this->title='Pós-Graduação';
+					$this->title='Pï¿½s-Graduaï¿½ï¿½o';
 				}	
 			if ($tp=='sm') {
 					$this->class="identificacao-pesquisa";
@@ -158,13 +158,13 @@ class header
 				
 	function menus_novo()
 		{
-		global $menu;
+		global $menu,$http;
 		if (empty($menu)) 
 				{
 				 $menu = array(); 
 				 array_push($menu,array('home','main.php'));
 				}
-		array_push($menu,array('voltar',http.'main.php'));
+		array_push($menu,array('voltar',$http.'main.php'));
 				
 		$sx .= '<div id="menu-top" class="cabecalho_menu_big-2">'.$cr;
 		$sx .= '<ul>'.$cr;
@@ -276,7 +276,7 @@ class header
 
 	function cab_novo($titulo='') 
 		{
-		global $ss,$nw,$include,$perfil;
+		global $ss,$nw,$include,$perfil,$http;
 		
 		require_once($include.'sisdoc_security_pucpr.php');
 		$nw = new usuario;
@@ -291,12 +291,12 @@ class header
 			<table width="100%" id="cabecalho-impressao-cip" border=0>
 			<TR><TD width="95%"><img  src="'.http.'cip/img/logo-cip-print.png" height="80" />
 			<TD align="right" width="5%"><img id="cabecalho-impressao-pucpr" src="'.http.'cip/img/logo-pucpr-pb.png" height="80" />
-			<TR class="lt0"><TD>'.date("d/m/Y H:i:s").' - '.$nw->user_nome.' ('.$nw->user_cracha.')
+			<TR class="lt0"><TD>'.date("d/m/Y H:i:s").' - '.$nw->user_login.' ('.$nw->user_cracha.')
 			</table>
 			';
 		/* Cabecalho novo */
 		$sx = '<div idx="cabecalho_novo" class="cabecalho_novo_big" id="cabecalho-user-screen">';
-		$sx .= '<A HREF="http://www2.pucpr.br/reol/main.php">
+		$sx .= '<A HREF="'.$http.'main.php">
 					<div id="cabecalho_logo" class="cabecalho_logo_big"></div>
 				</A>';
 
@@ -386,7 +386,7 @@ class header
 			</table>
 			';
 
-		/* cabecalho da página */
+		/* cabecalho da pï¿½gina */
 		$sx .= '<table border=0 width="100%" cellpadding=0 cellspacing=0 id="cabecalho-user-screen">';
 			$sx .= '<TR valign="top">';
 			$sx .= '<TD width="10%" rowspan=2>&nbsp;';
