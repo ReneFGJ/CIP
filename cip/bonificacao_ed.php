@@ -17,16 +17,16 @@ $jid = 0;
 
 require($include.'sisdoc_debug.php');
 require($include.'sisdoc_data.php');
-require($include.'sisdoc_colunas.php');
 
-require($include.'sisdoc_form2.php');
-require($include.'cp2_gravar.php');
+require($include.'_class_form.php');
+$form = new form;
 
 /* Segurança */
 require('../security.php');
 $user = new usuario;
 $tela = $user->Security();
 $ss = $user;
+
 require("../_class/_class_user_perfil.php");
 $perfil = new user_perfil; 
 
@@ -46,23 +46,21 @@ if (strlen($dd[0])>0)
 	$status2 = $bon->status;
 	}
 
-
-
 $cp = $bon->cp_editar();
 
-echo '<table>';
-editar();
-echo '</table>';
+$tela = $form->editar($cp,$tabela);
 
-if ($saved > 0)
+if ($form->saved > 0)
 	{
-		$status = $dd[7];
+		$status = trim($dd[4]);
+		$sta = $bon->status_isencao();
+		$status_nome = $sta[$status];
+
 		if ((strlen($status2) > 0) and ($status != $status2))
 			{
-				print_r($ss);
 				$protocolo = $bon->origem_protocolo;
-				$ope = 'BOS';
-				$historico = 'Alteração de Status para ('.$status.')';
+				$ope = 'BO'.$status;
+				$historico = 'Alteração de Status para <B>'.$status_nome.'</B>';
 				if ($status=='X') { $historico = 'Cancelamento de indicação '; }
 				$historico .= ' por '.$ss->user_login;
 				//echo $protocolo.'-'.$ope.'-'.$historico;
@@ -70,6 +68,8 @@ if ($saved > 0)
 				$bon->historico_inserir($protocolo,$ope,$historico);
 			}
 		require("../close.php");		
+	} else {
+		echo $tela;
 	}
 
 

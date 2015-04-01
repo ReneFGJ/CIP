@@ -11,7 +11,7 @@ echo '<HR>';
 //$sql = "update ".$parecer_pibic->tabela." set pp_data = 20140417 where pp_tipo = 'RPAR' ";
 //$rlt = db_query($sql);
 $tala = ''; 
-if (date("m") < 4) 
+if (date("m") < 5) 
 	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAR'); } 
 	//{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAC'); } 
 

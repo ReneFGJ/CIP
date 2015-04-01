@@ -9,6 +9,7 @@ $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font:
 $menu = array();
 /////////////////////////////////////////////////// MANAGERS
 array_push($menu,array('Isenção','Gerar Isenções','isencoes_gerar.php'));
+array_push($menu,array('Isenção','Isenções expiradas (sem utilização)','isencoes_expiradas.php'));
 //array_push($menu,array('Isenção','Acompanhamento',''));
 //array_push($menu,array('Isenção','__Encaminhados e não indicados pelo professor','bolsa_isencao_projetos.php?dd0=!'));
 //array_push($menu,array('Isenção','__Aguardando liberação da Diretoria de Pesquisa','bolsa_isencao_projetos.php?dd0=A'));

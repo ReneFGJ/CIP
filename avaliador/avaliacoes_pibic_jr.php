@@ -1,8 +1,6 @@
 <?
 $parecer_pibic->tabela = 'pibic_parecer_'.date("Y");
-echo '<HR>';
 //$tela = $parecer_pibic->resumo_avaliador_pendencia($par->codigo);
-
 //$tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAJ');
 
 /*
@@ -10,8 +8,9 @@ echo '<HR>';
  */
 //$sql = "update ".$parecer_pibic->tabela." set pp_data = 20140417 where pp_tipo = 'RPAR' ";
 //$rlt = db_query($sql);
+
 $tala = ''; 
-if (date("m") < 4) 
+if (date("m") < 5) 
 	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAJ'); } 
 	//{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPAC'); } 
 
@@ -30,10 +29,10 @@ $tela[1] = '';
 //$sql = "update ".$parecer_pibic->tabela." set pp_data = 20140318 where pp_tipo = 'RPAC' ";
 //$rlt = db_query($sql);
  
-if (date("m") < 4)
+if (date("m") <= 5)
 	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RPCJ'); }
-if ((date("m") >= 4) and (date("m") <= 4))
-	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RFCJ'); }
+//if ((date("m") >= 4) and (date("m") <= 4))
+//	{ $tela = $parecer_pibic->resumo_avaliador($par->codigo,'RFCJ'); }
 		 
 $tot = $tot + $tela[0];
 if ($tela[0] > 0) { echo $tela[0]; }
