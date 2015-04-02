@@ -10,7 +10,7 @@ array_push($cp,array('$H8','','',False,True));
 $tabela = 'pibic_parecer_'.date("Y");
 
 /** Data, hora e estatus da avaliavcao **/
-array_push($cp,array('$HV','pp_parecer_data',date('Yms'),False,True));
+array_push($cp,array('$HV','pp_parecer_data',date('Ymd'),False,True));
 array_push($cp,array('$HV','pp_parecer_hora',date('H:m'),False,True));
 array_push($cp,array('$HV','pp_status','@',False,True));
 $ccor = '<font color=blue >';
@@ -24,7 +24,6 @@ $opc .= 'sim, parcialmente';
 $opc .= 'não';
  $opc .= ':não<BR>';
 
- array_push($cp,array('$H8','id_pp','',True,True));
 array_push($cp,array('$R '.$opc,'pp_abe_01',$cap,True,True));
 
 /** Segunda Questão **/

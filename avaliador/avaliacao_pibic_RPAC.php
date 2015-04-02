@@ -121,6 +121,7 @@ if (strlen($acao) > 0)
 echo '<TR><TD>'.msg('avaliador_info');
 echo '<TR><TD align=center class=lt5>'.$form_title;
 echo '<TR><TD>';
+$tabela = '';
 editar();
 echo '</table>';
 	
@@ -154,8 +155,10 @@ if ($saved > 0)
 		
 		
 		$emails = array();
-		array_push($emails,'monitoramento@sisdoc.com.br');
+		//array_push($emails,'renefgj@gmail.com');
+		
 		array_push($emails,'pibicpr@pucpr.br');
+		array_push($emails,'renefgj@gmail.com');
 		if (strlen($email1) > 0) { array_push($emails,$email1); }
 		if (strlen($email2) > 0) { array_push($emails,$email2); }
 		
@@ -200,9 +203,9 @@ if ($saved > 0)
  			mail($para, $assunto, $mens, $headers);
 			echo '<BR>Enviado e-mail para '.$para;		
 			}	
-
+		
 		$sql = "update pibic_bolsa_contempladas set 
-				pb_relatorio_parcial_nota = ".round($is)."
+				pb_relatorio_parcial_correcao_nota = ".round($is)."
 				where pb_protocolo = '".$bolsa->pb_protocolo."' ";
 		$qrlt = db_query($sql);	
 		$sql = "update ".$parecer_pibic->tabela." set pp_status = 'B' where id_pp = ".round($id);
