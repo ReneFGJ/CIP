@@ -1,5 +1,7 @@
 <?php
 require("../db.php");
+require('../include/sisdoc_debug.php');
+
 $http = 'http://www2.pucpr.br/reol/avaliador_ic/';
 require("_class/_class_header.php");
 $hd = new header;
@@ -38,5 +40,8 @@ body
 	}
 </style>';
 echo '<BR><BR>';
+
+echo '<CENTER>';
+echo '<div style="width:94%">';
 ?>
 

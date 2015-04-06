@@ -146,7 +146,17 @@ if ((substr($dd[1],0,1)=='0') or (substr($dd[1],0,1)=='1'))
 					where pp_ativo = 1 and pp_update = '".date("Y")."'
 			";
 			$rlt = db_query($sql);
-		}	
+		}
+	/* Todos os professores */
+	if ($op == '008')
+		{
+			$sql = "
+				select pp_email, pp_email_1 from pibic_professor
+					where pp_ativo = 1 and pp_update = '".date("Y")."'
+					and (pp_titulacao = '002' or pp_titulacao = '001' or pp_titulacao = '003' or pp_titulacao = '006')
+			";
+			$rlt = db_query($sql);
+		}			
 	if ($op == '010')
 		{
 			$sql = "select pp_email, pp_email_1 from pibic_projetos 

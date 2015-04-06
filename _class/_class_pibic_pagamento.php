@@ -2,6 +2,19 @@
 class pagamentos
 	{
 		var $tabela = 'pibic_pagamentos';
+		function cancelar_lancar_data($data)
+			{
+				$sql = "select * from pibic_pagamentos where pg_vencimento = '$data' ";
+				$rlt = db_query($sql);
+				if ($line = db_read($rlt))
+					{
+						$sql = "delete from pibic_pagamentos where pg_vencimento = '$data' ";
+						$rlt = db_query($sql);
+						echo '<h3>Dados Excluído com sucesso!</h3>';
+					} else {
+						echo '<h3><font color="red">Não foi localizado o número do BO!</h3>';
+					}
+			}		
 		function cancelar_lancar_manual($id)
 			{
 				$sql = "select * from pibic_pagamentos where pg_nrdoc = '$id' ";

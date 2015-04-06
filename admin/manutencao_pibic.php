@@ -29,6 +29,8 @@ array_push($menu,array('Bolsas Implementadas','Excluir arquivos postados','pibic
 array_push($menu,array('Pagamentos','Inportar pagamentos de pagamentos','pibic_02.php'));
 array_push($menu,array('Pagamentos','Editar lançamentos','pibic_03.php'));
 
+array_push($menu,array('Pagamentos','Excluir lançamentos','pibic_pgamentos_excluir.php'));
+
 array_push($menu,array('Avaliadores','Mudar todos para enviar convite','avaliadores_enviar_convite.php'));
 
 array_push($menu,array('Avaliações','Cancelar todas as indicações','pibic_04.php')); 

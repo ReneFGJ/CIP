@@ -9,11 +9,12 @@ require("../_class/_class_lattes.php");
 
 //$sql = "delete from _messages where 1=1";
 //$rlt = db_query($sql);
-	echo '111';
 	$clx = new lattes;
 	$tabela = 'lattes_artigos';
-	//$sql = "delete from ".$tabela." where id_us = 99";
+	//$sql = "delete from ".$tabela." where la_tipo = 'E' ";
+	//echo $sql;
 	//$rlt = db_query($sql);
+	
 	$label = msg('tit_'.$tabela);
 	//$http_edit = 'admin_user_ed.php'; 
 	$editar = True;
@@ -32,7 +33,7 @@ require("../_class/_class_lattes.php");
 	
 	$order  = "la_professor";
 	echo '<div id="content">';
-	echo '<TABLE width="'.$tab_max.'" align="center"><TR><TD>';
+	echo '<TABLE width="95%" align="center"><TR><TD>';
 	require($include.'sisdoc_row.php');	
 	echo '</table>';	
 	echo '</div>';
