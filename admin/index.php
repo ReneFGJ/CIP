@@ -41,7 +41,9 @@ array_push($menu,array(msg('struct'),msg('campus'),'campus.php'));
 array_push($menu,array(msg('struct'),msg('centro'),'centro.php')); 
 array_push($menu,array(msg('struct'),msg('curso'),'curso.php'));
 
-array_push($menu,array(msg('instituition'),msg('instituition'),'instituicao.php')); 
+
+array_push($menu,array(msg('instituition'),msg('instituition'),'instituicoes.php'));
+//array_push($menu,array(msg('instituition'),msg('instituition'),'instituicao.php')); 
 
 array_push($menu,array(msg('scientific_iniciacion'),'Modalidade de Bolsas','pibic_bolsa_tipo.php')); 
 array_push($menu,array(msg('scientific_iniciacion'),'Modalidade de Programas','pibic_bolsa_modalidade.php')); 
