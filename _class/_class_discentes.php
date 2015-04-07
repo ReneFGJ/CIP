@@ -473,7 +473,7 @@ class discentes
 			array_push($cp,array('$HV','pa_nome_asc',UpperCaseSQL($dd[3]),False,True,''));
 			
 			array_push($cp,array('$A','','Informações complementares',False,True,''));
-			array_push($cp,array('$C1','pa_blacklist','Blacklist',False,False,''));
+			array_push($cp,array('$O : &1:SIM','pa_blacklist','Blacklist',False,True,''));
 			array_push($cp,array('$T60:5','pa_obs','Observações',False,True,''));
 			
 			//$sql = "alter table pibic_aluno add column pa_blacklist char(1)";
@@ -484,7 +484,39 @@ class discentes
 			
 			return($cp);
 		}
-		
+
+	function backlist($cracha)
+		{
+			$sql = "select * from ".$this->tabela." where pa_cracha = '".$cracha."' ";
+			$rlt = db_query($sql);
+			if ($line = db_read($rlt))
+			{
+				$bl = trim($line['pa_blacklist']);
+				$this->line = $line;
+				return(round($bl));
+			} else {
+				echo 'Código não localizado';
+			}
+			return(0);
+		}
+	function bolsista_ativa($cracha)
+		{
+			$ano = date("Y");
+			if (date("m") < 6)
+				{ $ano = (date("Y")-1); }
+			$sql = "select * from pibic_bolsa_contempladas
+					where pb_aluno = '$cracha'
+					and pb_ano = '$ano' 
+					";
+			$rlt = db_query($sql);
+			while ($line = db_read($rlt))
+				{
+					$this->line = $line;
+					return(1);
+				}
+			return(0);
+			exit;
+		}
 	function consulta($cracha,$force=0)
 		{
 			/* Habilita consulta */

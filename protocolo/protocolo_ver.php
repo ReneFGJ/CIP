@@ -13,6 +13,9 @@ require ($include . '_class_form.php');
 $form = new form;
 require ("_form_css.php");
 
+/* Botao */
+//$botao_voltar = '<BR><BR><A HREF="protocolos.php">VOLTAR</A>';
+
 $pr = new protocolo;
 
 if (checkpost($dd[0]) != $dd[1]) {
@@ -43,6 +46,9 @@ if ($sta == '@')
 		case 'F' :
 			echo '<h3>Protocolo já encerrado</h3>';
 			break;
+		case 'I' :
+			echo '<h3>Protocolo indeferido</h3>';
+			break;			
 		case 'C' :
 			echo '<h3>Protocolo cancelado</h3>';
 			break;
@@ -59,5 +65,6 @@ if ($sta == '@')
 				'.$pr->line['pr_solucao_log'];
 	echo '</table>';
 }
+echo $botao_voltar;
 require ('../foot.php');
 ?>

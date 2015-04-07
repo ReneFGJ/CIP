@@ -55,6 +55,8 @@ $ged -> protocol = $proto;
 if (($perfil -> valid('#ADM') == 1) or ($perfil -> valid('#PIB#PIT#SPI') == 1)) {
 	echo 'Administrador';
 	echo $ged -> file_list();
+	echo $ged->upload_botton();
+	//http://www2.pucpr.br/reol/pibicpr2/pibic_bolsas_contempladas.php?dd0=6036#
 
 } else {
 	echo $ged -> filelist();

@@ -5,7 +5,7 @@ $cp = array();
 $cp[0] = array('$HV', '', $dd[0], False, False);
 $cp[1] = array('$HV', '', $dd[1], False, False);
 $cp[2] = array('$M', '', 'Resolução', False, True);
-$cp[3] = array('$T80:5', '', '', True, True);
+$cp[3] = array('$T80:5', '', '', False, True);
 
 $op = '@:Manter aberto';
 $op .= '&F:Finalizar protocolo';
