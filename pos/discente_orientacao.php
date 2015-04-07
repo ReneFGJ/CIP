@@ -9,7 +9,7 @@ require($include.'sisdoc_form2.php');
 require($include.'sisdoc_data.php');
 require($include.'sisdoc_debug.php');
 
-require("../_class/_class_docentes.php");
+require("../_class/_class_docentes_os2.php");
 
 	$clx = new docentes;
 	$cp = $clx->cp();

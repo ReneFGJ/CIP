@@ -1076,12 +1076,13 @@ class docentes {
         
 		$totd = 0;
 		$toto = 0;
-
+               
 		$rlt = db_query($sql);
+        
 		$xprof = 'x';
 		$sx .= '<H2>Docentes Orientações</H2>';
 		$sx .= '<table class="lt1" width="100%" class="tabela00">';
-		$sh = '<TR><TH>Mod<TH>Estudante<TH>Linha de pesquisa<TH>Entrada<TH>Defesa<TH>Status';
+		$sh = '<TR><TH>Mod<TH>Estudante<TH>Coorientador<TH>Linha de pesquisa<TH>Entrada<TH>Defesa<TH>Status';
 		$stt = array('A' => 'Matriculado sem orientador', 'C' => 'Ativo (cursando)', 'T' => 'Titulado', 'R' => 'Desistente', 'G' => 'Aguardando entrega da Tese/Dissertação', 'D' => 'Desligado', 'N' => 'Trancado');
 		$stt = $this -> status();
 
@@ -1094,9 +1095,26 @@ class docentes {
 				$sx .= $sh;
 				$xprof = $prof;
 			}
+            if($line['od_coorientador'] != ""){
+                $codCoorientador = $line['od_coorientador'];
+                $coorientadorLinha = "SELECT id_pp, pp_nome, pp_nome_asc 
+                                      FROM pibic_professor 
+                                      WHERE pp_cracha = '$codCoorientador'";
+                $rltCo = db_query($coorientadorLinha);
+                $rsCo = db_read($rltCo);
+                $coorientador = $rsCo['pp_nome'] ." (".$line['od_coorientador'].")";
+            }else{
+                $coorientador = "";
+            }
+            
+            
+           
+           //echo 'nome: '.$rsCo['pp_nome'];
+            
 			$sx .= '<TR>';
 			$sx .= '<TD class="tabela01">' . $this -> modalidade($line['od_modalidade']);
 			$sx .= '<TD class="tabela01">' . $link . $line['pa_nome'] . ' (' . $line['od_aluno'] . ')</A>';
+            $sx .= '<TD class="tabela01">' . $coorientador;
 			$sx .= '<TD class="tabela01">' . $line['posln_descricao'] . '';
 			$sx .= '<TD class="tabela01" align="center">' . $this -> mostra_ano($line['od_ano_ingresso']);
 			$sx .= '<TD class="tabela01" align="center">' . $this -> mostra_ano($line['od_ano_diplomacao']);
@@ -1107,6 +1125,7 @@ class docentes {
 			$sx .= '<TD class="tabela01">' . $stt[$sta];
 			$sx .= '<TD>';
 			$sx .= '<A HREF="discente_orientacao_ed.php?dd0=' . $line['id_od'] . '" target="_NEW"><img src="../img/icone_editar.gif"></A>';
+            
 		}
 		$sx .= '</table>';
 		return ($sx);
@@ -1254,8 +1273,9 @@ class docentes {
 		$cp = array();
 		$sta = $this -> status_op();
 		array_push($cp, array('$H8', 'id_od', '', False, True));
-		array_push($cp, array('$S8', 'od_professor', 'Professor (cracha)', True, True));
+		array_push($cp, array('$S8', 'od_professor', 'Professor Orientador (cracha)', True, True));
 		array_push($cp, array('$S8', 'od_aluno', 'Estudante (cracha)', True, True));
+        array_push($cp, array('$S8', 'od_coorientador', 'Professor Coorientador (cracha)', False, True));
 
 		array_push($cp, array('${', '', 'Nível', False, True));
 		array_push($cp, array('$Q pos_nome:pos_codigo:select * from programa_pos where pos_ativo=1 order by pos_nome', 'od_programa', 'Programa', True, True));
