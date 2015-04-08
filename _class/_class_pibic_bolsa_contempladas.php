@@ -402,19 +402,26 @@ class pibic_bolsa_contempladas{
 			{
 				global $ic,$dd,$http;
 				
-				$fld = 'pb_relatorio_parcial';
-				if ($tipo == 'RPAC') { $fld = 'pb_relatorio_parcial_nota = 2 and pb_relatorio_parcial_correcao'; }
+				$fld = ' and (pb_relatorio_parcial < 20000101) ';
+				if ($tipo == 'RPAC') {
+					/* Zera campo pb_relatorio_parcial_correcao set NULL */
+					$sql = "update ".$this->tabela." set pb_relatorio_parcial_correcao = 0 where pb_relatorio_parcial_correcao isnull ";
+					$rlt = db_query($sql);
+					
+					/* Complemento da query */
+					$fld = 'and (pb_relatorio_parcial_nota = 2 and pb_relatorio_parcial_correcao < 20000101)'; 
+				}
 				
 				if (isset($ic))
 					{ $email_enviar = 1; } else { $email_enviar = 0; }
 				$wh = " and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')";
-				$sql .= "select *
+				$sql = "select *
 							from ".$this->tabela." 
 							inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
 							inner join pibic_aluno on pb_aluno = pa_cracha 
 							inner join pibic_professor on pb_professor = pp_cracha
 							left join apoio_titulacao on ap_tit_codigo = pp_titulacao
-							where (pb_status <> 'C' and pb_ano = '".$ano."' and $fld < 20000101) 
+							where (pb_status <> 'C' and pb_ano = '".$ano."' $fld ) 
 							$wh
 							order by pp_nome
 							";

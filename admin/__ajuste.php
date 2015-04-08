@@ -2,14 +2,7 @@
 require("cab.php");
 
 $sql = "
-ALTER TABLE docente_orientacao
-   DROP COLUMN od_corientador;
-";
-$rlt = db_query($sql);
-
-$sql = "
-ALTER TABLE docente_orientacao
-   ADD COLUMN od_coorientador character(8);
+UPDATE articles set article_publicado = 'S' where article_publicado = '1'
 ";
 $rlt = db_query($sql);
 ?>
