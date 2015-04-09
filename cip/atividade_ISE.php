@@ -31,11 +31,11 @@ $cap->le($proto2);
 
 if ($bon->origem_tipo = 'IPR')
 	{
-		if ($bon->status == '!')
+		if ($bon->status == '!')// ! em aberto
 			{
 				require("atividade_ISE_01.php");
 			}		
-		if ($bon->status == '*')
+		if ($bon->status == '*') // * já foi indicado
 			{
 				echo '<center>Já foi informado estudante para isenção</center>';
 			}
