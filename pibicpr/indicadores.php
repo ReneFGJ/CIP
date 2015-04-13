@@ -52,6 +52,7 @@ array_push($menu,array('Orientadores','Histórico dos orientadores ','ic_professo
 array_push($menu,array('Orientadores','Guia do estudante '.(date("Y")-1).'/'.date("Y"),'ic_guia_do_estudante.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));
 array_push($menu,array('Orientadores','Profissao IC (Renovações) '.(date("Y")-1).'/'.date("Y"),'ic_alunos_ic.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));
 array_push($menu,array('Orientadores','Censo Anual (Sillas) ','rel_bolsa_aluno_xml.php'));
+array_push($menu,array('Orientadores','Orientadores ativos x número (SGA)','rel_bolsa_orientador_ativo.php'));
 
 array_push($menu,array('Orientadores','Professores sem email cadastrado ','pibic_docentes_email.php'));
 

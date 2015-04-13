@@ -22,17 +22,15 @@ class captacao {
 	var $grafico;
 
 	var $tabela = 'captacao';
-	
-	function atualiza_instituicoes_tabela()
-		{
-			$sql = "update ".$this->tabela." set ca_proponente = '0000012' where ca_proponente = '0000455' ";
-			$rlt = db_query($sql);
-		}
-	
-	function relatorio_captacao_tabela($d1,$d2)
-		{
-			$sta = $this -> status();
-			$sql = "select * from ".$this->tabela."
+
+	function atualiza_instituicoes_tabela() {
+		$sql = "update " . $this -> tabela . " set ca_proponente = '0000012' where ca_proponente = '0000455' ";
+		$rlt = db_query($sql);
+	}
+
+	function relatorio_captacao_tabela($d1, $d2) {
+		$sta = $this -> status();
+		$sql = "select * from " . $this -> tabela . "
 					left join pibic_professor on pp_cracha = ca_professor
 					left join programa_pos on ca_programa = pos_codigo
 					left join centro on pos_escola = centro_codigo
@@ -40,9 +38,9 @@ class captacao {
 					and ca_participacao <> 'O'
 					order by ca_agencia, ca_vigencia_ini_ano desc, ca_vigencia_ini_mes desc
 			 ";
-			$rlt = db_query($sql);
-			$sx .= '<table class="tabela00 tabela">';
-			$sx .= '<TR>
+		$rlt = db_query($sql);
+		$sx .= '<table class="tabela00 tabela">';
+		$sx .= '<TR>
 						<TH colspan=7>
 						<TH colspan=3>Convênios Vigêntes
 						<TH colspan=3>Custeio
@@ -51,7 +49,7 @@ class captacao {
 						<TH colspan=3>CAPEX
 						<TH colspan=3>BOLSA
 						<TH colspan=3>Outros dados';
-			$sx .= '<TR>
+		$sx .= '<TR>
 					<TH>Empresa
 					<TH>Concedente
 					<TH>Convênio
@@ -95,157 +93,156 @@ class captacao {
 					<TH>Situação
 					<TH>ID
 					';
-					
-			while ($line = db_read($rlt))
-				{
-					//print_r($line);
-					//exit;
-					$ln = $line;
-					$sx .= '<TR>';
-					$sx .= '<TD>PUC';
-					$sx .= '<TD>Educação';
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$sx .= $line['ca_processo'];
-					
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$sx .= $line['ca_tipo'];
 
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$sx .= $line['ca_rateio'];
+		while ($line = db_read($rlt)) {
+			//print_r($line);
+			//exit;
+			$ln = $line;
+			$sx .= '<TR>';
+			$sx .= '<TD>PUC';
+			$sx .= '<TD>Educação';
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$sx .= $line['ca_processo'];
 
-					/* TOTAL - CADASTRO */
-					$sx .= '<TD align="right">';
-					$sx .= number_format($line['ca_vlr_total'],2,',','.');
-																										
-					/* TOTAL */
-					$sx .= '<TD align=right><B>';
-					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros']+$line['ca_vlr_bolsa']+$line['ca_vlr_capital'],2,',','.');
-					$sx .= '</B>';
-					
-					/* Quantidade */
-					$sx .= '<TD align="center">1';
-					
-					/* Vigência */
-					$dt = $line['ca_vigencia_ini_ano'];
-					$dt1 = strzero(round($line['ca_vigencia_ini_mes']),2);
-					
-					if (strlen($dt)==4) { $dt .= $dt1; }	
-					$sx .= '<TD>'.'01/'.substr($dt,4,2).'/'.substr($dt,0,4);
-															
-					/* Edital Ano */
-					$sx .= '<TD align="center">';
-					$sx .= '<NOBR>';
-					$sx .= $line['ca_edital_ano'];
-					
-					/* Custeio */
-					$sx .= '<TD align="right">';
-					$sx .= '<NOBR>';
-					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros'],2,',','.');
-					$sx .= '<TD align="right">';
-					$sx .= '<NOBR>';
-					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros'],2,',','.');
-					$sx .= '<TD align="right">';
-					$sx .= '<NOBR>';
-					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros'],2,',','.');
-					
-					/* Bolsa */
-					$sx .= '<TD align="right">';
-					$sx .= number_format($line['ca_vlr_bolsa'],2,',','.');
-					$sx .= '<TD align="right">';
-					$sx .= number_format($line['ca_vlr_bolsa'],2,',','.');
-					$sx .= '<TD align="right">';
-					$sx .= number_format($line['ca_vlr_bolsa'],2,',','.');
-					
-					/* OPEX */
-					$sx .= '<TD align=right>';
-					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros']+$line['ca_vlr_bolsa'],2,',','.');
-					$sx .= '<TD align=right>';
-					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros']+$line['ca_vlr_bolsa'],2,',','.');
-					$sx .= '<TD align=right>';
-					$sx .= number_format($line['ca_vlr_custeio']+$line['ca_vlr_outros']+$line['ca_vlr_bolsa'],2,',','.');
-								
-					/* CAPEX */
-					$sx .= '<TD align=right>';
-					$sx .= number_format($line['ca_vlr_capital'],2,',','.');
-					$sx .= '<TD align=right>';
-					$sx .= number_format($line['ca_vlr_capital'],2,',','.');
-					$sx .= '<TD align=right>';
-					$sx .= number_format($line['ca_vlr_capital'],2,',','.');
-					
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$sx .= $line['ca_agencia'];
-					
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$cp = $line['ca_participacao'];
-					switch ($cp)
-						{
-						case 'P':
-							$sx .= 'Coordenador na Institucão';
-							break;
-						case 'C':
-							$sx .= 'Coordenador do projeto';
-							break;
-						case 'E':
-							$sx .= 'Coordenado Institucional';
-							break;
-						case 'O':
-							$sx .= 'Colaborador';
-							break;
-						default:
-							$sx .= '['.$cp.']';
-						}
-					
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$sx .= $line['pp_nome'];
-										
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$sx .= $line['ca_descricao'];
-					
-					/* Programa & Escola */
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$sx .= $line['pos_nome'];
-										
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					//$sx .= $line['pos_escola'];
-					$sx .= $line['centro_nome'];
-					
-					$sx .= '<TD>';
-					$sx .= $line['ca_insticional'];	
-					$sx .= '<TD>';
-					$sx .= $line['ca_academico'];	
-					$sx .= '<TD>';
-					$sx .= $line['ca_empresa'];	
-									
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$sx .= $sta[$line['ca_status']];
-					
-					/* ID */
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$sx .= $line['id_ca'];
-										
-					/* ID */
-					$sx .= '<TD>';
-					$sx .= '<NOBR>';
-					$sx .= $line['pp_ss'];
-				}
-			$sx .= '</table>';
-			
-			//$sql = "delete from captacao where id_ca = 178 ";
-			//$rlt = db_query($sql);
-			
-			return($sx);
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$sx .= $line['ca_tipo'];
+
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$sx .= $line['ca_rateio'];
+
+			/* TOTAL - CADASTRO */
+			$sx .= '<TD align="right">';
+			$sx .= number_format($line['ca_vlr_total'], 2, ',', '.');
+
+			/* TOTAL */
+			$sx .= '<TD align=right><B>';
+			$sx .= number_format($line['ca_vlr_custeio'] + $line['ca_vlr_outros'] + $line['ca_vlr_bolsa'] + $line['ca_vlr_capital'], 2, ',', '.');
+			$sx .= '</B>';
+
+			/* Quantidade */
+			$sx .= '<TD align="center">1';
+
+			/* Vigência */
+			$dt = $line['ca_vigencia_ini_ano'];
+			$dt1 = strzero(round($line['ca_vigencia_ini_mes']), 2);
+
+			if (strlen($dt) == 4) { $dt .= $dt1;
+			}
+			$sx .= '<TD>' . '01/' . substr($dt, 4, 2) . '/' . substr($dt, 0, 4);
+
+			/* Edital Ano */
+			$sx .= '<TD align="center">';
+			$sx .= '<NOBR>';
+			$sx .= $line['ca_edital_ano'];
+
+			/* Custeio */
+			$sx .= '<TD align="right">';
+			$sx .= '<NOBR>';
+			$sx .= number_format($line['ca_vlr_custeio'] + $line['ca_vlr_outros'], 2, ',', '.');
+			$sx .= '<TD align="right">';
+			$sx .= '<NOBR>';
+			$sx .= number_format($line['ca_vlr_custeio'] + $line['ca_vlr_outros'], 2, ',', '.');
+			$sx .= '<TD align="right">';
+			$sx .= '<NOBR>';
+			$sx .= number_format($line['ca_vlr_custeio'] + $line['ca_vlr_outros'], 2, ',', '.');
+
+			/* Bolsa */
+			$sx .= '<TD align="right">';
+			$sx .= number_format($line['ca_vlr_bolsa'], 2, ',', '.');
+			$sx .= '<TD align="right">';
+			$sx .= number_format($line['ca_vlr_bolsa'], 2, ',', '.');
+			$sx .= '<TD align="right">';
+			$sx .= number_format($line['ca_vlr_bolsa'], 2, ',', '.');
+
+			/* OPEX */
+			$sx .= '<TD align=right>';
+			$sx .= number_format($line['ca_vlr_custeio'] + $line['ca_vlr_outros'] + $line['ca_vlr_bolsa'], 2, ',', '.');
+			$sx .= '<TD align=right>';
+			$sx .= number_format($line['ca_vlr_custeio'] + $line['ca_vlr_outros'] + $line['ca_vlr_bolsa'], 2, ',', '.');
+			$sx .= '<TD align=right>';
+			$sx .= number_format($line['ca_vlr_custeio'] + $line['ca_vlr_outros'] + $line['ca_vlr_bolsa'], 2, ',', '.');
+
+			/* CAPEX */
+			$sx .= '<TD align=right>';
+			$sx .= number_format($line['ca_vlr_capital'], 2, ',', '.');
+			$sx .= '<TD align=right>';
+			$sx .= number_format($line['ca_vlr_capital'], 2, ',', '.');
+			$sx .= '<TD align=right>';
+			$sx .= number_format($line['ca_vlr_capital'], 2, ',', '.');
+
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$sx .= $line['ca_agencia'];
+
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$cp = $line['ca_participacao'];
+			switch ($cp) {
+				case 'P' :
+					$sx .= 'Coordenador na Institucão';
+					break;
+				case 'C' :
+					$sx .= 'Coordenador do projeto';
+					break;
+				case 'E' :
+					$sx .= 'Coordenado Institucional';
+					break;
+				case 'O' :
+					$sx .= 'Colaborador';
+					break;
+				default :
+					$sx .= '[' . $cp . ']';
+			}
+
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$sx .= $line['pp_nome'];
+
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$sx .= $line['ca_descricao'];
+
+			/* Programa & Escola */
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$sx .= $line['pos_nome'];
+
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			//$sx .= $line['pos_escola'];
+			$sx .= $line['centro_nome'];
+
+			$sx .= '<TD>';
+			$sx .= $line['ca_insticional'];
+			$sx .= '<TD>';
+			$sx .= $line['ca_academico'];
+			$sx .= '<TD>';
+			$sx .= $line['ca_empresa'];
+
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$sx .= $sta[$line['ca_status']];
+
+			/* ID */
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$sx .= $line['id_ca'];
+
+			/* ID */
+			$sx .= '<TD>';
+			$sx .= '<NOBR>';
+			$sx .= $line['pp_ss'];
 		}
+		$sx .= '</table>';
+
+		//$sql = "delete from captacao where id_ca = 178 ";
+		//$rlt = db_query($sql);
+
+		return ($sx);
+	}
 
 	function captacao_listar($sta) {
 		$wh = 'ca_status = ' . round($sta);
@@ -378,7 +375,7 @@ class captacao {
 					$api[9] = $api[9] + $line['total'];
 					break;
 				default :
-					//echo ' -->'.$sta;
+				//echo ' -->'.$sta;
 					break;
 			}
 		}
@@ -679,7 +676,7 @@ class captacao {
 		return ($sx);
 	}
 
-function total_captacoes_validar($professor = '',$gestor=0) {
+	function total_captacoes_validar($professor = '', $gestor = 0) {
 		global $cap;
 		$wh = " (pos_coordenador = '$professor') ";
 		if ($gestor == 1) {
@@ -1508,7 +1505,7 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 	function cp() {
 		global $dd;
 
-		$this->atualiza_instituicoes_tabela();
+		$this -> atualiza_instituicoes_tabela();
 
 		$this -> atualiza_vigencia();
 		$op = ' : ';
@@ -2685,6 +2682,10 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 		$tote = 0;
 		$totf = 0;
 		$xproto = "X";
+		$tota1 = 0;
+		$tota2 = 0;
+		$tota3 = 0;
+
 		while ($line = db_read($rlt)) {
 			$inst = trim($line['ca_insticional']);
 			$proto = $line['ca_protocolo'];
@@ -2692,6 +2693,16 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 			if ($xproto != $proto) {
 				$prof = $line['pp_cracha'];
 				if ($prof != $xprof) {
+					if ($tota1 > 0) {
+						$sx .= '<TR><TD colspan=7 align="right">sub-total';
+						$sx .= ' ' . $tota1 . ' captação(ões)';
+						$sx .= '<TD align="right">' . number_format($tota3, 2, ',', '.');
+						$sx .= '<TD align="right">' . number_format($tota2, 2, ',', '.');
+						$sx .= '<TD align="right">' . number_format(0, 2, ',', '.');
+						$tota1 = 0;
+						$tota2 = 0;
+						$tota3 = 0;
+					}
 					$sx .= '<TR><TD colspan=4 class="lt3">' . $line['pp_nome'];
 					$xprof = $prof;
 				}
@@ -2714,9 +2725,24 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 						$totc++;
 					}
 				}
+				$tota1++;
+
+				$tota2 = $tota2 + $line['ca_proponente_vlr'];
+				$tota3 = $tota3 + $line['ca_vlr_total'];
 			}
 			$xproto = $proto;
 		}
+
+		if ($tota1 > 0) {
+			$sx .= '<TR><TD colspan=7 align="right">sub-total';
+			$sx .= ' ' . $tota1 . ' captação(ões)';
+			$sx .= '<TD align="right">' . number_format($tota3, 2, ',', '.');
+			$sx .= '<TD align="right">' . number_format($tota2, 2, ',', '.');
+			$tota1 = 0;
+			$tota2 = 0;
+			$tota3 = 0;
+		}
+
 		$sx .= '<TR><TD colspan=10>';
 		$sx .= '<table class="tabela00">';
 		$sx .= '<TR><TH width="220">Descrição<TH width="30">Projetos<TH width="120">Captação';
@@ -2743,19 +2769,18 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 
 	}
 
-	function mostra_bonificados($dd1, $datai = 2000, $dataf = 2999,$tp='B') {
+	function mostra_bonificados($dd1, $datai = 2000, $dataf = 2999, $tp = 'B') {
 		$bn = new bonificacao;
-		$tipo = $bn->projetos_tipo();
-		$status = $bn->status();
-		$data1 = $datai.'0101';
-		$data2 = $dataf.'1231';	
-		
-		if ($tp == 'B')
-			{
-				$wh = " and bn_original_tipo = 'BNI' ";
-				$titulo = 'Artigos Bonificados';
-			}
-		
+		$tipo = $bn -> projetos_tipo();
+		$status = $bn -> status();
+		$data1 = $datai . '0101';
+		$data2 = $dataf . '1231';
+
+		if ($tp == 'B') {
+			$wh = " and bn_original_tipo = 'BNI' ";
+			$titulo = 'Artigos Bonificados';
+		}
+
 		$sql = "select * from bonificacao
 				inner join programa_pos_docentes on bn_professor = pdce_docente 
 				inner join programa_pos on pos_codigo = pdce_programa
@@ -2767,7 +2792,7 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 					order by pp_nome
 				";
 		$rlt = db_query($sql);
-		
+
 		$sx .= '<table width="100%" class="lt1" cellpadding=3 cellspacing=0 border=1>';
 		$sx .= '<TR><TH>Protocolo
 					<TH colspan=1>Ano
@@ -2783,10 +2808,10 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 		$tot3 = 0;
 		$tot4 = 0;
 		$xproto = "X";
-		
+
 		while ($line = db_read($rlt)) {
 			$nome = trim($line['pp_nome']);
-		
+
 			if ($pnome != $nome) {
 				if ($tot3 > 0) {
 					$sx .= '<TR><TD colspan=10 align="right">Subtotal do professor, <B>' . $tot3 . '</B> pagamentos, no valor de <B>' . number_format($tot4, 2, ',', '.') . '</B>';
@@ -2813,8 +2838,8 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 			$sx .= stodbr($line['bn_data']);
 			$sx .= '<TD class="tabela01">';
 			$sx .= $tipo[$line['bn_original_tipo']];
-//			$sx .= '<TD class="tabela01">';
-//			$sx .= $line['bn_beneficiario'];
+			//			$sx .= '<TD class="tabela01">';
+			//			$sx .= $line['bn_beneficiario'];
 			$sx .= '<TD class="tabela01">';
 			$s = trim($line['bn_status']);
 			$sx .= $status[$s];
@@ -2826,7 +2851,7 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 			$sx .= number_format($line['bn_valor'], 2, ',', '.');
 
 		}
-		$sx .= '<TR><TD align="right" colspan=7 >Total de bonificações <B>'.$tot1.'</B>, totalizando <B>'.number_format($tot2,2,',','.').'</B>';
+		$sx .= '<TR><TD align="right" colspan=7 >Total de bonificações <B>' . $tot1 . '</B>, totalizando <B>' . number_format($tot2, 2, ',', '.') . '</B>';
 		$sx .= '</table>';
 		return ($sx);
 
@@ -3013,38 +3038,38 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 
 			switch ($grp) {
 				case '00026' :
-					/* Agência de fomento */
+				/* Agência de fomento */
 					$sponsor[1] = $sponsor[1] + $valor;
 					$quant[1] = $quant[1] + 1;
 					break;
 				case '00022' :
-					/* Orgáo governamental */
+				/* Orgáo governamental */
 					$sponsor[2] = $sponsor[2] + $valor;
 					$quant[2] = $quant[2] + 1;
 					break;
 				case '00022' :
-					/* Orgáo governamental */
+				/* Orgáo governamental */
 					$sponsor[3] = $sponsor[3] + $valor;
 					$quant[3] = $quant[3] + 1;
 					break;
 				case '' :
-					/* Não categorizado */
+				/* Não categorizado */
 					$sponsor[4] = $sponsor[4] + $valor;
 					$quant[4] = $quant[4] + 1;
 					break;
 
 				case '00027' :
-					/* Agência de fomento internacional */
+				/* Agência de fomento internacional */
 					$sponsor[6] = $sponsor[6] + $valor;
 					$quant[6] = $quant[6] + 1;
 					break;
 				case '00023' :
-					/* Orgáo governamental internacional  */
+				/* Orgáo governamental internacional  */
 					$sponsor[7] = $sponsor[7] + $valor;
 					$quant[7] = $quant[7] + 1;
 					break;
 				case '00022' :
-					/* Orgáo governamental internacional  */
+				/* Orgáo governamental internacional  */
 					$sponsor[8] = $sponsor[8] + $valor;
 					$quant[8] = $quant[8] + 1;
 					break;
@@ -3214,17 +3239,18 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 	}
 
 	/* Captação */
-	function mostra_captacao($id=0) {
+	function mostra_captacao($id = 0) {
 		global $editar;
 		$wh = '';
-		if ($id > 0) { $wh .= ' and (ca_status = 8) '; }
+		if ($id > 0) { $wh .= ' and (ca_status = 8) ';
+		}
 
 		$sql = "select * from " . $this -> tabela . " 
 					where ca_professor = '" . $this -> docente . "' 
 					$wh
 					order by ca_vigencia_ini_ano desc, ca_vigencia_ini_mes desc, ca_descricao
 				";
-		
+
 		$rlt = db_query($sql);
 		$sx = '';
 		$sx .= '<fieldset>';
@@ -3247,7 +3273,7 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 			$sta = round($line['ca_status']);
 			if (($sta == 0) or ($sta == 8)) { $editar = 1;
 			}
-			$sx .= $this -> mostra_captacao_lista($line,$editar);
+			$sx .= $this -> mostra_captacao_lista($line, $editar);
 		}
 		if ($tot == 0) {
 			$sx .= '<TR><TD colspan=9><font class="lt4"><center><font color="orange">sem projetos cadastrado';
@@ -3383,8 +3409,7 @@ function total_captacoes_validar($professor = '',$gestor=0) {
 		}
 		if (($editar == 1) and ($nw -> user_cracha == trim($line['ca_professor']))) {
 			$sx .= '<TD class="tabela01">' . $cor;
-			$sx .= '<A HREF="' . http . '/cip_pesquisador/captacao_novo.php?dd0=' . $line['id_ca'] . 
-						'&pag=1&dd90=' . checkpost($line['id_ca']) . '">';
+			$sx .= '<A HREF="' . http . '/cip_pesquisador/captacao_novo.php?dd0=' . $line['id_ca'] . '&pag=1&dd90=' . checkpost($line['id_ca']) . '">';
 			$sx .= 'editar';
 			$sx .= '</A>';
 		}

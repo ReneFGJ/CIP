@@ -266,7 +266,73 @@ class pibic_bolsa_contempladas{
 					}
 				return($ano);
 			}
-		
+	function orientacoes_ativos($ano1='',$ano2='')
+		{
+				$sql = "select count(*) as total,  centro_nome, pp_curso, 
+							pp_nome, pp_cracha, pp_centro, pp_ativo, pp_ss
+						from ".$this->tabela." 
+						inner join pibic_professor on pb_professor = pp_cracha
+						inner join pibic_aluno on pb_aluno = pa_cracha
+						inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+						left join apoio_titulacao on ap_tit_codigo = pp_titulacao
+						left join centro on centro_codigo = pp_escola
+						left join ajax_areadoconhecimento on pb_semic_area = a_cnpq
+						where pb_ano between '$ano1' and '$ano2'
+						and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')
+						and (pb_status <> 'C' and pb_status <> 'X' and pb_status <> 'S') 
+						group by pp_nome, pp_cracha, centro_nome, pp_curso, pp_centro, pp_ativo, pp_ss
+						order by centro_nome, pp_curso, pp_nome, pp_cracha, pp_centro
+						";
+				$rlt = db_query($sql);
+
+				$sx = '<table border=1>';
+				$sx .= '<TR><TH>Escola
+							<TH>Curso professor
+							<TH>Cracha
+							<TH>Professor
+							<TH>SS
+							<TH>Campus
+							<TH>Orientações
+							';
+				$tot = 0;
+				$tot2 = 0;
+				while ($line = db_read($rlt))
+					{
+						$tot++;
+						$cor = '<font color="black">';
+						$ativo = $line['pp_ativo'];
+						if ($ativo != 1) { $cor = '<font color="red">'; }
+						$sx .= '<TR>';
+						$sx .= '<TD>';
+						$sx .= $cor.$line['centro_nome'].'</font>';
+						
+						$sx .= '<TD>';
+						$sx .= $cor.$line['pp_curso'].'</font>';
+						
+						$sx .= '<TD>';
+						$sx .= $cor.$line['pp_cracha'].'</font>';
+						
+						$sx .= '<TD>';
+						$sx .= $cor.$line['pp_nome'].'</font>';
+						
+						$sx .= '<TD>';
+						$sx .= $cor.$line['pp_ss'].'</font>';
+										
+						$sx .= '<TD>';
+						$sx .= $cor.$line['pp_centro'].'</font>';
+						
+						$sx .= '<TD align="center">';
+						$sx .= $cor.$line['total'].'</font>';
+						
+						$tot++;
+						$tot2 = $tot2 + $line['total'];						
+					}
+				$sx .= '</table>';
+				$sx .= $tot.' total de orientadores, com ';
+				$sx .= $tot2.' orientações';
+				return($sx);
+		}	
+	
 	function guia_estudante($ano1,$ano2)
 			{
 				$sql = "select * from ".$this->tabela." 
@@ -284,7 +350,7 @@ class pibic_bolsa_contempladas{
 				echo '<H1>Guia do Estudante '.$ano1.' - '.$ano2.'<h2>';
 				$sx = '<table>';
 				$sx .= '<TR><TH>Escola
-							<TH>Curso
+							<TH>Curso professor
 							<TH>Plano
 							<TH>Ano
 							<TH>Professor
@@ -292,22 +358,7 @@ class pibic_bolsa_contempladas{
 							<TH>Campus
 							<TH>Carga Horária
 							<TH>Edital
-							<TH>Modalidade
-							<TH>Estudande
-							<TH>CPF (Estud.)
-							<TH>Curso
-							<TH>Colégio (Jr)
-							<TH>Orientador Colégio
-							<TH>Status
-							<TH>email
-							<TH>email alternativo
-							<TH>Titulação
-							<TH>SS
-							<TH>e-mail (Estud.)
-							<TH>e-mail alt (Estud.)
-							<TH>Área CNPq
-							<TH>CNPq Descrição
-							<TH>Projeto	
+
 							';
 				$tot = 0;
 				while ($line = db_read($rlt))
@@ -360,7 +411,15 @@ class pibic_bolsa_contempladas{
 						$sx .= $line['pb_colegio_orientador'];
 
 						$sx .= '<TD>';
-						$sx .= $line['pb_status'];
+						$sta = $line['pb_status'];
+						switch ($sta)
+							{
+							case 'A': $sx .= 'Ativo'; break;
+							case 'F': $sx .= 'Finalizado'; break;
+							case 'S': $sx .= 'Suspenso'; break;
+							case 'C': $sx .= 'Cancelado'; break;
+							default: $sx .= 'indefinido'; break;
+							}
 
 						$sx .= '<TD>';
 						$sx .= $line['pp_email'];
