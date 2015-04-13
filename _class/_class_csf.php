@@ -808,10 +808,13 @@ class csf
 								
     			return($sx);
 		}
-		
+
+
+//------------------------------------------------------------------------------------------------------------
+	
 		function world_mapa_estudantes()
 			{
-				
+				/**
 				$sql = "select count(*) as total, pb_colegio_orientador from pibic_bolsa_contempladas 
 						inner join pibic_aluno on pb_aluno = pa_cracha
 						where (pb_tipo = 'K' or pb_tipo = 'S'  or pb_tipo = 'T' or pb_tipo = 'W')
@@ -820,59 +823,78 @@ class csf
 						order by pb_colegio_orientador
 						 ";
 				$rlt = db_query($sql);
+				*/
+				
+				$sql2 = "select count(*) as total, inst_lat, inst_log, inst_nome
+				         from instituicao
+						 where inst_lat <> '' and inst_log <> '' 
+						 group by total, inst_lat, inst_log, inst_nome
+						 order by inst_nome	
+						 ";
+				$rlt2 = db_query($sql2);				
+				
 				$st = '';
 				$col = 99;
-				while ($line = db_read($rlt))
-					{
-					$paisn = trim($line['pb_colegio_orientador']);
-					$pais = uppercasesql(trim($line['pb_colegio_orientador']));
-					
-					if ($pais == 'EUA') { $pais = 'United States'; }
-					if ($pais == 'BELGICA') { $pais = 'Belgium'; }
-					if ($pais == 'Hong Kong') { $pais = 'HK'; }
-					if ($pais == 'ESCOCIA') { $pais = 'United Kingdom'; }
-					if (strlen($pais) > 0)
+				
+				while ($line = db_read($rlt2))
 						{
-							if ($col > 2) { $col = 0; $sq .= '<TR>'; }
-							$sq .= '<TD>'.$paisn.'<TD align="center">'.$line['total'];
-							$col++;
-							if (strlen($st) > 0) { $st .= ', '.chr(13).chr(10); }
-							$st .= '[\''.$pais.'\','.$line['total'].']';
+							$paisn     = trim($line['inst_nome']);
+							$pais      = trim($line['inst_nome']);
+							$latitude  = $line['inst_lat'];							
+							$longitude = $line['inst_log'];
+
+						if (strlen($pais) > 0)
+							{
+								if ($col > 2) 
+									{
+					           			$col = 0; 
+					           			$sq .= '<TR>'; 
+				              		}
+				              	$sq .= '<TD>'.$paisn.'<TD align="center">'.$line['total'];
+								$col++;
+								
+								if (strlen($st) > 0) 
+									{
+									  $st .= '[ \''.$latitude.'\', \''.$longitude.'\', \''.$pais.'\', '.$line['total'].']';
+									}
+								
+							}
 						}
-					}
 				$sx .= '
-  					<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-  					<script type="text/javascript">
-    				google.load(\'visualization\', \'1\', {packages: [\'geochart\']});
-    			    function drawVisualization() {
-						var options = {
-        				backgroundColor: \'#FF0000\',
-        				displayMode: \'markers\',
-        				colorAxis: {minValue: 0,  colors: [\'#FF0000\', \'#00FF00\']}
-      					};      	
-					var data = google.visualization.arrayToDataTable([
-        				[\'País\', \'Estudantes\'],
-        				'.$st.'
-      				]);
-      			 var geochart = new google.visualization.GeoChart(
-          				document.getElementById(\'visualization\'));
-      					geochart.draw(data, {width: 740, height: 347});
-    				}
-			    google.setOnLoadCallback(drawVisualization);
-  				</script>
-	
-				<div id="visualization" style="z-index:0;"></div>
+			        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+					<script type="text/javascript">
+					  google.load(\'visualization\', \'1\', {packages:[\'geochart\']});      
+					  google.setOnLoadCallback(drawChart);
+					  
+					  function drawChart() {
+					    var data = google.visualization.arrayToDataTable([ 
+					      [\'Lat\', \'Long\', \'Name\', \'Students\']			
+        				 '.$st.'    
+						  ]);
+						
+					var map   = new google.visualization.GeoChart(document.getElementById(\'map_div\'));
+					var options = {
+					displayMode: \'markers\',
+					//displayMode:\'text\',
+					colorAxis: {colors: [\'blue\', \'red\']},
+					datalessRegionColor: \'#EBC79E\',
+					  				};
+					map.draw(data, options, {showTip: true});
+			  }
+    			</script>
+				<div id="map_div" style="z-index:0;"></div>
 				<div style="text-align: justify">Mapa</div>
-			
 				<style>
-					#visualization
+					#map_div
 					{
 					width: 740px;
 					border: 2px solid #C0C0C0;
 					}
-				</style>';
+				</style>
+				  
+				';
 				
-				$sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
+                $sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
 				$sx .= '<table width=600 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
 				$sx .= '<TR>';
 				$sx .= '<TH width=20%>Pais<TH width=13%>Estudantes';
@@ -881,6 +903,15 @@ class csf
 				$sx .= $sq.'</table>';
 				return($sx);				
 			}
+		
+	
+		
+//------------------------------------------------------------------------------------------------------------		
+		
+		
+		
+		
+		
 		
 		
 		function total_bolsistas()
