@@ -809,7 +809,6 @@ class csf
     			return($sx);
 		}
 
-
 //------------------------------------------------------------------------------------------------------------
 	
 		function world_mapa_estudantes()
@@ -817,7 +816,7 @@ class csf
 				/**
 				$sql = "select count(*) as total, pb_colegio_orientador from pibic_bolsa_contempladas 
 						inner join pibic_aluno on pb_aluno = pa_cracha
-						where (pb_tipo = 'K' or pb_tipo = 'S'  or pb_tipo = 'T' or pb_tipo = 'W')
+						where (pb_tipo = 'S')
 						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
 						group by pb_colegio_orientador
 						order by pb_colegio_orientador
@@ -825,10 +824,10 @@ class csf
 				$rlt = db_query($sql);
 				*/
 				
-				$sql2 = "select count(*) as total, inst_lat, inst_log, inst_nome
+				$sql2 = "select distinct inst_lat, inst_log, inst_nome, count(*) as total
 				         from instituicao
 						 where inst_lat <> '' and inst_log <> '' 
-						 group by total, inst_lat, inst_log, inst_nome
+						 group by inst_lat, inst_log, inst_nome
 						 order by inst_nome	
 						 ";
 				$rlt2 = db_query($sql2);				
@@ -847,19 +846,20 @@ class csf
 							{
 								if ($col > 2) 
 									{
-					           			$col = 0; 
-					           			$sq .= '<TR>'; 
+					           		  	$col = 0; 
+					           		    $sq .= '<TR>'; 
 				              		}
 				              	$sq .= '<TD>'.$paisn.'<TD align="center">'.$line['total'];
 								$col++;
 								
 								if (strlen($st) > 0) 
 									{
-									  $st .= '[ \''.$latitude.'\', \''.$longitude.'\', \''.$pais.'\', '.$line['total'].']';
+									  $st .= ', '.chr(13).chr(10); 	
 									}
-								
+									$st .= '[ '.$latitude.', '.$longitude.', \''.$pais.'\', '.$line['total'].']';
 							}
 						}
+				
 				$sx .= '
 			        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 					<script type="text/javascript">
@@ -868,7 +868,7 @@ class csf
 					  
 					  function drawChart() {
 					    var data = google.visualization.arrayToDataTable([ 
-					      [\'Lat\', \'Long\', \'Name\', \'Students\']			
+					      [\'Lat\', \'Long\', \'Name\', \'Students\'],			
         				 '.$st.'    
 						  ]);
 						
@@ -891,7 +891,6 @@ class csf
 					border: 2px solid #C0C0C0;
 					}
 				</style>
-				  
 				';
 				
                 $sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
@@ -905,21 +904,53 @@ class csf
 			}
 		
 	
-		
+//************************************************************************************************************	
+
+		function world_mapa_Estudantes no exterior()
+			{
+				
+				$sql = "select count(*) as total, pb_colegio_orientador from pibic_bolsa_contempladas 
+						inner join pibic_aluno on pb_aluno = pa_cracha
+						where (pb_tipo = 'K' or pb_tipo = 'S'  or pb_tipo = 'T' or pb_tipo = 'W')
+						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
+						group by pb_colegio_orientador
+						order by pb_colegio_orientador
+						 ";
+				$rlt = db_query($sql);
+				$st = '';
+				$col = 99;
+				while ($line = db_read($rlt))
+					{
+					$paisn = trim($line['pb_colegio_orientador']);
+					$pais = uppercasesql(trim($line['pb_colegio_orientador']));
+
+					if (strlen($pais) > 0)
+						{
+							if ($col > 2) { $col = 0; $sq .= '<TR>'; }
+							$sq .= '<TD>'.$paisn.'<TD align="center">'.$line['total'];
+							$col++;
+						}
+					}
+				$sx .= '';
+				
+				$sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
+				$sx .= '<table width=600 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
+				$sx .= '<TR>';
+				$sx .= '<TH width=20%>Pais<TH width=13%>Estudantes';
+				$sx .= '<TH width=20%>Pais<TH width=13%>Estudantes';
+				$sx .= '<TH width=20%>Pais<TH width=13%>Estudantes';
+				$sx .= $sq.'</table>';
+				return($sx);				
+			}	
+	
 //------------------------------------------------------------------------------------------------------------		
-		
-		
-		
-		
-		
-		
 		
 		function total_bolsistas()
 			{
 				$sql = "select count(*) as total from pibic_bolsa_contempladas 
 						inner join pibic_aluno on pb_aluno = pa_cracha
-						where (pb_tipo = 'K' or pb_tipo = 'S' or pb_tipo = 'T' or pb_tipo = 'W')
-						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
+						where (pb_tipo = 'S')
+						
 						 ";
 				$rlt = db_query($sql);
 				if ($line = db_read($rlt))
