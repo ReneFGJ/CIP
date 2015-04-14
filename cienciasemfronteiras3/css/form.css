@@ -1,0 +1,17 @@
+.form {  
+        
+        padding:5px;  
+        outline:none;  
+        height:120%;  
+        border:solid 1px #C0C0C0;
+        background-color: #E8E8E8;
+    }  
+    
+.form:hover {  
+        
+        padding:5px;  
+        outline:none;  
+        border:solid 1px #000000;
+        background-color: #FFFFFF;
+    }  
+
