@@ -814,7 +814,8 @@ class csf
 		function world_mapa_estudantes()
 			{
 				/**
-				$sql = "select count(*) as total, pb_colegio_orientador from pibic_bolsa_contempladas 
+				$sql = "select count(*) as total, pb_colegio_orientador 
+				 *      from pibic_bolsa_contempladas 
 						inner join pibic_aluno on pb_aluno = pa_cracha
 						where (pb_tipo = 'S')
 						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
@@ -826,7 +827,7 @@ class csf
 				
 				$sql2 = "select distinct inst_lat, inst_log, inst_nome, count(*) as total
 				         from instituicao
-						 where inst_lat <> '' and inst_log <> '' 
+				         where inst_lat <> '' and inst_log <> '' 
 						 group by inst_lat, inst_log, inst_nome
 						 order by inst_nome	
 						 ";
