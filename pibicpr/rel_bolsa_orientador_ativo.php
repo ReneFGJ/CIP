@@ -1,5 +1,5 @@
 <?php
-if ($_GET["dd3"]=='XML') {
+if ($_GET["dd4"]=='XML') {
 	require ("../db.php");
 	
 	header("Content-Type:   application/vnd.ms-excel; charset=ISO-8859-1");
@@ -10,12 +10,12 @@ if ($_GET["dd3"]=='XML') {
 	header("Cache-Control: private", false);
 	require ('../_class/_class_pibic_bolsa_contempladas.php');
 	
-	echo '<H1>Professores com Orientações IC</h1>';
+	echo 'Professores com Orientações IC/IT/Jr';
 	/* Chama Classe */
 
 	require ('../_class/_class_pibic_bolsa_contempladas.php');
 	$pb = new pibic_bolsa_contempladas;
-	echo $pb -> orientacoes_ativos($dd[1], $dd[2]);
+	echo $pb -> orientacoes_ativos($dd[1], $dd[2],$dd[3]);
 	exit ;
 } else {
 	require ("cab.php");
@@ -29,15 +29,16 @@ $cp = array();
 array_push($cp, array('$H8', '', '', False, False));
 array_push($cp, array('$[2009-' . date("Y") . ']', '', 'Ano Inicial', True, True));
 array_push($cp, array('$[2009-' . date("Y") . ']', '', 'Ano Final', True, True));
+array_push($cp, array('$O A:Todos&B:Strico Sensu&C:Sem Stricto Sensu', '', 'Tipos', True, True));
 
 $tela = $form -> editar($cp, '');
 
 if ($form -> saved > 0) {
-	echo '<A HREF="'.page().'?dd1='.$dd[1].'&dd2='.$dd[2].'&dd3=XML">Exportar para Excel</A>';
+	echo '<A HREF="'.page().'?dd1='.$dd[1].'&dd2='.$dd[2].'&dd3='.$dd[3].'&dd4=XML">Exportar para Excel</A>';
 	require ('../_class/_class_pibic_bolsa_contempladas.php');
 	$pb = new pibic_bolsa_contempladas;
-	echo '<H1>Professores com Orientações IC</h1>';
-	echo $pb -> orientacoes_ativos($dd[1], $dd[2]);
+	echo '<H1>Professores com Orientações IC/IT/Jr</h1>';
+	echo $pb -> orientacoes_ativos($dd[1], $dd[2],$dd[3]);
 	exit ;
 } else {
 	echo $tela;

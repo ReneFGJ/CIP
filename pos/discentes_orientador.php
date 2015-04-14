@@ -108,7 +108,14 @@ if (count($prg) == 1)
 }
 
 
-if ($form -> saved > 0) {    
+if (($form -> saved > 0) or ($dd[95] == 'T')) {
+	echo '<div style="float: right;">';
+	echo '<form action="discentes_orientador_novo.php" method="post">
+		<input type="hidden" name="dd1" value="'.$dd[1].'">
+		<input type="submit" value="Cadastrar nova orientação >>>" class="botao-geral">
+	</form>';
+	echo '</div>';
+	    
     require ("../_class/_class_discentes.php");
     $dis = new discentes;
 
@@ -123,6 +130,10 @@ if ($form -> saved > 0) {
 
     echo '<h3>Fluxo Discente</h3>';
     //echo "dd1: ".$dd[1];
+    
+    /*
+	 * Mostra botao para nova orientação
+	 */
 
     echo $doc -> docentes_orientacoes($dd[1], '', $dd[2]);
 }

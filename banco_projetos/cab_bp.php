@@ -7,9 +7,6 @@ require($include.'sisdoc_windows.php');
 require($include.'sisdoc_debug.php');
 require($include.'sisdoc_breadcrumb.php');
 
-$ged_files ="bp_ged_files";
-$faq = "faq";
-
 /* Segurança do Login */
 require($include.'sisdoc_security_pucpr.php');
 $nw = new usuario;
@@ -40,5 +37,5 @@ $nome = $nw->user_nome;
 
 require('../_class/_class_header.php');
 $hd = new header;
-echo $hd->mostra('ic');
+echo $hd->mostra_novo('Banco de Projetos');
 ?>

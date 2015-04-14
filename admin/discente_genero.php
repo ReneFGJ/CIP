@@ -1,5 +1,5 @@
 <?php
-require("cab_cip.php");
+require("cab.php");
 require("../_class/_class_discentes.php");
 $dis = new discentes;
 

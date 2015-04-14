@@ -20,7 +20,10 @@ if ($perfil->valid('#SEP'))
 array_push($menu,array('PPG','__Linhas de Pesquisa','programa_pos_linhas.php'));
 
 array_push($menu,array('Fluxo Discente','Discentes ativos por orientador','discentes_orientador.php'));
-array_push($menu,array('Fluxo Discente','Fluxo discente','discente_orientacao.php'));
+if ($perfil->valid('#ADM'))
+	{
+	array_push($menu,array('Fluxo Discente','Fluxo discente','discente_orientacao.php'));
+	}
 
 array_push($menu,array('Mobilidade','Mobilidade Docente','mobilidade_docente.php'));
 array_push($menu,array('Mobilidade','Professor visitante','mobilidade_visitante.php'));

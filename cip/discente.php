@@ -16,7 +16,7 @@ if ($perfil->valid('#ADM'))
 	array_push($menu,array('Discente','__orientacoes_inport','discente_orientacao_inport.php'));
 	array_push($menu,array('Discente','__processar_nomes','discente_nomes.php'));
 	}
-array_push($menu,array('Discente','__alunos sem genero','discente_genero.php'));	
+array_push($menu,array('Discente','__alunos sem genero','../admin/discente_genero.php'));	
 ?>
 <TABLE width="710" align="center" border="0">
 <TR>

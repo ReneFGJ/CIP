@@ -131,6 +131,50 @@ class protocolo {
 			$sta['F'] = 'Encerrado';
 			return($sta);
 		}
+	function lista_protocolos_fechados($local='',$sta='B') {
+		global $http;
+		$wh = '';
+		if (strlen($sta) > 0)
+			{
+				//$wh .= " and pr_status = '$sta' ";				
+			}
+						
+		$status = $this->status();
+		$sql = "select * from " . $this -> tabela . " 
+					left join pibic_professor on pr_solicitante = pp_cracha
+						where pr_local = '$local' 
+						$wh
+				 ";
+		echo $sql;
+		$rlt = db_query($sql);
+		$tot = 0;
+		$sx .= '<table width="100%" class="tabela00 lt2">';
+		$sx .= '<TR>
+				<TH width="5%">protocolo
+				<TH width="8%">abertura
+				<TH width="35%">tipo
+				<TH width="35%">solicitante
+				<TH width="5%">status';
+		while ($line = db_read($rlt)) {
+			$tot++;
+			$link = '<A HREF="'.$http.'protocolo/protocolo_ver.php?dd0='.$line['id_pr'].'&dd1='.checkpost($line['id_pr']).'">';
+			
+			$sx .= '<TR>';
+			$sx .= '<TD class="tabela01">';
+			$sx .= $link;
+			$sx .= strzero($line['id_pr'],5).'/'.$line['pr_ano'];
+			$sx .= '</A>';
+			$sx .= '<TD class="tabela01">'.stodbr($line['pr_data']);
+			$sx .= '<TD class="tabela01"><B>'.msg('protocolo_'.trim($line['pr_tipo'])).'</B></td>';
+			$sx .= '<TD class="tabela01">'.trim($line['pp_nome']);
+			$sx .= '<TD class="tabela01">'.$status[trim($line['pr_status'])];
+		}
+		$sx .= '<TR><Td colspan=10 ><B>Total de '.$tot.' protocolo(s)</B>';
+		$sx .= '</table>';
+		$sx .= '<BR><BR>';	
+		return ($sx);
+
+	}		
 	function lista_protocolos_abertos($local='',$sta='@',$professor='') {
 		global $http;
 		$wh = '';

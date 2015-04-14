@@ -7,7 +7,7 @@ $form = new form;
 require ($include . 'sisdoc_debug.php');
 require ("../_class/_class_docentes.php");
 $cl = new docentes;
-$cp = $cl -> cp_docente_orientacoes();
+$cp = $cl -> cp_docente_orientacoes_mini();
 $tabela = 'docente_orientacao';
 
 $http_edit = page();
@@ -24,4 +24,6 @@ if ($form -> saved > 0) {
 } else {
 	echo $tela;
 }
+?>
+
 ?>

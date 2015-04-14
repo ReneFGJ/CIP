@@ -30,6 +30,7 @@ $sx .= $lin->mostra_resumo_pos($programa_pos);
 $sql = "select * from programa_pos_linhas
 			where posln_programa = '$programa_pos'
 			and posln_ativo = 1
+			order by posln_descricao
 		";
 $rlt = db_query($sql);
 $sx .= '<BR><BR>';

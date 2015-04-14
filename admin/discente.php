@@ -16,9 +16,11 @@ $menu = array();
 /////////////////////////////////////////////////// MANAGERS
 array_push($menu,array('Discentes','Limpar periodos dos cursos','discente_limpa_curso.php'));
 array_push($menu,array('Discentes','Limpar alunos sem codigo','discente_limpa_sem_codigo.php'));
+array_push($menu,array('Discentes','Discentes sem genero','discente_genero.php'));
 
 array_push($menu,array('Discentes Pós-Graduação','Identificar nomes em branco','discente_codigo_buscar.php'));
-array_push($menu,array('Discentes Pós-Graduação','Indentificar códigos inválidos','discente_codigo_invalido.php'));
+array_push($menu,array('Discentes Pós-Graduação','Indentificar códigos inválidos (pós-graduação)','discente_codigo_invalido.php'));
+array_push($menu,array('Discentes Pós-Graduação','Indentificar códigos inválidos (IC/IT)','discente_codigo_invalido_2.php'));
 array_push($menu,array('Discentes Pós-Graduação','Cadastro duplicados','discente_orientacoes_duplicadas.php'));
 
 $tela = menus($menu,"3");

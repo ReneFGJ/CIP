@@ -254,7 +254,30 @@ class pibic_bolsa_contempladas{
 				}
 			}
 	
-		
+	function discentes_com_erro_codigo()
+		{
+				$ano = $this->recupera_ano_ativo();
+				$sql = "select * from ".$this->tabela." 
+						inner join pibic_professor on pb_professor = pp_cracha
+						left join pibic_aluno on pb_aluno = pa_cracha
+						left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+						left join apoio_titulacao on ap_tit_codigo = pp_titulacao
+						left join centro on centro_codigo = pp_escola
+						where (pb_status = 'A' or pb_status = 'F') 
+						and pa_cracha is null
+						and pb_ano = '$ano'
+						order by centro_nome, pp_curso, pp_nome
+						";
+
+				$rlt = db_query($sql);
+				$sx = '<table>';
+				while ($line = db_read($rlt))
+				{
+					$sx .= $this->mostra_simples($line);
+				}
+				$sx .= '</table>';
+				return($sx);
+		}
 	function recupera_ano_ativo()
 			{
 				$mes = date("m");
@@ -266,9 +289,11 @@ class pibic_bolsa_contempladas{
 					}
 				return($ano);
 			}
-	function orientacoes_ativos($ano1='',$ano2='')
+	function orientacoes_ativos($ano1='',$ano2='',$tipo='')
 		{
-				$sql = "select count(*) as total,  centro_nome, pp_curso, 
+				if ($tipo == 'C') { $wh = " and pp_ss <> 'S' "; }
+				if ($tipo == 'B') { $wh = " and pp_ss = 'S' "; }
+				$sql = "select count(*) as total,  centro_nome, pp_curso, pp_escola,
 							pp_nome, pp_cracha, pp_centro, pp_ativo, pp_ss
 						from ".$this->tabela." 
 						inner join pibic_professor on pb_professor = pp_cracha
@@ -278,14 +303,16 @@ class pibic_bolsa_contempladas{
 						left join centro on centro_codigo = pp_escola
 						left join ajax_areadoconhecimento on pb_semic_area = a_cnpq
 						where pb_ano between '$ano1' and '$ano2'
-						and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')
-						and (pb_status <> 'C' and pb_status <> 'X' and pb_status <> 'S') 
-						group by pp_nome, pp_cracha, centro_nome, pp_curso, pp_centro, pp_ativo, pp_ss
+						and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS' or pbt_edital = 'PIBICEM')
+						and (pb_status <> 'C' and pb_status <> 'X' and pb_status <> 'S')
+						$wh 
+						and pp_escola <> '00012'
+						group by pp_nome, pp_cracha, centro_nome, pp_curso, pp_centro, pp_ativo, pp_ss, pp_escola
 						order by centro_nome, pp_curso, pp_nome, pp_cracha, pp_centro
 						";
 				$rlt = db_query($sql);
 
-				$sx = '<table border=1>';
+				$sx = '<table border=0 class="tabela00">';
 				$sx .= '<TR><TH>Escola
 							<TH>Curso professor
 							<TH>Cracha
@@ -298,7 +325,6 @@ class pibic_bolsa_contempladas{
 				$tot2 = 0;
 				while ($line = db_read($rlt))
 					{
-						$tot++;
 						$cor = '<font color="black">';
 						$ativo = $line['pp_ativo'];
 						if ($ativo != 1) { $cor = '<font color="red">'; }
@@ -4403,6 +4429,7 @@ $sa .= '</TR>';
 		
 	function mostra_simples($line)
 			{
+			global $http;
 			$centro = $line['pa_centro'];
 			$curso = $line['pa_curso'];
 			$prof  = $line['pp_cracha'];
@@ -4410,7 +4437,7 @@ $sa .= '</TR>';
 			$edital = trim($line['pbt_edital']);
 			$doc_protocolo = $line['pb_protocolo'];
 			$area = trim($line['a_descricao']);
-			$link = '<A HREF="pibic_detalhe.php?dd0='.trim($doc_protocolo).'&dd90='.checkpost($doc_protocolo).'">';
+			$link = '<A HREF="'.$http.'pibicpr/pibic_detalhe.php?dd0='.trim($doc_protocolo).'&dd90='.checkpost($doc_protocolo).'">';
 			$idioma = trim($line['pb_semic_idioma']);
 			
 			$sx .= '<TR '.coluna().' >';

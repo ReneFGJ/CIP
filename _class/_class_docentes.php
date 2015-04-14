@@ -1067,12 +1067,22 @@ class docentes {
         }
 
         
-		$sql = "select * from docente_orientacao 
-					left join pibic_professor on od_professor = pp_cracha
+		$sql = "select orientador.pp_cracha as or_cracha,
+					orientador.pp_nome as or_nome, id_od,
+					coorientador.pp_nome as co_nome, 
+					posln_descricao, od_modalidade,
+					od_aluno, od_coorientador, od_ano_ingresso, od_ano_diplomacao,
+					pa_cracha, pa_nome
+					
+				from docente_orientacao 
+					left join pibic_professor as orientador on od_professor = orientador.pp_cracha
+					left join pibic_professor as coorientador on od_coorientador = coorientador.pp_cracha
+					
 					left join pibic_aluno on od_aluno = pa_cracha
 					left join programa_pos_linhas on od_linha = posln_codigo
+										
 					where od_programa = '$programa'".$whProf."
-					order by pp_nome, posln_descricao, od_ano_ingresso desc, od_modalidade";
+					order by orientador.pp_nome, posln_descricao, od_ano_ingresso desc, od_modalidade";
         
 		$totd = 0;
 		$toto = 0;
@@ -1088,21 +1098,15 @@ class docentes {
 
 		while ($line = db_read($rlt)) {
 			$link = '<A HREF="discente_detalhe.php?dd0=' . $line['od_aluno'] . '&dd90=' . checkpost($line['od_aluno']) . '" clsas="link">';
-			$prof = trim($line['pp_cracha']);
+			$prof = trim($line['or_cracha']);
 			if ($xprof != $prof) {
 				$sx .= '<TR class="lt2" ' . coluna() . '>';
-				$sx .= '<TD colspan=6><B>' . $line['pp_nome'] . ' (' . $line['od_professor'] . ')';
+				$sx .= '<TD colspan=6><B>' . $line['or_nome'] . ' (' . $line['or_cracha'] . ')';
 				$sx .= $sh;
 				$xprof = $prof;
 			}
-            if($line['od_coorientador'] != ""){
-                $codCoorientador = $line['od_coorientador'];
-                $coorientadorLinha = "SELECT id_pp, pp_nome, pp_nome_asc 
-                                      FROM pibic_professor 
-                                      WHERE pp_cracha = '$codCoorientador'";
-                $rltCo = db_query($coorientadorLinha);
-                $rsCo = db_read($rltCo);
-                $coorientador = $rsCo['pp_nome'] ." (".$line['od_coorientador'].")";
+            if(trim($line['od_coorientador']) != ""){
+                 $coorientador = $line['co_nome'] ." (".$line['od_coorientador'].")";
             }else{
                 $coorientador = "";
             }
@@ -1119,12 +1123,14 @@ class docentes {
 			$sx .= '<TD class="tabela01" align="center">' . $this -> mostra_ano($line['od_ano_ingresso']);
 			$sx .= '<TD class="tabela01" align="center">' . $this -> mostra_ano($line['od_ano_diplomacao']);
 			$sta = trim($line['od_status']);
-			$sx .= '(' . $sta . ')';
+			//$sx .= '(' . $sta . ')';
 			if ($line['od_ano_diplomacao'] > date("Ymd")) { $sta = 'C';
 			}
 			$sx .= '<TD class="tabela01">' . $stt[$sta];
 			$sx .= '<TD>';
-			$sx .= '<A HREF="discente_orientacao_ed.php?dd0=' . $line['id_od'] . '" target="_NEW"><img src="../img/icone_editar.gif"></A>';
+			$sx .= '<A HREF="discente_orientacao_ed.php?dd0=' . $line['id_od'] . '" target="_NEW">
+						<img src="../img/icone_editar.gif">
+					</A>';
             
 		}
 		$sx .= '</table>';
@@ -1273,12 +1279,12 @@ class docentes {
 		$cp = array();
 		$sta = $this -> status_op();
 		array_push($cp, array('$H8', 'id_od', '', False, True));
+		array_push($cp, array('$Q pos_nome:pos_codigo:select * from programa_pos where pos_ativo=1 order by pos_nome', 'od_programa', 'Programa', True, True));
 		array_push($cp, array('$S8', 'od_professor', 'Professor Orientador (cracha)', True, True));
 		array_push($cp, array('$S8', 'od_aluno', 'Estudante (cracha)', True, True));
         array_push($cp, array('$S8', 'od_coorientador', 'Professor Coorientador (cracha)', False, True));
 
 		array_push($cp, array('${', '', 'Nível', False, True));
-		array_push($cp, array('$Q pos_nome:pos_codigo:select * from programa_pos where pos_ativo=1 order by pos_nome', 'od_programa', 'Programa', True, True));
 		array_push($cp, array('$O : &M:Mestrado&D:Doutorado&P:Pós-Doutorado', 'od_modalidade', 'Nível', True, True));
 		array_push($cp, array('$Q posln_descricao:posln_codigo:select * from programa_pos_linhas where posln_ativo = 1 order by posln_descricao', 'od_linha', 'Linha', False, True));
 		array_push($cp, array('$O ' . $sta, 'od_status', 'Status', True, True));
@@ -1287,7 +1293,7 @@ class docentes {
 		array_push($cp, array('${', '', 'Data', False, True));
 		array_push($cp, array('$S4', 'od_ano_ingresso', 'Ano de ingresso', True, True));
 		array_push($cp, array('$S4', 'od_ano_diplomacao', 'Ano de titulação', True, True));
-		array_push($cp, array('$M', '', '<font color=green> Informar o ano de previsão ou \'zero\'</font>', False, True));
+		array_push($cp, array('$M', '', '<font color=green>  Informar o ano de previsão ou "0" (zero)</font>', False, True));
 		//array_push($cp,array('$O A:Ativo&T:Titulado&R:Trancado&C:Cursando','od_status','Status',True,True));
 		array_push($cp, array('$D8', 'od_qualificacao', 'Qualificação', False, True));
 		// od_re_qualificacao
@@ -1297,14 +1303,14 @@ class docentes {
 		array_push($cp, array('$D8', 'od_creditos', 'Integralização dos créditos', False, True));
 		array_push($cp, array('$}', '', 'Idioma 1', False, True));
 
-		array_push($cp, array('${', '', 'Idioma 1', False, True));
-		array_push($cp, array('$D8', 'od_idioma_1', 'Idioma 1', False, True));
-		array_push($cp, array('$S3', 'od_idioma_1_tipo', 'Idioma 1', False, True));
+		array_push($cp, array('${', '', 'Proficiencia - Idioma 1', False, True));
+		array_push($cp, array('$D8', 'od_idioma_1', 'Certificação', False, True));
+		array_push($cp, array('$O : &en:Inglês&fr:Francês&ge:Alemão&es:Espanhol', 'od_idioma_1_tipo', 'Idioma 1', False, True));
 		array_push($cp, array('$}', '', 'Idioma 1', False, True));
 
-		array_push($cp, array('${', '', 'Idioma 2', False, True));
-		array_push($cp, array('$D8', 'od_idioma_2', 'Idioma 2', False, True));
-		array_push($cp, array('$S3', 'od_idioma_2_tipo', 'Idioma 2', False, True));
+		array_push($cp, array('${', '', 'Proficiencia - Idioma 2', False, True));
+		array_push($cp, array('$D8', 'od_idioma_2', 'Certificação', False, True));
+		array_push($cp, array('$O : &en:Inglês&fr:Francês&ge:Alemão&es:Espanhol', 'od_idioma_2_tipo', 'Idioma 2', False, True));
 		array_push($cp, array('$}', '', 'Idioma 1', False, True));
 
 		array_push($cp, array('$T70:4', 'od_titulo_projeto', 'Título do projeto', False, True));
@@ -1317,7 +1323,35 @@ class docentes {
 		return ($cp);
 
 	}
+	function cp_docente_orientacoes_mini() {
+		$cp = array();
+		$sta = $this -> status_op();
+		array_push($cp, array('$H8', 'id_od', '', False, True));
+		array_push($cp, array('$Q pos_nome:pos_codigo:select * from programa_pos where pos_ativo=1 order by pos_nome', 'od_programa', 'Programa', True, True));
+		array_push($cp, array('$S8', 'od_professor', 'Professor Orientador (cracha)', True, True));
+		array_push($cp, array('$S8', 'od_aluno', 'Estudante (cracha)', True, True));
+        array_push($cp, array('$S8', 'od_coorientador', 'Professor Coorientador (cracha)', False, True));
 
+		array_push($cp, array('${', '', 'Nível', False, True));
+		array_push($cp, array('$O : &M:Mestrado&D:Doutorado&P:Pós-Doutorado', 'od_modalidade', 'Nível', True, True));
+		array_push($cp, array('$Q posln_descricao:posln_codigo:select * from programa_pos_linhas where posln_ativo = 1 order by posln_descricao', 'od_linha', 'Linha', False, True));
+		array_push($cp, array('$O ' . $sta, 'od_status', 'Status', True, True));
+		array_push($cp, array('$}', '', 'Nível', False, True));
+
+		array_push($cp, array('${', '', 'Data', False, True));
+		array_push($cp, array('$S4', 'od_ano_ingresso', 'Ano de ingresso', True, True));
+		array_push($cp, array('$S4', 'od_ano_diplomacao', 'Ano de titulação', True, True));
+		array_push($cp, array('$M', '', '<font color=green> Informar o ano de previsão ou "0" (zero)</font>', False, True));
+		//array_push($cp,array('$O A:Ativo&T:Titulado&R:Trancado&C:Cursando','od_status','Status',True,True));
+		array_push($cp, array('$D8', 'od_qualificacao', 'Qualificação', False, True));
+		// od_re_qualificacao
+		array_push($cp, array('$H3', 'od_bolsa', 'Bolsa', False, True));
+		array_push($cp, array('$H8', '', 'Observacao', False, True));
+
+		array_push($cp, array('$T70:5', 'od_obs', 'Observações', False, True));
+		return ($cp);
+
+	}
 	function enviar_email($subj, $texto, $ss, $link) {
 		$sql = "select * from " . $tabela . " 
 				where pp_ativo = 1 
