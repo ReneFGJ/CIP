@@ -32,6 +32,6 @@
 	   		<?php echo msg("csf_mapa_foot"); ?>
 	   	</div>
 		<!--Chama metodo que gera a relacao dos alunos por curso e pais -->		
-		<?php echo $csf->lista_bolsistas();?>
+		<?php echo $csf->lista_inscritos();?>
 	</div>
 	
