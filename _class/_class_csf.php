@@ -948,14 +948,13 @@ class csf
 				</style>
 				';
 			
-			
 						
                 $sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
 				$sx .= '<table width=600 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
 				$sx .= '<TR>';
-				$sx .= '<TH width=20%>Pais<TH width=13%>Estudantes';
-				$sx .= '<TH width=20%>Pais<TH width=13%>Estudantes';
-				$sx .= '<TH width=20%>Pais<TH width=13%>Estudantes';
+				$sx .= '<TH width=20%>Instituição<TH width=13%>Estudantes';
+				$sx .= '<TH width=20%>Instituição<TH width=13%>Estudantes';
+				$sx .= '<TH width=20%>Instituição<TH width=13%>Estudantes';
 				$sx .= $sq.'</table>';
 			
 				$sx .= '<TR><TD colspan= align=right BGCOLOR="#99FF99 " valign="bottom" >Total de '.$tot.' estudantes do Intercâmbio.';

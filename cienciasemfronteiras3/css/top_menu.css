@@ -1,0 +1,70 @@
+#wizHeader li .prevStep { background-color: #808080; }
+#wizHeader li .prevStep:after { border-left-color:#808080; }
+
+#wizHeader li .currentStep { background-color: #1515C3; }
+#wizHeader li .currentStep:after { border-left-color: #1515C3; }
+
+#wizHeader li xa:hover { background: #FE9400; }
+#wizHeader li a:before
+{
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid white;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: 1px;
+    left: 100%;
+    z-index: 1;
+}
+
+#wizHeader { list-style: none; overflow: hidden; font: 18px Helvetica, Arial, Sans-Serif; margin: 0px; padding: 0px; }
+#wizHeader li { float: left; }
+#wizHeader li a
+{
+    color: white;
+    text-decoration: none;
+    padding: 10px 0 10px 55px;
+    background: brown; /* fallback color */
+    background: hsla(34,85%,35%,1);
+    position: relative;
+    display: block;
+    float: left;
+}
+#wizHeader li a:after
+{
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent; /* Go big on the size, and let overflow hide */
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid hsla(34,85%,35%,1);
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 100%;
+    z-index: 2;
+}
+#wizHeader li:first-child a
+{
+    padding-left: 10px;
+}
+#wizHeader li:last-child
+{
+    padding-right: 50px;
+}
+
+#wizHeader xli a:hover:after
+{
+    border-left-color: #FE9400;
+}
+.proto_menu
+{
+    text-align:center;
+    background-color:#C36615;
+}

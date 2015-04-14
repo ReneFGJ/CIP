@@ -1,0 +1,204 @@
+.topmenu2
+	{
+		font-size: 12px;
+		font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		background-color: #FAFAFA;
+		margin: 0px 0px 0px 0px;
+		text-decoration: none;	
+		color: #505050;	
+	}
+.topmenu2 a
+	{
+		text-decoration: underline;
+		color: #000000;
+	}
+.topmenu2 a:hover
+	{
+		text-decoration: underline;
+		color: #000000;
+	}	
+	
+#content_BOTTON
+	{
+		background-color: #377C9D;
+		width: 790px;
+		padding: 5px 20px 5px 20px;
+		border: 2px solid #808080;
+	}
+	
+#content_TOP
+	{
+		background-color: #E8E8E8;
+		width: 790px;
+		padding: 5px 20px 5px 20px;
+		border: 2px solid #808080;
+	}
+	
+#content
+	{
+		background-color: #E8E8E8;
+		width: 790px;
+		padding: 20px 20px 20px 20px;
+		border: 2px solid #808080;
+	}
+body
+	{
+		background: transparent url('../img/bg.png') repeat-x center top fixed;
+		font-size: 12px;
+		font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		background-color: #FAFAFA;
+		margin: 0px 0px 0px 0px;
+	}
+.ed 
+	{
+		font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		font-size: 12px;		
+	}
+
+	
+.logout
+	{
+		font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		font-size: 10px;
+		text-decoration: none;
+		cursor: pointer;	
+		color: #FAFAFA;
+	}
+
+.logout:hover
+	{
+		color: #C0C0C0;
+		font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+		font-size: 10px;
+		text-decoration: underline;	
+		color: #A0A0FF;	
+	}
+
+#topcab
+	{
+		position: absolute;
+		top: 24px;
+		left:10px;
+	}
+.topmenu
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #A0A0FF;	
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.topmenu a
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-decoration: none;
+	color: #A0A0FF;	
+}
+
+.topmenu a hover
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-decoration: underline;
+	color: #FFFFFF;	
+}
+
+.lt5
+	{
+  	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size:36px;
+	color:#990000;
+	text-align:center;
+	}	
+	
+.lt4
+	{
+  	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size:24px;
+	color:#000000;
+	text-align:justify;
+	}		
+
+.lt3
+	{
+  	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#000000;
+	text-align:justify;
+	}	
+	
+.lt2
+	{
+  	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#000000;
+	text-align:justify;
+	}	
+	
+.lt1
+	{
+  	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+	text-align:justify;
+	}					
+.lt0
+	{
+  	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#000000;
+	text-align:justify;
+	}
+
+/* AJAX - JQUERY */
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu;
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}
+
