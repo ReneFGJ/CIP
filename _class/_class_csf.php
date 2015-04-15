@@ -809,6 +809,7 @@ class csf
     			return($sx);
 		}
 
+
 //------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------	
 		function world_mapa_estudantes()
@@ -868,17 +869,33 @@ class csf
 			$selectRegion = 'US';
 				
 			$sx .= '
-						<form method=POST >
-							  <input type=submit name=botao value=Inicio>
-							  <input type=submit name=botao1 value=América_Sul>
-							  <input type=submit name=botao2 value=América_Norte>
-							  <input type=submit name=botao3 value=Europa>
-							  <input type=submit name=botao4 value=África>
-							  <input type=submit name=botao5 value=Ásia>
-							  <input type=submit name=botao6 value=Oceania>
-							  <input type=submit name=botao7 value=América_Central>						
-						 </form>
-					 ';
+				<form method=POST>	
+					<section>
+				          <div class="tabs tabs-style-iconbox">
+			            	<nav>
+				              <ul>
+				                <li><button type=submit name=botao   value=Inicio>			<a href="#section-iconbox-1">Todos</a></button></li>
+				                <li><button type=submit name=botao1  value=América_Sul>		<a href="#section-iconbox-2">América do Norte</a></button></li>
+				                <li><button type=submit name=botao2  value=América_Norte>	<a href="#section-iconbox-3">Ásia</a></button></li>
+				                <li><button type=submit name=botao3  value=Europa>			<a href="#section-iconbox-4">Europa</a></button></li>
+				                <li><button type=submit name=botao4  value=África>			<a href="#section-iconbox-5">África</a></button></li>
+				                <li><button type=submit name=botao5  value=Oceania>			<a href="#section-iconbox-6">Oceania</a></button></li>
+				              </ul>
+				            </nav>
+				            
+				           <div class="content-wrap">
+				              <section id="section-iconbox-1"><p>1</p></section>
+				              <section id="section-iconbox-2"><p>2</p></section>
+				              <section id="section-iconbox-3"><p>3</p></section>
+				              <section id="section-iconbox-4"><p>4</p></section>
+				              <section id="section-iconbox-5"><p>5</p></section>
+				              <section id="section-iconbox-6"><p>6</p></section>
+				            </div><!-- /content -->
+				          </div><!-- /tabs -->
+				      </section>
+					</form>	
+				';
+					 
 				if(isset($_POST["botao1"])){
 				$selectRegion = $selectRegion;
 				$sx = $sx;
