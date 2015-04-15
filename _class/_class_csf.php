@@ -810,36 +810,29 @@ class csf
 		}
 
 
-//------------------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------------------	
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: world_mapa_estudantes()
+ *          Monta o mapa por continente ou regiao da pagina do CsF
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 05/04/2015
+ */	
 		function world_mapa_estudantes()
 			{
-				/**
-				$sql = "select count(*) as total, pb_colegio_orientador 
-				 *      from pibic_bolsa_contempladas 
-						inner join pibic_aluno on pb_aluno = pa_cracha
-						where (pb_tipo = 'S')
-						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
-						group by pb_colegio_orientador
-						order by pb_colegio_orientador
-						 ";
-				$rlt = db_query($sql);
-				*/
-				
-				$sql2 = "select distinct inst_lat, inst_log, inst_nome, count(*) as total
+				$sql = "select distinct inst_lat, inst_log, inst_nome, count(*) as total
 				         from instituicao
 				         where inst_lat <> '' and inst_log <> '' 
 						 group by inst_lat, inst_log, inst_nome
 						 order by inst_nome	
 						 ";
-				$rlt2 = db_query($sql2);				
+				$rlt = db_query($sql);				
 				
 				
 				$st = '';
 				$col = 99;
 				$tot = 0;
 				
-				while ($line = db_read($rlt2))
+				while ($line = db_read($rlt))
 						{
 							$paisn     = trim($line['inst_nome']);
 							$pais      = trim($line['inst_nome']);
@@ -929,7 +922,6 @@ class csf
 				$sx = $sx;
 				}
 				
-				
 				$sx .= '
 			        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 					<script type="text/javascript">
@@ -965,8 +957,7 @@ class csf
 					}
 				</style>
 				';
-			
-						
+
                 $sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
 				$sx .= '<table width=600 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
 				$sx .= '<TR>';
@@ -980,86 +971,9 @@ class csf
 
 				return($sx);				
 			}
-		
-	
-//************************************************************************************************************	
-/**
-		function world_mapa_estudantes()
-			{
-				
-				$sql = "select count(*) as total, pb_colegio_orientador from pibic_bolsa_contempladas 
-						inner join pibic_aluno on pb_aluno = pa_cracha
-						where (pb_tipo = 'K' or pb_tipo = 'S'  or pb_tipo = 'T' or pb_tipo = 'W')
-						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
-						group by pb_colegio_orientador
-						order by pb_colegio_orientador
-						 ";
-				$rlt = db_query($sql);
-				$st = '';
-				$col = 99;
-				while ($line = db_read($rlt))
-					{
-					$paisn = trim($line['pb_colegio_orientador']);
-					$pais = uppercasesql(trim($line['pb_colegio_orientador']));
-					
-					if ($pais == 'EUA') { $pais = 'United States'; }
-					if ($pais == 'BELGICA') { $pais = 'Belgium'; }
-					if ($pais == 'Hong Kong') { $pais = 'HK'; }
-					if ($pais == 'ESCOCIA') { $pais = 'United Kingdom'; }
 
-					if (strlen($pais) > 0)
-						{
-							if ($col > 2) { $col = 0; $sq .= '<TR>'; }
-							$sq .= '<TD>'.$paisn.'<TD align="center">'.$line['total'];
-							$col++;
-							if (strlen($st) > 0) { $st .= ', '.chr(13).chr(10); }
-							$st .= '[\''.$pais.'\','.$line['total'].']';
-						}
-					}
-				$sx .= '
-  					<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-  					<script type="text/javascript">
-    				google.load(\'visualization\', \'1\', {packages: [\'geochart\']});
-    			    function drawVisualization() {
-						var options = {
-        				backgroundColor: \'#FF0000\',
-        				displayMode: \'markers\',
-        				colorAxis: {minValue: 0,  colors: [\'#FF0000\', \'#00FF00\']}
-      					};      	
-					var data = google.visualization.arrayToDataTable([
-        				[\'País\', \'Estudantes\'],
-        				'.$st.'
-      				]);
-      			 var geochart = new google.visualization.GeoChart(
-          				document.getElementById(\'visualization\'));
-      					geochart.draw(data, {width: 740, height: 347});
-    				}
-			    google.setOnLoadCallback(drawVisualization);
-  				</script>
-	
-				<div id="visualization" style="z-index:0;"></div>
-				<div style="text-align: justify">Mapa</div>
-			
-				<style>
-					#visualization
-					{
-					width: 740px;
-					border: 2px solid #C0C0C0;
-					}
-				</style>';
-				
-				$sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
-				$sx .= '<table width=600 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
-				$sx .= '<TR>';
-				$sx .= '<TH width=20%>Pais<TH width=13%>Estudantes';
-				$sx .= '<TH width=20%>Pais<TH width=13%>Estudantes';
-				$sx .= '<TH width=20%>Pais<TH width=13%>Estudantes';
-				$sx .= $sq.'</table>';
-				return($sx);				
-			}	
- */		
-//------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------	
+//**************************** Fim do metodo *****************************************		
+
 		
 		function total_bolsistas()
 			{
