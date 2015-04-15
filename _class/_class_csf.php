@@ -859,24 +859,57 @@ class csf
 						
 						}
 	
-			$selectRegion = 'AM';
+			$selectRegion = '001';
 				
 			$sx .= '
 				<form method=POST>	
-					<section>
-				          <div class="tabs tabs-style-iconbox">
-			            	<nav>
-				              <ul>
-				                <li><button type=submit name=botao1  value=Todos>			<a href="#section-iconbox-1">Todos</a></button></li>
-				                <li><button type=submit name=botao2  value=America_Norte>	<a href="#section-iconbox-2">América do Norte</a></button></li>
-				                <li><button type=submit name=botao3  value=Asia>			<a href="#section-iconbox-3">Ásia</a></button></li>					                
-				                <li><button type=submit name=botao4  value=Europa>			<a href="#section-iconbox-4">Europa</a></button></li>				                
-				                <li><button type=submit name=botao5  value=Oceania>			<a href="#section-iconbox-5">Oceania</a></button></li>				                
-				              </ul>
-				            </nav>
-				            
-				          </div><!-- /tabs -->
-				      </section>
+			        <section>
+			          <div class="tabs tabs-style-iconbox">
+			
+			                    <nav>
+			                      <ul>
+			                        <li>
+			                          <a href="#section-iconbox-1">
+			                            <input type=submit name=botao1  value=Todos style="background-color: none;"></input>
+			                          </a>
+			                        </li>
+			
+			                        <li>
+			                          <a href="#section-iconbox-1">
+			                            <input type=submit name=botao2  value=America_Norte></input>
+			                          </a>
+			                        </li>
+			
+			                        <li>
+			                          <a href="#section-iconbox-1">
+			                            <input type=submit name=botao3  value=Asia></input>
+			                          </a>
+			                        </li>
+			
+			                        <li>
+			                          <a href="#section-iconbox-1">
+			                            <input type=submit name=botao4  value=Europa></input>
+			                          </a>
+			                        </li> 
+			
+			                        <li>
+			                          <a href="#section-iconbox-1">
+			                            <input type=submit name=botao5  value=Oceania></input>
+			                          </a>
+			                        </li>                     
+			                      </ul>
+			                    </nav>
+																
+			            <div class="content-wrap">
+			              <section id="section-iconbox-1"></section>
+			              <section id="section-iconbox-2"></section>
+			              <section id="section-iconbox-3"></section>
+			              <section id="section-iconbox-4"></section>
+			              <section id="section-iconbox-5"></section>
+			            </div>
+			          </div><!-- /tabs -->
+			      </section>
+
 					</form>	
 				';
 				//Word	 
