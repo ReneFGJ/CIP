@@ -3590,6 +3590,7 @@ $sa .= '</TR>';
 									if ($edital == 'PIBIC') { $ai[$y][1] = $ai[$y][1] +1; }
 									if ($edital == 'PIBITI') { $ai[$y][2] = $ai[$y][2] +1; }
 									if ($edital == 'PIBICE') { $ai[$y][3] = $ai[$y][3] +1; }
+									if ($edital == 'PIBIC_EM') { $ai[$y][3] = $ai[$y][3] +1; }
 								}
 						}
 				}

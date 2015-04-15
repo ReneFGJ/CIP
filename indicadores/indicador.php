@@ -9,6 +9,8 @@ array_push($menu,array('Captação de Recursos','Captação de Recursos','indicador_
 
 array_push($menu,array('Corpo Docente','Corpo docente','indicador_docentes.php'));
 
+array_push($menu,array('Flux Discente','Fluxo Discente','indicador_discentes_pos.php'));
+
 
 array_push($menu,array('Panorama da Pesquisa','Iniciação Científica e Tecnológica','indicadores_ic.php'));
 array_push($menu,array('Panorama da Pesquisa','Pós-Graduação','indicadores_pos.php'));

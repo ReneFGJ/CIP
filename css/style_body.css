@@ -1,7 +1,8 @@
 body{
 	background-color: #f7f7f6;
 	margin: 0px 0px 0px 0px;
-	
+	font-family: 'CICPG','Roboto', sans-serif, arial;
+	font-size: 12px;	
 }
 
 p{

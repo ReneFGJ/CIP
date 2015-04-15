@@ -1,8 +1,9 @@
 <?php
-require("cab.php");
-
+require('cab.php');
+exit;
 $sql = "
-UPDATE articles set article_publicado = 'S' where article_publicado = '1'
+
 ";
 $rlt = db_query($sql);
+echo 'OK!';
 ?>
