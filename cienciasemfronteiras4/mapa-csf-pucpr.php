@@ -35,8 +35,6 @@
         <?php
         require('componentes/nav.php');
         ?>
-	
-
 
         <div class="page-header">
           <h1>Mapa</h1>
@@ -60,9 +58,7 @@
               </ul>
             </nav>
             <div class="content-wrap">
-              <section id="section-iconbox-1">
-                <p>1</p>
-              </section>
+              <section id="section-iconbox-1"><p>1</p></section>
               <section id="section-iconbox-2"><p>2</p></section>
               <section id="section-iconbox-3"><p>3</p></section>
               <section id="section-iconbox-4"><p>4</p></section>
@@ -71,10 +67,11 @@
             </div><!-- /content -->
           </div><!-- /tabs -->
       </section>
+  
 
-
-      
-
+	<?php
+	require("index_students.php");
+	?>
 
       <!-- FOOTER -->
       <footer>
