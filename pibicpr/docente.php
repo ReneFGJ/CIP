@@ -25,7 +25,7 @@ echo 'Link rápido de acesso: '.$dis->shortlink.'<BR><BR><BR>';
 
 echo $dis->blacklist();
 echo '<A HREF="docente_bl.php?dd0='.$dd[0].'">';
-echo 'Editar Black List';
+echo 'Editar Penalidades';
 echo '</A>';	
 echo '<BR>';
 

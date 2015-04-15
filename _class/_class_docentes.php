@@ -788,9 +788,9 @@ class docentes {
 		if (($bl == '1') or ($bl == 'S')) {
 			$sx .= '<div>';
 			$sx .= '<img src="../img/icone_exclamation.png" height="50" align="left">';
-			$sx .= '<B>BLACK LIST</B><BR>';
-			$sx .= $this -> line['pp_bl_motivo'];
-			$sx .= '</div>';
+			$sx .= '<H1 CLASS="cinza"><B>Lista de Penalidade(s)</B><BR>';
+			$sx .= '<span class="lt2">'.$this -> line['pp_bl_motivo'].'</span>';
+			$sx .= '</H1></div>';
 		}
 		return ($sx);
 	}
@@ -1069,7 +1069,7 @@ class docentes {
         
 		$sql = "select orientador.pp_cracha as or_cracha,
 					orientador.pp_nome as or_nome, id_od,
-					coorientador.pp_nome as co_nome, 
+					coorientador.pp_nome as co_nome, od_status, 
 					posln_descricao, od_modalidade,
 					od_aluno, od_coorientador, od_ano_ingresso, od_ano_diplomacao,
 					pa_cracha, pa_nome
@@ -1310,7 +1310,7 @@ class docentes {
 
 		array_push($cp, array('${', '', 'Proficiencia - Idioma 2', False, True));
 		array_push($cp, array('$D8', 'od_idioma_2', 'Certificação', False, True));
-		array_push($cp, array('$O : &en:Inglês&fr:Francês&ge:Alemão&es:Espanhol', 'od_idioma_2_tipo', 'Idioma 2', False, True));
+		array_push($cp, array('$O : &en:Inglês&fr:Francês&ge:Alemão&es:Espanhol&it:Italiano', 'od_idioma_2_tipo', 'Idioma 2', False, True));
 		array_push($cp, array('$}', '', 'Idioma 1', False, True));
 
 		array_push($cp, array('$T70:4', 'od_titulo_projeto', 'Título do projeto', False, True));

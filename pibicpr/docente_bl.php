@@ -20,7 +20,20 @@ require($include.'sisdoc_form2.php');
 	echo '<CENTER><font class=lt5>'.msg('titulo').'</font></CENTER>';
 	?><TABLE width="<?=$tab_max;?>" align="center" bgcolor="<?=$tab_color;?>"><TR><TD><?
 	editar();
-	?></TD></TR></TABLE><?	
+	?></TD></TR></TABLE>
+	
+	<UL>
+		<LI>Relatório Parcial
+			<UL>
+				<LI></LI>
+			</UL>	
+		</LI>
+		<LI>Relatório Final</LI>
+		<LI>Apresentação no SEMIC</LI>
+	</UL>
+	
+	
+	<?	
 	
 	/** Caso o registro seja validado */
 	if ($saved > 0)
