@@ -69,9 +69,6 @@
       </section>
   
 
-	<?php
-	require("index_students.php");
-	?>
 
       <!-- FOOTER -->
       <footer>
