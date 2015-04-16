@@ -817,16 +817,19 @@ class csf
  * @author Elizandro Santos de Lima[Analista de Projetos]
  * @date: 05/04/2015
  */	
-		function world_mapa_estudantes()
+	function world_mapa_estudantes()
 			{
-				$sql = "select distinct inst_lat, inst_log, inst_nome, count(*) as total
-				         from instituicao
-				         where inst_lat <> '' and inst_log <> '' 
-						 group by inst_lat, inst_log, inst_nome
-						 order by inst_nome	
-						 ";
+				$sql = "
+						select distinct inst_lat, inst_log, inst_nome, count(*) as total
+						from instituicao
+						inner join pibic_bolsa_contempladas on pb_colegio = inst_nome
+						inner join pibic_aluno on pb_aluno = pa_cracha
+						where (pb_tipo = 'S')
+						and (pb_status <> 'C' and pb_status <> '@')
+						group by inst_lat, inst_log, inst_nome
+						order by inst_nome
+				";
 				$rlt = db_query($sql);				
-				
 				
 				$st = '';
 				$col = 99;
@@ -858,8 +861,8 @@ class csf
 							}
 						
 						}
-	
-			$selectRegion = '001';
+			
+			$selectRegion = 'world';
 				
 			$sx .= '
 				<form method=POST>	
@@ -875,31 +878,32 @@ class csf
 			                        </li>
 			
 			                        <li>
-			                          <a href="#section-iconbox-1">
+			                          <a href="#section-iconbox-2">
 			                            <input type=submit name=botao2  value=America_Norte></input>
 			                          </a>
 			                        </li>
 			
 			                        <li>
-			                          <a href="#section-iconbox-1">
+			                          <a href="#section-iconbox-3">
 			                            <input type=submit name=botao3  value=Asia></input>
 			                          </a>
 			                        </li>
 			
 			                        <li>
-			                          <a href="#section-iconbox-1">
+			                          <a href="#section-iconbox-4">
 			                            <input type=submit name=botao4  value=Europa></input>
 			                          </a>
 			                        </li> 
 			
 			                        <li>
-			                          <a href="#section-iconbox-1">
+			                          <a href="#section-iconbox-5">
 			                            <input type=submit name=botao5  value=Oceania></input>
 			                          </a>
 			                        </li>                     
 			                      </ul>
 			                    </nav>
-																
+						
+															
 			            <div class="content-wrap">
 			              <section id="section-iconbox-1"></section>
 			              <section id="section-iconbox-2"></section>
@@ -907,11 +911,17 @@ class csf
 			              <section id="section-iconbox-4"></section>
 			              <section id="section-iconbox-5"></section>
 			            </div>
+			            
 			          </div><!-- /tabs -->
 			      </section>
 
 					</form>	
 				';
+				
+				
+				
+				
+				
 				//Word	 
 				if(isset($_POST["botao1"])){
 				$selectRegion = $selectRegion;
@@ -954,12 +964,12 @@ class csf
 					var options = {
 					//displayMode: \'markers\',
 					//displayMode:\'text\',
-					displayMode:\'region\',
+					displayMode:\'auto\',
 					colorAxis: {colors: [\'#FFFF00\', \'#CC0000\']},
 					datalessRegionColor: \'#99CCFF\',
-					region: \''.$selectRegion.'\'
-
-					  				};
+					region: \''.$selectRegion.'\',
+					enableRegionInteractivity: \'automatic\'
+				  };
 					map.draw(data, options, {showTip: true});
 			  }
     			</script>
