@@ -461,6 +461,22 @@ class pibic_bolsa_contempladas{
 							<TH>Campus
 							<TH>Carga Horária
 							<TH>Edital
+							<TH>Descrição
+							<TH>Aluno
+							<TH>CPF Aluno
+							<TH>Curso aluno
+							<TH>Colegio
+							<TH>Colegio Orientador
+							<TH>Status
+							<TH>Email prof_Principal
+							<TH>Email prof_Secundario
+							<TH>titulação
+							<TH>Strictu
+							<TH>Email aluno_Principal
+							<TH>Email aluno_Secundario
+							<TH>Área CNPQ
+							<TH>Descrição Área CNPQ
+							<TH>Titulo Projeto	
 
 							';
 				$tot = 0;
@@ -469,52 +485,52 @@ class pibic_bolsa_contempladas{
 						$tot++;
 						$sx .= '<TR>';
 						$sx .= '<TD>';
-						$sx .= $line['centro_nome'];
+						$sx .= ucwords(strtolower($line['centro_nome']));//
 						
 						$sx .= '<TD>';
-						$sx .= $line['pp_curso'];
+						$sx .= ucwords(strtolower($line['pp_curso']));//
 						
 						$sx .= '<TD>';
-						$sx .= $line['pb_protocolo'];
+						$sx .= ucwords(strtolower($line['pb_protocolo']));//
 
 						$sx .= '<TD>';
-						$sx .= $line['pb_ano'];
+						$sx .= $line['pb_ano'];//
 
 						$sx .= '<TD>';
-						$sx .= $line['pp_nome'];
+						$sx .= ucwords(strtolower($line['pp_nome']));//
 										
 						$sx .= '<TD>';
-						$sx .= $line['pp_cpf'];
+						$sx .= $line['pp_cpf'];//
 
 						$sx .= '<TD>';
-						$sx .= $line['pp_centro'];
+						$sx .= ucwords(strtolower($line['pp_centro']));//
 						
 						$sx .= '<TD>';
-						$sx .= $line['pp_carga_semanal'];
+						$sx .= $line['pp_carga_semanal'];//
 						
 						$sx .= '<TD>';
-						$sx .= $line['pbt_edital'];
+						$sx .= $line['pbt_edital'];//
 
 						$sx .= '<TD>';
-						$sx .= $line['pbt_descricao'];
+						$sx .= $line['pbt_descricao'];//
 						
 						$sx .= '<TD>';
-						$sx .= $line['pa_nome'];
+						$sx .= ucwords(strtolower($line['pa_nome']));//
 							
 						$sx .= '<TD>';
-						$sx .= $line['pa_cpf'];
+						$sx .= $line['pa_cpf'];//
 
 						$sx .= '<TD>';
-						$sx .= $line['pa_curso'];
+						$sx .= $line['pa_curso'];//
 
 						$sx .= '<TD>';
-						$sx .= $line['pb_colegio'];
+						$sx .= $line['pb_colegio'];//
 												
 						$sx .= '<TD>';
-						$sx .= $line['pb_colegio_orientador'];
+						$sx .= $line['pb_colegio_orientador'];//
 
 						$sx .= '<TD>';
-						$sta = $line['pb_status'];
+						$sta = $line['pb_status'];//
 						switch ($sta)
 							{
 							case 'A': $sx .= 'Ativo'; break;
@@ -525,32 +541,32 @@ class pibic_bolsa_contempladas{
 							}
 
 						$sx .= '<TD>';
-						$sx .= $line['pp_email'];
+						$sx .= $line['pp_email'];//
 
 						$sx .= '<TD>';
-						$sx .= $line['pp_email_1'];
+						$sx .= $line['pp_email_1'];//
 
 						$sx .= '<TD>';
-						$sx .= $line['ap_tit_titulo'];
+						$sx .= $line['ap_tit_titulo'];//
 
 						$sx .= '<TD>';
-						$sx .= $line['pp_ss'];
+						$sx .= $line['pp_ss'];//
 						
 						$sx .= '<TD>';
-						$sx .= $line['pa_email'];
+						$sx .= $line['pa_email'];//
 
 						$sx .= '<TD>';
-						$sx .= $line['pa_email_1'];		
+						$sx .= $line['pa_email_1'];//		
 										
 						$sx .= '<TD><nobr>';
-						$sx .= $line['a_cnpq'];
+						$sx .= $line['a_cnpq'];//
 						
 						$sx .= '</nobr>';	
 						$sx .= '<TD><nobr>';
-						$sx .= $line['a_descricao'];
+						$sx .= $line['a_descricao'];//
 						
 						$sx .= '<TD><nobr>';
-						$sx .= $line['pb_titulo_projeto'];												
+						$sx .= ucwords(strtolower($line['pb_titulo_projeto']));												
 						$sx .= '</nobr>';													
 					}
 				$sx .= '</table>';

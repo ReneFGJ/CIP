@@ -821,7 +821,7 @@ class csf
 			{
 				global $dd;
 				/* Anterior */
-				$sql = "
+				$sql1 = "
 						select distinct inst_lat, inst_log, inst_nome, count(*) as total
 						from pibic_bolsa_contempladas
 						left join 
@@ -831,7 +831,7 @@ class csf
 						and (pb_status <> 'C' and pb_status <> '@')
 						group by inst_lat, inst_log, inst_nome
 						order by inst_nome
-				";
+						";
 				
 				/* Novo */
 				$sql = "select * from (
@@ -840,8 +840,9 @@ class csf
 							and (pb_status <> 'C' and pb_status <> '@')
 							group by pb_tipo, pb_colegio
 							) as alunos
-						left join 
-							(select distinct inst_nome, inst_log, inst_lat from instituicao) as instituicao on pb_colegio = inst_nome
+							left join 
+							(select distinct inst_nome, inst_log, inst_lat 
+							 from instituicao) as instituicao on pb_colegio = inst_nome
 							";
 				$rlt = db_query($sql);				
 				
@@ -886,41 +887,17 @@ class csf
 				<form method=POST name="mapas" id="mapas">	
 			        <section>
 			          <div class="tabs tabs-style-iconbox">
-			
-			                    <nav>
-			                      <ul>
-			                       <li><button id="botao1"><a href="'.page().'?dd1=world#section-iconbox-1">Todos</a></button></li>
-									<li><button id="botao1"><a href="'.page().'?dd1=021#section-iconbox-1">p2</a></button></li>
-									<li><button id="botao1"><a href="'.page().'?dd1=142#section-iconbox-1">p3</a></button></li>
-									<li><button id="botao1"><a href="'.page().'?dd1=150#section-iconbox-1">p4</a></button></li>
-									<li><button id="botao1"><a href="'.page().'?dd1=009#section-iconbox-1">p5</a></button></li>
-			                        <li>
-			                          <a href="#section-iconbox-2">
-			                            <input type=submit name=botao2  value=America_Norte></input>
-			                          </a>
-			                        </li>
-			
-			                        <li>
-			                          <a href="#section-iconbox-3">
-			                            <input type=submit name=botao3  value=Asia></input>
-			                          </a>
-			                        </li>
-			
-			                        <li>
-			                          <a href="#section-iconbox-4">
-			                            <input type=submit name=botao4  value=Europa></input>
-			                          </a>
-			                        </li> 
-			
-			                        <li>
-			                          <a href="#section-iconbox-5">
-			                            <input type=submit name=botao5  value=Oceania></input>
-			                          </a>
-			                        </li>                     
-			                      </ul>
-			                    </nav>
-						
-															
+	                    <nav>
+	                      <ul>
+	                       <li><button id="botao1"> <a href="'.page().'?dd1=world#section-iconbox-1">Todos</a></button></li>
+							<li><button id="botao1"><a href="'.page().'?dd1=021#section-iconbox-1">America do Norte</a></button></li>
+							<li><button id="botao1"><a href="'.page().'?dd1=142#section-iconbox-1">Ásia</a></button></li>
+							<li><button id="botao1"><a href="'.page().'?dd1=150#section-iconbox-1">Europa</a></button></li>
+							<li><button id="botao1"><a href="'.page().'?dd1=009#section-iconbox-1">Oceania</a></button></li>
+	                        </li>                     
+	                      </ul>
+	                    </nav>
+													
 			            <div class="content-wrap">
 			              <section id="section-iconbox-1"></section>
 			              <section id="section-iconbox-2"></section>
@@ -928,55 +905,24 @@ class csf
 			              <section id="section-iconbox-4"></section>
 			              <section id="section-iconbox-5"></section>
 			            </div>
-			            
 			          </div><!-- /tabs -->
 			      </section>
 
 					</form>	
 				<script>
-				$("#botao1").click(function() { $( "#mapas" ).submit(); });
-				$("#botao2").click(function() { $( "#mapas" ).submit(); });
-				$("#botao3").click(function() { $( "#mapas" ).submit(); });
-				$("#botao4").click(function() { $( "#mapas" ).submit(); });
-				$("#botao5").click(function() { $( "#mapas" ).submit(); });
+					$("#botao1").click(function() { $( "#mapas" ).submit(); });
+					$("#botao2").click(function() { $( "#mapas" ).submit(); });
+					$("#botao3").click(function() { $( "#mapas" ).submit(); });
+					$("#botao4").click(function() { $( "#mapas" ).submit(); });
+					$("#botao5").click(function() { $( "#mapas" ).submit(); });
 				</script>
 				';
 				
-				
-				/*
-				 * if (str)
-				 */
 				if (strlen($dd[1]) > 0)
 					{
 						$selectRegion = $dd[1];
 					}
-				/*
-				//Word	 
-				if(isset($_POST["botao1"])){
-				$selectRegion = $selectRegion;
-				$sx = $sx;
-				}
-				//America_Norte
-				if(isset($_POST["botao2"])){
-				$selectRegion = '021';	
-				$sx = $sx;
-				}
-				//Asia
-				if(isset($_POST["botao3"])){
-				$selectRegion = '142';	
-				$sx = $sx;
-				}
-				//Europa
-				if(isset($_POST["botao4"])){
-				$selectRegion = '150';	
-				$sx = $sx;
-				}
-				//Oceania
-				if(isset($_POST["botao5"])){
-				$selectRegion = '009';	
-				$sx = $sx;
-				}
-				*/
+				
 				$sx .= '
 			        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 					<script type="text/javascript">
@@ -986,7 +932,7 @@ class csf
 					  function drawChart() {
 					    var data = google.visualization.arrayToDataTable([ 
 					      [\'Lat\', \'Long\', \'Name\', \'Students\'],			
-        				 '.$st.'    
+        				  '.$st.'    
 						  ]);
 						
 					var map   = new google.visualization.GeoChart(document.getElementById(\'map_div\'));
