@@ -920,8 +920,6 @@ class csf
 				
 				
 				
-				
-				
 				//Word	 
 				if(isset($_POST["botao1"])){
 				$selectRegion = $selectRegion;
