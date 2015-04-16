@@ -75,6 +75,83 @@ class pibic_bolsa_contempladas{
 	var $pg_valida  = 'pa_relatorio_parcial_ajax.php';
 	var $autores_semic;
 	
+	function parecer_nao_entregues($ano)
+		{
+			/* localiza projetos */
+			/*
+			 * N:--Não aplicável--&A:Em submissão&B:em avaliação&C:aprovado
+			 */
+			$xano = date("Y");
+			$sql = "select distinct
+					pj_cep_status, pj_ceua_status, pj_cep, pj_ceua, pp_abe_09,
+					pb_protocolo, pb_protocolo_mae, pb_titulo_projeto, pp_nome  
+					from ".$this->tabela." 
+					inner join  pibic_projetos on pb_protocolo_mae = pj_codigo
+					inner join  pibic_parecer_".$xano." on pp_protocolo = pb_protocolo and pp_tipo like 'RP%'
+					inner join  pibic_professor on pb_professor = pp_cracha
+					where pb_status = 'A' and pb_ano = '$ano' and pibic_parecer_".$xano.".pp_status = 'B'
+					and (pp_tipo = 'RPAR' or pp_tipo = 'RFIN')
+					and 
+						(
+						pp_abe_09 = 'Não apresentou o protocolo de aprovação'
+						or 
+						pj_cep_status = 'A' or pj_cep_status = 'B' or pj_cep_status = 'C'
+						or
+						pj_ceua_status = 'A' or pj_ceua_status = 'B' or pj_ceua_status = 'C'
+						) 
+					
+					order by pp_nome
+					";						
+			$rlt = db_query($sql);
+			$sx = '<table width="100%" class="tabela00">';
+			$sx .= '<TR><TH>Protocolo</TH>
+					<TH>CEP</TH>
+					<TH>CEUA</TH>
+					<TH>Descrição</TH>
+					<TH>Orientador</TH>
+					</TR>
+					';
+			$it = 0;
+			while ($line = db_read($rlt))
+			{
+				$link = '<A HREF="pibic_detalhe.php?dd0='.$line['pb_protocolo'].'&dd90='.checkpost($line['pb_protocolo']).'" target="new">';
+				$it++;
+				$sx .= '<TR>';
+				$sx .= '<TD class="tabela01" align="center">';
+				$sx .= $link;
+				$sx .= $line['pb_protocolo'];
+				$sx .= '</A>';
+
+				$sx .= '<TD class="tabela01" align="center">';
+				$sa = $line['pj_cep_status'];
+				switch ($sa)
+					{
+					case 'A': $sx .= 'em submissão'; break;
+					case 'C': $sx .= 'submetido'; break;
+					case 'N': $sx .= '-na-'; break;
+					default: $sx .= $sa;
+					}
+				
+				$sx .= '<TD class="tabela01" align="center">';
+				$sa = $line['pj_ceua_status'];
+				switch ($sa)
+					{
+					case 'A': $sx .= 'em submissão'; break;
+					case 'C': $sx .= 'submetido'; break;
+					case 'N': $sx .= '-na-'; break;
+					default: $sx .= $sa;
+					}							
+		
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_abe_09'];
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_nome'];				
+			}
+			$sx .= '</table>';
+			$sx .= 'Total de '.$it.' protocolos não apresentaram o parecer';
+			return($sx);		
+		}	
 	
 	function substituicao_motivo()
 		{

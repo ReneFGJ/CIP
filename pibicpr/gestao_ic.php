@@ -96,6 +96,7 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	array_push($menu,array('Gestão de Bolsas','Desligados com Orientações','docentes_demitidos_com_orientacao.php'));
 
 	array_push($menu,array('Gestão de Bolsas','Bolsas Suspensas','rel_rel_01.php'));
+	array_push($menu,array('Comitê de Ética','Pareceres não enviados','rel_etica_entregas.php'));
 	
 	array_push($menu,array('SEMIC','SEMIC','semic.php'));
 
