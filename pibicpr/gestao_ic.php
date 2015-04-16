@@ -55,6 +55,7 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 
 	array_push($menu,array('Relatório Parcial (Correção)','Avaliação',''));
 	array_push($menu,array('Relatório Parcial (Correção)','__Acompanhamento Avaliação','rpc_av_acompanhamento.php'));
+	array_push($menu,array('Relatório Parcial (Correção)','__Avaliações reprovadas','rp_reprovados.php'));	
 	array_push($menu,array('Relatório Parcial (Correção)','__Indicar avaliador','rpc_indicar_avaliador.php?dd80='.$bolsa));
 
 	array_push($menu,array('Relatório Parcial (Correção)','__Avaliações indicadas','rpc_av_indicadas.php?dd80='.$bolsa));

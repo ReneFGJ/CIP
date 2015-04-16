@@ -16,6 +16,58 @@ class ic_relatorio_parcial
 			return(1);
 		}
 	
+	function relatorio_parcial_reprovado($ano='2010')
+		{
+			global $dd;
+			$pb = new pibic_bolsa_contempladas;
+				$sql = "select * from ".$pb->tabela."
+					left join pibic_parecer_".date("Y")." on pp_protocolo = pb_protocolo and pp_tipo='RPCP' and pp_status = 'B' 
+					inner join pibic_aluno on pb_aluno = pa_cracha 
+					inner join pibic_professor on pb_professor = pp_cracha
+ 					inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+ 					left join ajax_areadoconhecimento on pb_semic_area = a_cnpq
+ 					left join semic_ic_trabalho on sm_codigo = pb_protocolo
+ 					left join centro on pp_escola = centro_codigo 
+					where pb_status <> 'C' and (pb_relatorio_parcial_correcao_nota <> 0)
+					and pb_ano = '".(date("Y")-1)."'
+					order by centro_nome, pp_nome, pa_nome					
+				";
+				$rlt = db_query($sql);
+				$sx = '<table class="tabela00">';
+				$tot = 0;
+				$xesc = 'X';
+				$xpro = 'X';
+				while ($line = db_read($rlt))
+					{
+						if ($dd[1]=='1')
+							{
+							$sql = "update pibic_bolsa_contempladas set pb_semic_nota_original = 222 where pb_protocolo = '".$line['pb_protocolo']."'";
+							$rrr = db_query($sql);
+							}
+
+						$curso = trim($line['pa_curso']);	
+						$tot++;
+						$esc = $line['centro_nome'];
+						$pro = $line['pp_nome'];
+						if ($xesc != $esc)
+							{
+								$sx .= '<TR><TD colspan=5><h1>'.$esc.'</h1>';
+								$xesc = $esc;
+							}
+						if ($xpro != $pro)
+							{
+								$sx .= '<TR><TD>&nbsp;';
+								$sx .= '<TR><TD colspan=5><h4>'.$pro.'</h4>';
+								$xpro = $pro;
+							}
+						$sx .= '<TR class="tabela01"><TD>';
+						$sx .= $pb->mostra_simples($line);							
+					}
+				$sx .= '<TR><TD>Total '.$tot;
+				$sx .= '</table>';
+
+				return($sx);
+		}	
 	
 	function  acompanhamento_avaliacao_estatistica()
 		{
