@@ -55,7 +55,6 @@ if (!(file_exists($arq))) {
 	require ('parecer_resultado_xml_read.php');
 
 	$qst = $tree[0][TREE_NODE_CHILDREN][0][children];
-	print_r($qst);
 	$xq0 = '';
 	$id = 0;
 	for ($r = 0; $r < count($qst); $r++) {

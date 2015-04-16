@@ -817,38 +817,20 @@ class csf
  * @author Elizandro Santos de Lima[Analista de Projetos]
  * @date: 05/04/2015
  */	
-	function world_mapa_estudantes()
+		function world_mapa_estudantes()
 			{
-				global $dd;
-				/* Anterior */
-				$sql = "
-						select distinct inst_lat, inst_log, inst_nome, count(*) as total
-						from pibic_bolsa_contempladas
-						left join 
-							(select distinct inst_nome, inst_log, inst_lat from instituicao) as instituicao on pb_colegio = inst_nome
-						left join pibic_aluno on pb_aluno = pa_cracha
-						where (pb_tipo = 'S')
-						and (pb_status <> 'C' and pb_status <> '@')
-						group by inst_lat, inst_log, inst_nome
-						order by inst_nome
-				";
-				
-				/* Novo */
-				$sql = "select * from (
-							select count(*) as total, pb_colegio, pb_tipo from pibic_bolsa_contempladas 
-							where pb_tipo = 'S' 
-							and (pb_status <> 'C' and pb_status <> '@')
-							group by pb_tipo, pb_colegio
-							) as alunos
-						left join 
-							(select distinct inst_nome, inst_log, inst_lat from instituicao) as instituicao on pb_colegio = inst_nome
-							";
+				$sql = "select distinct inst_lat, inst_log, inst_nome, count(*) as total
+				         from instituicao
+				         where inst_lat <> '' and inst_log <> '' 
+						 group by inst_lat, inst_log, inst_nome
+						 order by inst_nome	
+						 ";
 				$rlt = db_query($sql);				
+				
 				
 				$st = '';
 				$col = 99;
 				$tot = 0;
-				$tot_alunos = 0;
 				
 				while ($line = db_read($rlt))
 						{
@@ -860,15 +842,12 @@ class csf
 						if (strlen($pais) > 0)
 							{
 								$tot++;
-								$tot_alunos = $tot_alunos + $line['total'];
-								if ($col >= 2) 
+								if ($col > 2) 
 									{
 					           		  	$col = 0; 
 					           		    $sq .= '<TR>'; 
 				              		}
-				              	$sty = ' style="border: 1px solid #303030; padding: 2px; margin: 2px;" ';
-				              	$sq .= '<TD align="center" '.$sty.'>'.$line['total'].'</td>';
-				              	$sq .= '<TD '.$sty.'>'.$paisn.'</td>';
+				              	$sq .= '<TD>'.$paisn.'<TD align="center">'.$line['total'];
 								$col++;
 								
 								if (strlen($st) > 0) 
@@ -879,78 +858,27 @@ class csf
 							}
 						
 						}
-			
-			$selectRegion = 'world';
+	
+			$selectRegion = 'AM';
 				
 			$sx .= '
-				<form method=POST name="mapas" id="mapas">	
-			        <section>
-			          <div class="tabs tabs-style-iconbox">
-			
-			                    <nav>
-			                      <ul>
-			                       <li><button id="botao1"><a href="'.page().'?dd1=world#section-iconbox-1">Todos</a></button></li>
-									<li><button id="botao1"><a href="'.page().'?dd1=021#section-iconbox-1">p2</a></button></li>
-									<li><button id="botao1"><a href="'.page().'?dd1=142#section-iconbox-1">p3</a></button></li>
-									<li><button id="botao1"><a href="'.page().'?dd1=150#section-iconbox-1">p4</a></button></li>
-									<li><button id="botao1"><a href="'.page().'?dd1=009#section-iconbox-1">p5</a></button></li>
-			                        <li>
-			                          <a href="#section-iconbox-2">
-			                            <input type=submit name=botao2  value=America_Norte></input>
-			                          </a>
-			                        </li>
-			
-			                        <li>
-			                          <a href="#section-iconbox-3">
-			                            <input type=submit name=botao3  value=Asia></input>
-			                          </a>
-			                        </li>
-			
-			                        <li>
-			                          <a href="#section-iconbox-4">
-			                            <input type=submit name=botao4  value=Europa></input>
-			                          </a>
-			                        </li> 
-			
-			                        <li>
-			                          <a href="#section-iconbox-5">
-			                            <input type=submit name=botao5  value=Oceania></input>
-			                          </a>
-			                        </li>                     
-			                      </ul>
-			                    </nav>
-						
-															
-			            <div class="content-wrap">
-			              <section id="section-iconbox-1"></section>
-			              <section id="section-iconbox-2"></section>
-			              <section id="section-iconbox-3"></section>
-			              <section id="section-iconbox-4"></section>
-			              <section id="section-iconbox-5"></section>
-			            </div>
-			            
-			          </div><!-- /tabs -->
-			      </section>
-
+				<form method=POST>	
+					<section>
+				          <div class="tabs tabs-style-iconbox">
+			            	<nav>
+				              <ul>
+				                <li><button type=submit name=botao1  value=Todos>			<a href="#section-iconbox-1">Todos</a></button></li>
+				                <li><button type=submit name=botao2  value=America_Norte>	<a href="#section-iconbox-2">América do Norte</a></button></li>
+				                <li><button type=submit name=botao3  value=Asia>			<a href="#section-iconbox-3">Ásia</a></button></li>					                
+				                <li><button type=submit name=botao4  value=Europa>			<a href="#section-iconbox-4">Europa</a></button></li>				                
+				                <li><button type=submit name=botao5  value=Oceania>			<a href="#section-iconbox-5">Oceania</a></button></li>				                
+				              </ul>
+				            </nav>
+				            
+				          </div><!-- /tabs -->
+				      </section>
 					</form>	
-				<script>
-				$("#botao1").click(function() { $( "#mapas" ).submit(); });
-				$("#botao2").click(function() { $( "#mapas" ).submit(); });
-				$("#botao3").click(function() { $( "#mapas" ).submit(); });
-				$("#botao4").click(function() { $( "#mapas" ).submit(); });
-				$("#botao5").click(function() { $( "#mapas" ).submit(); });
-				</script>
 				';
-				
-				
-				/*
-				 * if (str)
-				 */
-				if (strlen($dd[1]) > 0)
-					{
-						$selectRegion = $dd[1];
-					}
-				/*
 				//Word	 
 				if(isset($_POST["botao1"])){
 				$selectRegion = $selectRegion;
@@ -976,7 +904,7 @@ class csf
 				$selectRegion = '009';	
 				$sx = $sx;
 				}
-				*/
+				
 				$sx .= '
 			        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 					<script type="text/javascript">
@@ -993,12 +921,12 @@ class csf
 					var options = {
 					//displayMode: \'markers\',
 					//displayMode:\'text\',
-					displayMode:\'auto\',
+					displayMode:\'region\',
 					colorAxis: {colors: [\'#FFFF00\', \'#CC0000\']},
 					datalessRegionColor: \'#99CCFF\',
-					region: \''.$selectRegion.'\',
-					enableRegionInteractivity: \'automatic\'
-				  };
+					region: \''.$selectRegion.'\'
+
+					  				};
 					map.draw(data, options, {showTip: true});
 			  }
     			</script>
@@ -1014,15 +942,14 @@ class csf
 				';
 
                 $sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
-				$sx .= '<table width=100% align=center class="tabela01">';
+				$sx .= '<table width=600 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
 				$sx .= '<TR>';
-				$sx .= '<TH width=10%  align="center">Estudantes<TH width=40%>Instituição';
-				$sx .= '<TH width=10%  align="center">Estudantes<TH width=40%>Instituição';
+				$sx .= '<TH width=20%>Instituição<TH width=13%>Estudantes';
+				$sx .= '<TH width=20%>Instituição<TH width=13%>Estudantes';
+				$sx .= '<TH width=20%>Instituição<TH width=13%>Estudantes';
 				$sx .= $sq.'</table>';
 			
-				$sx .= '<TR><TD colspan=5 align=right BGCOLOR="#99FF99 " valign="bottom" >
-						Total de '.$tot.' instituições destino do Intercâmbio.';
-				//$sx .= "	".$tot_alunos." ";
+				$sx .= '<TR><TD colspan= align=right BGCOLOR="#99FF99 " valign="bottom" >Total de '.$tot.' estudantes do Intercâmbio.';
 				$sx  .= '</table>';	
 
 				return($sx);				
@@ -1034,6 +961,7 @@ class csf
 		function total_bolsistas()
 			{
 				$sql = "select count(*) as total from pibic_bolsa_contempladas 
+						inner join pibic_aluno on pb_aluno = pa_cracha
 						where (pb_tipo = 'S')
 						and (pb_status <> 'C' and pb_status <> '@')
 						 ";

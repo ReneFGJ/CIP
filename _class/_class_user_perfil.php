@@ -232,14 +232,10 @@ class user_perfil
 				where up_usuario = '$user' and
 				up_perfil = '$perfil' ";
 			$rlt = db_query($sql);
-			echo '<BR>'.$sql;
+			
 			if ($line = db_read($rlt))
 				{
-					$sql = "update ".$this->tabela_perfil." 
-							set up_ativo = 1,
-							up_perfil = '$perfil',
-							up_usuario = '$user' 
-							where id_up = ".$line['id_up'];
+					$sql = "update ".$this->tabela_perfil." set up_ativo = 1 where id_up = ".$line['id_up'];
 					$rlt = db_query($sql);
 				} else {
 					$data = date("Ymd");

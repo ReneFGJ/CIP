@@ -1255,18 +1255,7 @@ class docentes {
 
 	function status() {
 
-		$sta = array('A' => 'Ativo (cursando)', 
-						'Q' => 'Qualificado', 
-						'C' => 'Ativo (cursando)', 
-						'O' => 'Requalificado', 
-						'D' => 'Defendido', 
-						'T' => 'Titulado', 
-						'R' => 'Trancado', 
-						'X' => 'Cancelado (pelo discente)', 
-						'Y' => 'Desligado (pelo programa)', 
-						'#' => 'Excluir do sistema (registro duplicado)',
-						'V'=> 'Passagem (Mestrado para Doutorado)'
-						);
+		$sta = array('A' => 'Ativo (cursando)', 'Q' => 'Qualificado', 'C' => 'Ativo (cursando)', 'O' => 'Requalificado', 'D' => 'Defendido', 'T' => 'Titulado', 'R' => 'Trancado', 'X' => 'Cancelado (pelo discente)', 'Y' => 'Desligado (pelo programa)', '#' => 'Excluir do sistema (registro duplicado)');
 		return ($sta);
 
 	}
@@ -1282,7 +1271,6 @@ class docentes {
 		$sta .= '&X:Cancelado (pelo discente)';
 		$sta .= '&Y:Desligado (pelo programa)';
 		$sta .= '&R:Reprovado (pelo programa)';
-		$sta .= '&V:Passagem (Mestrado para Doutorado)';
 		$sta .= '&#:Excluir do sistema (registro duplicado)';
 		return ($sta);
 	}
