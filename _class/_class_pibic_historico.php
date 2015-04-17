@@ -58,7 +58,7 @@ class pibic_historico
 									$sx .= '';
 									break;
 								default:
-									$sx .= '<TR valign="top">';
+									$sx .= '<TR valign="top" style="background-color:red;"> ';
 									$sx .= '<TD class="tabela01">'.stodbr($line['bh_data']);
 									$sx .= '<TD class="tabela01">'.$line['bh_hora'];
 									$sx .= '<TD class="tabela01">'.$line['bh_historico'];

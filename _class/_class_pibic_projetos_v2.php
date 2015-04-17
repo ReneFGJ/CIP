@@ -3697,7 +3697,7 @@ class projetos {
 		/* Number Id do projeto */
 		$sx .= '<TR valign="top">
 								<TD colspan = 5 bgcolor="#606060">
-								<font color="white" style="font-size: 20px;">
+								<font color="#8B7D6B" style="font-size: 18px;">
 								Projeto 
 								' . trim($line['pj_codigo']) . ' - 
 								';
@@ -3712,57 +3712,55 @@ class projetos {
 				$sx .= '<font color="orange"><B>Em submissão</B><font>';
 				break;
 			case 'A' :
-				$sx .= '<font color="white"><B>Submetido em ' . stodbr($line['pj_data']) . '</B><font>';
+				$sx .= '<font color="#8B7D6B"><B>Submetido em ' . stodbr($line['pj_data']) . '</B><font>';
 				break;
 			case 'B' :
-				$sx .= '<font color="white"><B>Submetido em ' . stodbr($line['pj_data']) . '</B><font>';
+				$sx .= '<font color="#8B7D6B"><B>Submetido em ' . stodbr($line['pj_data']) . '</B><font>';
 				break;
 			case 'E' :
-				$sx .= '<font color="white"><B>Avaliação Finalizada</B><font>';
+				$sx .= '<font color="#8B7D6B"><B>Avaliação Finalizada</B><font>';
 				break;
 			case 'C' :
-				$sx .= '<font color="white"><B>Projeto em avaliação</B><font>';
+				$sx .= '<font color="#8B7D6B"><B>Projeto em avaliação</B><font>';
 				break;
 			case 'X' :
 				$sx .= '<font color="red"><B>Cancelado</B><font>';
 				break;
 			case 'D' :
-				$sx .= '<font color="white"><B>Em avaliação</B><font>';
+				$sx .= '<font color="#8B7D6B"><B>Em avaliação</B><font>';
 				break;
 			case 'T' :
-				$sx .= '<font color="white"><B>Em análise da TI</B><font>';
+				$sx .= '<font color="#8B7D6B"><B>Em análise da TI</B><font>';
 				break;
 			case 'P' :
-				$sx .= '<font color="white"><B>Em análise do Comitê Gestor</B><font>';
+				$sx .= '<font color="#8B7D6B"><B>Em análise do Comitê Gestor</B><font>';
 				break;
 			case 'F' :
-				$sx .= '<font color="white"><B>Avaliação Finalizada</B><font>';
+				$sx .= '<font color="#8B7D6B"><B>Avaliação Finalizada</B><font>';
 				break;
 			default :
 				$sx .= '???' . $sta;
 				break;
 		}
 
+$sx .= '<br>';
 		/* Iconografia */
 		$sx .= '<TR valign="top">
-								<TD rowspan=6 width="20">
-								<img src="' . http . 'pibic/img/icone_projeto_professor.png" width=50>';
+				<TD rowspan=4 width="20">
+				<img src="' .http.'pibic/img/icone_projeto_professor.png" width=50>
+				';
 
 		/* Título da Pesquisa */
-
 		$sx .= '<TR valign="top">';
-
 		$sx .= '<TD class="tabela00" colspan=3 align="center">';
 		$sx .= '<font class="lt4"><B>';
 		$sx .= trim($line['pj_titulo']);
 		$sx .= '</font>';
-
+$sx .= '<br>';
 		/* Orientador e protocolo */
-
 		$sx .= '<TR valign="top">';
-		$sx .= '<TD width="10%" class="tabela00" align="right">';
-		$sx .= '<font class="lt0">orientador:</font>';
-
+		$sx .= '<TD width="30%" class="tabela00" align="right">';
+		$sx .= '<font class="lt0" style="font-size: 15px;" color="#1C86EE">Orientador: </font>';
 		$sx .= '<TD class="tabela00">';
 		$sx .= '<font class="lt2" width="80%">';
 		$sx .= $line['ap_tit_titulo'] . ' ';
@@ -3770,16 +3768,17 @@ class projetos {
 		$sx .= ' (' . trim($line['pp_cracha']) . ')';
 		$lattes = trim($line['pp_lattes']);
 		if (strlen($lattes) > 0) {
-			$sx .= ' <A HREF="' . $lattes . '" target="_blank">Lattes</A>';
-		} else {
-			$sx .= '<font color="red">sem lattes</font>';
-		}
-
+				$sx .= ' <A HREF="' . $lattes . '" target="_blank">Lattes</A>';
+			} else {
+				$sx .= '<font color="red">sem lattes</font>';
+			}
 		$sx .= '</font>';
-
+$sx .= '<br>';	
+		/*protocolo */	
 		$sx .= '<TD width="15%" class="tabela00" align="center">';
 		$sx .= '<nobr>Protocolo: <B>' . trim($line['pj_codigo']) . '</B>';
 
+$sx .= '<br>';
 		/* Comentarios */
 		$comment = trim($line['pj_coment']);
 		if ((strlen($comment) > 0) and ($line['pj_status'] == '@')) {
@@ -3791,10 +3790,11 @@ class projetos {
 			$sx .= '<TR><TD colspan=3></td></tr>';
 		}
 
+$sx .= '<br>';
 		/* dados complementares */
 		$sx .= '
-						<TR><TD colspan=3>
-						<table width="600" align="right" bgcolor="#D0D0D0" border=1>';
+				<TR><TD colspan=3>
+				<table width="600" align="right" bgcolor="#D0D0D0" border=1>';
 
 		/* area */
 		$sx .= '<TR><TD align="right" class="tabela00">';
@@ -3835,7 +3835,7 @@ class projetos {
 			require ("../pibic/_ged_config_submit_pibic.php");
 			$ged -> protocol = trim($line['pj_codigo']);
 			$sx .= '<TR>
-										<td colspan=3 class="tabela00">Arquivos:';
+					<td colspan=3 class="tabela00">Arquivos:';
 			if ($edit == 1) {
 				$sx .= $ged -> filelist();
 			} else {
