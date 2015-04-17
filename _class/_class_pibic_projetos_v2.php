@@ -21,126 +21,163 @@ class projetos {
 	var $status = '@';
 
 	var $ano;
-	
-	function areas_mostra($c)
-		{
-			if ($c=='E') { $sx = '<font style="color: #006b9f; font-size: 30px;">Ciências Exatas</font>'; }
-			if ($c=='H') { $sx = '<font style="color: #ff0000; font-size: 30px;">Ciências Humanas</font>'; }
-			if ($c=='S') { $sx = '<font style="color: #ff0000; font-size: 30px;">Ciências Sociais Aplicadas</font>'; }
-			if ($c=='V') { $sx = '<font style="color: #00A000; font-size: 30px;">Ciências da Vida</font>'; }
-			if ($c=='A') { $sx = '<font style="color: #009000; font-size: 30px;">Ciências Agrárias</font>'; }
-			return($sx);
+
+	function valida_limite_submissao($orientador) {
+		global $ttt;
+		$sql = "select * from pibic_professor where pp_cracha = '" . $orientador . "' ";
+		$rlt = db_query($sql);
+		if ($line = db_read($rlt)) {
+			$ok = 0;
+			$titu = trim($line['pp_titulacao']);
+
+			/* Limites */
+
+			if ($titu == '002') { $ok = 4;
+			}/* Doutor */
+			if ($titu == '001') { $ok = 2;
+			}/* Mestre */
+			//if ($titu == '008') { $ok = 1 ; } /* Pós-Graduação */
+			if ($titu == '003') { $ok = 4;
+			}/* Doutora */
+			if ($titu == '006') { $ok = 4;
+			}/* PhD */
+			// if ($titu == '011') { $ok = 1 ; } /* Doutorando */
+			if (trim($line['pp_centro']) == 'DOUTORANDO') { $ok = 2;
+			}
+			if (trim($line['pp_centro']) == 'POSDOUTORANDO') { $ok = 2;
+			}
 		}
-	
-	
-	function mostra_edital($ano,$bolsa,$modalidade,$tipo='')
-		{	
-			$sql = "select * from pibic_submit_documento where doc_edital = 'PIBICE' ";
-//			$rlt = db_query($sql);
-//			while ($line = db_read($rlt))
-//				{
-//					print_r($line);
-//					exit;
-//				}
-			
-			
-			$cps = 'doc_1_titulo, doc_ava_estrategico, id_pj, pj_codigo, doc_doutorando, doc_area, ap_tit_titulo, pp_nome, pp_centro, pp_ss, doc_icv, doc_estrategica, doc_nota, doc_protocolo_mae, doc_protocolo ';
-			$cps .= ', pp_prod, pp_cracha, doc_aluno, doc_avaliacoes, pb_vies, doc_protocolo ';
-			if ($modalidade!='PIBICE') { $cps .= ', pb1.pb_tipo as pb_tipo, pa_nome '; }
-			//$cps = '*';
-			$sql = "select ".$cps." from pibic_submit_documento ";
-			$sql .= " inner join pibic_professor on pp_cracha = doc_autor_principal ";
-			$sql .= " inner join apoio_titulacao on pp_titulacao = ap_tit_codigo ";
-			if ($modalidade!='PIBICE')
-				{
-				$sql .= " inner join pibic_aluno on pa_cracha = doc_aluno ";
-				$sql .= " left join pibic_bolsa as pb1 on (doc_protocolo = pb1.pb_protocolo) ";
-				
-				}
-			$sql .= " left join pibic_projetos on pj_codigo = doc_protocolo_mae ";
-			$sql .= " where doc_ano = '".$ano."' ";
-			$sql .= " and (doc_edital = '".$modalidade."' ";
-			if ($modalidade == 'PIBITI')
-				{
-					$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
-				}
-			$sql .= ") and (doc_protocolo <> doc_protocolo_mae) ";
-			if (strlen($area) > 0) { $sql .= " and doc_area = '".$area."' "; }
-			$sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
-			$sql .= " and pb_tipo <> 'X' ";
-			if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' "; }
-			//$sql .= " and (doc_aluno <> '') ";
-			//$sql .= " and doc_nota > 10 ";
-			$sql .= " order by doc_area, pp_nome ";
-			$rlt = db_query($sql);
 		
-			$sx .= '<table class="lt0">';
-			$tot = 0;
-			$sh .= '<TR><TH>bolsa';
-			$sh .= '<TH>tit';
-			$sh .= '<TH>professor';
-			$sh .= '<TH>aluno';
-			$sh .= '<TH>título do plano de trabalho';
-			
-			$xarea = '-';
-			$id = 0;
-			while ($line = db_read($rlt))
-				{
-					$idr = $line['id_pj'];
-					$nota = round($line['doc_nota']);
-					//$link = '<A HREF="pibic_projetos_detalhes.php?dd0='.$idr.'&dd90='.checkpost($idr).'" class="lt1a" target="new'.$id.'">';
-					$cp = 'ap_tit_titulo, pp_nome, pa_nome, doc_1_titulo';
-					$area = $line['doc_area'];
-					if ($area != $xarea)
-						{
-							$edital = trim($line['doc_edital']);
-							if ($edital == 'PIBICE') { $edital = 'PIBIC_EM'; }
-							$sx .= '<TR><TD class="lt4" colspan=6><center>'.$this->areas_mostra($area);
-							$sx .= '<BR>'.$edital ;
-							$sx .= $sh.chr(13);
-							$xarea = $area;
-						}
-					$tot++;
-					$bolsa = trim($line['pb_tipo']);
-					if ($nota < 60) { $bolsa = 'D'; }
-					if ($bolsa == 'R') { $bolsa = 'D'; }
-					if ($bolsa != 'D')
-					{
-						$id++;
-						$tipo = trim($line['pb_tipo']);
-						$vies = trim($line['pb_vies']);
-						$sx .= '<TR '.coluna().' class="lt1a">';
-						$sx .= '<TD><img src="img/logo_bolsa_'.$bolsa.'.png">';
-						if ($vies=='1' and $tipo =='I') { $sx .= '*'; }
-						$sx .= '<TD>';
-						$sx .= $link;
-						$sx .= $line['ap_tit_titulo'];
-						$sx .= '<TD width="20%">';
-						$sx .= $link;
-						$sx .= nbr_autor($line['pp_nome'],7);
-						$sx .= '<TD width="20%">';
-						$sx .= $link;
-						$aluno = trim($line['pa_nome']);
-					if (strlen($aluno)==0) 
-						{ $aluno = ':: Sem Definição de Aluno ::'; } 
-					else 
-						{ $aluno = trim(nbr_autor($line['pa_nome'],7)); }
-					if (strlen($aluno)==0) 
-						{ $aluno = ':: Sem Definiçâo de Aluno ::'; }
-					$sx .= $aluno;
-					$sx .= '<TD>';
-					$sx .= $link;
-					$sx .= nbr_autor($line['doc_1_titulo'],7);
-					$sx .= '</tr>'.chr(13).chr(10);
-					$sx .= '<tr><td colspan="6"><img src="img/nada_black.gif" alt="" width="100%" border="0" height="1"></td></tr>'.chr(13).chr(10);
-					}
-										
-				}
-			$sx .= '<TR><TD colspan=5>Total de '.$tot.' projetos nesta modalidade';
-			$sx .= '</table>';
-			return($sx);
+		/* Soma total de planos submetidos */
+		$sql = "select doc_edital, count(*) as total from ".$this->tabela_planos." 
+				where doc_autor_principal = '$orientador' and doc_ano = '".date("Y")."'
+				and (doc_status = '@' or doc_status = 'B') 
+				group by doc_edital";
+		$rlt = db_query($sql);
+		$line = db_read($rlt);
+
+	}
+
+	function areas_mostra($c) {
+		if ($c == 'E') { $sx = '<font style="color: #006b9f; font-size: 30px;">Ciências Exatas</font>';
 		}
-	
+		if ($c == 'H') { $sx = '<font style="color: #ff0000; font-size: 30px;">Ciências Humanas</font>';
+		}
+		if ($c == 'S') { $sx = '<font style="color: #ff0000; font-size: 30px;">Ciências Sociais Aplicadas</font>';
+		}
+		if ($c == 'V') { $sx = '<font style="color: #00A000; font-size: 30px;">Ciências da Vida</font>';
+		}
+		if ($c == 'A') { $sx = '<font style="color: #009000; font-size: 30px;">Ciências Agrárias</font>';
+		}
+		return ($sx);
+	}
+
+	function mostra_edital($ano, $bolsa, $modalidade, $tipo = '') {
+		$sql = "select * from pibic_submit_documento where doc_edital = 'PIBICE' ";
+		//			$rlt = db_query($sql);
+		//			while ($line = db_read($rlt))
+		//				{
+		//					print_r($line);
+		//					exit;
+		//				}
+
+		$cps = 'doc_1_titulo, doc_ava_estrategico, id_pj, pj_codigo, doc_doutorando, doc_area, ap_tit_titulo, pp_nome, pp_centro, pp_ss, doc_icv, doc_estrategica, doc_nota, doc_protocolo_mae, doc_protocolo ';
+		$cps .= ', pp_prod, pp_cracha, doc_aluno, doc_avaliacoes, pb_vies, doc_protocolo ';
+		if ($modalidade != 'PIBICE') { $cps .= ', pb1.pb_tipo as pb_tipo, pa_nome ';
+		}
+		//$cps = '*';
+		$sql = "select " . $cps . " from pibic_submit_documento ";
+		$sql .= " inner join pibic_professor on pp_cracha = doc_autor_principal ";
+		$sql .= " inner join apoio_titulacao on pp_titulacao = ap_tit_codigo ";
+		if ($modalidade != 'PIBICE') {
+			$sql .= " inner join pibic_aluno on pa_cracha = doc_aluno ";
+			$sql .= " left join pibic_bolsa as pb1 on (doc_protocolo = pb1.pb_protocolo) ";
+
+		}
+		$sql .= " left join pibic_projetos on pj_codigo = doc_protocolo_mae ";
+		$sql .= " where doc_ano = '" . $ano . "' ";
+		$sql .= " and (doc_edital = '" . $modalidade . "' ";
+		if ($modalidade == 'PIBITI') {
+			$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
+		}
+		$sql .= ") and (doc_protocolo <> doc_protocolo_mae) ";
+		if (strlen($area) > 0) { $sql .= " and doc_area = '" . $area . "' ";
+		}
+		$sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
+		$sql .= " and pb_tipo <> 'X' ";
+		if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' ";
+		}
+		//$sql .= " and (doc_aluno <> '') ";
+		//$sql .= " and doc_nota > 10 ";
+		$sql .= " order by doc_area, pp_nome ";
+		$rlt = db_query($sql);
+
+		$sx .= '<table class="lt0">';
+		$tot = 0;
+		$sh .= '<TR><TH>bolsa';
+		$sh .= '<TH>tit';
+		$sh .= '<TH>professor';
+		$sh .= '<TH>aluno';
+		$sh .= '<TH>título do plano de trabalho';
+
+		$xarea = '-';
+		$id = 0;
+		while ($line = db_read($rlt)) {
+			$idr = $line['id_pj'];
+			$nota = round($line['doc_nota']);
+			//$link = '<A HREF="pibic_projetos_detalhes.php?dd0='.$idr.'&dd90='.checkpost($idr).'" class="lt1a" target="new'.$id.'">';
+			$cp = 'ap_tit_titulo, pp_nome, pa_nome, doc_1_titulo';
+			$area = $line['doc_area'];
+			if ($area != $xarea) {
+				$edital = trim($line['doc_edital']);
+				if ($edital == 'PIBICE') { $edital = 'PIBIC_EM';
+				}
+				$sx .= '<TR><TD class="lt4" colspan=6><center>' . $this -> areas_mostra($area);
+				$sx .= '<BR>' . $edital;
+				$sx .= $sh . chr(13);
+				$xarea = $area;
+			}
+			$tot++;
+			$bolsa = trim($line['pb_tipo']);
+			if ($nota < 60) { $bolsa = 'D';
+			}
+			if ($bolsa == 'R') { $bolsa = 'D';
+			}
+			if ($bolsa != 'D') {
+				$id++;
+				$tipo = trim($line['pb_tipo']);
+				$vies = trim($line['pb_vies']);
+				$sx .= '<TR ' . coluna() . ' class="lt1a">';
+				$sx .= '<TD><img src="img/logo_bolsa_' . $bolsa . '.png">';
+				if ($vies == '1' and $tipo == 'I') { $sx .= '*';
+				}
+				$sx .= '<TD>';
+				$sx .= $link;
+				$sx .= $line['ap_tit_titulo'];
+				$sx .= '<TD width="20%">';
+				$sx .= $link;
+				$sx .= nbr_autor($line['pp_nome'], 7);
+				$sx .= '<TD width="20%">';
+				$sx .= $link;
+				$aluno = trim($line['pa_nome']);
+				if (strlen($aluno) == 0) { $aluno = ':: Sem Definição de Aluno ::';
+				} else { $aluno = trim(nbr_autor($line['pa_nome'], 7));
+				}
+				if (strlen($aluno) == 0) { $aluno = ':: Sem Definiçâo de Aluno ::';
+				}
+				$sx .= $aluno;
+				$sx .= '<TD>';
+				$sx .= $link;
+				$sx .= nbr_autor($line['doc_1_titulo'], 7);
+				$sx .= '</tr>' . chr(13) . chr(10);
+				$sx .= '<tr><td colspan="6"><img src="img/nada_black.gif" alt="" width="100%" border="0" height="1"></td></tr>' . chr(13) . chr(10);
+			}
+
+		}
+		$sx .= '<TR><TD colspan=5>Total de ' . $tot . ' projetos nesta modalidade';
+		$sx .= '</table>';
+		return ($sx);
+	}
 
 	function demandas($ano = '') {
 		$sx = '<table class="tabela00 lt3" width="100%">';
@@ -166,7 +203,7 @@ class projetos {
 	}
 
 	function planos_com_vies_pibiti($ano) {
-		$tabela = "pibic_parecer_".$ano;
+		$tabela = "pibic_parecer_" . $ano;
 		$sql = "select count(*) as total, pp_protocolo from " . $tabela . "  
 			inner join pibic_submit_documento on doc_protocolo = pp_protocolo
 			where pp_tipo = 'SUBMP' 
@@ -179,22 +216,20 @@ class projetos {
 		$rlt = db_query($sql);
 		$t1 = 0;
 		$t2 = 0;
-		while ($line = db_read($rlt))
-			{
-				$t = $line['total'];
-				if ($t==2)
-					{
-						$t2++;
-					} else {
-						$t1++;
-					}
+		while ($line = db_read($rlt)) {
+			$t = $line['total'];
+			if ($t == 2) {
+				$t2++;
+			} else {
+				$t1++;
 			}
+		}
 		$sx .= '<table class="tabela00 lt3">
-				<TR><TD>Apontado por <B>um</B> avaliador <TD>'.$t1.'</td></tr>
-				<TR><TD>Apontado por <B>dois</B> avaliador <TD>'.$t2.'</td></tr>
+				<TR><TD>Apontado por <B>um</B> avaliador <TD>' . $t1 . '</td></tr>
+				<TR><TD>Apontado por <B>dois</B> avaliador <TD>' . $t2 . '</td></tr>
 				</table>
 		';
-		return($sx);
+		return ($sx);
 	}
 
 	function demandas_projetos_submetidos($ano) {
@@ -1135,10 +1170,10 @@ class projetos {
 
 	function row_plano() {
 		global $cdf, $cdm, $masc;
-		$cdf = array('id_doc','doc_protocolo_mae', 'doc_protocolo','doc_1_titulo', 'doc_autor_principal', 'doc_status', 'doc_aluno','doc_ano','pb_vies');
-		$cdm = array('id','cod', msg('protocolo'),msg('titulo'), msg('professor'), msg('status'), msg('aluno'), msg('ano'),'vies');
+		$cdf = array('id_doc', 'doc_protocolo_mae', 'doc_protocolo', 'doc_1_titulo', 'doc_autor_principal', 'doc_status', 'doc_aluno', 'doc_ano', 'pb_vies');
+		$cdm = array('id', 'cod', msg('protocolo'), msg('titulo'), msg('professor'), msg('status'), msg('aluno'), msg('ano'), 'vies');
 		$masc = array('', '', '', '', '', '', '');
-		
+
 		return (1);
 	}
 
@@ -1161,7 +1196,7 @@ class projetos {
 	function cp_plano() {
 		$sql = "alter table pibic_submit_documento add column doc_recurso int8";
 		//$rlt = db_query($sql);
-		
+
 		$cp = array();
 		array_push($cp, array('$H8', 'id_doc', '', False, TRUE));
 		array_push($cp, array('$T60:5', 'doc_1_titulo', 'Título', TRUE, TRUE));
@@ -2373,14 +2408,14 @@ class projetos {
 	function form_02b() {
 		global $dd;
 		$sx .= '<TR><TD>Área do conhecimento';
-		$sx .= '<TR>' . sget("dd20", '$Q descricao:a_cnpq:select a_cnpq || \' \' || a_descricao as descricao,* from ajax_areadoconhecimento where a_submit=\'1\' and not a_cnpq like \'9%\' order by a_cnpq', 'Área', 1, 1);
+		$sx .= '<TR>' . sget("dd20", '$Q descricao:a_cnpq:select a_cnpq || \' \' || a_descricao as descricao,* from ajax_areadoconhecimento where a_submit=\'1\' and not a_cnpq like \'9%\' and a_semic = \'1\' order by a_cnpq', 'Área', 1, 1);
 		return ($sx);
 	}
 
 	function form_02c() {
 		global $dd;
 		$sx .= '<TR><TD>Área estratégica';
-		$sx .= '<TR>' . sget("dd21", '$Q descricao:a_cnpq:select a_cnpq || \' \' || a_descricao as descricao,* from ajax_areadoconhecimento where a_cnpq like \'9%\' and a_submit=\'1\' order by a_cnpq', 'Área', 1, 1);
+		$sx .= '<TR>' . sget("dd21", '$Q descricao:a_cnpq:select a_cnpq || \' \' || a_descricao as descricao,* from ajax_areadoconhecimento where a_cnpq like \'9%\' and a_submit=\'1\' and a_semic = \'1\' order by a_cnpq', 'Área', 1, 1);
 		return ($sx);
 	}
 
@@ -2904,8 +2939,7 @@ class projetos {
 			$ix = $this -> aluno_em_outros_planos($aluno, $protocolo);
 			if ($ix > 0) {
 				echo '<font color="red">ALUNO JÁ INCLUÍDO EM OUTROS PROTOCOLOS ()</font>';
-				$ok = 0;
-				;
+				$ok = 0; ;
 			}
 			$ix = $this -> aluno_blacklist($aluno);
 			if ($ix > 0) {
@@ -3428,33 +3462,29 @@ class projetos {
 		$aluno = trim($line['pa_nome']);
 		$tipo = trim($line['doc_edital']);
 		$vies = $line['pb_vies'];
-		
+
 		$nota = $line['doc_nota'];
 		$recurso = round($line['doc_recurso']);
 		$penalidade = $line['doc_penalidade'];
-		$bonificacao = round('0'.$line['doc_bonificacao']);
-		
+		$bonificacao = round('0' . $line['doc_bonificacao']);
+
 		$img = $this -> imagem_edital($tipo);
 		$link = '<A HREF="pibic_projetos_detalhes.php?dd0=' . $line['doc_protocolo_mae'] . '&dd90=' . checkpost($line['doc_protocolo_mae']) . '">';
 		switch ($tipo) {
 			case 'PIBIC' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
-				;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBITI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
-				;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBICE' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
-				;
+				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'ICI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
-				;
+				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 		}
@@ -3462,10 +3492,9 @@ class projetos {
 		$sx = '';
 		$sx .= '<img src="' . $img . '" height="60" align="left">';
 		$sx .= 'Protocolo:' . $line['doc_protocolo'] . '/' . $link . $line['doc_protocolo_mae'] . '</A>' . '';
-		if (($perfil->valid('#ADM#PIB#PIT')))
-			{
-				$sx .= ' Nota: <B>'.$nota.'</B>, Bonificação: <B>'.$bonificacao.'</B>, Penalidade: ,<b>'.$penalidade.'</B>, Recurso <B>'.$recurso.'</B>';
-			}
+		if (($perfil -> valid('#ADM#PIB#PIT'))) {
+			$sx .= ' Nota: <B>' . $nota . '</B>, Bonificação: <B>' . $bonificacao . '</B>, Penalidade: ,<b>' . $penalidade . '</B>, Recurso <B>' . $recurso . '</B>';
+		}
 		$sx .= '<BR><HR>';
 
 		$sx .= '<BR><B>' . $line['doc_1_titulo'] . '</b><BR>';
@@ -3477,10 +3506,9 @@ class projetos {
 		$ged -> protocol = $line['doc_protocolo'];
 		$sx .= '<div>';
 		$sx .= $ged -> filelist();
-		if ($vies=='1')
-			{
-				$sx .= '<BR><font color="brown">*** <B>Indicado pelo avaliador com vies PIBITI</B></font>';
-			}
+		if ($vies == '1') {
+			$sx .= '<BR><font color="brown">*** <B>Indicado pelo avaliador com vies PIBITI</B></font>';
+		}
 		$sx .= '</div>';
 		$sx .= '<HR>';
 
@@ -3493,23 +3521,19 @@ class projetos {
 		$img = $this -> imagem_edital($tipo);
 		switch ($tipo) {
 			case 'PIBIC' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
-				;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBITI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
-				;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBICE' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
-				;
+				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'ICI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
-				;
+				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 		}
@@ -3574,22 +3598,21 @@ class projetos {
 			}
 		}
 
-		
 		$sz = '33%';
 		$sx .= '<table width="100%" border=0 class="tabela00">';
 		$sx .= '<TR valign="top">';
-		$sx .= '<TD width="'.$sz.'">
+		$sx .= '<TD width="' . $sz . '">
 							<div class="plano01">' . $t1[0] . '</div>';
-		$sx .= '<TD width="'.$sz.'">
+		$sx .= '<TD width="' . $sz . '">
 							<div class="plano01">' . $t1[1] . '</div>';
-		$sx .= '<TD width="'.$sz.'">
+		$sx .= '<TD width="' . $sz . '">
 							<div class="plano01">' . $t1[3] . '</div>';
 		/* Bloqueio Internacional */
 		/*
-		$sx .= '<TD width="25%">
-							<div class="plano01">' . $t1[2] . '</div>';
-		*/
-			
+		 $sx .= '<TD width="25%">
+		 <div class="plano01">' . $t1[2] . '</div>';
+		 */
+
 		if ($tot == 0) {
 			$sx .= '<TR><TD colspan=4><font color="red" style="font-size: 16px;">Nenhum plano cadastrado';
 		} else {
@@ -3662,7 +3685,7 @@ class projetos {
 	}
 
 	function mostra($line, $id = '', $edit = 1) {
-		global $user,$perfil;
+		global $user, $perfil;
 		$this -> session_seta(trim($line['pj_codigo']));
 		$this -> protocolo = trim($line['pj_codigo']);
 		$this -> status = $line['pj_status'];

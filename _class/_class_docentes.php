@@ -42,13 +42,14 @@ class docentes {
 		$rlt = db_query($sql);
 		if ($line = db_read($rlt)) {
 			$ok = 0;
-			$titu = $line['pp_titulacao'];
-			if ($titu = '002') { $ok = 1 ; }
-			if ($titu = '001') { $ok = 1 ; }
-			if ($titu = '008') { $ok = 1 ; }
-			if ($titu = '003') { $ok = 1 ; }
-			if ($titu = '006') { $ok = 1 ; }
-			if ($titu = '011') { $ok = 1 ; }
+			$titu = trim($line['pp_titulacao']);
+			
+			if ($titu == '002') { $ok = 1 ; } /* Doutor */
+			if ($titu == '001') { $ok = 1 ; } /* Mestre */
+			//if ($titu == '008') { $ok = 1 ; } /* Pós-Graduação */
+			if ($titu == '003') { $ok = 1 ; } /* Doutora */
+			if ($titu == '006') { $ok = 1 ; } /* PhD */
+			// if ($titu == '011') { $ok = 1 ; } /* Doutorando */
 			if (trim($line['pp_centro']) == 'DOUTORANDO') { $ok = 1 ; }
 			if (trim($line['pp_centro']) == 'POSDOUTORANDO') { $ok = 1 ; }
 			

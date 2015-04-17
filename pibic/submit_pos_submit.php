@@ -23,6 +23,12 @@ $ged = new ged;
 require("../_class/_class_pibic_projetos_v2.php");
 $prj = new projetos;
 
+/* Valida limite de submissao */
+if ($prj->valida_limite_submissao($ss->user_cracha) == 0)
+	{
+		
+	}
+
 /* recupera protocolo */
 if (strlen($dd[89]) > 0)
 	{ $proto = $dd[89];	$_SESSION['protocolo'] = $proto; } 

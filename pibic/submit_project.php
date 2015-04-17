@@ -36,7 +36,8 @@ if (strlen($bl) > 0)
 	exit;
 	}
 	
-/* Regra de titulação */
+
+/* Regra de titulacao */
 if ($dc->valida_titulacao_orientador($ss->user_cracha) == 0)
 	{
 	echo '<div>';
