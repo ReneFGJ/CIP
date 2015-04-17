@@ -57,7 +57,10 @@ echo '<div id="conteudo">';
 	echo $ar->mostra_dados_complementares();
 	
 	/* Acoes */
-	echo $ar->actions();
+	if ($user_nivel > 1)
+		{
+			echo $ar->actions();
+		}
 	
 	/* Outros dados */
 	echo $ar->mostra_autores_todos();
@@ -78,7 +81,10 @@ echo '<div id="conteudo">';
 	$ged->protocolo = $protocolo;
 	
 	echo $ged->file_list('todos',1);
-	echo $ged->upload_form('','Postar novo documento');
+	if ($user_nivel > 1)
+		{
+			echo $ged->upload_form('','Postar novo documento');
+		}
 	
 	require("submit_works_files.php");
 	

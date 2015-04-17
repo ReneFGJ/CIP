@@ -36,6 +36,7 @@ if ((round($jid) == 0) and ($red == 0))
 		exit;
 	}
 //function msg($i) { return($i); }
+$user_nivel = $_COOKIE['nw_nivel'];
 
 function user_valid($nome)
 	{

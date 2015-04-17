@@ -19,7 +19,10 @@ echo '<div id="conteudo">';
 	$label = msg($tabela);
 	$http_edit = 'submit_campo_04_ed.php'; 
 	$http_ver = 'submit_campo_04_ver.php'; 
-	$editar = True;
+	if ($user_nivel > 1)
+		{
+			$editar = True;
+		}
 	$http_redirect = 'submit_campo_04_opcionais.php';
 	$clx->row();
 	$busca = true;

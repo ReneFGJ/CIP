@@ -65,7 +65,7 @@ class submit_autor
 	
 	function mostra()
 			{
-				global $edit;
+				global $edit, $user_nivel;
 				$line = $this->line;
 				$sx = '';
 				
@@ -86,8 +86,12 @@ class submit_autor
 
 									<!--EMAIL PARECERISTA-->
 									<br>'.$this->mostra_email($this->email).'</span>
-									<br>'.$this->mostra_email($this->email_alt).'</span>
-									<br>Senha: '.$this->line['sa_senha'].'</span>
+									<br>'.$this->mostra_email($this->email_alt).'</span>';
+						if ($user_nivel > 1)
+							{
+								$sx .= '	<br>Senha: '.$this->line['sa_senha'].'</span>';
+							}
+						$sx .= '
 								
 
 									<div class="link_avaliador">

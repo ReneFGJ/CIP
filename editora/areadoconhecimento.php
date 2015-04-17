@@ -12,7 +12,10 @@ echo $hd->main_content('Áreas do conhecimento');
 $menu = array();
 
 	array_push($menu,array('Áreas do conhecimento','Lista das áreas ativas','areadoconhecimento_lista.php'));
-	array_push($menu,array('Áreas do conhecimento','Editar áreas','areadoconhecimento_row.php'));
+	if ($user_nivel > 1)
+		{
+		array_push($menu,array('Áreas do conhecimento','Editar áreas','areadoconhecimento_row.php'));
+		}
 		
 echo menus($menu,'3');
 echo '</div>';

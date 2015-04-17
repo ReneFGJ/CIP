@@ -29,7 +29,12 @@ echo '<A HREF="parecerista_lista.php">Lista de Pareceristas</A>';
 	$offset = 20;
 	$pre_where = " (us_ativo  = 1) and (us_journal_id = ".intval($jid).") ";
 	$order  = "us_nome ";
-	$editar = true;
+	if ($user_nivel > 1)
+		{
+			$editar = true;
+		} else {
+			$editar = false;
+		}
 	require($include.'sisdoc_row.php');	
 echo '</div>';
 	

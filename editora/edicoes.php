@@ -24,7 +24,10 @@ echo '<TD width="150">';
 echo '<h3>'.msg('cover').'</h3>';
 echo $issue->show_covers($jid);
 
-echo $issue->botton_upload_cover();
+if ($user_nivel > 1)
+	{
+		echo $issue->botton_upload_cover();
+	}
 
 echo '</table>';
 

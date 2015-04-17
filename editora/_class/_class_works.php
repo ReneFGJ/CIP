@@ -609,6 +609,7 @@ class works
 	
 	function show_work($line)
 		{
+			global $user_nivel;
 			$titulo = trim($line['doc_1_titulo']);
 			if (strlen($titulo) == 0)
 				{

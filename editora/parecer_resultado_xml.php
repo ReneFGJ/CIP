@@ -53,10 +53,13 @@ if (!(file_exists($arq))) {
 	echo '<center><h1>Parecer não localizado</h1>';
 } else {
 	require ('parecer_resultado_xml_read.php');
-
+	$sn = array();
+	$sn['0'] = 'SIM';
+	$sn['1'] = 'SIM';
 	$qst = $tree[0][TREE_NODE_CHILDREN][0][children];
 	$xq0 = '';
 	$id = 0;
+	$cor = '<font color="blue" style="font-size: 15px;">';
 	for ($r = 0; $r < count($qst); $r++) {
 
 		//print_r($qst[$r][children]);
@@ -72,20 +75,38 @@ if (!(file_exists($arq))) {
 		$q2 = troca($q2,'?L%','');
 		if (strlen($tp) > 0)
 			{
+			$sx = '';
 			if ($q1 != $xq1)
 				{
-					echo '<BR><BR><font style="font-size: 20px;">'.$q1.'</font>';
+					$sx .= '<BR><BR><font style="font-size: 20px;">'.$q1.'</font>';
 					$xq1 = $q1;
 				}
-			if ($tp != 'I')
+			$sx .= '('.$tp.')';
+			switch ($tp)
 				{
-					echo '<BR><BR>'.$q2.' ';
-					//echo '<BR>q3='.$q3;
-					//echo '<BR>q4='.$q4;
-					echo '<B>'.mst($q5).'</B>';
-					//echo '<BR>q6='.$q6;
-					//echo '<HR>';
+				case 'N':
+					$q5 = $sn[$q5];
+					$sx .= '<BR><BR>AVALIADOR: '.$q2.' ';
+					$sx .= '<B>'.$cor.mst($q5).'</font></B>';
+					break;
+				case 'T':
+					$sx .= '<BR><BR>AVALIADOR: ';
+					$q2 = troca($q2,'\\','');
+					$sx .= '<B>'.$cor.mst($q2).'</font></B>';
+					break;
+				case 'C':
+					$sx .= '<BR><BR>AVALIADOR: ';
+					$sx .= '<B>Opção: '.$cor.mst($q2).'</font></B>';
+					break;										
+				case 'I':
+					$sx = '';
+					break;					
+				default:
+					$sx .= '<BR><BR>AVALIADOR: '.$q2.' ';
+					$sx .= '<B>'.$cor.mst($q5).'</font></B>';
+					break;
 				}
+			echo $sx;
 			}
 	}
 }

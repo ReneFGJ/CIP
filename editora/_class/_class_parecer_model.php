@@ -188,8 +188,8 @@ class parecer_model
 		function row()
 			{
 				global $cdf,$cdm,$masc;
-				$cdf = array('id_pm','pm_nome','pm_codigo');
-				$cdm = array('cod',msg('nome'),msg('codigo'));
+				$cdf = array('id_pm','pm_nome','pm_codigo','pm_journal_id');
+				$cdm = array('cod',msg('nome'),msg('codigo'),'Journal');
 				$masc = array('','','','','','','');
 				return(1);				
 			}

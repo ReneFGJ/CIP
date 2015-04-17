@@ -20,10 +20,11 @@ class parecerista {
 		global $jid;
 		$sql = "select * from  " . $this -> tabela . "  ";
 		$sql .= " inner join " . $this -> tabela_instituicao . " on us_instituicao = inst_codigo ";
-		$sql .= " where us_journal_id = ".$jid;;
+		$sql .= " where us_journal_id = " . $jid;
+		;
 		$sql .= " and us_ativo = 1 ";
 		$sql .= " order by us_nome ";
-		
+
 		$ar = array('1' => 'Ciências Exatas e da Terra', '2' => 'Ciências Biológicas', '3' => 'Engenharias', '4' => 'Ciências da Saúde', '5' => 'Ciências Agrárias', '6' => 'Ciências Sociais Aplicadas', '7' => 'Ciências Humanas', '8' => 'Lingüística, Letras e Artes', '9' => 'Outros');
 		$prod = array('NÃO', 'Nível 1A', 'Nível 1B', 'Nível 1C', 'Nível 1D', 'Nível 2');
 		$prodt = array(0, 0, 0, 0, 0);
@@ -1256,7 +1257,7 @@ class parecerista {
 	}
 
 	function mostra_areas() {
-		global $date, $edit, $dd, $acao;
+		global $date, $edit, $dd, $acao, $user_nivel;
 
 		if ($dd[12] == 'DEL') {
 			$this -> area_excluir($dd[0]);
@@ -1285,11 +1286,13 @@ class parecerista {
 									</td>
 									<td>
 									<i class="icon-refresh icon-large icon_color_padrao"></i>&nbsp;&nbsp;&nbsp;' . stodbr($line['pa_update']) . '
-									</td>
-									
-									<td>
+									</td>';
+
+			if ($user_nivel > 1) {
+				$sx .= '				<td>
 									<i class="icon-refresh icon-large icon_color_padrao"></i>&nbsp;&nbsp;&nbsp;<A HREF="' . page() . '?dd0=' . $dd[0] . '&dd12=DEL&dd11=' . checkpost($line['id_pa']) . '&dd10=' . $line['id_pa'] . '">excluir</A></I>
 									</td>';
+			}
 		}
 
 		if (strlen($sx) == 0) {
@@ -1613,8 +1616,7 @@ class parecerista {
 
 		$sx .= '<TR ><TD class="tabela01">
 						<font class="lt0">instituíção:</font>
-						' . $this -> instituicao;
-		;
+						' . $this -> instituicao; ;
 		$sx .= '<BR><font class="lt0">código:</font>
 						' . $this -> codigo;
 		$sx .= '<BR><font class="lt0">email</font>: ' . $this -> email;

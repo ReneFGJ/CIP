@@ -20,7 +20,10 @@ echo $hd->main_content();
 	/* Não alterar - dados comuns */
 	$label = msg($tabela);
 	$http_edit = 'parecer_modelo_area_ed.php';  
-	$editar = True;
+	if ($user_nivel > 1)
+		{
+			$editar = True;
+		}
 	$http_redirect = 'parecer_modelo_area.php';
 	
 	$clx->row_subfield();

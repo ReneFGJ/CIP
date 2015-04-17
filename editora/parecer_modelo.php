@@ -19,7 +19,10 @@ echo '<div id="conteudo">';
 	$label = msg($tabela);
 	$http_edit = 'parecer_modelo_ed.php'; 
 	$http_ver = 'parecer_modelo_ver.php'; 
-	$editar = True;
+	if ($user_nivel > 1)
+		{
+		$editar = True;
+		}
 	$http_redirect = 'parecer_modelo.php';
 	$clx->row();
 	$busca = true;

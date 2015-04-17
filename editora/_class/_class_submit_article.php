@@ -176,9 +176,9 @@ class submit {
 		$key = trim($line['doc_palavra_chave']);
 		$sx .= '<B>Palavras-chave:</B> ' . $key;
 
-		$sx .= '<BR>-' . $this -> line['doc_field_1'];
-		$sx .= '<BR>-' . $this -> line['doc_field_2'];
-		$sx .= '<BR>-' . $this -> line['doc_field_3'];
+		$sx .= '<BR>-' . mst($this -> line['doc_field_1']);
+		$sx .= '<BR>-' . mst($this -> line['doc_field_2']);
+		$sx .= '<BR>-' . mst($this -> line['doc_field_3']);
 
 		return ($sx);
 

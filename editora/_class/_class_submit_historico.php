@@ -51,10 +51,30 @@ class submit_historico
 			return(1);
 		}
 	
+	
+	function msg_historico_mostra($txt)
+		{
+			$txt = trim($txt);
+			switch($txt)
+				{
+					case 'actionAPR':
+						$sx = 'Aprovado para publicação'; break;
+					case 'actionAVA':
+						$sx = 'Indicado para avaliação por parecerista'; break;
+					default:
+						$sx = 'Status: '.$txt;
+				}
+			return($sx);
+		}
 	function show_historico($protocolo='')
 		{
+			$sx = '<h2>Histórico da avaliação</h2>';
 			$sx .= '<table width="100%" class="tabela00">';
-			$sx .= '<TR><TD colspan=5><B>Histórico de tramitação</B></td></TR>';
+			$sx .= '<TR>
+				<Th colspan=1>Data</th>
+				<Th colspan=1>Descrição</th>
+				<Th colspan=1>Cod. Operação</th>
+				</TR>';
 						
 			$sql = "select * from ".$this->tabela." ";
 			$sql .= " where hs_protocolo = '".$protocolo."' ";
@@ -65,10 +85,11 @@ class submit_historico
 			while ($tline = db_read($trlt))
 				{
 				$id++;
-				$sx .= '<TR>';
-				$sx .= '<TD bgcolor="#F8F8F8">';
-				$sx .= stodbr($tline['hs_data']).' '.$tline['hs_hora'].' '.$tline['hs_log'];
-				$sx .= '<TD>'.$tline['hs_descricao'];
+				$sx .= '<TR bgcolor="#F8F8F8">';
+				$sx .= '<TD>';
+				$sx .= stodbr($tline['hs_data']).' '.$tline['hs_hora'].'';
+				$sx .= '<TD>'.$this->msg_historico_mostra($tline['hs_descricao']);
+				$sx .= '<TD>'.$tline['hs_log'];
 				}
 			if ($id == 0)
 				{
