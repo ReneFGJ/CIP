@@ -782,10 +782,12 @@ class docentes {
 		return (1);
 	}
 
+	
 	function blacklist() {
 		$bl = $this -> line['pp_bl'];
 		$blobs = $this -> line['pp_bl_motivo'];
 		$sx = '';
+		
 		if (($bl == '1') or ($bl == 'S')) {
 			$sx .= '<div>';
 			$sx .= '<img src="../img/icone_exclamation.png" height="50" align="left">';
@@ -795,6 +797,7 @@ class docentes {
 		}
 		return ($sx);
 	}
+
 
 	function cp_atualizacao() {
 		$cp = array();
@@ -2227,5 +2230,57 @@ class docentes {
 		return (1);
 	}
 
+function docentes_blacklist() {
+		
+		$sql = "
+			select pp_cracha, pp_nome, pp_bl, pp_bl_motivo, pp_ativo
+			from pibic_professor 
+			where pp_bl = '1' 		
+		 ";
+		$rlt = db_query($sql);	
+
+
+            $sx  = '<table width="100%">';
+			$sx .= '<TR><TH colspan=2 align="left"><H2>Docentes pendentes (bl)</h2>';
+			$sx .= '<TR><TH width="5%"	>Cracha
+						<TH width="30%"	>Nome
+						<TH width="30%"	>Pendencia	
+						<TH width="30%"	>Motivo
+						<TH width="30%"	>Status
+						';
+
+		$tot = 0;
+		
+		while ($line = db_read($rlt)){
+			
+		$tot++;					
+
+		$cracha = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
+		$sx .= 		'<TR>';
+		$sx .= 		'<TD class="tabela01" align="left">';
+		$sx .= 		$cracha;
+		$sx .= 		$line['pp_cracha'];
+		$sx .= 		'</A>';
+
+		$nome 		= $line['pp_nome'];
+		$status_bl  = $line['pp_bl'];						
+		$motivo 	= $line['pp_bl_motivo'];
+		$pontos 	= $line['pp_bl_pts'];
+		
+		$sx.= '<TD class="tabela01" align="left">'.$nome;
+		$sx.= '<TD class="tabela01" align="center">'.$status_bl;
+		$sx.= '<TD class="tabela01" align="left">'.$motivo;
+		$sx.= '<TD class="tabela01" align="left">'.$pontos;
+		
+		
+		$sx .= '<TR>
+				<TD colspan=5 align=right BGCOLOR="#C0C0C0" valign="bottom" >Total de '.$tot.' docentes nas pendencias.';
+		$sx  .= '</table>';
+		
+		return($sx);
+	}	
+	
+
+	}
 }
 ?>

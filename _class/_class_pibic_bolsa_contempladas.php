@@ -6152,7 +6152,7 @@ $sa .= '</TR>';
                     on pbt_codigo = pb_tipo 
                     where (pb_status <> 'C' 
                        and pb_status <> '@') 
-                    and pb_data_ativacao > 19000000 
+                    and pb_data_cao > 19000000 
                     group by pb_tipo, 
                              pbt_descricao, 
                              pbt_edital, 

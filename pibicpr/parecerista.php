@@ -22,8 +22,8 @@ $menu = array();
 	array_push($menu,array('Instituíções','Cadastro Instituições','instituicoes.php'));		
 	  
 	array_push($menu,array('Relatório','Professores Doutores/IC','professores_ic.php'));
-	
-	array_push($menu,array('Relatório','Relatório analítico Avaliadores Disponíveis','pareceristas_analitico.php?dd0='.date("Y"))); 
+	array_push($menu,array('Relatório','Relatório analítico Avaliadores Disponíveis','pareceristas_analitico.php?dd0='.date("Y")));
+	array_push($menu,array('Relatório','Pareceres não entregues do Comitê de ética (CEP)','rel_etica_entregas.php')); 
 	//array_push($menu,array('Relatório','__Pareceristas / Instituição','paraceristas_rel_parecerista_instituicao.php')); 
 	//array_push($menu,array('Relatório','__Pareceristas / Produtividade','paraceristas_rel_parecerista_produtividade.php'));	
 
