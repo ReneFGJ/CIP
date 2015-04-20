@@ -813,8 +813,8 @@ class docentes {
 	function cp_blacklist() {
 		$cp = array();
 		array_push($cp, array('$H8', 'id_pp', 'id_pp', False, True));
-		array_push($cp, array('$C1', 'pp_bl', 'Blacklist', False, True));
-		array_push($cp, array('$T60:4', 'pp_bl_motivo', 'Blacklist (motivo)', False, True));
+		array_push($cp, array('$C1', 'pp_bl', 'Penalidades', False, True));
+		array_push($cp, array('$T60:4', 'pp_bl_motivo', 'Penalidades (motivo)', False, True));
 		array_push($cp, array('$[0-50]', 'pp_bl_pts', 'Pontos', True, True));
 		return ($cp);
 	}
@@ -1256,7 +1256,17 @@ class docentes {
 
 	function status() {
 
-		$sta = array('A' => 'Ativo (cursando)', 'Q' => 'Qualificado', 'C' => 'Ativo (cursando)', 'O' => 'Requalificado', 'D' => 'Defendido', 'T' => 'Titulado', 'R' => 'Trancado', 'X' => 'Cancelado (pelo discente)', 'Y' => 'Desligado (pelo programa)', '#' => 'Excluir do sistema (registro duplicado)');
+		$sta = array('A' => 'Ativo (cursando)', 
+						'Q' => 'Qualificado', 
+						'C' => 'Ativo (cursando)', 
+						'O' => 'Requalificado', 
+						'D' => 'Defendido', 
+						'T' => 'Titulado', 
+						'R' => 'Trancado', 'X' => 'Cancelado (pelo discente)', 
+						'Y' => 'Desligado (pelo programa)', 
+						'#' => 'Excluir do sistema (registro duplicado)',
+						'V'=> 'Passagem (Mestrado para Doutorado)'
+						);
 		return ($sta);
 
 	}
@@ -1272,6 +1282,7 @@ class docentes {
 		$sta .= '&X:Cancelado (pelo discente)';
 		$sta .= '&Y:Desligado (pelo programa)';
 		$sta .= '&R:Reprovado (pelo programa)';
+		$sta .= '&V:Passagem (Mestrado para Doutorado)';
 		$sta .= '&#:Excluir do sistema (registro duplicado)';
 		return ($sta);
 	}
