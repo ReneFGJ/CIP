@@ -799,6 +799,11 @@ class docentes {
 		return ($sx);
 	}
 
+<<<<<<< HEAD
+=======
+	/* Classe de penalidades */
+	/* */
+>>>>>>> origin/master
 	function docentes_com_penalidades() {
 		$sql = "select * from " . $this -> tabela . "  
 						where pp_bl_pts > '0' or pp_bl <> ''

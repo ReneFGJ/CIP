@@ -60,6 +60,8 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 
 	array_push($menu,array('Relatório Parcial (Correção)','__Avaliações indicadas','rpc_av_indicadas.php?dd80='.$bolsa));
 	array_push($menu,array('Relatório Parcial (Correção)','__Link dos avaliadores (em aberto)','rpc_indicar_avaliador_email.php?dd80='.$bolsa));
+	
+	array_push($menu,array('Relatório Parcial (Correção)','__Relatórios com dupla pendência','rpc_pendencias.php'));
 
 	
 if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
