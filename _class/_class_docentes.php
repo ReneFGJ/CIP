@@ -36,33 +36,38 @@ class docentes {
 	var $line;
 
 	var $tabela = 'pibic_professor';
-	
+
 	function valida_titulacao_orientador($orientador) {
 		$sql = "select * from pibic_professor where pp_cracha = '" . $orientador . "' ";
 		$rlt = db_query($sql);
 		if ($line = db_read($rlt)) {
 			$ok = 0;
 			$titu = trim($line['pp_titulacao']);
-			
-			if ($titu == '002') { $ok = 1 ; } /* Doutor */
-			if ($titu == '001') { $ok = 1 ; } /* Mestre */
+
+			if ($titu == '002') { $ok = 1;
+			}/* Doutor */
+			if ($titu == '001') { $ok = 1;
+			}/* Mestre */
 			//if ($titu == '008') { $ok = 1 ; } /* Pós-Graduação */
-			if ($titu == '003') { $ok = 1 ; } /* Doutora */
-			if ($titu == '006') { $ok = 1 ; } /* PhD */
+			if ($titu == '003') { $ok = 1;
+			}/* Doutora */
+			if ($titu == '006') { $ok = 1;
+			}/* PhD */
 			// if ($titu == '011') { $ok = 1 ; } /* Doutorando */
-			if (trim($line['pp_centro']) == 'DOUTORANDO') { $ok = 1 ; }
-			if (trim($line['pp_centro']) == 'POSDOUTORANDO') { $ok = 1 ; }
-			
+			if (trim($line['pp_centro']) == 'DOUTORANDO') { $ok = 1;
+			}
+			if (trim($line['pp_centro']) == 'POSDOUTORANDO') { $ok = 1;
+			}
+
 			return ($ok);
 		} else {
 			return (0);
 		}
-	}	
-	
-	function docentes_sem_email()
-		{
-			global $http;
-			$sql = "select * 
+	}
+
+	function docentes_sem_email() {
+		global $http;
+		$sql = "select * 
 						from pibic_professor		  	
 						where pp_email = ''
 							and pp_ativo = '1'
@@ -70,51 +75,48 @@ class docentes {
 						order by pp_nome
 							
 							";
-			$rlt = db_query($sql);
-			$tot = 0;
-			$sx = '<h1>Docentes Dr sem e-mail</h1>';
-			$sx .= '<table width="100%" class="tabela00">';
-			$sx .= '<TR><TH>Cracha
+		$rlt = db_query($sql);
+		$tot = 0;
+		$sx = '<h1>Docentes Dr sem e-mail</h1>';
+		$sx .= '<table width="100%" class="tabela00">';
+		$sx .= '<TR><TH>Cracha
 						<TH>Nome
 						<TH>e-mail
 						<TH>e-mail (alt)
 						<TH>Atualizado
 						<TH>Tipo';
-			while ($line = db_read($rlt))
-			{
-				$tot++;
-				$link = '<A HREF="'.$http.'cip/docentes_ed.php?dd0='.$line['id_pp'].'" target="_new">';
-				$sx .= '<TR>';
-				$sx .= '<TD class="tabela01">';
-				$sx .= $link;
-				$sx .= $line['pp_cracha'];
-				$sx .= '</A>';
-				$sx .= '<TD class="tabela01">';
-				$sx .= $line['pp_nome'];
-				$sx .= '<TD class="tabela01">';
-				$sx .= $line['pp_email_1'];
-				$sx .= '<TD class="tabela01">';
-				$sx .= $line['pp_email_2'];
-				$sx .= '<TD class="tabela01">';
-				$sx .= $line['pp_update'];		
-				$av = round($line['pp_avaliador']);
-				$sx .= '<TD class="tabela01">';
-				switch($av)
-					{
-					case '1':
-						$sx .= '<font color="blue">Avaliador</font>';
-						break;
-					default:
-						$sx .= '<font color="red">Não avaliador</font>';
-						break;
-					}		
-								
+		while ($line = db_read($rlt)) {
+			$tot++;
+			$link = '<A HREF="' . $http . 'cip/docentes_ed.php?dd0=' . $line['id_pp'] . '" target="_new">';
+			$sx .= '<TR>';
+			$sx .= '<TD class="tabela01">';
+			$sx .= $link;
+			$sx .= $line['pp_cracha'];
+			$sx .= '</A>';
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_nome'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_email_1'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_email_2'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_update'];
+			$av = round($line['pp_avaliador']);
+			$sx .= '<TD class="tabela01">';
+			switch($av) {
+				case '1' :
+					$sx .= '<font color="blue">Avaliador</font>';
+					break;
+				default :
+					$sx .= '<font color="red">Não avaliador</font>';
+					break;
 			}
-			$sx .= '<tr><td colspan=10>Total '.$tot.' de docentes';
-			$sx .= '</table>';
-			return($sx);
+
 		}
-		
+		$sx .= '<tr><td colspan=10>Total ' . $tot . ' de docentes';
+		$sx .= '</table>';
+		return ($sx);
+	}
 
 	function resumo_escolas() {
 		$sql = "
@@ -782,22 +784,68 @@ class docentes {
 		return (1);
 	}
 
-	
 	function blacklist() {
 		$bl = $this -> line['pp_bl'];
 		$blobs = $this -> line['pp_bl_motivo'];
 		$sx = '';
-		
+
 		if (($bl == '1') or ($bl == 'S')) {
 			$sx .= '<div>';
 			$sx .= '<img src="../img/icone_exclamation.png" height="50" align="left">';
 			$sx .= '<H1 CLASS="cinza"><B>Lista de Penalidade(s)</B><BR>';
-			$sx .= '<span class="lt2">'.$this -> line['pp_bl_motivo'].'</span>';
+			$sx .= '<span class="lt2">' . $this -> line['pp_bl_motivo'] . '</span>';
 			$sx .= '</H1></div>';
 		}
 		return ($sx);
 	}
 
+	function docentes_com_penalidades() {
+		$sql = "select * from " . $this -> tabela . "  
+						where pp_bl_pts > '0' or pp_bl <> ''
+			 ";
+		$rlt = db_query($sql);
+
+		$sx = '<table class="tabela00" width="100%">';
+		$sx .= '<thead><tr><th width="5%">Cracha</th>
+								<th width="30%">Nome</th>
+								<th width="5%">Penalidade</th>
+								<th width="55%">Motivo</th>
+								<th width="5%">Bloqueado</th>
+								</tr>';
+		$tot = 0;
+		while ($line = db_read($rlt)) {
+			$tot++;
+			$sx .= '<TR valign="top">';
+			$sx .= '<TD class="tabela01" align="center">';
+			$sx .= $line['pp_cracha'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_nome'];
+			/* ativo */
+			if ($line['pp_ativo'] != 1)
+				{
+					$sx .= '<BR><font color="red">Professor marcado como desligado da instituição</font>';
+				}
+			$sx .= '<TD align="center" class="tabela01">';
+			$pts = round($line['pp_bl_pts']);
+			if ($pts > 0) {
+				$sx .= $line['pp_bl_pts'] . 'pts';
+			} else {
+				$sx .= '-';
+			}
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_bl_motivo'];
+			$sx .= '<TD class="tabela01">';
+			$bl = $line['pp_bl'];
+			if ($bl == 1) {
+				$sx .= '<font color="red">Bloqueado</font>';
+			} else {
+				$sx .= '<font color="blue">Livre</font>';
+			}
+		}
+		$sx .= '<TR><TD colspan=5>Total de professores: '.$tot;
+		$sx .= '</table>';
+		return ($sx);
+	}
 
 	function cp_atualizacao() {
 		$cp = array();
@@ -816,7 +864,7 @@ class docentes {
 	function cp_blacklist() {
 		$cp = array();
 		array_push($cp, array('$H8', 'id_pp', 'id_pp', False, True));
-		array_push($cp, array('$C1', 'pp_bl', 'Penalidades', False, True));
+		array_push($cp, array('$C1', 'pp_bl', 'Penalidades (bloqueia submissão)', False, True));
 		array_push($cp, array('$T60:4', 'pp_bl_motivo', 'Penalidades (motivo)', False, True));
 		array_push($cp, array('$[0-50]', 'pp_bl_pts', 'Pontos', True, True));
 		return ($cp);
@@ -1064,13 +1112,12 @@ class docentes {
 		global $http;
 		//$sql = "alter table docente_orientacao add column od_linha char(7) ";
 		//$rlt = db_query($sql);
-        if(strlen($idprof > 0)){
-           $whProf = "and id_pp = $idprof"; 
-        }else{
-            $whProf = "";
-        }
+		if (strlen($idprof > 0)) {
+			$whProf = "and id_pp = $idprof";
+		} else {
+			$whProf = "";
+		}
 
-        
 		$sql = "select orientador.pp_cracha as or_cracha,
 					orientador.pp_nome as or_nome, id_od,
 					coorientador.pp_nome as co_nome, od_status, 
@@ -1085,14 +1132,14 @@ class docentes {
 					left join pibic_aluno on od_aluno = pa_cracha
 					left join programa_pos_linhas on od_linha = posln_codigo
 										
-					where od_programa = '$programa'".$whProf."
+					where od_programa = '$programa'" . $whProf . "
 					order by orientador.pp_nome, posln_descricao, od_ano_ingresso desc, od_modalidade";
-        
+
 		$totd = 0;
 		$toto = 0;
-               
+
 		$rlt = db_query($sql);
-        
+
 		$xprof = 'x';
 		$sx .= '<H2>Docentes Orientações</H2>';
 		$sx .= '<table class="lt1" width="100%" class="tabela00">';
@@ -1109,20 +1156,18 @@ class docentes {
 				$sx .= $sh;
 				$xprof = $prof;
 			}
-            if(trim($line['od_coorientador']) != ""){
-                 $coorientador = $line['co_nome'] ." (".$line['od_coorientador'].")";
-            }else{
-                $coorientador = "";
-            }
-            
-            
-           
-           //echo 'nome: '.$rsCo['pp_nome'];
-            
+			if (trim($line['od_coorientador']) != "") {
+				$coorientador = $line['co_nome'] . " (" . $line['od_coorientador'] . ")";
+			} else {
+				$coorientador = "";
+			}
+
+			//echo 'nome: '.$rsCo['pp_nome'];
+
 			$sx .= '<TR>';
 			$sx .= '<TD class="tabela01">' . $this -> modalidade($line['od_modalidade']);
 			$sx .= '<TD class="tabela01">' . $link . $line['pa_nome'] . ' (' . $line['od_aluno'] . ')</A>';
-            $sx .= '<TD class="tabela01">' . $coorientador;
+			$sx .= '<TD class="tabela01">' . $coorientador;
 			$sx .= '<TD class="tabela01">' . $line['posln_descricao'] . '';
 			$sx .= '<TD class="tabela01" align="center">' . $this -> mostra_ano($line['od_ano_ingresso']);
 			$sx .= '<TD class="tabela01" align="center">' . $this -> mostra_ano($line['od_ano_diplomacao']);
@@ -1135,7 +1180,7 @@ class docentes {
 			$sx .= '<A HREF="discente_orientacao_ed.php?dd0=' . $line['id_od'] . '" target="_NEW">
 						<img src="../img/icone_editar.gif">
 					</A>';
-            
+
 		}
 		$sx .= '</table>';
 		return ($sx);
@@ -1259,17 +1304,7 @@ class docentes {
 
 	function status() {
 
-		$sta = array('A' => 'Ativo (cursando)', 
-						'Q' => 'Qualificado', 
-						'C' => 'Ativo (cursando)', 
-						'O' => 'Requalificado', 
-						'D' => 'Defendido', 
-						'T' => 'Titulado', 
-						'R' => 'Trancado', 'X' => 'Cancelado (pelo discente)', 
-						'Y' => 'Desligado (pelo programa)', 
-						'#' => 'Excluir do sistema (registro duplicado)',
-						'V'=> 'Passagem (Mestrado para Doutorado)'
-						);
+		$sta = array('A' => 'Ativo (cursando)', 'Q' => 'Qualificado', 'C' => 'Ativo (cursando)', 'O' => 'Requalificado', 'D' => 'Defendido', 'T' => 'Titulado', 'R' => 'Trancado', 'X' => 'Cancelado (pelo discente)', 'Y' => 'Desligado (pelo programa)', '#' => 'Excluir do sistema (registro duplicado)', 'V' => 'Passagem (Mestrado para Doutorado)');
 		return ($sta);
 
 	}
@@ -1297,7 +1332,7 @@ class docentes {
 		array_push($cp, array('$Q pos_nome:pos_codigo:select * from programa_pos where pos_ativo=1 order by pos_nome', 'od_programa', 'Programa', True, True));
 		array_push($cp, array('$S8', 'od_professor', 'Professor Orientador (cracha)', True, True));
 		array_push($cp, array('$S8', 'od_aluno', 'Estudante (cracha)', True, True));
-        array_push($cp, array('$S8', 'od_coorientador', 'Professor Coorientador (cracha)', False, True));
+		array_push($cp, array('$S8', 'od_coorientador', 'Professor Coorientador (cracha)', False, True));
 
 		array_push($cp, array('${', '', 'Nível', False, True));
 		array_push($cp, array('$O : &M:Mestrado&D:Doutorado&P:Pós-Doutorado', 'od_modalidade', 'Nível', True, True));
@@ -1338,6 +1373,7 @@ class docentes {
 		return ($cp);
 
 	}
+
 	function cp_docente_orientacoes_mini() {
 		$cp = array();
 		$sta = $this -> status_op();
@@ -1345,7 +1381,7 @@ class docentes {
 		array_push($cp, array('$Q pos_nome:pos_codigo:select * from programa_pos where pos_ativo=1 order by pos_nome', 'od_programa', 'Programa', True, True));
 		array_push($cp, array('$S8', 'od_professor', 'Professor Orientador (cracha)', True, True));
 		array_push($cp, array('$S8', 'od_aluno', 'Estudante (cracha)', True, True));
-        array_push($cp, array('$S8', 'od_coorientador', 'Professor Coorientador (cracha)', False, True));
+		array_push($cp, array('$S8', 'od_coorientador', 'Professor Coorientador (cracha)', False, True));
 
 		array_push($cp, array('${', '', 'Nível', False, True));
 		array_push($cp, array('$O : &M:Mestrado&D:Doutorado&P:Pós-Doutorado', 'od_modalidade', 'Nível', True, True));
@@ -1367,6 +1403,7 @@ class docentes {
 		return ($cp);
 
 	}
+
 	function enviar_email($subj, $texto, $ss, $link) {
 		$sql = "select * from " . $tabela . " 
 				where pp_ativo = 1 
@@ -1467,7 +1504,7 @@ class docentes {
 			$this -> pp_ass = $line['pp_ass'];
 			$this -> pp_instituicao = $line['pp_instituicao'];
 			$this -> pp_update = $line['pp_update'];
-			$this -> pp_pagina = $http.'a.php?dd0=' . trim($this -> pp_cracha) . '&dd90=' . substr(md5('pesquisador' . $this -> pp_cracha), 0, 2);
+			$this -> pp_pagina = $http . 'a.php?dd0=' . trim($this -> pp_cracha) . '&dd90=' . substr(md5('pesquisador' . $this -> pp_cracha), 0, 2);
 			$this -> pp_avaliador = $line['pp_avaliador'];
 
 			/* ShortLink */
@@ -2230,19 +2267,18 @@ class docentes {
 		return (1);
 	}
 
-function docentes_blacklist() {
-		
+	function docentes_blacklist() {
+
 		$sql = "
 			select pp_cracha, pp_nome, pp_bl, pp_bl_motivo, pp_ativo
 			from pibic_professor 
 			where pp_bl = '1' 		
 		 ";
-		$rlt = db_query($sql);	
+		$rlt = db_query($sql);
 
-
-            $sx  = '<table width="100%">';
-			$sx .= '<TR><TH colspan=2 align="left"><H2>Docentes pendentes (bl)</h2>';
-			$sx .= '<TR><TH width="5%"	>Cracha
+		$sx = '<table width="100%">';
+		$sx .= '<TR><TH colspan=2 align="left"><H2>Docentes pendentes (bl)</h2>';
+		$sx .= '<TR><TH width="5%"	>Cracha
 						<TH width="30%"	>Nome
 						<TH width="30%"	>Pendencia	
 						<TH width="30%"	>Motivo
@@ -2250,37 +2286,36 @@ function docentes_blacklist() {
 						';
 
 		$tot = 0;
-		
-		while ($line = db_read($rlt)){
-			
-		$tot++;					
 
-		$cracha = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
-		$sx .= 		'<TR>';
-		$sx .= 		'<TD class="tabela01" align="left">';
-		$sx .= 		$cracha;
-		$sx .= 		$line['pp_cracha'];
-		$sx .= 		'</A>';
+		while ($line = db_read($rlt)) {
 
-		$nome 		= $line['pp_nome'];
-		$status_bl  = $line['pp_bl'];						
-		$motivo 	= $line['pp_bl_motivo'];
-		$pontos 	= $line['pp_bl_pts'];
-		
-		$sx.= '<TD class="tabela01" align="left">'.$nome;
-		$sx.= '<TD class="tabela01" align="center">'.$status_bl;
-		$sx.= '<TD class="tabela01" align="left">'.$motivo;
-		$sx.= '<TD class="tabela01" align="left">'.$pontos;
-		
-		
-		$sx .= '<TR>
-				<TD colspan=5 align=right BGCOLOR="#C0C0C0" valign="bottom" >Total de '.$tot.' docentes nas pendencias.';
-		$sx  .= '</table>';
-		
-		return($sx);
-	}	
-	
+			$tot++;
+
+			$cracha = '<A HREF="avaliador_professor_detalhe.php?dd0=' . $line['pp_cracha'] . '" class="link">';
+			$sx .= '<TR>';
+			$sx .= '<TD class="tabela01" align="left">';
+			$sx .= $cracha;
+			$sx .= $line['pp_cracha'];
+			$sx .= '</A>';
+
+			$nome = $line['pp_nome'];
+			$status_bl = $line['pp_bl'];
+			$motivo = $line['pp_bl_motivo'];
+			$pontos = $line['pp_bl_pts'];
+
+			$sx .= '<TD class="tabela01" align="left">' . $nome;
+			$sx .= '<TD class="tabela01" align="center">' . $status_bl;
+			$sx .= '<TD class="tabela01" align="left">' . $motivo;
+			$sx .= '<TD class="tabela01" align="left">' . $pontos;
+
+			$sx .= '<TR>
+				<TD colspan=5 align=right BGCOLOR="#C0C0C0" valign="bottom" >Total de ' . $tot . ' docentes nas pendencias.';
+			$sx .= '</table>';
+
+			return ($sx);
+		}
 
 	}
+
 }
 ?>

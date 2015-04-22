@@ -30,7 +30,7 @@ array_push($menu,array(':: Início ::','index.php'));
 array_push($menu,array('Bolsas','bolsas.php'));
 array_push($menu,array('Submissões','submissoes.php'));
 array_push($menu,array('Avaliadores','parecerista.php'));
-array_push($menu,array('Docentes','docentes.php'));
+array_push($menu,array('Docentes','docentes_menu.php'));
 array_push($menu,array('Discentes','discentes_menu.php'));
 array_push($menu,array('Acompanhamento','gestao.php'));
 array_push($menu,array('Pagamentos','pagamentos.php'));
