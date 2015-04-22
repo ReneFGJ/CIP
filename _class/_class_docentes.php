@@ -799,6 +799,7 @@ class docentes {
 		return ($sx);
 	}
 
+	/* Classe de penalidades */
 	function docentes_com_penalidades() {
 		$sql = "select * from " . $this -> tabela . "  
 						where pp_bl_pts > '0' or pp_bl <> ''
