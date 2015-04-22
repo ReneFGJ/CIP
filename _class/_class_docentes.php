@@ -2230,57 +2230,59 @@ class docentes {
 		return (1);
 	}
 
-function docentes_blacklist() {
-		
-		$sql = "
-			select pp_cracha, pp_nome, pp_bl, pp_bl_motivo, pp_ativo
-			from pibic_professor 
-			where pp_bl = '1' 		
-		 ";
-		$rlt = db_query($sql);	
-
-
-            $sx  = '<table width="100%">';
-			$sx .= '<TR><TH colspan=2 align="left"><H2>Docentes pendentes (bl)</h2>';
-			$sx .= '<TR><TH width="5%"	>Cracha
-						<TH width="30%"	>Nome
-						<TH width="30%"	>Pendencia	
-						<TH width="30%"	>Motivo
-						<TH width="30%"	>Status
-						';
-
-		$tot = 0;
-		
-		while ($line = db_read($rlt)){
+	function docentes_blacklist() {
 			
-		$tot++;					
-
-		$cracha = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
-		$sx .= 		'<TR>';
-		$sx .= 		'<TD class="tabela01" align="left">';
-		$sx .= 		$cracha;
-		$sx .= 		$line['pp_cracha'];
-		$sx .= 		'</A>';
-
-		$nome 		= $line['pp_nome'];
-		$status_bl  = $line['pp_bl'];						
-		$motivo 	= $line['pp_bl_motivo'];
-		$pontos 	= $line['pp_bl_pts'];
-		
-		$sx.= '<TD class="tabela01" align="left">'.$nome;
-		$sx.= '<TD class="tabela01" align="center">'.$status_bl;
-		$sx.= '<TD class="tabela01" align="left">'.$motivo;
-		$sx.= '<TD class="tabela01" align="left">'.$pontos;
-		
-		
-		$sx .= '<TR>
-				<TD colspan=5 align=right BGCOLOR="#C0C0C0" valign="bottom" >Total de '.$tot.' docentes nas pendencias.';
-		$sx  .= '</table>';
-		
-		return($sx);
-	}	
+			$sql = "
+					select pp_cracha, pp_nome, pp_bl, pp_bl_motivo, pp_ativo, pp_bl_pts
+					from pibic_professor 
+					where pp_bl = '1' 
+					order by pp_cracha, pp_nome 		
+				 	";
+			$rlt = db_query($sql);	
+			
+	            $sx  = '<table>';
+				$sx .= '<TR><TH colspan=2 align="left"><H2>Docentes com pendencias (bkl)</h2>';
+				$sx .= '<TR><TH width="5%"	>Cracha
+							<TH width="20%"	>Nome
+							<TH width="3%"	>Pendencia	
+							<TH width="30%"	>Motivo
+							<TH width="3%"	>Status
+							<TH width="3%"	>Pontuação
+							';
+			
+			$tot = 0;
+			
+			while ($line = db_read($rlt)){
+				
+			$tot++;					
 	
-
-	}
+			$cracha = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
+			$sx .= 		'<TR>';
+			$sx .= 		'<TD class="tabela01" align="left">';
+			$sx .= 		$cracha;
+			$sx .= 		$line['pp_cracha'];
+			$sx .= 	  '</A>';
+	
+			$nome 		= $line['pp_nome'];
+			$status_bl  = $line['pp_bl'];						
+			$motivo 	= $line['pp_bl_motivo'];
+			$ativo 		= $line['pp_pp_ativo'];
+			$pontos 	= $line['pp_bl_pts'];		
+			
+			$sx.= '<TD class="tabela01" align="left">'.$nome;
+			$sx.= '<TD class="tabela01" align="center">'.$status_bl;
+			$sx.= '<TD class="tabela01" align="left">'.$motivo;
+			$sx.= '<TD class="tabela01" align="left">'.$ativo;
+			$sx.= '<TD class="tabela01" align="left">'.$pontos;
+			
+			$sx .=  '<TR>
+					 	<TD colspan=6 align=right BGCOLOR="#C0C0C0" valign="bottom"><font color="white">Total de '.$tot.' docentes nas pendencias.</font>';
+			$sx  .= '</table>';
+			
+			return($sx);
+			}		
+		
+		}
 }
+
 ?>
