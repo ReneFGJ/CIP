@@ -446,7 +446,7 @@ class csf
 			{
 				$sql = "select count(*) as total, pa_curso from pibic_bolsa_contempladas 
 						inner join pibic_aluno on pb_aluno = pa_cracha
-						where (pb_tipo = 'K' or pb_tipo = 'S' or pb_tipo = 'T' or pb_tipo = 'W')
+						where (or pb_tipo = 'S')
 						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
 						group by pa_curso
 						order by pa_curso 
@@ -749,24 +749,35 @@ class csf
 				$sx .= '</table>';
 				return($sx);			
 			}	
-		
+
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: world_mapa_onde()
+ *          Monta o grafico de barras dos alunos em cada pais
+ * @author Rene Gabriel[Desenvolvedor] Apoio: Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 22/04/2015
+ */			
 		function world_mapa_onde()
 			{
-				$sql = "select count(*) as total, pb_colegio_orientador from pibic_bolsa_contempladas 
+				$sql = "select count(*) as total, pb_colegio_orientador 
+						from pibic_bolsa_contempladas 
 						inner join pibic_aluno on pb_aluno = pa_cracha
-						where (pb_tipo = 'K' or pb_tipo = 'S' or pb_tipo = 'T' or pb_tipo = 'W')
+						where (pb_tipo = 'S')
 						and pb_ativo = 1  and (pb_status <> 'C' and pb_status <> '@')
 						group by pb_colegio_orientador
 						order by total desc
 						 ";
 				$rlt = db_query($sql);
+				
 				$st = "'País'";
 				$sv = "0";
 				$col = 99;
-				while ($line = db_read($rlt))
-					{
+				
+				while ($line = db_read($rlt)){
+						
 					$total = $line['total'];
 					$paisn = trim($line['pb_colegio_orientador']);
+					
 					if (strlen($paisn) > 0)
 						{
 						if (strlen($st) > 0) { $st .= ', '; $sv .= ', '; }
@@ -778,24 +789,25 @@ class csf
 						$col++;						
 						}
 					}
+				
 				$sx .= '				 
-					<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    				<script type="text/javascript">
-      					google.load(\'visualization\', \'1\');
-    				</script>
-    				<script type="text/javascript">
-      					function drawVisualization() {
-        				var wrapper = new google.visualization.ChartWrapper({
-          				chartType: \'ColumnChart\',
-          				dataTable: [['.$st.'],
-                      		['.$sv.']],
-          					options: {\'title\': \'Estudantes por países\'},
-          					containerId: \'visualization\'
-        					});
-        					wrapper.draw();
-      					}
-      				google.setOnLoadCallback(drawVisualization);
-    			</script>
+						<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+						<script type="text/javascript">
+							google.load(\'visualization\', \'1\');
+							google.setOnLoadCallback(drawVisualization);
+							
+							function drawVisualization() {
+							var wrapper = new google.visualization.ChartWrapper({	
+							chartType: \'ColumnChart\',
+							dataTable: [['.$st.'],['.$sv.']],
+								options: {\'title\': \'Estudantes por países\'},
+								containerId: \'visualization\'
+								});
+								wrapper.draw();
+							}
+						
+					</script>
+  				
   				<div id="visualization" style="width: 750px; height: 400px;"></div>';
 				
 				$sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
@@ -808,7 +820,7 @@ class csf
 								
     			return($sx);
 		}
-
+//**************************** Fim do metodo *****************************************	
 
 //####################################################################################                      
 //**************************** Inicio do metodo **************************************
@@ -848,7 +860,7 @@ class csf
 				
 				$st = '';
 				$col = 99;
-				$tot = 0;
+				$tot_instit = 0;
 				$tot_alunos = 0;
 				
 				while ($line = db_read($rlt))
@@ -860,8 +872,9 @@ class csf
 
 						if (strlen($pais) > 0)
 							{
-								$tot++;
+								$tot_instit ++;
 								$tot_alunos = $tot_alunos + $line['total'];
+								
 								if ($col >= 2) 
 									{
 					           		  	$col = 0; 
@@ -870,6 +883,7 @@ class csf
 				              	$sty = ' style="border: 1px solid #303030; padding: 2px; margin: 2px;" ';
 				              	$sq .= '<TD align="center" '.$sty.'>'.$line['total'].'</td>';
 				              	$sq .= '<TD '.$sty.'>'.$paisn.'</td>';
+								
 								$col++;
 								
 								if (strlen($st) > 0) 
@@ -931,9 +945,7 @@ class csf
 					  
 					  function drawChart() {
 					    var data = google.visualization.arrayToDataTable([ 
-					      [\'Lat\', \'Long\', \'Name\', \'Students\'],			
-        				  '.$st.'    
-						  ]);
+					      [\'Lat\', \'Long\', \'Name\', \'Students\'], '.$st.']);
 						
 					var map   = new google.visualization.GeoChart(document.getElementById(\'map_div\'));
 					var options = {
@@ -966,9 +978,10 @@ class csf
 				$sx .= '<TH width=10%  align="center">Estudantes<TH width=40%>Instituição';
 				$sx .= $sq.'</table>';
 			
-				$sx .= '<TR><TD colspan=5 align=right BGCOLOR="#99FF99 " valign="bottom" >
-						Total de '.$tot.' instituições destino do Intercâmbio.';
-				//$sx .= "	".$tot_alunos." ";
+				$sx .= '<TR>
+							<colspan=4 align=left BGCOLOR="#99FF99 " valign="bottom">
+							Total de <strong>'.$tot_instit.'</strong> instituições destino do Intercâmbio,';
+				$sx .= 	    " com <strong>".$tot_alunos."</strong> alunos enviados pela PUCPR.";
 				$sx  .= '</table>';	
 
 				return($sx);				
