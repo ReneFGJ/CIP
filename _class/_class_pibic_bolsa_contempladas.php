@@ -5325,7 +5325,6 @@ $sa .= '</TR>';
 							$sx .= '<TR>';
 							$sx .= '<TD class="lt0" align="right">'.msg('rel_parcial_correcao');
 							$sx .= '<TD class="lt1"><B>'.$this->mostra_data_relatorio($this->pb_rp_data_reenvio,$this->pb_rp_data_reenvio_nota);
-
 						} else {
 							$sx .= '<TR>';
 							$sx .= '<TD class="lt0" align="right">'.msg('rel_parcial');
@@ -5390,6 +5389,7 @@ $sa .= '</TR>';
 	function mostra_data_relatorio($d1,$n1)
 		{
 			$sx = '';
+			
 			$d1 = round($d1);
 			if ($d1 <= 19000101) 
 				{
@@ -5399,9 +5399,10 @@ $sa .= '</TR>';
 					
 					$sa = '';
 					if ($n1 < 1) { $sx .= ' '.msg('not_avalied'); }
-					if ($n1 == 1) { $sx .= ' '.msg('<font color="#303080">aprovado</font>'); }
+					if ($n1 == 1) { $sx .= ' <font color="#303080">'.msg('aprovado').'</font>'; }
 					if ($n1 == 2) { $sx .= ' '.'<font color="red">'.msg('pendente').'</font>'; }
 					if ($n1 == 3) { $sx .= ' '.msg('reprovado'); }
+					if ($n1 == 4) { $sx .= ' <font color="#303080">'.msg('aprovado (gestor)'.'</font>'); }
 				}
 			return($sx);
 		}
