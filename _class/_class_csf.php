@@ -375,31 +375,47 @@ class csf
 				$line = db_read($rlt);
 				return($line['total']);				
 			}
-		
+
+
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: estudante_perfil()
+ *          Monta o dados para grafico de perfil dos alunos
+ * @author Rene Gabriel[Desenvolvedor] Apoio: Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 22/04/2015
+ */						
 		function estudante_perfil()
 			{
-				$sql = "select count(*) as total, pa_curso from pibic_bolsa_contempladas 
-						inner join pibic_aluno on pb_aluno = pa_cracha
-						where (pb_tipo = 'K' or pb_tipo = 'S' or pb_tipo = 'T' or pb_tipo = 'W')
-						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
-						group by pa_curso
-						order by pa_curso 
-						 ";
+				$sql = "select count(*) as total, pa_curso, pa_bolsa
+						from pibic_bolsa_contempladas
+						left join (select distinct inst_nome from instituicao) as instituicao on pb_colegio = inst_nome
+						left join pibic_aluno on pb_aluno = pa_cracha
+						where (pb_tipo = 'S')
+						and (pb_status <> 'C' and pb_status <> '@')
+						group by pa_curso, inst_nome
+						order by inst_nome 
+						 ";		 
+						 
 				$rlt = db_query($sql);
+				
 				$st = '';
 				$sv = '';
 				$col = 99;
 				
 				$curso=array();
 				$curson=array();
+				
 				while ($line = db_read($rlt))
 					{
 					$total = $line['total'];
 					$paisn = trim($line['pa_curso']);
+					$bolsa = trim($line['pa_bolsa']);
+					
 					if (strlen($paisn) > 0)
 						{
 						if (strlen($st) > 0) { $st .= ', '.chr(13).chr(10); $sv .= ', '; }
-						$st .= "['$paisn', $total]";
+						
+						$st .= '['.$paisn.', '.$line['total'].']';
 						$sv .= "$total";
 
 						if ($col > 1) { $col = 0; $sq .= '<TR>'; }
@@ -407,28 +423,36 @@ class csf
 						$col++;						
 						}
 					}
-				$st = "['Bolsista Prouni',16],".chr(13).chr(10);
-				$st .= "['Bolsa PUCPR',3],".chr(13).chr(10);
-				$st .= "['FIES',2],".chr(13).chr(10);
-				$st .= "['Sem bolsa',28]".chr(13).chr(10);
-				$sx .= '
-				     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    				<script type="text/javascript">
-      					google.load(\'visualization\', \'1\', {packages: [\'corechart\']});
-    				</script>
-    				<script type="text/javascript">
-      					function drawVisualization() {
-        				// Create and populate the data table.
-        				var data = google.visualization.arrayToDataTable([
-          				[\''.msg('curso').'\', \''.msg('estudantes').'\'],
-          				';
-				$sx .= $st;
-         		$sx .= ']);
-       					 new google.visualization.PieChart(document.getElementById(\'visualization\')).
-            				draw(data, {title:"Perfil dos Estudantes em Intercâmbio"});
-      					}
-      				google.setOnLoadCallback(drawVisualization);
-    			</script>
+					
+					$st .= '[\''.$bolsa.'\', '.$line['total'].']';
+					
+					$sx .= '
+					    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	    				<script type="text/javascript">
+	      					google.load(\'visualization\', \'1\', {packages: [\'corechart\']});
+							google.setOnLoadCallback(drawVisualization);
+							function drawVisualization() {
+		        				var data = google.visualization.arrayToDataTable([
+		          				[\''.msg('curso').'\', \''.msg('estudantes').'\'],
+		          				';
+						       $sx .= $st;
+		         		       $sx .= ']);
+		       					
+								new google.visualization.PieChart(document.getElementById(\'visualization\')).
+		            			draw(data, {title:"Perfil dos Estudantes em Intercâmbio"});
+		      					
+		      					var options = {
+	          					title: \'My Daily Activities\',
+	          					is3D: true,
+								};
+							var chart = new google.visualization.PieChart(document.getElementById(\'visualization\'));
+                            chart.draw(data, options);	
+								
+						}
+
+	      					
+	    				</script>
+	  				
   				<div id="visualization" style="width: 750px; height: 400px;"></div>';
 				
 				$sx .= '<BR><BR><H2>'.msg('perfil_dos_estudantes').'</H2>';
@@ -441,6 +465,7 @@ class csf
     			return($sx);
 				
 			}
+	
 		
 		function estudante_area()
 			{
@@ -891,6 +916,7 @@ class csf
 									  $st .= ', '.chr(13).chr(10); 	
 									}
 									$st .= '[ '.$latitude.', '.$longitude.', \''.$pais.'\', '.$line['total'].']';
+									$st .= "['.$paisn.', .$total.],";
 							}
 						
 						}
