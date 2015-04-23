@@ -173,7 +173,7 @@ function parecer_nao_entregues($ano)
 			$xano = date("Y");
 			$sql = "select distinct
 					pj_cep_status, pj_ceua_status, pj_cep, pj_ceua, pp_abe_09,
-					pb_protocolo, pb_protocolo_mae, pb_titulo_projeto, pp_nome, a_cnpq, a_descricao   
+					pb_protocolo, pb_protocolo_mae, pb_titulo_projeto, pp_nome, a_cnpq, a_descricao, pp_email, pp_email_1   
 					from ".$this->tabela."
 					inner join 	ajax_areadoconhecimento on pb_semic_area = a_cnpq 
 					inner join  pibic_projetos on pb_protocolo_mae = pj_codigo
@@ -201,6 +201,9 @@ function parecer_nao_entregues($ano)
 					<TH>CEUA</TH>
 					<TH>Descrição</TH>
 					<TH>Orientador</TH>
+					<TH>Email_princ_orientador</TH>
+					<TH>Email_secund_orientador</TH>					
+					<TH>Titulo_projeto</TH>					
 					</TR>
 					';
 			$it = 0;
@@ -246,7 +249,17 @@ function parecer_nao_entregues($ano)
 				$sx .= $line['pp_abe_09'];
 				
 				$sx .= '<TD class="tabela01">';
-				$sx .= $line['pp_nome'];				
+				$sx .= $line['pp_nome'];
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_email'];
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_email_1'];
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pb_titulo_projeto'];		
+				
 			}
 			$sx .= '</table>';
 			$sx .= 'Total de '.$it.' protocolos não apresentaram o parecer';
