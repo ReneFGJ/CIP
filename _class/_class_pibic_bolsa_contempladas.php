@@ -173,7 +173,7 @@ function parecer_nao_entregues($ano)
 			$xano = date("Y");
 			$sql = "select distinct
 					pj_cep_status, pj_ceua_status, pj_cep, pj_ceua, pp_abe_09,
-					pb_protocolo, pb_protocolo_mae, pb_titulo_projeto, pp_nome, a_cnpq, a_descricao   
+					pb_protocolo, pb_protocolo_mae, pb_titulo_projeto, pp_nome, a_cnpq, a_descricao, pp_email, pp_email_1   
 					from ".$this->tabela."
 					inner join 	ajax_areadoconhecimento on pb_semic_area = a_cnpq 
 					inner join  pibic_projetos on pb_protocolo_mae = pj_codigo
@@ -201,6 +201,9 @@ function parecer_nao_entregues($ano)
 					<TH>CEUA</TH>
 					<TH>Descrição</TH>
 					<TH>Orientador</TH>
+					<TH>Email_princ_orientador</TH>
+					<TH>Email_secund_orientador</TH>					
+					<TH>Titulo_projeto</TH>					
 					</TR>
 					';
 			$it = 0;
@@ -246,7 +249,17 @@ function parecer_nao_entregues($ano)
 				$sx .= $line['pp_abe_09'];
 				
 				$sx .= '<TD class="tabela01">';
-				$sx .= $line['pp_nome'];				
+				$sx .= $line['pp_nome'];
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_email'];
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_email_1'];
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pb_titulo_projeto'];		
+				
 			}
 			$sx .= '</table>';
 			$sx .= 'Total de '.$it.' protocolos não apresentaram o parecer';
@@ -5073,8 +5086,6 @@ $sa .= '</TR>';
 						case '0': $sx = 'não avaliado'; break;
 						case '1': $sx = '<font color="#404080"><B>aprovado</B></font>'; break;
 						case '0': $sx = '<font color="#800000"><B>pendente</B></font>'; break;
-						case '4': $sx = '<font color="#800000"><B>aprovado (gestor)</B></font>'; break;
-						case '3': $sx = '<font color="#800000"><B>reprovado (gestor)</B></font>'; break;
 						case '-1': $sx = '<B>enviado para correção</B>';
 						case '-90': $sx = '<B>postado, aguardando avaliação</B>'; break;
 						case '-99': $sx = '<B>postado, aguardando avaliador</B>'; break;
@@ -5314,7 +5325,6 @@ $sa .= '</TR>';
 							$sx .= '<TR>';
 							$sx .= '<TD class="lt0" align="right">'.msg('rel_parcial_correcao');
 							$sx .= '<TD class="lt1"><B>'.$this->mostra_data_relatorio($this->pb_rp_data_reenvio,$this->pb_rp_data_reenvio_nota);
-
 						} else {
 							$sx .= '<TR>';
 							$sx .= '<TD class="lt0" align="right">'.msg('rel_parcial');
@@ -5379,6 +5389,7 @@ $sa .= '</TR>';
 	function mostra_data_relatorio($d1,$n1)
 		{
 			$sx = '';
+			
 			$d1 = round($d1);
 			if ($d1 <= 19000101) 
 				{
@@ -5388,10 +5399,10 @@ $sa .= '</TR>';
 					
 					$sa = '';
 					if ($n1 < 1) { $sx .= ' '.msg('not_avalied'); }
-					if ($n1 == 1) { $sx .= ' '.msg('<font color="#303080">aprovado</font>'); }
+					if ($n1 == 1) { $sx .= ' <font color="#303080">'.msg('aprovado').'</font>'; }
 					if ($n1 == 2) { $sx .= ' '.'<font color="red">'.msg('pendente').'</font>'; }
-					if ($n1 == 3) { $sx .= ' '.'<font color="red">'.msg('reprovado (gestor)'.'</font>'); }
-					if ($n1 == 4) { $sx .= ' '.'<font color="blue">'msg('aprovado (gestor)'.'</font>'); }
+					if ($n1 == 3) { $sx .= ' '.msg('reprovado'); }
+					if ($n1 == 4) { $sx .= ' <font color="#303080">'.msg('aprovado (gestor)'.'</font>'); }
 				}
 			return($sx);
 		}

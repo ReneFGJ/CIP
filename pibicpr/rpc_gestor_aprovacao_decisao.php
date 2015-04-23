@@ -100,8 +100,7 @@ if ($chk == $dd[2]) {
 		} else {
 			$sql = "update pibic_bolsa_contempladas set pb_relatorio_parcial_correcao_nota = '3' where pb_protocolo = '$proto' ";
 		}
-
-		$rlt = db_quey($sql);
+		$rlt = db_query($sql);
 
 		echo '<h2><font color="green">Operação efetuada com sucesso!</font>';
 		exit ;
