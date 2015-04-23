@@ -5,7 +5,7 @@ $path = "cadastro.php";
 require($include."sisdoc_menus.php");
 $menu = array();
 
-	array_push($menu,array('Docentes','Cadastro de discentes','docentes.php'));
+	array_push($menu,array('Docentes','Cadastro de docentes','docentes.php'));
 	if ($perfil->valid('#PIB'))
 	{
 		array_push($menu,array('Docentes (impedimentos)','Docentes com impedimento','docentes_penalidades.php'));
