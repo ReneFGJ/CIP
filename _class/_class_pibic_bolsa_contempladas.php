@@ -5073,6 +5073,8 @@ $sa .= '</TR>';
 						case '0': $sx = 'não avaliado'; break;
 						case '1': $sx = '<font color="#404080"><B>aprovado</B></font>'; break;
 						case '0': $sx = '<font color="#800000"><B>pendente</B></font>'; break;
+						case '4': $sx = '<font color="#800000"><B>aprovado (gestor)</B></font>'; break;
+						case '3': $sx = '<font color="#800000"><B>reprovado (gestor)</B></font>'; break;
 						case '-1': $sx = '<B>enviado para correção</B>';
 						case '-90': $sx = '<B>postado, aguardando avaliação</B>'; break;
 						case '-99': $sx = '<B>postado, aguardando avaliador</B>'; break;
@@ -5388,7 +5390,8 @@ $sa .= '</TR>';
 					if ($n1 < 1) { $sx .= ' '.msg('not_avalied'); }
 					if ($n1 == 1) { $sx .= ' '.msg('<font color="#303080">aprovado</font>'); }
 					if ($n1 == 2) { $sx .= ' '.'<font color="red">'.msg('pendente').'</font>'; }
-					if ($n1 == 3) { $sx .= ' '.msg('reprovado'); }
+					if ($n1 == 3) { $sx .= ' '.'<font color="red">'.msg('reprovado (gestor)'.'</font>'); }
+					if ($n1 == 4) { $sx .= ' '.'<font color="blue">'msg('aprovado (gestor)'.'</font>'); }
 				}
 			return($sx);
 		}

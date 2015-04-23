@@ -100,6 +100,8 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 
 	array_push($menu,array('Gestão de Bolsas','Bolsas Suspensas','rel_rel_01.php'));
 	
+	array_push($menu,array('Gestão de Bolsas (Comitê Gestor)','Aprovação do getor das pendências de relatório parcial','rpc_gestor_aprovacao.php'));
+	
 	array_push($menu,array('SEMIC','SEMIC','semic.php'));
 
 
