@@ -5278,11 +5278,26 @@ $sa .= '</TR>';
 
 		
 	function mostar_dados()
-			{				
+			{
+				global $http;				
 				/* 
 				 * 
 				 */
+				$stta = $this->pb_status;
 				$sx = '<fieldset class="fieldset01">';
+				$sx .= '<div>';
+				switch ($stta)
+					{
+					case 'C':
+						$sx .= '<div style="background-image: url( \''.$http.'img/banner_cancelado.png\'); 
+									width: 200px; height: 130px;
+									float: right;
+									position: table; 
+									right: 0px;									
+									">';
+						break;
+					}
+				$sx .= '</div>';
 				$sx .= '<legend class="legend01">'.msg('data_main').'</legend>';
 				$sx .= '<table width="100%" class="tabela00">';
 				$sx .= '<TR class="lt0">';
@@ -5381,6 +5396,7 @@ $sa .= '</TR>';
 
 
 				$sx .= '</table>';
+				$sx .= '</div>';
 				$sx .= '</fieldset>';				
 				return($sx);
 			}

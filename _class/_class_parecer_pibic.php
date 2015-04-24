@@ -193,6 +193,7 @@ class parecer_pibic
 			array_push($email,$par->email);
 			array_push($email,$par->email_alt);
 			array_push($email,$admin_email);
+			
 			$linka = $par->link_avaliador;
 			
 			$ic = new ic;
@@ -225,13 +226,14 @@ class parecer_pibic
 			$texto = '<img src="'.$http.'img/email_ic_header.png"><BR>'.$texto;
 			$texto .= '<BR><BR><img src="'.$http.'img/email_ic_foot.png"><BR>'.$icname;
 										
-			for ($rq=0;$r < count($email);$r++)
+			for ($rq=0;$rq < count($email);$rq++)
 				{
 					$email_send = trim($email[$rq]);
 					if (strlen($email_send) > 0)
 						{
-							 enviaremail($email_send,'',$titulo,$texto);
-							 echo '<BR>E-mail enviado para '.$email_send;
+							 
+							enviaremail($email_send,'',$titulo,$texto);
+							echo '<BR>E-mail enviado para '.$email_send;
 						}
 				}
 			echo '<font color="green">Indicado e enviado e-mail!</font>';

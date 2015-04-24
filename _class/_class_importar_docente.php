@@ -116,25 +116,26 @@ class importa_docente {
 		$nome = troca($nome,"'","´");
 		$cracha_lng = $d[1];
 		$cracha = substr($d[1], 3, 8);
-		$titulacao = $this -> busca_codigo_titulacao($d[2]);
-		$regime = $this -> busca_codigo_regime_de_trabalho($d[3]);
-		$campus = $this -> busca_codigo_campus($d[6]);
-		$curso = $this -> busca_codigo_curso($d[8]);
-		$escola = $this -> busca_codigo_escola($d[7]);
+		$titulacao = $this -> busca_codigo_titulacao($d[7]);
+		$regime = $this -> busca_codigo_regime_de_trabalho($d[8]);
+		$campus = $this -> busca_codigo_campus($d[5]);
+		//$curso = $this -> busca_codigo_curso($d[8]);
+		$escola = $this -> busca_codigo_escola($d[6]);
 		$nivel = substr($d[13], 0, 1);
-
-		$h1 = round($d[18]);
-		$h2 = round($d[19]);
-		$h3 = round($d[20]);
-		$h4 = round($d[21]);
-		$h5 = round($d[22]);
-		$h6 = round($d[23]);
-		$h7 = round($d[24]);
-		$h8 = round($d[25]);
-		$h9 = round($d[26]);
-		$h10 = round($d[27]);
-		$h11 = round($d[28]);
-		$h12 = round($d[29]);
+		
+		$id = 10;
+		$h1 = round($d[$id]);
+		$h2 = round($d[$id+1]);
+		$h3 = round($d[$id+2]);
+		$h4 = round($d[$id+3]);
+		$h5 = round($d[$id+4]);
+		$h6 = round($d[$id+5]);
+		$h7 = round($d[$id+6]);
+		$h8 = round($d[$id+7]);
+		$h9 = round($d[$id+8]);
+		$h10 = round($d[$id+9]);
+		$h11 = round($d[$id+10]);
+		$h12 = round($d[$id+11]);
 
 		$sqli .= "insert into docente_ch 
 		(
@@ -280,6 +281,9 @@ class importa_docente {
 	function busca_codigo_escola($t) {
 		$t = trim($t);
 		switch ($t) {
+			case 'Nutrição' :
+				$r = '00010';
+				break;			
 			case 'Saúde e Biociências' :
 				$r = '00010';
 				break;
@@ -311,7 +315,7 @@ class importa_docente {
 				$r = '00009';
 				break;
 			default :
-				echo 'OPs, ' . $t;
+				echo 'OPs, Escola não localizada: ' . $t;
 				exit ;
 		}
 		return ($r);
@@ -330,7 +334,7 @@ class importa_docente {
 				$r = 'TP';
 				break;
 			default :
-				echo 'OPs, não localizado ' . $t;
+				echo 'OPs, (regime de trabalho) não localizado ' . $t;
 				exit ;
 		}
 		return ($r);
@@ -355,7 +359,7 @@ class importa_docente {
 				$r = '009';
 				break;
 			default :
-				echo 'OPs, não localizado ' . $t;
+				echo 'OPs, não localizado titulacao' . $t;
 				exit ;
 		}
 		return ($r);
