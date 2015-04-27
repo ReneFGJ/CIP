@@ -412,57 +412,45 @@ class csf
 		function estudante_perfil()
 			{
 				$sql = "select * from (
-							select count(*) as total, pb_colegio, pb_tipo 
-							from pibic_bolsa_contempladas 
-							where pb_tipo = 'S' 
-							and (pb_status <> 'C' and pb_status <> '@')
-							group by pb_tipo, pb_colegio
-							) as alunos
-							left join 
-									(select distinct inst_nome
-									 from instituicao) as instituicao on pb_colegio = inst_nome
-						 ";	
-						 
-						 
+										select count(*) as total, pb_colegio, pb_tipo, pa_curso, pb_colegio_orientador
+										from pibic_bolsa_contempladas
+										inner join pibic_aluno on pb_aluno = pa_cracha		
+										where pb_tipo = 'S' 
+										and (pb_status <> 'C' and pb_status <> '@')
+										group by pb_colegio, pb_tipo, pa_curso, pb_colegio_orientador 
+										) as alunos
+										left join 
+										(select distinct inst_nome 
+										 from instituicao) as instituicao on pb_colegio = inst_nome
+										";
 				$rlt = db_query($sql);
 				
-				$st = '';
 				$sv = '';
-				$col = 99;
 				$paisn = 0;
 				$tot_cursos = 0;
 				$tot_alunos = 0;
+				$curso_aluno;
 				
 				while ($line = db_read($rlt))
 					{
 						
-					$paisn = trim($line['pa_curso']);
+					$paisn = trim($line['pb_colegio_orientador']);
+					$curso_aluno = trim($line['pa_curso']);
 					
 					if (strlen($paisn) > 0)
 						{
 							$tot_cursos ++;
 							$tot_alunos = $tot_alunos + $line['total'];
 							
-						if (strlen($st) > 0) { $st .= ', '.chr(13).chr(10); $sv .= ', '; }
+						if (strlen($st) > 0) { $st .= ', '.chr(13).chr(10); }
 						
-						$st .= '['.$paisn.', '.$line['total'].']';
-						$sv .= "$total";
+						$st .= '[\''.$paisn.'\', '.$line['total'].']';
 
 						if ($col > 1) { $col = 0; $sq .= '<TR>'; }
-						$sq .= '<TD align="left">'.msg($paisn).'<TD align="center">'.$line['total'];
-						$col++;						
-						
-						if (strlen($st) > 0) 
-						{
-							 $st .= ', '.chr(13).chr(10); 
-						}
-							
-						   $st .= '['.$paisn.', '.$line['total'].']';
-						
+						$sq .= '<TD align="left"  >'.msg($paisn).'<TD align="left"  >'.msg($curso_aluno).'<TD align="center">'.$line['total'];					
+						$col++;							
 						}
 					} 
-					
-					
 					
 					$sx .= '
 					    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -471,7 +459,10 @@ class csf
 					      google.setOnLoadCallback(drawChart);
 					      function drawChart() {
 					        var data = google.visualization.arrayToDataTable([
-							  [\'Curso\', \'Qtd.\'],'.$st.']);
+							  
+							  [\'Curso\', \'Qtd\'],'.$st.'
+							  
+							  ]);
 													
 						        var options = {
 									          	title: \'Titulo\',
@@ -492,16 +483,14 @@ class csf
 							</style>
   				';
 			
-				
-				
-				$sx .= '<BR><BR><H2>'.msg('Alunos por cursos').'</H2>';
-				$sx .= '<table width=750 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
+				$sx .= '<BR><BR><H2>'.msg('Alunos por país').'</H2>';
+				$sx .= '<table width=1050 align=center class="lt0" cellpadding=2 cellspacing=0 border=1>';
 				$sx .= '<TR>';
-				$sx .= '<TH width=50% align="left">'.msg('curso').'<TH width=13%>'.msg('estudantes');
-				$sx .= '<TH width=50% align="left">'.msg('curso').'<TH width=13%>'.msg('estudantes');
+				$sx .= '<TH width=40% align="left">'.msg('País').'<TH width=40% align="left">'.msg('Curso').'<TH width=20%>'.msg('Estudantes');
+				$sx .= '<TH width=40% align="left">'.msg('País').'<TH width=40% align="left">'.msg('Curso').'<TH width=20%>'.msg('Estudantes');
 				$sx .= $sq.'</table>';
 				
-				$sx .= '<TR colspan=2>
+				$sx .= '<TR colspan=6>
 							<align=left BGCOLOR="#99FF99 " valign="bottom">
 							Total de <strong>'.$tot_alunos.'</strong> alunos,';
 				$sx .= 	    " em <strong>".$tot_cursos."</strong> cursos da PUCPR.";
@@ -742,8 +731,7 @@ class csf
       					function drawVisualization() {
         				var wrapper = new google.visualization.ChartWrapper({
           				chartType: \'ColumnChart\',
-          				dataTable: [['.$st.'],
-                      		['.$sv.']],
+          				dataTable: [['.$st.'], ['.$sv.']],
           					options: {\'title\': \'Estudantes por países\'},
           					containerId: \'visualization\'
         					});
@@ -1019,7 +1007,7 @@ class csf
 	function world_mapa_estudantes()
 			{
 				global $dd;
-				/* Anterior */
+				/* Anterior 
 				$sql1 = "
 						select distinct inst_lat, inst_log, inst_nome, count(*) as total
 						from pibic_bolsa_contempladas
@@ -1031,7 +1019,7 @@ class csf
 						group by inst_lat, inst_log, inst_nome
 						order by inst_nome
 						";
-				
+				*/
 				/* Novo */
 				$sql = "select * from (
 							select count(*) as total, pb_colegio, pb_tipo from pibic_bolsa_contempladas 
@@ -1413,7 +1401,7 @@ class csf
 					  function drawChart() {
 					
 					    var data = google.visualization.arrayToDataTable([
-					      	[\'Genero\', \'Total \'], '.$st.'],
+					      	[\'Genero\', \'Total \'], '.$st.',
 							]);
 					
 					var options = {
@@ -1441,6 +1429,8 @@ class csf
 		
 	}
 //**************************** Fim do metodo *****************************************
+	
+	
 			
 }
 ?>

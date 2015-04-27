@@ -5831,6 +5831,7 @@ $sa .= '</TR>';
 					$ged->tabela = $this->tabela_ged;
 					$ged->protocol = $this->pb_protocolo;
 					$sx .= $ged->filelist();
+					echo "...";
 					}
 					
 				return($sx);
