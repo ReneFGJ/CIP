@@ -1,3 +1,6 @@
+<?php
+require("../../db.php");
+?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
@@ -109,28 +112,12 @@
 				</table>
 
 			</section>
-
+			<!-- Formulario -->
+			<A name="formulario"></A>
 			<section class="section-size" id="participacao" data-sr="enter left, hustle 20px">
 				<h2 class="title-sobre-encontro">Register</h2>
 
-
-				<p><span class="passos-inscricao">1</span> Fill the form below:</p>
-				<br />
-				Name<br />
-				<input class="input-inscricao"></input>
-				<br /><br />
-				
-				Email<br />
-				<input class="input-inscricao"></input><br />
-				<br /><br />
-				CPF* (we need this document because...)<br />
-				<input class="input-inscricao"></input><br />
-				<br /><br />
-				Exchange Programm Country<br />
-				<input class="input-inscricao"></input>
-				<br /><br />
-				<button class="botao-enviar">I confirm my presence in this event</button>
-				<br /><br />
+				<?php require("formulario.php");?>
 				
 				<br /><br />
 

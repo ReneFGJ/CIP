@@ -32,8 +32,7 @@ $sql = "select * from ".$pb->tabela."
 			left join ajax_areadoconhecimento on pb_semic_area = a_cnpq
 			where pbt_edital <> 'CSF'
 			and pb_professor = '".$professor."' 
-			and pb_status = 'A'
-			and (a_ativo = '1' or a_semic = '1') 
+			and pb_status = 'A' 
 			";
 $rlt = db_query($sql);
 
