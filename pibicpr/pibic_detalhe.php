@@ -34,12 +34,15 @@ if (strlen($idx) == 7) { $id = 0;
 	$proto = 'xxxx';
 }
 
+/* tamanho */
+echo '<div width: 95%" id="conteudo" style="border: 0px #FFFFFF solid">';
+
 $pb -> le($id, $proto);
 echo $pb -> mostar_dados();
 $proto = $pb -> pb_protocolo;
 
 require ("../pibic/_ged_config.php");
-echo '<fieldset><legend>Arquivos</legend>';
+echo '<fieldset><legend class="lt3">Arquivos</legend>';
 
 $ged -> protocol = trim($pb -> pb_protocolo_mae);
 $tela = $ged -> filelist();
@@ -52,11 +55,11 @@ if ($_GET['ddg'] == 'DEL')
 	}
 
 $ged -> protocol = $proto;
+echo $ged -> file_list();
+
 if (($perfil -> valid('#ADM') == 1) or ($perfil -> valid('#PIB#PIT#SPI') == 1)) {
-	echo 'Administrador';
-	echo $ged -> file_list();
 	echo $ged->upload_botton();
-	//http://www2.pucpr.br/reol/pibicpr2/pibic_bolsas_contempladas.php?dd0=6036#
+	
 
 } else {
 	echo $ged -> filelist();
@@ -68,9 +71,12 @@ echo $pp -> avaliadores($proto);
 echo '<HR>';
 //echo $mr->mostra_espelho($proto);
 //echo '<HR>';
+echo '<fieldset><legend class="lt4">Histórico</legend>';
 echo $ph -> mostra_historico($proto);
+echo '</fieldset>';
 
-echo $pb -> acoes();
-
+//echo $pb -> acoes();
+echo '<BR><BR><BR>';
+echo '</div>'; // Fecha conteúdo
 require ("../foot.php");
 ?>

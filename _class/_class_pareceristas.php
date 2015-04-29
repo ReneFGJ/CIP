@@ -357,6 +357,9 @@ class parecerista
 						where pp_titulacao = '002' and pp_update = '".date("Y")."' ";
 				$rlt = db_query($sql);
 				 */
+				 
+				 $sql = "update ".$this->tabela." set us_ativo = 9 where us_instituicao = '0000012' ";
+				 $rlt = db_query($sql);
 						
 				$sql = "select * from (
 						select * from ".$this->tabela." 

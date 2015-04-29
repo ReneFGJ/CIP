@@ -27,7 +27,8 @@ array_push($menu,array(msg('docentes'),'__professores sem código de cracha','doc
 
 array_push($menu,array(msg('docentes'),'Importa lista do DRH','docentes_importacao.php'));
 array_push($menu,array(msg('docentes'),'__Processar lista importada','docentes_importacao_simples.php'));
-array_push($menu,array(msg('docentes'),'__Atualiza Carga horária','docentes_atualiza_carga_horaria.php'));     
+array_push($menu,array(msg('docentes'),'__Atualiza Carga horária','docentes_atualiza_carga_horaria.php'));
+array_push($menu,array(msg('docentes'),'__Comparar listas importadas x ativas','docentes_comprar_lista.php'));     
 
 ?>
 

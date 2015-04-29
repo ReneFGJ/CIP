@@ -1,7 +1,7 @@
 <?
 require("db.php");
-redireciona("../main.php");
-exit;
+//redireciona("../main.php");
+//exit;
 require($include."sisdoc_data.php");
 require($include."sisdoc_colunas.php");
 require($include."sisdoc_security.php");

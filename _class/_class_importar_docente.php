@@ -302,12 +302,21 @@ class importa_docente {
 			case 'Direito' :
 				$r = '00005';
 				break;
+			case 'Filosofia' :
+				$r = '00006';
+				break;
 			case 'Educação e Humanidades' :
 				$r = '00006';
 				break;
 			case 'Medicina' :
 				$r = '00007';
 				break;
+			case 'Administração' :
+				$r = '00008';
+				break;				
+			case 'Turismo' :
+				$r = '00008';
+				break;				
 			case 'Negócios' :
 				$r = '00008';
 				break;

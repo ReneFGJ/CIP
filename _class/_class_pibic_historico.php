@@ -47,22 +47,23 @@ class pibic_historico
 				global $tab_max;						
 				$sql = "select * from ".$this->tabela." where bh_protocolo = '".$proto."' ";
 				$rlt = db_query($sql);
-				$sx = '<table width="900" class="tabela00" align="center">';
-				$sx .= '<TR><TH>Data<TH>Hora<TH>Historico<TH>Protocolo';
+				$sx = '<table width="100%" class="tabela00" align="center">';
+				$sx .= '<tr><thead><th>Data</th><th>Hora</th><th>Historico</th><th>Protocolo</th></thead></tr>';
 				while ($line = db_read($rlt))
 					{
 						$hist = trim($line['bh_historico']);
 						switch ($hist)
 							{
-								case 'Validação do contrato por ()':
+								case 'Validação do contrato por  ()':
 									$sx .= '';
 									break;
 								default:
-									$sx .= '<TR valign="top" style="background-color:red;"> ';
-									$sx .= '<TD class="tabela01">'.stodbr($line['bh_data']);
-									$sx .= '<TD class="tabela01">'.$line['bh_hora'];
+								
+									$sx .= '<TR valign="top" class="lt1"> ';
+									$sx .= '<TD class="tabela01" align="center">'.stodbr($line['bh_data']);
+									$sx .= '<TD class="tabela01" align="center">'.$line['bh_hora'];
 									$sx .= '<TD class="tabela01">'.$line['bh_historico'];
-									$sx .= '<TD class="tabela01">'.$line['bh_protocolo'];
+									$sx .= '<TD class="tabela01" align="center">'.$line['bh_protocolo'];
 									$sx .= '<TR valign="top">';
 									$sx .= '<TD><TD class="tabela01" colspan=3>'.$line['bh_obs'];
 									break;
