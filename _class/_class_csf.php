@@ -884,7 +884,16 @@ class csf
 						
 					</script>
   				
-  				<div id="visualization" style="width: 750px; height: 400px;"></div>';
+  					<div id="visualization"></div>
+					<style>
+						#visualization
+							{
+							margin: 0 auto;
+							padding: auto;
+							width: 700px; height: 400px;
+							}
+					</style>
+				';
 				
 				$sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
 				$sx .= '<table width=600 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
@@ -1198,7 +1207,7 @@ class csf
 					CASE pa_genero 
 						  WHEN 'M' THEN 'Masculino' 
 						  WHEN 'F' THEN 'Feminino'   
-						  ELSE 'atualizar' 
+						  ELSE 'Atualizar Cadastro' 
 						END as genero,
 					   count(*) as total
 				from      pibic_bolsa_contempladas
@@ -1214,26 +1223,25 @@ class csf
 			    $sx  = '<table>';
 				$sx .= '<TR><TH colspan=2 align="left"><H2>Estudantes por genero</h2>';
 				$sx .= '<TR><TH width="50%"	>Genero
-							<TH width="50%"	>Total	
+							<TH width="30%"	>Total	
 							';
 			
 			$tot = 0;
 			
 			while ($line = db_read($rlt)){
-								
-				$tot++;
-				
+					
 				$genero_aluno 	= $line['genero'];
-				$total_estudante   = $line['total'];						
-				
+				$total_estudante   = $line['total'];	
+								
 				$sx .=  '<TR>';
 				$sx.=   '<TD class="tabela01" align="left">'.$genero_aluno;
+				$sx .=  '<TR>';
 				$sx .=  '<TD class="tabela01" align="left">'.$total_estudante;
 					
 				}
 		
 		         $sx .=  '<TR>
-						 	<TD colspan=6 align=right BGCOLOR="#C0C0C0" valign="bottom"><font color="white">Total de '.$tot.'</font>';
+						 	<TD>';
 				 $sx  .= '</table>';
 			
 			return($sx);
@@ -1305,7 +1313,7 @@ class csf
 							]);
 					
 					var options = {
-					  title: \'Titulo Grafico\'
+					 // title: \'Titulo Grafico\'
 					};
 					
 					var chart = new google.visualization.PieChart(document.getElementById(\'piechart\'));
@@ -1314,12 +1322,14 @@ class csf
 					  }
 					</script>
 					 
-   						<div id="piechart" style="width: 900px; height: 500px;"></div>
+   						<div id="piechart"></div>
 						<style>
-							#map_div
+							#piechart
 							{
-							width: 740px;
+							margin: 0 auto;
 							border: 2px solid #C0C0C0;
+							padding: auto;
+							width: 600px; height: 400px;
 							}
 						</style>
 				';
@@ -1328,11 +1338,67 @@ class csf
 		
 	}
 //**************************** Fim do metodo *****************************************
-	
+
+//####################################################################################                      
+//**************************** Inicio do metodo básico********************************
+/* @method: estudantes_genero_masc()
+ *          conta estudantes do genero masculino
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 30/04/2015
+ */	
+	function estudantes_genero_masc()
+	{	
+		$sql = "
+				select count(*) as total
+				from      pibic_bolsa_contempladas
+				left join pibic_aluno on pb_aluno = pa_cracha
+				where (pb_tipo = 'S')
+				and (pb_status <> 'C' and pb_status <> '@')
+				and pa_genero = 'M'
+				";
+				
+		$rlt = db_query($sql);		 
+			if ($line = db_read($rlt))
+					{
+						$total = $line['total'];
+					}
+		return($total);
+		
+	}
+//**************************** Fim do metodo *****************************************
+
+//####################################################################################                      
+//**************************** Inicio do metodo básico********************************
+/* @method: estudantes_genero_masc()
+ *          conta estudantes do genero femino
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 30/04/2015
+ */	
+	function estudantes_genero_fem()
+	{	
+		$sql = "
+				select count(*) as total
+				from      pibic_bolsa_contempladas
+				left join pibic_aluno on pb_aluno = pa_cracha
+				where (pb_tipo = 'S')
+				and (pb_status <> 'C' and pb_status <> '@')
+				and pa_genero = 'F'
+				";
+				
+		$rlt = db_query($sql);		 
+			if ($line = db_read($rlt))
+					{
+						$total = $line['total'];
+					}
+		return($total);
+		
+	}
+//**************************** Fim do metodo *****************************************
+
 //####################################################################################                      
 //**************************** Inicio do metodo **************************************
 /* @method: estudante_perfil()
- *          Monta o dados para grafico de perfil dos alunos
+ *          Monta o dados para grafico de paises onde os alunos estão
  * @author Rene Gabriel[Desenvolvedor] Apoio: Elizandro Santos de Lima[Analista de Projetos]
  * @date: 22/04/2015
  */						
@@ -1353,7 +1419,6 @@ class csf
 				$paisn = 0;
 				$tot_cursos = 0;
 				$tot_alunos = 0;
-
 				
 				while ($line = db_read($rlt))
 					{
@@ -1387,39 +1452,37 @@ class csf
 					        var data = google.visualization.arrayToDataTable([
 							  
 							  [\'Curso\', \'Qtd\'],'.$st.'
-							  
 							  ]);
 													
 						        var options = {
-									          	title: \'Titulo\',
 									          	is3D: \'true\',
 									          };
-					
 					        var chart = new google.visualization.PieChart(document.getElementById(\'piechart_3d\'));
 					        chart.draw(data, options);
 					      }
 					  		</script>
-								<div id="piechart_3d" style="width: 900px; height: 500px;"></div>
-								<div style="text-align: justify">Mapa</div>
+								<div id="piechart_3d" style="width: 100%; height: 500px;"></div>
+								<div style="text-align: center">Gráfico quantitativo</div>
 								<style>
-									#piechart_3d
-												{
-												border: 2px solid #C0C0C0;
-												}
+							<style>
+								#piechart_3d
+									{
+									margin: 0 auto;
+									padding: auto;
+									width: 700px; height: 400px;
+									}
 							</style>
+				
   				';
 			
 			
 			    $sx .= '<BR><BR><H2>'.msg('Alunos por país').'</H2>';
-				$sx .= '<table width=100% align=center class="tabela01">';
+				$sx .= '<table width=50% align=center class="tabela01">';
 				$sx .= '<TR>';
-				$sx .= '<TH width=10%  align="center">'.msg('País').'<TH width=40%>'.msg('Estudantes');
-				$sx .= '<TH width=10%  align="center">'.msg('País').'<TH width=40%>'.msg('Estudantes');
+				$sx .= '<TH width=30%  align="center">'.msg('País').'<TH width=10%>'.msg('Estudantes');
 				$sx .= $sq.'</table>';
 			
-			
-			
-				$sx .= '<TR colspan=6>
+				$sx .= '<TR colspan=2>
 							<align=left BGCOLOR="#99FF99 " valign="bottom">
 							Total de <strong>'.$tot_alunos.'</strong> alunos,';
 				$sx .= 	  '  em <strong>'.$tot_cursos.'</strong> paises.';
@@ -1428,6 +1491,79 @@ class csf
     			return($sx);
 				
 			}	
+
+
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: estudante_perfil()
+ *          Monta o dados para grafico de paises onde os alunos estão
+ * @author Rene Gabriel[Desenvolvedor] Apoio: Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 22/04/2015
+ */						
+	function estudante_perfil_02()
+			{			
+				$sql = "	select pb_colegio_orientador, count(pb_aluno) as total 
+							from pibic_bolsa_contempladas
+							left join pibic_aluno on pb_aluno = pa_cracha
+							inner join instituicao on pb_colegio = inst_nome		
+							where pb_tipo = 'S' 
+							and (pb_status <> 'C' and pb_status <> '@')
+							group by pb_colegio_orientador					
+							";							
+										
+				$rlt = db_query($sql);
+				
+				$sv = '';
+				$paisn = 0;
+				$tot_cursos = 0;
+				$tot_alunos = 0;
+				
+				while ($line = db_read($rlt))
+					{
+						
+					$paisn = trim($line['pb_colegio_orientador']);
+					$curso_aluno = trim($line['pa_curso']);
+					
+					if (strlen($paisn) > 0)
+						{
+							$tot_cursos ++;
+							$tot_alunos = $tot_alunos + $line['total'];
+							
+						if (strlen($st) > 0) { $st .= ', '.chr(13).chr(10); }
+						
+							$st .= '[\''.$paisn.'\', '.$line['total'].']';
+
+						if ($col > 0) { $col = 0; $sq .= '<TR>'; }
+						
+							$sq .= '<TD align="left">'.msg($paisn).'<TD align="center">'.$line['total'];
+							
+							$col++;							
+						}
+					} 
+					
+					$sx .= '
+				
+					
+					
+  				';
+			
+			    $sx .= '<BR><BR><H2>'.msg('Alunos por país').'</H2>';
+				$sx .= '<table width=50% align=center class="tabela01">';
+				$sx .= '<TR>';
+				$sx .= '<TH width=30%  align="center">'.msg('País').'<TH width=10%>'.msg('Estudantes');
+				$sx .= $sq.'</table>';
+			
+				$sx .= '<TR colspan=2>
+							<align=left BGCOLOR="#99FF99 " valign="bottom">
+							Total de <strong>'.$tot_alunos.'</strong> alunos,';
+				$sx .= 	  '  em <strong>'.$tot_cursos.'</strong> paises.';
+				$sx  .= '</table>';
+								
+    			return($sx);
+				
+			}
+
+
 
 //####################################################################################                      
 //**************************** Inicio do metodo **************************************
@@ -1506,7 +1642,11 @@ class csf
 					
 					return($sx);
 					}
+//**************************** Fim do metodo *****************************************
 
 
+
+//###################################################################################
+//**************************** Fim da classe *****************************************
 }			
 ?>
