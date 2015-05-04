@@ -1008,7 +1008,8 @@ function parecer_nao_entregues($ano)
 					inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
 					inner join pibic_professor on pb_professor = pp_cracha 
 					where pb_ano = '".$ano."' and pb_status = 'A'
-					and (pb_tipo <> 'S' and pb_tipo <> 'K' and pb_tipo <> '4')
+					and (pb_tipo <> '}' and pb_tipo <> 'S' and pb_tipo <> 'K' and pb_tipo <> '4')
+					
 					$wh 
 					group by pb_aluno, pbt_descricao, pp_centro, pb_tipo
 					) as tabela 
@@ -1075,6 +1076,7 @@ function parecer_nao_entregues($ano)
 					$centro = trim($centro);
 					$sx .= $centro;
 					$tot = $tot + $ind2;
+					$sx .= '<TD align="center">';
 				}
 				$sx .= '<TR><TD colspan=5>Total: '.$id;
 				$sx .= ', valor de desenbolso '.number_format($tot,2,',','.');

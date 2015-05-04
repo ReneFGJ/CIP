@@ -14,6 +14,8 @@ require($include.'sisdoc_security_pucpr.php');
 $nw = new usuario;
 $sec = $nw->Security();
 
+require("_email.php");
+
 require("../_class/_class_message.php");
 $file = '../messages/msg_pt_BR.php';
 require($file);
