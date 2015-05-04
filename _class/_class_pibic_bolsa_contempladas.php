@@ -5284,24 +5284,53 @@ $sa .= '</TR>';
 				 * 
 				 */
 				$stta = $this->pb_status;
-				$sx = '<fieldset class="fieldset01">';
-				$sx .= '<div>';
 				switch ($stta)
 					{
 					case 'C':
-						$sx .= '<div style="background-image: url( \''.$http.'img/banner_cancelado.png\'); 
-									width: 200px; height: 130px;
-									float: right;
-									position: table; 
-									right: 0px;									
+						$ss .= '<div id="banner" style="background-image: url( \''.$http.'img/banner_cancelado.png\'); 
+									width: 200px; height: 134px;
+									position: absolute;
+									z-index: 2;										
+									margin-left: 200px;				
 									">';
+						$ss .= '</div>';									
+						break;
+					case 'S':
+						$ss .= '<div id="banner" style="background-image: url( \''.$http.'img/banner_suspenso.png\'); 
+									width: 200px; height: 134px;
+									position: absolute;
+									z-index: 2;										
+									margin-left: 200px;				
+									">';
+						$ss .= '</div>';									
+						break;
+					case 'A':
+						$ss .= '<div id="banner" style="background-image: url( \''.$http.'img/banner_ativo.png\'); 
+									width: 200px; height: 134px;
+									position: absolute;
+									z-index: 2;										
+									margin-left: 200px;				
+									">';
+						$ss .= '</div>';
+						break;	
+					case 'F':
+						$ss .= '<div id="banner" style="background-image: url( \''.$http.'img/banner_finalizado.png\'); 
+									width: 200px; height: 134px;
+									position: absolute;
+									z-index: 2;										
+									margin-left: 200px;				
+									">';
+						$ss .= '</div>';
 						break;
 					}
-				$sx .= '</div>';
-				$sx .= '<legend class="legend01">'.msg('data_main').'</legend>';
-				$sx .= '<table width="100%" class="tabela00">';
-				$sx .= '<TR class="lt0">';
+					
+					
 				
+				$sx = '<fieldset class="fieldset01">';
+	
+				$sx .= '<legend class="legend01">'.msg('data_main').'</legend>';
+				$sx .= '<table width="100%" class="tabela00" border=0>';
+				$sx .= '<TR class="lt0">';
 				$sx .= '<TR><TD class="lt0">&nbsp;';
 				
 				$sx .= '<TD class="lt0" align="right">';
@@ -5309,10 +5338,13 @@ $sa .= '</TR>';
 				$sx .= '<TD width=16% ><B>'.$this->pb_protocolo.' / '.$this->pb_protocolo_mae;
 				
 				$sx .= '<TD width="400" rowspan=10 >';
-				
+					$sx .= '<div id="plano" style="width: 400px; z-index: 1; display: table; ">';
+					$sx .= $ss;
+					$sx .= '<div id="dados" style="width: 400px; display: table; ">';
 					$sx .= '<table width="100%" border=0 cellspan=0 cellpadding=0 style="background-color: #F0F0F0;">';
 					$sx .= '<TR>';
 					$sx .= '<TD align="right" class="lt0">'.msg('year');
+					
 					$sx .= '<TD class="lt1" width=60% ><B>'.$this->pb_ano;
 					
 					$sx .= '<TR>';
@@ -5365,9 +5397,9 @@ $sa .= '</TR>';
 					$sx .= '<TR>';
 					$sx .= '<TD class="lt0" align="right"><NOBR>'.msg('semic_area');
 					$sx .= '<TD class="lt1"><B>'.$this->pb_semic_area;
-
-				
 					$sx .= '</table>';
+					$sx .= '</div>'; /* Fecha dados div */
+					$sx .= '</div>'; /* Fecha plano div */
 					
 				$sx .= '<TR>';
 				$sx .= '<TD class="lt0" align="left" colspan=3>';
@@ -5400,7 +5432,6 @@ $sa .= '</TR>';
 				$sx .= '</fieldset>';				
 				return($sx);
 			}
-
 	
 	function mostra_data_relatorio($d1,$n1)
 		{
