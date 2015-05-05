@@ -17,8 +17,8 @@ $tabela = "instituicao";
 
 	$http_redirect = page();
 	//$http_ver = $tabela.'_sel.php';
-	$cdf = array('id_inst','inst_nome','inst_abreviatura','inst_codigo');
-	$cdm = array('Código','nome','sigla','código');
+	$cdf = array('id_inst','inst_nome','inst_abreviatura','inst_lat','inst_log','inst_codigo');
+	$cdm = array('Código','nome','sigla','latitude','longitude','código');
 	$masc = array('','','','');
 	$busca = true;
 	$offset = 20;

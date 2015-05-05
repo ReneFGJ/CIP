@@ -533,58 +533,98 @@ class csf
 								
 	function estudante_curso()
 			{
-				$sql = "select count(*) as total, pa_curso from pibic_bolsa_contempladas 
+				$sql = "select count(*) as total, pa_curso 
+				        from pibic_bolsa_contempladas 
 						inner join pibic_aluno on pb_aluno = pa_cracha
-						where (pb_tipo = 'K' or pb_tipo = 'S' or pb_tipo = 'T' or pb_tipo = 'W')
-						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
-						group by pa_curso
-						order by pa_curso 
+						where pb_tipo = 'S' 
+						and (pb_status <> 'C' and pb_status <> '@')
+						group by pa_curso	
+						order by total desc 
 						 ";
+				
+						 
+				
 				$rlt = db_query($sql);
 				$st = '';
 				$sv = '';
 				$col = 99;
+				$tot_cursos = 0;
+				$tot_alunos = 0;
+				
 				while ($line = db_read($rlt))
 					{
+						
 					$total = $line['total'];
-					$paisn = msg(trim($line['pa_curso']));
-					if (strlen($paisn) > 0)
+					$cursos = msg(trim($line['pa_curso']));
+					
+					if (strlen($cursos) > 0)
 						{
+							$tot_cursos ++;
+							$tot_alunos = $tot_alunos + $line['total'];
+							
 						if (strlen($st) > 0) { $st .= ', '; $sv .= ', '; }
-						$st .= "'$paisn'";
-						$sv .= "$total";
+						$st .= '[\''.$cursos.'\', '.$line['total'].']';
 
 						if ($col > 0) { $col = 0; $sq .= '<TR>'; }
-						$sq .= '<TD>'.$paisn.'<TD align="center">'.$line['total'];
-						$col++;						
-						}
+							$sq .= '<TD>'.$cursos.'<TD align="center">'.$line['total'];
+							$col++;						
+							}
 					}
-				$sx .= '				 
-					<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    				<script type="text/javascript">
-      					google.load(\'visualization\', \'1\');
-    				</script>
-    				<script type="text/javascript">
-      					function drawVisualization() {
-        				var wrapper = new google.visualization.ChartWrapper({
-          				chartType: \'ColumnChart\',
-          				dataTable: [['.$st.'],
-                      		['.$sv.']],
-          					options: {\'title\': \'Estudantes por países\'},
-          					containerId: \'visualization\'
-        					});
-        					wrapper.draw();
-      					}
-      				google.setOnLoadCallback(drawVisualization);
-    			</script>
-  				<div id="visualization" style="width: 750px; height: 400px;"></div>';
+			
+								
+				$sx .= '	
+						<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    					<script type="text/javascript">
+      					google.load(\'visualization\', \'1.1\', {packages:[\'bar\']});
+      					google.setOnLoadCallback(drawStuff);
+						
+						function drawStuff() {
+        				var data = new google.visualization.arrayToDataTable([
+								[\'Cursos\', \'Estudante\'],
+						        '.$st.'
+						      	]);
+					
+					
+					
+						
+					var options = {
+						          title: \'Cursos\',
+						          width: 900,
+						          chart: { subtitle: \'Quantidade de bolsas distribuidas por cursos\' },
+						          axes: {
+							            x: {
+							              0: { side: \'top\', label: \'Cursos\'} // Top x-axis.
+							            }
+							          },
+								  bar: { groupWidth: "90%" }
+						        };
+						
+						        var chart = new google.charts.Bar(document.getElementById(\'top_x_div\'));
+						        chart.draw(data, google.charts.Bar.convertOptions(options));
+						      };
+					</script>
+					<style>
+						#top_x_div
+						{
+							border: 2px solid #C0C0C0;
+						}
+					</style>						
+			  	 	<div id="top_x_div" style="width: 900px; height: 500px;"></div>
+			  	
+				';
 				
-				$sx .= '<BR><BR><H2>'.msg('cursos_dos_estudantes').'</H2>';
+				$sx .= '<BR><BR><H2>'.msg('Relação de cursos').'</H2>';
 				//Cursos dos Estudantes da PUCPR que estão estudando em outros países
 				$sx .= '<table width=750 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
 				$sx .= '<TR>';
-				$sx .= '<TH width=35% align="left">'.msg('curso').'<TH width=13%>'.msg('estudantes');
+				$sx .= '<TH width=35% align="center">'.msg('Curso').'<TH width=13%>'.msg('Estudantes');
 				$sx .= $sq.'</table>';
+				
+				$sx .= '<TR colspan=2>
+							<align=left BGCOLOR="#99FF99 " valign="bottom">
+							Total de <strong>'.$tot_alunos.'</strong> alunos,';
+				$sx .= 	  '  em <strong>'.$tot_cursos.'</strong> paises.';
+				$sx  .= '</table>';
 								
     			return($sx);
 		}
@@ -708,6 +748,7 @@ class csf
 				$sx .= '</table>';
 				return($sx);			
 			}			
+
 
 	function total_bolsistas()
 			{
@@ -907,6 +948,7 @@ class csf
 		}
 //**************************** Fim do metodo *****************************************	
 
+
 //####################################################################################                      
 //**************************** Inicio do metodo **************************************
 /* @method: world_mapa_estudantes()
@@ -939,8 +981,9 @@ class csf
 							group by pb_tipo, pb_colegio
 							) as alunos
 							left join 
-							(select distinct inst_nome, inst_log, inst_lat 
+							(select inst_nome, inst_log, inst_lat 
 							 from instituicao) as instituicao on pb_colegio = inst_nome
+							 order by pb_colegio
 							";
 				$rlt = db_query($sql);				
 				
@@ -948,9 +991,18 @@ class csf
 				$col = 99;
 				$tot_instit = 0;
 				$tot_alunos = 0;
-				
+				$xinst = '';
 				while ($line = db_read($rlt))
 						{
+							$inst = $line['pb_colegio'];
+							if ($xinst == $inst )
+								{
+									echo $inst;
+									echo '<BR>';
+								}
+							$xinst = $inst;
+							
+							$tot_alunos = $tot_alunos + $line['total'];
 							$paisn     = trim($line['inst_nome']);
 							$pais      = trim($line['inst_nome']);
 							$curso_aluno = trim($line['inst_nome']);
@@ -960,7 +1012,7 @@ class csf
 						if (strlen($pais) > 0)
 							{
 								$tot_instit ++;
-								$tot_alunos = $tot_alunos + $line['total'];
+								
 								
 								if ($col >= 2) 
 									{
@@ -1077,61 +1129,6 @@ class csf
 
 //**************************** Fim do metodo *****************************************	
 	
-//####################################################################################                      
-//**************************** Inicio do metodo básico********************************
-/* @method: paises_parceiros()
- *          conta estudantes por genero
- * @author Elizandro Santos de Lima[Analista de Projetos]
- * @date: 24/04/2015
- */			
-	function query_todos()
-	{
-		
-		$sql = "
-				select * from (
-							select count(*) as total, pb_colegio, pb_colegio_orientador 
-							from pibic_bolsa_contempladas 
-							where pb_tipo = 'S' 
-							and (pb_status <> 'C' and pb_status <> '@')
-							group by pb_tipo, pb_colegio, pb_colegio_orientador
-							) as alunos
-							left join 
-									(select distinct inst_nome
-									 from instituicao) as instituicao on pb_colegio = inst_nome
-				";		 
-					
-				$rlt = db_query($sql);		 
-					
-			    $sx  = '<table>';
-				$sx .= '<TR><TH colspan=2 align="left"><H2>query_todos()</h2>';
-				$sx .= '<TR><TH width="5%"	>Instituição
-					    <TH width="5%"		>Local
-							';
-			
-			$tot = 0;
-			
-			while ($line = db_read($rlt)){
-				
-				$tot++;					
-	
-				$sx .=  '<TR>';
-				$nome 	= $line['pb_colegio'];
-				$pais   = $line['pb_colegio_orientador'];					
-				
-				$sx .=  '<TD class="tabela01" align="left">'.$nome;
-				$sx .=  '<TD class="tabela01" align="left">'.$pais;
-				 
-			
-		}			
-			$sx .=  '<TR>
-						 	<TD colspan=6 align=right BGCOLOR="#C0C0C0" valign="bottom"><font color="white">Total de '.$tot.'</font>';
-				$sx  .= '</table>';
-			
-			return($sx);			
-					
-					
-	}			
-//**************************** Fim do metodo *****************************************
 
 //####################################################################################                      
 //**************************** Inicio do metodo básico********************************
@@ -1193,6 +1190,7 @@ class csf
 	}
 //**************************** Fim do metodo *****************************************
 
+
 //####################################################################################                      
 //**************************** Inicio do metodo básico********************************
 /* @method: estudantes_genero()
@@ -1248,6 +1246,7 @@ class csf
 		
 	}
 //**************************** Fim do metodo *****************************************
+
 
 //####################################################################################                      
 //**************************** Inicio do metodo básico********************************
@@ -1339,6 +1338,41 @@ class csf
 	}
 //**************************** Fim do metodo *****************************************
 
+
+//####################################################################################                      
+//**************************** Inicio do metodo básico********************************
+/* @method: estudantes_genero_masc()
+ *          conta estudantes do genero masculino
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 30/04/2015
+ */	
+	function estudantes_sem_genero()
+	{	
+		$sql = "
+				select count(*) as total
+				from      pibic_bolsa_contempladas
+				left join pibic_aluno on pb_aluno = pa_cracha
+				where (pb_tipo = 'S')
+				and (pb_status <> 'C' and pb_status <> '@')
+				group by pb_aluno 
+				order by pb_aluno
+				";
+				
+		$rlt = db_query($sql);		 
+			while ($line = db_read($rlt))
+					{
+						if ($line['total'] > 1)
+						{
+						echo '<BR>'.$line['total'].'-'.$line['pb_aluno'];
+						echo '<HR>';
+						}
+					}
+		return('');
+		
+	}
+//**************************** Fim do metodo *****************************************
+
+
 //####################################################################################                      
 //**************************** Inicio do metodo básico********************************
 /* @method: estudantes_genero_masc()
@@ -1367,15 +1401,17 @@ class csf
 	}
 //**************************** Fim do metodo *****************************************
 
+
 //####################################################################################                      
 //**************************** Inicio do metodo básico********************************
-/* @method: estudantes_genero_masc()
- *          conta estudantes do genero femino
+/* @method: estudantes_genero_fem()
+ *          conta estudantes do genero feminino
  * @author Elizandro Santos de Lima[Analista de Projetos]
  * @date: 30/04/2015
  */	
 	function estudantes_genero_fem()
-	{	
+	{
+		//$this->estudantes_sem_genero();	
 		$sql = "
 				select count(*) as total
 				from      pibic_bolsa_contempladas
@@ -1395,6 +1431,7 @@ class csf
 	}
 //**************************** Fim do metodo *****************************************
 
+
 //####################################################################################                      
 //**************************** Inicio do metodo **************************************
 /* @method: estudante_perfil()
@@ -1404,13 +1441,12 @@ class csf
  */						
 	function estudante_perfil()
 			{			
-				$sql = "	select pb_colegio_orientador, count(pb_aluno) as total 
+				$sql = "	select pb_colegio_orientador, count(*) as total 
 							from pibic_bolsa_contempladas
-							left join pibic_aluno on pb_aluno = pa_cracha
-							inner join instituicao on pb_colegio = inst_nome		
 							where pb_tipo = 'S' 
 							and (pb_status <> 'C' and pb_status <> '@')
-							group by pb_colegio_orientador					
+							group by pb_colegio_orientador	
+							order by total desc			
 							";							
 										
 				$rlt = db_query($sql);
@@ -1432,11 +1468,9 @@ class csf
 							$tot_alunos = $tot_alunos + $line['total'];
 							
 						if (strlen($st) > 0) { $st .= ', '.chr(13).chr(10); }
-						
 							$st .= '[\''.$paisn.'\', '.$line['total'].']';
 
 						if ($col > 0) { $col = 0; $sq .= '<TR>'; }
-						
 							$sq .= '<TD align="left">'.msg($paisn).'<TD align="center">'.$line['total'];
 							
 							$col++;							
@@ -1444,44 +1478,49 @@ class csf
 					} 
 					
 					$sx .= '
-					    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-					    <script type="text/javascript">
-					      google.load(\'visualization\', \'1\', {packages:[\'corechart\']});
-					      google.setOnLoadCallback(drawChart);
-					      function drawChart() {
-					        var data = google.visualization.arrayToDataTable([
-							  
-							  [\'Curso\', \'Qtd\'],'.$st.'
-							  ]);
-													
-						        var options = {
-									          	is3D: \'true\',
-									          };
-					        var chart = new google.visualization.PieChart(document.getElementById(\'piechart_3d\'));
-					        chart.draw(data, options);
-					      }
-					  		</script>
-								<div id="piechart_3d" style="width: 100%; height: 500px;"></div>
-								<div style="text-align: center">Gráfico quantitativo</div>
-								<style>
-							<style>
-								#piechart_3d
-									{
-									margin: 0 auto;
-									padding: auto;
-									width: 700px; height: 400px;
-									}
-							</style>
-				
+						<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+						<script type="text/javascript">
+					   
+					    google.load(\'visualization\', \'1\', {packages: [\'corechart\', \'bar\']});
+						google.setOnLoadCallback(drawBasic);
+						
+						function drawBasic() {
+						      var data = google.visualization.arrayToDataTable([
+						        [\'Pais\', \'Estudante\'],
+						        '.$st.'
+						      ]);
+						
+						      var options = {
+										       title: \'Representação de bolsas por país\',
+										       chartArea: {width: \'50%\'},
+										       hAxis: {title: \'Total Alunos\', minValue: 0 },
+										       vAxis: {title: \'Paises\'}
+											   
+										     };
+						
+						      var chart = new google.visualization.BarChart(document.getElementById(\'chart_div\'));
+						      chart.draw(data, options);
+						    }
+    
+				  	</script>
+				  	<style>
+						#chart_div
+						{
+							border: 2px solid #C0C0C0;
+						}
+					</style>
+				  	<div id="chart_div"><div> 
+				  	<div style="text-align: justify">Mapa</div>
   				';
-			
-			
+				
+			    //*******************************************************************
 			    $sx .= '<BR><BR><H2>'.msg('Alunos por país').'</H2>';
 				$sx .= '<table width=50% align=center class="tabela01">';
 				$sx .= '<TR>';
 				$sx .= '<TH width=30%  align="center">'.msg('País').'<TH width=10%>'.msg('Estudantes');
+				$sx .= '<TR>';
 				$sx .= $sq.'</table>';
-			
+				
 				$sx .= '<TR colspan=2>
 							<align=left BGCOLOR="#99FF99 " valign="bottom">
 							Total de <strong>'.$tot_alunos.'</strong> alunos,';
@@ -1491,78 +1530,6 @@ class csf
     			return($sx);
 				
 			}	
-
-
-//####################################################################################                      
-//**************************** Inicio do metodo **************************************
-/* @method: estudante_perfil()
- *          Monta o dados para grafico de paises onde os alunos estão
- * @author Rene Gabriel[Desenvolvedor] Apoio: Elizandro Santos de Lima[Analista de Projetos]
- * @date: 22/04/2015
- */						
-	function estudante_perfil_02()
-			{			
-				$sql = "	select pb_colegio_orientador, count(pb_aluno) as total 
-							from pibic_bolsa_contempladas
-							left join pibic_aluno on pb_aluno = pa_cracha
-							inner join instituicao on pb_colegio = inst_nome		
-							where pb_tipo = 'S' 
-							and (pb_status <> 'C' and pb_status <> '@')
-							group by pb_colegio_orientador					
-							";							
-										
-				$rlt = db_query($sql);
-				
-				$sv = '';
-				$paisn = 0;
-				$tot_cursos = 0;
-				$tot_alunos = 0;
-				
-				while ($line = db_read($rlt))
-					{
-						
-					$paisn = trim($line['pb_colegio_orientador']);
-					$curso_aluno = trim($line['pa_curso']);
-					
-					if (strlen($paisn) > 0)
-						{
-							$tot_cursos ++;
-							$tot_alunos = $tot_alunos + $line['total'];
-							
-						if (strlen($st) > 0) { $st .= ', '.chr(13).chr(10); }
-						
-							$st .= '[\''.$paisn.'\', '.$line['total'].']';
-
-						if ($col > 0) { $col = 0; $sq .= '<TR>'; }
-						
-							$sq .= '<TD align="left">'.msg($paisn).'<TD align="center">'.$line['total'];
-							
-							$col++;							
-						}
-					} 
-					
-					$sx .= '
-				
-					
-					
-  				';
-			
-			    $sx .= '<BR><BR><H2>'.msg('Alunos por país').'</H2>';
-				$sx .= '<table width=50% align=center class="tabela01">';
-				$sx .= '<TR>';
-				$sx .= '<TH width=30%  align="center">'.msg('País').'<TH width=10%>'.msg('Estudantes');
-				$sx .= $sq.'</table>';
-			
-				$sx .= '<TR colspan=2>
-							<align=left BGCOLOR="#99FF99 " valign="bottom">
-							Total de <strong>'.$tot_alunos.'</strong> alunos,';
-				$sx .= 	  '  em <strong>'.$tot_cursos.'</strong> paises.';
-				$sx  .= '</table>';
-								
-    			return($sx);
-				
-			}
-
 
 
 //####################################################################################                      
