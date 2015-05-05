@@ -402,14 +402,19 @@ class csf
 
 	function estudante_area()
 			{
-				$sql = "select count(*) as total, pa_curso from pibic_bolsa_contempladas 
-						inner join pibic_aluno on pb_aluno = pa_cracha
-						where (or pb_tipo = 'S')
-						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
-						group by pa_curso
-						order by pa_curso 
-						 ";
+				$sql = "					
+					select count(*) as total, pa_escolaridade 
+			        from pibic_bolsa_contempladas 
+					inner join pibic_aluno on pb_aluno = pa_cracha
+					where pb_tipo = 'S' 
+					and (pb_status <> 'C' and pb_status <> '@')
+					group by pa_escolaridade	
+					order by total desc
+									
+				";
+				
 				$rlt = db_query($sql);
+				
 				$st = '';
 				$sv = '';
 				$col = 99;
@@ -419,28 +424,22 @@ class csf
 				while ($line = db_read($rlt))
 					{
 					$total = $line['total'];
-					$paisn = trim($line['pa_curso']);
-					if (strlen($paisn) > 0)
+					$titulacao_aluno = $line['pa_escolaridade'];;
+					
+					if (strlen($titulacao_aluno) > 0)
 						{
 						if (strlen($st) > 0) { $st .= ', '.chr(13).chr(10); $sv .= ', '; }
-						$st .= "['$paisn', $total]";
+						$st .= "['$titulacao_aluno', $total]";
 						$sv .= "$total";
 
 						if ($col > 1) { $col = 0; $sq .= '<TR>'; }
-						$sq .= '<TD align="left">'.$paisn.'<TD align="center">'.$line['total'];
+						$sq .= '<TD align="left">'.$titulacao_aluno.'<TD align="center">'.$line['total'];
 						$col++;						
 						}
 					}
-				$st = "['Ciência da Computação e tecnologia da informação',1],".chr(13).chr(10);
-				$st .= "['Engenharias e demais áreas tecnológicas',20],".chr(13).chr(10);
-				$st .= "['Biologia, ciências biomédicas e saúde',14],".chr(13).chr(10);
-				$st .= "['Industria criativa',4],".chr(13).chr(10);
-				$st .= "['Biotecnologia',4],".chr(13).chr(10);
-				$st .= "['Energias renováveis',3],".chr(13).chr(10);
-				$st .= "['Ciências extas e da terra',2],".chr(13).chr(10);
-				$st .= "['Novas Tec. E engenharia construtiva',1]".chr(13).chr(10);
+				
 				$sx .= '
-				     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+				    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     				<script type="text/javascript">
       					google.load(\'visualization\', \'1\', {packages: [\'corechart\']});
     				</script>
@@ -449,23 +448,28 @@ class csf
         				// Create and populate the data table.
         				var data = google.visualization.arrayToDataTable([
           				[\'Cruso\', \'Estudantes\'],
-          				';
-				$sx .= $st;
-         		$sx .= ']);
-       					 new google.visualization.PieChart(document.getElementById(\'visualization\')).
-            				draw(data, {title:"Estudantes por Cursos"});
-      					}
-      				google.setOnLoadCallback(drawVisualization);
-    			</script>
-  				<div id="visualization" style="width: 750px; height: 400px;"></div>';
+				        	'.$st.'
+         		        ]);
+       					
+       					new google.visualization.PieChart(document.getElementById(\'visualization\')).
+            			draw(data, {title:"Estudantes por Cursos"});
+      					
+						}
+      					google.setOnLoadCallback(drawVisualization);
+    				</script>
+  				
+  				<div id="visualization" style="width: 850px; height: 450px;"></div>
+				';
 				
-				$sx .= '<BR><BR><H2>àreas estratégicas dos Estudantes da PUCPR</H2>';
-				$sx .= '<table width=750 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
+				//*******************************************************************
+			    $sx .= '<BR><BR><H2>'.msg('Titulação:').'</H2>';
+				$sx .= '<table width=50% align=center class="tabela01">';
 				$sx .= '<TR>';
-				$sx .= '<TH width=35% align="left">Pais<TH width=13%>Estudantes';
-				$sx .= '<TH width=35% align="left">Pais<TH width=13%>Estudantes';
+				$sx .= '<TH width=30%  align="center">'.msg('Título').'<TH width=10%>'.msg('Estudantes');
+				$sx .= '<TR>';
 				$sx .= $sq.'</table>';
-								
+				$sx  .= '</table>';
+				$sx .= '<BR>';				
     			return($sx);
 				
 			}
@@ -519,7 +523,14 @@ class csf
       					}
       				google.setOnLoadCallback(drawVisualization);
     			</script>
-  				<div id="visualization" style="width: 750px; height: 400px;"></div>';
+    			<style>
+						#chart_div
+						{
+							border: 2px solid #C0C0C0;
+							width: \'70%\';
+						}
+					</style>
+  				<div id="visualization"></div>';
 				
 				$sx .= '<BR><BR><H2>Cursos dos Estudantes da PUCPR que estão estudando em outros países</H2>';
 				$sx .= '<table width=750 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
@@ -541,8 +552,6 @@ class csf
 						group by pa_curso	
 						order by total desc 
 						 ";
-				
-						 
 				
 				$rlt = db_query($sql);
 				$st = '';
@@ -571,7 +580,6 @@ class csf
 							}
 					}
 			
-								
 				$sx .= '	
 						<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     					<script type="text/javascript">
@@ -583,9 +591,6 @@ class csf
 								[\'Cursos\', \'Estudante\'],
 						        '.$st.'
 						      	]);
-					
-					
-					
 						
 					var options = {
 						          title: \'Cursos\',
@@ -610,7 +615,6 @@ class csf
 						}
 					</style>						
 			  	 	<div id="top_x_div" style="width: 900px; height: 500px;"></div>
-			  	
 				';
 				
 				$sx .= '<BR><BR><H2>'.msg('Relação de cursos').'</H2>';
@@ -623,9 +627,9 @@ class csf
 				$sx .= '<TR colspan=2>
 							<align=left BGCOLOR="#99FF99 " valign="bottom">
 							Total de <strong>'.$tot_alunos.'</strong> alunos,';
-				$sx .= 	  '  em <strong>'.$tot_cursos.'</strong> paises.';
+				$sx .= 	  '  em <strong>'.$tot_cursos.'</strong> cursos.';
 				$sx  .= '</table>';
-								
+				$sx .= '<BR>';				
     			return($sx);
 		}
 						
@@ -693,29 +697,37 @@ class csf
 												
 	function world_onde_curso_universidade()
 			{
-				$sql = "select * from pibic_bolsa_contempladas 
+				
+				$sql = "select pa_curso, pa_nome, pb_colegio_orientador, pb_colegio 
+				        from pibic_bolsa_contempladas 
 						inner join pibic_aluno on pb_aluno = pa_cracha
-						where (pb_tipo = 'K' or pb_tipo = 'S' or pb_tipo = 'T' or pb_tipo = 'W')
-						and pb_ativo = 1 and (pb_status <> 'C' and pb_status <> '@')
-						order by pa_curso, pb_colegio_orientador, pb_colegio
+						where pb_tipo = 'S'
+						and (pb_status <> 'C' and pb_status <> '@')
+					    group by pa_curso, pb_colegio_orientador, pb_colegio, pa_nome
+						order by pa_curso, pa_nome, pb_colegio_orientador, pb_colegio
 						 ";
 				$rlt = db_query($sql);
-				$sx .= '<center><h2>'.msg('undergraduate course').'</h2>';
+				
+				$sx .= '<left><h2>'.msg('Detalhe dos cursos.').'</h2></br>';
 				$sx .= '<table class="lt1" width="100%">';
+				
 				$xpais = 'X';
+				
 				while ($line = db_read($rlt))
 					{
 						$pais = msg(trim($line['pa_curso']));
-						if ($pais != $xpais)
-							{ $sx .= '<TR bgcolor="#C0C0C0"><TD colspan=5 class="lt3">'.$pais; $xpais = $pais; }
-						$sx .= '<TR '.coluna().'>';
-						$sx .= '<TD>'.$line['pb_colegio'];
+							if ($pais != $xpais){
+								$sx .= '<TR bgcolor="#C0C0C0"><TD colspan=5 class="lt3"><strong>'.$pais; 
+								$xpais = $pais; 
+							    }
+								$sx .= '<TR>';
 						
-						//$sx .= '<TD>'.$line['pa_nome'];
+						$sx .= '<TD>&nbsp;&nbsp;&nbsp;'.$this->tratar_nome($line['pa_nome']);
+						$sx .= '<TD>'.$line['pb_colegio'];
 						$sx .= '<TD>'.$line['pb_colegio_orientador'];
-						$sx .= '<TD>'.substr($line['pa_nome'],0,strpos($line['pa_nome'],' '));
+						//$sx .= '<TD>'.substr($line['pa_nome'],0,strpos($line['pa_nome'],' '));
 					}
-				$sx .= '</table>';
+				$sx .= '</table></br></br>';
 				return($sx);			
 			}							
 		
@@ -748,7 +760,6 @@ class csf
 				$sx .= '</table>';
 				return($sx);			
 			}			
-
 
 	function total_bolsistas()
 			{
@@ -1105,7 +1116,7 @@ class csf
 				<style>
 					#map_div
 					{
-					width: 740px;
+					width: \'70%\';
 					border: 2px solid #C0C0C0;
 					}
 				</style>
@@ -1123,7 +1134,7 @@ class csf
 							Total de <strong>'.$tot_instit.'</strong> instituições destino do Intercâmbio,';
 				$sx .= 	    " com <strong>".$tot_alunos."</strong> alunos enviados pela PUCPR.";
 				$sx  .= '</table>';	
-
+				$sx .= '<BR>';
 				return($sx);				
 			}
 
@@ -1491,8 +1502,7 @@ class csf
 						      ]);
 						
 						      var options = {
-										       title: \'Representação de bolsas por país\',
-										       chartArea: {width: \'50%\'},
+										       chartArea: {width: \'70%\'},
 										       hAxis: {title: \'Total Alunos\', minValue: 0 },
 										       vAxis: {title: \'Paises\'}
 											   
@@ -1507,6 +1517,7 @@ class csf
 						#chart_div
 						{
 							border: 2px solid #C0C0C0;
+							width: \'70%\';
 						}
 					</style>
 				  	<div id="chart_div"><div> 
@@ -1524,7 +1535,7 @@ class csf
 				$sx .= '<TR colspan=2>
 							<align=left BGCOLOR="#99FF99 " valign="bottom">
 							Total de <strong>'.$tot_alunos.'</strong> alunos,';
-				$sx .= 	  '  em <strong>'.$tot_cursos.'</strong> paises.';
+				$sx .= 	  '  em <strong>'.$tot_cursos.'</strong> cursos.';
 				$sx  .= '</table>';
 								
     			return($sx);
@@ -1571,8 +1582,6 @@ class csf
 				
 				$pais_group = '';
 				$it = 0;
-					
-					
 				
 				   while ($line = db_read($rlt)){
 						
@@ -1589,7 +1598,8 @@ class csf
 					$it++;			
 					//$aluno_pais  		 = $line['pb_colegio_orientador'];
 					$aluno_universidade  = $line['inst_nome'];
-					$aluno_nome          = ucwords(strtolower($line['pa_nome']));
+					$aluno_nome          = $this->tratar_nome($line['pa_nome']);
+					//$aluno_nome          = ucwords(strtolower($line['pa_nome']));
 					$aluno_curso         = $line['pa_curso'];
 					$total_geral         = $line['total'];
 					
@@ -1611,6 +1621,31 @@ class csf
 					}
 //**************************** Fim do metodo *****************************************
 
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @function: tratar_nome($var)
+ *          Faz tratamento de nome proprio
+ * @author: Elizandro Santos de Lima[Analista de Projetos]
+ * @link: http://codigofonte.uol.com.br/codigos/formatacao-de-nomes-proprios-em-php / http://www.vivaolinux.com.br/topico/PHP/Funcao-chamando-Funcao
+ * @date: 04/05/2015
+ */	
+  function tratar_nome ($nome) {
+    $nome = strtolower($nome); // Converter o nome(campo) todo para minúsculo
+    $nome = explode(" ", $nome); // Separa todo o nome(campo) por espaços
+    for ($i=0; $i < count($nome); $i++) {
+ 
+        // Tratar cada palavra do nome(campo)
+        if ($nome[$i] == "de" or $nome[$i] == "da" or $nome[$i] == "e" or $nome[$i] == "dos" or $nome[$i] == "do") {
+            $saida .= $nome[$i].' '; // Se a palavra estiver dentro das complementares mostrar toda em minúsculo
+        }else {
+            $saida .= ucfirst($nome[$i]).' '; // Se for um nome, mostrar a primeira letra maiúscula
+        }
+    }
+    return $saida;
+}
+
+//usando: $this->tratar_nome($line['db_campo']);
+//**************************** Fim da função *****************************************
 
 
 //###################################################################################
