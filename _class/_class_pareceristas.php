@@ -728,8 +728,11 @@ class parecerista {
 			if (strlen($cod) == 8) {
 				echo $cod . '-' . $line['us_nome'];
 				echo '<HR>';
-				$sql = "update pareceristas set us_journal_id = '1000020' where id_us = " . $line['id_us'];
-				$rrr = db_query($sql);
+				$sql = "update pareceristas set us_journal_id = '1000020' 
+							where id_us = " . $line['id_us']." 
+							and us_journal_id = '" . intval($jid) . "' ";
+							
+				//$rrr = db_query($sql);
 			}
 		}
 		return (0);

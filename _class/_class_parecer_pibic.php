@@ -43,7 +43,7 @@ class parecer_pibic
 					print_r($line);
 					echo '<HR>';
 				}			
-				echo '===>'.$i;
+				
 			$sql = "select pp_avaliador, us_bolsista, us_nome, count(*) as avaliacoes
 							from ".$this->tabela."
 						left join pareceristas on pp_avaliador = us_codigo 
@@ -52,7 +52,6 @@ class parecer_pibic
 					group by pp_avaliador, us_bolsista, us_nome
 					order by us_nome ";
 			$rlt = db_query($sql);
-			echo $sql;
 			
 			$av = array(0,0);
 			$at = array(0,0);
@@ -1862,8 +1861,8 @@ class parecer_pibic
 					$sql = "select * from ".$this->tabela." ";
 					$sql .= "left join pibic_projetos on pp_protocolo = pj_codigo ";
 					$sql .= " where pp_avaliador = '".$parecerista."' ";
-					$sql .= " and pp_status = '@'
-							  and pp_tipo = '$tipo' ";
+					$sql .= " and pp_status = '@' 
+								and pp_tipo = '$tipo' ";
 				} else {
 					$sql = "select * from ".$this->tabela." ";
 					$sql .= "left join pibic_bolsa_contempladas on pp_protocolo = pb_protocolo ";
@@ -1871,8 +1870,6 @@ class parecer_pibic
 					$sql .= " and pp_status = '@' and pp_tipo = '$tipo' and pb_status <> 'C' ";
 					$sql .= " order by id_pp desc, pp_protocolo ";					
 				}									
-//			echo $sql;
-//			echo '<HR>';
 			$rlt = db_query($sql);
 			$sx .= '<div><table width="97%" align="center" class="lt1" border=0 >'.chr(13);
 			
