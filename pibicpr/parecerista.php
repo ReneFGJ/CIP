@@ -18,6 +18,7 @@ $menu = array();
 	 
 	array_push($menu,array('Avaliadores','E-mail',''));
 	array_push($menu,array('Avaliadores','__Enviar convite','pareceristas_enviar_convite.php'));
+	//array_push($menu,array('Avaliadores','__Enviar convite','pareceristas_lista_convite.php'));
 	
 	array_push($menu,array('Instituíções','Cadastro Instituições','instituicoes.php'));		
 	  

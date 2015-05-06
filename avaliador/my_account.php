@@ -34,7 +34,7 @@ if ($prof_pucpr == 1)
 	}
 
 /* Aceitar indicação */
-if (($par->status == 19) and ($prof_pucpr == 0))
+if ((($par->status == 9) or ($par->status == 19)) and ($prof_pucpr == 0))
 	{
 	if ($dd[3]=='AXA')
 		{
@@ -45,9 +45,14 @@ if (($par->status == 19) and ($prof_pucpr == 0))
 	exit;
 	}
 	
-if ($par->status == 9)
+if ($par->status == 0)
 	{
 		echo '<h1><font color="red">Convite recusado</font></h1>';
+		exit;
+	}
+if ($par->status == 10)
+	{
+		echo '<h1><font color="GREEN">Convite aceito</font></h1>';
 	}
 
 echo '<div id="areascadastradas">';

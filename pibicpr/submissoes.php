@@ -12,6 +12,7 @@ echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 $menu = array();
 /////////////////////////////////////////////////// MANAGERS
 array_push($menu,array(msg('submissoes'),'Resumo Cockpit','submissao_cockpit.php'));
+array_push($menu,array(msg('submissoes'),'__Planos por professor / titulação','submissao_professor_titulacao.php'));
 array_push($menu,array(msg('submissoes'),'__Projetos do professor','submissao_professor.php'));
 array_push($menu,array(msg('submissoes'),'__Planos de aluno','submissao_plano.php'));
 
@@ -20,6 +21,7 @@ array_push($menu,array(msg('submissoes'),'__Não finalizados','submissao_nao_fina
 array_push($menu,array(msg('submissoes'),'__Validação de submissão','submissao_validacao.php'));
 array_push($menu,array(msg('submissoes'),'__Aceitos para avaliação','submissao_aceito_para_avaliacao.php'));
 array_push($menu,array(msg('submissoes'),'__Projetos encaminhados para correção do professor','submissao_para_correcao.php'));
+array_push($menu,array(msg('submissoes'),'Agrupar Planos de Alunos (projetos duplicados)','submissao_agrupar_plano.php')); 
 
 
 array_push($menu,array(msg('submissoes'),'Projetos por áreas estratégicas','submissao_areas.php'));

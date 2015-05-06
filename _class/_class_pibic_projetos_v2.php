@@ -488,6 +488,7 @@ class projetos {
 				";
 		$rlt = db_query($sql);
 		echo '<HR>';
+		echo '<h1>Avaliações</h1>';
 
 		while ($line = db_read($rlt)) {
 			$sta = $line['pp_status'];
@@ -518,8 +519,10 @@ class projetos {
 						where pj_ano = '" . date("Y") . "' and pj_status <> 'X' and pj_status <> '!'
 						group by pj_status 
 						";
+	
 		$rlt = db_query($sql);
 		$id = 0;
+		echo '<h1>Projetos do professor</h1>';
 		while ($line = db_read($rlt)) {
 			$id = $id + $line['total'];
 			$sta = $line['pj_status'];
@@ -1204,6 +1207,7 @@ class projetos {
 		array_push($cp, array('$S1', 'doc_status', 'Status', TRUE, TRUE));
 		array_push($cp, array('$S8', 'doc_autor_principal', 'Professor', TRUE, TRUE));
 		array_push($cp, array('$S8', 'doc_edital', 'Edital', TRUE, TRUE));
+		array_push($cp, array('$S8', 'doc_protocolo_mae', 'Prot. Projeto', TRUE, TRUE));		
 		array_push($cp, array('$O :Não&1:SIM', 'pb_vies', 'Viés PIBITI', False, TRUE));
 		array_push($cp, array('$[0-20]', 'doc_recurso', 'Nota (+) do recurso', False, TRUE));
 		return ($cp);
@@ -2064,6 +2068,10 @@ class projetos {
 				}
 				redirecina(page() . '?dd0=' . $dd[0] . '&dd90=' . $dd[90]);
 			}
+			if (strlen($acao) == 0)
+				{
+					$dd[2] = $this->line['pj_coment'];
+				}
 
 			$sx .= '<table width="940" class="tabela00" align="center"><TR><TD>';
 			$sx .= '<fieldset><legend>Ações sobre o protocolo</legend>';

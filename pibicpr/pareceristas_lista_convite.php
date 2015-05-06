@@ -15,12 +15,6 @@ $texto = $txt['nw_descricao'];
 echo '<table width="700">';
 echo '<TR><TD>'.$titulo;
 echo '<TR><TD>'.mst($texto);
-/* RECONVIDAR
- */ 
-if ($dd[40]=='RECONVIDAR')
-	{
-		$par->setar_para_reconvidar();
-	}
 
 require($include.'_class_form.php');
 $form = new form;
@@ -30,8 +24,6 @@ array_push($cp,array('$O : &1:SIM','','Confirma envio',True,True));
 
 $tela = $form->editar($cp,'');
 
-/* LIMPA AVALIADORES COM OITO DIGITOS NO CRACHA */
-$par->excluir_avaliadores_locais();
 $total = $par->enviar_convite_total();
 echo '<h2>Total de convites para enviar '.$total.'</h2>';
 
@@ -41,8 +33,6 @@ if ($form->saved > 0)
 	} else {
 		echo $tela;
 	}
-	
-echo '<A HREF="'.page().'?dd40=RECONVIDAR">Setar toda base para reconvidar</A>';
 
 require("../foot.php");
 ?>

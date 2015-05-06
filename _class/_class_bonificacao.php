@@ -2214,7 +2214,7 @@ class bonificacao {
 					inner join docentes on ca_professor = pp_cracha
 					left join agencia_de_fomento on agf_codigo = ca_agencia
 					left join " . $this -> tabela . " on (bn_original_protocolo = ca_protocolo) and (bn_original_tipo = 'IPR') 
-					where (ca_participacao = 'C' or ca_participacao = 'P')
+					where (ca_participacao = 'C' or ca_participacao = 'P' or ca_participacao = 'E')
 					and (ca_status = 80 or ca_status = 81 or ca_status = 11 or ca_status = 13 or ca_status = 1)
 					
 					order by pp_nome, ca_vigencia_ini_ano
