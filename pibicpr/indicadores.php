@@ -54,7 +54,6 @@ array_push($menu,array('Orientadores','Profissao IC (Renovações) '.(date("Y")-1)
 array_push($menu,array('Orientadores','Censo Anual (Sillas) ','rel_bolsa_aluno_xml.php'));
 array_push($menu,array('Orientadores','Orientadores ativos x número (SGA)','rel_bolsa_orientador_ativo.php'));
 
-array_push($menu,array('Orientadores','Professores sem email cadastrado ','pibic_docentes_email.php'));
 
 //array_push($menu,array('Validação','Alunos com duas bolsas','pibic_rel_bolsa_aluno_duplicadas.php'));
 array_push($menu,array('Validação','Alunos com duas bolsas','seleciona_ano.php'));

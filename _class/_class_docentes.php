@@ -94,7 +94,7 @@ class docentes {
 			$sx .= $line['pp_cracha'];
 			$sx .= '</A>';
 			$sx .= '<TD class="tabela01">';
-			$sx .= $line['pp_nome'];
+			$sx .= $this->tratar_nome($line['pp_nome']);
 			$sx .= '<TD class="tabela01">';
 			$sx .= $line['pp_email_1'];
 			$sx .= '<TD class="tabela01">';
@@ -799,11 +799,6 @@ class docentes {
 		return ($sx);
 	}
 
-<<<<<<< HEAD
-=======
-	/* Classe de penalidades */
-	/* */
->>>>>>> origin/master
 	function docentes_com_penalidades() {
 		$sql = "select * from " . $this -> tabela . "  
 						where pp_bl_pts > '0' or pp_bl <> ''
@@ -2320,7 +2315,39 @@ class docentes {
 			return ($sx);
 		}
 
+
+
+
 	}
+
+
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @function: tratar_nome($var)
+ *          Faz tratamento de nome proprio
+ * @author: Elizandro Santos de Lima[Analista de Projetos]
+ * @Agradecimentos: <Agradecimentos aos autores originais> http://codigofonte.uol.com.br/codigos/formatacao-de-nomes-proprios-em-php / http://www.vivaolinux.com.br/topico/PHP/Funcao-chamando-Funcao
+ * @date: 04/05/2015
+ */	
+  function tratar_nome ($nome) {
+    $nome = strtolower($nome); // Converter o nome(campo) todo para minúsculo
+    $nome = explode(" ", $nome); // Separa todo o nome(campo) por espaços
+    for ($i=0; $i < count($nome); $i++) {
+        // Tratar cada palavra do nome(campo)
+        if ($nome[$i] == "de" or $nome[$i] == "da" or $nome[$i] == "e" or $nome[$i] == "dos" or $nome[$i] == "do") {
+            $saida .= $nome[$i].' '; // Se a palavra estiver dentro das complementares mostrar toda em minúsculo
+        }else {
+            $saida .= ucfirst($nome[$i]).' '; // Se for um nome, mostrar a primeira letra maiúscula
+        }
+    }
+    return $saida;
+}
+
+//como usar? => $this->tratar_nome($line['db_campo']);
+
+//**************************** Fim da função *****************************************
+
+
 
 }
 ?>
