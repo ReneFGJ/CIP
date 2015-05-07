@@ -985,16 +985,16 @@ class csf
 				*/
 				/* Novo */
 				$sql = "select * from (
-							select count(*) as total, pb_colegio, pb_tipo 
+							select count(*) as total, pb_colegio, pb_tipo, pb_colegio_orientador 
 							from pibic_bolsa_contempladas 
 							where pb_tipo = 'S' 
 							and (pb_status <> 'C' and pb_status <> '@')
-							group by pb_tipo, pb_colegio
+							group by pb_tipo, pb_colegio, pb_colegio_orientador
 							) as alunos
 							left join 
 							(select inst_nome, inst_log, inst_lat 
 							 from instituicao) as instituicao on pb_colegio = inst_nome
-							 order by pb_colegio
+							 order by pb_colegio_orientador, pb_colegio
 							";
 				$rlt = db_query($sql);				
 				
@@ -1019,6 +1019,7 @@ class csf
 							$curso_aluno = trim($line['inst_nome']);
 							$latitude  = $line['inst_lat'];							
 							$longitude = $line['inst_log'];
+							$pais_univ = $line['pb_colegio_orientador'];
 
 						if (strlen($pais) > 0)
 							{
@@ -1031,6 +1032,7 @@ class csf
 					           		    $sq .= '<TR>'; 
 				              		}
 				              	$sty = ' style="border: 1px solid #303030; padding: 2px; margin: 2px;" ';
+								$sq .= '<TD '.$sty.'>'.$pais_univ.'</td>';				              	
 				              	$sq .= '<TD '.$sty.'>'.$paisn.'</td>';
 				              	$sq .= '<TD align="center" '.$sty.'>'.$line['total'].'</td>';
 
@@ -1125,12 +1127,12 @@ class csf
                 $sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
 				$sx .= '<table width=100% align=center class="tabela01">';
 				$sx .= '<TR>';
-				$sx .= '<TH width=40%  align="center">Instituição<TH width=10%>Estudantes';
-				$sx .= '<TH width=40%  align="center">Instituição<TH width=10%>Estudantes';
+				$sx .= '<TH width=10%  align="center">Pais<TH width=35%>Instituição<TH width=5%>Estudantes';
+				$sx .= '<TH width=10%  align="center">Pais<TH width=35%>Instituição<TH width=5%>Estudantes';
 				$sx .= $sq.'</table>';
 			
 				$sx .= '<TR>
-							<colspan=4 align=left BGCOLOR="#99FF99 " valign="bottom">
+							<colspan=6 align=right BGCOLOR="#99FF99 " valign="bottom">
 							Total de <strong>'.$tot_instit.'</strong> instituições destino do Intercâmbio,';
 				$sx .= 	    " com <strong>".$tot_alunos."</strong> alunos enviados pela PUCPR.";
 				$sx  .= '</table>';	
@@ -1626,14 +1628,13 @@ class csf
 /* @function: tratar_nome($var)
  *          Faz tratamento de nome proprio
  * @author: Elizandro Santos de Lima[Analista de Projetos]
- * @link: http://codigofonte.uol.com.br/codigos/formatacao-de-nomes-proprios-em-php / http://www.vivaolinux.com.br/topico/PHP/Funcao-chamando-Funcao
+ * @link: <Agradecimentos aos autores> http://codigofonte.uol.com.br/codigos/formatacao-de-nomes-proprios-em-php / http://www.vivaolinux.com.br/topico/PHP/Funcao-chamando-Funcao
  * @date: 04/05/2015
  */	
   function tratar_nome ($nome) {
     $nome = strtolower($nome); // Converter o nome(campo) todo para minúsculo
     $nome = explode(" ", $nome); // Separa todo o nome(campo) por espaços
     for ($i=0; $i < count($nome); $i++) {
- 
         // Tratar cada palavra do nome(campo)
         if ($nome[$i] == "de" or $nome[$i] == "da" or $nome[$i] == "e" or $nome[$i] == "dos" or $nome[$i] == "do") {
             $saida .= $nome[$i].' '; // Se a palavra estiver dentro das complementares mostrar toda em minúsculo
@@ -1644,7 +1645,8 @@ class csf
     return $saida;
 }
 
-//usando: $this->tratar_nome($line['db_campo']);
+//como usar? => $this->tratar_nome($line['db_campo']);
+
 //**************************** Fim da função *****************************************
 
 
