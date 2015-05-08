@@ -1572,7 +1572,7 @@ class docentes {
 			}
 
 			if ($id_tit == -1) { echo 'Erro ' . $tit . ' - '.$line['pp_cracha'];
-				//print_r($line);
+				print_r($line);
 				exit ;
 			}
 
