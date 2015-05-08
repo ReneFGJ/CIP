@@ -570,12 +570,14 @@ function parecer_nao_entregues($ano)
 							<TH>Plano
 							<TH>Ano
 							<TH>Professor
+							<TH>Cracha Prof.
 							<TH>CPF
 							<TH>Campus
 							<TH>Carga Horária
 							<TH>Edital
 							<TH>Descrição
 							<TH>Aluno
+							<TH>Cracha Alun.
 							<TH>CPF Aluno
 							<TH>Curso aluno
 							<TH>Colegio
@@ -613,8 +615,11 @@ function parecer_nao_entregues($ano)
 						$sx .= ucwords(strtolower($line['pp_nome']));//
 										
 						$sx .= '<TD>';
+						$sx .= $line['pp_cracha'];//
+						
+						$sx .= '<TD>';
 						$sx .= $line['pp_cpf'];//
-
+						
 						$sx .= '<TD>';
 						$sx .= ucwords(strtolower($line['pp_centro']));//
 						
@@ -629,6 +634,9 @@ function parecer_nao_entregues($ano)
 						
 						$sx .= '<TD>';
 						$sx .= ucwords(strtolower($line['pa_nome']));//
+						
+						$sx .= '<TD>';
+						$sx .= $line['pa_cracha'];//
 							
 						$sx .= '<TD>';
 						$sx .= $line['pa_cpf'];//
