@@ -8,7 +8,7 @@ if (date("m") < 5) { $tela[0] = $parecer_pibic -> resumo_avaliador($par -> codig
 }
 
 /* Correção do Relatório Parcial */
-if (date("m") < 5) { $tela[1] = $parecer_pibic -> resumo_avaliador($par -> codigo, 'RPAC');
+if (date("m") < 6) { $tela[1] = $parecer_pibic -> resumo_avaliador($par -> codigo, 'RPAC');
 }
 
 /* Submissão de projetos / plano */

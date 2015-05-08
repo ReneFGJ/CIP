@@ -1527,6 +1527,7 @@ class docentes {
 					inner join apoio_titulacao on pp_titulacao = ap_tit_codigo
 					where pp_ativo = 1
 					and pp_centro <> 'DOUTORANDO'
+					and pp_centro <> 'POSDOUTORANDO'
 					and pp_update = '" . date("Y") . "'
 					";
 
@@ -1570,7 +1571,7 @@ class docentes {
 			if ($tit == 'PhD') { $id_tit = 0;
 			}
 
-			if ($id_tit == -1) { echo 'Erro ' . $tit;
+			if ($id_tit == -1) { echo 'Erro ' . $tit . ' - '.$line['pp_cracha'];
 				exit ;
 			}
 
