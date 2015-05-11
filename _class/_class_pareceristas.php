@@ -2105,7 +2105,7 @@ class parecerista {
 		$sx .= '<H2>Banco de Professores Avaliadores da PUCPR</h2>';
 
 		$sh .= '<TR>
-							<TH>Cracha<TH>Nome<TH>Campus<TH>Titulação<TH>Curso<TH>Carga Horaria<TH>Área 01<TH>Área 02<TH>Área 03';
+				    <TH>Cracha<TH>Nome<TH>Campus<TH>Titulação<TH>Curso<TH>Carga Horaria<TH>Área 01<TH>Área 02<TH>Área 03';
 
 		$id = 0;
 		$xpp = '';
@@ -2123,8 +2123,8 @@ class parecerista {
 
 				$xescola = $escola;
 				$sx .= '<TR>
-														<TD colspan=10>
-														<h3>' . $line['centro_nome'] . '</h3>';
+						<TD colspan=10>
+						<h3>' . $line['centro_nome'] . '</h3>';
 				$sx .= $sh;
 			}
 

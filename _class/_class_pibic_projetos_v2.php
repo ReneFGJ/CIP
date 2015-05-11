@@ -1285,7 +1285,7 @@ class projetos {
 		$sx .= 'Total ' . $tot;
 		return ($sx);
 	}
-
+//
 	/**
 	 * Resumos
 	 */
@@ -1337,6 +1337,7 @@ class projetos {
 		//$sx .= 'NO EDITAL DA INICIAÇÃO CIENTÍFICA - '.$ano.'</h2>';
 		$sx .= '<table width="100%" align="center" class="tabela00">';
 		$sx .= '<TR><TH>Escola<TH>PIBIC<TH>PIBITI<TH>PIBIC_EM<TD>Intern.<TH>Sub-total';
+		
 		$rs = array();
 		while ($line = db_read($rlt)) {
 			$xcap = trim($line['centro_nome']);
@@ -1365,7 +1366,6 @@ class projetos {
 			}
 			if ($edital == 'ICI') { $totali = $totali + $total;
 			}
-
 			if ($edital == 'PIBIC') { $ttotalp = $ttotalp + $total;
 			}
 			if ($edital == 'PIBITI') { $ttotalt = $ttotalt + $total;
@@ -4042,4 +4042,143 @@ $sx .= '<br>';
 		$rlt = db_query($sql);
 	}
 
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: resumo_doutotando_pos_e_doutorando_escola($ano)
+ *          Recupera Pós-doutorandos e Doutorando por escolas e planos
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 11/05/2015
+ */	
+	function resumo_doutotando_pos_e_doutorando_escola($ano){
+		$sql =" 
+				select pp_escola, pp_nome, centro_nome, pp_cracha, centro_codigo, doc_edital, pp_centro, pj_titulo, pj_ano, doc_protocolo, doc_protocolo_mae
+				from pibic_projetos
+				left join pibic_professor on (pj_professor = pp_cracha)
+				inner join pibic_submit_documento on pj_codigo = doc_protocolo_mae
+				left join centro on pp_escola = centro_codigo
+				where doc_ano = pj_ano
+				and doc_ano = '".$ano."'
+				and (doc_status = 'B' or doc_status = 'C' or doc_status = 'D' or doc_status = 'F' or doc_status = 'T'  or doc_status = 'A')
+				and (pj_status = 'B' or pj_status = 'C' or pj_status = 'D' or pj_status = 'F' or pj_status = 'T'  or pj_status = 'A' or pj_status = 'E' )
+				and pp_centro in ('DOUTORANDO', 'POSDOUTORANDO')
+				group by pp_escola, pp_nome, centro_nome, pp_cracha, centro_codigo, doc_edital, pp_centro, pj_titulo, pj_ano, doc_protocolo, doc_protocolo_mae
+				order by pp_centro
+			 ";
+		
+		$rlt = db_query($sql);
+		
+
+		$sx = '<table width="100%">';
+		$sx .= '<H2>Doutorandos e Pós-Doutorandos</h2>';
+		
+				
+		$tot = 0;
+		$xescola = '';	
+			while ($line = db_read($rlt)){	
+			$tot++;		
+			$escola = $line['pp_escola'];
+			if ($escola != $xescola) {
+				if ($xtotp > 0) {
+					$sx .= '<TR><TD colspan=10 align="right">
+								<font color=green>subtotal de professores ' . $xtotp;
+					$sx .= '<hr size="1" style="border: 1px dashed green;">';
+				}
+				/* zera total parcial da escola */
+				$xtotp = 0;
+
+				
+				
+				$xescola = $escola;
+				$sx .= '<TR>
+						<TD colspan=10>
+						<h3>' . $line['centro_nome'] . '</h3>';
+				$sx .= $sh;
+					//Cabeçalho das colunas na tabela
+					$sx .= '<TR><TH width="5%"	>Código
+				            <TH width="15%"	>Nome
+				            <TH width="9%"	>Campus
+							<TH width="5%"	>Protocolo	
+							<TH width="40%"	>Titulo_Projeto	
+				            <TH width="5%"	>Ano	
+				            <TH width="7%"	>Edital
+				            <TH width="7%"	>Titulo_Plano
+							<TH width="7%"	>Modalidade
+						';
+			}
+			
+			$pp = $line['pp_cracha'];
+			
+			if ($pp != $xpp) {
+			
+				/* acrescenta total geral */
+				$id++;
+				/* acrescenta total parcial */
+				$xtotp++;
+			
+				$link = '<A HREF="avaliador_professor_detalhe.php?dd0=' . $line['pp_cracha'] . '" class="link">';
+				$sx .= '<TR>';
+				$sx .= '<TD class="tabela01" align="center">';
+				$sx .= $link;
+				$sx .= $line['pp_cracha'];
+				$sx .= '</A>';
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $this->tratar_nome($line['pp_nome']);
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_centro'];
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['doc_protocolo'];
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= ucfirst(strtolower($line['pj_titulo']));							
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pj_ano'];
+				
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['doc_edital'];
+				
+
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line[''];				
+
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line[''];		
+			
+			}
+				
+		}
+		$sx .= '<TR>
+				<TD colspan=9 align="right"><font color=red><b>Total de  ' . $id;
+		$sx .= '</table>';
+
+	return ($sx);
+	}	
+ //**************************** Fim do metodo *****************************************	  	
+
+ //####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @function: tratar_nome($var)
+ *           Faz tratamento de nome proprio
+ * @date: 04/05/2015
+ */	
+  function tratar_nome ($nome) {
+    $nome = strtolower($nome); // Converter o nome(campo) todo para minúsculo
+    $nome = explode(" ", $nome); // Separa todo o nome(campo) por espaços
+    for ($i=0; $i < count($nome); $i++) {
+        // Tratar cada palavra do nome(campo)
+        if ($nome[$i] == "de" or $nome[$i] == "da" or $nome[$i] == "e" or $nome[$i] == "dos" or $nome[$i] == "do") {
+            $saida .= $nome[$i].' '; // Se a palavra estiver dentro das complementares mostrar toda em minúsculo
+        }else {
+            $saida .= ucfirst($nome[$i]).' '; // Se for um nome, mostrar a primeira letra maiúscula
+        }
+    }
+    return $saida;
+}
+
+//como usar? => var = $this->tratar_nome($line['campo']);
+//***************************** Fim da metodo ****************************************	
+	
 }
