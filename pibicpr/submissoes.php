@@ -75,7 +75,11 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 array_push($menu,array('Implementação de Bolsas (Fase de Implementação)','Bolsas não Implementadas de Bolsas (PIBIC)','pibic_implementacao_bolsas.php?dd1=PIBIC'));	
 array_push($menu,array('Implementação de Bolsas (Fase de Implementação)','Bolsas não Implementadas de Bolsas (PIBITI)','pibic_implementacao_bolsas.php?dd1=PIBITI'));	
 
-	
+
+if ($perfil->valid('#ADM'))
+	{
+	 array_push($menu,array('Test','A x B','submissao_escolas_x_doutorandos.php'));  	
+	}	
 
 
 echo '<TABLE width="710" align="center" border="0">

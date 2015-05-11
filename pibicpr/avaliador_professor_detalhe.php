@@ -1,6 +1,8 @@
 <?php
 require("cab.php");
 
+require('../_include/_class_form.php');
+
 require("../_class/_class_docentes.php");
 $doc = new docentes;
 
@@ -19,10 +21,15 @@ echo $par->mostra_link_avaliador($cracha);
 echo '<BR><BR><BR>';
 
 echo $doc->avaliador_ic();
+
+echo '<BR>';
+echo $par->area_do_conhecomento_professor_adicionar($cracha);
+
 echo $par->area_do_conhecomento_professor($cracha);
 
 $ano = date("Y");
 echo $pa->avaliacoes_indicadas($cracha,$ano);
-
+echo '<BR><BR><BR><BR>';
+echo '</div>';
 echo $hd->foot();
 ?>

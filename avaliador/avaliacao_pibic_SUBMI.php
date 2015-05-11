@@ -32,13 +32,13 @@ if ($parecer_pibic->status != '@')
 	}
 
 $perfil = $_SESSION['user_perfil'];
-if (strpos($perfil,'#COO'))
-{
-	echo '<HR>';
-	echo $parecer_pibic->parecer_indicacao_row();
-	echo '<HR>';
-	//echo $parecer_pibic->mostra_avaliacao($dd[0]);
-}
+//if (strpos($perfil,'#COO'))
+//{
+//	echo '<HR>';
+//	echo $parecer_pibic->parecer_indicacao_row();
+//	echo '<HR>';
+//	//echo $parecer_pibic->mostra_avaliacao($dd[0]);
+//}
 
 /* Recupera protocolo do projeto */
 $protocolo = $parecer_pibic->protocolo;

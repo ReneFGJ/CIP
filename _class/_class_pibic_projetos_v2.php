@@ -1285,7 +1285,7 @@ class projetos {
 		$sx .= 'Total ' . $tot;
 		return ($sx);
 	}
-
+//
 	/**
 	 * Resumos
 	 */
@@ -1337,6 +1337,7 @@ class projetos {
 		//$sx .= 'NO EDITAL DA INICIAÇÃO CIENTÍFICA - '.$ano.'</h2>';
 		$sx .= '<table width="100%" align="center" class="tabela00">';
 		$sx .= '<TR><TH>Escola<TH>PIBIC<TH>PIBITI<TH>PIBIC_EM<TD>Intern.<TH>Sub-total';
+		
 		$rs = array();
 		while ($line = db_read($rlt)) {
 			$xcap = trim($line['centro_nome']);
@@ -1365,7 +1366,6 @@ class projetos {
 			}
 			if ($edital == 'ICI') { $totali = $totali + $total;
 			}
-
 			if ($edital == 'PIBIC') { $ttotalp = $ttotalp + $total;
 			}
 			if ($edital == 'PIBITI') { $ttotalt = $ttotalt + $total;
@@ -4042,4 +4042,35 @@ $sx .= '<br>';
 		$rlt = db_query($sql);
 	}
 
+	
+function resumo_doutotando_pos_e_doutorando_escola($ano){
+		$sql =" 
+				select centro_nome, centro_codigo, doc_edital, pp_centro, doc_edital 
+				from pibic_projetos
+				left join pibic_professor on (pj_professor = pp_cracha)
+				inner join pibic_submit_documento on pj_codigo = doc_protocolo_mae
+				left join centro on pp_escola = centro_codigo
+				where doc_ano = pj_ano
+				and doc_ano = '".$ano."'
+				and (doc_status = 'B' or doc_status = 'C' or doc_status = 'D' or doc_status = 'F' or doc_status = 'T'  or doc_status = 'A')
+				and (pj_status = 'B' or pj_status = 'C' or pj_status = 'D' or pj_status = 'F' or pj_status = 'T'  or pj_status = 'A' or pj_status = 'E' )
+				and pp_centro in ('DOUTORANDO', 'POSDOUTORANDO')
+				order by pp_centro
+			 ";
+		
+		$rlt = db_query($sql);
+		
+		while($line = db_read($rlt)){
+			
+		print_r($line);
+		echo '<HR>';
+			
+		}
+		
+		
+	
+}	
+   	
+	
+	
 }

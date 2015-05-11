@@ -276,9 +276,6 @@ class parecerista {
 		global $jid;
 		$sta = $this -> status();
 
-		$sql = "delete from " . $this -> tabela . " where us_aceito = -1 ";
-		//$rlt = db_query($sql);
-
 		$sql = "select count(*) as total, us_aceito, us_ativo from (
 						select * from " . $this -> tabela . " 
 						left join instituicoes on inst_codigo = us_instituicao
@@ -336,8 +333,8 @@ class parecerista {
 		 $rlt = db_query($sql);
 		 */
 
-		$sql = "update " . $this -> tabela . " set us_ativo = 9 where us_instituicao = '0000012' ";
-		$rlt = db_query($sql);
+		//$sql = "update " . $this -> tabela . " set us_ativo = 9 where us_instituicao = '0000012' ";
+		//$rlt = db_query($sql);
 
 		$sql = "select * from (
 						select * from " . $this -> tabela . " 
@@ -421,12 +418,18 @@ class parecerista {
 				$sx .= '<TD class="tabela01" align="center">' . $line['total'];
 
 			}
-			if ($line['a_semic'] == 1) {
-				$sx .= '<TR><TD><TD colspan=2>' . $line['a_cnpq'] . ' - ' . $line['a_descricao'];
+			$sx .= '<TR><TD><TD colspan=2>' . $line['a_cnpq'] . ' - ' . $line['a_descricao'];
+			if ($line['a_semic'] != 1) {
+				if ($jid = 20) {
+					$sx .= '<font color="red">(*)</font>';
+				}
 			}
 		}
 		$sx .= '<TR><TD colspan=5>Total ' . $id;
 		$sx .= '</table>';
+		if ($jid = 20) {
+			$sx .= '<font color="red">(*) Não habilitado no SEMIC</font>';
+		}
 		return ($sx);
 	}
 
@@ -720,6 +723,8 @@ class parecerista {
 
 	function excluir_avaliadores_locais() {
 		global $jid;
+		return (0);
+
 		$sql = "select * from pareceristas  ";
 		$sql .= " where us_journal_id = '" . intval($jid) . "' ";
 		$rlt = db_query($sql);
@@ -729,23 +734,22 @@ class parecerista {
 				echo $cod . '-' . $line['us_nome'];
 				echo '<HR>';
 				$sql = "update pareceristas set us_journal_id = '1000020' 
-							where id_us = " . $line['id_us']." 
+							where id_us = " . $line['id_us'] . " 
 							and us_journal_id = '" . intval($jid) . "' ";
-							
+
 				//$rrr = db_query($sql);
 			}
 		}
 		return (0);
 	}
-	
-	function setar_para_reconvidar()
-		{
+
+	function setar_para_reconvidar() {
 		global $jid;
 
 		$sql = "update pareceristas  set us_aceito = 9 ";
 		$sql .= " where us_ativo = 1 and us_journal_id = '" . intval($jid) . "' ";
-		$rlt = db_query($sql);	
-		}
+		$rlt = db_query($sql);
+	}
 
 	function enviar_convite($tipo, $titulo, $texto_original) {
 		global $jid;
@@ -789,10 +793,12 @@ class parecerista {
 
 			if ($tipo == '9') {
 				echo '<BR>Enviado para ' . $email_1 . ' ' . $email_2;
-				if (strlen($email_1) > 0) { enviaremail($email_1,'',$titulo.' - '.$nome,$texto); }
-				if (strlen($email_2) > 0) { enviaremail($email_2,'',$titulo.' - '.$nome,$texto); }
-				enviaremail('pibicpr@pucpr.br','',$titulo,$texto);
-				$sql = "update pareceristas set us_aceito = 19 where us_aceito = 9 and id_us = ".$line['id_us'];
+				if (strlen($email_1) > 0) { enviaremail($email_1, '', $titulo . ' - ' . $nome, $texto);
+				}
+				if (strlen($email_2) > 0) { enviaremail($email_2, '', $titulo . ' - ' . $nome, $texto);
+				}
+				enviaremail('pibicpr@pucpr.br', '', $titulo, $texto);
+				$sql = "update pareceristas set us_aceito = 19 where us_aceito = 9 and id_us = " . $line['id_us'];
 				$xrlt = db_query($sql);
 			}
 			//require("parecerista_enviar_email.php");
@@ -1000,6 +1006,32 @@ class parecerista {
 		$this -> enviar_email_atualizacao_dados();
 		return (True);
 	}
+
+	function area_do_conhecomento_professor_adicionar()
+		{
+		global $dd,$acao;
+		
+		$form = new form;
+		
+		$cp = array();
+		array_push($cp,array('$H8','','',False,True,''));
+		array_push($cp,array('$H8','','Código CNPQ',False,True,''));
+		array_push($cp,array('$Q a_descricao:a_codigo:select a_cnpq || \'-\' || a_descricao as a_descricao, a_codigo from ajax_areadoconhecimento where a_semic=\'1\' order by a_cnpq','','Descricao',True,False,''));
+		$tela = $form->editar($cp,'');
+		$sx = '<fieldset>';
+		$sx .= $tela;
+		$sx .= '</fieldset>';
+		
+		if ($form->saved > 0)
+			{
+				$area = $dd[2];
+				$this->area_adiciona($area);
+			} else {
+				$sx .= 'Adicionado com sucesso!';
+			}
+		return($sx);	
+		}
+
 
 	function le($id = '') {
 		global $http;
@@ -1679,7 +1711,7 @@ class parecerista {
 		$sx .= '<table width="100%" border=0 align="center" class="tabela00">';
 		$sx .= '<TR valign="top"><TD class="lt0" colspan=4>nome do avaliador';
 		$sx .= '<TD rowspan=4 width=80>' . $this -> resumo_avaliacoes();
-		$sx .= '<TR><TD class="tabela01" colspan=2><B>' . $this -> nome.'</B>';
+		$sx .= '<TR><TD class="tabela01" colspan=2><B>' . $this -> nome . '</B>';
 
 		//$sx .= '<TR ><TD class="tabela01">
 		//				<font class="lt0">instituíção:</font>

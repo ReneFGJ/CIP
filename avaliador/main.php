@@ -10,6 +10,7 @@ $tot = 0;
 
 require("avaliacoes_journals.php");
 require("avaliacoes_pibic.php");
+exit;
 require("avaliacoes_pibic_jr.php");
 
 if ($tot == 0)
