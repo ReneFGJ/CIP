@@ -4042,16 +4042,17 @@ $sx .= '<br>';
 		$rlt = db_query($sql);
 	}
 
+
 //####################################################################################                      
 //**************************** Inicio do metodo **************************************
 /* @method: resumo_doutotando_pos_e_doutorando_escola($ano)
- *          Recupera Pós-doutorandos e Doutorando por escolas e planos
+ *          Recupera Posdoutorandos e Doutorando por escolas e planos
  * @author Elizandro Santos de Lima[Analista de Projetos]
  * @date: 11/05/2015
  */	
-	function resumo_doutotando_pos_e_doutorando_escola($ano){
-		$sql =" 
-				select pp_escola, pp_nome, centro_nome, pp_cracha, centro_codigo, doc_edital, pp_centro, pj_titulo, pj_ano, doc_protocolo, doc_protocolo_mae
+	function resumo_doutotando_e_posdoutorando_escola($ano){
+		
+		$sql ="select centro_nome, centro_codigo, doc_edital, pp_centro, doc_edital 
 				from pibic_projetos
 				left join pibic_professor on (pj_professor = pp_cracha)
 				inner join pibic_submit_documento on pj_codigo = doc_protocolo_mae
@@ -4067,10 +4068,8 @@ $sx .= '<br>';
 		
 		$rlt = db_query($sql);
 		
-
 		$sx = '<table width="100%">';
 		$sx .= '<H2>Doutorandos e Pós-Doutorandos</h2>';
-		
 				
 		$tot = 0;
 		$xescola = '';	
@@ -4104,12 +4103,11 @@ $sx .= '<br>';
 				            <TH width="7%"	>Titulo_Plano
 							<TH width="7%"	>Modalidade
 						';
-			}
+				}
 			
 			$pp = $line['pp_cracha'];
 			
 			if ($pp != $xpp) {
-			
 				/* acrescenta total geral */
 				$id++;
 				/* acrescenta total parcial */
@@ -4146,7 +4144,6 @@ $sx .= '<br>';
 
 				$sx .= '<TD class="tabela01">';
 				$sx .= $line[''];		
-			
 			}
 				
 		}
@@ -4180,5 +4177,7 @@ $sx .= '<br>';
 
 //como usar? => var = $this->tratar_nome($line['campo']);
 //***************************** Fim da metodo ****************************************	
+		
+
 	
 }

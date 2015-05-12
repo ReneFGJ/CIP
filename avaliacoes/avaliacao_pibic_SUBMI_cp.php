@@ -16,7 +16,7 @@ array_push($cp,array('$HV','pp_status','@',False,True));
 $ccor = '<font color=blue >';
 
 /** Primeira questão **/
-$cap = "1) 1)	As correções solicitadas foram realizadas?:";
+$cap = "1)	As correções solicitadas foram realizadas?:";
 $opc  = 'sim, integralmente:';
  $opc .= ':sim, integralmente.<BR>&';
 $opc .= 'sim, parcialmente';

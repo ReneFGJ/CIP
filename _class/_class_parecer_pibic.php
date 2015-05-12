@@ -1703,7 +1703,7 @@ class parecer_pibic
 
 				/** Quarta questão **/
 				$opc = '';
-				$opc .= '1:SIM. Recomendo que o projeto seja direcionado para o Programa PIBITI.<BR> ';
+				$opc .= '1:SIM<BR> ';
 				$opc .= '&0:NÃO<BR> ';
 				$opc .= '&2:Tenho dúvida, peço que o comitê gestor analise.';
 				
@@ -1757,7 +1757,7 @@ class parecer_pibic
 						$opc .= '&0:NÃO<BR> ';
 						$opc .= '&2:Tenho dúvida, peço que o comitê de Ética analise a obrigatoriedade';
 					
-						$cap = '<B>Critério 4</B>: Este projeto envolve seres humanos ou animais e, portanto, deve ser analisado pelo Comitê de Ética (CEP) ou Comitê de Ética no Uso de Animais (CEUA), respectivamente ?';		
+						$cap = '<B>Critério 4</B>: Este projeto envolve seres humanos ou animais? Deve ser analisado pelo Comitê de Ética (CEP) ou Comitê de Ética no Uso de Animais (CEUA)?';		
 						array_push($cp,array('$R '.$opc,'pp_p09',$cap,True,True));
 						
 		
@@ -1770,7 +1770,31 @@ class parecer_pibic
 										$area_nome = trim($xline['a_descricao']);
 									}
 							/** Área Estratégica **/
-								$cap = 'Área Estratégica</B>: Este projeto foi assinalado pelo professor proponente como tendo aderência a área estratégica (<b>'.$this->mostra_area($estrategica).'</B>) da PUCPR. O projeto se enquadra na área assinalada?';
+								$cap = 'Área Estratégica</B>: Este projeto foi assinalado pelo professor proponente como tendo aderência a área estratégica <b>'.$this->mostra_area($estrategica).'</B> da PUCPR';
+								$estrategica = trim($estrategica);
+																
+								$extra = array();
+								/* biotecnologia */
+								//$extra['9.18.00.00-X'] = 'O uso de ferramentas moleculares e terapia celular com o objetivo de melhorar a saúde, reprodução e produção de animais de fazenda';
+								/* <B>Energia</B>: */
+								//$extra['9.03.00.00-X'] = 'Como consumir menos energia e reduzir o impacto ambiental em nossas cidades?';
+								/* <B>Cidades</B>: */
+								//$extra['9.13.00.00-X'] = 'Urbanismo e tecnologia inteligentes';
+								/* <B>Direitos Humanos</B>: */
+								//$extra['9.17.00.00-X'] = 'Pesquisas interdisciplinares para políticas públicas e resolução de conflitos';
+								/* <B>TIC</B>: */
+								//$extra['9.04.00.00-X'] = 'Utilização inteligente das TICs em negócios, políticas públicas, tecnologia em saúde e cidades inteligentes.';
+								/* <B>Saúde</B>: */
+								//$extra['9.02.00.00-X'] = 'Como utilizar a terapia com células-tronco para tratar pacientes com doenças incuráveis';
+								/* <B>Direitos Humanos</B>: */
+								//$extra['9.20.00.00-X'] = 'Desenvolvido na Penitenciária Feminina do Paraná com  foco nos temas: Reinserção social e empregabilidade; Saúde da mulher; Direitos humanos e jurídicos da mulher em situação de privação de liberdade';
+								/* <B>Direitos Humanos</B>: */
+								//$extra['9.00.00.01-X'] = 'Políticas públicas com enfoque nos direitos humanos de acesso e formação no ensino superior';
+																
+								//$cap .= '<BR><BR>';
+								//$cap .= '"'.$extra[$estrategica].'"';
+								$cap .= '. <BR><BR>O projeto se enquadra na área assinalada?';
+								
 								array_push($cp,array('$R '.$opc_sn,'pp_p05',$cap,True,True));
 							} else {
 								array_push($cp,array('$HV','pp_p05','0',True,True));								
