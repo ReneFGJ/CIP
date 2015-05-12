@@ -17,7 +17,7 @@ $sql = "select a_cnpq || ' ' || a_descricao as a_descricao, a_cnpq from ajax_are
 
 array_push($cp,array('$Q a_descricao:a_cnpq:'.$sql,'','',False,False));
 //monta combo de anos com inicio em 1990 at� anobase atual
-array_push($cp, array('$[1990-' . date("Y") . ']', '', 'Escolha o ano para busca', False, True, ''));
+array_push($cp, array('$[2010-' . date("Y") . ']', '', 'Escolha o ano para busca', False, True, ''));
 array_push($cp,array('$H8','','',False,False));
 
 //Captura ano selecionado e armazena na variavel $dd[0]
