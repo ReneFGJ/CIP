@@ -45,7 +45,7 @@ if ((($par->status == 9) or ($par->status == 19)) and ($prof_pucpr == 0))
 	exit;
 	}
 	
-if ($par->status == 0)
+if (($par->status == 0) and (strlen($par->codigo) < 8))
 	{
 		echo '<h1><font color="red">Convite recusado</font></h1>';
 		exit;

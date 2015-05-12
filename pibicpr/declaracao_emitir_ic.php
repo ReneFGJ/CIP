@@ -28,7 +28,7 @@ if (strlen($dd[0])==8)
 		$nome = trim($par->line['pp_nome']);
 		$data = date("Ymd");
 	} else {
-		if (date("m") < 10)
+		if (date("m") < 5)
 			{
 			echo '<H1>Em processamento</h1>';
 			exit;

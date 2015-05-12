@@ -3423,8 +3423,8 @@ class projetos {
 			if ($professor != trim($interno[$r][0])) {
 				$in++;
 				if ($ax != $interno[$r][2]) {
-					//$sx .= '<BR>';
-					//$sx .= '<B>'.$interno[$r][2].' - '.$interno[$r][3].'</b><BR>';
+					$sx .= '<BR>';
+					$sx .= '<B>'.$interno[$r][2].' - '.$interno[$r][3].'</b><BR>';
 					$ax = $interno[$r][2];
 				}
 
