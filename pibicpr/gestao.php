@@ -26,6 +26,9 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	
 	array_push($menu,array('Gestão Docentes','Demitidos com orientação','gestao_docentes_demitidos.php'));
 	
+	array_push($menu,array('Certificados','Central de Certificados','central_certificados.php'));
+	
+	
 	require("../pibic/__submit_SUBM.php");
 	if ($open == 1) { $sx = '<IMG SRC="'.$http.'img/icone_switch_on.png" border=0 height="22">'; }
 	else			{ $sx = '<IMG SRC="'.$http.'img/icone_switch_off.png" border=0 height="22">'; }

@@ -35,6 +35,8 @@ if ($perfil->valid('#ADM'))
 array_push($menu,array('Fundação Araucária - Bolsas Implementação','ANEXO II','bolsas_anexo_ii.php'));
 array_push($menu,array('Fundação Araucária - Bolsas Implementação','ANEXO IV','bolsas_anexo_iv.php'));
 
+array_push($menu,array('Gestão da Iniciação Científica','Fases da Gestão','gestao.php'));
+
 echo '<TABLE width="710" align="center" border="0">
 		<TR>';
 		$tela = menus($menu,"3");

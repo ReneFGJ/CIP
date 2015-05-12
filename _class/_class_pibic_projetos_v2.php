@@ -47,10 +47,10 @@ class projetos {
 			if (trim($line['pp_centro']) == 'POSDOUTORANDO') { $ok = 2;
 			}
 		}
-		
+
 		/* Soma total de planos submetidos */
-		$sql = "select doc_edital, count(*) as total from ".$this->tabela_planos." 
-				where doc_autor_principal = '$orientador' and doc_ano = '".date("Y")."'
+		$sql = "select doc_edital, count(*) as total from " . $this -> tabela_planos . " 
+				where doc_autor_principal = '$orientador' and doc_ano = '" . date("Y") . "'
 				and (doc_status = '@' or doc_status = 'B') 
 				group by doc_edital";
 		$rlt = db_query($sql);
@@ -519,7 +519,7 @@ class projetos {
 						where pj_ano = '" . date("Y") . "' and pj_status <> 'X' and pj_status <> '!'
 						group by pj_status 
 						";
-	
+
 		$rlt = db_query($sql);
 		$id = 0;
 		echo '<h1>Projetos do professor</h1>';
@@ -1207,7 +1207,7 @@ class projetos {
 		array_push($cp, array('$S1', 'doc_status', 'Status', TRUE, TRUE));
 		array_push($cp, array('$S8', 'doc_autor_principal', 'Professor', TRUE, TRUE));
 		array_push($cp, array('$S8', 'doc_edital', 'Edital', TRUE, TRUE));
-		array_push($cp, array('$S8', 'doc_protocolo_mae', 'Prot. Projeto', TRUE, TRUE));		
+		array_push($cp, array('$S8', 'doc_protocolo_mae', 'Prot. Projeto', TRUE, TRUE));
 		array_push($cp, array('$O :Não&1:SIM', 'pb_vies', 'Viés PIBITI', False, TRUE));
 		array_push($cp, array('$[0-20]', 'doc_recurso', 'Nota (+) do recurso', False, TRUE));
 		return ($cp);
@@ -1285,7 +1285,8 @@ class projetos {
 		$sx .= 'Total ' . $tot;
 		return ($sx);
 	}
-//
+
+	//
 	/**
 	 * Resumos
 	 */
@@ -1337,7 +1338,7 @@ class projetos {
 		//$sx .= 'NO EDITAL DA INICIAÇÃO CIENTÍFICA - '.$ano.'</h2>';
 		$sx .= '<table width="100%" align="center" class="tabela00">';
 		$sx .= '<TR><TH>Escola<TH>PIBIC<TH>PIBITI<TH>PIBIC_EM<TD>Intern.<TH>Sub-total';
-		
+
 		$rs = array();
 		while ($line = db_read($rlt)) {
 			$xcap = trim($line['centro_nome']);
@@ -2068,10 +2069,9 @@ class projetos {
 				}
 				redirecina(page() . '?dd0=' . $dd[0] . '&dd90=' . $dd[90]);
 			}
-			if (strlen($acao) == 0)
-				{
-					$dd[2] = $this->line['pj_coment'];
-				}
+			if (strlen($acao) == 0) {
+				$dd[2] = $this -> line['pj_coment'];
+			}
 
 			$sx .= '<table width="940" class="tabela00" align="center"><TR><TD>';
 			$sx .= '<fieldset><legend>Ações sobre o protocolo</legend>';
@@ -2947,7 +2947,8 @@ class projetos {
 			$ix = $this -> aluno_em_outros_planos($aluno, $protocolo);
 			if ($ix > 0) {
 				echo '<font color="red">ALUNO JÁ INCLUÍDO EM OUTROS PROTOCOLOS ()</font>';
-				$ok = 0; ;
+				$ok = 0;
+				;
 			}
 			$ix = $this -> aluno_blacklist($aluno);
 			if ($ix > 0) {
@@ -3480,19 +3481,23 @@ class projetos {
 		$link = '<A HREF="pibic_projetos_detalhes.php?dd0=' . $line['doc_protocolo_mae'] . '&dd90=' . checkpost($line['doc_protocolo_mae']) . '">';
 		switch ($tipo) {
 			case 'PIBIC' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBITI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBICE' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'ICI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 		}
@@ -3529,19 +3534,23 @@ class projetos {
 		$img = $this -> imagem_edital($tipo);
 		switch ($tipo) {
 			case 'PIBIC' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBITI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBICE' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'ICI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 		}
@@ -3751,11 +3760,11 @@ class projetos {
 				break;
 		}
 
-$sx .= '<br>';
+		$sx .= '<br>';
 		/* Iconografia */
 		$sx .= '<TR valign="top">
 				<TD rowspan=4 width="20">
-				<img src="' .http.'pibic/img/icone_projeto_professor.png" width=50>
+				<img src="' . http . 'pibic/img/icone_projeto_professor.png" width=50>
 				';
 
 		/* Título da Pesquisa */
@@ -3764,7 +3773,7 @@ $sx .= '<br>';
 		$sx .= '<font class="lt4"><B>';
 		$sx .= trim($line['pj_titulo']);
 		$sx .= '</font>';
-$sx .= '<br>';
+		$sx .= '<br>';
 		/* Orientador e protocolo */
 		$sx .= '<TR valign="top">';
 		$sx .= '<TD width="30%" class="tabela00" align="right">';
@@ -3776,17 +3785,17 @@ $sx .= '<br>';
 		$sx .= ' (' . trim($line['pp_cracha']) . ')';
 		$lattes = trim($line['pp_lattes']);
 		if (strlen($lattes) > 0) {
-				$sx .= ' <A HREF="' . $lattes . '" target="_blank">Lattes</A>';
-			} else {
-				$sx .= '<font color="red">sem lattes</font>';
-			}
+			$sx .= ' <A HREF="' . $lattes . '" target="_blank">Lattes</A>';
+		} else {
+			$sx .= '<font color="red">sem lattes</font>';
+		}
 		$sx .= '</font>';
-$sx .= '<br>';	
-		/*protocolo */	
+		$sx .= '<br>';
+		/*protocolo */
 		$sx .= '<TD width="15%" class="tabela00" align="center">';
 		$sx .= '<nobr>Protocolo: <B>' . trim($line['pj_codigo']) . '</B>';
 
-$sx .= '<br>';
+		$sx .= '<br>';
 		/* Comentarios */
 		$comment = trim($line['pj_coment']);
 		if ((strlen($comment) > 0) and ($line['pj_status'] == '@')) {
@@ -3798,7 +3807,7 @@ $sx .= '<br>';
 			$sx .= '<TR><TD colspan=3></td></tr>';
 		}
 
-$sx .= '<br>';
+		$sx .= '<br>';
 		/* dados complementares */
 		$sx .= '
 				<TR><TD colspan=3>
@@ -4042,142 +4051,128 @@ $sx .= '<br>';
 		$rlt = db_query($sql);
 	}
 
+	//####################################################################################
+	//**************************** Inicio do metodo **************************************
+	/* @method: resumo_doutotando_pos_e_doutorando_escola($ano)
+	 *          Recupera Posdoutorandos e Doutorando por escolas e planos
+	 * @author Elizandro Santos de Lima[Analista de Projetos]
+	 * @date: 11/05/2015
+	 */
+	function resumo_doutotando_e_posdoutorando_escola($ano) {
 
-//####################################################################################                      
-//**************************** Inicio do metodo **************************************
-/* @method: resumo_doutotando_pos_e_doutorando_escola($ano)
- *          Recupera Posdoutorandos e Doutorando por escolas e planos
- * @author Elizandro Santos de Lima[Analista de Projetos]
- * @date: 11/05/2015
- */	
-	function resumo_doutotando_e_posdoutorando_escola($ano){
-		
-		$sql ="select centro_nome, centro_codigo, doc_edital, pp_centro, doc_edital 
+		$sql = "select pp_escola, pp_nome, centro_nome, pp_cracha, centro_codigo, doc_edital, pp_centro, 
+				pj_titulo, pj_ano, doc_protocolo, doc_protocolo_mae, doc_1_titulo, pj_codigo
 				from pibic_projetos
-				left join pibic_professor on (pj_professor = pp_cracha)
 				inner join pibic_submit_documento on pj_codigo = doc_protocolo_mae
+				left join pibic_professor on (pj_professor = pp_cracha)				
 				left join centro on pp_escola = centro_codigo
 				where doc_ano = pj_ano
-				and doc_ano = '".$ano."'
+				and doc_ano = '" . $ano . "'
 				and (doc_status = 'B' or doc_status = 'C' or doc_status = 'D' or doc_status = 'F' or doc_status = 'T'  or doc_status = 'A')
 				and (pj_status = 'B' or pj_status = 'C' or pj_status = 'D' or pj_status = 'F' or pj_status = 'T'  or pj_status = 'A' or pj_status = 'E' )
 				and pp_centro in ('DOUTORANDO', 'POSDOUTORANDO')
-				group by pp_escola, pp_nome, centro_nome, pp_cracha, centro_codigo, doc_edital, pp_centro, pj_titulo, pj_ano, doc_protocolo, doc_protocolo_mae
+				group by pp_escola, pp_nome, centro_nome, pp_cracha, centro_codigo, doc_edital, 
+						pp_centro, pj_titulo, pj_ano, doc_protocolo, doc_protocolo_mae, doc_1_titulo, pj_codigo
 				order by pp_centro
 			 ";
-		
+
 		$rlt = db_query($sql);
-		
+
 		$sx = '<table width="100%">';
 		$sx .= '<H2>Doutorandos e Pós-Doutorandos</h2>';
-				
+
 		$tot = 0;
-		$xescola = '';	
-			while ($line = db_read($rlt)){	
-			$tot++;		
+		$xescola = '';
+		while ($line = db_read($rlt)) {
+			$tot++;
 			$escola = $line['pp_escola'];
 			if ($escola != $xescola) {
 				if ($xtotp > 0) {
 					$sx .= '<TR><TD colspan=10 align="right">
-								<font color=green>subtotal de professores ' . $xtotp;
+								<font color=green>subtotal de planos de trabalho ' . $xtotp;
 					$sx .= '<hr size="1" style="border: 1px dashed green;">';
 				}
 				/* zera total parcial da escola */
 				$xtotp = 0;
 
-				
-				
 				$xescola = $escola;
 				$sx .= '<TR>
 						<TD colspan=10>
 						<h3>' . $line['centro_nome'] . '</h3>';
 				$sx .= $sh;
-					//Cabeçalho das colunas na tabela
-					$sx .= '<TR><TH width="5%"	>Código
-				            <TH width="15%"	>Nome
+				//Cabeçalho das colunas na tabela
+				$sx .= '<TR><TH width="5%"	>Código
+				            <TH width="15%"	>Nome do orientador
 				            <TH width="9%"	>Campus
 							<TH width="5%"	>Protocolo	
-							<TH width="40%"	>Titulo_Projeto	
+							<TH width="35%"	>Titulo_Projeto	
 				            <TH width="5%"	>Ano	
 				            <TH width="7%"	>Edital
-				            <TH width="7%"	>Titulo_Plano
+				            <TH width="35%"	>Titulo_Plano
 							<TH width="7%"	>Modalidade
 						';
-				}
-			
+			}
+
 			$pp = $line['pp_cracha'];
-			
+
 			if ($pp != $xpp) {
 				/* acrescenta total geral */
 				$id++;
 				/* acrescenta total parcial */
 				$xtotp++;
-			
+
 				$link = '<A HREF="avaliador_professor_detalhe.php?dd0=' . $line['pp_cracha'] . '" class="link">';
 				$sx .= '<TR>';
 				$sx .= '<TD class="tabela01" align="center">';
 				$sx .= $link;
 				$sx .= $line['pp_cracha'];
 				$sx .= '</A>';
-				
+
 				$sx .= '<TD class="tabela01">';
-				$sx .= $this->tratar_nome($line['pp_nome']);
-				
+				$sx .= tratar_nome($line['pp_nome']);
+
 				$sx .= '<TD class="tabela01">';
 				$sx .= $line['pp_centro'];
-				
+
+				$sx .= '<TD class="tabela01"><nobr>';
+				$sx .= trim($line['pj_codigo']);
+				$sx .= '/';
+				$sx .= trim($line['doc_protocolo']);
+
 				$sx .= '<TD class="tabela01">';
-				$sx .= $line['doc_protocolo'];
-				
-				$sx .= '<TD class="tabela01">';
-				$sx .= ucfirst(strtolower($line['pj_titulo']));							
-				
+				$sx .= ucfirst(strtolower($line['pj_titulo']));
+
 				$sx .= '<TD class="tabela01">';
 				$sx .= $line['pj_ano'];
-				
+
 				$sx .= '<TD class="tabela01">';
 				$sx .= $line['doc_edital'];
-				
 
 				$sx .= '<TD class="tabela01">';
-				$sx .= $line[''];				
+				$sx .= ucfirst(strtolower($line['doc_1_titulo']));
 
 				$sx .= '<TD class="tabela01">';
-				$sx .= $line[''];		
+				$sx .= $line[''];
 			}
-				
+
+		}
+		if ($xtotp > 0) {
+			$sx .= '<TR><TD colspan=10 align="right">
+								<font color=green>subtotal de planos de trabalho ' . $xtotp;
+			$sx .= '<hr size="1" style="border: 1px dashed green;">';
 		}
 		$sx .= '<TR>
 				<TD colspan=9 align="right"><font color=red><b>Total de  ' . $id;
 		$sx .= '</table>';
 
-	return ($sx);
-	}	
- //**************************** Fim do metodo *****************************************	  	
+		return ($sx);
+	}
 
- //####################################################################################                      
-//**************************** Inicio do metodo **************************************
-/* @function: tratar_nome($var)
- *           Faz tratamento de nome proprio
- * @date: 04/05/2015
- */	
-  function tratar_nome ($nome) {
-    $nome = strtolower($nome); // Converter o nome(campo) todo para minúsculo
-    $nome = explode(" ", $nome); // Separa todo o nome(campo) por espaços
-    for ($i=0; $i < count($nome); $i++) {
-        // Tratar cada palavra do nome(campo)
-        if ($nome[$i] == "de" or $nome[$i] == "da" or $nome[$i] == "e" or $nome[$i] == "dos" or $nome[$i] == "do") {
-            $saida .= $nome[$i].' '; // Se a palavra estiver dentro das complementares mostrar toda em minúsculo
-        }else {
-            $saida .= ucfirst($nome[$i]).' '; // Se for um nome, mostrar a primeira letra maiúscula
-        }
-    }
-    return $saida;
-}
+	//**************************** Fim do metodo *****************************************
 
-//como usar? => var = $this->tratar_nome($line['campo']);
-//***************************** Fim da metodo ****************************************	
-		
 
-	
+
+	//como usar? => var = $this->tratar_nome($line['campo']);
+	//***************************** Fim da metodo ****************************************
+
 }

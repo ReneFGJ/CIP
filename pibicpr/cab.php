@@ -30,7 +30,6 @@ $file = '../messages/msg_pt_BR.php';
 require($file);
 
 $menu = array();
-array_push($menu,array(':: Início ::','index.php'));
 array_push($menu,array('Bolsas','bolsas.php'));
 array_push($menu,array('Submissões','submissoes.php'));
 array_push($menu,array('Avaliadores','parecerista.php'));
