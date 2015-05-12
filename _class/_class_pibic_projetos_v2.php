@@ -892,7 +892,7 @@ class projetos {
 		return ($sx);
 	}
 
-	function projetos_area($area = '', $ano = '2013') {
+	function projetos_area($area = '', $ano) {
 
 		$sql = "select * from " . $this -> tabela . " 
 					where pj_area_estra = '$area' or pj_area = '$area'
@@ -4079,7 +4079,7 @@ class projetos {
 		$rlt = db_query($sql);
 
 		$sx = '<table width="100%">';
-		$sx .= '<H2>Doutorandos e Pós-Doutorandos</h2>';
+		$sx .= '<H2>Planos de trabalhos Doutorandos e Pós-Doutorandos por escolas</h2>';
 
 		$tot = 0;
 		$xescola = '';
@@ -4105,10 +4105,10 @@ class projetos {
 				            <TH width="15%"	>Nome do orientador
 				            <TH width="9%"	>Campus
 							<TH width="5%"	>Protocolo	
-							<TH width="35%"	>Titulo_Projeto	
-				            <TH width="5%"	>Ano	
-				            <TH width="7%"	>Edital
-				            <TH width="35%"	>Titulo_Plano
+							<TH width="30%"	>Titulo_Projeto	
+				            <TH width="3%"	>Ano	
+				            <TH width="5%"	>Edital
+				            <TH width="30%"	>Titulo_Plano
 							<TH width="7%"	>Modalidade
 						';
 			}
@@ -4131,7 +4131,7 @@ class projetos {
 				$sx .= '<TD class="tabela01">';
 				$sx .= tratar_nome($line['pp_nome']);
 
-				$sx .= '<TD class="tabela01">';
+				$sx .= '<TD class="tabela01" align = "center">';
 				$sx .= $line['pp_centro'];
 
 				$sx .= '<TD class="tabela01"><nobr>';
@@ -4142,10 +4142,10 @@ class projetos {
 				$sx .= '<TD class="tabela01">';
 				$sx .= ucfirst(strtolower($line['pj_titulo']));
 
-				$sx .= '<TD class="tabela01">';
+				$sx .= '<TD class="tabela01" align = "center">';
 				$sx .= $line['pj_ano'];
 
-				$sx .= '<TD class="tabela01">';
+				$sx .= '<TD class="tabela01" align = "center">';
 				$sx .= $line['doc_edital'];
 
 				$sx .= '<TD class="tabela01">';
@@ -4170,9 +4170,145 @@ class projetos {
 
 	//**************************** Fim do metodo *****************************************
 
+	//####################################################################################
+	//**************************** Inicio do metodo **************************************
+	/* @method: projetos_seleciona_area($area = '', $ano)
+	 *          Mostra áreas estratégicas por ano
+	 * @author Elizandro Santos de Lima[Analista de Projetos]
+	 * @date: 12/05/2015
+	 */
+function projetos_seleciona_area($area = '', $ano) {
+	
+	echo '<H3>Edital por Áreas estratégicas de '.$ano.'</h3>';
+
+$sql = "select * from pibic_submit_documento 
+		inner join pibic_projetos on pj_codigo = doc_protocolo_mae
+		inner join pibic_professor on pj_professor = pp_cracha
+		inner join ajax_areadoconhecimento on pj_area_estra = a_cnpq
+		left join centro on pp_escola = centro_codigo
+		left join (
+					select count(*) as nota, pp_protocolo 
+					from pibic_parecer_$ano where pp_p05='1' 
+					group by pp_protocolo
+					) as tabela on pp_protocolo = doc_protocolo
+		left join pibic_bolsa_contempladas on doc_protocolo = pb_protocolo
+		left join pibic_aluno on pa_cracha = pb_aluno	
+		left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+		where (doc_ano = '".$ano."') 
+			and (pj_status <> 'X')
+			and (doc_status <> 'X')
+			and (pj_ano = '".$ano."') 
+			and (pj_area_estra = '".$area."')
+		order by pj_area_estra, doc_nota desc, pp_nome, doc_protocolo_mae, doc_protocolo
+		";
+		
+$rlt = db_query($sql);
+
+$tot = 0;
+
+$sx = '<Table width="98%" align="center" class="tabela00">';
 
 
-	//como usar? => var = $this->tratar_nome($line['campo']);
-	//***************************** Fim da metodo ****************************************
+while ($line = db_read($rlt))
+	{
+		$area  				= $line['pj_area_estra'];
+		$area_descricao 	= $line['a_descricao'];	
+		$titpl 				= ucfirst(strtolower($line['doc_1_titulo']));
+		$titpj 				= ucfirst(strtolower($line['pj_titulo']));
+		//$nota 				= $line['doc_nota'];
+		$aval 				= $line['doc_avaliacoes'];				
+		$prof 				= ucwords(strtolower($line['pp_nome']));	
+		$prot 				= $line['doc_protocolo'];
+		$protj 				= $line['doc_protocolo_mae'];
+		//Busca o status da tabela [pibic_bolsa_contempladas]
+		$status				= $line['pb_status'];	
+			if ($status == '@')  { $bolsa_status = 'Não implementada'; }	
+	        if ($status == 'A')  { $bolsa_status = 'Ativa'; }
+	        if ($status == 'B')  { $bolsa_status = 'Concluida'; }
+	        if ($status == 'F')  { $bolsa_status = 'Finalizada'; }
+	        if ($status == 'C')  { $bolsa_status = 'Cancelada'; }
+	        if ($status == 'S')  { $bolsa_status = 'Suspensa'; }
+			if ($status == null) { $bolsa_status = 'Não implementada'; }
+		//Busca o tipo de bolsa da tabela [pibic_bolsa_contempladas]
+		$bolsa = $line['pb_tipo'];
+			if ($bolsa == 'P') { $bolsa_descricao = 'Bolsista PUCPR'; }
+			if ($bolsa == 'F') { $bolsa_descricao = 'Bolsista Fundação Araucária'; }
+			if ($bolsa == 'C') { $bolsa_descricao = 'Bolsista CNPq'; }
+			if ($bolsa == 'I') { $bolsa_descricao = 'Bolsista ICV'; }
+			if ($bolsa == 'A') { $bolsa_descricao = 'Qualificados'; }
+			if ($bolsa == '7') { $bolsa_descricao = 'Juventude'; }			
+		
+		if ($area != $xarea)
+			{	
+				$sx 	.= '<TR><TD colspan=10><font color="blue" class="lt4">';
+				$sx 	.= $area;
+				$sx 	.= $area_descricao;
+				$xarea 	 = $area;
+				$sx 	.= $ano;			
+				$sx 	.= '</font>';
+			
+			$sx .= '<TR>
+			<TH width="10%">Nome Professor
+			<TH width="1%"  align="rigth">SS
+			<TH width="5%">Escola
+			<TH width="5%">Codigo			
+			<TH width="15%">Projeto do professor
+			<TH width="5%">Protocolo
+			<TH width="15%">Plano de trabalho
+			<!--<TH width="3%">Nota-->
+			<TH width="5%">Ano
+			<TH width="5%">Doc. aluno
+			<TH width="5%">Edital
+			<TH width="5%">Cod. Aluno
+			<TH width="10%">Nome Aluno
+			<TH width="1%">Status
+			<TH width="5%">Modalidade bolsa									
+			';
+			
+			}	
+		{			
+		$sx .= '<TR>';
+			$sx .= '<TD class="tabela01">';
+			$sx .= $prof;
+			$xprof = $prof;
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_ss'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['centro_nome'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $protj;
+			$sx .= '<TD class="tabela01">';
+			$sx .= $titpj;
+			$sx .= '<TD class="tabela01">';
+			$sx .= $prot;
+			$sx .= '<TD class="tabela01">';
+			$sx .= $titpl;
+			//$sx .= '<TD class="tabela01">';
+			//$sx .= $nota;
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['doc_ano'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pb_protocolo'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['doc_edital'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pb_aluno'];			
+			$sx .= '<TD class="tabela01">';
+			$sx .= ucwords(strtolower($line['pa_nome']));								
+			$sx .= '<TD class="tabela01">';
+			$sx .= $bolsa_status;				
+			$sx .= '<TD class="tabela01">';
+			$sx .= $bolsa_descricao;			
+		$tot++;
+		}
+	}
+$sx .= '<TR><TD colspan=5>'.msg('total').' '.$tot;
+$sx .= '</table>';
+echo $sx;
+	
+}
+
+
+
 
 }

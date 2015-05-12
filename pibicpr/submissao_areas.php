@@ -16,13 +16,14 @@ $sql = "select a_cnpq || ' ' || a_descricao as a_descricao, a_cnpq from ajax_are
 
 array_push($cp,array('$H8','','',False,False));
 array_push($cp,array('$Q a_descricao:a_cnpq:'.$sql,'','',False,False));
-array_push($cp,array('$O 2013:2013','','',False,False));
+//monta combo de anos com inicio em 1990 at� anobase atual
+array_push($cp, array('$[1990-' . date("Y") . ']', '', 'Escolha o ano para busca', False, False,''));
 
 echo $form->editar($cp,'');
 
 if ($form->saved > 0)
 	{
-		echo $pj->projetos_area($dd[1],date("Y"));
+		echo $pj->projetos_seleciona_area($dd[1],date("Y"));
 		echo '<BR><BR>';
 	}
 ?>

@@ -15,6 +15,7 @@ array_push($menu,array(msg('submissoes'),'Resumo Cockpit','submissao_cockpit.php
 array_push($menu,array(msg('submissoes'),'__Planos por professor / titulação','submissao_professor_titulacao.php'));
 array_push($menu,array(msg('submissoes'),'__Projetos do professor','submissao_professor.php'));
 array_push($menu,array(msg('submissoes'),'__Planos de aluno','submissao_plano.php'));
+array_push($menu,array(msg('submissoes'),'__Planos de trabalhos (Doutorandos e Pós-Doutorandos)','submissao_escolas_x_doutorandos.php')); 
 
 array_push($menu,array(msg('submissoes'),'Projetos submetidos',''));
 array_push($menu,array(msg('submissoes'),'__Não finalizados','submissao_nao_finalizadas.php'));
@@ -26,9 +27,7 @@ array_push($menu,array(msg('submissoes'),'Agrupar Planos de Alunos (projetos dup
 
 array_push($menu,array(msg('submissoes'),'Projetos por áreas estratégicas','submissao_areas.php'));
 array_push($menu,array(msg('submissoes'),'__Detalhes da Submissão','submissao_detalhe.php'));
-array_push($menu,array(msg('submissoes'),'__Projetos não finalizados (em Submissão)','submissao_detalhe_sub.php'));
-
-
+array_push($menu,array(msg('submissoes'),'__Projetos não finalizados (em Submissão)','submissao_detalhe_sub.php'));	
 
 array_push($menu,array(msg('pre-avaliacao'),'Validação da submissão','submissao_detalhe.php?dd1=B'));
 array_push($menu,array(msg('pre-avaliacao'),'Projetos para idicação','submissao_detalhe.php?dd1=C'));
@@ -76,10 +75,10 @@ array_push($menu,array('Implementação de Bolsas (Fase de Implementação)','Bolsas
 array_push($menu,array('Implementação de Bolsas (Fase de Implementação)','Bolsas não Implementadas de Bolsas (PIBITI)','pibic_implementacao_bolsas.php?dd1=PIBITI'));	
 
 
-if ($perfil->valid('#ADM'))
+if ($perfil->valid('#TST'))
 	{
-	 array_push($menu,array('Test','A x B','submissao_escolas_x_doutorandos.php'));  	
-	}	
+	  array_push($menu,array(msg('testing'),'Projetos por áreas estratégicas_Todas','submissao_areas.php'));	
+	}
 
 
 echo '<TABLE width="710" align="center" border="0">
