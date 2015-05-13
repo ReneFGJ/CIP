@@ -186,7 +186,7 @@ class curso
 /* @method: relatorio_cursos_areas()
  *          Metodo retorna area do conhecimento associadas ao curso
  * @author Elizandro Santos de Lima[Analista de Projetos]
- * @date: 02/03/2015
+ * @date: 13/05/2015
  */		
 function relatorio_cursos_areas()
 			{
@@ -199,32 +199,45 @@ function relatorio_cursos_areas()
 				
 				$rlt = db_query($sql) or die(mysql_error());;
 				
-				$xescola = '';
-				$xtot = 0;
-				$xtotp = 0;
+				$sx  = '<table width="100%">';
+				$sx .= 	'<H2>Relação de áreas estratégicas associadas aos cursos</h2>';
 				
-				$sx = '<table width="100%">';
-				$sx .= 	'<H2>Áreas Associadas ao Cursos</h2>';
-				$sh .= '<TR>
-							<TH>Codigo<TH>Área';
-							
-							$id = 0;
-
-					$xpp = '';
-						
+				$id = 0;
+				$xcurso = '';			
+				$xpp = '';
+				$tot = 0;
 				while ($line = db_read($rlt))
 						{
-							$sx .= '<TR>';
-							$sx .= 		'<TD class="tabela01" align="left">';
-							$sx .= 		$line['curso_nome'];	
-		
-							$pp = $line['curso_nome'];
-									
-							if ($pp != $xpp) {
 						
-									$sx .= '<TR><TD><TD colspan=2><nobr>'.$line['a_cnpq'].' - '.$line['a_descricao'];
+						$tot++;
+						
+						$curso = $line['curso_nome'];
+						$pp = $line['a_cnpq'].' - '.$line['a_descricao'];
+						
+						if ($curso != $xcurso) {
+							
+							if ($xtotp > 0) {
+								$sx .= '<TR><TD colspan=10 align="right">
+											<font color=green>subtotal  ' . $xtotp;
+								$sx .= '<hr size="1" style="border: 1px dashed green;">';
+							}
+							
+							/* zera total parcial da curso */
+							$xtotp = 0;
+							$xcurso = $curso;
+							$sx .= '<TR>
+										<TD colspan=10>
+										<h4>' . $line['curso_nome'] . '</h4>';
+							$sx .= $sh;
+						}
+							if ($pp != $xpp) {
+								$sx .= '<TR>';
+								$sx .= '<TD><TD>'.$line['a_cnpq'].' - '.$line['a_descricao'];
+								$id++;
+								$xtotp++;
 								
-								}
+							}												
+							
 						}
 						
 						$sx .= '<TR>

@@ -55,8 +55,6 @@ array_push($menu,array('Orientadores','Censo Anual (Sillas) ','rel_bolsa_aluno_x
 array_push($menu,array('Orientadores','Orientadores ativos x número (SGA)','rel_bolsa_orientador_ativo.php'));
 
 
-//array_push($menu,array('Validação','Alunos com duas bolsas','pibic_rel_bolsa_aluno_duplicadas.php'));
-array_push($menu,array('Validação','Alunos com duas bolsas','seleciona_ano.php'));
 
 /////////////////////////////////////////////////// MANAGERS
 $curso = $_SESSION['curso_nome'];   
@@ -76,7 +74,7 @@ if (strlen($curso) > 0)
 array_push($menu,array('Perfil dos Orientadores','Perfil','indicador_orientador_01.php'));
 array_push($menu,array('Perfil dos Orientadores','Perfil por Planos','indicador_orientador_02.php'));	
 
-array_push($menu,array('Àreas e subáreas','Relatório de associação de curso à áreas','curso_area.php'));
+
 ///////////////////////////////////////////////////// redirecionamento
 if ((isset($dd[1])) and (strlen($dd[1]) > 0))
 	{
