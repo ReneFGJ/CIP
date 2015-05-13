@@ -19,9 +19,12 @@ require ("cab.php");
 		where 
 				((ed_status = 'A' and ed_data_1 > " . date("Ymd") . ")
 					or 
-				  (ed_fluxo_continuo = 1))		
+				  (ed_fluxo_continuo = 1)
+				  	or 
+				  (ed_status = 'A' and ed_data_2 > " . date("Ymd") . ")
+				  )		
 		and ed_edital_tipo = '$tipo' 
-		order by ed_data_1
+		order by ed_data_1, ed_data_2
 		";
 		echo '<h1>Editais abertos - '.$descricao[$tipo].'</h1>';
 		echo '<div class="linha">';

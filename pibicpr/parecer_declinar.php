@@ -36,11 +36,29 @@ if ((strlen($dd[20]) == 0) or (strlen($dd[50])==0))
 		<input type="submit" name="acao" value="declinar submissão">
 		</form>
 		<?
-	} else {
-		$sql = "update ".$dd[1]." set pp_status='D',
-				pp_abe_14 = '".$dd[50]."'
-				where id_pp = ".$dd[0];
+		} else {
+		$sql = "select * from ".$dd[1]." where id_pp = ".$dd[0];
 		$rlt = db_query($sql);
+
+		if ($line = db_read($rlt))
+		{
+		$pro1 = $line['pp_protocolo'];
+		$pro2 = $line['pp_protocolo_mae'];
+		$aval = $line['pp_avaliador'];
+		}
+
+		if (substr($pro1,0,1)=='1')
+		{
+			$sql = "update ".$dd[1]." set pp_status='D',
+			pp_abe_14 = '".$dd[50]."'
+			where pp_avaliador = '".$aval."' and (pp_protocolo = '".$pro1."' or pp_protocolo_mae = '".$pro1."')";
+			$rlt = db_query($sql);
+		} else {
+			$sql = "update ".$dd[1]." set pp_status='D',
+			pp_abe_14 = '".$dd[50]."'
+			where id_pp = ".$dd[0];
+			$rlt = db_query($sql);
+		}
 		require("../close.php");
-	}
-?>
+		}
+	?>

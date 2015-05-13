@@ -101,7 +101,7 @@ class parecer_pibic
 			
 			$sx .= '<table class="tabela00" width="100%">';
 			$xtipo = '';
-			$status = array('@'=>'<font color="blue">Não avaliado</font>','A'=>'Avaliador','B'=>'Avaliador e liberado declaração','D'=>'<font color="orange">Declinado</font>');
+			$status = array('@'=>'<font color="blue">Não avaliado</font>','A'=>'Avaliador','B'=>'Avaliado e liberado declaração','D'=>'<font color="orange">Declinado</font>');
 			
 			while ($line = db_read($rlt))
 			{

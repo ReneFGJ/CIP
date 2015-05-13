@@ -29,6 +29,19 @@ class fomento {
 		$sta = $this -> tipo_edital();
 		$link = '<A HREF="/reol/observatorio/editais_ver.php?dd0=' . $line['id_ed'] . '" target="_new_' . $line['id_ed'] . '">';
 		$data = $line['ed_data_1'];
+		$dataf = '';
+		if ($data < 20000101)
+			{
+				$data = $line['ed_data_2'];
+			}
+		if ($data < 20000101)
+			{
+				$data = $line['ed_data_3'];
+			}			
+		if ($line['ed_fluxo_continuo'])
+			{
+				$dataf = 'Fluxo continuo';
+			}
 		$title = $line['ed_titulo'];
 		$id = round($line['ed_edital_tipo']);
 		$title_hr = $sta[$id];
@@ -46,7 +59,7 @@ class fomento {
 			$sx .= '<img src="' . $img . '" width="70" align="left" class="chamada_imagem">';
 		}
 		$sx .= '<span class="chamada_texto">' . strtolower($title) . '</span>';
-		$sx .= '<div class="chamada_deadline"><I>deadline</I>: ' . stodbr($data) . '</div>';
+		$sx .= '<div class="chamada_deadline"><I>deadline</I>: ' . stodbr($data) . $dataf.  '</div>';
 		$sx .= '</div>';
 		$sx .= '</div>';
 		$sx .= '</A>';
