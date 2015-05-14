@@ -95,13 +95,7 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	array_push($menu,array('SEMIC','Planos de alunos sem ratificação SEMIC','rr_acompanhamento.php'));	
 	array_push($menu,array('SEMIC','__Gerar Atividade (processar)','rr_gerar_atividade.php'));
 	
-	array_push($menu,array('Gestão de Bolsas','Substituições ou Cancelamentos de bolsas','bolsa_substituicao.php'));
-	array_push($menu,array('Gestão de Bolsas','Desligados com Orientações','docentes_demitidos_com_orientacao.php'));
 
-	array_push($menu,array('Gestão de Bolsas','Bolsas Suspensas','rel_rel_01.php'));
-	
-	array_push($menu,array('Gestão de Bolsas (Comitê Gestor)','Aprovação do getor das pendências de relatório parcial','rpc_gestor_aprovacao.php'));
-	
 	array_push($menu,array('SEMIC','SEMIC','semic.php'));
 
 

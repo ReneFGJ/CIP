@@ -13,9 +13,12 @@ echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 	/////////////////////////////////////////////////// MANAGERS
 
 	array_push($menu,array(msg('Gestão de bolsas'),'Bolsas implantadas','pibic_rel_bolsa_aluno_implantada.php'));//<--ElizandroLima[@date:06/02/2015] Pagina para o rel_bolsa_aluno_implantada
-	array_push($menu,array(msg('Gestão de bolsas'),'Bolsas implementadas','pibic_implementacao_bolsas_relatorio.php'));
+	array_push($menu,array(msg('Gestão de bolsas'),'Bolsas implementadas (Seleciona tipo)','pibic_implementacao_bolsas_relatorio.php'));
 	array_push($menu,array(msg('Gestão de bolsas'),'Bolsas suspensas','bolsas_indicacao_status.php'));
 	array_push($menu,array(msg('Gestão de bolsas'),'Resumo de bolsas','bolsas_01.php')); 
+	array_push($menu,array(msg('Gestão de bolsas'),'Substituições ou Cancelamentos de bolsas','bolsa_substituicao.php'));
+	array_push($menu,array(msg('Gestão de bolsas'),'Desligados com Orientações','docentes_demitidos_com_orientacao.php'));
+	//array_push($menu,array('Gestão de Bolsas','Bolsas Suspensas','rel_rel_01.php'));
 	
 	
 	array_push($menu,array('Bolsas implementadas','Resumo de bolsas',''));
@@ -46,7 +49,6 @@ echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 	array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_campi.php?dd2=D&dd3=PIBIC&dd4='.date("Y")));
 	
 	
-	
 	array_push($menu,array(msg('Validação de bolsas'),'Alunos com duas bolsas','seleciona_ano.php'));
 	
 
@@ -68,6 +70,9 @@ echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 			array_push($menu,array(msg('Ativar bolsas'),'Ativar um protocolo de pesquisa com ICV','bolsa_ativar_icv.php'));	
 				
 		}
+
+	
+	array_push($menu,array('Comitê Gestor','Aprovação do gestor das pendências de relatório parcial','rpc_gestor_aprovacao.php'));	
 
 echo '<TABLE width="710" align="center" border="0">
 		<TR>';

@@ -12,8 +12,8 @@ $cp = array();
 $ano = date("Y");
 
 array_push($cp,array('$H4','','',False,True,''));
+array_push($cp,array('$A8','','Seleciona dados',False,True,''));
 array_push($cp,array('$O PIBIC:PIBIC&PIBITI:PIBITI&IS:IS&PIBICE:PIBIC_EM&CSF:CSF','','Edital',False,True,''));
-array_push($cp,array('$A8','','Bolsas não implementadas',False,True,''));
 if (strlen($dd[3]) == 0)
 	{
 	array_push($cp,array('$Q pbt_descricao:pbt_codigo:select * from pibic_bolsa_tipo','','Tipo de Bosa',False,True,''));
