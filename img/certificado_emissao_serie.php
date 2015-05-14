@@ -2,9 +2,7 @@
 require ("../db.php");
 require('../include/sisdoc_debug.php');
 
-$ano = $dd[0];
-$curso = $dd[1];
-$campus = $dd[2];
+$ano = '2013';
 
 require ("../_class/_class_declaracao.php");
 require ("../_class/_class_diretorio.php");
@@ -98,21 +96,13 @@ $pdf = new PDF();
 $pdf -> AliasNbPages();
 
 /** Projeto */
-$wh = '';
-if (strlen($dd[2]) > 0)
-	{
-		$wh = " and (pp_centro = '".$campus."')";
-	}
 $sql = "select * from pibic_bolsa_contempladas 
 		inner join pibic_professor on pp_cracha = pb_professor
 		inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo 
 		inner join pibic_aluno on pb_aluno = pa_cracha		
 			where pb_ano = '$ano' and (pb_status = 'A' or pb_status = 'F')
-			and pp_curso = '$curso'
-			$wh
-		order by pp_nome
+		limit 10
 ";
-
 $rlt = db_query($sql);
 
 while ($line = db_read($rlt)) {
@@ -127,7 +117,6 @@ while ($line = db_read($rlt)) {
 	$bolsa = trim($line['pbt_descricao']);
 	$mm = trim($line['pb_semic_apresentacao']);
 	$bolsa_nome = trim($line['pbt_descricao']);
-	$protocolo = $line['pb_protocolo'];
 
 	if ($line['pbt_auxilio'] == 0) { $bolsa = '';
 	} else {
@@ -216,11 +205,11 @@ while ($line = db_read($rlt)) {
 
 	$pdf -> SetXY(20, 265);
 	$pdf -> SetFont('Arial', '', 6);
-	$pdf -> MultiCell(0, 8, 'Declaração N.' . strzero($protocolo, 7) . '/' . date("Y"), 0, 'L');
+	$pdf -> MultiCell(0, 8, 'Declaração N.' . strzero(6, 5) . '/' . date("Y"), 0, 'L');
 
 	$pdf -> SetXY(20, 265);
 	$pdf -> SetFont('Arial', '', 6);
-	$pdf -> MultiCell(0, 8, 'Validador: D1-' . strzero($protocolo, 7), 0, 'C');
+	$pdf -> MultiCell(0, 8, 'Validador: D1-' . strzero($dd[0], 5), 0, 'C');
 }
 $pdf -> Output();
 

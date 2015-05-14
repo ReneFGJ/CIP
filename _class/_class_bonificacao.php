@@ -590,7 +590,7 @@ class bonificacao {
 			$op .= '&F:Isenção finalizada';
 			$op .= '&G:Concessão encerrada';
 			array_push($cp, array('$S100', 'bn_descricao', 'Descricao', false, false));
-			array_push($cp, array('$I8', 'bn_rf_parcela', 'Parcela', true, true));
+			array_push($cp, array('$[0-60]', 'bn_rf_parcela', 'Parcela(s)', true, true));
 			array_push($cp, array('$N8', 'bn_rf_valor', 'Valor', true, true));
 			array_push($cp, array('$O' . $op, 'bn_status', 'Status', true, true));
 			array_push($cp, array('$O : &M:Mestrado&D:Doutorado', 'bn_modalide', 'Modalidade', true, true));
@@ -607,7 +607,7 @@ class bonificacao {
 
 			array_push($cp, array('$O' . $op, 'bn_status', 'Status', true, true));
 			array_push($cp, array('$S8', 'bn_beneficiario', 'Estudante', false, true));
-			array_push($cp, array('$I8', 'bn_rf_parcela', 'Parcela', true, true));
+			array_push($cp, array('$[0-60]', 'bn_rf_parcela', 'Parcela(s)', true, true));
 			array_push($cp, array('$N8', 'bn_rf_valor', 'Valor', true, true));
 			array_push($cp, array('$O : &M:Mestrado&D:Doutorado', 'bn_modalide', 'Modalidade', false, true));
 		}
@@ -643,7 +643,7 @@ class bonificacao {
 		array_push($cp, array('$S8', 'bn_professor', 'Prof. Cracha', True, True));
 		array_push($cp, array('$S100', 'bn_professor_nome', 'Nome', false, false));
 		array_push($cp, array('$T80:4', 'bn_descricao', 'Descricao', false, true));
-		array_push($cp, array('$I8', 'bn_rf_parcela', 'Parcela', true, true));
+		array_push($cp, array('$[0-60]', 'bn_rf_parcela', 'Nº parcela(s)', true, true));
 		array_push($cp, array('$N8', 'bn_valor', 'Valor da bonoficação', true, true));
 		array_push($cp, array('$N8', 'bn_rf_valor', 'Valor', true, true));
 		array_push($cp, array('$S1', 'bn_status', 'Status', true, true));

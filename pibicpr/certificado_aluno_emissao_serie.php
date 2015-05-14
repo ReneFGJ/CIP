@@ -15,10 +15,10 @@ $mm = 'O';
 	/* Tipo de modalidade */
 	switch ($mm) {
 		case 'P' :
-			$tipo = 'DECL_SEMIC_P_'.$ano;
+			$tipo = 'DECL_IC_AL_'.$ano;
 			break;
 		default :
-			$tipo = 'DECL_ORIENTADOR_'.$ano;
+			$tipo = 'DECL_IC_AL_'.$ano;
 			break;
 	}
 
@@ -103,21 +103,25 @@ if (strlen($dd[2]) > 0)
 	{
 		$wh = " and (pp_centro = '".$campus."')";
 	}
+
+$curso = lowercase($curso);
+$curso = UpperCase(substr($curso,0,1)).substr($curso,1,strlen($curso));
+
 $sql = "select * from pibic_bolsa_contempladas 
 		inner join pibic_professor on pp_cracha = pb_professor
 		inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo 
 		inner join pibic_aluno on pb_aluno = pa_cracha		
 			where pb_ano = '$ano' and (pb_status = 'A' or pb_status = 'F')
-			and pp_curso = '$curso'
+			and pa_curso = '$curso'
 			$wh
-		order by pp_nome
+		order by pa_nome
 ";
 
 $rlt = db_query($sql);
 
 while ($line = db_read($rlt)) {
 
-	$projeto_titulo = trim($line['pb_titulo_projeto']);
+	$projeto_titulo = html_entity_decode($line['pb_titulo_projeto']);
 	$nome_orientador = trim($line['pp_nome']);
 	$projeto_titulo = troca($projeto_titulo, chr(13), ' ');
 	$projeto_titulo = troca($projeto_titulo, chr(10), '');
