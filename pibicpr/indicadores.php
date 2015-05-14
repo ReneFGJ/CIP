@@ -18,38 +18,10 @@ $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font:
 
 $menu = array();
 
-array_push($menu,array('Bolsas implementadas','Resumo de bolsas',''));
-array_push($menu,array('Bolsas implementadas','__Resumo de bolsas','ic_resumo.php'));
-
-array_push($menu,array('Bolsas implementadas','PIBIC',''));
-array_push($menu,array('Bolsas implementadas','__resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBIC&dd5=1&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__Detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBIC&dd5=1&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBIC&dd5=1&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__Detalhe por Campi','ic_resumo_campi.php?dd2=D&dd3=PIBIC&dd5=1&dd4='.date("Y")));
-
-array_push($menu,array('Bolsas implementadas','PIBITI',''));
-array_push($menu,array('Bolsas implementadas','__Resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBITI&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__Detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBITI&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBITI&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__Detalhe por Escolas','ic_resumo_campi.php?dd2=D&dd3=PIBITI&dd4='.date("Y")));
-
-array_push($menu,array('Bolsas implementadas','PIBIC_EM',''));
-array_push($menu,array('Bolsas implementadas','__Resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBICE&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBICE&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBICE&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_campi.php?dd2=D&dd3=PIBICE&dd4='.date("Y")));
-
-array_push($menu,array('Bolsas implementadas','CSF',''));
-array_push($menu,array('Bolsas implementadas','__Resumo por Escolas','ic_resumo_escolas.php?dd2=R&dd3=PIBIC&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_escolas.php?dd2=D&dd3=PIBIC&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__Resumo por Campi','ic_resumo_campi.php?dd2=R&dd3=PIBIC&dd4='.date("Y")));
-array_push($menu,array('Bolsas implementadas','__detalhe por Escolas','ic_resumo_campi.php?dd2=D&dd3=PIBIC&dd4='.date("Y")));
-
 array_push($menu,array('Orientações','__Professores x Formação','professores_orientacoes.php'));
 
 array_push($menu,array('Orientadores','Orientadores '.(date("Y")-1).'-'.(date("Y")),'ic_professores.php?dd1='.(date("Y")).'&dd2='.(date("Y")-1)));
 array_push($menu,array('Orientadores','Histórico dos orientadores ','ic_professores_first.php?dd1='.(date("Y")).'&dd2='.(date("Y")-1)));
-array_push($menu,array('Orientadores','Guia do estudante '.(date("Y")-1).'/'.date("Y"),'ic_guia_do_estudante.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));
 array_push($menu,array('Orientadores','Profissao IC (Renovações) '.(date("Y")-1).'/'.date("Y"),'ic_alunos_ic.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));
 array_push($menu,array('Orientadores','Censo Anual (Sillas) ','rel_bolsa_aluno_xml.php'));
 array_push($menu,array('Orientadores','Orientadores ativos x número (SGA)','rel_bolsa_orientador_ativo.php'));
@@ -74,6 +46,12 @@ if (strlen($curso) > 0)
 array_push($menu,array('Perfil dos Orientadores','Perfil','indicador_orientador_01.php'));
 array_push($menu,array('Perfil dos Orientadores','Perfil por Planos','indicador_orientador_02.php'));	
 
+
+if ($perfil->valid('#ADM')) 
+		{
+			array_push($menu,array('Relatório','Guia do estudante ','ic_guia_do_estudante.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));	
+				
+		}
 
 ///////////////////////////////////////////////////// redirecionamento
 if ((isset($dd[1])) and (strlen($dd[1]) > 0))
