@@ -49,7 +49,11 @@ echo '<TD width="300">';
 	echo '<LI><A HREF="protocolo_abrir.php?dd1=ALT">Alteração de título do Plano do Aluno</A></LI>';
 	echo '<LI><A HREF="protocolo_abrir.php?dd1=SBS">Substituição do aluno</A></LI>';
 	echo '<LI><A HREF="protocolo_abrir.php?dd1=CAN">Cancelamento de orientação</A></LI>';
-	//echo '<LI><A HREF="protocolo_abrir.php">Substituição do aluno</A></LI>';
+	
+	if ($perfil->valid('#TST'))
+		{
+		echo '<LI><A HREF="declaracao_convite_horista.php">Convite Horista</A></LI>';
+		}
 	echo '</UL>';
 	echo $rc -> resumo_recurso_professor($professor);
 }
