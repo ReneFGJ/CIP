@@ -10,8 +10,8 @@ $tabela = "ic_noticia";
 $tab_max = "98%";
 
 	{
-	$sql = "select * from ".$tabela."  ";
-	//$sql .= " where nw_journal = ".$journal_id." ";
+	$sql = "select * from ".$tabela." where ";
+	$sql .= " nw_journal = ".$journal_id." ";
 	//$sql .= " or 1=1 ";
 	echo $sql;
 	$rlt = db_query($sql);

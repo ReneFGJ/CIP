@@ -18,6 +18,8 @@ $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font:
 
 $menu = array();
 /////////////////////////////////////////////////// MANAGERS
+array_push($menu,array('Comunicação','Comunicação','comunicacao.php'));
+
 array_push($menu,array(msg('system'),msg('disk_space'),'disk_space.php')); 
 
 array_push($menu,array(msg('system_message'),msg('message'),'')); 
