@@ -1,26 +1,26 @@
 <?php
 require("cab.php");
 require("realce.php");
+require("../_class/_class_pibic_bolsa_contempladas.php");
+require("../_class/_class_calender.php");
+require("../_class/_class_protocolo.php");
+require($include."sisdoc_debug.php");
+require($include."sisdoc_menus.php");
 /*
  * $breadcrumbs
  */
 $breadcrumbs = array();
-array_push($breadcrumbs,array(http.'admin/index.php',msg('principal')));
-array_push($breadcrumbs,array(http.'admin/index.php',msg('menu')));
+array_push($breadcrumbs,array(http.'pibicpr/index.php',msg('inicia��o cient�fica')));
+array_push($breadcrumbs,array(http.'//main.php',msg('menu CIP')));
 echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
+$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div>';
 
-require("../_class/_class_pibic_bolsa_contempladas.php");
 $pb = new pibic_bolsa_contempladas;
-
-require("../_class/_class_calender.php");
 $cal = new calendar;
-
-require("../_class/_class_protocolo.php");
 $pr = new protocolo;
 
-require($include."sisdoc_menus.php");
-$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
-
+//////////////////// MANAGERS ///////////////////////////////
 if (strlen($dd[10]) == 0)
 	{ echo $hd->search(); }
 else
@@ -31,7 +31,6 @@ else
 		exit;
 	}
 
-/////////////////////////////////////////////////// MANAGERS //////////////////////////////////////////////////////////
 $menu = array();
 if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
@@ -45,7 +44,6 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 			{
 				array_push($menu,array('Protocolos de atendimento','Existe(m) '.$total_pr.' protocolo(s) de atendimento abertos','protocolos.php'));		
 			}
-		
 	}	
 
 ////////////////////////////////////////////////// calendario index/////////////////////////////////////////////////////

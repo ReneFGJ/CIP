@@ -24,8 +24,12 @@ $menu = array();
 	{
 		array_push($menu,array('Discentes (seguro)','Relatório de discentes ativos IC Capital (Seguro)','discentes_seguro.php?dd1=1'));
 		array_push($menu,array('Discentes (seguro)','Relatório de discentes ativos IC Interior (Seguro)','discentes_seguro.php?dd1=2'));
+	} 
+	if ($perfil->valid('#TST')) 
+	{
+		array_push($menu,array('Csf','Relatório de alunos que já retornaram','estudantes_csf_retorno.php'));
 	}  
-	
+		
 
 	menus($menu,'3');
 

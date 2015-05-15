@@ -694,21 +694,22 @@ class csf
 								
     			return($sx);
 		}
+
 												
 	function world_onde_curso_universidade()
 			{
 				
-				$sql = "select pa_curso, pa_nome, pb_colegio_orientador, pb_colegio 
+				$sql = "select pa_curso, pa_nome, pb_colegio_orientador, pb_colegio, pa_email, pa_email_1
 				        from pibic_bolsa_contempladas 
 						inner join pibic_aluno on pb_aluno = pa_cracha
 						where pb_tipo = 'S'
 						and (pb_status <> 'C' and pb_status <> '@')
-					    group by pa_curso, pb_colegio_orientador, pb_colegio, pa_nome
-						order by pa_curso, pa_nome, pb_colegio_orientador, pb_colegio
+					    group by pa_curso, pb_colegio_orientador, pb_colegio, pa_nome, pa_email, pa_email_1
+						order by pa_curso, pa_nome, pb_colegio
 						 ";
 				$rlt = db_query($sql);
 				
-				$sx .= '<left><h2>'.msg('Detalhe dos cursos.').'</h2></br>';
+				$sx .= '<left><h2>'.msg('Dados dos estudantes - Ranking dos cursos.').'</h2></br>';
 				$sx .= '<table class="lt1" width="100%">';
 				
 				$xpais = 'X';
@@ -730,7 +731,8 @@ class csf
 				$sx .= '</table></br></br>';
 				return($sx);			
 			}							
-		
+
+
 	function world_onde_pais_universidade()
 			{
 				$sql = "select * from pibic_bolsa_contempladas 
@@ -1648,6 +1650,65 @@ class csf
 //como usar? => $this->tratar_nome($line['db_campo']);
 
 //**************************** Fim da função *****************************************
+
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: world_onde_curso_universidade_contatos()
+ *          Monta relatório de detalhes do cadastro dos estudantes do CsF
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 15/05/2015
+ */
+	function world_onde_curso_universidade_contatos()
+			{
+				$sql = "select pb_aluno, pa_curso, pa_nome, pb_colegio_orientador, pb_colegio, pa_email, pa_email_1, pb_protocolo
+				        from pibic_bolsa_contempladas 
+						inner join pibic_aluno on pb_aluno = pa_cracha
+						where pb_tipo = 'S'
+						and (pb_status <> 'C' and pb_status <> '@')
+					    group by pb_aluno, pa_curso, pb_colegio_orientador, pb_colegio, pa_nome, pa_email, pa_email_1, pb_protocolo
+						order by pa_curso, pa_nome, pb_colegio_orientador, pb_colegio
+						 ";
+				$rlt = db_query($sql);
+				
+				$sx .= '<left><h2>'.msg('Dados dos estudantes do Csf').'</h2></br>';
+				$sx .= '<table class="lt1" width="100%">';
+				$sx .= '<TR>
+							<TH>Aluno<TH>E-mail secundário<TH>Instituição<TH>País';
+				
+				$xpais = 'X';
+				$xpp = '';
+				$id = 0;
+				
+				while ($line = db_read($rlt))
+					{
+						
+					$pp = $line['pa_curso'];	
+					if ($pp != $xpp) {
+
+					/* acrescenta total geral */
+					$id++;
+					
+						$pais = msg(trim($line['pa_curso']));
+							if ($pais != $xpais){
+								$sx .= '<TR bgcolor="#C0C0C0"><TD colspan=5 class="lt3"><strong>'.$pais; 
+								$xpais = $pais; 
+							    }
+								$sx .= '<TR>';
+								
+								$sx .= '<TD>&nbsp;&nbsp;&nbsp;'.$this->tratar_nome($line['pa_nome']);
+								$sx .= '<TD>'.$line['pa_email'];
+								//$sx .= '<TD>'.$line['pa_email_1'];
+								$sx .= '<TD>'.$line['pb_colegio'];
+								$sx .= '<TD>'.$line['pb_colegio_orientador'];
+							}
+
+						}
+						$sx .= '<TR>
+								<TD colspan=9 align="right"><font color=red><b>Total de  ' . $id;
+						$sx .= '</table>';
+				return($sx);			
+			}
+//**************************** Fim do metodo *****************************************
 
 
 //###################################################################################
