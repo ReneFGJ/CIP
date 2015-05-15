@@ -6,12 +6,23 @@ require($include."sisdoc_form2.php");
 require($include."sisdoc_email.php");
 require($include."cp2_gravar.php");
 require("_email.php");
+require($include."sisdoc_debug.php");
+require($include."sisdoc_menus.php");
+/*
+ * $breadcrumbs
+ */
+$breadcrumbs = array();
+array_push($breadcrumbs,array(http.'pibicpr/index.php',msg('iniciação científica')));
+array_push($breadcrumbs,array(http.'//main.php',msg('menu CIP')));
+echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
+$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+echo '<h1>Comunicação</h1>';
+echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div>';
 
-echo '<H3>Comunicação por e-mail</h3>';
-
-	$tps = array();
+//////////////////// MANAGERS ///////////////////////////////
+$tps = array();
 	array_push($tps,array('000','Informar a lista de e-mail manualmente'));
-	
+
 	array_push($tps,array('','-- Docentes ------------------------------'));
 	array_push($tps,array('003','Docentes com orientações IC (recuperar e-mail)'));
 	array_push($tps,array('004','Docentes Stricto Sensu com orientações IC (recuperar e-mail)'));
@@ -83,11 +94,9 @@ echo '<H3>Comunicação por e-mail</h3>';
 			array_push($cp,array('$B8','','Avançar >>>',false,True,'botao-geral'));		
 		}
 
-	
-
-	echo '<TABLE width="940" align="center">';
+	echo '<TABLE width="940" align="left">';
 	echo '<TR><TD colspan=2>';
-	echo '<H10>'.msg('comunication').'</h10>';
+	echo '<H10>'.msg('Comunicação por e-mail').'</h10>';
 	echo '<TR><TD>';
 		editar();
 	echo '<TR><TD colspan="2">';
@@ -130,7 +139,6 @@ if ($saved > 0)
 	echo "<center>Total de ".$tot." comunicados enviados</center>";
 	}
 
-require($include."sisdoc_menus.php");
 if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
 	array_push($menu,array('Iniciação Científica','Modelo de Mensagens','comunicacao_modelos.php?dd1=ic'));

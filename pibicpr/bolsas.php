@@ -2,7 +2,6 @@
 require("cab.php");
 require($include."sisdoc_debug.php");
 require($include."sisdoc_menus.php");
-
 /*
  * $breadcrumbs
  */

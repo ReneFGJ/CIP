@@ -6,14 +6,13 @@ require($include."sisdoc_menus.php");
  * $breadcrumbs
  */
 $breadcrumbs = array();
-array_push($breadcrumbs,array(http.'pibicpr/index.php',msg('principal')));
-array_push($breadcrumbs,array(http.'//main.php',msg('menu')));
+array_push($breadcrumbs,array(http.'pibicpr/index.php',msg('iniciação científica')));
+array_push($breadcrumbs,array(http.'//main.php',msg('menu CIP')));
 echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
 echo '<h1>Avaliadores</h1>';
 echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div>';
 
-//$estilo_admin = 'style="width: 230; height: 40; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
 $path = "cadastro.php";
 
 //////////////////// MANAGERS ///////////////////////////////

@@ -1,20 +1,21 @@
 <?php
 require("cab.php");
-
+require($include."sisdoc_debug.php");
+require($include."sisdoc_menus.php");
 /*
  * $breadcrumbs
  */
 $breadcrumbs = array();
-array_push($breadcrumbs,array(http.'admin/index.php',msg('principal')));
-array_push($breadcrumbs,array(http.'admin/index.php',msg('menu')));
+array_push($breadcrumbs,array(http.'pibicpr/index.php',msg('iniciação científica')));
+array_push($breadcrumbs,array(http.'//main.php',msg('menu CIP')));
 echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
+$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+echo '<h1>Indicadores</h1>';
+echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div>';
 
-
+//////////////////// MANAGERS ///////////////////////////////
 $file = '../messages/msg_index.php';
 if (file_exists($file)) { require($file); } 
-
-require($include."sisdoc_menus.php");
-$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
 
 $menu = array();
 
@@ -26,9 +27,6 @@ array_push($menu,array('Orientadores','Profissao IC (Renovações) '.(date("Y")-1)
 array_push($menu,array('Orientadores','Censo Anual (Sillas) ','rel_bolsa_aluno_xml.php'));
 array_push($menu,array('Orientadores','Orientadores ativos x número (SGA)','rel_bolsa_orientador_ativo.php'));
 
-
-
-/////////////////////////////////////////////////// MANAGERS
 $curso = $_SESSION['curso_nome'];   
 $cursoc = $_SESSION['curso_codigo'];
 $campus = $_SESSION['campus'];
@@ -46,11 +44,9 @@ if (strlen($curso) > 0)
 array_push($menu,array('Perfil dos Orientadores','Perfil','indicador_orientador_01.php'));
 array_push($menu,array('Perfil dos Orientadores','Perfil por Planos','indicador_orientador_02.php'));	
 
-
 if ($perfil->valid('#ADM')) 
 		{
 			array_push($menu,array('Relatório','Guia do estudante ','ic_guia_do_estudante.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));	
-				
 		}
 
 ///////////////////////////////////////////////////// redirecionamento
