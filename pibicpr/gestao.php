@@ -1,24 +1,21 @@
 <?php
 require("cab.php");
-
+require($include."sisdoc_debug.php");
+require($include."sisdoc_menus.php");
 /*
  * $breadcrumbs
  */
 $breadcrumbs = array();
-array_push($breadcrumbs,array(http.'admin/index.php',msg('principal')));
-array_push($breadcrumbs,array(http.'admin/index.php',msg('menu')));
+array_push($breadcrumbs,array(http.'pibicpr/index.php',msg('iniciação científica')));
+array_push($breadcrumbs,array(http.'//main.php',msg('menu CIP')));
 echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
-require($include."sisdoc_debug.php");
-require($include."sisdoc_menus.php");
-//require("../include/_class_menus.php");
-//$mn = new menus;
 $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+echo '<h1>Acompanhamento</h1>';
+echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div>';
 
+//////////////////// MANAGERS ///////////////////////////////
 $menu = array();
 
-echo '<h1>Acompanhamento de IC</h1>';
-
-/////////////////////////////////////////////////// MANAGERS
 if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
 	array_push($menu,array('Gestão','PIBIC / PIBITI','gestao_ic.php'));

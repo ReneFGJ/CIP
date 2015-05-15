@@ -1,8 +1,22 @@
 <?php
 require("cab.php");
-$estilo_admin = 'style="width: 230; height: 40; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
-$path = "cadastro.php";
+require($include."sisdoc_debug.php");
 require($include."sisdoc_menus.php");
+/*
+ * $breadcrumbs
+ */
+$breadcrumbs = array();
+array_push($breadcrumbs,array(http.'pibicpr/index.php',msg('principal')));
+array_push($breadcrumbs,array(http.'//main.php',msg('menu')));
+echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
+$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+echo '<h1>Avaliadores</h1>';
+echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div>';
+
+//$estilo_admin = 'style="width: 230; height: 40; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+$path = "cadastro.php";
+
+//////////////////// MANAGERS ///////////////////////////////
 $menu = array();
 
 	array_push($menu,array('Avaliadores','Avaliadores PUCPR','professores_ic.php'));
@@ -19,9 +33,7 @@ $menu = array();
 	array_push($menu,array('Avaliadores','E-mail',''));
 	array_push($menu,array('Avaliadores','__Enviar convite','pareceristas_enviar_convite.php'));
 	//array_push($menu,array('Avaliadores','__Enviar convite','pareceristas_lista_convite.php'));
-	
-	array_push($menu,array('Instituíções','Cadastro Instituições','instituicoes.php'));		
-	  
+		  
 	array_push($menu,array('Relatório','Professores Doutores/IC','professores_ic.php'));
 	array_push($menu,array('Relatório','Relatório analítico Avaliadores Disponíveis','pareceristas_analitico.php?dd0='.date("Y")));
 	array_push($menu,array('Relatório','Pareceres não entregues do Comitê de ética (CEP)','rel_etica_entregas.php')); 
@@ -37,10 +49,7 @@ $menu = array();
 	//array_push($menu,array('Pareceristas','Pareceristas (Comitê Local)','parecerista_rel_comite.php?dd0=1')); 
 	//array_push($menu,array('Pareceristas','Pareceristas (Comitê Gestor)','parecerista_rel_comite.php?dd0=2'));
 	//array_push($menu,array('Pareceristas','Pareceristas externos','parecerista_rel_externo.php'));	
-
-	array_push($menu,array('Área do conhecimento','Área do conhecimento SEMIC','rel_ajax_areadoconhecimento.php'));
-	array_push($menu,array('Área do conhecimento','Área do conhecimento Submissao','rel_ajax_areadoconhecimento_submissao.php'));
-	array_push($menu,array('Área do conhecimento','Cadastro de área do conhecimento','areadoconhecimento.php'));  
+  
 	//array_push($menu,array('Área do conhecimento','Área do conhecimento (relatório)','rel_ajax_areadoconhecimento.php')); 
 	//array_push($menu,array('Área do conhecimento','Área do conhecimento (desbilitar semic)','ajax_areadoconhecimento_sel.php')); 
 	

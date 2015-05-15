@@ -1,16 +1,23 @@
 <?php
 require("cab.php");
-require($include.'sisdoc_menus.php');
-
+require($include."sisdoc_debug.php");
+require($include."sisdoc_menus.php");
 /*
  * $breadcrumbs
  */
 $breadcrumbs = array();
-array_push($breadcrumbs,array(http.'pibicpr/index.php',msg('principal')));
+array_push($breadcrumbs,array(http.'pibicpr/index.php',msg('iniciação científica')));
+array_push($breadcrumbs,array(http.'//main.php',msg('menu CIP')));
 echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
+$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+echo '<h1>Submissões</h1>';
+echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div>';
 
+//////////////////// MANAGERS ///////////////////////////////
 $menu = array();
-/////////////////////////////////////////////////// MANAGERS
+//Cria uma barra com texto
+//array_push($cp,array('$A8','','Selecione um item nos menus abaixo',False,True,''));
+
 array_push($menu,array(msg('submissoes'),'Resumo',''));
 array_push($menu,array(msg('submissoes'),'Cockpit','submissao_cockpit.php'));
 
@@ -80,6 +87,10 @@ array_push($menu,array('Áreas Estratégicas','Planos de trabalhos (Doutorandos e 
 array_push($menu,array('Áreas Estratégicas','Resumo das áreas estratégicas','pibic_edital_estrategicas.php?dd1='.date("Y").''));
 array_push($menu,array('Áreas Estratégicas','Seleciona Projetos por área','submissao_areas.php'));
 array_push($menu,array('Áreas Estratégicas','Associação de curso à áreas','curso_area.php'));
+
+array_push($menu,array('Área do conhecimento','Área do conhecimento SEMIC','rel_ajax_areadoconhecimento.php'));
+array_push($menu,array('Área do conhecimento','Área do conhecimento Submissao','rel_ajax_areadoconhecimento_submissao.php'));
+array_push($menu,array('Área do conhecimento','Cadastro de área do conhecimento','areadoconhecimento.php'));
 
 echo '<TABLE width="710" align="center" border="0">
 		<TR>';

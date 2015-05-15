@@ -1,8 +1,21 @@
 <?php
 require("cab.php");
-$estilo_admin = 'style="width: 230; height: 40; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
-$path = "cadastro.php";
+require($include."sisdoc_debug.php");
 require($include."sisdoc_menus.php");
+$path = "cadastro.php";
+/*
+ * $breadcrumbs
+ */
+$breadcrumbs = array();
+array_push($breadcrumbs,array(http.'pibicpr/index.php',msg('iniciação científica')));
+array_push($breadcrumbs,array(http.'//main.php',msg('menu CIP')));
+echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
+$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+echo '<h1>Discentes</h1>';
+echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div>';
+
+//////////////////// MANAGERS ///////////////////////////////
+
 $menu = array();
 
 	array_push($menu,array('Discentes','Cadastro de discentes','discentes.php'));
