@@ -77,10 +77,7 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	array_push($menu,array('Edital (Recursos)','Recursos para o edital','recurso_lista.php'));
 	array_push($menu,array('Edital (Recursos)','__Cadastrar Recurso','recurso.php'));	
 		
-	} 
-
-array_push($menu,array('Implementação de Bolsas (Fase de Implementação)','Bolsas não Implementadas de Bolsas (PIBIC)','pibic_implementacao_bolsas.php?dd1=PIBIC'));	
-array_push($menu,array('Implementação de Bolsas (Fase de Implementação)','Bolsas não Implementadas de Bolsas (PIBITI)','pibic_implementacao_bolsas.php?dd1=PIBITI'));	
+	}	
 
 array_push($menu,array('Áreas Estratégicas','Exclusivo para Bolsa Juventude','pibic_edital_estrategicas_bolsas_juventudes.php?dd1='.date("Y").''));
 array_push($menu,array('Áreas Estratégicas','Planos de trabalhos (Doutorandos e Pós-Doutorandos)','submissao_escolas_x_doutorandos.php'));

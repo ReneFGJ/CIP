@@ -60,9 +60,12 @@ $menu = array();
 	array_push($menu,array(msg('Bolsas Implementação'),'__ANEXO II','bolsas_anexo_ii.php',''));
 	array_push($menu,array(msg('Bolsas Implementação'),'__ANEXO IV','bolsas_anexo_iv.php',''));
 	
+	array_push($menu,array('Implementação de Bolsas (Fase de Implementação)','Bolsas  (PIBIC) não Implementadas','pibic_implementacao_bolsas.php?dd1=PIBIC'));	
+	array_push($menu,array('Implementação de Bolsas (Fase de Implementação)','Bolsas (PIBITI) não Implementadas','pibic_implementacao_bolsas.php?dd1=PIBITI'));
 	
 	array_push($menu,array(msg('Indicacao de bolsas'),'Indicar Bolsas para Implementação','bolsas_indicacao.php')); 
 	array_push($menu,array(msg('Indicacao de bolsas'),'Status das Bolsas Indicadas','bolsas_indicacao_status.php'));
+	
 	if ($perfil->valid('#ADM') or $perfil->valid >= 9)
 		{	
 		array_push($menu,array(msg('Indicacao de bolsas'),'Próximas indicações PIBIC','bolsa_proximas_indicacoes.php')); 

@@ -1654,7 +1654,7 @@ class csf
 //####################################################################################                      
 //**************************** Inicio do metodo **************************************
 /* @method: world_onde_curso_universidade_contatos()
- *          Monta relatório de detalhes do cadastro dos estudantes do CsF
+ *          Monta detalhes do cadastro dos estudantes do CsF(contato de quem já retornou)
  * @author Elizandro Santos de Lima[Analista de Projetos]
  * @date: 15/05/2015
  */
@@ -1673,7 +1673,12 @@ class csf
 				$sx .= '<left><h2>'.msg('Dados dos estudantes do Csf').'</h2></br>';
 				$sx .= '<table class="lt1" width="100%">';
 				$sx .= '<TR>
-							<TH>Aluno<TH>E-mail secundário<TH>Instituição<TH>País';
+							<TH>Aluno
+							<TH>E-mail primário
+							<TH>E-mail secundário
+							<TH>Instituição
+							<TH>País
+							<TH>Retorno';
 				
 				$xpais = 'X';
 				$xpp = '';
@@ -1697,7 +1702,7 @@ class csf
 								
 								$sx .= '<TD>&nbsp;&nbsp;&nbsp;'.$this->tratar_nome($line['pa_nome']);
 								$sx .= '<TD>'.$line['pa_email'];
-								//$sx .= '<TD>'.$line['pa_email_1'];
+								$sx .= '<TD>'.$line['pa_email_1'];
 								$sx .= '<TD>'.$line['pb_colegio'];
 								$sx .= '<TD>'.$line['pb_colegio_orientador'];
 							}

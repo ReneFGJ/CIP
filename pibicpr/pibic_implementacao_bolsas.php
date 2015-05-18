@@ -9,8 +9,8 @@ $cp = array();
 $ano = date("Y");
 
 array_push($cp,array('$H4','','',False,True,''));
-array_push($cp,array('$O PIBIC:PIBIC&PIBITI:PIBITI','','Edital',False,True,''));
 array_push($cp,array('$A8','','Bolsas não implementadas',False,True,''));
+array_push($cp,array('$O PIBIC:PIBIC&PIBITI:PIBITI','','Edital',False,True,''));
 if (strlen($dd[3]) == 0)
 	{
 	array_push($cp,array('$Q pbt_descricao:pbt_codigo:select * from pibic_bolsa_tipo where pbt_edital = \''.$dd[1].'\' ','','Tipo de Bosa',True,True,''));
@@ -21,7 +21,7 @@ array_push($cp,array('$H4','','',False,True,''));
 array_push($cp,array('$HV','',$ano,True,True,''));
 //////////////////
 if (strlen($dd[4]) == 0) { $dd[4] = (date("Y")-1); }
-	echo '<CENTER><font class=lt5>E-mail de professores</font></CENTER>';
+	echo '<font class=lt5>Relação de bolsas</font>';
 	?><TABLE width="<?=$tab_max?>" align="center"><TR><TD><?
 	editar();
 	?></TD></TR></TABLE><?	
