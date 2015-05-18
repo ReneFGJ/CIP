@@ -26,6 +26,9 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  <?php
+        require('componentes/headerpuc.php');
+    ?>
 	<body style="font-family: Arial;border: 0 none;">
 	<div  align="center">
 		<h3>Estamos trabalhando juntos na construção da página!</h3>

@@ -20,7 +20,13 @@ $menu = array();
 
 	array_push($menu,array('Avaliadores','Avaliadores PUCPR','professores_ic.php'));
 	array_push($menu,array('Avaliadores','Avaliadores Externos','avaliadores_ic.php'));
-	array_push($menu,array('Avaliadores','Banco de Avaliadores PUCPR','banco_professores_ic.php'));
+		//Validacao de perfil de test
+	if ($perfil->valid('#TST'))
+		{
+		  array_push($menu,array('Avaliadores','Banco de Avaliadores PUCPR - Resumo por escola','resumo_banco_professores_ic_puc.php'));	
+		}if($perfil->valid('#ADM')){
+				array_push($menu,array('Avaliadores','Banco de Avaliadores PUCPR - Resumo por áreas','banco_professores_ic.php'));
+		}
 	array_push($menu,array('Avaliadores','Qtd. projetos submetidos área','qtd_projetos_area.php')); 
 	array_push($menu,array('Avaliadores','Cadastros de área ao curso','banco_professores_escolher_areas.php')); 	
 
@@ -54,6 +60,8 @@ $menu = array();
 	
 	//array_push($menu,array('Área do conhecimento','Parecerista sem área','rel_parecerista_sem_area.php'));
 
+
+			
 
 ///////////////////////////////////////////////////// redirecionamento
 

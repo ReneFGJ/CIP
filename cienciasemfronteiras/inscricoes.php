@@ -1,96 +1,75 @@
-<?php
-$include = '../';
-require("../db.php");
-header('Content-Type: text/html; charset=utf-8');
-$name="Ciência sem Fronteiras PUCPR";
-$content = "ciência sem fronteias, ciência, fronteiras, intercâmbio, estudos, pesquisa, pucpr";
-
-/**
-* Submissao de projeto parametrizado
-* @author Rene F. Gabriel Junior <rene@sisdoc.com.br>
-* @version 1.0m
-* @copyright Copyright - 2012, Rene F. Gabriel Junior.
-* @access public
-* @package CEP
-* @subpackage submit
-*/
-$login = 1;
-
-require('../_class/_class_discentes.php');
-$dis = new discentes;
-
-/*
- * Inscricoes
- */
- 
-if (strlen($dd[1]) > 1)
-	{
-		$cod = trim(sonumero($dd[1]));
-		if (strlen($cod) > 8)
-			{
-				$cod = substr($cod,3,8);
-			}
-		if (strlen($cod) != 8)
-			{
-				$erro = 'Código do discente inválido '.$cod;
-			} else {
-				if ($dis->consulta($cod))
-					{
-						$dis->le('',$cod);
-						$dis->valida_set();
-						redirecina('inscricoes_2.php');						
-					} else {
-						$erro = 'Código não localizado';
-					}
-			}
-	}
-
-?>
-
 <!DOCTYPE html>
-<html>
-    <head>
-    	<title>Inscrição - Ciência sem Fronteiras | PUCPR</title>
-        <meta charset="utf-8">
-        <meta name="Ciência sem Fronteiras PUCPR" content="ciência sem fronteias, ciência, fronteiras, intercâmbio, estudos, pesquisa, pucpr">
-		<link rel="stylesheet" href="css/estilo.css">
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-	</head>
-	
-	<body>
-		
-		<div id="total" class="total">
-			
-			<?php require("header.php");?>
-			
-			<div id="corpo">
-				  <h1>Inscr<span class="lt6light">ição</span></h1>
-				  <p>Você tem duas opções para se inscrever:</p>
-				  
-				  <div id="inscricao-campo">
-				  	<!--
-				  	<div id="inscricao-interessado">
-				  		<p class="texto-caixa-interesse">Nesta opção você está se <strong>cadastrando como interessado</strong>. Utilize o número da sua carteirinha da PUCPR:</p>
-				  			<input type="text" class="input-dark" placeholder="000000000-0"></input><br />
-				  			<button class="botao-grande">Estou apenas interessado</button>
-				  	</div>
-				  	-->
-				  	<form method="post">
-				  	<div id="inscricao-edital">
-				  		<p class="texto-caixa-inscricao-edital">Aqui você está realmente se <strong>inscrevendo para algum dos editais</strong> do Ciência
-				  			sem Fronteiras. Utilize o número da sua carteirinha da PUCPR:</p>
-				  			<input type="text" name="dd1" class="input-light" placeholder="000000000"></input><br />
-				  			<input type="submit" class="botao-grande" style="height: 50px;" name="acao" value="Quero me inscrever">
-				  	</div>
-				  	</form>
-				  	
-				  </div>
-				 	
-			</div>
-			
-			<?php require("footer.php");?>
-			
-		</div>
-		
-	</body>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Ciências sem Fronteiras</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/caroussel.css" rel="stylesheet">
+    <link href="css/font-stylesheet.css" rel="stylesheet">
+
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/npm.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <?php
+        require('componentes/headerpuc.php');
+    ?>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <?php
+        require('componentes/nav.php');
+        ?>
+
+
+
+        <div class="page-header">
+          <h1>Inscrições</h1>
+        </div>
+        
+
+
+
+
+      
+
+
+      <!-- FOOTER -->
+      <?php
+        require('componentes/footer.php');
+        ?>
+
+    </div><!-- /.container -->
+
+    </div>
+  </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="js/vendor/holder.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>
+
+
+  

@@ -1,78 +1,102 @@
-<?php
-header('Content-Type: text/html; charset=utf-8');
-$name="CiÃªncia sem Fronteiras PUCPR";
-$content = "ciÃªncia sem fronteias, ciÃªncia, fronteiras, intercÃ¢mbio, estudos, pesquisa, pucpr";
-
-?>
-
 <!DOCTYPE html>
-<html>
-    <head>
-    	<title>Contato - CiÃªncia sem Fronteiras | PUCPR</title>
-        <meta charset="utf-8">
-        <meta name="CiÃªncia sem Fronteiras PUCPR" content="ciÃªncia sem fronteias, ciÃªncia, fronteiras, intercÃ¢mbio, estudos, pesquisa, pucpr">
-		<link rel="stylesheet" href="css/estilo.css">
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-	</head>
-	
-	<body>
-		
-		<div id="total" class="total">
-			
-			<?php require("header.php");?>
-			
-			<div id="corpo">
-				 <h1>Cont<span class="lt6light">ato</span></h1>
-				 
-				 <div id="conteudo-contato">
-					 <div id="contato-coordenacao" class="contato-box">
-					 	<h4>CoordenaÃ§Ã£o CiÃªncia sem Fronteiras</h4>
-					 	<p><strong>Cleybe Vieira</strong><br />
-					 		cleybe.vieira@pucpr.br<br />
-					 		55(41)3271-2112 | 3271-1602<br />
-					 		Rua Imaculada ConceiÃ§Ã£o, 1155<br />
-					 		PrÃ©dio Administrativo - 6Âº Andar CÃ¢mpus Curitiba<br />
-					 		Bairro Prado Velho - CEP 80215-901<br />
-					 		Curitiba - ParanÃ¡ - Brasil
-					 	</p>
-					 </div>
-					 
-					 <div id="contato-intercambio" class="contato-box">
-					 	<h4>CoordenaÃ§Ã£o de IntercÃ¢mbio Internacional e CooperaÃ§Ã£o</h4>
-					 	<p><br />
-					 		
-					 		55(41)3271-1556 | 3271-1697<br />
-					 		Rua Imaculada ConceiÃ§Ã£o, 1155<br />
-					 		PrÃ©dio Administrativo - 6Âº Andar CÃ¢mpus Curitiba<br />
-					 		Bairro Prado Velho - CEP 80215-901<br />
-					 		Curitiba - ParanÃ¡ - Brasil
-					 	</p>
-					 </div>
-					 
-					 <div id="contato-administrativo" class="contato-box">
-					 	<h4>Administrativo</h4>
-					 	<p><strong>Alessandra Lacerda</strong><br />
-					 		alessandra.lacerda@pucpr.br<br />
-					 		<br />
-					 		<strong>Valesca Walesko</strong><br />
-					 		intercambio@pucpr.br<br />
-					 		<br />
-					 		<strong>LÃ­dia Maria Weretychi Kowalski</strong><br />
-					 		csf@pucpr.br
-					 	</p>
-					 </div>
-				 </div>
-				 
-				<div id="contato-facebook" class="contato-box">
-					 	<a href="http://www.facebook.com/groups/407588852627368/517912344928351/?notif_t=group_activity"><img src="img/facebook-grupo.png" /></a>
-					 </div>
-				 
-				 				 	
-			</div>
-			
-			<?php require("footer.php");?>
-			
-		</div>
-		
-	</body>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Ciências sem Fronteiras</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/caroussel.css" rel="stylesheet">
+    <link href="css/font-stylesheet.css" rel="stylesheet">
+
+
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/npm.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <?php
+        require('componentes/headerpuc.php');
+    ?>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <?php
+        require('componentes/nav.php');
+        ?>
+
+
+
+        <div class="page-header">
+          <h1>Contato</h1>
+        </div>
+        
+        <div class="col-md-4">
+        <h4><strong>Coordenação da Iniciação Científica</strong></h4>
+        <p><strong>Cleybe Vieira</strong><br />
+            cleybe.vieira@pucpr.br<br />
+            55(41)3271-2112 | 3271-1602<br />
+            Rua Imaculada Conceição, 1155<br />
+            Prédio Administrativo - 6º Andar Câmpus Curitiba<br />
+            Bairro Prado Velho - CEP 80215-901<br />
+            Curitiba - Paraná - Brasil</p>
+        </div>
+
+        <div class="col-md-4">
+        <h4><strong>Coordenação de Intercâmbio Internacional e Cooperação</strong></h4>
+        <p>+55(41)3271-1556 | 3271-1697<br />
+        Rua Imaculada Conceição, 1155<br />
+        Prédio Administrativo - Térreo Câmpus Curitiba<br />
+        Bairro Prado Velho - CEP 80215-901<br />
+        Curitiba - Paraná - Brasil</p>
+        </div>
+
+        <div class="col-md-4" style="padding-bottom: 60px;">
+        <h4><strong>Administrativo</strong></h4>
+        <p><strong>Alessandra Lacerda</strong><br />
+            alessandra.lacerda@pucpr.br<br />
+            <br />
+            <strong>Valesca Walesko</strong><br />
+            intercambio@pucpr.br<br />
+            <br />
+            <strong>Lídia Maria Weretychi Kowalski</strong><br />
+            csf@pucpr.br</p>
+        </div>
+
+
+      <!-- FOOTER -->
+      <?php
+        require('componentes/footer.php');
+        ?>
+
+    </div><!-- /.container -->
+
+    </div>
+  </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="js/vendor/holder.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>
+
+
+  
