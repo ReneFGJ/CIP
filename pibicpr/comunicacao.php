@@ -29,6 +29,9 @@ $tps = array();
 	array_push($tps,array('005','Docentes Stricto Sensu vinculados a programas de Pós-Graduação'));
 	array_push($tps,array('008','Docentes com titulação de Msc e Dr.'));
 	array_push($tps,array('006','Docentes com Doutorado'));
+	array_push($tps,array('009','Docentes Horistas com Orientação'));
+	array_push($tps,array('013','Docentes TP com Orientação'));
+	array_push($tps,array('014','Docentes TI com Orientação'));
 	
 	array_push($tps,array('','-- Discentes -----------------------------'));
 	array_push($tps,array('060','Estudantes em IC/IT em '.date("Y")));

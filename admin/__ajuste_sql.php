@@ -11,10 +11,7 @@ $tela = $form->editar($cp,'');
 echo $tela;
 
 $sql = "
-select * from (
-select count(*) as total, pa_cracha from pibic_aluno group by pa_cracha
-) as tabela 
-where total > 1
+select 1+1;
 ";
 $rlt = db_query($sql);
 while ($line = db_read($rlt))

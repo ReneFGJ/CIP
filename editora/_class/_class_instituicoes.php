@@ -21,7 +21,7 @@ class instituicoes
 				array_push($cp,array('$H8','inst_endereco','Endereço',False,True,''));
 				array_push($cp,array('$T60:5','inst_site','Site',False,True,''));
 		
-				array_push($cp,array('$O 1:Muito utilizada&2:Utilização média&3:Pouco utilizada','inst_ordem','Seq',True,True,''));
+				array_push($cp,array('$O 0:Padrão&1:Muito utilizada&2:Utilização média&3:Pouco utilizada','inst_ordem','Seq',True,True,''));
 				
 				return($cp);	
 		}

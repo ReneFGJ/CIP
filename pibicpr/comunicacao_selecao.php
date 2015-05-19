@@ -156,7 +156,19 @@ if ((substr($dd[1],0,1)=='0') or (substr($dd[1],0,1)=='1'))
 					and (pp_titulacao = '002' or pp_titulacao = '001' or pp_titulacao = '003' or pp_titulacao = '006')
 			";
 			$rlt = db_query($sql);
-		}			
+		}
+	if ($op == '009')
+		{
+			$sql = "select distinct pp_email, pp_email_1 from pibic_bolsa_contempladas 
+					inner join pibic_professor on pb_professor = pp_cracha
+					left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+					where pb_status <> 'C' and pb_ano = '".date("Y")."' or pb_ano = '".(date("Y")-1)."'
+					and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')
+					and pp_ch = 'HR'		
+			";
+			$rlt = db_query($sql);
+		}
+							
 	if ($op == '010')
 		{
 			$sql = "select pp_email, pp_email_1 from pibic_projetos 
@@ -186,6 +198,28 @@ if ((substr($dd[1],0,1)=='0') or (substr($dd[1],0,1)=='1'))
 			";
 			$rlt = db_query($sql);
 		}	
+	if ($op == '013')
+		{
+			$sql = "select distinct pp_email, pp_email_1 from pibic_bolsa_contempladas 
+					inner join pibic_professor on pb_professor = pp_cracha
+					left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+					where pb_status <> 'C' and pb_ano = '".date("Y")."' or pb_ano = '".(date("Y")-1)."'
+					and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')
+					and pp_ch = 'TP'		
+			";
+			$rlt = db_query($sql);
+		}		
+	if ($op == '014')
+		{
+			$sql = "select distinct pp_email, pp_email_1 from pibic_bolsa_contempladas 
+					inner join pibic_professor on pb_professor = pp_cracha
+					left join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+					where pb_status <> 'C' and pb_ano = '".date("Y")."' or pb_ano = '".(date("Y")-1)."'
+					and (pbt_edital = 'PIBIC' or pbt_edital = 'PIBITI' or pbt_edital = 'IS')
+					and pp_ch = 'TI'		
+			";
+			$rlt = db_query($sql);
+		}		
 	if ($op == '015')
 		{
 			// 	

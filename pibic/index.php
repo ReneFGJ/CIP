@@ -5,6 +5,17 @@ array_push($breadcrumbs, array('main.php', 'principal'));
 array_push($breadcrumbs, array($site . 'main.php', 'menu'));
 require ("cab_pibic.php");
 
+/*
+ * Recupera dados do orientador */
+$cracha = $nw->user_cracha;
+$sql = "select * from pibic_professor where pp_cracha = '".$cracha."' ";
+$rlt = db_query($sql);
+$hr = '';
+if ($line = db_read($rlt))
+	{
+		$hr = trim($line['pp_ch']);
+	}
+
 require ("../_class/_class_pibic_recurso.php");
 $rc = new recurso;
 
@@ -49,11 +60,11 @@ echo '<TD width="300">';
 	echo '<LI><A HREF="protocolo_abrir.php?dd1=ALT">Alteração de título do Plano do Aluno</A></LI>';
 	echo '<LI><A HREF="protocolo_abrir.php?dd1=SBS">Substituição do aluno</A></LI>';
 	echo '<LI><A HREF="protocolo_abrir.php?dd1=CAN">Cancelamento de orientação</A></LI>';
-	
-	if ($perfil->valid('#TST'))
+	if (($hr=='HR') or ($perfil->valid("#TST")))
 		{
-		echo '<LI><A HREF="declaracao_convite_horista.php">Convite Horista</A></LI>';
+			echo '<LI><A HREF="declaracao_convite_horista.php">Convite Horas Eventuais IC</A></LI>';
 		}
+	
 	echo '</UL>';
 	echo $rc -> resumo_recurso_professor($professor);
 }

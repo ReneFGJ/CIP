@@ -893,7 +893,7 @@ class docentes {
 		array_push($cp, array('$S100', 'pp_nome_lattes', 'Nome completo no Lattes', False, True));
 		array_push($cp, array('$S100', 'pp_cited', 'Nome de citação', False, True));
 		array_push($cp, array('$S30', 'pp_cpf', 'CPF', False, True));
-		array_push($cp, array('$I8', 'pp_carga_semanal', 'Carga horória', True, True));
+		array_push($cp, array('$O : &TP:TP&HR:Horista&TI:TI', 'pp_ch', 'Carga horória', True, True));
 		array_push($cp, array('$S30', 'pp_negocio', 'Negócio', False, True));
 		array_push($cp, array('$S11', 'pp_cracha', 'Cracha', False, True));
 
@@ -929,7 +929,7 @@ class docentes {
 
 		array_push($cp, array('$[0-400]', 'pp_fc', 'FC', False, True));
 
-		if (strlen($dd[31]) == 0) { $dd[31] = '0';
+		if (strlen($dd[32]) == 0) { $dd[32] = '0';
 		}
 
 		//$sql = "alter table pibic_professor add pp_funcao char(100)";
@@ -937,6 +937,7 @@ class docentes {
 
 		return ($cp);
 	}
+
 
 	function structure_od() {
 		$sql = "create table docente_orientacao
