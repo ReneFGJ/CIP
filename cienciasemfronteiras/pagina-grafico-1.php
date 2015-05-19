@@ -13,7 +13,7 @@ require('cab.php');
 	        </div>
 	        <div class="container">
 	        <p>Texto a definir ainda</p>
-        	<p>Voltar para <a href="http://www2.pucpr.br/reol/csf2015/indicadores.php">indicadores</a></p>
+        	<p>Voltar para <a href="http://www2.pucpr.br/reol/cienciasemfronteiras/indicadores.php">indicadores</a></p>
 	        </div>
 	      	<?php
 	        require('index_aluno_area.php');

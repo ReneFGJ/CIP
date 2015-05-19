@@ -1999,7 +1999,7 @@ class parecerista {
 	function qtd_projetos_por_area() {
 		echo '<H2>Em desenvolvimento!</h2>';
 		
-
+		
 		 $sql = "select pp_cracha, pp_nome, pp_centro, ap_tit_titulo, pp_curso, pp_carga_semanal,
 		 count(a_submit) as total_projeto_area, a_cnpq, a_descricao, a_semic
 		 from pibic_professor
@@ -2025,27 +2025,33 @@ class parecerista {
 		 $xtotp = 0;
 
 		 $sx = '<table width="100%">';
-		 $sx .= 	'<H2>Definir Titulo!</h2>';
+		 $sx .= '<H2>Definir Titulo!</h2>';
 
-		 $sh .= '<TR>
-		 <TH>Cracha<TH>Nome<TH>Campus<TH>Titulação<TH>Curso<TH>Carga Horaria<TH>Qtd Projeto';
+		 
 
 		 $id = 0;
 		 $xpp = '';
-
+			$sx .= '<TR>';
+		 $sx .= '<TH>Cracha<TH>Nome<TH>Campus<TH>Titulação<TH>Curso<TH>Carga Horaria'; 
 		 while ($line = db_read($rlt)){
 		 $escola = $line['pp_escola'];
+			
 		 if ($escola != $xescola)
+		 
+		 
 		 {
 		 if ($xtotp > 0)
+		  
 		 {
 		 $sx .= '<TR><TD colspan=10 align="right">
 		 <font color=green>subtotal de professores '.$xtotp;
 		 $sx .=	'<hr size="1" style="border: 1px dashed green;">';
 		 }
+		 
+		
 		 // zera total parcial da escola
 		 $xtotp = 0;
-
+			
 		 $xescola = $escola;
 		 $sx .= '<TR>
 		 <TD colspan=10>
@@ -2054,7 +2060,7 @@ class parecerista {
 		 }
 
 		 $pp = $line['pp_cracha'];
-
+		 	
 		 if ($pp != $xpp) {
 
 		 // acrescenta total geral
@@ -2062,7 +2068,7 @@ class parecerista {
 
 		 // acrescenta total parcial
 		 $xtotp++;
-
+		 	
 		 $link = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
 		 $sx .= '<TR>';
 		 $sx .= 		'<TD class="tabela01" align="center">';
@@ -2090,7 +2096,7 @@ class parecerista {
 		 }
 		 if ($line['a_semic']==1)
 		 {
-		 $sx .= '<TR><TD><TD colspan=1><nobr>'.$line['a_cnpq'].' - '.$line['a_descricao'].'<TD>'.$line['total_projeto_area'];
+		 $sx .= '<TR><TD><TD colspan=1><nobr>'.$line['a_cnpq'].' - '.$line['a_descricao'].'<TD>'.$line['total_projeto_area'].'<TD>'.$line['total_projeto_area'];
 		 }
 
 		 }

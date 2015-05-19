@@ -12,7 +12,7 @@ require('cab.php');
 	        </div>
 	        <div class="container">
 	        <p>Distribuição de bolsas implementadas por país</p>
-        	<p>Voltar para <a href="http://www2.pucpr.br/reol/csf2015/indicadores.php">indicadores</a></p>
+        	<p>Voltar para <a href="http://www2.pucpr.br/reol/cienciasemfronteiras/indicadores.php">indicadores</a></p>
 	        </div>
 	      	<?php
 	        require('index_onde.php');
