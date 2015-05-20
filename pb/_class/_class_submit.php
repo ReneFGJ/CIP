@@ -9,7 +9,6 @@ class submit
 		var $author_nome = '';
 		var $author_codigo = '';
 		var $author_email = '';
-		var $author_email_alt = '';
 		var $author_line = '';
 		
 		var $journal;

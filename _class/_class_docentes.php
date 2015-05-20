@@ -893,7 +893,7 @@ class docentes {
 		array_push($cp, array('$S100', 'pp_nome_lattes', 'Nome completo no Lattes', False, True));
 		array_push($cp, array('$S100', 'pp_cited', 'Nome de citação', False, True));
 		array_push($cp, array('$S30', 'pp_cpf', 'CPF', False, True));
-		array_push($cp, array('$O : &TP:TP&HR:Horista&TI:TI', 'pp_ch', 'Carga horória', True, True));
+		array_push($cp, array('$O : &TP:TP&HR:Horista&TI:TI&DR:Sem vinculo', 'pp_ch', 'Carga horória', True, True));
 		array_push($cp, array('$S30', 'pp_negocio', 'Negócio', False, True));
 		array_push($cp, array('$S11', 'pp_cracha', 'Cracha', False, True));
 

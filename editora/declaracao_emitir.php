@@ -19,7 +19,7 @@ $sql= "select * from submit_documento
 			inner join ".$pp->tabela." on doc_protocolo = pp_protocolo 
 			inner join pareceristas on pp_avaliador = us_codigo
 			inner join journals on doc_journal_id = jnl_codigo 
-			where doc_protocolo = '".$id."'";
+			where doc_protocolo = '".$id."' and pp_status <> 'D' and pp_status <> 'X' ";
 
 /* Código do avaliador */			
 if (strlen($dd[2]) > 0) { $sql .= " and us_codigo = '".$dd[2]."' "; }

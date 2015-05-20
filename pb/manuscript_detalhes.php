@@ -2,6 +2,7 @@
 require_once($include.'sisdoc_windows.php');
 require("_class/_class_manuscript.php");
 $clx = new manuscript;
+$protocolo = strzero($dd[0],7);
 
 /* Dados da publicação */
 require("../editora/_class/_class_journal.php");
@@ -25,7 +26,6 @@ echo '<BR><BR>';
 $clx->le_submit($dd[0]);
 echo $clx->mostra();
 
-$protocolo = $clx->protocolo;
 require("manuscrito_arquivo.php");
 
 echo '<BR><BR>';

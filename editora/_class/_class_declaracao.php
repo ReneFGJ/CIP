@@ -13,6 +13,7 @@ class declaracao
 							and (pp_status = 'B' or pp_status = 'C')
 					order by pp_parecer_data desc, pp_parecer_hora desc
 			";
+			
 			//left join journals on pp_journal = id_journal_id
 			//inner join journals on doc_journal_id = jnl_codigo
 			$rlt = db_query($sql);
