@@ -19,8 +19,12 @@ $menu = array();
 //array_push($cp,array('$A8','','Selecione um item nos menus abaixo',False,True,''));
 
 array_push($menu,array(msg('submissoes'),'Resumo',''));
-array_push($menu,array(msg('submissoes'),'Cockpit','submissao_cockpit.php'));
-
+array_push($menu,array(msg('submissoes'),'__Cockpit','submissao_cockpit.php'));
+if ($perfil->valid('#TST'))
+	{
+		array_push($menu,array(msg('submissoes'),'__Cockpit_2','submissao_cockpit2.php'));
+		array_push($menu,array(msg('submissoes'),'__Seleciona Edital','pibic_seleciona_ano.php'));
+	}
 
 array_push($menu,array(msg('submissoes'),'Projetos e Planos',''));
 array_push($menu,array(msg('submissoes'),'__Planos por professor / titulação','submissao_professor_titulacao.php'));

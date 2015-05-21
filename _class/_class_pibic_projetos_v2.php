@@ -21,6 +21,7 @@ class projetos {
 	var $status = '@';
 
 	var $ano;
+	
 
 	function valida_limite_submissao($orientador) {
 		global $ttt;
@@ -1999,8 +2000,8 @@ class projetos {
 		}
 		if (strlen($email_1) > 0) { enviaremail($email_1, '', $titulo, $texto);
 		}
-		enviaremail('renefgj@gmail.com', '', $titulo . ' [copia]', $texto . '<BR><BR>Enviao para ' . $email . ' ' . $email_1);
-		enviaremail('pibicpr@pucpr.br', '', $titulo . ' [copia]', $texto . '<BR><BR>Enviao para ' . $email . ' ' . $email_1);
+		enviaremail('renefgj@gmail.com', '', $titulo . ' [copia]', $texto . '<BR><BR>Enviado para ' . $email . ' ' . $email_1);
+		enviaremail('pibicpr@pucpr.br', '', $titulo . ' [copia]', $texto . '<BR><BR>Enviado para ' . $email . ' ' . $email_1);
 		return (1);
 	}
 
@@ -4310,4 +4311,99 @@ class projetos {
 
 
 
+	//
+	/**
+	 * Resumos
+	 */
+	function resumo_planos_escola($ano) {
+		
+		$sql = "select count(*) as total, centro_nome, doc_edital, centro_nome from ".$this -> tabela."
+					left join pibic_professor on pj_professor = pp_cracha
+					left join centro on pp_escola = centro_codigo
+					left join ".$this -> tabela_planos." on doc_protocolo_mae = pj_codigo
+					left join pibic_aluno on doc_aluno = pa_cracha
+					left join ajax_areadoconhecimento on a_cnpq = pj_area  
+					where pj_ano = '$ano'
+					and (pj_status <> '!' and pj_status <> '@' and pj_status <> 'X' and pj_status <> 'E')
+					and (doc_status <> '!' and doc_status <> '@' and doc_status <> 'X' and doc_status <> 'E')
+					and (doc_edital = 'PIBIC' or  doc_edital = 'PIBITI' or  doc_edital = 'IS' or  doc_edital = 'PIBICE')
+					group by centro_nome, doc_edital, centro_nome, centro_codigo
+					order by centro_codigo
+				";
+
+		$rlt = db_query($sql);
+		
+		
+		$totalp = 0;
+		$totalt = 0;
+		$totale = 0;
+		$totali = 0;
+
+		$ttotalp = 0;
+		$ttotalt = 0;
+		$ttotale = 0;
+		$ttotali = 0;
+
+		$cap = "--";
+
+		$sx .= '<table width="100%" align="center" class="tabela00">';
+		$sx .= '<TR><TH>Escola<TH>PIBIC<TH>PIBITI<TH>PIBIC_EM<TD>Intern.<TH>Sub-total';
+
+		$rs = array();
+		
+		while ($line = db_read($rlt)) {
+			
+			$xcap = trim($line['centro_nome']);
+			
+			if ($cap != $xcap) {
+					
+				$sx .= $this -> resumo_mostra_painel($cap, $totalp, $totalt, $totale);
+				array_push($rs, array($cap, $totalp, $totalt, $totoale));
+				
+				$cap = $xcap;
+
+				$totalp = 0;
+				$totalt = 0;
+				$totale = 0;
+			}
+			//$centro_meta_01 = $line['centro_meta_01'];
+			//$centro_meta_02 = $line['centro_meta_02'];
+			//$centro_meta_03 = $line['centro_meta_03'];
+			
+			$total = $line['total'];	
+					
+			$edital = trim($line['doc_edital']);
+			
+			if ($edital == '') 		   { $totalp  = $totalp  + $total;	}
+			if ($edital == 'PIBIC')    { $totalp  = $totalp  + $total;	}
+			if ($edital == 'PIBITI')   { $totalt  = $totalt  + $total;	}
+			if ($edital == 'PIBIC_EM') { $totale  = $totale  + $total;	}
+			if ($edital == 'IS')       { $totali  = $totali  + $total;	}
+		}
+		
+		//$sx .= $this -> resumo_mostra_painel($cap, $totalp, $totalt, $totale, $totali);
+		
+		array_push($rs, array($cap, $totalp, $totalt, $totoale, $totoali,$ttotale));
+
+		$sx .= '<TR><TD class="tabela00" align="right"><B>Totais';
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotalp;
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotalt;
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotale;
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotali;
+		$sx .= '<TD class="tabela01" align="center"><B>' . ($ttotale + $ttotalt + $ttotalp + $ttotali);
+		$sx .= '</table>';
+		
+		$this -> plano_pibic = $totalp;
+		$this -> plano_pibiti = $totalt;
+		$this -> plano_pibic_em = $totale;
+		$this -> plano_ici = $totali;
+		
+		$this -> rst = $rs;
+
+		return ($sx);
+	
+	
+	}
+
 }
+
