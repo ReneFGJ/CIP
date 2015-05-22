@@ -4381,8 +4381,7 @@ class projetos {
 			if ($edital == 'IS')       { $totali  = $totali  + $total;	}
 		}
 		
-		//$sx .= $this -> resumo_mostra_painel($cap, $totalp, $totalt, $totale, $totali);
-		
+		$sx .= $this -> resumo_mostra_painel($cap, $totalp, $totalt, $totale, $totali);
 		array_push($rs, array($cap, $totalp, $totalt, $totoale, $totoali,$ttotale));
 
 		$sx .= '<TR><TD class="tabela00" align="right"><B>Totais';
@@ -4397,7 +4396,6 @@ class projetos {
 		$this -> plano_pibiti = $totalt;
 		$this -> plano_pibic_em = $totale;
 		$this -> plano_ici = $totali;
-		
 		$this -> rst = $rs;
 
 		return ($sx);
