@@ -31,7 +31,13 @@ echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div
 	array_push($cp,array('$[2010-'.date("Y").']','','Ano edital ',False,True,''));
 	array_push($cp,array('$HV','',$ano,True,True,''));
 
-	echo '<h1>Seleciona Ano</h1>';
+	if ($dd[2] != null) {
+		echo '<h1>Editais do ano base de '.$dd[2].'</h1>';
+	} else {
+		echo '<h1>Seleciona Ano do edital </h1>';
+	}
+	
+	
 	//monta tabela de seleciona dados
 	?><TABLE width="<?=$tab_max?>"align="center"><TR><TD><?
 		editar();
@@ -39,9 +45,12 @@ echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div
 	
 	if ($saved == 0)
 		{ exit; }
+	
 			
 	//aqui pode chamar qualquer método destro da classe e passae como parametro o edital e a data ou mais dados que precisar			
+	
 	echo $pb->resumo_planos_escola($dd[2]);
+	echo $pb->resumo_planos_campus($dd[2]);
 	
 	require("../foot.php");	
 	
