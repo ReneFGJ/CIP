@@ -60,8 +60,8 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Somos 322 alunos CsF PUCPR pelo mundo.</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <p><a class="btn btn-lg btn-primary botao-home" href="#" role="button">Ver detalhes</a></p>
+              <p>Saiba mais sobre os nossos bolsistas.</p>
+              <p><a class="btn btn-lg btn-primary botao-home" href="http://www2.pucpr.br/reol/cienciasemfronteiras/indicadores.php" role="button">Ver indicadores</a></p>
             </div>
           </div>
         </div>
@@ -69,9 +69,9 @@
           <img class="second-slide" src="img/photo-55.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Depoimento dos intercâmbistas CsF da PUC.</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <p><a class="btn btn-lg btn-primary botao-home" href="#" role="button">Ver detalhes</a></p>
+              <h1>Depoimento dos intercâmbistas CsF da PUCPR.</h1>
+              <p>Veja o que os estudantes da PUCPR estão falando sobre o <i>Ciência sem Fronteiras</i>.</p>
+              <p><a class="btn btn-lg btn-primary botao-home" href="http://www2.pucpr.br/reol/cienciasemfronteiras/depoimentos.php" role="button">Ver detalhes</a></p>
             </div>
           </div>
         </div>
@@ -108,13 +108,13 @@
         <div class="col-lg-4">
           <a href="indicadores.php"><img class="img-circle" src="img/graficos-icone.png" alt="Generic placeholder image" width="140" height="140"></a>
           <h2><a href="indicadores.php" style="text-decoration: none; color: #b21120;">Indicadores CsF PUCPR</a></h2>
-          <p><a href="indicadores.php" style="color: #5a5a5a; text-decoration: none;">Resultados do Ciência sem Fronteiras na PUCPR desde 2012.</a></p>
+          <p><a href="indicadores.php" style="color: #5a5a5a; text-decoration: none;">Resultados do <i>Ciência sem Fronteiras</i> na PUCPR desde 2012.</a></p>
           <p><a class="btn btn-default btn-indicadores" href="indicadores.php" role="button">Ver detalhes &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4 depoimento-div">
           <a href="depoimentos.php"><img class="img-circle" src="img/depoimentos-icone.png" alt="Generic placeholder image" width="140" height="140"></a>
           <h2><a href="depoimentos.php" style="text-decoration: none; color: #39aebf;">Depoimentos</a></h2>
-          <p><a href="depoimentos.php" style="text-decoration: none; color: #5a5a5a;">Saiba como foi a experiência dos alunos PUCPR que já foram para o intercâmbio Ciência sem Fronteiras.</a></p>
+          <p><a href="depoimentos.php" style="text-decoration: none; color: #5a5a5a;">Saiba como foi a experiência dos alunos PUCPR que já foram para o intercâmbio <i>Ciência sem Fronteiras.</i></a></p>
           <p><a class="btn btn-default btn-depoimentos" href="depoimentos.php" role="button">Ver detalhes &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4 duvidas-div">
@@ -141,7 +141,8 @@
       </div>
 
       <hr class="featurette-divider">
-
+		
+	  <!--	
       <div class="row featurette"  data-sr="enter bottom, hustle 10px">
         <div class="col-md-7 col-md-push-5">
           <h2 class="featurette-heading">Alunos aprovam 100% o Ciência sem Fronteiras<span class="text-muted"></span></h2>
@@ -165,7 +166,7 @@
       </div>
 
       <hr class="featurette-divider">
-
+-->
 
       <!-- /END THE FEATURETTES -->
 

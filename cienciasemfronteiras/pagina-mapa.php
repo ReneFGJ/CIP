@@ -11,7 +11,6 @@ require('cab.php');
 	          	<h1>Bolsistas Ciência sem Fronteiras no mundo</h1>
 	        </div>
 	        <div class="container">
-		        <p>Texto a definir ainda</p>
 	        	<p>Voltar para <a href="http://www2.pucpr.br/reol/cienciasemfronteiras/indicadores.php">indicadores</a></p>
 	        </div>
 	      	<?php

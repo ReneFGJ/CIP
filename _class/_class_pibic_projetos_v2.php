@@ -4452,7 +4452,7 @@ class projetos {
 					and (doc_status <> '!' and doc_status <> '@' and doc_status <> 'X' and doc_status <> 'E')
 					and (doc_edital = 'PIBIC' or  doc_edital = 'PIBITI' or  doc_edital = 'IS' or  doc_edital = 'ICI' or  doc_edital = 'PIBICE')
 					group by pp_centro, doc_edital, centro_nome, centro_codigo
-					order by pp_centro
+					order by pp_centro desc
 				";
 
 		$rlt = db_query($sql);

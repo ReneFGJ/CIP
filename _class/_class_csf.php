@@ -709,8 +709,8 @@ class csf
 						 ";
 				$rlt = db_query($sql);
 				
-				$sx .= '<left><h2>'.msg('Dados dos estudantes - Ranking dos cursos.').'</h2></br>';
-				$sx .= '<table class="lt1" width="100%">';
+				$sx  = '<table width="100%" class="lt1">' ;
+				$sx .= '<TR><TH style="text-align:left">Curso__Estudante<TH>Instituição<TH>País';
 				
 				$xpais = 'X';
 				
@@ -1126,17 +1126,19 @@ class csf
 				</style>
 				';
 
-                $sx .= '<BR><BR><H2>Estudantes da PUCPR por países</H2>';
-				$sx .= '<table width=100% align=center class="tabela01">';
+                $sx .= '<BR><BR><H2 style="text-align:left">Países de destino dos nossos bolsistas</H2>';
+				$sx .= '<BR>';
+				$sx .= '<table width=100% style="text-align:left" class="tabela01">';
 				$sx .= '<TR>';
-				$sx .= '<TH width=10%  align="center">Pais<TH width=35%>Instituição<TH width=5%>Estudantes';
-				$sx .= '<TH width=10%  align="center">Pais<TH width=35%>Instituição<TH width=5%>Estudantes';
+				$sx .= '<TH width=10%  style="text-align:center">Pais<TH width=35%>Instituição<TH width=5%>Estudantes';
+				$sx .= '<TH width=10%  style="text-align:center">Pais<TH width=35%>Instituição<TH width=5%>Estudantes';
 				$sx .= $sq.'</table>';
-			
+				$sx .= '<BR>';
+				$sx .= '<table width=100%  class="tabela00">';
 				$sx .= '<TR>
-							<colspan=6 align=right BGCOLOR="#99FF99 " valign="bottom">
-							Total de <strong>'.$tot_instit.'</strong> instituições destino do Intercâmbio,';
-				$sx .= 	    " com <strong>".$tot_alunos."</strong> alunos enviados pela PUCPR.";
+							<th colspan=6 valign="bottom" style="text-align:right">
+							Total de <i>'.$tot_instit.'</i> instituições de destino do intercâmbio';
+				$sx .= 	    " com <i>".$tot_alunos."</i> alunos enviados pela PUCPR.";
 				$sx  .= '</table>';	
 				$sx .= '<BR>';
 				return($sx);				

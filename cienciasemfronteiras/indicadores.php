@@ -36,11 +36,10 @@
         ?>
 
         <div class="page-header">
-          <h1>Indicadores Ciência sem Fronteiras pela PUCPR</h1>
+          <h1>Indicadores <i>Ciência sem Fronteiras</i> administrado pela PUCPR.</h1>
         </div>
-
         <div class="indicadores-paragrafo">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          <p>Painel de indicadores do programa <i>Ciência sem Fronteiras</i> com relatórios de estudantes, instituições, países e cursos.</p>
         </div>
 
 		<!--Botões-->
@@ -60,25 +59,25 @@
           <!--Texto-->
           <a href="pagina-grafico-1.php">
             <div class="botao-2">
-              <span>Estudantes por curso</span>
+              <span>Bolsas por curso</span>
             </div>
           </a>
 		  <!--Texto-->	
           <a href="pagina-grafico-2.php">
             <div class="botao-3">
-              <span>Estudantes por curso e instituição</span>
+              <span>Bolsas por curso e instituição</span>
             </div>
           </a>
 		  <!--Texto-->	
           <a href="pagina-grafico-3.php">
             <div class="botao-4">
-              <span>Bolsas por formação</span>
+              <span>Bolsas por titulação</span>
             </div>
           </a>
           <!--Texto-->        
           <a href="pagina-grafico-4.php">
             <div class="botao-5">
-              <span>Gênero dos estudantes</span>
+              <span>Bolsas por gênero </span>
             </div>
           </a>
 		  

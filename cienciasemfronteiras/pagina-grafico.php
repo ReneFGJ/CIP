@@ -8,14 +8,14 @@ require('cab.php');
 	        require('componentes/nav.php');
 	        ?>
 	        <div class="page-header">
-	          <!--<h1>Genero dos bolsistas</h1>-->
+	        	<h1>Distribuição de bolsas implementadas por país</h1>
 	        </div>
 	        <div class="container">
-	        <p>Distribuição de bolsas implementadas por país</p>
-        	<p>Voltar para <a href="http://www2.pucpr.br/reol/cienciasemfronteiras/indicadores.php">indicadores</a></p>
+        		<p>Voltar para <a href="http://www2.pucpr.br/reol/cienciasemfronteiras/indicadores.php">indicadores</a></p>
 	        </div>
+	        <br>
 	      	<?php
-	        require('index_onde.php');
+	        	require('index_onde.php');
 	        ?>
 	      	<!-- FOOTER -->
 	      	<?php
