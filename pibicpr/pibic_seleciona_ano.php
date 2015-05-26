@@ -50,20 +50,20 @@ echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div
 	$ano = $dd[2];
 	$meta = 1500;
 
-	if (strlen($dd[2])==0)
-		{$pj->ano = date("Y");
-		} else {$pj->ano = $dd[2];}
-	
-	$ano = $pj->ano;
 
-	$sql = "select count(*) as total, pj_ano, doc_edital  
-			from pibic_projetos 
-			inner join pibic_submit_documento on doc_protocolo_mae = pj_codigo 
-			where pj_ano = '".$pj->ano."'
-			and (doc_status = 'B' or doc_status = 'C' or doc_status = 'D' or doc_status = 'F') 
-			and (pj_status = 'B' or pj_status = 'C' or pj_status = 'D' or pj_status = 'F')
-			group by pj_ano, doc_edital
-			order by  doc_edital
+	$sql = "select pj_ano, doc_edital, count(*) as total  
+			from pibic_projetos
+			left join pibic_professor on pj_professor = pp_cracha
+			left join centro on pp_escola = centro_codigo
+			left join pibic_submit_documento on doc_protocolo_mae = pj_codigo
+			left join pibic_aluno on doc_aluno = pa_cracha
+			left join ajax_areadoconhecimento on a_cnpq = pj_area  
+			where pj_ano = '$ano'
+			and (pj_status <> '!' and pj_status <> '@' and pj_status <> 'X' and pj_status <> 'E')
+			and (doc_status <> '!' and doc_status <> '@' and doc_status <> 'X' and doc_status <> 'E')
+			and (doc_edital = 'PIBIC' or  doc_edital = 'PIBITI' or  doc_edital = 'IS' or  doc_edital = 'ICI' or  doc_edital = 'PIBICE')
+			group by pj_ano, doc_edital, pp_centro
+			order by pp_centro
 	";
 	
 	$rlt = db_query($sql);
