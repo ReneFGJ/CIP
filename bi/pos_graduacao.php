@@ -34,6 +34,7 @@ if (strlen($programa_pos) == 0)
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Corpo Docente (3)','pos_graduacao_3.php')); 
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Compilação de dados do programa (4)',''));
 				array_push($menu,array('Relatório Consultor Externo - Convidado','____Publicações Docentes (4a)','pos_graduacao_4.php'));
+				array_push($menu,array('Relatório Consultor Externo - Convidado','______Publicações Docentes Lista (4a1)','pos_graduacao_4a1.php'));
 				array_push($menu,array('Relatório Consultor Externo - Convidado','____Publicações Discentes (4b)','pos_graduacao_4a.php')); 
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Quinze melhores produções bibliográficas (5)','pos_graduacao_5.php')); 
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Cinco melhores produções técnicas (6)','')); 

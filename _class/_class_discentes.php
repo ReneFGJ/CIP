@@ -550,8 +550,8 @@ class discentes
 	function row()
 			{
 				global $cdf,$cdm,$masc;
-				$cdf = array('id_pa','pa_nome','pa_cracha','pa_centro','pa_curso');
-				$cdm = array('cod',msg('nome'),msg('cracha'),msg('centro'),msg('curso'));
+				$cdf = array('id_pa','pa_nome','pa_cracha','pa_centro','pa_curso','pa_nivelcurso','pa_situacao');
+				$cdm = array('cod',msg('nome'),msg('cracha'),msg('centro'),msg('curso'),msg('nivel'),msg('situacao'));
 				$masc = array('','','','','','','','');
 				return(1);				
 			}		
@@ -611,11 +611,69 @@ class discentes
 					$this->pa_prod= $line['pa_prod'];
 					$this->pa_ass= $line['pa_ass'];
 					$this->pa_instituicao= $line['pa_instituicao'];
+					$this->pa_nivel = $line['pa_nivelcurso'];
+					
+					$st = trim($line['pa_situacao']);
+					switch ($st)
+						{
+						case 'Normal':
+							$st = '<font color="blue"><B>Cursando</B></font>';
+							break;
+						case 'Conclusão de Curso':
+							$st = '<font color="orange"><B>Curso Concluído!</B></font>';
+							break;
+						default: 
+							$st = '<font color="red">'.$st.'</font>';
+							break;
+						}
+					$this->pa_situacao=$st;
 					
 					$this->line = $line;
 					return(1);					
 				}
 			return(0);
+		}
+	function reconsulta_dados_estudantes()
+		{
+			global $debug, $secu,$dd;
+			$sql = "update pibic_aluno set pa_update = 0 where pa_update isnull";
+			$rlt = db_query($sql);
+			
+			$sql = "select * from pibic_aluno where pa_ativo=1 and pa_update < ".date("Ym").'00';
+			$rlt = db_query($sql);
+			
+			if ($line = db_read($rlt))
+			{
+				$cracha = sonumero($line['pa_cracha']);
+				$id = $line['id_pa'];
+				if (strlen($cracha) <> 8)
+					{
+						$sql = "update pibic_aluno set pa_update = ".date("Ymd").", pa_ativo = 0 where id_pa = $id ";
+						$rlt = db_query($sql);
+						return(1);
+					} else {
+						$secu = 'valid';
+						$dd[2] == '1';
+						$sql = "update pibic_aluno set pa_situacao = 'Não identificado' where id_pa = $id ";
+						$rlt = db_query($sql);
+						
+						echo '<h1>'.$cracha.'</h1>';
+						$debug = 0;
+						require('../pibicpr/pucpr_soap_pesquisaAluno.php');
+						$sql = "update pibic_aluno set pa_update = ".date("Ymd")." where id_pa = $id ";
+						$rlt = db_query($sql);
+						
+					}
+			}
+			
+			$sql = "select count(*) as total from pibic_aluno where pa_ativo = 1 and pa_update < ".date("Ym").'00';
+			$rlt = db_query($sql);
+			while ($line = db_read($rlt))
+				{
+					$total = $line['total'];
+				}
+			echo '<BR>Restam '.$total.' atualizações<BR>';
+			return(1);
 		}
 
 	function consulta_pucpr($cracha)
@@ -623,7 +681,7 @@ class discentes
 			global $secu, $debug;
 			require("../pibicpr2/_pucpr_login.php");
 			if ($cracha != '00000000') {
-			$debug = 0;
+			$debug = 1;
 			$reativar = '1';
 			require('../pibicpr/pucpr_soap_pesquisaAluno.php');
 			}			
@@ -687,6 +745,8 @@ class discentes
 				<li><strong>Curso:</strong> '.$this->pa_curso.'</li>
 				<li><strong>Centro:</strong> '.$this->pa_centro.'</li>
 				<li><strong>Escola:</strong> '.$this->pa_escola.'</li>
+				<li><strong>Nível do curso:</strong> '.$this->pa_nivel.'</li>
+				<li><strong>Situação:</strong> '.$this->pa_situacao.'</li>
 				<BR>
 				<li><strong>Dados Bancários:</strong>
 						<BR>Banco: '.$this->line['pa_cc_banco'].'

@@ -791,6 +791,61 @@ class lattes
 				';
 				return($sx);
 			}
+
+		function lista_professor_pubçlicaoes($programa,$areas,$anoi=1990,$anof=2999,$tp=0,$producao='A')
+			{
+					$wh = '';
+					if (strlen($programa) > 0)
+						{	
+							$wh = " pdce_programa = '$programa' and ";
+						}
+					/****************/
+					$sql = "select count(*) as total, pp_nome, pp_cracha, pdce_tipo from
+							(
+							select distinct pp_nome, pp_cracha, pdce_tipo from pibic_professor 
+							inner join programa_pos_docentes on pdce_docente = pp_cracha
+							where $wh pdce_ativo = 1 and pp_ativo = 1
+							) as tabela
+							left join lattes_artigos on pp_cracha = la_professor
+							where (la_ano >= '$anoi' and la_ano <= '$anof')
+							and (la_tipo = '".$producao."')  
+							group by pp_nome, pp_cracha, pdce_tipo
+							order by pp_nome
+					";
+					
+					$rlt = db_query($sql);
+					$sx = '<h2>Produção quantitativa por docente</h2>';
+					$sx .= '<table width="100%" class="tabela00">';
+					$sx .= '<TR><th></th><th>Nome</th><th>tipo</th><th>produção</th><th>total</th></tr>';
+					
+					$tot = 0;
+					$xprof = '';
+					while ($line = db_read($rlt))
+						{
+							$prof = $line['pp_cracha'];
+							$tipo = $line['pdce_tipo'];
+							$size = round($line['total'])*4;
+							switch ($tipo)
+								{
+								case 'P': $tipo = 'Permanente'; break;
+								}
+							if ($prof != $xprof)
+								{
+								$tot++;
+								$sx .= '<TR><TD>'.$tot.'</td>
+										<TD colspan=1 class="lt3">'.$line['pp_nome'].'</td>
+										<td>'.$tipo.'</td>';
+								$sx .= '<TD><img src="../img/nada_azul.jpg" height="16" width="'.$size.'"></td>
+										<td align="center">';
+								$sx .= $line['total'];
+								$sx .= '</TD>';
+								$SX .= '</TR>';
+								$xprof = $prof;
+								}
+						}
+					$sx .= '</table>';
+					return($sx);
+			}
 		
 		function resumo_qualis_ss($programa,$areas,$anoi=1990,$anof=2999,$tp=0,$producao='A')
 			{
@@ -1585,7 +1640,9 @@ class lattes
 				//exit;
 				
 				$professor = trim($this->busca_professor($cp[0]));
-				if (strlen($professor) ==0) { echo UpperCaseSql($cp[0]).' não localizado<BR>'; return(false); }
+				$professor= troca($professor,'´','');
+				
+				if (strlen($professor) ==0) { echo UpperCaseSql($professor).' não localizado<BR>'; return(false); }
 				$this->updatex_journal();
 				$issn = $this->formata_issn($cp[2]);
 				$periodico = '';
@@ -1730,10 +1787,13 @@ class lattes
 			
 		function inport_artigo($cp)
 			{
+				$prof = UpperCaseSQL($cp[0]);
+				$prof = troca($prof,'´','');
+				echo '<BR>'.$prof;
 				
-				$professor = trim($this->busca_professor($cp[0]));
-				if (strlen($professor) ==0) { $professor = trim($this->busca_aluno(trim($cp[0]))); }
-				if (strlen($professor) ==0) { echo '<BR>'.UpperCaseSql(trim($cp[0])).' não localizado<BR>'; return(false); }
+				$professor = trim($this->busca_professor($prof));
+				if (strlen($professor) ==0) { $professor = trim($this->busca_aluno(trim($prof))); }
+				if (strlen($professor) ==0) { echo '<BR>'.$prof.' não localizado<BR>'; return(false); }
 				$this->updatex_journal();
 				
 				//echo $professor;
@@ -1954,10 +2014,15 @@ class lattes
 			}
 		function busca_professor($nome)
 			{
-				$sql = "select * from ".$this->docentes." where (pp_nome_asc like '".upperCaseSql($nome)."%'
-						or pp_nome_lattes = '".UpperCaseSql($nome)."') and pp_ativo = 1 
+				$nome = UpperCaseSql($nome);
+				
+				$sql = "select * from ".$this->docentes." where (pp_nome_asc like '".$nome."%'
+						or pp_nome_lattes = '".$nome."')  
 				";
+				/* Retirado regra de professor desligado */
+				/* and pp_ativo = 1 */
 				$rlt = db_query($sql);
+				
 				if ($line = db_read($rlt))
 				{
 					return($line['pp_cracha']);

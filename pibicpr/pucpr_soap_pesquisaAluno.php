@@ -17,6 +17,7 @@ if (strlen($secu) == 0) {
 /* Habilita consulta */
 $consulta = True;
 //$debug = True;
+$cracha = trim($cracha);
 
 /* Se for enviado dd2=1 forca nova consulta */
 if ($dd[2] == '1') {
@@ -50,13 +51,15 @@ if ($consulta == true) {
 	$al_nivelCurso = $result['nivelCurso'];
 	$al_nomeAluno = troca($result['nome'], "'", "`");
 	$al_nomeCurso = troca($result['nomeCurso'], "'", "`");
-	$al_pessoa = $result['pessoa'];
+	$al_pessoa = trim($result['pessoa']);
 	$al_tel1 = $result['tel1'];
 	$al_tel2 = $result['tel2'];
 	$al_email1 = $result['email1'];
 	$al_email2 = $result['email2'];
 	$genero = $result['sexo'];
 	$nasc = trim($result['dataNascimento']);
+	$situacao = trim($result['situacao']);
+	$nivelcurso = trim($result['nivelCurso']);
 	$nasc = substr($nasc, 6, 4) . substr($nasc, 3, 2) . substr($nasc, 0, 2);
 
 	/* Correcoes de Centros dentro da Instituicao */
@@ -77,8 +80,9 @@ if ($consulta == true) {
 			echo '<BR>e-mail.....:' . $al_email1 . '</B>';
 			echo '<BR>e-mail(alt):' . $al_email2 . '</B>';
 
-			echo '<BR>Nascimento.:' . $nasc . '</B>';
-
+			echo '<BR>Nascimento.:' . $nasc . '</B>';			
+			echo '<BR>Situação...:' . $situacao . '</B>';
+			echo '<BR>Nível Curso:' . $nivelcurso . '</B>';
 			echo '</TD></TR></TABLE>';
 		}
 		
@@ -96,7 +100,9 @@ if ($consulta == true) {
 			$ssql .= "pa_update='" . date("Ymd") . "',";
 			$ssql .= "pa_email='" . $al_email1 . "',";
 			$ssql .= "pa_email_1='" . $al_email2 . "', ";
-			$ssql .= "pa_nasc='" . $nasc . "' ";
+			$ssql .= "pa_nasc='" . $nasc . "', ";
+			$ssql .= "pa_nivelcurso='" . $nivelcurso . "', ";
+			$ssql .= "pa_situacao = '".substr($situacao,0,20)."' ";
 			$ssql .= " where pa_cracha = '" . $cracha . "' ";
 			$rrlt = db_query($ssql);
 			$rst = True;
@@ -107,14 +113,14 @@ if ($consulta == true) {
 			$ssql .= "pa_cracha,pa_cpf,pa_centro,";
 			$ssql .= "pa_curso,pa_tel1,pa_tel2,";
 			$ssql .= "pa_escolaridade,pa_update ";
-			$ssql .= ",pa_email,pa_email_1";
+			$ssql .= ",pa_email,pa_email_1, pa_situacao, pa_nivelcurso";
 			$ssql .= ") ";
 			$ssql .= " values ";
 			$ssql .= "('" . UpperCase($al_nomeAluno) . "','" . UpperCaseSQL($al_nomeAluno) . "',$nasc,";
 			$ssql .= "'" . $al_pessoa . "','" . $al_cpf . "','" . $al_centroAcademico . "',";
 			$ssql .= "'" . $al_nomeCurso . "','" . $al_tel1 . "','" . $al_tel2 . "',";
 			$ssql .= "'" . $al_nivelCurso . "','" . date("Ymd") . "'";
-			$ssql .= ",'" . $al_email1 . "','" . $al_email2 . "'";
+			$ssql .= ",'" . $al_email1 . "','" . $al_email2 . "', '".substr($situacao,0,20)."','".$nivelcurso."'";
 			$ssql .= ")";
 			$rrlt = db_query($ssql);
 			$msg = 'Inserido';

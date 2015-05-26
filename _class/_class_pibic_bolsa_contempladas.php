@@ -580,6 +580,8 @@ function parecer_nao_entregues($ano)
 							<TH>Cracha Alun.
 							<TH>CPF Aluno
 							<TH>Curso aluno
+							<TH>Situação do aluno
+							<TH>Nivel do curso
 							<TH>Colegio
 							<TH>Colegio Orientador
 							<TH>Status
@@ -643,6 +645,12 @@ function parecer_nao_entregues($ano)
 
 						$sx .= '<TD>';
 						$sx .= $line['pa_curso'];//
+						
+						$sx .= '<TD>';
+						$sx .= $line['pa_situacao'];						
+
+						$sx .= '<TD>';
+						$sx .= $line['pa_nivelcurso'];						
 
 						$sx .= '<TD>';
 						$sx .= $line['pb_colegio'];//

@@ -59,7 +59,14 @@ echo '<TD width="300">';
 	
 	echo '<LI><A HREF="protocolo_abrir.php?dd1=ALT">Alteração de título do Plano do Aluno</A></LI>';
 	echo '<LI><A HREF="protocolo_abrir.php?dd1=SBS">Substituição do aluno</A></LI>';
-	echo '<LI><A HREF="protocolo_abrir.php?dd1=CAN">Cancelamento de orientação</A></LI>';
+	
+	/* Cancelamento de protocolo */
+	require("__submit_SOLICIT.php");
+	if ($open == 1)
+		{
+			echo '<LI><A HREF="protocolo_abrir.php?dd1=CAN">Cancelamento de orientação</A></LI>';
+		}
+	/* Declaracao */
 	if (($hr=='HR') or ($perfil->valid("#TST")))
 		{
 			echo '<LI><A HREF="declaracao_convite_horista.php">Convite Horas Eventuais IC</A></LI>';
