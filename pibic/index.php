@@ -57,8 +57,6 @@ echo '<TD width="300">';
 	echo '<h3> Solicitação</h3>';
 	echo '<UL>';
 	
-	echo '<LI><A HREF="protocolo_abrir.php?dd1=ALT">Alteração de título do Plano do Aluno</A></LI>';
-	echo '<LI><A HREF="protocolo_abrir.php?dd1=SBS">Substituição do aluno</A></LI>';
 	
 	/* Cancelamento de protocolo */
 	require("__submit_SOLICIT.php");
@@ -66,12 +64,27 @@ echo '<TD width="300">';
 		{
 			echo '<LI><A HREF="protocolo_abrir.php?dd1=CAN">Cancelamento de orientação</A></LI>';
 		}
+    /* Alteração de título do Plano do Aluno*/
+	require("__submit_SOLICIT.php");
+	if ($open == 1)
+		{
+			echo '<LI><A HREF="protocolo_abrir.php?dd1=ALT">Alteração de título do Plano do Aluno</A></LI>';
+		} 
+   /* Substituição do aluno */
+	require("__submit_SOLICIT.php");
+	if ($open == 1)
+		{
+			echo '<LI><A HREF="protocolo_abrir.php?dd1=SBS">Substituição do aluno</A></LI>';
+		}
 	/* Declaracao */
+	require("__submit_SOLICIT.php");
+	if ($open == 1)
+		{
 	if (($hr=='HR') or ($perfil->valid("#TST")))
 		{
 			echo '<LI><A HREF="declaracao_convite_horista.php">Convite Horas Eventuais IC</A></LI>';
 		}
-	
+		}
 	echo '</UL>';
 	echo $rc -> resumo_recurso_professor($professor);
 }
