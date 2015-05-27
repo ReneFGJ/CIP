@@ -28,9 +28,7 @@
 	
 	<div style="text-align: justify">
 		<BR><BR><center><h2><?=msg('est_no_ext');?></h2></center>
-	   	<div style="text-align: justify">
-	   		<?php echo msg("csf_mapa_foot"); ?>
-	   	</div>
+	   	<div style="text-align: justify"><?php echo msg("csf_mapa_foot"); ?></div>
 		<!--Chama metodo que gera a relacao dos alunos por curso e pais -->		
 		<?php echo $csf->lista_bolsistas();?>
 	</div>

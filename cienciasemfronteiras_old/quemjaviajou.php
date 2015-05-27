@@ -1,11 +1,11 @@
 <?php
-	$include = '../';
-	require("../db.php");
-	header('Content-Type: text/html; charset=utf-8');
-	$name="Ciência sem Fronteiras PUCPR";
-	$content = "ciência sem fronteiras, ciência, fronteiras, intercâmbio, estudos, pesquisa, pucpr";
-	require('../_class/_class_csf.php');
-	$csf = new csf;
+$include = '../';
+require("../db.php");
+header('Content-Type: text/html; charset=utf-8');
+$name="Ciência sem Fronteiras PUCPR";
+$content = "ciência sem fronteiras, ciência, fronteiras, intercâmbio, estudos, pesquisa, pucpr";
+require('../_class/_class_csf.php');
+$csf = new csf;
 ?>
 
 <!DOCTYPE html>

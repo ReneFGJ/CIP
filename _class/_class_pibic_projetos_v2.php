@@ -4549,6 +4549,244 @@ class projetos {
 	}
 
 
-//**************************** Fim da funcao *****************************************
+//**************************** Fim da funcao *****************************************/
+
+
+//####################################################################################
+	//**************************** Inicio do metodo **************************************
+	/* @method: resumo_projeto_professor_area_conhecimento($ano)
+	 *          Mostra resultados dos projetos do professor submetidos por area do conhecimento
+	 * @author Elizandro Santos de Lima[Analista de Projetos]
+	 * @date: 27/05/2015
+	 */	 
+	function resumo_projeto_professor_area_conhecimento($ano) {
+
+		$sql = "select count(*) as total, pj_area, doc_edital, a_descricao
+                    from " . $this -> tabela . "
+					left join pibic_professor on pj_professor = pp_cracha
+					left join centro on pp_escola = centro_codigo
+					left join " . $this -> tabela_planos . " on doc_protocolo_mae = pj_codigo
+					left join pibic_aluno on doc_aluno = pa_cracha
+					left join ajax_areadoconhecimento on a_cnpq = pj_area  
+					where pj_ano = '$ano'
+					and (pj_status <> '!' and pj_status <> '@' and pj_status <> 'X' and pj_status <> 'E')
+					and (doc_status <> '!' and doc_status <> '@' and doc_status <> 'X' and doc_status <> 'E')
+					and (doc_edital = 'PIBIC' or  doc_edital = 'PIBITI' or  doc_edital = 'IS' or  doc_edital = 'ICI' or  doc_edital = 'PIBICE')
+					group by pj_area, doc_edital, a_descricao
+					order by pj_area
+				";
+
+		$rlt = db_query($sql);
+		
+		//Totais dos campus
+		$totalp = 0;
+		$totalt = 0;
+		$totale = 0;
+		$totali = 0;
+		//Totais gerais dos editais
+		$ttotalp = 0;
+		$ttotalt = 0;
+		$ttotale = 0;
+		$ttotali = 0;
+
+		$cap = "--";
+		//titulo da tabela
+		$sx .= '<h2><i>Projeto do professor por área do conhecimento:';
+		//Titulo das colunas
+		$sx .= '<table width="100%" align="center" class="tabela00">';
+		$sx .= '<TR><TH>Área do conhecimento<TH>PIBIC<TH>PIBITI<TH>PIBIC_EM<TH>Intern.<TH>Sub-total';
+
+		$rs = array();
+
+		while ($line = db_read($rlt)) {
+
+			$xcap = trim($line['pj_area']) . ' - ' . trim($line['a_descricao']);
+			
+			if ($cap != $xcap) {
+
+				$sx .= $this -> resumo_mostra_painel($cap, $totalp, $totalt, $totale);
+				array_push($rs, array($cap, $totalp, $totalt, $totoale));
+
+				$cap = $xcap;
+
+				$totalp = 0;
+				$totalt = 0;
+				$totale = 0;
+			}
+
+			$total = $line['total'];
+			$edital = trim($line['doc_edital']);
+
+			switch ($edital) {
+					case 'PIBIC' :
+						$totalp = $totalp + $total;
+						$ttotalp = $ttotalp + $total;
+						break;
+					case 'ICI' :
+						$totali = $totali + $total;
+						$ttotali = $ttotali + $total;
+						break;					
+					case 'PIBITI' :
+						$totalt = $totalt + $total;
+						$ttotalt = $ttotalt + $total;
+						break;
+					case 'PIBICE':	
+						$totale = $totale + $total;
+						$ttotale = $ttotale + $total;
+						break;
+					case 'IS':
+						$totali = $totali + $total;
+						$ttotali = $ttotali + $total;
+						break;
+					case '':	
+						$ttotalp = $ttotalp + $total;
+						break;
+					default :
+						echo 'Não localizado!,' . $edital;
+						break;
+					}
+
+		}
+
+		$sx .= $this -> resumo_mostra_painel($cap, $totalp, $totalt, $totale, $totali);
+		array_push($rs, array($cap, $totalp, $totalt, $totoale, $totoali, $ttotale));
+
+		$sx .= '<TR><TD class="tabela00" align="right"><B>Totais';
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotalp;
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotalt;
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotale;
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotali;
+		$sx .= '<TD class="tabela01" align="center"><B>' . ($ttotale + $ttotalt + $ttotalp + $ttotali);
+		$sx .= '</table>';
+
+		$this -> plano_pibic = $totalp;
+		$this -> plano_pibiti = $totalt;
+		$this -> plano_pibic_em = $totale;
+		$this -> plano_ici = $totali;
+		$this -> rst = $rs;
+
+		return ($sx);
+
+	}
+//**************************** Fim da funcao *****************************************/
+
+
+//####################################################################################
+	//**************************** Inicio do metodo **************************************
+	/* @method: resumo_planos_area_estrategica_principais($ano)
+	 *          Mostra resultados dos planos submetidos por area do conhecimento principal
+	 * @author Elizandro Santos de Lima[Analista de Projetos]
+	 * @date: 27/05/2015
+	 */	 
+	function resumo_planos_area_estrategica_principais($ano) {
+
+		$sql = "select count(*) as total, pj_area_estra, doc_edital, a_descricao
+                    from " . $this -> tabela . "
+					left join pibic_professor on pj_professor = pp_cracha
+					left join centro on pp_escola = centro_codigo
+					left join " . $this -> tabela_planos . " on doc_protocolo_mae = pj_codigo
+					left join pibic_aluno on doc_aluno = pa_cracha
+					left join ajax_areadoconhecimento on a_cnpq = pj_area  
+					where pj_ano = '$ano'
+					and (pj_status <> '!' and pj_status <> '@' and pj_status <> 'X' and pj_status <> 'E')
+					and (doc_status <> '!' and doc_status <> '@' and doc_status <> 'X' and doc_status <> 'E')
+					and (doc_edital = 'PIBIC' or  doc_edital = 'PIBITI' or  doc_edital = 'IS' or  doc_edital = 'ICI' or  doc_edital = 'PIBICE')
+					group by pj_area, doc_edital, a_descricao
+					order by pj_area
+				";
+
+		$rlt = db_query($sql);
+		
+		//Totais dos campus
+		$totalp = 0;
+		$totalt = 0;
+		$totale = 0;
+		$totali = 0;
+		//Totais gerais dos editais
+		$ttotalp = 0;
+		$ttotalt = 0;
+		$ttotale = 0;
+		$ttotali = 0;
+
+		$cap = "--";
+		//titulo da tabela
+		$sx .= '<h2><i>Planos por área estratégica:';
+		//Titulo das colunas
+		$sx .= '<table width="100%" align="center" class="tabela00">';
+		$sx .= '<TR><TH>Área do conhecimento<TH>PIBIC<TH>PIBITI<TH>PIBIC_EM<TH>Intern.<TH>Sub-total';
+
+		$rs = array();
+
+		while ($line = db_read($rlt)) {
+
+			$xcap = trim($line['pj_area']) . ' - ' . trim($line['a_descricao']);
+			
+			if ($cap != $xcap) {
+
+				$sx .= $this -> resumo_mostra_painel($cap, $totalp, $totalt, $totale);
+				array_push($rs, array($cap, $totalp, $totalt, $totoale));
+
+				$cap = $xcap;
+
+				$totalp = 0;
+				$totalt = 0;
+				$totale = 0;
+			}
+
+			$total = $line['total'];
+			$edital = trim($line['doc_edital']);
+
+			switch ($edital) {
+					case 'PIBIC' :
+						$totalp = $totalp + $total;
+						$ttotalp = $ttotalp + $total;
+						break;
+					case 'ICI' :
+						$totali = $totali + $total;
+						$ttotali = $ttotali + $total;
+						break;					
+					case 'PIBITI' :
+						$totalt = $totalt + $total;
+						$ttotalt = $ttotalt + $total;
+						break;
+					case 'PIBICE':	
+						$totale = $totale + $total;
+						$ttotale = $ttotale + $total;
+						break;
+					case 'IS':
+						$totali = $totali + $total;
+						$ttotali = $ttotali + $total;
+						break;
+					case '':	
+						$ttotalp = $ttotalp + $total;
+						break;
+					default :
+						echo 'Não localizado!,' . $edital;
+						break;
+					}
+
+		}
+
+		$sx .= $this -> resumo_mostra_painel($cap, $totalp, $totalt, $totale, $totali);
+		array_push($rs, array($cap, $totalp, $totalt, $totoale, $totoali, $ttotale));
+
+		$sx .= '<TR><TD class="tabela00" align="right"><B>Totais';
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotalp;
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotalt;
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotale;
+		$sx .= '<TD class="tabela01" align="center"><B>' . $ttotali;
+		$sx .= '<TD class="tabela01" align="center"><B>' . ($ttotale + $ttotalt + $ttotalp + $ttotali);
+		$sx .= '</table>';
+
+		$this -> plano_pibic = $totalp;
+		$this -> plano_pibiti = $totalt;
+		$this -> plano_pibic_em = $totale;
+		$this -> plano_ici = $totali;
+		$this -> rst = $rs;
+
+		return ($sx);
+
+	}
+//**************************** Fim da funcao *****************************************/
 
 }
