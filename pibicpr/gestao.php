@@ -75,7 +75,7 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 			require("../pibic/__submit_SOLICIT.php");
 			if ($open == 1) { $sx = '<IMG SRC="'.$http.'img/icone_switch_on.png" border=0 height="22">'; }
 			else			{ $sx = '<IMG SRC="'.$http.'img/icone_switch_off.png" border=0 height="22">'; }
-			array_push($menu,array('Orientações',''.$sx . ' Solicitação','submissao_switch.php?dd1=SOLICIT'));
+			array_push($menu,array('Serviços de Orientações',''.$sx . 'Habilitar serviços','submissao_switch.php?dd1=SOLICIT'));
 		}
 			 
 
