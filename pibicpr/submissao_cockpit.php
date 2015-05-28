@@ -97,10 +97,9 @@ echo $pj->resumo_planos_centro();
 echo $pj->resumo_planos_campi();
 
 echo $pj->resumo_projetos_area();
-
 echo $pj->resumo_planos_area_conhecimento();
-echo $pj->resumo_planos_area();
 
+echo $pj->resumo_planos_area();
 echo $pj->resumo_planos_area_estrategica();
 
 ?>

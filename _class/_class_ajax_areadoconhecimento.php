@@ -84,6 +84,7 @@ class areadoconhecimento
 			$sx .= '<TH colspan="5">Descrição'.chr(13);
 			$sx .= $s;
 			$sx .= '</table>';
+			
 			return($sx);
 	}
 	
