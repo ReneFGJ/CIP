@@ -19,10 +19,11 @@ $menu = array();
 //array_push($cp,array('$A8','','Selecione um item nos menus abaixo',False,True,''));
 
 array_push($menu,array(msg('submissoes'),'Resumo',''));
-array_push($menu,array(msg('submissoes'),'__Cockpit','submissao_cockpit.php'));
-if ($perfil->valid('#TST'))
+//array_push($menu,array(msg('submissoes'),'__Cockpit','submissao_cockpit.php'));
+
+if (($perfil->valid('#TST')) or ($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
-		array_push($menu,array(msg('submissoes'),'__Seleciona Edital','pibic_seleciona_anos.php'));
+		array_push($menu,array(msg('submissoes'),'__Cockpit','pibic_seleciona_anos.php'));
 	}
 
 array_push($menu,array(msg('submissoes'),'Projetos e Planos',''));

@@ -519,7 +519,7 @@ class parecer_pibic
 			return($sx);
 		}
 	
-	function parecer_abertos_submissao($dd1=20100101,$dd2=20500101,$tipo='',$status)
+	function parecer_abertos_submissao($dd1,$dd2,$tipo='',$status)
 		{
 			global $jid;
 			
@@ -532,47 +532,54 @@ class parecer_pibic
 			//	{ $sql .= " and pp_tipo = '".$tipo."' "; }
 			$sql .= " and (pp_data >= $dd1 and pp_data <= $dd2) ";
 			$sql .= " order by us_nome, pp_data desc ";	
+			
 			$rlt = db_query($sql);
 					
 			$sx .= '<table width="100%" border=0 class="lt1">';
-			$sx .= '<TR><TD colspan=10><H9>Indicações não avaliadas</h9>';
-			$sx .= '<BR>&nbsp;&nbsp;<font class="lt0">Indicados entre '.stodbr($dd1).' e '.stodbr($dd2);
+			$sx .= '<TR><TD colspan=10><H2>Indicações não avaliadas</h2>';
+			$sx .= '<font class="lt1">Indicados entre '.stodbr($dd1).' e '.stodbr($dd2);
+			$sx .= '<BR><BR>&nbsp;&nbsp;';
 			$xnome = 'x';
 			$id=0;
+			
 			while ($line = db_read($rlt))
 				{
 					$id++;
 					$link = '<A href="#" onclick="newxy2(\'parecer_declinar.php?dd0='.$line['id_pp'].'\',600,400);" class="link">Declinar</A>';
-					if ($line['pp_status'] != '@') {
-						 $link = 'AVALIADO';
-						if ($line['pp_status'] == 'D') { $link = 'DECLINADO'; } 
+					
+					if ($line['pp_status'] != '@') 
+						{
+						  $link = 'AVALIADO';
+						  if ($line['pp_status'] == 'D') {$link = 'DECLINADO';} 
 						}
-					$linkv = '<A HREF="pibic_projetos_detalhes.php?dd0='.$line['pp_protocolo'].'&dd90='.checkpost($line['pp_protocolo']).'" target="_new'.$line['id_pp'].'">';
+						$linkv = '<A HREF="pibic_projetos_detalhes.php?dd0='.$line['pp_protocolo'].'&dd90='.checkpost($line['pp_protocolo']).'" target="_new'.$line['id_pp'].'">';
+						
 					$nome = trim($line['us_nome']);
+					
 					if ($xnome != $nome)
 						{
-						$sx .= '<TR>';
-						$sx .= '<TD colspan=10><h7>'.$line['us_nome'].'</h7>';
-						$xnome = $nome;
+						  $sx .= '<TR>';
+						  $sx .= '<TD colspan=10><h4>'.$line['us_nome'].'</h4>';
+						  $xnome = $nome;
 						}
-					$sx .= '<TR valign="top">';			
-					
-					$sx .= '<TD width="20">&nbsp;';
-							
-					$sx .= '<TD align="center" class="tabela01">';
-					$sx .= stodbr($line['pp_data']);
-
-					$sx .= '<TD align="center">';
-					$sx .= $link;
-
-					$sx .= '<TD align="center" class="tabela01">';
-					$sx .= $linkv.$line['pp_protocolo'].'</A>';
-					
-					$sx .= '<TD class="tabela01">';
-					$sx .= $line['pj_titulo'];
-					
-					$sx .= '<TD class="tabela01">';
-					$sx .= $line['pp_tipo'];					
+						
+						$sx .= '<TR valign="top">';			
+						$sx .= '<TD width="20">&nbsp;';
+		
+						$sx .= '<TD align="center" class="tabela01">';
+						$sx .= $linkv.$line['pp_protocolo'].'</A>';
+						
+						$sx .= '<TD align="Left" class="tabela01">';
+						$sx .= ucfirst(strtolower($line['pj_titulo']));
+						
+						$sx .= '<TD align="center" class="tabela01">';
+						$sx .= stodbr($line['pp_data']);
+						
+						$sx .= '<TD align="center" class="tabela01">';
+						$sx .= $link;
+						
+						$sx .= '<TD align="center" class="tabela01">';
+						$sx .= $line['pp_tipo'];					
 					
 					$ln = $line;
 				}

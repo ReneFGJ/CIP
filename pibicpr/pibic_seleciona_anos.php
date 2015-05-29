@@ -15,7 +15,7 @@ echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
 echo '<h1>Submissões</h1>';
 echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div>';
-	
+
 
 	//pode requerir qualquer classe que precise do edital e data
 	require("../_class/_class_pibic_projetos_v2.php");
@@ -102,7 +102,7 @@ echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div
 			$rest = $tot - $meta;
 			$cap = 'Planos acima da meta';
 		}
-?>		
+?>		 
 	 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	    <script type="text/javascript">
 	      google.load("visualization", "1", {packages:["corechart"]});
@@ -140,41 +140,39 @@ echo '</BR>';
 	echo $pb->resumo_projeto_professor_area_conhecimento($dd[2]);
 	echo $pb->resumo_planos_area_estrategica_principais($dd[2]);
 
+	//titulo da tabela
+	$sx .= '<h2><i>Gráfico das áreas de Conhecimento:';
+	echo '</BR>'; 
 ?>
-	    <title>
-	      Google Visualization API Sample
-	    </title>
-	    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	    <script type="text/javascript">
-	      google.load('visualization', '1', {packages: ['corechart']});
-	    </script>
-	    <script type="text/javascript">
-	      function drawVisualization() {
+	
+	<title>Google Visualization API Sample</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">google.load('visualization', '1', {packages: ['corechart']});</script>
+    <script type="text/javascript">
+      function drawVisualization() {
 	        var data = google.visualization.arrayToDataTable([
-<? 
-	 $rst = $pj->rst;
-	 for ($r=0;$r < count($rst);$r++)
-	 	{
-	 		$bolsa = ($rst[$r][1]+$rst[$r][2]+$rst[$r][3]);
-			$meta = ($rst[$r][4]+$rst[$r][5]+$rst[$r][6]);
-	 		if ($r > 0) echo ','.chr(13).chr(10);
-	 		echo "['".$rst[$r][0]."', 0, 0,".$bolsa.", ".$meta."]";
-	 	}
-?>
-	        ], true);
-	
-	        var options = {
-	          legend:'none'
-	        };
-	
-	        var chart = new google.visualization.CandlestickChart(document.getElementById('chart_div2'));
-	        chart.draw(data, options);
-	      }
-	
-	      google.setOnLoadCallback(drawVisualization);
-	    </script>
-	  </head>				
-
+			 <? 
+				 $rst = $pb->rst;
+				 for ($r=0;$r < count($rst);$r++)
+				 	{
+				 		$bolsa = ($rst[$r][1]+$rst[$r][2]+$rst[$r][3]);
+						$meta = ($rst[$r][4]+$rst[$r][5]+$rst[$r][6]);
+				 		if ($r > 0) echo ','.chr(13).chr(10);
+						echo "['".$rst[$r][0]."', 0, 0,".$bolsa.", ".$meta."]";
+				 	}
+			 ?>
+			], true);
+			
+			var options = {legend:'none'};
+			var chart = new google.visualization.CandlestickChart(document.getElementById('chart_div2'));
+			chart.draw(data, options);
+  		}
+  		google.setOnLoadCallback(drawVisualization);
+    </script>
+  </head>
+  <body>
+    <div id="chart_div2" style="width: 900px; height: 500px;"></div>
+  </body>
 <?	
 	require("../foot.php");	
 ?>	
