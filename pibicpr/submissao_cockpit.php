@@ -28,7 +28,7 @@ $mt = array('PIBIC' => 800, 'PIBITI' => 300, 'PIBICE' => 60);
 $tot = 0;
 while ($line = db_read($rlt))
 	{
-		$page = troca(page(),'.php','');
+		$page = 'pibic_seleciona_anos';
 		$link = '<a href="'.$page.'_1.php?dd0='.$line['doc_edital'].'">';
 		$linka = '<a href="submissao_cockpit_excel.php?dd0='.trim($line['doc_edital']).'&ano='.$ano.'">';
 		$sx .= '<TR>';

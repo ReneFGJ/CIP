@@ -20,11 +20,12 @@ $menu = array();
 
 array_push($menu,array(msg('submissoes'),'Resumo',''));
 //array_push($menu,array(msg('submissoes'),'__Cockpit','submissao_cockpit.php'));
-
+//array_push($menu,array(msg('submissoes'),'__Cockpit_02','submissao_cockpit.php'));
+	
 if (($perfil->valid('#TST')) or ($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
 		array_push($menu,array(msg('submissoes'),'__Cockpit','pibic_seleciona_anos.php'));
-	}
+	}	
 
 array_push($menu,array(msg('submissoes'),'Projetos e Planos',''));
 array_push($menu,array(msg('submissoes'),'__Planos por professor / titulação','submissao_professor_titulacao.php'));
