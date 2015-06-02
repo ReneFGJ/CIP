@@ -47,7 +47,8 @@ array_push($menu,array(msg('submissoes'),'__Projetos não finalizados','submissao
 
 
 array_push($menu,array(msg('pre-avaliacao'),'Avaliações Finalizadas','submissao_detalhe.php?dd1=E'));
-array_push($menu,array(msg('pre-avaliacao'),'Avaliações em aberto','submissao_avaliacao_aberta.php'));	
+array_push($menu,array(msg('pre-avaliacao'),'Avaliações em aberto','submissao_avaliacao_aberta.php'));
+array_push($menu,array(msg('pre-avaliacao'),'Avaliações em aberto (externos)','submissao_avaliacao_aberta_externo.php'));	
 array_push($menu,array(msg('pre-avaliacao'),'Projetos para indicação','submissao_detalhe.php?dd1=C'));
 array_push($menu,array(msg('pre-avaliacao'),'Projetos indicados','submissao_detalhe.php?dd1=D'));
 array_push($menu,array(msg('pre-avaliacao'),'Projetos para Coordenação','submissao_detalhe.php?dd1=P'));

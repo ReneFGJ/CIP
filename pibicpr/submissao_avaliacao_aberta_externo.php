@@ -8,7 +8,7 @@ require ($include . "sisdoc_debug.php");
 
 $ativo = True;
 $jid = 20;
-$texto_ic = 'PARIC_AVA_ABERT';
+$texto_ic = 'PARIC_AVA_ABERT_EX';
 $sql = "select * from ic_noticia where nw_ref = '" . $texto_ic . "'";
 //$sql .= "  and nw_journal = '".$jid."' ";
 $rrr = db_query($sql);
@@ -59,7 +59,7 @@ $sx = '<table>';
 $xcracha = '';
 while ($line = db_read($rlt)) {
 	$cracha = trim($line['pp_a']);
-	if (strlen($cracha) == 8) {
+	if (strlen($cracha) == 7) {
 		if ($cracha != $xcracha) {
 			$xcracha = $cracha;
 			$sx .= '<tr>';
@@ -140,8 +140,7 @@ echo '>>>>Total de ' . $tot . ' avaliações';
 <TD><input type="submit" name="dd10" value="confirmar enviar e-mail para os pareceristas da lista abaixo" style="width:<?=$tab_max;?>px; "></TD>
 <TD></form></TD>
 </TR>
-<TR><TD colspan="3" bgcolor="#EFFAF4">REF: <?php echo $texto_ic;?><
-/TD></TR>
+<TR><TD colspan="3" bgcolor="#EFFAF4">REF: <?php echo $texto_ic;?></TD></TR>
 <TR><TD colspan="3" bgcolor="#EFFAF4"><?=($tttt);?><
 /TD></TR>
 <TABLE width="<?=$tab_max;?>" class="lt1" border="0">

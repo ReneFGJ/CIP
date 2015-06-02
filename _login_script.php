@@ -11,8 +11,7 @@ $msg = array(	'login_cab' => 'login de acesso ao sistema',
 				'submit' => 'acessar',
 				'erro1' => 'login nao localizado',
 				'erro2' => 'senha invalida',
-				'erro3' => 'login ou senha em branco'
-								
+				'erro3' => 'login ou senha em branco'								
 );
 
 /* Valida login */
