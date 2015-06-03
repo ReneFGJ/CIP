@@ -50,7 +50,7 @@
 
       <!-- FOOTER -->
       <?php
-        require('componentes/footer.php');
+        //require('componentes/footer.php');
         ?>
 
     </div><!-- /.container -->

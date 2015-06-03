@@ -82,19 +82,19 @@
           </a>
 		  
 		  <!--
-          <a href="pagina-grafico-5.php">
+          <a href="localizador.php">
             <div class="botao-6">
-              <span>Perfil dos estudantes de Intercâmbio</span>
+              <span>Localizar!</span>
             </div>
           </a>
-		  -->	
+		  -->
         </div>
 
     <div class="clear"></div>
     
       <!-- FOOTER -->
       <?php
-        require('componentes/footer.php');
+        //require('componentes/footer.php');
       ?>
 
     </div><!-- /.container -->

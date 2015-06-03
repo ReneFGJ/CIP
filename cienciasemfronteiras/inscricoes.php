@@ -35,22 +35,13 @@
         require('componentes/nav.php');
         ?>
 
-
-
         <div class="page-header">
           <h1>Inscrições</h1>
         </div>
-        
-
-
-
-
-      
-
 
       <!-- FOOTER -->
       <?php
-        require('componentes/footer.php');
+        //require('componentes/footer.php');
         ?>
 
     </div><!-- /.container -->

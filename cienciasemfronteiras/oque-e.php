@@ -38,14 +38,17 @@
 
 
         <div class="page-header">
-          <h1>O que é?</h1>
+          <h1>O QUE É?</h1>
         </div>
         <div class="oquee">
-        
 
-        <p>O Programa Ciência sem Fronteiras objetiva propiciar a formação de recursos humanos altamente qualificados nas melhores 
-          universidades e instituições de pesquisa estrangeiras, com vistas a promover a internacionalização da ciência e da tecnologia 
-          nacional, estimulando estudos e pesquisas de brasileiros no exterior, inclusive com a expansão significativa do intercâmbio e da mobilidade de graduandos.</p>
+	        <p>O Programa Ciência sem Fronteiras foi lançado pelo Governo Federal em 2012 e sua gestão é realizada pela CAPES 
+	        	(Coordenação de Aperfeiçoamento de Pessoal de Nível Superior) e pelo CNPq (Conselho Nacional de Desenvolvimento 
+	        	Científico e Tecnológico).  Tem como objetivo principal a formação de recursos humanos altamente qualificados nas 
+	        	melhores universidades e instituições de pesquisa estrangeiras, com vistas a promover a internacionalização da ciência
+	        	 e da tecnologia nacional, estimulando estudos e pesquisas de brasileiros no exterior, inclusive com a expansão 
+	        	 significativa do intercâmbio e da mobilidade de graduandos.
+	        </p>
           <br />
 
           <p><strong>Objetivos específicos:</strong></p>
@@ -77,7 +80,7 @@
 
       <!-- FOOTER -->
       <?php
-        require('componentes/footer.php');
+       // require('componentes/footer.php');
         ?>
 
     </div><!-- /.container -->
