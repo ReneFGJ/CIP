@@ -19,7 +19,7 @@ echo '<BR>Port:'.$base_port;
 
 $link = mysql_connect($base_host.':'.$base_port, $base_user, $base_pass);
 if (!$link) {
-    die('Não foi possível conectar: ' . mysql_error());
+    die('<BR><BR>Não foi possível conectar: ' . mysql_error());
 }
 echo 'Conexão bem sucedida';
 mysql_close($link);
