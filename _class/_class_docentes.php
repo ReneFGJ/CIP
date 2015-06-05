@@ -2351,6 +2351,80 @@ class docentes {
 //**************************** Fim da função *****************************************
 
 
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @function: professores_sem_email($var)
+ *          Faz tratamento de email vazio
+ * @author: Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 05/06/2015
+ */	
+function professores_sem_email($tipo) {
+			
+		//echo "$tipo";	
+		
+		global $http;
+		
+		$sql = "select * 
+				from pibic_professor
+				inner join apoio_titulacao on pp_titulacao = ap_tit_codigo	  	
+				where pp_email = ''
+				and pp_ativo = '1'
+				and pp_titulacao = '$tipo'
+				order by pp_nome
+							
+							";
+		$rlt = db_query($sql);		
+		$line = db_read($rlt);
+		$tot = 0;
+		$desc_docente = $line['ap_tit_titulo'];
+		
+		$sx = '<h2>'.$desc_docente.' sem e-mail principal cadastrado</h2>';
+		$sx .= '<table width="100%" class="tabela00">';
+		$sx .= '<TR><TH width="8%">Cracha
+					<TH width="26%">Nome
+					<TH width="23%">e-mail (princ.)
+					<TH width="23%">e-mail (alt.)
+					<TH width="8%">Atualizado
+					<TH width="12%">Tipo';
+						
+		while ($line = db_read($rlt)) {
+			$tot++;
+			$link = '<A HREF="' . $http . 'cip/docentes_ed.php?dd0=' . $line['id_pp'] . '" target="_new">';
+			$sx .= '<TR>';
+			$sx .= '<TD class="tabela01" align=center>';
+			$sx .= $link;
+			$sx .= $line['pp_cracha'];
+			$sx .= '</A>';
+			
+			$sx .= '<TD class="tabela01">';
+			$sx .= $this->tratar_nome($line['pp_nome']);
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_email_1'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_email_2'];
+			$sx .= '<TD class="tabela01" align=center>';
+			$sx .= $line['pp_update'];
+			$av = round($line['pp_avaliador']);
+			$sx .= '<TD class="tabela01" align=center>';
+			switch($av) {
+				case '1' :
+					$sx .= '<font color="blue">Avaliador</font>';
+					break;
+				default :
+					$sx .= '<font color="red">Não avaliador</font>';
+					break;
+			}
+
+		}
+			$sx .= '<tr><td colspan=10>Total ' . $tot . ' de docentes';
+			$sx .= '</table>';
+			
+		return ($sx);
+		
+	}
+//**************************** Fim da função *****************************************
+
+
 
 }
 ?>

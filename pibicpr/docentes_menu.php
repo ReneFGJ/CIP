@@ -19,7 +19,9 @@ echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div
 $menu = array();
 
 	array_push($menu,array('Docentes','Cadastro de docentes','docentes.php'));
-	array_push($menu,array('Orientadores','Docentes Dr. sem email cadastrado ','pibic_docentes_email.php'));
+	array_push($menu,array('Orientadores','Dr. sem email cadastrado ','pibic_docentes_email.php'));
+	array_push($menu,array('Orientadores','Docentes sem email cadastrado ','pibic_seleciona_tipo_docentes.php'));
+	
 	
 	if ($perfil->valid('#PIB'))
 	{
