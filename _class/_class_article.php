@@ -475,11 +475,14 @@ class article
 					$sql .= " set ";
 					$sql .= " article_author = '".$autores."', 
 							article_revisado = 9,
-							article_title = '$titulo'
+							article_title = '$titulo',
+							article_issue = $article_issue
 							where article_protocolo_original = '$protocolo'							
 							and article_origem = '$origem'
 					";
-					//$rlt = db_query($sql);
+					echo $sql;
+					exit;
+					$rlt = db_query($sql);
 					echo "Atualizado";
 				} else {
 					$sql = "insert into ".$this->tabela;

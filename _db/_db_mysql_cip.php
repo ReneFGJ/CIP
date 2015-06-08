@@ -3,6 +3,7 @@ $base_user=$vars['base_user'];
 $base_port = '8130';
 $base_host="canopus.cwb.pucpr.br";
 $base_host = '10.100.4.24';
+$base_host = '10.96.155.106';
 $base_name="cip";
 $base_user="cip";
 $base_pass="cipdes2015!";
@@ -27,3 +28,4 @@ mysql_close($link);
 //$ok = db_connect();
 ?>
 <BR><BR>OK!
+

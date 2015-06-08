@@ -36,6 +36,7 @@ echo '<TABLE width="'.$tab_max.'" align="center"><TR><TD>';
 require($include.'sisdoc_row.php');
 echo '</table>';
 echo '<A HREF="'.page().'?dd1=SORT">ordenar por referencia</A>';
+echo '<BR><A HREF="sections_duplicar.php">duplicar seções</A>';
 echo '</div>';
 
 require('foot.php');

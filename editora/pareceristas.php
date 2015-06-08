@@ -27,7 +27,8 @@ echo '<A HREF="parecerista_lista.php">Lista de Pareceristas</A>';
 	$masc = array('','','','SN');
 	$busca = true;
 	$offset = 20;
-	$pre_where = " (us_ativo  = 1) and (us_journal_id = ".intval($jid).") ";
+	//$pre_where = " (us_ativo  = 1) ";
+	//$pre_where = " and (us_journal_id = ".intval($jid).") ";
 	$order  = "us_nome ";
 	if ($user_nivel > 1)
 		{

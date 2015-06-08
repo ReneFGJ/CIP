@@ -14,7 +14,7 @@ echo '<div id="breadcrumbs">'.breadcrumbs().'</div>';
 require("../_class/_class_issue.php");
 require("../_class/_class_journal_sections.php");
 require("../_class/_class_tesauro_editorial.php");
-require("../_class/_class_article.php");
+require("../editora/_class/_class_article.php");
 $ts = new tesauro;
 $art = new article;
 
@@ -38,10 +38,7 @@ echo $pb->mostra_resumo();
 
 if (strlen($dd[12]) > 0)
 	{
-		echo '<HR>';
 		$semic->publica_resumo_semic_bolsa($dd[0]);
-		echo '<HR>';
-		echo '---';
 		$semic->publica_semic($dd[0]);
 	} else {
 		$ts->padroniza_titulo($pb->pb_titulo_plano,0);	

@@ -304,8 +304,8 @@ class artigos {
 
 	function show_article_issue($id) {
 		global $jid;
-		$sql = "select sections.title as secao,* from sections ";
-		$sql .= " inner join articles on article_section = section_id ";
+		$sql = "select sections.title as secao,* from articles ";
+		$sql .= " left join sections on article_section = section_id ";
 		//$sql .= " left join issue on id_issue = article_issue ";
 
 		$sql .= " where articles.journal_id = " . round($jid);
@@ -314,7 +314,7 @@ class artigos {
 		$sql .= " order by seq, article_seq, title ";
 		$sql .= " limit 100 ";
 		$rlt = db_query($sql);
-
+		
 		$xses = 'x';
 		$xiss = 0;
 		$sx = '<table width="100%" class="tabela00">';

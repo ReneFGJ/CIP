@@ -467,7 +467,7 @@ class article
 					and article_origem = '$origem'
 				limit 1
 			";
-			echo $sql;
+			
 			$rlt = db_query($sql);
 			if ($line = db_read($rlt))
 				{
@@ -475,11 +475,16 @@ class article
 					$sql .= " set ";
 					$sql .= " article_author = '".$autores."', 
 							article_revisado = 9,
-							article_title = '$titulo'
+							article_title = '$titulo',
+							article_section = $seccao,
+							journal_id = $journal,
+							article_issue = $issue,
+							article_publicado = 'S'
 							where article_protocolo_original = '$protocolo'							
 							and article_origem = '$origem'
 					";
-					//$rlt = db_query($sql);
+					$rlt = db_query($sql);
+					echo $sql;
 					echo "Atualizado";
 				} else {
 					$sql = "insert into ".$this->tabela;

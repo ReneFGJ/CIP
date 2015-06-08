@@ -679,7 +679,6 @@ class discentes
 	function consulta_pucpr($cracha)
 		{
 			global $secu, $debug;
-			require("../pibicpr2/_pucpr_login.php");
 			if ($cracha != '00000000') {
 			$debug = 1;
 			$reativar = '1';

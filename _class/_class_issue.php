@@ -213,7 +213,7 @@ class issue
 		{
 			$sql = "select * from ".$this->tabela;
 			$sql .= " where 
-						and issue_published = 1 and issue_status = 'S'
+						issue_published = 1 and issue_status = 'S'
 						and journal_id = $journal
 						order by issue_year desc, issue_volume desc, issue_number desc
 			";
@@ -221,6 +221,10 @@ class issue
 			if ($line = db_read($rlt))
 				{
 					return($line['id_issue']);
+				} else {
+					echo '<h3>Edição não localizada</h3>';
+					echo $sql;
+					exit;
 				}
 			return(-1);
 		}

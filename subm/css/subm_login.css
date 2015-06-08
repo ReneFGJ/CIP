@@ -1,0 +1,41 @@
+.form01
+    {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border: thin solid silver;
+    padding: 2px 2px 2px 2px;
+    background-color: #FAFFBD;
+    }
+.subm_login
+    {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    padding: 2px 2px 2px 2px;
+    }
+    
+#sub_login_in
+    {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border: thin solid silver;
+    padding: 2px 2px 2px 2px;
+    background-color: #FAFFBD;
+    width:250px; 
+    height:25px;
+    }
+#sub_pass_in
+    {
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border: thin solid silver;
+    padding: 2px 2px 2px 2px;
+    background-color: #FAFFBD;
+    width:150px; 
+    height:25px;
+    }    
+.subm_erro
+	{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: red;		
+	}

@@ -65,13 +65,16 @@ while ($line = db_read($rlt)) {
 			$sx .= '<tr>';
 			/* Avaliador Local */
 			if (strlen($cracha) == 8) {
+				$link = '<A href="/reol/pibicpr/avaliador_professor_detalhe.php?dd0='.trim($line['pp_cracha']).'" target="_new">';
+				
 				$sx .= '<td>';
-				$sx .= $line['pp_nome'];
+				$sx .= $link.$line['pp_nome'].'</A>';
 				$sx .= '<td>';
 				$sx .= 'PUCPR';
 				$nome = trim($line['pp_nome']);
 				$us_email = trim($line['pp_email']);
 				$us_email_alt = trim($line['pp_email_1']);
+				
 			} else {
 				$sx .= '<td>';
 				$sx .= $line['us_nome'];
@@ -153,7 +156,7 @@ echo '>>>>Total de ' . $tot . ' avaliações';
 <BR><BR>
 </TD></TR>
 <TR>
-<TH>protocolo</TH>
+<TH>Avaliador</TH>
 <TH>Dt. Envio</TH>
 <TH>Dt. Avaliação</TH>
 <TH>Link</TH>
