@@ -4,8 +4,6 @@ if (strlen($secu) == 0)
 	require("db.php");
 	}
 
-require("../pibicpr2/_pucpr_login.php");
-
 $consulta = True;
 
 

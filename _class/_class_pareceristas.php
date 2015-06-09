@@ -92,8 +92,9 @@ class parecerista {
 		}
 
 		$sql = "select * from (				
-						select pp_cracha, pp_nome, pp_update, pp_avaliador, pp_curso from pibic_bolsa_contempladas 
-						inner join pibic_professor on pb_professor = pp_cracha
+						select pp_cracha, pp_nome, pp_update, pp_avaliador, pp_curso 
+						from pibic_professor 
+						left join pibic_bolsa_contempladas on pb_professor = pp_cracha
 						where pp_cracha = '$cracha' 
 						group by pp_cracha, pp_nome, pp_update, pp_curso, pp_avaliador	
 						) as tabela
@@ -102,7 +103,7 @@ class parecerista {
 		$sql .= " left join pareceristas_area on pa_parecerista = pp_cracha ";
 		$sql .= " left join ajax_areadoconhecimento on pa_area = a_codigo ";
 		$sql .= " order by pp_nome, a_cnpq ";
-
+		
 		$rlt = db_query($sql);
 		$sx = '<table width="100%" border=0>';
 		$sx .= '<H2>Áreas cadastras para avaliação</h2>';

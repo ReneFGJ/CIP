@@ -1,5 +1,4 @@
 <?php
-require("../pibicpr2/_pucpr_login.php");
 /*
  *	$Id: sslclient.php,v 1.1 2004/01/09 03:23:42 snichol Exp $
  *

@@ -521,7 +521,7 @@ class discentes
 		{
 			/* Habilita consulta */
 			$consulta = True;
-			$debug  = True;
+			$debug  = False;
 			$cracha = sonumero($cracha);
 			if (strlen($cracha) < 8) { return(0); }
 			if (strlen($cracha) == 12) { $cracha = substr($cracha,3,8); }
@@ -680,7 +680,7 @@ class discentes
 		{
 			global $secu, $debug;
 			if ($cracha != '00000000') {
-			$debug = 1;
+			$debug = 0;
 			$reativar = '1';
 			require('../pibicpr/pucpr_soap_pesquisaAluno.php');
 			}			
