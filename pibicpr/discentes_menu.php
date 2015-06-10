@@ -28,6 +28,7 @@ $menu = array();
 	if ($perfil->valid('#TST')) 
 	{
 		array_push($menu,array('Csf','Relatório de alunos que já retornaram','estudantes_csf_retorno.php'));
+		array_push($menu,array('SWB','Alunos inscritos no SWB Experience '. date("Y"),'estudantes_inscritos_swb.php'));
 	}  
 		
 
