@@ -1279,7 +1279,7 @@ class csf
 					CASE pa_genero 
 						  WHEN 'M' THEN 'Masculino' 
 						  WHEN 'F' THEN 'Feminino'   
-						  ELSE 'atualizar' 
+						  ELSE 'pa_genero' 
 						END as genero,
 					   count(*) as total
 				from      pibic_bolsa_contempladas
@@ -1717,6 +1717,61 @@ class csf
 			}
 //**************************** Fim do metodo *****************************************
 
+
+	function estudantes_genero_geral()
+			{	
+				$sql = "
+							select pa_nome, pa_cracha, pb_protocolo,
+							CASE pa_genero 
+							WHEN 'M' THEN 'Masculino' 
+							WHEN 'F' THEN 'Feminino'   
+							ELSE 'buscar' 
+							END as genero
+							from      pibic_bolsa_contempladas
+							left join pibic_aluno on pb_aluno = pa_cracha
+							where (pb_tipo = 'S')
+							and (pb_status <> 'C' and pb_status <> '@')
+							group by pa_genero,pa_nome, pa_cracha, pb_protocolo
+							order by genero desc 
+						";
+			
+				$rlt = db_query($sql);
+				
+				$sx  = '<table class="tabela01">';
+				$sx .= '<TR><TH colspan=2 align="left"><H2>Relação dos alunos por genero</h2>';
+				$sx .= '<TR><TH width="25%"	>Nome
+							<TH width="15%"	>Cracha
+							<TH width="15%"	>Gênero
+							<TH width="10%"	>Protocolo
+							';
+			$id = 0;
+
+			while ($line = db_read($rlt))
+				{
+					$id++;
+					
+					$a = $line['pa_nome'];
+					$b = $line['pa_cracha'];
+					$c = $line['genero'];
+					$d = $line['pb_protocolo'];
+					
+					$sx .= '<TR>';
+					$sx .= '<TD class="tabela01">'.$a;
+					$sx .= '<TD class="tabela01">'.$b;
+					$sx .= '<TD class="tabela01">'.$c;
+					$sx .= '<TD class="tabela01">'.$d;
+					
+				}
+			$sx .= '<TR><TD colspan=5>Total '.$id.' alunos do programa CsF';
+			$sx .= '</table>';
+		
+		if ($perfil->valid('#TST'))
+			{	
+				return($sx);
+			}	
+			
+
+}
 
 //###################################################################################
 //**************************** Fim da classe *****************************************
