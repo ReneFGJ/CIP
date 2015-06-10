@@ -24,11 +24,14 @@ $menu = array();
 	{
 		array_push($menu,array('Discentes (seguro)','Relatório de discentes ativos IC Capital (Seguro)','discentes_seguro.php?dd1=1'));
 		array_push($menu,array('Discentes (seguro)','Relatório de discentes ativos IC Interior (Seguro)','discentes_seguro.php?dd1=2'));
+		
 	} 
-	if ($perfil->valid('#TST')) 
+	if (($perfil->valid('#TST')) or ($perfil->valid('#PIB')))
 	{
 		array_push($menu,array('Csf','Relatório de alunos que já retornaram','estudantes_csf_retorno.php'));
-		array_push($menu,array('SWB','Alunos inscritos no SWB Experience '. date("Y"),'estudantes_inscritos_swb.php'));
+		
+		array_push($menu,array('SWB Experience','Alunos inscritos no SWB Experience '. date("Y"),'estudantes_inscritos_swb.php'));
+		array_push($menu,array('SWB Experience','E-mails de alunos inscritos no SWB Experience '. date("Y"),'email_estudantes_inscritos_swb.php'));
 	}  
 		
 

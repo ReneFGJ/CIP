@@ -15,9 +15,7 @@ echo '<div style="width:80%; height:1px; border-bottom:3px solid #757575;"></div
 
 //////////////////// MANAGERS ///////////////////////////////
 $cp = 's_nome, s_curso, s_universidade, s_pais, 
-	   s_p01, 
-       s_s01, 
-       s_p02, 
+	   s_p01, s_s01, s_p02, 
        s_s03, 
        s_p03, 
        s_s04, 
@@ -58,36 +56,36 @@ $sql = "select ".$cp."
 			
 			$tot ++; 
 			//dados do aluno		
-			$a = tratar_nome($line['s_nome']);
-			$b = tratar_nome($line['s_curso']);
-			$c = tratar_nome($line['s_universidade']);
+			$a = tratar_nome(utf8_decode($line['s_nome']));
+			$b = tratar_nome(utf8_decode($line['s_curso']));
+			$c = tratar_nome(utf8_decode($line['s_universidade']));
 			$d = $line['s_pais'];
 			
 			//Perguntas//
 			//estagio?
 			$e = trim($line['s_p01']);
 			$e = $respo[$e];
-			$f = $line['s_s01'];
+			$f = tratar_nome(utf8_decode($line['s_s01']));
 			
 			//pesquisa?
 			$g = trim($line['s_p02']);
 			$g = $respo[$g];
-			$h = $line['s_s03'];
+			$h = tratar_nome(utf8_decode($line['s_s03']));
 			
 			//trabalhando?
 			$i = trim($line['s_p03']);
 			$i = $respo[$i];
-			$j = $line['s_s04'];
+			$j = tratar_nome(utf8_decode($line['s_s04']));
 			
 			//mestrado?
 			$k = trim($line['s_p04']);
 			$k = $respo[$k];
-			$l = $line['s_s06'];
+			$l = tratar_nome(utf8_decode($line['s_s06']));
 			
 			//doutorado?
 			$m = trim($line['s_p05']);
 			$m = $respo[$m];
-			$n = $line['s_s08'];
+			$n = tratar_nome(utf8_decode($line['s_s08']));
 						
 			//Datas
 			$o = $line['s_s09'];
