@@ -319,8 +319,7 @@ function parecer_nao_entregues($ano)
 				array_push($cp,array('$D8','pb_relatorio_parcial','Data (envio relatorio parcial)',False,True,''));
 				
 				array_push($cp,array('$I8','pb_relatorio_parcial_nota','Nota relatorio',False,True,''));
-				
-				
+							
 				array_push($cp,array('$D8','pb_relatorio_final','Data (envio relatorio final)',False,True,''));
 				array_push($cp,array('$I8','pb_relatorio_final_nota','Nota relatorio final',False,True,''));
 				array_push($cp,array('$D8','pb_resumo','Data Resumo',False,True,''));
