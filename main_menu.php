@@ -37,19 +37,18 @@ if ((date("Ymd") <= 20140424) or ($ic_on == 1)) {
 // Alteração de data
 //	$sql = "update pibic_parecer_2015 set pp_data = 20150323 where pp_tipo = 'RPAR' ";
 //	$rlt = db_query($sql);
-	
-	$sql = "select count(*) as total from pibic_parecer_2015 
+
+$sql = "select count(*) as total from pibic_parecer_2015 
 				where pp_status <> 'B' and pp_status <> 'D' 
-				and pp_avaliador = '".$nw->user_cracha."'";
-	$rlt = db_query($sql);
-	$line = db_read($rlt);
-	$total = $line['total'];
-	
-	if ($total > 0)
-		{
-		$link = 'http://www2.pucpr.br/reol/avaliador/acesso.php?dd0='.$nw->user_cracha.'&dd90='.checkpost($nw->user_cracha.' ');
-		array_push($mn, array('botao_av', 'b1',$link, 'botao_av_02.jpg', 'imgs', ''));
-		}
+				and pp_avaliador = '" . $nw -> user_cracha . "'";
+$rlt = db_query($sql);
+$line = db_read($rlt);
+$total = $line['total'];
+
+if ($total > 0) {
+	$link = 'http://www2.pucpr.br/reol/avaliador/acesso.php?dd0=' . $nw -> user_cracha . '&dd90=' . checkpost($nw -> user_cracha . ' ');
+	array_push($mn, array('botao_av', 'b1', $link, 'botao_av_02.jpg', 'imgs', ''));
+}
 
 /* Total de Atividades */
 $ati -> total_isencoes($user_id);
@@ -70,6 +69,16 @@ if ($total > 999) {
 	//	if ($perfil->valid('#RES'))
 	{ array_push($mn, array('Lista de atividades indicadas ao seu login', 'b1', 'atividades.php', 'Atividades', 'icone-atividades', $ativ));
 	}
+}
+
+/* ICI Internacional */
+//if ($perfil -> valid('#PIB')) 
+{
+	$dd1 = $nw -> user_cracha;
+	$dd2 = checkpost($nw -> cracha);
+	$dd3 = $nw -> user_cracha;
+	$dd4 = $nw -> user_login;
+	array_push($mn, array('PIBIC Internacional', 'b1', 'ici/index.php/ici/acesso/'.$dd1.'/'.$dd4.'/'.$dd2, 'IC Internacional', 'icone-iniciacao-cientifica', ''));
 }
 
 /**
@@ -101,8 +110,7 @@ if ($total3 > 0) {
 }
 
 /* CIP */
-if (($perfil->valid('#ADM#SCR#COO#SPG')))
-{
+if (($perfil -> valid('#ADM#SCR#COO#SPG'))) {
 	array_push($mn, array('Centro Integrado de Pesquisa, Grupos e Linhas de Pesquisa', 'b2', 'cip/', 'CIP', "icone-pesquisa", ''));
 }
 
@@ -123,15 +131,16 @@ if ($perfil -> valid('#PIB')) {
 }
 
 /* Recupera coordenadores */
-$sql = "select * from programa_pos where pos_coordenador = '".$nw->user_cracha."' and pos_corrente = '1' ";
+$sql = "select * from programa_pos where pos_coordenador = '" . $nw -> user_cracha . "' and pos_corrente = '1' ";
 $rlt = db_query($sql);
-if ($line = db_read($rlt))
-	{ $coordenador = 1; } else { $coordenador = 0; }
+if ($line = db_read($rlt)) { $coordenador = 1;
+} else { $coordenador = 0;
+}
 
 if (($perfil -> valid('#SEP#SPG')) or ($coordenador == 1)) {
 	array_push($mn, array('Programas de Pós-Graduação', 'b1', 'pos/', 'Coordenação e Secretaria dos PPGs', 'icone-iniciacao-cientifica', ''));
 }
-//if (!($perfil -> valid('#CNQ'))) 
+//if (!($perfil -> valid('#CNQ')))
 {
 	array_push($mn, array('Programa de Iniciação Científica, PIBIC, PIBITI, PIBIC Jr, CsF, Inclusão Social', 'b1', 'pibic/', 'Iniciação Científica', 'icone-iniciacao-cientifica', ''));
 	$cap = "Captação de recursos, isenção de estudantes e bonificações";
@@ -184,8 +193,7 @@ if ($perfil -> valid('#ADM')) {
 }
 /* Montagem da tela */
 echo '<h1>Menu principal</h1>';
-echo '<table border=0 cellpadding=10 align="center" class="tabela00" align="center">' . chr(13);
-;
+echo '<table border=0 cellpadding=10 align="center" class="tabela00" align="center">' . chr(13); ;
 $col = 6;
 $ln = 0;
 for ($r = 0; $r < count($mn); $r++) {
@@ -214,7 +222,7 @@ for ($r = 0; $r < count($mn); $r++) {
 
 	$tips = $mn[$r][4];
 	if ($tips == 'imgs') {
-		$img1 = '<img src="img/' . $mn[$r][0] . '_01.jpg" id="img'.$r.'" border=0 >';
+		$img1 = '<img src="img/' . $mn[$r][0] . '_01.jpg" id="img' . $r . '" border=0 >';
 		//echo '<BR>'.$img1;
 
 		$sx .= '<td width="25%">';
@@ -229,16 +237,16 @@ for ($r = 0; $r < count($mn); $r++) {
 								{
 									if (tela == 1)
 										{
-											$("#img'.$r.'").attr("src", "img/' . $mn[$r][0] . '_01.jpg");
+											$("#img' . $r . '").attr("src", "img/' . $mn[$r][0] . '_01.jpg");
 											tela = tela + 1;
 										} else {
 											if (tela == 2)
 												{
 													tela = 3;
-													$("#img'.$r.'").attr("src", "img/' . $mn[$r][0] . '_02.jpg");													
+													$("#img' . $r . '").attr("src", "img/' . $mn[$r][0] . '_02.jpg");													
 												} else {
 													tela = 1;
-													$("#img'.$r.'").attr("src", "img/' . $mn[$r][0] . '_03.jpg");																										
+													$("#img' . $r . '").attr("src", "img/' . $mn[$r][0] . '_03.jpg");																										
 												}
 										}				
 																		
