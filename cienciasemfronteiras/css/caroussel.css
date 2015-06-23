@@ -529,6 +529,29 @@ body {
   font-size: 1.2em;
 }
 
+.download{
+  background-color: #e0e0e0;
+  padding: 15px 40px;
+  width: 300px;
+  text-align: center;
+  margin-top: 25px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px #888888;
+}
+
+.download > a{
+  text-decoration: none;
+  color: #8b1217;
+}
+
+.fotos-header{
+  width: 100%;
+  height: 200px;
+  margin-top: 20px;
+}
+
 
 
 /* --------------------------- */

@@ -136,6 +136,10 @@ echo '</BR>';
 	
 	//aqui pode chamar qualquer método dentro da classe e passa como parametro o ano
 	echo $pb->resumo_planos_escola($dd[2]);
+	echo $pb->resumo_planos_titulacao($dd[2]);
+	echo $pb->resumo_planos_ss($dd[2]);
+	echo $pb->resumo_planos_produtividade($dd[2]);
+	
 	echo $pb->resumo_planos_campus($dd[2]);
 	echo $pb->resumo_projeto_professor_area_conhecimento($dd[2]);
 	echo $pb->resumo_planos_area_estrategica_principais($dd[2]);

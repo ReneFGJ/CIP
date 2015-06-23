@@ -1237,6 +1237,11 @@ class projetos {
 
 		array_push($cp, array('$S1', 'pj_status', 'Status', True, True));
 		array_push($cp, array('$S8', 'pj_professor', 'Professor', TRUE, TRUE));
+
+		array_push($cp, array('$S8', 'pj_ext_sn', 'Aprovado Externo?', TRUE, TRUE));
+
+		array_push($cp, array('$O A:Em submissão&B:Em avaliação&C:Aprovado&N:Não aplicado', 'pj_cep_status', 'Commitê de ética', TRUE, TRUE));
+		array_push($cp, array('$O A:Em submissão&B:Em avaliação&C:Aprovado&N:Não aplicado', 'pj_ceua_status', 'Commitê de ética (animais)?', TRUE, TRUE));
 		return ($cp);
 	}
 
@@ -1285,11 +1290,272 @@ class projetos {
 		$sx .= 'Total ' . $tot;
 		return ($sx);
 	}
+	/**
+	 * Resumos
+	 */
+	function resumo_planos_produtividade($ano = 0) {
+		/* pj_professor */
+		if (strlen($ano) == 0) { $ano = date("Y");
+		}
+
+		$cp = 'pp_prod, doc_edital, ap_tit_titulo ';
+		$sql = "select $cp, count(*) as total from (
+				select  doc_edital, pj_professor, doc_status from " . $this -> tabela . " 
+				inner join pibic_submit_documento on pj_codigo = doc_protocolo_mae
+				where (pj_ano = '" . $ano . "') 
+						and (doc_status <> 'X' and doc_status <> '!' and doc_status <> '@')
+						and (pj_status <> 'X' or pj_status <> '!' or pj_status <> '@')
+				) as tabela
+				left join pibic_professor on pj_professor = pp_cracha
+				left join apoio_titulacao on ap_tit_codigo = pp_titulacao					
+				";
+		$sql .= "group by $cp
+				order by pp_prod ";
+		$rlt = db_query($sql);
+		$campi = array();
+		$total = array(0, 0, 0, 0, 0);
+		$result = array();
+
+		$pd = array(0 => ' ', 1 => '--', 2 => 'Nível PQ 1A', 3 => 'Nível PQ 1B', 4 => 'Nível PQ 1C', 5 => 'Nível PQ 1D', 6 => 'Nível PQ 2', 12 => 'Nível DT 1A', 13 => 'Nível DT 1B', 14 => 'Nível DT 1C', 15 => 'Nível DT 1D', 16 => 'Nível DT 2', 20 => 'Nível PQ (FA)');
+		while ($line = db_read($rlt)) {
+			$campus = trim($line['pp_prod']);
+			$modalidade = UpperCaseSql(trim($line['doc_edital']));
+			$tot = $line['total'];
+			if (!(in_array($campus, $campi))) {
+				array_push($campi, $campus);
+				array_push($result, $total);
+				$pos = array_search($campus, $campi);
+			} else {
+				$pos = array_search($campus, $campi);
+			}
+			$xpos = 0;
+			switch ($modalidade) {
+				case 'PIBIC' :
+					$xpos = 1;
+					break;
+				case 'PIBITI' :
+					$xpos = 2;
+					break;
+				case 'PIBICE' :
+					$xpos = 3;
+					break;
+				default :
+					$xpos = 4;
+					break;
+			}
+
+			$result[$pos][$xpos] = $result[$pos][$xpos] + $tot;
+		}
+		$sx .= '<h1>Planos por professor produtividade</h1>';
+		$sx .= '<table class="tabela00">';
+		$sx .= '<TR><TH width="350">SS
+						<TH width="80">PIBIC
+						<TH width="80">PIBITI
+						<TH width="80">PIBIC_EM
+						<TH width="80">Outros
+						<TH width="80">Total';
+		for ($r = 0; $r < count($campi); $r++) {
+			$sx .= '<TR>';
+			$sx .= '<TD class="tabela01">' . $pd[$campi[$r]];
+			$toti = 0;
+			for ($y = 1; $y < count($result[$r]); $y++) {
+				$toti = $toti + $result[$r][$y];
+				$sx .= '<TD class="tabela01 lt3" align="center">';
+				$sx .= $result[$r][$y];
+				$total[$y] = $total[$y] + $result[$r][$y];
+			}
+			$total[5] = $total[5] + $toti;
+			$sx .= '<TD class="tabela01 lt3" align="center">';
+			$sx .= $toti;
+		}
+		$sx .= '<TR class="lt3"><TD align="right"><B>Totais</B>';
+		$sx .= '<TD align="center"><B>' . $total[1] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[2] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[3] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[4] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[5] . '</B>';
+		$sx .= '</table>';
+		return ($sx);
+	}	
+	
+	/**
+	 * Resumos
+	 */
+	function resumo_planos_ss($ano = 0) {
+		/* pj_professor */
+		if (strlen($ano) == 0) { $ano = date("Y");
+		}
+
+		$cp = 'pp_ss, doc_edital, ap_tit_titulo ';
+		$sql = "select $cp, count(*) as total from (
+				select  doc_edital, pj_professor, doc_status from " . $this -> tabela . " 
+				inner join pibic_submit_documento on pj_codigo = doc_protocolo_mae
+				where (pj_ano = '" . $ano . "') 
+						and (doc_status <> 'X' and doc_status <> '!' and doc_status <> '@')
+						and (pj_status <> 'X' or pj_status <> '!' or pj_status <> '@')
+				) as tabela
+				left join pibic_professor on pj_professor = pp_cracha
+				left join apoio_titulacao on ap_tit_codigo = pp_titulacao					
+				";
+		$sql .= "group by $cp
+				order by pp_ss ";
+		$rlt = db_query($sql);
+		$campi = array();
+		$total = array(0, 0, 0, 0, 0);
+		$result = array();
+
+		while ($line = db_read($rlt)) {
+			$campus = trim($line['pp_ss']);
+			$modalidade = UpperCaseSql(trim($line['doc_edital']));
+			$tot = $line['total'];
+			if (!(in_array($campus, $campi))) {
+				array_push($campi, $campus);
+				array_push($result, $total);
+				$pos = array_search($campus, $campi);
+			} else {
+				$pos = array_search($campus, $campi);
+			}
+			$xpos = 0;
+			switch ($modalidade) {
+				case 'PIBIC' :
+					$xpos = 1;
+					break;
+				case 'PIBITI' :
+					$xpos = 2;
+					break;
+				case 'PIBICE' :
+					$xpos = 3;
+					break;
+				default :
+					$xpos = 4;
+					break;
+			}
+
+			$result[$pos][$xpos] = $result[$pos][$xpos] + $tot;
+		}
+		$sx .= '<h1>Planos por professor SS</h1>';
+		$sx .= '<table class="tabela00">';
+		$sx .= '<TR><TH width="350">SS
+						<TH width="80">PIBIC
+						<TH width="80">PIBITI
+						<TH width="80">PIBIC_EM
+						<TH width="80">Outros
+						<TH width="80">Total';
+		for ($r = 0; $r < count($campi); $r++) {
+			$sx .= '<TR>';
+			$sx .= '<TD class="tabela01">' . $campi[$r];
+			$toti = 0;
+			for ($y = 1; $y < count($result[$r]); $y++) {
+				$toti = $toti + $result[$r][$y];
+				$sx .= '<TD class="tabela01 lt3" align="center">';
+				$sx .= $result[$r][$y];
+				$total[$y] = $total[$y] + $result[$r][$y];
+			}
+			$total[5] = $total[5] + $toti;
+			$sx .= '<TD class="tabela01 lt3" align="center">';
+			$sx .= $toti;
+		}
+		$sx .= '<TR class="lt3"><TD align="right"><B>Totais</B>';
+		$sx .= '<TD align="center"><B>' . $total[1] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[2] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[3] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[4] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[5] . '</B>';
+		$sx .= '</table>';
+		return ($sx);
+	}	
 
 	//
 	/**
 	 * Resumos
 	 */
+	function resumo_planos_titulacao($ano = 0) {
+		/* pj_professor */
+		if (strlen($ano) == 0) { $ano = date("Y");
+		}
+		
+		$sql = "update pibic_professor set pp_titulacao = '002' where pp_titulacao = '003' ";
+		$rlt = db_query($sql);
+
+		$cp = 'pp_titulacao, doc_edital, ap_tit_titulo ';
+		$sql = "select $cp, count(*) as total from (
+				select  doc_edital, pj_professor, doc_status from " . $this -> tabela . " 
+				inner join pibic_submit_documento on pj_codigo = doc_protocolo_mae
+				where (pj_ano = '" . $ano . "') 
+						and (doc_status <> 'X' and doc_status <> '!' and doc_status <> '@')
+						and (pj_status <> 'X' or pj_status <> '!' or pj_status <> '@')
+				) as tabela
+				left join pibic_professor on pj_professor = pp_cracha
+				left join apoio_titulacao on ap_tit_codigo = pp_titulacao					
+				";
+		$sql .= "group by $cp
+				order by pp_titulacao ";
+		$rlt = db_query($sql);
+		$campi = array();
+		$total = array(0, 0, 0, 0, 0);
+		$result = array();
+
+		while ($line = db_read($rlt)) {
+			$campus = trim($line['ap_tit_titulo']).' ('.$line['pp_titulacao'].')';
+			$modalidade = UpperCaseSql(trim($line['doc_edital']));
+			$tot = $line['total'];
+			if (!(in_array($campus, $campi))) {
+				array_push($campi, $campus);
+				array_push($result, $total);
+				$pos = array_search($campus, $campi);
+			} else {
+				$pos = array_search($campus, $campi);
+			}
+			$xpos = 0;
+			switch ($modalidade) {
+				case 'PIBIC' :
+					$xpos = 1;
+					break;
+				case 'PIBITI' :
+					$xpos = 2;
+					break;
+				case 'PIBICE' :
+					$xpos = 3;
+					break;
+				default :
+					$xpos = 4;
+					break;
+			}
+
+			$result[$pos][$xpos] = $result[$pos][$xpos] + $tot;
+		}
+		$sx .= '<h1>Planos por titulação</h1>';
+		$sx .= '<table class="tabela00">';
+		$sx .= '<TR><TH width="350">Área do conhecimento
+						<TH width="80">PIBIC
+						<TH width="80">PIBITI
+						<TH width="80">PIBIC_EM
+						<TH width="80">Outros
+						<TH width="80">Total';
+		for ($r = 0; $r < count($campi); $r++) {
+			$sx .= '<TR>';
+			$sx .= '<TD class="tabela01">' . $campi[$r];
+			$toti = 0;
+			for ($y = 1; $y < count($result[$r]); $y++) {
+				$toti = $toti + $result[$r][$y];
+				$sx .= '<TD class="tabela01 lt3" align="center">';
+				$sx .= $result[$r][$y];
+				$total[$y] = $total[$y] + $result[$r][$y];
+			}
+			$total[5] = $total[5] + $toti;
+			$sx .= '<TD class="tabela01 lt3" align="center">';
+			$sx .= $toti;
+		}
+		$sx .= '<TR class="lt3"><TD align="right"><B>Totais</B>';
+		$sx .= '<TD align="center"><B>' . $total[1] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[2] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[3] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[4] . '</B>';
+		$sx .= '<TD align="center"><B>' . $total[5] . '</B>';
+		$sx .= '</table>';
+		return ($sx);
+	}
+
 	function resumo_planos_centro($ss = '', $centro = 0, $escola = 1) {
 		$proto = $this -> protocolo;
 		$ano = $this -> ano;
@@ -2946,7 +3212,8 @@ class projetos {
 			$ix = $this -> aluno_em_outros_planos($aluno, $protocolo);
 			if ($ix > 0) {
 				echo '<font color="red">ALUNO JÁ INCLUÍDO EM OUTROS PROTOCOLOS ()</font>';
-				$ok = 0; ;
+				$ok = 0;
+				;
 			}
 			$ix = $this -> aluno_blacklist($aluno);
 			if ($ix > 0) {
@@ -3479,19 +3746,23 @@ class projetos {
 		$link = '<A HREF="pibic_projetos_detalhes.php?dd0=' . $line['doc_protocolo_mae'] . '&dd90=' . checkpost($line['doc_protocolo_mae']) . '">';
 		switch ($tipo) {
 			case 'PIBIC' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBITI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBICE' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'ICI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 		}
@@ -3528,19 +3799,23 @@ class projetos {
 		$img = $this -> imagem_edital($tipo);
 		switch ($tipo) {
 			case 'PIBIC' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBITI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_IC.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'PIBICE' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_JR.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 			case 'ICI' :
-				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" '; ;
+				$linka = ' onclick="window.location.replace(\'submit_pos_ICI.php?dd90=' . trim($line['doc_protocolo']) . '&dd89=' . trim($line['pj_codigo']) . '\');" class="botao-geral" ';
+				;
 				$linkb = ' onclick="newxy2(\'main_submit_cancel.php?dd0=' . $line['doc_protocolo'] . '&dd90=' . checkpost($line['pj_codigo']) . '\',600,200);" class="botao-geral" ';
 				break;
 		}
@@ -3641,15 +3916,28 @@ class projetos {
 	}
 
 	function mostra_sn($sn) {
-		if ($sn == 'S') { $sn = 'Sim';
-		}
-		if ($sn == 'N') { $sn = 'Não';
-		}
-		if ($sn == 'A') { $sn = '<font color="green">Em submissão</font>';
-		}
-		if ($sn == 'B') { $sn = '<font color="blue" Em avaliação</font>';
-		}
-		if ($sn == 'C') { $sn = 'Aprovado';
+		switch ($sn) {
+			case 'S' :
+				$sn = 'Sim';
+				break;
+
+			case 'N' :
+				$sn = 'Não';
+				break;
+
+			case 'A' :
+				$sn = '<font color="green">Em submissão</font>';
+				break;
+
+			case 'B' :
+				$sn = '<font color="blue">Em avaliação</font>';
+				break;
+
+			case 'C' :
+				$sn = 'Aprovado';
+				break;
+			default :
+				$sn = 'x' . $sn;
 		}
 		return ($sn);
 	}
@@ -3825,12 +4113,12 @@ class projetos {
 									<TD class="tabela00"><B>' . $this -> mostra_sn($line['pj_gr2_sn']) . '</B>';
 
 		/* CEP e CEUA */
-		$cep = $line['pj_cep_status'];
-		$ceua = $line['pj_ceua_status'];
+		$cep = trim($line['pj_cep_status']);
+		$ceua = trim($line['pj_ceua_status']);
 
 		$sa = '<font class="tabela00" align="right">Análise do comitê de ética de humanos (CEP):</font>';
 		$sx .= '<TR><TD class="tabela00" align="right">' . $sa . '
-									<TD class="tabela00"><B>' . $this -> mostra_sn($cep) . '</B>';
+									<TD class="tabela00"><B>' . $this -> mostra_sn($cep) . '</B> (' . $cep . ')';
 
 		$sa = '<font class="tabela00" align="right">Análise do comitê de ética no uso de animais (CEUA):</font>';
 		$sx .= '<TR><TD class="tabela00" align="right">' . $sa . '
@@ -4319,7 +4607,7 @@ class projetos {
 	 *          Mostra resultados dos planos submetidos por escola
 	 * @author Elizandro Santos de Lima[Analista de Projetos]
 	 * @date: 21/05/2015
-	 */	 
+	 */
 	function resumo_planos_escola($ano) {
 
 		$sql = "select count(*) as total, doc_edital, centro_nome from " . $this -> tabela . "
@@ -4337,7 +4625,7 @@ class projetos {
 				";
 
 		$rlt = db_query($sql);
-		
+
 		//Totais das escolas
 		$totalp = 0;
 		$totalt = 0;
@@ -4378,33 +4666,33 @@ class projetos {
 			$edital = trim($line['doc_edital']);
 
 			switch ($edital) {
-					case 'PIBIC' :
-						$totalp = $totalp + $total;
-						$ttotalp = $ttotalp + $total;
-						break;
-					case 'ICI' :
-						$totali = $totali + $total;
-						$ttotali = $ttotali + $total;
-						break;					
-					case 'PIBITI' :
-						$totalt = $totalt + $total;
-						$ttotalt = $ttotalt + $total;
-						break;
-					case 'PIBICE':	
-						$totale = $totale + $total;
-						$ttotale = $ttotale + $total;
-						break;
-					case 'IS':
-						$totali = $totali + $total;
-						$ttotali = $ttotali + $total;
-						break;
-					case '':	
-						$ttotalp = $ttotalp + $total;
-						break;
-					default :
-						echo 'Não localizado!,' . $edital;
-						break;
-					}
+				case 'PIBIC' :
+					$totalp = $totalp + $total;
+					$ttotalp = $ttotalp + $total;
+					break;
+				case 'ICI' :
+					$totali = $totali + $total;
+					$ttotali = $ttotali + $total;
+					break;
+				case 'PIBITI' :
+					$totalt = $totalt + $total;
+					$ttotalt = $ttotalt + $total;
+					break;
+				case 'PIBICE' :
+					$totale = $totale + $total;
+					$ttotale = $ttotale + $total;
+					break;
+				case 'IS' :
+					$totali = $totali + $total;
+					$ttotali = $ttotali + $total;
+					break;
+				case '' :
+					$ttotalp = $ttotalp + $total;
+					break;
+				default :
+					echo 'Não localizado!,' . $edital;
+					break;
+			}
 
 		}
 
@@ -4428,16 +4716,16 @@ class projetos {
 		return ($sx);
 
 	}
-//**************************** Fim da funcao *****************************************
 
+	//**************************** Fim da funcao *****************************************
 
-//####################################################################################
+	//####################################################################################
 	//**************************** Inicio do metodo **************************************
 	/* @method: resumo_planos_campus($ano)
 	 *          Mostra resultados dos planos submetidos por campus
 	 * @author Elizandro Santos de Lima[Analista de Projetos]
 	 * @date: 22/05/2015
-	 */	 
+	 */
 	function resumo_planos_campus($ano) {
 
 		$sql = "select count(*) as total, pp_centro, doc_edital from " . $this -> tabela . "
@@ -4455,7 +4743,7 @@ class projetos {
 				";
 
 		$rlt = db_query($sql);
-		
+
 		//Totais dos campus
 		$totalp = 0;
 		$totalt = 0;
@@ -4479,7 +4767,7 @@ class projetos {
 		while ($line = db_read($rlt)) {
 
 			$xcap = trim(ucwords(strtolower($line['pp_centro'])));
-			
+
 			if ($cap != $xcap) {
 
 				$sx .= $this -> resumo_mostra_painel($cap, $totalp, $totalt, $totale);
@@ -4496,33 +4784,33 @@ class projetos {
 			$edital = trim($line['doc_edital']);
 
 			switch ($edital) {
-					case 'PIBIC' :
-						$totalp = $totalp + $total;
-						$ttotalp = $ttotalp + $total;
-						break;
-					case 'ICI' :
-						$totali = $totali + $total;
-						$ttotali = $ttotali + $total;
-						break;					
-					case 'PIBITI' :
-						$totalt = $totalt + $total;
-						$ttotalt = $ttotalt + $total;
-						break;
-					case 'PIBICE':	
-						$totale = $totale + $total;
-						$ttotale = $ttotale + $total;
-						break;
-					case 'IS':
-						$totali = $totali + $total;
-						$ttotali = $ttotali + $total;
-						break;
-					case '':	
-						$ttotalp = $ttotalp + $total;
-						break;
-					default :
-						echo 'Não localizado!,' . $edital;
-						break;
-					}
+				case 'PIBIC' :
+					$totalp = $totalp + $total;
+					$ttotalp = $ttotalp + $total;
+					break;
+				case 'ICI' :
+					$totali = $totali + $total;
+					$ttotali = $ttotali + $total;
+					break;
+				case 'PIBITI' :
+					$totalt = $totalt + $total;
+					$ttotalt = $ttotalt + $total;
+					break;
+				case 'PIBICE' :
+					$totale = $totale + $total;
+					$ttotale = $ttotale + $total;
+					break;
+				case 'IS' :
+					$totali = $totali + $total;
+					$ttotali = $ttotali + $total;
+					break;
+				case '' :
+					$ttotalp = $ttotalp + $total;
+					break;
+				default :
+					echo 'Não localizado!,' . $edital;
+					break;
+			}
 
 		}
 
@@ -4547,17 +4835,15 @@ class projetos {
 
 	}
 
+	//**************************** Fim da funcao *****************************************/
 
-//**************************** Fim da funcao *****************************************/
-
-
-//####################################################################################
+	//####################################################################################
 	//**************************** Inicio do metodo **************************************
 	/* @method: resumo_projeto_professor_area_conhecimento($ano)
 	 *          Mostra resultados dos projetos do professor submetidos por area do conhecimento
 	 * @author Elizandro Santos de Lima[Analista de Projetos]
 	 * @date: 27/05/2015
-	 */	 
+	 */
 	function resumo_projeto_professor_area_conhecimento($ano) {
 
 		$sql = "select count(*) as total, pj_area, doc_edital, a_descricao
@@ -4576,7 +4862,7 @@ class projetos {
 				";
 
 		$rlt = db_query($sql);
-		
+
 		//Totais dos campus
 		$totalp = 0;
 		$totalt = 0;
@@ -4600,7 +4886,7 @@ class projetos {
 		while ($line = db_read($rlt)) {
 
 			$xcap = trim($line['pj_area']) . ' - ' . trim($line['a_descricao']);
-			
+
 			if ($cap != $xcap) {
 
 				$sx .= $this -> resumo_mostra_painel($cap, $totalp, $totalt, $totale);
@@ -4617,33 +4903,33 @@ class projetos {
 			$edital = trim($line['doc_edital']);
 
 			switch ($edital) {
-					case 'PIBIC' :
-						$totalp = $totalp + $total;
-						$ttotalp = $ttotalp + $total;
-						break;
-					case 'ICI' :
-						$totali = $totali + $total;
-						$ttotali = $ttotali + $total;
-						break;					
-					case 'PIBITI' :
-						$totalt = $totalt + $total;
-						$ttotalt = $ttotalt + $total;
-						break;
-					case 'PIBICE':	
-						$totale = $totale + $total;
-						$ttotale = $ttotale + $total;
-						break;
-					case 'IS':
-						$totali = $totali + $total;
-						$ttotali = $ttotali + $total;
-						break;
-					case '':	
-						$ttotalp = $ttotalp + $total;
-						break;
-					default :
-						echo 'Não localizado!,' . $edital;
-						break;
-					}
+				case 'PIBIC' :
+					$totalp = $totalp + $total;
+					$ttotalp = $ttotalp + $total;
+					break;
+				case 'ICI' :
+					$totali = $totali + $total;
+					$ttotali = $ttotali + $total;
+					break;
+				case 'PIBITI' :
+					$totalt = $totalt + $total;
+					$ttotalt = $ttotalt + $total;
+					break;
+				case 'PIBICE' :
+					$totale = $totale + $total;
+					$ttotale = $ttotale + $total;
+					break;
+				case 'IS' :
+					$totali = $totali + $total;
+					$ttotali = $ttotali + $total;
+					break;
+				case '' :
+					$ttotalp = $ttotalp + $total;
+					break;
+				default :
+					echo 'Não localizado!,' . $edital;
+					break;
+			}
 
 		}
 
@@ -4667,16 +4953,16 @@ class projetos {
 		return ($sx);
 
 	}
-//**************************** Fim da funcao *****************************************/
 
+	//**************************** Fim da funcao *****************************************/
 
-//####################################################################################
+	//####################################################################################
 	//**************************** Inicio do metodo **************************************
 	/* @method: resumo_planos_area_estrategica_principais($ano)
 	 *          Mostra resultados dos planos submetidos por area do conhecimento principal
 	 * @author Elizandro Santos de Lima[Analista de Projetos]
 	 * @date: 27/05/2015
-	 */	 
+	 */
 	function resumo_planos_area_estrategica_principais($ano) {
 
 		$sql = "select count(*) as total, pj_area, doc_edital 
@@ -4694,36 +4980,40 @@ class projetos {
 				";
 
 		$rlt = db_query($sql);
-		
+
 		$campi = array();
 		$total = array(0, 0, 0, 0, 0);
 		$result = array();
-		$areas = array('Ciências Exatas e da Terra', 'Ciências Biológicas ', 'Engenharias', 'Ciências da Saúde','Técnologia em Saúde', 'Ciências Agrárias', 'Ciências Sociais Aplicadas', 'Ciências Humanas', 'Lingüística - Letras e Artes', 'não é área estratégica', 'Direitos Humanos - Juventudes');
+		$areas = array('Ciências Exatas e da Terra', 'Ciências Biológicas ', 'Engenharias', 'Ciências da Saúde', 'Técnologia em Saúde', 'Ciências Agrárias', 'Ciências Sociais Aplicadas', 'Ciências Humanas', 'Lingüística - Letras e Artes', 'não é área estratégica', 'Direitos Humanos - Juventudes');
 
-		
 		while ($line = db_read($rlt)) {
-				
+
 			$campus = trim($line['pj_area']) . ' ' . trim($line['a_descricao']);
 			$modalidade = UpperCaseSql(trim($line['doc_edital']));
 			$tot = $line['total'];
-			
+
 			if (!(in_array($campus, $campi))) {
 				array_push($campi, $campus);
 				array_push($result, $total);
-					
-					$pos = array_search($campus, $campi);
-			
-				} else {
-					$pos = array_search($campus, $campi);
-				}
-			
+
+				$pos = array_search($campus, $campi);
+
+			} else {
+				$pos = array_search($campus, $campi);
+			}
+
 			$xpos = 0;
-			
-			if ($modalidade == 'PIBIC') 	{ $xpos = 1; }
-			if ($modalidade == 'PIBITI') 	{ $xpos = 2; }
-			if ($modalidade == 'PIBICE') 	{ $xpos = 3; }
-			if ($modalidade == 'IS')     	{ $xpos = 4; }
-			if ($modalidade == '')     		{ $xpos = 5; }
+
+			if ($modalidade == 'PIBIC') { $xpos = 1;
+			}
+			if ($modalidade == 'PIBITI') { $xpos = 2;
+			}
+			if ($modalidade == 'PIBICE') { $xpos = 3;
+			}
+			if ($modalidade == 'IS') { $xpos = 4;
+			}
+			if ($modalidade == '') { $xpos = 5;
+			}
 
 			$result[$pos][$xpos] = $result[$pos][$xpos] + $tot;
 		}
@@ -4732,22 +5022,22 @@ class projetos {
 		//Titulo das colunas
 		$sx .= '<table width="100%" align="center" class="tabela00">';
 		$sx .= '<TR><TH>Área do conhecimento<TH>PIBIC<TH>PIBITI<TH>PIBIC_EM<TH>Intern.<TH>Sub-total';
-		
+
 		for ($r = 0; $r < count($campi); $r++) {
 			$sx .= '<TR>';
-			$sx .= '<TD class="tabela01" align="left">'. $areas[$r];
+			$sx .= '<TD class="tabela01" align="left">' . $areas[$r];
 			$toti = 0;
 			for ($y = 1; $y < count($result[$r]); $y++) {
-					$toti = $toti + $result[$r][$y];
-					$sx .= '<TD class="tabela01" align="center">';
-					$sx .= $result[$r][$y];
-					$total[$y] = $total[$y] + $result[$r][$y];
+				$toti = $toti + $result[$r][$y];
+				$sx .= '<TD class="tabela01" align="center">';
+				$sx .= $result[$r][$y];
+				$total[$y] = $total[$y] + $result[$r][$y];
 			}
 			$total[5] = $total[5] + $toti;
 			$sx .= '<TD class="tabela01" align="center">';
 			$sx .= $toti;
 		}
-		
+
 		$sx .= '<TR>';
 		$sx .= '<TD class="tabela00" align="right"><B>Totais';
 		$sx .= '<TD class="tabela01" align="center"><B>' . $total[1] . '</B>';
@@ -4756,10 +5046,11 @@ class projetos {
 		$sx .= '<TD class="tabela01" align="center"><B>' . $total[4] . '</B>';
 		$sx .= '<TD class="tabela01" align="center"><B>' . $total[5] . '</B>';
 		$sx .= '</table>';
-		
+
 		return ($sx);
 
 	}
-//**************************** Fim da funcao *****************************************/
+
+	//**************************** Fim da funcao *****************************************/
 
 }

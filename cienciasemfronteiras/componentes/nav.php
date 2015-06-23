@@ -26,6 +26,18 @@
                     <li><a href="#">One more separated link</a></li> -->
                   </ul>
                 </li>
+                <li class="dropdown">
+                  <a href="sobre-programa.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #fff;">Eventos <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="eventos.php">1st SWB Experience</a></li>
+                    <li><a href="despedida-1.php">Despedida 2015 1º Semestre</a></li>
+                    <!-- <li><a href="#">Something else here</a></li> -->
+                    <!-- <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li> -->
+                  </ul>
+                </li>
                 <li><a href="indicadores.php" style="color: #fff;">Indicadores</a></li>
                 <li><a href="depoimentos.php" style="color: #fff;">Depoimentos</a></li>
                 <!-- <li><a href="inscricoes.php">Inscrições</a></li> -->

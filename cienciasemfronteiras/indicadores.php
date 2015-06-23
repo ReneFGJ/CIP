@@ -39,12 +39,7 @@
           <h1>Indicadores <i>Ciência sem Fronteiras</i> administrado pela PUCPR.</h1>
         </div>
         <div class="indicadores-paragrafo">
-          <p>A PUCPR participou de todos os editais lançados pelo Governo Federal desde 2012. É a 1ª. 
-          	Instituição de Ensino Superior Privado em número de bolsas no Estado do Paraná e a 3ª entre todas as IES do Estado. 
-          	Já enviamos bolsistas para mais de 20 países em  mais de 150 Universidades de Destino. 
-          	Alguns de nossos bolsistas  que já concluíram a graduação deram continuidade em sua formação realizando cursos de 
-          	especializados e mestrado; vários estão se preparando para o doutorado. 
-          	Confira estas e outras informações nos indicadores a seguir: </p>
+          <p>A PUCPR participou de todos os editais lançados pelo Governo Federal desde 2012. É a 1ª. Instituição de Ensino Superior Privado em número de bolsas no Estado do Paraná e a 3ª entre todas as IES do Estado. Já enviamos bolsistas para mais de 20 países em mais de 150 Universidades de Destino. Alguns de nossos bolsistas que já concluíram a graduação deram continuidade em sua formação realizando cursos de especializados e mestrado; vários estão se preparando para o doutorado. Confira estas e outras informações nos indicadores a seguir:</p>
         </div>
 
 		<!--Botões-->
@@ -87,19 +82,19 @@
           </a>
 		  
 		  <!--
-          <a href="localizador.php">
+          <a href="pagina-grafico-5.php">
             <div class="botao-6">
-              <span>Localizar!</span>
+              <span>Perfil dos estudantes de Intercâmbio</span>
             </div>
           </a>
-		  -->
+		  -->	
         </div>
 
     <div class="clear"></div>
     
       <!-- FOOTER -->
       <?php
-        //require('componentes/footer.php');
+        require('componentes/footer.php');
       ?>
 
     </div><!-- /.container -->

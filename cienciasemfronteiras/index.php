@@ -1,7 +1,3 @@
-<?php
-require("db.php");
-require($include.'sisdoc_debug.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,16 +28,11 @@ require($include.'sisdoc_debug.php');
   </head>
   
   <body>
-	<?
-	
-		require('../_class/_class_csf.php');
-		$csf = new csf;
-		//Chama metodo que gera os quadros estatisticos da qtd. de estudantes
-		$total = $csf->total_bolsistas();
-	?>
-	    <?php
-	    require('componentes/headerpuc.php');
+
+    <?php
+        require('componentes/headerpuc.php');
     ?>
+
 
     <div class="navbar-wrapper">
       <div class="container">
@@ -52,6 +43,7 @@ require($include.'sisdoc_debug.php');
 
       </div>
     </div>
+
 
     <!-- Carousel
     ================================================== -->
@@ -67,9 +59,7 @@ require($include.'sisdoc_debug.php');
           <img class="first-slide" src="img/photo-99.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-	            <?php
-	              echo '<h1>Somos '.$total.' alunos CsF PUCPR pelo mundo.</h1>';
-	             ?>
+              <h1>Somos 322 alunos CsF PUCPR pelo mundo.</h1>
               <p>Saiba mais sobre os nossos bolsistas.</p>
               <p><a class="btn btn-lg btn-primary botao-home" href="http://www2.pucpr.br/reol/cienciasemfronteiras/indicadores.php" role="button">Ver indicadores</a></p>
             </div>
@@ -106,6 +96,7 @@ require($include.'sisdoc_debug.php');
       </a>
     </div><!-- /.carousel -->
 
+
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -134,7 +125,9 @@ require($include.'sisdoc_debug.php');
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
+
       <!-- START THE FEATURETTES -->
+
       <hr class="featurette-divider">
 
       <div class="row featurette"  data-sr="enter bottom, hustle 10px">
@@ -149,7 +142,7 @@ require($include.'sisdoc_debug.php');
 
       <hr class="featurette-divider">
 		
-<!--	
+	  <!--	
       <div class="row featurette"  data-sr="enter bottom, hustle 10px">
         <div class="col-md-7 col-md-push-5">
           <h2 class="featurette-heading">Alunos aprovam 100% o Ciência sem Fronteiras<span class="text-muted"></span></h2>
@@ -177,9 +170,10 @@ require($include.'sisdoc_debug.php');
 
       <!-- /END THE FEATURETTES -->
 
+
       <!-- FOOTER -->
         <?php
-        //require('componentes/footer.php');
+        require('componentes/footer.php');
         ?>
 
     </div><!-- /.container -->
@@ -200,6 +194,7 @@ require($include.'sisdoc_debug.php');
 
       window.sr = new scrollReveal();
     </script>
+
 
   </body>
 </html>

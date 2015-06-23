@@ -21,10 +21,7 @@
 		<?php echo $csf->estudantes_genero();?>
 		<br/>-->
 		<?php echo $csf->grafico_estudantes_genero();?>	
-		<br>
-		<!--Visão geral dos generos
-		<?php echo $csf->estudantes_genero_geral();?>
-		-->
+
 </div>
 
 
