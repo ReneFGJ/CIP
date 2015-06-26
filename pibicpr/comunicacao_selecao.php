@@ -371,6 +371,20 @@ if ((substr($dd[1],0,1)=='0') or (substr($dd[1],0,1)=='1'))
 					";
 			$rlt = db_query($sql);
 		}
+		
+	if ($op == '111')
+		{
+			/* RELATORIO PARCIAL - AVALIADORES */
+
+			$parecer_pibic->tabela = 'pibic_parecer_'.date("Y");
+			$sql = "select pp_email, pp_email_1 from ".$parecer_pibic->tabela." as tb1 
+					inner join pibic_professor on tb1.pp_avaliador = pp_cracha
+					where pp_tipo = 'SUBMI' and pp_status = 'B' 
+					and pp_ativo = 1 
+					group by pp_email, pp_email_1
+					";
+			$rlt = db_query($sql);
+		}		
 						
 	$ee = '';
 	$tot = 0;
@@ -384,5 +398,5 @@ if ((substr($dd[1],0,1)=='0') or (substr($dd[1],0,1)=='1'))
 			if (strlen($email) > 0) { $ee .= '; '.$email; }
 		}	
 	$dd[3] = $ee;
-}		
+}	echo '---->'.$tot;
 ?>

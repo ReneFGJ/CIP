@@ -42,7 +42,7 @@ $menu = array();
 array_push($menu,array('Início','index.php'));
 $data = round(date("m"));
 
-if (($data >= 1) and ($data < 3))
+if (($data >= 1) and ($data < 12))
 	{
 		array_push($menu,array('Submissão de projetos','submit_project.php'));
 		array_push($menu,array('Relatório Parcial','atividade_IC1.php'));				

@@ -846,6 +846,60 @@ class lattes
 					$sx .= '</table>';
 					return($sx);
 			}
+		function resumo_qualis_ss_qualis($ano1=0,$ano2=0)
+			{
+				$wh2 = " or eq_estrato = 'A2' ";
+				//$wh2 = '';
+				$sql = "select count(*) as total, pp_nome, pdce_programa, pos_nome from (
+						select distinct la_titulo, eq_estrato, la_jcr, j_issn, pp_nome, pp_cracha, pp_ss, pdce_programa , pos_nome
+							from programa_pos_docentes 
+							left join lattes_artigos on la_professor = pdce_docente
+							left join lattes_journals on j_codigo = la_periodico 
+							inner join programa_pos on pdce_programa = pos_codigo
+							left join qualis_estrato on (j_issn = eq_issn) and (eq_area = pos_avaliacao_1 ) 
+							left join pibic_professor on pp_cracha = la_professor	
+							where pdce_ativo = 1
+								and (la_ano >= '$ano1' and la_ano <= '$ano2') and la_tipo = 'A' and pp_ss = 'S' 
+									and (eq_estrato = 'A1' $wh2)
+							order by  pp_nome, eq_estrato, la_jcr		
+						) as tabela
+						
+						group by pdce_programa,pp_nome, pos_nome
+						order by pos_nome, pp_nome";
+				$rlt = db_query($sql);
+								
+				$xpos = '';
+				$sx = '<table width="100%" class="tabela01">';
+				$id = 0;
+				$tot = 0;
+				while ($line = db_read($rlt))
+					{
+						$npos = $line['pos_nome'];
+						$id++;
+						$tot = $tot + $line['total'];
+						if ($xpos != $npos)
+							{
+							$sx .= '<tr>';
+							$sx .= '<td class="lt4" colspan=2><B>';
+							$sx .= $line['pos_nome'];
+							$sx .= '</b></td>';
+							$sx .= '</tr>';
+							$xpos = $npos;
+							}
+						$sx .= '<tr>';
+						$sx .= '<td width="90%" class="tabela01">';
+						$sx .= $line['pp_nome'];
+						$sx .= '</td>';
+						$sx .= '<td class="tabela01" align="center">';
+						$sx .= '<B>'.$line['total'].'</b>';
+						$sx .= '</td>';
+						
+					}
+					$sx .= '<tr><td colspan=2>Total de '.$id.' docentes com '.$tot.' artigos publicados';
+					$sx .= '</table>';
+					return($sx);
+				
+			}
 		
 		function resumo_qualis_ss($programa,$areas,$anoi=1990,$anof=2999,$tp=0,$producao='A')
 			{
@@ -1018,7 +1072,175 @@ class lattes
 				if ($tp==1) { return($sa); }
 				if ($tp==3) { return($sa); }
 			}
+		function resumo_scimago_ss($programa,$areas,$anoi=1990,$anof=2999,$tp=0,$producao='A')
+			{
+				$ano = date("Y");
+				$sx = '<table width="100%" class="tabela00">';
+				$sx .= '<TR><TH>ISSN<TH>Journal<TH><TH>Estr.<TH>Ano<TH>Vol.<TH>Pag.<TH>Autor';
+				for ($r=0;$r < count($areas);$r++)
+				{
+					$area = $areas[$r];
+					$wh_areas = " and (eq_area = '".$area."' ) ";
+								
+					$sql = "select j_name, cj_scimago, j_issn, la_ano, 
+							la_periodico, la_vol, la_pag, la_professor, la_tipo,
+							pp_nome, la_titulo, la_nul
+							
+							from lattes_artigos
+							inner join programa_pos_docentes on pdce_docente = la_professor
+							inner join pibic_professor on pdce_docente = pp_cracha
+							left join lattes_journals on j_codigo = la_periodico
+							left join cited_journals on j_issn = cj_issn and cj_issn <> '' ";
+					$wh = "	where pdce_programa = '$programa'
+							and (la_ano >= '$anoi' and la_ano <= '$anof')
+							and (la_tipo = '".$producao."') "; 
+					$sql .= $wh . "
+							group by j_name, cj_scimago, j_issn, la_ano, la_periodico, la_vol, la_pag, la_professor, la_tipo, pp_nome, la_titulo, la_nul
+							order by la_ano desc, cj_scimago, la_periodico, la_vol, la_pag, la_professor ";
+					
+					$rlt = db_query($sql);
+					
+					$at = array(0,0,0,0,0,0,0,0,0);
+					$ar = array($at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at);
+					$xissn = 'x';
+					$xvol = 'x';
+					$xpag = 'x';
+					$xano = 'x';
+					
+					$xano = 0;
+					$xest = 'x';
+					
+					while ($line = db_read($rlt))
+					{
+						$ok = 1;
+						$issn = trim($line['j_issn']);
+						$vol = trim($line['la_vol']);
+						$pag = round(sonumero(trim($line['la_pag'])));
+						$ano = trim($line['la_ano']);
+						
+						if (($issn == $xissn) and ($vol == $xvol)
+							and ($ano == $xano) and ($xpag == $pag))
+							{ $ok = 0; }
+						
+						$xissn = trim($line['j_issn']);
+						$xvol = trim($line['la_vol']);
+						$xpag = round(sonumero(trim($line['la_pag'])));
+						$xano = trim($line['la_ano']);
+													
+							
+						$estrato = trim($line['cj_scimago']);
+						$id = 8;
+						
+						$cor = '';
+						if ($ok==0) { $cor = '<font color="red">'; }
+						
+						if ($estrato == 'Q1') { $id = 0; }
+						if ($estrato == 'Q2') { $id = 1; }
+						
+						if ($estrato == 'Q3') { $id = 2; }
+						if ($estrato == 'Q4') { $id = 3; }
 
+						
+						
+						/** Elimina duplicados */
+						if ($ok==1)
+							{
+							$ano = round($line['la_ano']);
+							$ano = ($ano-(date("Y"))+35);
+							if ($ano >=0)
+								{ $ar[$ano][$id] = $ar[$ano][$id] + 1; }
+							}
+						
+						//if (substr($line['eq_estrato'],0,1)=='A')
+						{						
+						if ($xano != $line['la_ano'])
+							{ $sx .= '<TR><TD class="lt3" colspan=2><B>'.$line['la_ano']; $xano = $line['la_ano'].'</B>'; }
+
+						if ($xest != $line['eq_estrato'])
+							{ $sx .= '<TR><TD class="lt2" colspan=2><B>'.$line['la_ano'].' - Estrato '.$line['eq_estrato'].'</B>'; $xest = $line['eq_estrato']; }
+
+						$fi = $line['la_jcr'];
+						$sx .= '<TR valign="top" >';
+						$sx .= '<TD>'.$cor.$line['j_issn'];
+						$sx .= '<TD><B>'.$cor.$line['j_name'].'</B>';
+						$sx .= '<BR><I>'.$line['la_titulo'].'</I>';
+						$sx .= '<TD>'.$cor.$line['qa_descricao'];
+						$sx .= '<TD>'.$cor.$line['eq_estrato'];
+						$sx .= '<TD><nobr>'.$line['la_vol']
+									.'('.$line['la_nul'].')'
+									.', '.$line['la_ano'];
+						$sx .= '<TD><NOBR>p. '.$line['la_pag'];
+						$sx .= '<TR><TD><TD colspan=10>';
+						$sx .= $cor.$line['pp_nome'].' ('.$line['la_professor'].')';
+						$sx .= '<TD>'.$cor.$line['id_la'];
+						}
+					}
+
+					$sx .= '<TR><TD colspan=7><center>';
+					$sa = '<table width="100%" class="tabela00">';
+					$sa .= '<TR align="center"><TH>ano<TH>Q1<TH>Q2<TH>Q3<TH>Q4<TH>s.q<TH>Total<TH>Equiv.';
+					$at = array(0,0,0,0,0,0,0,0,0);
+					for ($rq=35;$rq >= 0;$rq--)
+						{
+							if (count($ar[$rq]) > 0)
+							{
+								$tt = 0;
+								$tte= 0;
+								$multe = $this->equivalencia();
+																
+								$sq = '<TR><TD align="center" class="tabela01">'.(date('Y')+$rq-35);
+								for ($y=0;$y < 4;$y++)
+								{
+									$sq .= '<TD width="8%" align="center" class="tabela01">';
+									$mt = $ar[$rq][$y];
+									$at[$y] = $at[$y] + $mt;
+									  
+									$tt = $tt + $mt;
+									if ($mt == 0) { $mt = '&nbsp;'; }
+									$sq .= $mt;
+									$tte = $tte + $multe[$y] * $mt; 
+								}
+								$sq .= '<TD width="8%" align="center" class="tabela01"><B>'.$ar[$rq][8];
+								$sq .= '<TD width="8%" align="center" class="tabela01"><B>'.$tt;
+								$sq .= '<TD width="8%" align="center" class="tabela01"><B>'.number_format($tte,2,',','.');
+								if ($tt > 0) { $sa .= $sq; }
+							}
+						}
+					if ($tp==3)
+						{
+							$sa .= '<TR><TD><B>Total</B>';
+							for ($y=0;$y < 11;$y++)
+								{
+								$sa .= '<TD class="tabela01" align="center">';
+								$sa .= $at[$y];
+								}
+						}
+					$sa .= '</table>';
+				}
+				$sx .= '</table>';
+				
+				
+				/* Grafico Pizza */
+				$grp = "['Estrato Qualis','Artigos'] ";
+				$sql = "select eq_estrato, count(*) as total
+							from lattes_artigos
+							inner join programa_pos_docentes on pdce_docente = la_professor
+							left join lattes_journals on j_codigo = la_periodico
+							left join qualis_estrato on (j_issn = eq_issn) $wh_areas ";
+				$sql .= $wh. " group by eq_estrato ";
+				$rlt = db_query($sql);
+				$grp = "['Estrato','Total']";
+				while ($line = db_read($rlt))
+					{
+						$grp .= ', '.chr(13).chr(10);
+						$grp .= "['".trim($line['eq_estrato'])."', ";
+						$grp .= $line['total']."] ";
+					}				
+				
+				if ($tp==0) { return($sa.$sx); }		
+				if ($tp==1) { return($sa); }
+				if ($tp==3) { return($sa); }
+			}
 		function resumo_qualis_discente_ss($programa,$areas,$anoi=1990,$anof=2999)
 			{
 				$sx = '<table width="94%" class="lt0">';
@@ -1158,7 +1380,49 @@ class lattes
 				return($sa.$sx);				
 			}
 
-
+		function resumo_qualis_discente_ss_array($programa,$areas,$anoi=1990,$anof=2999)
+			{
+				$sx = '<table width="94%" class="lt0">';
+				$sx .= '<TR><TH>ISSN<TH>Journal<TH><TH>Estr.<TH>Ano<TH>Vol.<TH>Pag.<TH>Autor';
+				for ($r=0;$r < count($areas);$r++)
+				{
+					$area = $areas[$r];
+					$wh_areas = " and (eq_area = '".$area."' ) ";
+								
+					$sql = "
+							select count(*) as total, pp_nome, eq_estrato from (
+							select distinct la_titulo, eq_estrato, la_jcr, j_issn, pp_nome, pp_cracha, pp_ss 
+								from programa_pos_docentes 
+								left join lattes_artigos on la_professor = pdce_docente
+								left join lattes_journals on j_codigo = la_periodico 
+								left join qualis_estrato on (j_issn = eq_issn) $wh_areas 
+								left join pibic_professor on pp_cracha = la_professor	
+								where pdce_programa = '$programa' and pdce_ativo = 1
+									and (la_ano >= '$anoi' and la_ano <= '$anof') and la_tipo = 'A' and pp_ss = 'S'
+									
+								order by pp_nome, eq_estrato, la_jcr		
+							) as tabela
+							group by pp_nome, eq_estrato
+							order by pp_nome, eq_estrato					
+					";												
+					$rlt = db_query($sql);
+					$prf = array();
+					$xprof = '';
+					while ($line = db_read($rlt))
+					{
+						$ok = 1;
+						$nprof = trim($line['pp_nome']);
+						if ($nprof != $xprof)
+							{
+								$prf[$nprof] = array();
+								$xprof = $nprof;
+							}
+						$qualis = trim($line['eq_estrato']);
+						$prf[$nprof][$qualis] = $line['total'];
+					}
+				}
+				return($prf);				
+			}
 
 		function resumo_qualis($professor,$areas=array(),$tipo=1)
 			{

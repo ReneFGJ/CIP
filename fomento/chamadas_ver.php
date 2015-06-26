@@ -33,7 +33,7 @@ require($include.'sisdoc_email.php');
 	
 	if ((strlen($acao) > 0) and ($dd[1] == '1'))
 		{
-			$email = 'cip@pucpr.br';
+			$email = 'pdi@pucpr.br';
 			enviaremail($email,'',$clx->titulo,$clx->texto);
 			echo 'Enviado para '.$email;
 		}

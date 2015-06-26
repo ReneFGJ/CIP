@@ -35,7 +35,8 @@ if (strlen($programa_pos) == 0)
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Compilação de dados do programa (4)',''));
 				array_push($menu,array('Relatório Consultor Externo - Convidado','____Publicações Docentes (4a)','pos_graduacao_4.php'));
 				array_push($menu,array('Relatório Consultor Externo - Convidado','______Publicações Docentes Lista (4a1)','pos_graduacao_4a1.php'));
-				array_push($menu,array('Relatório Consultor Externo - Convidado','____Publicações Discentes (4b)','pos_graduacao_4a.php')); 
+				array_push($menu,array('Relatório Consultor Externo - Convidado','______Publicações Docentes - Gráfico (4b)','pos_graduacao_4b.php'));				
+				array_push($menu,array('Relatório Consultor Externo - Convidado','____Publicações Discentes (4c)','pos_graduacao_4a.php')); 
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Quinze melhores produções bibliográficas (5)','pos_graduacao_5.php')); 
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Cinco melhores produções técnicas (6)','')); 
 				array_push($menu,array('Relatório Consultor Externo - Convidado','__Inovações de Destaque e Repercussões (7)',''));
@@ -55,7 +56,9 @@ if (strlen($programa_pos) == 0)
 if (($perfil->valid('#ADM#SCR#COO')))
 	{
 	array_push($menu,array('Produção Científica','Produção em Revistas','producao_revistas.php'));
-	array_push($menu,array('Produção Científica','Avaliação por triênio - Periódicos',''));
+	array_push($menu,array('Produção Científica','Produção em Revistas - Qualis A','producao_revistas_A.php'));
+	
+		array_push($menu,array('Produção Científica','Avaliação por triênio - Periódicos',''));
 
 	for ($r=2004;$r <= date("Y");$r=$r+3)
 		{

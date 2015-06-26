@@ -298,6 +298,8 @@ function parecer_nao_entregues($ano)
 				array_push($cp,array('$S10','pb_contrato','Contrato',False,True,''));
 				
 				array_push($cp,array('$S8','pb_aluno','Aluno (Cracha)',False,True,''));
+				
+				$nota = '-90:Não postado&0:Postar dpcumento&1:Nota 1&2:2&3:3&4:4&5:5&6:6&7:7&8:8&9:9&10:10';
 
 				array_push($cp,array('${','','PIBICJr',False,True,''));
 				array_push($cp,array('$S100','pb_aluno_nome','Nome do Aluno (PIBICJr)',False,True,''));
@@ -318,12 +320,12 @@ function parecer_nao_entregues($ano)
 				array_push($cp,array('$D8','pb_data_encerramento','Data (encerramento)',False,True,''));
 				array_push($cp,array('$D8','pb_relatorio_parcial','Data (envio relatorio parcial)',False,True,''));
 				
-				array_push($cp,array('$I8','pb_relatorio_parcial_nota','Nota relatorio',False,True,''));
-							
+				array_push($cp,array('$O '.$nota,'pb_relatorio_parcial_nota','Nota relatorio',False,True,''));
+						
 				array_push($cp,array('$D8','pb_relatorio_final','Data (envio relatorio final)',False,True,''));
-				array_push($cp,array('$I8','pb_relatorio_final_nota','Nota relatorio final',False,True,''));
+				array_push($cp,array('$O '.$nota,'pb_relatorio_final_nota','Nota relatorio final',False,True,''));
 				array_push($cp,array('$D8','pb_resumo','Data Resumo',False,True,''));
-				array_push($cp,array('$I8','pb_resumo_nota','Nota resumo',False,True,''));
+				array_push($cp,array('$O '.$nota,'pb_resumo_nota','Nota resumo',False,True,''));
 				array_push($cp,array('$D8','pb_semic','Data Semic',False,True,''));
 
 				array_push($cp,array('$O 1:SIM&0:Nao','pb_ativo','Ativo',False,True,''));

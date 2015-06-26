@@ -19,6 +19,7 @@ array_push($menu,array('Pós-Graduação','__Mobilidade discente (outgoing)','pos_m
 array_push($menu,array('Pós-Graduação','__Mobilidade discente (incoming)','pos_mobilidade_discente_in.php'));
 
 array_push($menu,array('Pós-Graduação','Produção','pos_producao.php'));
+array_push($menu,array('Pós-Graduação','Produção (Scimago)','pos_producao_q1.php'));
 array_push($menu,array('Pós-Graduação','Captação','pos_captacao.php'));
 
 /* pos_producao.php */

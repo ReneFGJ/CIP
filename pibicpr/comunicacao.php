@@ -52,6 +52,7 @@ $tps = array();
 	array_push($tps,array('028','Professores que não enviaram resumo de '.(date("Y")-1).'/'.date("Y")));
 	
 	array_push($tps,array('110','Avaliadores do relatório parcial em aberto ('.(date("Y")-1).'/'.date("Y").')'));
+	array_push($tps,array('111','Avaliadores do Edital ('.date("Y").') finalizados'));
 	
 	array_push($tps,array('100','Bolsistas produtividades da Instituição'));
 	

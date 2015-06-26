@@ -115,7 +115,10 @@ if ($line = db_read($rlt))
 
 /* RN25	Professor com carga horário superior a 1 hora */
 if ($sc < $chm)
-	{ $ok = -9; $msg .= 'Carga horária inferir a carga mínima ('.$chm.' horas).'; }
+	{
+		/* Regra cancelado em 26/06/2015 */
+		// $ok = -9; $msg .= 'Carga horária inferir a carga mínima ('.$chm.' horas).'; 
+	}
 
 /* LImite de bolsas pagas */
 //////////////////////////////////////////////////////////////// Máximo duas bolsas pagas

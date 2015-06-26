@@ -1,7 +1,7 @@
 <?
-$email_adm = 'cip@pucpr.br';
+$email_adm = 'pdi@pucpr.br';
 //$email_adm = 'nucleo.pesquisa@pucpr.br';
-$admin_nome = 'CIP';
+$admin_nome = 'PDI';
 
 $email_adm = 'pdi@pucpr.br';
 //$email_adm = 'nucleo.pesquisa@pucpr.br';
