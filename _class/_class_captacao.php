@@ -92,6 +92,9 @@ class captacao {
 					<TH>Capt.Empr.
 					<TH>Situação
 					<TH>ID
+					<TH>SS
+					<TH>Duração
+					<TH>Prorr.
 					';
 
 		while ($line = db_read($rlt)) {
@@ -235,6 +238,14 @@ class captacao {
 			$sx .= '<TD>';
 			$sx .= '<NOBR>';
 			$sx .= $line['pp_ss'];
+
+			$sx .= '<TD align="center">';
+			$sx .= '<NOBR>';
+			$sx .= $line['ca_duracao'];
+			
+			$sx .= '<TD align="center">';
+			$sx .= '<NOBR>';
+			$sx .= $line['ca_vigencia_prorrogacao'];						
 		}
 		$sx .= '</table>';
 
