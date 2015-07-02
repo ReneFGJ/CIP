@@ -1232,7 +1232,7 @@ class projetos {
 
 		array_push($cp, array('${', '', 'Área de conhecimento', False, True));
 		array_push($cp, array('$S14 ', 'pj_area', 'Área', TRUE, TRUE));
-		//array_push($cp,array('$S14','pj_area_estrategica','Área estratégica',False,True));
+		array_push($cp,array('$S14','pj_area_estra','Área estratégica',False,True));
 		array_push($cp, array('$}', '', 'Dados do projeto do professor', False, True));
 
 		array_push($cp, array('$S1', 'pj_status', 'Status', True, True));

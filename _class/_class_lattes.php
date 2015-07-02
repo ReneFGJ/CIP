@@ -850,22 +850,27 @@ class lattes
 			{
 				$wh2 = " or eq_estrato = 'A2' ";
 				//$wh2 = '';
-				$sql = "select count(*) as total, pp_nome, pdce_programa, pos_nome from (
-						select distinct la_titulo, eq_estrato, la_jcr, j_issn, pp_nome, pp_cracha, pp_ss, pdce_programa , pos_nome
-							from programa_pos_docentes 
-							left join lattes_artigos on la_professor = pdce_docente
+				
+				$sql = "
+						select distinct pos_nome, total, docente, pdce_programa, pdce_docente, pp_nome from programa_pos_docentes 
+						left join (
+						select count(*) as total, pdce_docente as docente, pdce_programa as programa from ( 
+							select distinct la_titulo, eq_estrato, la_jcr, j_issn, pdce_docente,  
+								pdce_programa from programa_pos_docentes 
+							left join lattes_artigos on la_professor = pdce_docente 
 							left join lattes_journals on j_codigo = la_periodico 
-							inner join programa_pos on pdce_programa = pos_codigo
+							inner join programa_pos on pdce_programa = pos_codigo 
 							left join qualis_estrato on (j_issn = eq_issn) and (eq_area = pos_avaliacao_1 ) 
-							left join pibic_professor on pp_cracha = la_professor	
-							where pdce_ativo = 1
-								and (la_ano >= '$ano1' and la_ano <= '$ano2') and la_tipo = 'A' and pp_ss = 'S' 
-									and (eq_estrato = 'A1' $wh2)
-							order by  pp_nome, eq_estrato, la_jcr		
-						) as tabela
-						
-						group by pdce_programa,pp_nome, pos_nome
-						order by pos_nome, pp_nome";
+							
+						where pdce_ativo = 1 and (la_ano >= '$ano1' and la_ano <= '$ano2') and la_tipo = 'A' and (eq_estrato = 'A1' $wh2) 
+							) as tabela 
+							group by pdce_programa,pdce_docente
+						) as tabela02 on docente = pdce_docente
+						left join pibic_professor on pp_cracha = pdce_docente and pdce_ativo = 1 and pdce_tipo = 'P'
+						inner join programa_pos on pdce_programa = pos_codigo
+						where pp_ativo = 1
+						order by pos_nome, pp_nome				
+				";
 				$rlt = db_query($sql);
 								
 				$xpos = '';

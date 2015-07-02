@@ -74,6 +74,92 @@ $prof = $pj->line['pj_professor'];
 $doc->le($prof);
 echo $doc->mostra();
 
+/*****************************************************************************/
+/* AVALIACAO ANTERIORES */
+$sql = "select * from ".$parecer_pibic->tabela." 
+			where pp_protocolo_mae = '$protocolo' and pp_status = 'B'
+			order by pp_avaliador 
+			limit 20 ";
+
+$vl = array('20'=>'excelente','17'=>'muito bom','15'=>'bom','12'=>'regular','7'=>'ruim','1'=>'muito ruim');
+$vp = array('15'=>'excelente','13'=>'muito bom','10'=>'bom','7'=>'regular','5'=>'ruim','1'=>'muito ruim');
+$sn = array('0'=>'não','1'=>'sim','2'=>'dúvida');
+$ap = array('10'=>'adequado','5'=>'parcialmente adequado','1'=>'inadequado');
+
+$cvl = array('20'=>'#80FF80','17'=>'#80B080','15'=>'#808080','12'=>'#B08080','7'=>'D08080','1'=>'#ff8080');
+$cvp = array('15'=>'#80FF80','13'=>'#80B080','10'=>'#808080','7'=>'#B08080','5'=>'D08080','1'=>'#ff8080');
+
+$adp = array('10'=>'#80FF80','5'=>'#80B080','1'=>'#B08080');
+$snp = array('0'=>'#FF8080','1'=>'#80FF80','2'=>'#8080FF');
+
+
+
+$rlt = db_query($sql);
+$sx .= '<table width="100%" class="tabela01 lt1">';
+$sh = '<tr><th>tipo</th>
+			<th>protocol.</th>
+			<th>Critério 1</th>
+			<th>Critério 2</th>
+			<th>Critério 3</th>
+			<th>Critério 4</th>
+			<th>Critério 5</th>
+			<th>Critério 6</th>
+			<th>Critério 7</th>
+			<th>Critério 8</th>
+		</tr>
+			';
+$xav = '';
+$nr_av = 1;
+while ($line = db_read($rlt))
+	{
+		$av = $line['pp_avaliador'];
+		if ($xav != $av)
+			{
+				$sx .= '<tr>';
+				$sx .= '<td class="lt2" colspan=2><b>Avaliador #'.$nr_av.'#</b></td>';
+				$sx .= '<td colspan=20><hr></td></tr>';
+				
+				$sx .= '<tr>';
+				$sx .= '<td></td>';
+				$sx .= '<td colspan=20>'.$line['pp_abe_01'].'</td>';
+				$sx .= '</tr>';
+				
+				$sx .= $sh;
+				$nr_av++;
+				$xav = $av;
+			}
+		$sx .= '<tr>';
+		$sx .= '<td>'.$line['pp_tipo'].'</td>';
+		$sx .= '<td>'.$line['pp_protocolo'].'</td>';
+		$v = trim($line['pp_p01']);
+		$sx .= '<td align="center" bgcolor="'.$cvl[$v].'">'.$vl[$v].'</td>';
+
+		$v = trim($line['pp_p02']);
+		$sx .= '<td align="center" bgcolor="'.$cvl[$v].'">'.$vl[$v].'</td>';
+
+		$v = trim($line['pp_p03']);
+		$sx .= '<td align="center" bgcolor="'.$cvl[$v].'">'.$vl[$v].'</td>';
+
+		$v = trim($line['pp_p04']);
+		$sx .= '<td align="center" bgcolor="'.$snp[$v].'">'.$sn[$v].'</td>';
+
+		$v = trim($line['pp_p05']);
+		$sx .= '<td align="center" bgcolor="'.$cvp[$v].'">'.$vp[$v].'</td>';
+
+		$v = trim($line['pp_p06']);
+		$sx .= '<td align="center" bgcolor="'.$cvp[$v].'">'.$vp[$v].'</td>';
+
+		$v = trim($line['pp_p07']);
+		$sx .= '<td align="center" bgcolor="'.$adp[$v].'">'.$ap[$v].'</td>';
+
+		$v = trim($line['pp_p08']);
+		$sx .= '<td align="center" bgcolor="'.$snp[$v].'">'.$sn[$v].'</td>';
+						
+		$ln = $line;
+	}
+$sx .= '</table>';
+echo $sx;
+
 
 /*********************************************************************/
 echo '<center><h3>Projeto do Professor Orientador</h3></center>';

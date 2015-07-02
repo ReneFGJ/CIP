@@ -210,10 +210,14 @@ function ro8_listrecord() {
 		while ($ro_line = db_read($ro_rlt)) {
 			$ro_key = array_keys($ro_line);
 			if ($totr == 0) {
-				$ro8 .= '<TR>';
+				
 				for ($k = 0; $k < count($ro_line); $k++) {
 					$fld = trim($ro_key[$k * 2 + 1]);
-					$ro8 .= '<TH>' . $fld;
+					if ($format == "html")
+						{
+							$ro8 .= '<TR>';
+							$ro8 .= '<TH>' . $fld;
+						}
 				}
 			}
 			$totr++;
@@ -434,7 +438,7 @@ function ro8_cab() {
 
 	if ($format == 'xml') {
 		$ro8c = '<?xml version="1.0" encoding="ISO-8859-1"?>' . $eof;
-		$ro8c .= '<RO8 xmlns="http://www.openarchives.org/OAI/2.0/" ' . $eof;
+		$ro8c .= '<ro8 xmlns="http://www.openarchives.org/OAI/2.0/" ' . $eof;
 		$ro8c .= ' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">' . $eof;
 		$ro8c .= '<responseDate>' . date("Y-m-d") . 'T' . date("H:i:s") . '</responseDate>' . $eof;
 		$ro8c .= '<format>' . $format . '</format>' . $eof;
@@ -451,7 +455,7 @@ function ro8_cab() {
 //////////////////////////////////////////////////////// HEAD FOOT
 function ro8_foot() {
 	global $format;
-	if ($format == 'xml') { $ro8c = "</RO8>";
+	if ($format == 'xml') { $ro8c = "</ro8>";
 	}
 	if (($format == 'xls') or ($format == 'html') or ($format == 'doc')) { $ro8c = "</table>";
 	}
@@ -464,6 +468,9 @@ function ro8_codec($ro_str) {
 	$ro_str = trim($ro_str);
 	if ($encode == 'UTF-8') { $ro_str = utf8_encode($ro_str);
 	}
+	$ro_str = troca($ro_str,'<','&lt;');
+	$ro_str = troca($ro_str,'>','&rt;');
+	$ro_str = troca($ro_str,'&','[e]');
 	return ($ro_str);
 }
 ?>
