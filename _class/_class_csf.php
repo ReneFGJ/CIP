@@ -1059,10 +1059,10 @@ class csf
 	                    <nav>
 	                      <ul>
 	                       <li><button id="botao1"> <a href="'.page().'?dd1=world#section-iconbox-1">Todos</a></button></li>
-							<li><button id="botao1"><a href="'.page().'?dd1=021#section-iconbox-1">America do Norte</a></button></li>
-							<li><button id="botao1"><a href="'.page().'?dd1=142#section-iconbox-1">Ásia</a></button></li>
-							<li><button id="botao1"><a href="'.page().'?dd1=150#section-iconbox-1">Europa</a></button></li>
-							<li><button id="botao1"><a href="'.page().'?dd1=009#section-iconbox-1">Oceania</a></button></li>
+							<li><button id="botao1"><a href="'.page().'?dd1=021#section-iconbox-1">America do Norte (113)</a></button></li>
+							<li><button id="botao1"><a href="'.page().'?dd1=142#section-iconbox-1">Ásia (6)</a></button></li>
+							<li><button id="botao1"><a href="'.page().'?dd1=150#section-iconbox-1">Europa (142)</a></button></li>
+							<li><button id="botao1"><a href="'.page().'?dd1=009#section-iconbox-1">Oceania (61)</a></button></li>
 	                        </li>                     
 	                      </ul>
 	                    </nav>
