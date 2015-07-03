@@ -38,6 +38,9 @@ array_push($menu,array('Iniciação Científica','Docentes Stricto Sensu','iniciaca
 
 array_push($menu,array('Bonificação - Processos','Relatório de bonificação','bonificacao_rel.php'));
 array_push($menu,array('Bonificação - Processos','Relatório de isenção','bonificacao_rel_isencao.php'));
+
+array_push($menu,array('IES','Marcação de IES','Mark_ies_maps.php'));
+
 ?>
 <TABLE width="710" align="center" border="0">
 <TR>
