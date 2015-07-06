@@ -519,6 +519,9 @@ class fomento {
 		if ($idioma == 'us_EN') {
 			$cab = array('fomento_1' => 'Objective', 'fomento_2' => 'Covered costs', 'fomento_3' => 'Eligibility', 'fomento_4' => 'Contact', 'fomento_5' => '#(5)', 'fomento_6' => 'Research topics', 'fomento_7' => '#(7)', 'fomento_8' => '#(8)', 'fomento_9' => '#(9)', 'fomento_10' => '#(10)', 'fomento_11' => 'Submission process', 'fomento_12' => 'Instutional contact', 'deadline1' => 'Deadline for electronic submission', 'deadline2' => 'Deadline for sending documents', 'deadline3' => 'Predicting outcomes', 'deadline4' => 'Documents and/or institutional signatures<BR> must be requested within 3 working days before the deadline', 'access1' => 'To access the full call and other relevant information, please click ', 'access2' => 'HERE');
 		}
+		if ($idioma == 'FR') {
+			$cab = array('fomento_1' => 'Objectifs', 'fomento_2' => 'Dépenses admissibles', 'fomento_3' => 'Conditions d´admissibilité', 'fomento_4' => 'Contact', 'fomento_5' => '#(5)', 'fomento_6' => 'Secteurs prioritaires', 'fomento_7' => '#(7)', 'fomento_8' => '#(8)', 'fomento_9' => '#(9)', 'fomento_10' => '#(10)', 'fomento_11' => 'Présentation des projets', 'fomento_12' => 'Contact', 'deadline1' => 'Deadline for electronic submission', 'deadline2' => 'Appel à candidatures ouvert jusqu´au', 'deadline3' => 'Predicting outcomes', 'deadline4' => 'Documents and/or institutional signatures<BR> must be requested within 3 working days before the deadline', 'access1' => 'To access the full call and other relevant information, please click ', 'access2' => 'HERE');
+		}
 		for ($r = 1; $r <= 12; $r++) {
 			$vl = trim($this -> line['ed_texto_' . $r]);
 			if (strlen($vl) > 0) {
@@ -620,7 +623,7 @@ class fomento {
 		array_push($cp, array('$S100', 'ed_titulo_email', 'Título do e-mail (opcional)', False, True));
 
 		array_push($cp, array('$HV', 'ed_data', date("Ymd"), False, True));
-		array_push($cp, array('$Q agf_nome:agf_codigo:select * from agencia_de_fomento where agf_ativo=1 order by agf_nome', 'ed_agencia', '', False, True));
+		array_push($cp, array('$Q agf_nome:agf_codigo:select * from agencia_de_fomento where agf_ativo=1 order by agf_nome', 'ed_agencia', 'Agência', False, True));
 		array_push($cp, array('$O : &Observatório:Observatório&IC:IC', 'ed_local', 'Disseminador', False, True));
 
 		/* tipos */
@@ -633,7 +636,7 @@ class fomento {
 		}
 
 		array_push($cp, array('$O : ' . $op_tipo, 'ed_edital_tipo', 'Tipo', True, True));
-		array_push($cp, array('$O : &pt_BR:Portugues&us_EN:Inglês', 'ed_idioma', 'Idioma', True, True));
+		array_push($cp, array('$O : &pt_BR:Portugues&us_EN:Inglês&FR:Francês&ES:Espanhol', 'ed_idioma', 'Idioma', True, True));
 		array_push($cp, array('$S20', 'ed_chamada', 'Chamada', True, True));
 		array_push($cp, array('$H8', '', '', False, True));
 		array_push($cp, array('$D8', 'ed_data_1', 'Deadline (eletrônico)', False, True));
