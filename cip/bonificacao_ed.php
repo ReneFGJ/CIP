@@ -69,7 +69,7 @@ if ($form->saved > 0)
 		if ((strlen($status2) > 0) and ($status != $status2))
 			{
 				$protocolo = $bon->origem_protocolo;
-				$ope = 'BO'.$status;
+				$ope = 'BO';
 				$historico = 'Alteração de Status para <B>'.$status_nome.'</B>';
 				if ($status=='X') { $historico = 'Cancelamento de indicação '; }
 				$historico .= ' por '.$ss->user_login;
