@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span> 
               </button>
-              <a class="navbar-brand" href="index.php" class="teste-ajuda-deus" style="color: #fff; font-weight: 600;">Ciência sem Fronteiras - PUCPR</a>
+              <a class="navbar-brand" href="index.php" class="teste-ajuda-deus" style="color: #fff; font-weight: 600;">Ciência sem Fronteiras</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -44,6 +44,8 @@
                 <!-- <li><a href="#contact">Acesso aos Bolsistas</a></li> -->
                 <li><a href="perguntas-frequentes.php" style="color: #fff;">Perguntas Frequentes</a></li>
                 <li><a href="contato.php" style="color: #fff;">Contato</a></li>
+                <li><a href="../cienciasemfronteiras_eng/index.php" style="color: #fff;"><img border="0" src="../cienciasemfronteiras/img/eua_icon_flag_lang.png" title="English"/></a></li>
+                <li><a href="../cienciasemfronteiras/index.php" style="color: #fff;"><img border="0" src="../cienciasemfronteiras/img/brazil_icon_flag_lang.png" title="Portuguese"/></a></li>
               </ul>
             </div>
           </div>
