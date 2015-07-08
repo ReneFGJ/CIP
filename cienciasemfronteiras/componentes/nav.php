@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-inverse navbar-static-top top-puc" style="margin-top: 38px;">
           <div class="container">
             <div class="navbar-header">

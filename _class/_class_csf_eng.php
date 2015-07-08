@@ -1522,7 +1522,7 @@ class csf
 						
 						      var options = {
 										       chartArea: {width: \'70%\'},
-										       hAxis: {title: \'Total at studant\', minValue: 0 },
+										       hAxis: {title: \'Total of studant\', minValue: 0 },
 										       vAxis: {title: \'Country\'}
 											   
 										     };
