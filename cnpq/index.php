@@ -18,6 +18,12 @@ array_push($menu,array('Iniciação Científica','Seminário de Iniciação Científica
 array_push($menu,array('Iniciação Científica','Novos programas IC','cnpq_mobilidade_2015.php'));
 array_push($menu,array('Iniciação Científica','Edital IC 003/2015','arq/2015/cadernos_de_normas_2015.pdf'));
 
+//Validacao de perfil de test
+if ($perfil->valid('#TST'))
+	{
+	  array_push($menu,array('Teste grafico','Pibic','view/apresentacao_origem_bolsas.php'));
+	}
+
 //array_push($menu,array('Edital de Iniciação Ciêntífica e Tecnológica','Demanda Edital '.date("Y"),'ic_demanda.php?dd0=2015'));
 
 array_push($menu,array('Programas','<font color="BLUE"><B>PIBIC</B></font>','index_ic.php?dd0=PIBIC'));

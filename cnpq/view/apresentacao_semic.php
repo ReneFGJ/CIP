@@ -7,7 +7,7 @@ $ybar = 'Total de projetos';
 $xbar = 'Ano';
 
 
-/* PIBITI */
+/* PIBITI model: bars*/
 $dado = array('2011'=>51,'2012'=>81,'2013'=>95,'2014'=>107,'2015'=>140);
 $title = 'Histórico dos projetos finalizados';
 $title2 = 'Apresentação SEMIC - PIBIC';
