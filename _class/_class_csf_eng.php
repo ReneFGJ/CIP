@@ -399,6 +399,13 @@ class csf
 				return($line['total']);				
 			}
 
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: estudante_area()
+ *          Monta estudantes por formação
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 15/05/2015
+ */			
 	function estudante_area()
 			{
 				$sql = "					
@@ -460,18 +467,19 @@ class csf
   				<div id="visualization" style="width: 850px; height: 450px;"></div>
 				';
 				
+
 				//*******************************************************************
-			    $sx .= '<BR><BR><H2>'.msg('Titulação:').'</H2>';
-				$sx .= '<table width=50% align=center class="tabela01">';
+			    $sx .= '<BR><BR><H2>Titling</H2>';
+				$sx .= '<table width=750 align=center class="lt0" cellpadding=2 cellspacing=0 border=1>';
 				$sx .= '<TR>';
-				$sx .= '<TH width=30%  align="center">'.msg('Title').'<TH width=10%>'.msg('Studants');
-				$sx .= '<TR>';
+				$sx .= '<TH width=30%  align="center">Title<TH width=10%>Studants';
+				$sx .= '<TR><TD>';
 				$sx .= $sq.'</table>';
-				$sx  .= '</table>';
 				$sx .= '<BR>';				
     			return($sx);
 				
 			}
+//**************************** Fim do metodo *****************************************
 		
 	function estudante_curso_pie()
 			{
@@ -592,12 +600,12 @@ class csf
 						      	]);
 						
 					var options = {
-						          title: \'Cursos\',
+						          title: \'Courses\',
 						          width: 900,
 						          chart: { subtitle: \'Total grants distributed for courses\' },
 						          axes: {
 							            x: {
-							              0: { side: \'top\', label: \'Cursos\'} // Top x-axis.
+							              0: { side: \'top\', label: \'Courses\'} // Top x-axis.
 							            }
 							          },
 								  bar: { groupWidth: "90%" }
@@ -620,7 +628,7 @@ class csf
 				//Cursos dos Estudantes da PUCPR que estão estudando em outros países
 				$sx .= '<table width=750 align=center class="lt0" cellpadding=3 cellspacing=0 border=1>';
 				$sx .= '<TR>';
-				$sx .= '<TH width=35% align="center">'.msg('Curso').'<TH width=13%>'.msg('Estudantes');
+				$sx .= '<TH width=35% align="center">'.msg('Course').'<TH width=13%>'.msg('Studants');
 				$sx .= $sq.'</table>';
 				
 				$sx .= '<TR colspan=2>
@@ -694,7 +702,13 @@ class csf
     			return($sx);
 		}
 
-												
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: world_onde_curso_universidade()
+ *          Monta detalhes do cadastro dos estudantes do CsF(curso, universidade, estudante e pais)
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 15/05/2015
+ */												
 	function world_onde_curso_universidade()
 			{
 				
@@ -709,7 +723,7 @@ class csf
 				$rlt = db_query($sql);
 				
 				$sx  = '<table width="100%" class="lt1">' ;
-				$sx .= '<TR><TH style="text-align:left">Curso__Estudante<TH>Instituição<TH>País';
+				$sx .= '<TR><TH style="text-align:left">Coursew__Studant<TH>Institution<TH>Country';
 				
 				$xpais = 'X';
 				
@@ -730,7 +744,7 @@ class csf
 				$sx .= '</table></br></br>';
 				return($sx);			
 			}							
-
+//**************************** Fim do metodo *****************************************
 
 	function world_onde_pais_universidade()
 			{
@@ -1502,14 +1516,14 @@ class csf
 						
 						function drawBasic() {
 						      var data = google.visualization.arrayToDataTable([
-						        [\'Pais\', \'Estudante\'],
+						        [\'Country\', \'Studant\'],
 						        '.$st.'
 						      ]);
 						
 						      var options = {
 										       chartArea: {width: \'70%\'},
-										       hAxis: {title: \'Total Alunos\', minValue: 0 },
-										       vAxis: {title: \'Paises\'}
+										       hAxis: {title: \'Total at studant\', minValue: 0 },
+										       vAxis: {title: \'Country\'}
 											   
 										     };
 						
@@ -1526,7 +1540,7 @@ class csf
 						}
 					</style>
 				  	<div id="chart_div"><div> 
-				  	<div style="text-align: justify">Mapa</div>
+				  	<div style="text-align: justify">Map</div>
   				';
 				
 			    //*******************************************************************
