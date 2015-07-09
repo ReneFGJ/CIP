@@ -4,11 +4,11 @@ $parecer_pibic -> tabela = 'pibic_parecer_' . date("Y");
 $tela = array('','','','','','','','','','','','');
 
 /* Relatorio Parcial */
-if (date("m") < 5) { $tela[0] = $parecer_pibic -> resumo_avaliador($par -> codigo, 'RPAR');
+if (date("m") < 13) { $tela[0] = $parecer_pibic -> resumo_avaliador($par -> codigo, 'RPAR');
 }
 
 /* Correção do Relatório Parcial */
-if (date("m") < 6) { $tela[1] = $parecer_pibic -> resumo_avaliador($par -> codigo, 'RPAC');
+if (date("m") < 13) { $tela[1] = $parecer_pibic -> resumo_avaliador($par -> codigo, 'RPAC');
 }
 
 /* Submissão de projetos / plano */

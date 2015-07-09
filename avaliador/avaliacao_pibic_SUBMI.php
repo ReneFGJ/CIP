@@ -116,8 +116,6 @@ while ($line = db_read($rlt))
 		if ($xav != $av)
 			{
 				$sx .= '<tr>';
-				$sx .= '<td colspan=20><br><br></td></tr>';
-				$sx .= '<tr>';
 				$sx .= '<td class="lt2" colspan=2><b>Avaliador #'.$nr_av.'#</b></td>';
 				$sx .= '<td colspan=20><hr></td></tr>';
 				
