@@ -42,7 +42,8 @@
         </div>
         
         <h3>Como faço para me inscrever no programa?</h3>
-        <p>O aluno candidato deverá inscrever - se no site do Ciência Sem Fronteiras pelo seguinte link: http://www.cienciasemfronteiras.gov.br/web/csf Deverá ser feita também a inscrição pelo site da PUCPR no link: http://www2.pucpr.br/reol/cienciasemfronteiras/ É necessária a inscrição nesses dois momentos para que toda e qualquer informação sobre a candidatura do aluno seja disponibilizada a Coordenação do Ciência sem Fronteiras da PUCPR  (CSF). Sendo assim, poderemos acompanhar o processo de inscrição e aprovação de cada aluno para assim esclarecer qualquer dúvida que se faça necessária.</p>
+        <p> O aluno candidato deverá inscrever - se no site do Ciência Sem Fronteiras pelo seguinte link: <a href="http://www.cienciasemfronteiras.gov.br/web/csf">http://www.cienciasemfronteiras.gov.br/web/csf</a>.</p> 
+        <p>É necessária a inscrição nesse canal para que toda e qualquer informação sobre a candidatura do aluno seja disponibilizada a Coordenação do Ciência sem Fronteiras da PUCPR(CSF). Sendo assim, poderemos acompanhar o processo de inscrição e aprovação de cada aluno para assim esclarecer qualquer dúvida que se faça necessária.</p>
         <br />
 
         <h3>Quem inscreve os candidatos? O coordenador responsável ou o próprio candidato?</h3>
