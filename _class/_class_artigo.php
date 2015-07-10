@@ -514,22 +514,34 @@ class artigo
 			$art_titulo = trim($this->line['ar_titulo']);
 			$art_journal = trim($this->line['ar_journal']);
 			$protocolo = 'AR'.substr($this->protocolo,2,5);
+			$pos_nome = trim($this->pos_nome);
+			$curso_nome = trim($this->pp_curso);
+			
 			$valor = $this->line['ar_v1'] + $this->line['ar_v2'] + $this->line['ar_v3'] + $this->line['ar_v4'] + $this->line['ar_v5'];
 			$tipo = 'BNI';
 			
 			$titulo = 'Repasse de Artigo ';
 			 
 			$texto = 'Repasse referente ao artigo científico intitulado <B>'.$art_titulo.'</B> publicado no periódico <B>'.$art_journal.'</B>, protocolo do CIP, nº '.$protocolo.', artigo ';
+			
+			$texto = 'Repasse referente ao artigo intitulado "<B>'.$art_titulo.'</B>"  publicado no periódico "<B>'.$art_journal.'</B>", cadastrado no CIP sob o protocolo nº '.$protocolo.', ';
+			$texto .= 'artigo ';
+			$titulo .= ' - Ato normativo';
+						
 			if ($this->line['ar_v1'] > 0) { $texto .= '[Qualis A1] '; $titulo .= '[Qualis A1] '; }
 			if ($this->line['ar_v2'] > 0) { $texto .= '[Qualis A2] '; $titulo .= '[Qualis A2] ';  }
 			if ($this->line['ar_v3'] > 0) { $texto .= '[Q1 Scimago] '; $titulo .= '[Q1 Scimago] '; }
 			if ($this->line['ar_v4'] > 0) { $texto .= '[ExR Scimago] '; $titulo .= '[ExR Scimago] '; }
 			if ($this->line['ar_v5'] > 0) { $texto .= '[Colaboração Internacional] '; $titulo .= '[Colaboração Internacional] '; }
-			$titulo .= ' - Ato normativo';
+			//$texto .= 'em ('.$area_capes.'), ';
+			$texto .= '. Repasse conforme Ato Normativo 02/2013. ';
 			
-			$texto .= ' em Filosofia/Teologia: subcomissão Filosofia';
-			$texto .= ', conforme Ato Normativo 02/2013.';
-			$texto .= chr(13).chr(10).chr(13).chr(10).'Professor do Programa de Pós-Graduação em Filosofia- PPGF.';
+			if (strlen($pos_nome) > 0)
+				{
+					$texto .= 'Professor(a) do(a) Programa de Pós-Graduação em '.$pos_nome.'.';
+				} else {
+					$texto .= 'Professor(a) do(a) Curso de Graduação '.$curso_nome.'.';
+				}
 			$descricao = $texto;	
 			
 			$sql = "select * from bonificacao ";
@@ -1277,6 +1289,8 @@ class artigo
 			{
 				$sql = "select * from ".$this->tabela." 
 						inner join pibic_professor on pp_cracha = ar_professor
+						left join programa_pos_docentes on pdce_docente = pp_cracha
+						left join programa_pos on pos_codigo = pdce_programa
 						where id_ar = ".$id." ";
 				$rlt = db_query($sql);
 				
