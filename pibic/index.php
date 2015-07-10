@@ -124,11 +124,11 @@ if (date("Ymd") > 20150730) {
 }
 
 /* Relatorio Parcial */
-if (date("m") < 5) {
+if (date("m") < 12) {
 	require ("atividade_IC1_row.php");
 }
 /* RelatÃ³rio Parcial - Correcoes */
-if (date("m") < 5) {
+if (date("m") < 12) {
 	require ("atividade_IC7_row.php");
 }
 /* Relatório Final e resumo */
