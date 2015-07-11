@@ -6,7 +6,11 @@ require('../_class/_class_docentes.php');
 
 require('../_class/_class_pibic_edital.php');
 $ed = new pibic_edital;
-$ano = date("Y");
+$ano = $dd[2];
+if (strlen($ano) == 0)
+	{
+		$ano = date("Y");
+	}
 
 echo '<h1>Edital '.$ano.'</h1>';
 echo '<h3>resultado</h3>';
