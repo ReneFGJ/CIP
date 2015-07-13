@@ -24,32 +24,35 @@
 			?></td>
 			<td width="10" style="border-right: 1px solid #333333;"></td>
 			<td><?php
+			$mul1 = 360 * 12; /* Valor da bolsa no ano em 12 meses */
+			$mul2 = 400 * 12; /* Valor da bolsa no ano em 12 meses */
 			$dados = array();
 			$dados['title'] = 'Dispêndio Anual com Bolsas';
-			$dados['2010-2011'] = array(108000, 108000, 129600);
-			$dados['2011-2012'] = array(108000, 108000, 129600);
-			$dados['2012-2013'] = array(120000, 120000, 144000);
-			$dados['2013-2014'] = array(120000, 120000, 211200);
-			$dados['2014-2015'] = array(144000, 120000, 153600);
-			$dados['2015-2016'] = array(144000, 120000, 153600);
-
+			$dados['2010-2011'] = array(27*$mul1,  0*$mul1,	30*$mul1);
+			$dados['2011-2012'] = array(50*$mul1,  0*$mul1, 30*$mul1);
+			$dados['2012-2013'] = array(50*$mul2,  0*$mul2, 38*$mul2);
+			$dados['2013-2014'] = array(50*$mul2,  0*$mul2, 44*$mul2);
+			$dados['2014-2015'] = array(55*$mul2,  0*$mul2, 38*$mul2);
+			$dados['2015-2016'] = array(55*$mul2, 46*$mul2, 38*$mul2);			
+			$dados['header'] = array('Vigências das bolsas','PUCPR e Agência PUCPR','Fundação Araucária','CNPq','Total');
 			require ("view/tabela_dispendio_anual.php");
 
 			$dados = array();
 			$dados['title'] = 'Número de Alunos em Iniciação Tecnológica';
-			$dados['2010-2011'] = array(14, 13, 30, 30);
-			$dados['2011-2012'] = array(25, 25, 53, 30);
-			$dados['2012-2013'] = array(25, 25, 25, 30);
-			$dados['2013-2014'] = array(25, 25, 56, 27);
-			$dados['2014-2015'] = array(30, 25, 61, 32);
-			$dados['2015-2016'] = array(30, 25, 0, 38);
+			$dados['2010-2011'] = array(27,  0, 9, 30);
+			$dados['2011-2012'] = array(50,  0, 53, 30);
+			$dados['2012-2013'] = array(50,  0, 63, 38);
+			$dados['2013-2014'] = array(50,  0, 56, 44);
+			$dados['2014-2015'] = array(55,  0, 61, 38);
+			$dados['2015-2016'] = array(55, 46, 89, 38);
 			$dados['obs'] = '2015-2016 - planos de trabalho com possibilidade de implementação';
+			$dados['header'] = array('Vigências das bolsas','PUCPR e Agência PUCPR','Iniciação Tecnológica Voluntária','Fundação Araucária','CNPq','Total');
 			require ("view/tabela_alunos.php");
 
 			$dados = array();
 			$dados['title'] = 'Demanda Bruta e Atendida	';
 			$dados[0] = array('Edital 2014', 200, 194, 6, 87);
-			$dados[1] = array('Edital 2015', 190, 182, 8, 93);
+			$dados[1] = array('Edital 2015', 188, 182, 8, 93);
 			$dados['obs'] = 'até a promungação do edital atual não foi aberto edital da Fundação Araucária (FA)';
 			require ("view/tabela_demanda.php");
 			?></td>

@@ -23,6 +23,7 @@ while ($line = db_read($rlt))
 if ($form->saved > 0)
 	{
 		$sql = $dd[1];
+		$sql = troca($sql,"´","'");
 		$rlt = db_query($sql);
 	}
 ?>

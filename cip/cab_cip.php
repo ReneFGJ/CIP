@@ -38,7 +38,7 @@ $menu = array();
 {
 	array_push($menu, array('Pós-graduação', '../bi/pos_graduacao.php'));
 	//array_push($menu,array('Grupos de pesquisa','grupo_pesquisa.php'));
-	if (($perfil -> valid('#ADM#SCR#COO'))) {
+	if (($perfil -> valid('#ADM') or ($perfil -> valid('#ADM')))) {
 		array_push($menu, array('Captação', 'captacao.php'));
 		array_push($menu, array('Isenção', 'isencoes.php'));
 		array_push($menu, array('Artigos', 'artigos.php'));

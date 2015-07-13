@@ -2,31 +2,42 @@
 <script src="http://www2.pucpr.br/reol/js/modules/exporting.js"></script>
 <table class="tabela00 lt2" width="900" align="center" border=0 cellpadding="10" style="background-color: #FFFFFF;">
 	<tr>
-		<td><h1 align="center">Experiência Institucional na Iniciação Científica</h1><h2>PIBIC e PIBITI</h2><span class="corpo-texto-explicativo lt3"> O Programa Institucional de Bolsas de Iniciação Científica (PIBIC) teve um grande salto qualitativo e quantitativo nos últimos anos.
+		<td align="left"><h1>Experiência Institucional na Iniciação Científica</h1><h2>PIBIC e PIBITI</h2><span class="corpo-texto-explicativo lt3">
+			<br>
+			O programa Institucional de Bolsas de Iniciação Científica (PIBIC) teve um início em 1992, neste ano completa-se 23 anos de história na formação de novos pesquisadores na instituição.
+			<BR>
+			<BR>
+			O PIBIC teve um grande salto qualitativo e quantitativo nos últimos anos, com a ampliação do número de professores e estudantes, abertura de submissão ao edital para professores mestres, doutorandos e pós-doutorandos e fortalecendo o vínculo da Pós-Graduação Stricto Sensu (SS) com a graduação, envolvendo professores SS, estudantes de mestrado e doutorado e alunos de graduação e ensino médio nos grupos de pesquisa.
+			<BR>
 			<BR>
 			A adesão da PUCPR ao programa PIBITI ocorreu em 2010.
 			<BR>
 			<BR>
-			O número de alunos envolvidos no PIBIC e PIBITI pode ser visualizado a seguir:
+			A evolução dos últimos anos, com o número de alunos envolvidos no PIBIC e PIBITI pode ser visualizado a seguir:
 			<BR>
 			<BR>
-			<B>Quadro 1 - Número de Bolsas de Programas de Iniciação Científica e Tecnológica da Instituição (2008 - 2014)</B> </td>
+			<B>Quadro 1 - Número de Bolsas de Programas de Iniciação Científica e Tecnológica da Instituição (2008 - 2015)</B> </td>
+		</span>
 	</tr>
 </table>
 <BR>
 <table class="tabela00 lt2" width="900" align="center" style="background-color: #FFFFFF;">
 	<TR>
 		<TH>ANO</TH>
-		<TH>PIBIC/PUCPR</TH>
-		<TH>Fundação Araucária</TH>
-		<TH>CNPq/PIBIC</TH>
-		<TH>PIBITI/PUCPR</TH>
-		<TH>CNPq/PIBITI</TH>
-		<TH>TOTAL</TH>
+		<TH width="9%">PIBIC/PUCPR</TH>
+		<TH width="9%">Fundação Araucária (FA)</TH>
+		<TH width="9%">FA - Inclusão Social</TH>
+		<TH width="9%">FA - PIBITI</TH>
+		<TH width="9%">CNPq/PIBIC</TH>
+		<TH width="9%">PIBITI/PUCPR</TH>
+		<TH width="9%">CNPq/PIBITI</TH>
+		<TH width="9%">TOTAL</TH>
 	<TR>
-		<th class="tabela01" align="center"> 2008-2009 </th>
+		<th class="tabela01" align="center">2008-2009 </th>
 		<TD class="tabela01" align="center">150</td>
 		<TD class="tabela01" align="center">28 </td>
+		<TD class="tabela01" align="center">-</td>
+		<TD class="tabela01" align="center">-</td>
 		<TD class="tabela01" align="center">68 </td>
 		<TD class="tabela01" align="center">---- </td>
 		<TD class="tabela01" align="center">---- </td>
@@ -36,6 +47,8 @@
 		<th class="tabela01" align="center">2009-2010</th>
 		<TD class="tabela01" align="center">150</td>
 		<TD class="tabela01" align="center">57</td>
+		<TD class="tabela01" align="center">-</td>
+		<TD class="tabela01" align="center">-</td>
 		<TD class="tabela01" align="center">81</td>
 		<TD class="tabela01" align="center">----</td>
 		<TD class="tabela01" align="center">----</td>
@@ -45,6 +58,8 @@
 		<th class="tabela01" align="center">2010-2011</th>
 		<TD class="tabela01" align="center">160</td>
 		<TD class="tabela01" align="center">58</td>
+		<TD class="tabela01" align="center">-</td>
+		<TD class="tabela01" align="center">-</td>
 		<TD class="tabela01" align="center">90</td>
 		<TD class="tabela01" align="center">50</td>
 		<TD class="tabela01" align="center">30</td>
@@ -54,6 +69,8 @@
 		<th class="tabela01" align="center">2011-2012</th>
 		<TD class="tabela01" align="center">225</td>
 		<TD class="tabela01" align="center">130</td>
+		<TD class="tabela01" align="center">-</td>
+		<TD class="tabela01" align="center">-</td>
 		<TD class="tabela01" align="center">95</td>
 		<TD class="tabela01" align="center">50</td>
 		<TD class="tabela01" align="center">30</td>
@@ -62,7 +79,9 @@
 	<TR>
 		<th class="tabela01" align="center">2012-2013</th>
 		<TD class="tabela01" align="center">325</td>
-		<TD class="tabela01" align="center">195</td>
+		<TD class="tabela01" align="center">145</td>
+		<TD class="tabela01" align="center">50</td>
+		<TD class="tabela01" align="center">-</td>
 		<TD class="tabela01" align="center">94</td>
 		<TD class="tabela01" align="center">50</td>
 		<TD class="tabela01" align="center">38</td>
@@ -72,6 +91,8 @@
 		<th class="tabela01" align="center">2013-2014</th>
 		<TD class="tabela01" align="center">325</td>
 		<TD class="tabela01" align="center">145</td>
+		<TD class="tabela01" align="center">-</td>
+		<TD class="tabela01" align="center">-</td>
 		<TD class="tabela01" align="center">94</td>
 		<TD class="tabela01" align="center">50</td>
 		<TD class="tabela01" align="center">44</td>
@@ -80,16 +101,20 @@
 	<TR>
 		<th class="tabela01" align="center">2014-2015</th>
 		<TD class="tabela01" align="center">350</td>
-		<TD class="tabela01" align="center">145</td>
+		<TD class="tabela01" align="center">117</td>
+		<TD class="tabela01" align="center">29</td>
+		<TD class="tabela01" align="center">46</td>
 		<TD class="tabela01" align="center">94</td>
 		<TD class="tabela01" align="center">55</td>
 		<TD class="tabela01" align="center">38</td>
-		<TD class="tabela01" align="center">669</td>
+		<TD class="tabela01" align="center">729</td>
 	</tr>
 	<TR>
 		<th class="tabela01" align="center">2015-2016</th>
 		<TD class="tabela01" align="center">350</td>
 		<TD class="tabela01" align="center">? </td>
+		<TD class="tabela01" align="center">?</td>
+		<TD class="tabela01" align="center">?</td>
 		<TD class="tabela01" align="center">94</td>
 		<TD class="tabela01" align="center">55 </td>
 		<TD class="tabela01" align="center">38</td>
@@ -98,12 +123,12 @@
 	<tr>
 		<td colspan="7"><font style="font-size:10px">FONTE: Coordenação de Iniciação Científica - PIBIC PUCPR
 			<BR>
-			* Não contabilizado bolsas da Fundação Araucária</font></td>
+			* Não contabilizado bolsas da Fundação Araucária da 2015, aguardando processo de abertura.</font></td>
 	</tr>
 	<tr>
 		<td colspan=10><span class="corpo-texto-explicativo lt3">
 			<BR>
-			A PUCPR oferta a modalidade voluntária para ambos os programas PIBIC (ICV - Iniciação Científica Voluntária) e PIBITI (ITV - Iniciação Tecnológica Voluntária), os alunos têm os mesmos deveres e direitos dos bolsistas, à exceção dos relativos à devolução de bolsas.
+			A PUCPR oferta a modalidade voluntária para ambos os programas PIBIC (ICV - Iniciação Científica Voluntária) e PIBITI (ITV - Iniciação Tecnológica Voluntária), os alunos têm os mesmos deveres e direitos dos bolsistas, à exceção dos relativos aos valores das bolsas.
 			<BR>
 			<BR>
 			<B>Quadro 2 - Número de alunos participantes da iniciação científica voluntária (ICV) e iniciação tecnológica voluntária (ITV) - período: 2008-2015 </B> </td>
@@ -159,7 +184,7 @@
 		<TD class="tabela01" align="center">875</td>
 	</tr>
 	<TR>
-		<TD class="tabela01" align="center">2015-2016</td>
+		<TD class="tabela01" align="center">2015-2016*</td>
 		<TD class="tabela01" align="center">524</td>
 		<TD class="tabela01" align="center">95</td>
 		<TD class="tabela01" align="center">823</td>
@@ -172,7 +197,7 @@
 	</tr>
 </table>
 <?php
-require("index_ic_2015_pibic.php");
+require ("index_ic_2015_pibic.php");
 
-require("index_ic_2015_pibiti.php");
+require ("index_ic_2015_pibiti.php");
 ?>

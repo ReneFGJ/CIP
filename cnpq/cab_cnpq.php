@@ -12,6 +12,24 @@ require ($include . 'sisdoc_breadcrumb.php');
 /* Segurança do Login */
 require ($include . 'sisdoc_security_pucpr.php');
 $nw = new usuario;
+
+$xnome = $_SESSION['user_login'];
+if (strlen($xnome)==0)
+	{
+		require($include.'sisdoc_email.php');
+		echo "Acesso CNPQ";
+		$nw->user_erro = 1;
+		$nw->user_login = 'CNPq';
+		$nw->user_nome = 'Avaliador CNPq';
+		$nw->user_nivel = 1;
+		$nw->user_id = 0;
+		$nw->user_perfil = '#CNQ';
+		$nw->user_cracha = '90000000';
+		$nw->ss = '';
+		$nw->LiberarUsuario();
+		enviaremail('renefgj@gmail.com','','Acesso CNPQ',$ip);
+		redirecina(page());
+	}
 $sec = $nw -> Security();
 
 require ("../_class/_class_message.php");

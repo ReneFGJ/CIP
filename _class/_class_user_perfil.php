@@ -214,8 +214,12 @@ class user_perfil
 		
 	function valid($type)
 		{
-				global $ss;
-				$xper = ' '.$ss->user_perfil;
+				global $ss,$nw;
+				if (count($nw)==0)
+					{
+						$nw = $ss;
+					}
+				$xper = ' '.$nw->user_perfil;
 				for ($rr=1;$rr < strlen($xper);$rr=$rr+4)
 					{
 					$per = substr($xper,$rr,4);

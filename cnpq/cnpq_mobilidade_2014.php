@@ -3,7 +3,7 @@ $breadcrumbs=array();
 require("cab_cnpq.php");
 
 $sx = '
-<h1 align="center">Novos programas IC</h1>
+<h1 align="center">SEMIC</h1>
 
 <span class="corpo-texto-explicativo">
 
