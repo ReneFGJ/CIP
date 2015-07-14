@@ -1,12 +1,13 @@
 <table width="100%" align="right" class="tabela00 lt1">
 	<tr>
-		<td colspan=5><h3><?php echo $dados['title'];?></h3></td>
+		<td colspan=5><h3><?php echo $dados['title']; ?></h3></td>
 	</tr>
 	<tr>
-		<th width="20%">Vigências das bolsas</td> <th width="20%">PUCPR</th>
-		<th width="20%">FA/AG</th>
-		<th width="20%">CNPq</th>
-		<th width="20%">Total</th>
+		<th width="20%"><?php echo $dados['header'][0];?></td> 
+		<th width="20%"><?php echo $dados['header'][1];?></th>
+		<th width="20%"><?php echo $dados['header'][2];?></th>
+		<th width="20%"><?php echo $dados['header'][3];?></th>
+		<th width="20%"><?php echo $dados['header'][4];?></th>
 	</tr>
 	<?php
 	for ($r = 2010; $r <= date("Y"); $r++) {
@@ -20,4 +21,7 @@
 		echo '<th align="center" class="tabela01">' . number_format($tot, 2, ',', '.') . '</th>';
 	}
 	?>
+	<tr>
+		<td></td>
+	<td colspan=5 class="lt0"><?php echo $dados['obs']; ?></tr>
 </table>
