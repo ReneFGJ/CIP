@@ -80,7 +80,9 @@ class recurso {
 	
 	function lista_recursos($status='',$edital='')
 		{
-			$sql = "select * from ".$this->tabela." where rec_status = '".$status."' ";
+			$sql = "select * from ".$this->tabela."
+					 where rec_status = '".$status."' 
+					 and rec_data > 20150101";
 			$rlt = db_query($sql);
 			
 			$sx = '<table class="tabela00" width="100%">';
@@ -108,7 +110,7 @@ class recurso {
 			
 			$sql = "select rec_status, count(*) as total from ".$this->tabela."
 						left join pibic_submit_documento on rec_protocolo = doc_protocolo
-						  
+						 where rec_data > ".date("Y")."0101
 						group by rec_status
 				";
 			$rlt = db_query($sql);

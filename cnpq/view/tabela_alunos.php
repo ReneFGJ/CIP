@@ -5,20 +5,22 @@
 	</tr>
 	
 	<tr>
-		<th width="20%">Vigências das bolsas</td>
-		<th width="16%">PUCPR</th>
-		<th width="16%">Voluntário</th>
-		<th width="16%">FA</th>
-		<th width="16%">CNPq</th>
-		<th width="16%">Total</th>
+		<th width="17%"><?php echo $dados['header'][0];?></td> 
+		<th width="17%"><?php echo $dados['header'][1];?></th>
+		<th width="17%"><?php echo $dados['header'][2];?></th>
+		<th width="17%"><?php echo $dados['header'][3];?></th>
+		<th width="17%"><?php echo $dados['header'][4];?></th>
+		<th width="17%"><?php echo $dados['header'][5];?></th>
 	</tr>
 	
 <?php 
 for ($r=2010;$r <= date("Y");$r++)
 	{
+		$asp = '';
+		if ($r==date("Y")) { $asp ='*'; }
 		$lb = $r.'-'.($r+1);
 		echo '<tr>';
-		echo '<th align="center">'.$lb.'</th>';
+		echo '<th align="center">'.$lb.$asp.'</th>';
 		echo '<td align="center" class="tabela01">'.number_format($dados[$lb][0],0,',','.').'</td>';
 		echo '<td align="center" class="tabela01">'.number_format($dados[$lb][1],0,',','.').'</td>';
 		echo '<td align="center" class="tabela01">'.number_format($dados[$lb][2],0,',','.').'</td>';

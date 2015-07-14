@@ -4984,7 +4984,7 @@ class projetos {
 		$campi = array();
 		$total = array(0, 0, 0, 0, 0);
 		$result = array();
-		$areas = array('Ciências Exatas e da Terra', 'Ciências Biológicas ', 'Engenharias', 'Ciências da Saúde', 'Técnologia em Saúde', 'Ciências Agrárias', 'Ciências Sociais Aplicadas', 'Ciências Humanas', 'Lingüística - Letras e Artes', 'não é área estratégica', 'Direitos Humanos - Juventudes');
+		$areas = array('Ciências Exatas e da Terra', 'Ciências Biológicas ', 'Engenharias', 'Ciências da Saúde', 'Ciências Agrárias', 'Ciências Sociais Aplicadas', 'Ciências Humanas', 'Lingüística - Letras e Artes', 'não é área estratégica', 'Direitos Humanos - Juventudes');
 
 		while ($line = db_read($rlt)) {
 
