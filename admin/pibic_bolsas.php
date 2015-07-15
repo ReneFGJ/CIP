@@ -17,8 +17,8 @@ $http_redirect = page();
 $http_edit = 'pibic_bolsa_ed.php';
 $editar = 1;
 
-$cdf = array('id_'.$idcp,$idcp.'_protocolo',$idcp.'_ano',$idcp.'_aluno',$idcp.'_titulo_projeto',$idcp.'_tipo','pa_nome',$idcp.'_status',$idcp.'_area_conhecimento','pb_ano');
-$cdm = array('Código','Protocolo','Ano','Aluno código','Projeto','Bolsa','Aluno','status','use','edital');
+$cdf = array('id_'.$idcp,$idcp.'_protocolo',$idcp.'_ano',$idcp.'_aluno',$idcp.'_titulo_projeto',$idcp.'_tipo','pa_nome',$idcp.'_status',$idcp.'_area_conhecimento',$idcp.'_ano',$idcp.'_semic_area');
+$cdm = array('Código','Protocolo','Ano','Aluno código','Projeto','Bolsa','Aluno','status','use','edital', 'Área conhecimento');
 $masc = array('','','','','','','','','','','');
 $busca = true;
 $offset = 20;
