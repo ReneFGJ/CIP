@@ -196,7 +196,15 @@ function ro8_listrecord() {
 	$ro8 = ro8_checktable($table);
 	if (strlen($ro8) == 0) {
 		$ro_sql = "select * ";
+		$ro_sql .= " from " . $table;	
+		$ro_rlt = db_query($ro_sql);
+		$ro_line = db_read($ro_rlt);
+		$ro_key = array_keys($ro_line);
+		$fld = trim($ro_key[1]);
+		
+		$ro_sql = "select * ";
 		$ro_sql .= " from " . $table;
+		$ro_sql .= " order by ".$fld; 
 		if ($limit > 0) { $ro_sql .= ' limit ' . $limit;
 		}
 		if (strlen($offset) == 0) { $offset = 0;
