@@ -276,7 +276,7 @@ class header
 
 	function cab_novo($titulo='') 
 		{
-		global $ss,$nw,$include,$perfil,$http;
+		global $ss,$nw,$include,$perfil;
 		
 		require_once($include.'sisdoc_security_pucpr.php');
 		$nw = new usuario;
@@ -296,7 +296,7 @@ class header
 			';
 		/* Cabecalho novo */
 		$sx = '<div idx="cabecalho_novo" class="cabecalho_novo_big" id="cabecalho-user-screen">';
-		$sx .= '<A HREF="'.$http.'main.php">
+		$sx .= '<A HREF="http://www2.pucpr.br/reol/main.php">
 					<div id="cabecalho_logo" class="cabecalho_logo_big"></div>
 				</A>';
 

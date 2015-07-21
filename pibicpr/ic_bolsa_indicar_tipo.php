@@ -43,6 +43,7 @@ if ($dd[5] == '')
 	$sql .= " and pbt_ativo = 1 ";
 	$sql .= " order by pbt_descricao ";
 	$rlt = db_query($sql);
+	
 	?>
 	<form method="post" action="<?=$edital;?>_bolsa_indicar_tipo.php">
 	<input type="hidden" name="dd0" value="<?=$dd[0];?>">

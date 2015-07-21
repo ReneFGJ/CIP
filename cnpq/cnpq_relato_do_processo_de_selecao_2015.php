@@ -18,7 +18,7 @@ require ("cab_cnpq.php");
 				</li>
 				<li>
 					Implementação do Comitê Gestor com um membro representante
-					do PIBITI, outro do PIBIC Jr e representantes da Agencia PUC de
+					do PIBITI, outro do PIBIC Jr e representante da Agência PUC de
 					Ciência, Tecnologia e Inovação. A atividade principal deste órgão
 					é assessorar as atividades de planejamento e coordenação dos
 					programas: PIBIC, PIBITI e PIBIC Jr.
@@ -83,7 +83,7 @@ require ("cab_cnpq.php");
 		<td class="tabela01" align="center">1431* (<font color="red">redução de 8%</font>)</td>
 	</tr>	
 	<TR>
-		<TD colspan=5 class="lt0">* A queda foi decorrente de restrições no edital de 2015 em relação ao de 2014: professora orientadores doutores de 6 para 4 estudantes; professores orientadores mestres de 4 para 2 estudantes.</TD>
+		<TD colspan=5 class="lt0">* A queda foi decorrente de restrições no edital de 2015 em relação ao de 2014: professor orientador doutor de 6 para 4 estudantes; professor orientador mestre de 4 para 2 estudantes.</TD>
 	</TR>
 </table>
 <ul>
@@ -96,17 +96,17 @@ require ("cab_cnpq.php");
 </ul>
 <ul>
 	<li>
-		A somat&oacute;ria dos crit&eacute;rios avaliados &eacute; de 100 pontos. Foram dados 12 pontos como b&ocirc;nus, de acordo com os seguintes itens: bolsista produtividade 04 pontos; titula&ccedil;&atilde;o doutor 02 pontos; v&iacute;nculo ao stricto sensu 02 pontos, projetos aprovados externamente por &oacute;rg&atilde;os de governo, ag&ecirc;ncias de fomento ou
+		A somat&oacute;ria dos crit&eacute;rios avaliados &eacute; de 100 pontos. Foram dados 12 pontos como b&ocirc;nus, de acordo com os seguintes itens: bolsista produtividade 04 pontos; titula&ccedil;&atilde;o doutor 02 pontos; v&iacute;nculo ao <i>stricto sensu</i> 02 pontos; projetos aprovados externamente por &oacute;rg&atilde;os de governo, ag&ecirc;ncias de fomento ou
 		<br>
-		Empresas 02 pontos, submiss&atilde;o de plano de trabalho para PIBIC Jr 02 pontos. Desse modo, pode-se obter m&eacute;dia de 112 pontos.
+		empresas 02 pontos; submiss&atilde;o de plano de trabalho para PIBIC Jr 02 pontos. Desse modo, pode-se obter m&eacute;dia de 112 pontos.
 	</li>
 	<li>
-		No  PIBIC, a demanda bruta foi de 1.271 planos de trabalhos, a
-		demanda qualificada de 1.216 e a demanda atendida de 437 bolsas
-		(87 CNPq, 350 PUCPR).
+		No  PIBIC, a demanda bruta foi de 1.243 planos de trabalhos, a
+		demanda qualificada de 1.165 e a demanda atendida de 444 bolsas
+		(94 CNPq, 350 PUCPR).
 	</li>
 	<li>
-		No  PIBIC, o índice geral de reprovação foi de 4,3% distribuído da
+		No  PIBIC, o índice geral de reprovação foi de 6,4% distribuído da
 		seguinte forma:
 	</li>
 </ul>
@@ -116,7 +116,7 @@ require ("cab_cnpq.php");
 	</tr>
 	<tr>
 		<td class="tabela01" align="left">Ci&ecirc;ncias Humanas</td>
-		<td class="tabela01" align="center">330</td>
+		<td class="tabela01" align="center">329</td>
 		<td class="tabela01" align="center">24</td>
 		<td class="tabela01" align="center">7,2%</td>
 	</tr>
@@ -145,7 +145,7 @@ require ("cab_cnpq.php");
 		<td class="tabela01" align="center">3,3%</td>
 	</tr>
 	<TR>
-		<TD class="tabela01" align="left"><strong>Total</strong><td class="tabela01" align="center"><strong><span class="tabela01">1244</span> </strong><td class="tabela01" align="center"><strong>55</strong><td class="tabela01" align="center"><strong>6,3% </strong>
+		<TD class="tabela01" align="left"><strong>Total</strong><td class="tabela01" align="center"><strong><span class="tabela01">1243</span> </strong><td class="tabela01" align="center"><strong>55</strong><td class="tabela01" align="center"><strong>6,3% </strong>
 </table>
 <ul>
 	<li>
@@ -167,20 +167,20 @@ require ("cab_cnpq.php");
 				os relatórios parciais dos alunos renovados podem ser acessados diretamente pelo link dos alunos;
 			</li>
 			<li>
-				at&eacute; 2 bolsas para cada professor, n&atilde;o repetindo do mesmo &oacute;rg&atilde;o de fomento.
+				at&eacute; 2 bolsas para cada professor, projetos submetidos no PIBIC foram assinalados pelos 2 avaliadores que possuem viés de tecnologia e inovação. Os  2 membros do Comitê Gestor representantes da Escola Politécnica irão analisar novamente os projetos. E sendo identificado esse viés, será enviado um e-mail para os professores convidando-os a migrarem para o programa PIBITI.
 			</li>
 		</ul>
 	</li>
 </ul>
 <ul>
 	<li>
-		No  PIBITI, a demanda bruta foi de 200 planos de trabalhos, a demanda qualificada de 194 e a demanda atendida de o momento foi de 87 bolsas (32 CNPq, 30 PUCPR e 25 Agencia PUC).
+		No  PIBITI, a demanda bruta foi de 188 planos de trabalhos, a demanda qualificada de 180 e a demanda atendida de o momento foi de 93 bolsas (38 CNPq, 30 PUCPR e 25 Agencia PUC).
 	</li>
 </ul>
 
 <ul>
 	<li>
-		No PIBITI, o &iacute;ndice geral de reprova&ccedil;&atilde;o foi de 3,0 % distribu&iacute;do da seguinte forma:
+		No PIBITI, o &iacute;ndice geral de reprova&ccedil;&atilde;o foi de 4,3 % distribu&iacute;do da seguinte forma:
 	</li>
 </ul>
 <table class="tabela00" width="60%" align="center">

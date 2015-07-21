@@ -6,17 +6,17 @@
 		<tr valign="top">
 			<td width="300" class="tabela01 border01" style="background-color: #FFFFFF;"><?php
 			/* PIBITI */
-			$dado = array('2011'=>51,'2012'=>81,'2013'=>95,'2014'=>107,'2015'=>140);
+			$dado = array('2011'=>51,'2012'=>81,'2013'=>95,'2014'=>107);
 			$title = 'Histórico dos projetos finalizados';
 			$title2 = 'Apresentação SEMIC - PIBITI';
 			$ybar = 'Total de trabalhos';
 			$xbar = 'Ano';
 			$div_name = 'pibiti';
 			require ("view/apresentacao_semic.php");
-
+			echo '<BR><BR><BR>';
 			/* PIBITI  model: pizza */
-			$dado = array('CNPq' => 94, 'FA' => 145, 'PUCPR' => 350, 'ICV' => 465);
-			$title = 'Bolsas PIBITI Implementadas - ' . date("Y");
+			$dado = array('CNPq' => 38, 'FA' => 29, 'PUCPR' => 55, 'ICV' => 103);
+			$title = 'Bolsas PIBITI Implementadas - ' . (date("Y")-1).'/'.date("Y");
 			$title2 = '';
 			$ybar = 'Distribuição';
 			$div_name = 'pibiti_pie';
@@ -28,32 +28,32 @@
 			$mul2 = 400 * 12; /* Valor da bolsa no ano em 12 meses */
 			$dados = array();
 			$dados['title'] = 'Dispêndio Anual com Bolsas';
-			$dados['2010-2011'] = array(14*$mul1, 13*$mul1,	30*$mul1);
-			$dados['2011-2012'] = array(25*$mul1, 25*$mul1, 30*$mul1);
-			$dados['2012-2013'] = array(25*$mul2, 25*$mul2, 38*$mul2);
-			$dados['2013-2014'] = array(25*$mul2, 25*$mul2, 44*$mul2);
-			$dados['2014-2015'] = array(30*$mul2, 25*$mul2, 38*$mul2);
-			$dados['2015-2016'] = array(30*$mul2, 25*$mul2, 38*$mul2);			
-			$dados['header'] = array('Vigências das bolsas','PUCPR','Agência PUCPR','CNPq','Total');
+			$dados['2010-2011'] = array(50*$mul1,  0*$mul1,	30*$mul1);
+			$dados['2011-2012'] = array(50*$mul1,  0*$mul1, 30*$mul1);
+			$dados['2012-2013'] = array(50*$mul2,  0*$mul2, 38*$mul2);
+			$dados['2013-2014'] = array(50*$mul2,  0*$mul2, 44*$mul2);
+			$dados['2014-2015'] = array(55*$mul2,  0*$mul2, 38*$mul2);
+			$dados['2015-2016'] = array(55*$mul2, 29*$mul2, 38*$mul2);			
+			$dados['header'] = array('Vigências das bolsas','PUCPR e Agência PUCPR','Fundação Araucária','CNPq','Total');
 			require ("view/tabela_dispendio_anual.php");
 
 			$dados = array();
 			$dados['title'] = 'Número de Alunos em Iniciação Tecnológica';
-			$dados['2010-2011'] = array(14, 13, 9, 30);
-			$dados['2011-2012'] = array(25, 25, 53, 30);
-			$dados['2012-2013'] = array(25, 25, 63, 38);
-			$dados['2013-2014'] = array(25, 25, 56, 44);
-			$dados['2014-2015'] = array(30, 25, 61, 38);
-			$dados['2015-2016'] = array(30, 25, 89, 38);
+			$dados['2010-2011'] = array(50,  0, 30, 30);
+			$dados['2011-2012'] = array(50,  0, 53, 30);
+			$dados['2012-2013'] = array(50,  0, 40, 38);
+			$dados['2013-2014'] = array(50,  0, 56, 44);
+			$dados['2014-2015'] = array(55,  29, 103, 38);
+			$dados['2015-2016'] = array(55, 0, 95, 38);
 			$dados['obs'] = '2015-2016 - planos de trabalho com possibilidade de implementação';
-			$dados['header'] = array('Vigências das bolsas','PUCPR','Agência PUCPR','Voluntários','CNPq','Total');
+			$dados['header'] = array('Vigências das bolsas','PUCPR e Agência PUCPR','Fundação Araucária','Iniciação Tecnológica Voluntária','CNPq','Total');
 			require ("view/tabela_alunos.php");
 
 			$dados = array();
 			$dados['title'] = 'Demanda Bruta e Atendida	';
 			$dados[0] = array('Edital 2014', 200, 194, 6, 87);
-			$dados[1] = array('Edital 2015', 190, 182, 8, 93);
-			$dados['obs'] = 'até a promungação do edital atual não foi aberto edital da Fundação Araucária (FA)';
+			$dados[1] = array('Edital 2015', 188, 180, 8, 93);
+			$dados['obs'] = '';
 			require ("view/tabela_demanda.php");
 			?></td>
 		</tr>

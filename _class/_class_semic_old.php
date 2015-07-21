@@ -1374,7 +1374,7 @@ class semic
 	
 	function comunitar_avaliador_externo_enviar($avaliador,$assunto,$texto)
 		{
-			global $dd,$secu,$http;
+			global $dd,$secu;
 			echo '---';
 			$rlt = $this->mostra_ficha_de_avaliacao_por_avaliador($avaliador);
 			//semic_programacao on sp_codigo = article_ref		

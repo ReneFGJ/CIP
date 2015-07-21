@@ -1104,7 +1104,7 @@ class csf
 					{
 						$selectRegion = $dd[1];
 					}
-				studants
+				
 				$sx .= '
 			        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 					<script type="text/javascript">

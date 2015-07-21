@@ -2,17 +2,16 @@
 <script src="http://www2.pucpr.br/reol/js/modules/exporting.js"></script>
 <table class="tabela00 lt2" width="900" align="center" border=0 cellpadding="10" style="background-color: #FFFFFF;">
 	<tr>
-		<td align="left"><h1>Experiência Institucional na Iniciação Científica Júnior</h1><h2>PIBIC_EM (Jr)</h2>
-			<span class="corpo-texto-explicativo lt3">
+		<td align="left"><h1>Experiência Institucional na Iniciação Científica Júnior</h1><h2>PIBIC_EM (Jr)</h2><span class="corpo-texto-explicativo lt3">
 			<br>
-			A PUCPR aderiu ao PIBIC Jr em 2006 e a cada ano vem amadurecendo esse processo de aproximação da Universidade com o Ensino Médio, totalizando até hoje mais de 400 alunos envolvidos no programa. 
+			A PUCPR aderiu ao PIBIC Jr em 2006 e a cada ano vem amadurecendo esse processo de aproximação da Universidade com o Ensino Médio, totalizando até hoje mais de 500 alunos envolvidos no programa.
 			<BR>
 			<BR>
-			A evolução dos últimos anos, com o número de alunos envolvidos no PIBIC jr pode ser visualizado a seguir:
+			A evolução dos últimos anos, com o número de alunos envolvidos no PIBIC Jr pode ser visualizado a seguir:
 			<BR>
 			<BR>
 			<B>Quadro 1 - Número de Bolsas de Programas de Iniciação Científica e Tecnológica da Instituição (2008 - 2015)</B> </td>
-			</span>
+		</span>
 	</tr>
 </table>
 <BR>
@@ -35,7 +34,7 @@
 		<TD class="tabela01" align="center">40</td>
 		<TD class="tabela01" align="center">-</td>
 		<TD class="tabela01" align="center">40</td>
-		<TD class="tabela01" align="center">288</td>
+		<TD class="tabela01" align="center">80</td>
 	</tr>
 	<TR>
 		<th class="tabela01" align="center">2011</th>
@@ -74,9 +73,7 @@
 	</tr>
 
 	<tr>
-		<td colspan="7"><font style="font-size:10px">FONTE: Coordenação de Iniciação Científica - PIBIC PUCPR
-			<BR>
-			* Não contabilizado bolsas da Fundação Araucária da 2015, aguardando processo de abertura.</font></td>
+		<td colspan="7"><font style="font-size:10px">FONTE: Coordenação de Iniciação Científica - PIBIC PUCPR </font></td>
 	</tr>
 </table>
 <?php

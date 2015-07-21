@@ -308,6 +308,7 @@ class parecer_pibic
 			while ($line = db_read($rlt))
 				{
 					$proto = $line['pp_protocolo'];
+					
 					$pp01 = $line['pp_p01'];
 					$pp02 = $line['pp_p02'];
 					$pp03 = $line['pp_p03'];
@@ -320,12 +321,12 @@ class parecer_pibic
 					$aval = trim($line['pp_avaliador']);
 					if (substr($proto,0,1)=='1')
 						{
-							$quali .= mst(trim($line['pp_abe_01'])).'<HR>';
+							$quali .= '<tr><td width="5%">Avaliador '.$av.'<td>'.mst(trim($line['pp_abe_01'])).'<HR>';
 							$xava = $aval;
 							
-							$rs1 .= '<BR>Avaliador '.($av).': <B>'.$this->valor_avaliacao($pp01).'</B>';
-							$rs2 .= '<BR>Avaliador '.($av).': <B>'.$this->valor_avaliacao($pp02).'</B>';
-							$rs3 .= '<BR>Avaliador '.($av).': <B>'.$this->valor_avaliacao($pp03).'</B>';
+							$rs1 .= '<td><BR>'.($av).': <B>'.$this->valor_avaliacao($pp01).'</B>';
+							$rs2 .= '<td><BR>'.($av).': <B>'.$this->valor_avaliacao($pp02).'</B>';
+							$rs3 .= '<td><BR>'.($av).': <B>'.$this->valor_avaliacao($pp03).'</B>';
 							$av++;
 						} else {
 							if ($proto != $xproto)
@@ -335,31 +336,47 @@ class parecer_pibic
 									
 								}
 											
-							$rs4 .= '<BR>Protocolo:'.$proto.', avaliador '.$av1.': '.$this->valor_avaliacao_plano($pp05).'</B>';
-							$rs5 .= '<BR>Protocolo:'.$proto.', avaliador '.$av1.': '.$this->valor_avaliacao_plano($pp06).'</B>';
-							$rs6 .= '<BR>Protocolo:'.$proto.', avaliador '.$av1.': '.$this->valor_cronograma($pp07).'</B>';
+							$rs4 .= '<td><BR>Protocolo:'.$proto.', <B>'.$this->valor_avaliacao_plano($pp05).'</B>';
+							$rs5 .= '<td><BR>Protocolo:'.$proto.', <B>'.$this->valor_avaliacao_plano($pp06).'</B>';
+							$rs6 .= '<td><BR>Protocolo:'.$proto.', <B>'.$this->valor_cronograma($pp07).'</B>';
 							$av1++;
 						}
 				}
 
 				$sx .= '<h3>Projeto do professor</h3>';
-
-				$sx .= '<BR><B>'.$crt[1].'</B>';
+				$sx .= '<table class="tabela01 lt1" cellspacing=0 cellpadding=5>';
+				$sx .= '<tr><th></th><th width="15%">Avaliador 1</th>
+								<th  width="15%">Avaliador 2</th>';
+				$sx .= '<tr>';
+				$sx .= '<td ><B>'.$crt[1].'</B>';
 				$sx .= $rs1;
-				$sx .= '<BR><BR><B>'.$crt[2].'</B>';
+				$sx .= '<tr>';
+				$sx .= '<td><B>'.$crt[2].'</B>';
 				$sx .= $rs2;
-				$sx .= '<BR><BR><B>'.$crt[3].'</B>';
+				$sx .= '<tr>';
+				$sx .= '<td><B>'.$crt[3].'</B>';
 				$sx .= $rs3;
+				$sx .= '</table>';
 				
-				$sx .= '<h3>Plano(s) de aluno(s)</h3>';								
-
-				$sx .= '<B>'.$crt[5].'</B>';
+				$sx .= '<h3>Plano(s) de aluno(s)</h3>';	
+				$sx .= '<table class="tabela01 lt1" cellspacing=0 cellpadding=5>';
+				$sx .= '<tr><th></th>
+							<th width="15%">Avaliador 1</th>
+							<th width="15%">Avaliador 2</th>';
+				$sx .= '<tr>';
+				$sx .= '<td><B>'.$crt[5].'</B>';
 				$sx .= $rs4;
-				$sx .= '<BR><BR><B>'.$crt[6].'</B>';
+				$sx .= '<tr>';
+				$sx .= '<td><B>'.$crt[6].'</B>';
 				$sx .= $rs5;	
-				$sx .= '<BR><BR><B>'.$crt[7].'</B>';
-				$sx .= $rs6;										
-			$sx .= '<BR><BR><B>Parecer qualitativo</B><BR><BR>';
+				$sx .= '<tr>';
+				$sx .= '<td><B>'.$crt[7].'</B>';
+				$sx .= $rs6;
+				$sx .= '</table>';	
+				
+			$sx .= '<table class="tabela01 lt1" cellspacing=0 cellpadding=5 width="100%">';
+			$sx .= '<tr><td>';									
+			$sx .= '<B>Parecer qualitativo</B><BR><BR>';
 			$sx .= $quali;
 			echo $sx;
 					

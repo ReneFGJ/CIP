@@ -39,7 +39,7 @@ class pibic_edital {
 		//$wh = " and (pb_tipo <> 'R' and pb_tipo <> 'X') ";
 		if (strlen($bolsa) > 0) { $wh .= " and pb_tipo = '$bolsa' ";
 		}
-		if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X') ";
+		if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X' or pb_tipo = '.') ";
 		}
 		if ($modalide == 'PIBICE') { $modalidade = 'PIBIC_EM';
 		}
@@ -51,10 +51,9 @@ class pibic_edital {
 		$wh = '';
 		if (strlen($bolsa) > 0) { $wh .= " and pb_tipo = '$bolsa' ";
 		}
-		if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X') ";
+		if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X' or pb_tipo = '.') ";
 		}
-		if ($modalidade == 'PIBICE') { $modalidade = 'PIBIC_EM';
-		}
+		//if ($modalidade == 'PIBICE') { $modalidade = 'PIBIC_EM'; }
 		if (strlen($modalidade) > 0) {
 			if ($modalidade == 'PIBITI') {
 				$wh .= " and doc_edital = '$modalidade' ";
@@ -74,7 +73,6 @@ class pibic_edital {
 					group by $cps 
 					";
 		$rlt = db_query($sql);
-
 		$tit = array(0, 0, 0);
 		$pp = array(0, 0);
 		$ss = array(0, 0);
@@ -111,7 +109,7 @@ class pibic_edital {
           			[\'Doutor\',' . $tit[0] . '],
           			[\'Mestre\', ' . $tit[1] . '],
         		]);
-		        var options = { title: \'Planos de trabalho submetidos por titulação do professor orientador\' };
+		        var options = { title: \'Planos de Trabalho distribuidos para Mestre ou Doutor\' };
 		        var chart = new google.visualization.PieChart(document.getElementById(\'chart_div_1\'));
         			chart.draw(data, options);
       		}
@@ -126,7 +124,7 @@ class pibic_edital {
           			[\'stricto sensu\',' . $ss[0] . '],
           			[\'docentes da graduação\', ' . $ss[1] . '],
         		]);
-		        var options = { title: \'Planos de trabalho submetidos por vinculado do professor orientador / graduação\' };
+		        var options = { title: \'Planos para Docentes stricto sensu / graduação\' };
 		        var chart = new google.visualization.PieChart(document.getElementById(\'chart_div_2\'));
         			chart.draw(data, options);
       		}
@@ -141,7 +139,7 @@ class pibic_edital {
           			[\'Produtividade (CNPq/Fundação Araucária)\',' . $pp[0] . '],
           			[\'Sem bolsa produtividade\', ' . $pp[1] . '],
         		]);
-		        var options = { title: \'Planos de trabalhos submetidos por professor orientador PQ/DT\' };
+		        var options = { title: \'Planos para Professores Produtividade\' };
 		        var chart = new google.visualization.PieChart(document.getElementById(\'chart_div_3\'));
         			chart.draw(data, options);
       		}
@@ -163,14 +161,13 @@ class pibic_edital {
 
 	function edital_resumo_area($ano = '', $bolsa = '', $modalidade = '') {
 		$ano = round($ano);
-
+		$totr = 0;
 		//$wh = " and (pb_tipo <> 'R') ";
 		if (strlen($bolsa) > 0) { $wh .= " and pb_tipo = '$bolsa' ";
 		}
-		if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X') ";
+		if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X' or pb_tipo = '.') ";
 		}
-		if ($modalidade == 'PIBICE') { $modalidade = 'PIBIC_EM';
-		}
+		//if ($modalidade == 'PIBICE') { $modalidade = 'PIBIC_EM'; }
 		if (strlen($modalidade) > 0) {
 			if ($modalidade == 'PIBITI') {
 				$wh .= " and doc_edital = '$modalidade' ";
@@ -183,17 +180,28 @@ class pibic_edital {
 		$doc = new docentes;
 		$prod = $doc -> produtividade();
 
-		$sx .= '<h3>Distribuição de bolsas por mérito</h3>';
+		if ($bolsa == 'R') {
+			$sx .= '<h3>Planos reprovados</h3>';
+		} else {
+			$sx .= '<h3>Distribuição de bolsas por mérito</h3>';
+		}
 
 		$cps = "*";
-		$sql = "select $cps from pibic_bolsa 
+		$sql = "select * from (
+					select $cps from pibic_bolsa 
 					inner join pibic_professor on pp_cracha = pb_professor 
 					left join apoio_titulacao on ap_tit_codigo = pp_titulacao 
 					inner join pibic_bolsa_tipo on pbt_codigo =  pb_tipo 
 					inner join pibic_submit_documento on pb_protocolo = doc_protocolo
 					where pp_ano = '$ano' $wh
 					and pb_ativo = 1 
-					order by doc_area, doc_nota desc, pp_centro, pp_nome_asc, pbt_edital, pbt_auxilio desc, pb_tipo 
+					order by doc_area, doc_nota desc, pp_centro, pp_nome_asc, pbt_edital, pbt_auxilio desc, pb_tipo
+					) as tabela02
+					left join (select distinct pb_aluno as aluno, pbt_descricao as tipo
+						from pibic_bolsa_contempladas
+						inner join pibic_bolsa_tipo on pbt_codigo =  pb_tipo 
+						where pb_ano = '".($ano-1)."' 
+					) as tabela01 on aluno = pb_aluno and pb_aluno <> '00000000'
 					";
 		//echo $sql;
 		$rlt = db_query($sql);
@@ -202,6 +210,7 @@ class pibic_edital {
 		$sx .= '<TR>';
 		$sx .= '<TH>Protocolo submissão
 					<TH>Modalidade
+					<TH>Renovação
 					<TH>Tit.
 					<TH>Orientador / Docente
 					<TH>Produtividade
@@ -210,6 +219,7 @@ class pibic_edital {
 		$t_ss = 0;
 		$t_prod = 0;
 		$t_prof = 0;
+		$totr = 0;
 		$xprof = '';
 		$xcampus = 'X';
 		while ($line = db_read($rlt)) {
@@ -258,6 +268,11 @@ class pibic_edital {
 			} else {
 				$sx .= $line['pbt_descricao'];
 			}
+
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['tipo'];
+			if (strlen(trim($line['tipo'])) > 0)
+				{ $totr++; }
 
 			$sx .= '<TD class="tabela01">';
 			$sx .= $line['ap_tit_titulo'];
@@ -315,16 +330,19 @@ class pibic_edital {
 		$t_repro_SS = $this -> planos_reprovados_ss($wh, $ano);
 		$t_repro_prod = $this -> planos_reprovados_professor_prod($wh, $ano);
 
-		$sx .= '<TR><TD colspan=5>' . $id . ' planos de trabalho foram distribuídos para ' . $t_prof . ' professores.';
-		$sx .= '<BR>' . $t_ss . ' planos de trabalhos distribuídos para docentes do stricto sensu.';
-		$sx .= '<BR>' . $t_prod . ' distribuídos para bolsista PQ ou DT.';
-		$sx .= '<BR>' . $t_repro . ' planos de trabalho foram reprovados, estando distribuídos entre ' . $t_repro_prof . ' professores.';
-		if ($t_repro_SS > 0) { $sx .= '<BR>' . $t_repro_SS . ' plano de trabalhos reprovados submetido por docente do stricto sensu.';
+		if ($bolsa != 'R') {
+			$sx .= '<TR><TD colspan=5>' . $id . ' planos de trabalho foram distribuídos para ' . $t_prof . ' professores.';
+			$sx .= '<BR>' . $t_ss . ' planos de trabalhos distribuídos para docentes do stricto sensu.';
+			$sx .= '<BR>' . $totr . ' ('.number_format(($totr/$id*100),1,',','.').'%)planos de com renovação.';
+			$sx .= '<BR>' . $t_prod . ' distribuídos para bolsista PQ ou DT.';
+			$sx .= '<BR>' . $t_repro . ' planos de trabalho foram reprovados, estando distribuídos entre ' . $t_repro_prof . ' professores.';
+			if ($t_repro_SS > 0) { $sx .= '<BR>' . $t_repro_SS . ' plano de trabalhos reprovado submetido por docente do stricto sensu.';
+			}
+			if ($t_repro_prod > 0) { $sx .= '<BR>' . $t_repro_prod . ' planos de trabalho reprovado distribuídos para bolsista PQ ou DT.';
+			}
+			//$sx .= '<TR><TD colspan=10>total 1.'.$id.' planos de aluno distribuidas para 2.'.$t_prof.' docentes, ';
+			//$sx .= ' destes 3.'.$t_ss.' planos trabalho distribuidos para de professores do stricto sensu e 4.'.$t_prod.' com bolsas produtividade.';
 		}
-		if ($t_repro_prod > 0) { $sx .= '<BR>' . $t_repro_prod . ' planos de trabalho reprovado distribuídos para bolsista PQ ou DT.';
-		}
-		//$sx .= '<TR><TD colspan=10>total 1.'.$id.' planos de aluno distribuidas para 2.'.$t_prof.' docentes, ';
-		//$sx .= ' destes 3.'.$t_ss.' planos trabalho distribuidos para de professores do stricto sensu e 4.'.$t_prod.' com bolsas produtividade.';
 		$sx .= '</table>';
 
 		return ($sx);
@@ -405,7 +423,7 @@ class pibic_edital {
 		$wh = " and (pb_tipo <> 'R' and pb_tipo <> 'X') ";
 		if (strlen($bolsa) > 0) { $wh .= " and pb_tipo = '$bolsa' ";
 		}
-		if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X') ";
+		if ($bolsa == 'R') { $wh = " and (pb_tipo = 'R' or pb_tipo = 'X' or pb_tipo = '.') ";
 		}
 		if (strlen($modalidade) > 0) { $wh .= " and pbt_edital = '$modalidade' ";
 		}

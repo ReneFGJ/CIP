@@ -21,11 +21,6 @@ array_push($menu, array('Iniciação Científica', 'Edital IC 003/2015', 'arq/2015/
 //array_push($menu, array('Anos Anteriores', 'Dados referente ao edital 2014', 'index_2014.php'));
 //array_push($menu, array('Anos Anteriores', 'Dados referente ao edital 2013', 'index_2013.php'));
 
-//Validacao de perfil de test
-if ($perfil -> valid('#TST')) {
-	array_push($menu, array('Teste grafico', 'pizza', 'view/apresentacao_origem_bolsas.php'));
-	array_push($menu, array('Teste grafico', 'barras', 'view/apresentacao_semic.php'));
-}
 
 //array_push($menu,array('Edital de Iniciação Ciêntífica e Tecnológica','Demanda Edital '.date("Y"),'ic_demanda.php?dd0=2015'));
 

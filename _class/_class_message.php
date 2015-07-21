@@ -236,7 +236,7 @@ function msg($s) {
 			
 			/* Campos para editar mensagens */
 			$img = '<A href="javascript:newxy2(';
-			$img .= "'".$http."message_ed_pop.php?dd2=" . page() . "&dd1=" . $s;
+			$img .= "'http://www2.pucpr.br/reol/message_ed_pop.php?dd2=" . page() . "&dd1=" . $s;
 			$img .= "',600,300);";
 			$img .= '">';
 			//$img .= '<img src=img/icone_alert.png width=10 border=0>';

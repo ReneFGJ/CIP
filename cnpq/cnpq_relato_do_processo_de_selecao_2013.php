@@ -63,15 +63,14 @@ dados a seguir:<br />
 </table>
 <ul>
   <li>Todos os projetos foram encaminhados para 2 pareceristas, um externo e um interno. A classifica&ccedil;&atilde;o foi obtida pela m&eacute;dia aritm&eacute;tica das 2 avalia&ccedil;&otilde;es.</li>
-  <li>Todos os projetos que ficaram com abaixo da nota de corte foram analisados e identificado se os pareceres dos avaliadores eram divergentes. Nesse caso, foram enviados para um 3o. avaliador. </li>
 </ul>
 <ul>
   <li>A somat&oacute;ria dos crit&eacute;rios avaliados &eacute; de 100 pontos. Foram dados 12 pontos como b&ocirc;nus, de acordo com os seguintes itens: bolsista produtividade 04 pontos; titula&ccedil;&atilde;o doutor 02 pontos; v&iacute;nculo ao stricto sensu 02 pontos, projetos aprovados externamente por &oacute;rg&atilde;os de governo, ag&ecirc;ncias de fomento ou <br>
     Empresas 02 pontos, submiss&atilde;o de plano de trabalho para PIBIC Jr 02 pontos. Desse modo, pode-se obter m&eacute;dia de 112 pontos.</li>
 <li>   
-No  PIBIC, a demanda bruta foi de 1244 planos de trabalhos, a
+No  PIBIC, a demanda bruta foi de 1163 planos de trabalhos, a
 demanda qualificada de 1.079 e a demanda atendida de 560 bolsas 
-(94 CNPq, 325 PUCPR).
+(90 CNPq, 325 PUCPR e 145 Fundação Araucária).
 </li>
 <li>No  PIBIC, o índice geral de reprovação foi de 7,2% distribuído da
 seguinte forma:

@@ -272,7 +272,7 @@ class agencia_editais {
 
 	function mostra_edital_email($id='')
 		{
-			global $site,$http;
+			global $site;
 			$site = '../';
 			$this->le($id);
 			$font0 = '<font style="font-family: Verdana, Arial, Tahoma, Serif; font-size:10px;">';		
@@ -291,7 +291,7 @@ class agencia_editais {
 			$sx .= '<TD colspan=3 >'.$font0.msg('edital_nome').' / '.msg('edital_nr');
 			
 			$sx .= '<TR class="lt2" valign="top">';
-			$sx .= '<TD><img src="'.$http.'img/logo_'.LowerCaseSql(trim($this->agencia_sigla)).'.png">';
+			$sx .= '<TD><img src="http://www2.pucpr.br/reol/img/logo_'.LowerCaseSql(trim($this->agencia_sigla)).'.png">';
 			$sx .= '<TD colspan=3><B>'.$font2.'<I>'.$this->agencia_nome.'</I>';
 			$sx .= '<BR>'.$this->edital_nome;
 			$sx .= '<BR><B>'.$font1.'<NOBR>'.'Edital Nr.: '.trim($this->edital_nr).'/'.$this->edital_ano;

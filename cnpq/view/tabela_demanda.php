@@ -15,7 +15,7 @@
 		$red = '<font color="red">';
 		$green = '<font color="green">';
 		$prec_rep = ' ('.number_format($dados[$r][3] / $dados[$r][1] * 100,1,',','.').'%)';
-		$prec_ate = ' ('.number_format($dados[$r][4] / $dados[$r][1] * 100,1,',','.').'%)';
+		$prec_ate = ' ('.number_format($dados[$r][4] / $dados[$r][2] * 100,1,',','.').'%)';
 		echo '<tr>';
 		echo '<th align="center" class="tabela01">' . $dados[$r][0] . '</th>';
 		echo '<td align="center" class="tabela01">' . number_format($dados[$r][1], 0, ',', '.') . '</td>';

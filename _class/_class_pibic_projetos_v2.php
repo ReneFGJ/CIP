@@ -3767,18 +3767,32 @@ class projetos {
 				break;
 		}
 
-		$sx = '';
+		$sx = '<table class="tabela01" width="100%" border=0>';
+		$sx .= '<tr valign="top"><td rowspan=10 width="90">';		
 		$sx .= '<img src="' . $img . '" height="60" align="left">';
-		$sx .= 'Protocolo:' . $line['doc_protocolo'] . '/' . $link . $line['doc_protocolo_mae'] . '</A>' . '';
+		$sx .= '</td><td>';
+		$sx .= 'Protocolo:' . $line['doc_protocolo'] . '/' . $link . $line['doc_protocolo_mae'] . '</A>' . '<br><br>';
 		if (($perfil -> valid('#ADM#PIB#PIT'))) {
-			$sx .= ' Nota: <B>' . $nota . '</B>, Bonificação: <B>' . $bonificacao . '</B>, Penalidade: ,<b>' . $penalidade . '</B>, Recurso <B>' . $recurso . '</B>';
+			$sx .= '<td rowspan=5">';
+			$sx .= '<table width="200" align="right">';
+			$sx .= '<tr><td>Nota: <B>' . $nota . '</B></td></tr>
+					<tr><td>Bonificação: <B>' . $bonificacao . '</B></td></tr>
+					<tr><td>Penalidade: ,<b>' . $penalidade . '</B></td></tr>
+					<tr><td>Recurso <B>' . $recurso . '</B></td></tr>
+					</table>';
 		}
-		$sx .= '<BR><HR>';
+		$sx .= '<tr><td class="lt0">Título do plano do aluno</td></tr>';
+		$sx .= '<tr><td class="lt3">';
 
-		$sx .= '<BR><B>' . $line['doc_1_titulo'] . '</b><BR>';
-		$sx .= '<BR><B>' . $aluno . '</b>';
+		$sx .= '<B>' . $line['doc_1_titulo'] . '</b>';
+		
+		$sx .= '<tr><td class="lt0">Dados do Aluno</td></tr>';
+		$sx .= '<tr><td class="lt2">';
+		$sx .= '<b>' . $aluno . '</b>';
 
-		$sx .= 'ARQUIVOS';
+		$sx .= '<tr><td class="lt0">Arquivos do Plano do Aluno</td></tr>';
+		$sx .= '<tr><td class="lt2">';
+		
 		$ged = new ged;
 		$ged -> tabela = 'pibic_ged_documento';
 		$ged -> protocol = $line['doc_protocolo'];
@@ -3788,6 +3802,7 @@ class projetos {
 			$sx .= '<BR><font color="brown">*** <B>Indicado pelo avaliador com vies PIBITI</B></font>';
 		}
 		$sx .= '</div>';
+		$sx .= '</table>';
 		$sx .= '<HR>';
 
 		return ($sx);
