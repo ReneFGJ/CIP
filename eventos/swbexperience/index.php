@@ -1,5 +1,5 @@
 <?php
-require("db.php");
+require ("db.php");
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
@@ -24,7 +24,9 @@ require("db.php");
 				i[r] = i[r] ||
 				function() {
 					(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0];
 				a.async = 1;
 				a.src = g;
 				m.parentNode.insertBefore(a, m)
@@ -72,9 +74,16 @@ require("db.php");
 						<li>
 							<a href="#programacao">Programação</a>
 						</li>
+						<!--
 						<li>
-							<a href="#participacao">Inscrição</a>
+						<a href="#participacao">Inscrição</a>
 						</li>
+						-->
+
+						<li>
+							<a href="#depoimentos">SwB Experience Report</a>
+						</li>
+
 						<li>
 							<a href="#contato">Contato</a>
 						</li>
@@ -89,9 +98,11 @@ require("db.php");
 					<canvas id="demo-canvas"></canvas>
 					<h1 class="main-title"><img src="img/logo-teste-csf-encontro.png" class="logo-evento"/></h1>
 				</div>
+				<!--
 				<div class="call-to-action">
-					<a href="#participacao">Quero me inscrever</a>
+				<a href="#participacao">Quero me inscrever</a>
 				</div>
+				-->
 			</div>
 			<!-- Related demos -->
 			<section class="section-size sobre-enc" id="sobre-encontro" data-sr="enter left, hustle 20px">
@@ -157,33 +168,54 @@ require("db.php");
 					</tr>
 				</table>
 			</section>
-			<section class="section-size2 sobre-enc form-inc" id="participacao" data-sr="enter left, hustle 20px">
-				<h2 class="title-sobre-encontro">Inscrição</h2>
-				<h6>Inscrições a partir do dia 20 de Maio (quarta-feira).
 
 
-				<!-- COnfirmação da inscrição-->
-				<!-- <h3 style="color: #5fa308;"><i class="fa fa-check-circle" style="color: #5fa308;"></i> Sua inscrição foi confirmada! :)</h3>
-				<p>Esperamos você no dia <b>10 de Junho</b> às <b>18h00</b> no Bloco Verde da PUCPR.</p>
-				<p>Até lá!</p> -->
+			<!--                   -->
+			<section class="section-size schedule" id="depoimentos" data-sr="enter left, hustle 20px">
+				<h2 class="title-sobre-encontro">SwB Experience Reports</h2>
+				<table>
+					<tr>
+						<td><strong>English</strong></td><!--background-color: #97191E-->
+						<td><a href="files/SWB-I-SwB Experience Report eng.pdf" style="color: #fff; background-color: #161616; padding: 5px 1px; text-decoration: none; float: left;" target="_blank"><i class="fa fa-download"></i> Download reports SwB Experience I</a></td>
+					</tr>
+					<tr>
+						<td><strong>Português</strong></td>
+						<td><a href="files/SWB-I-SwB Experience Depoimentos pt.pdf" style="color: #fff; background-color: #161616; padding: 5px 1px; text-decoration: none; float: left;" target="_blank"><i class="fa fa-download"></i> Download depoimentos SwB Experience I</a></td>
+					</tr>
 
-				<div id="id_inscricao" >
-				<?php
-				require('inscricao-00.php');
-				/*
-				<script>
-						$("#id_inscricao").fadeIn();
-						$.ajax({
-							url : "inscricao-01.php",
-							cache : false
-						}).done(function(data) {
-							$("#id_inscricao").html(data);
-						});
-				</script>
-				 * 
-				 */
-				?></div>
+				</table>
 			</section>
+			<!--
+			<section class="section-size2 sobre-enc form-inc" id="participacao" data-sr="enter left, hustle 20px">
+
+			<h2 class="title-sobre-encontro">Inscrição</h2>
+			<h6>Inscrições a partir do dia 20 de Maio (quarta-feira).
+			-->
+
+			<!-- COnfirmação da inscrição-->
+			<!-- <h3 style="color: #5fa308;"><i class="fa fa-check-circle" style="color: #5fa308;"></i> Sua inscrição foi confirmada! :)</h3>
+			<p>Esperamos você no dia <b>10 de Junho</b> às <b>18h00</b> no Bloco Verde da PUCPR.</p>
+			<p>Até lá!</p> -->
+			<!--
+			<div id="id_inscricao" >
+			<?php
+			require('inscricao-00.php');
+			/*
+			<script>
+			$("#id_inscricao").fadeIn();
+			$.ajax({
+			url : "inscricao-01.php",
+			cache : false
+			}).done(function(data) {
+			$("#id_inscricao").html(data);
+			});
+			</script>
+			*
+			*/
+			?></div>
+
+			</section>
+			-->
 			<section class="section-size" id="contato" data-sr="enter left, hustle 20px">
 				<h2 class="title-sobre-encontro">Contato</h2>
 				<p style="color: #fff;">
@@ -217,10 +249,10 @@ require("db.php");
 		<script>
 			$(function() {
 				$('a[href*=#]:not([href=#])').click(function() {
-					if(location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+					if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
 						var target = $(this.hash);
 						target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-						if(target.length) {
+						if (target.length) {
 							$('html,body').animate({
 								scrollTop : target.offset().top
 							}, 500);
