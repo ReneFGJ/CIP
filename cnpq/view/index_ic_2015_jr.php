@@ -10,7 +10,7 @@
 			A evolução dos últimos anos, com o número de alunos envolvidos no PIBIC Jr pode ser visualizado a seguir:
 			<BR>
 			<BR>
-			<B>Quadro 1 - Número de Bolsas de Programas de Iniciação Científica e Tecnológica da Instituição (2008 - 2015)</B> </td>
+			<B>Quadro 1 - Número de Bolsas de Programas de Iniciação Científica e Tecnológica da Instituição (2009 - 2015)</B> </td>
 		</span>
 	</tr>
 </table>

@@ -812,13 +812,14 @@ class projetos {
 		$ano = $this -> ano;
 		if (strlen($ano) == 0) { $ano = date("Y");
 		}
-
-		$sql = "select * from " . $this -> tabela . "
+		$cp = ', are1.a_descricao as desc1, are2.a_descricao as desc2 ';
+		$sql = "select * $cp from " . $this -> tabela . "
 					left join pibic_professor on pj_professor = pp_cracha
 					left join centro on pp_escola = centro_codigo
 					left join " . $this -> tabela_planos . " on doc_protocolo_mae = pj_codigo
 					left join pibic_aluno on doc_aluno = pa_cracha
-					left join ajax_areadoconhecimento on a_cnpq = pj_area  
+					left join ajax_areadoconhecimento as are1 on are1.a_cnpq = pj_area
+					left join ajax_areadoconhecimento as are2 on are2.a_cnpq = pj_area_estra  
 					where pj_ano = '$ano'
 					and (pj_status <> '!' and pj_status <> '@' and pj_status <> 'X' and pj_status <> 'E')
 					and (doc_status <> '!' and doc_status <> '@' and doc_status <> 'X' and doc_status <> 'E')
@@ -832,6 +833,7 @@ class projetos {
 					<TH>PROJETO
 					<th>COD.PROFESSOR
 					<th>PROFESSOR
+					<th>SS
 					<TH>ESCOLA
 					<TH>CAMPUS
 					<TH>CURSO
@@ -846,7 +848,9 @@ class projetos {
 					<th>STATUS
 					<th>AREA
 					<th>AREA DESCRICAO
-					';
+					<th>AREA ESTRATÉGICA
+					<th>AREA ESTRATÉGICA - DESCRICAO
+										';
 		while ($line = db_read($rlt)) {
 			$id++;
 			$sx .= '<TR>';
@@ -856,6 +860,8 @@ class projetos {
 			$sx .= trim($line['pp_cracha']);
 			$sx .= '<TD>';
 			$sx .= trim($line['pp_nome']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_ss']);			
 			$sx .= '<TD>';
 			$sx .= trim($line['centro_nome']);
 			$sx .= '<TD>';
@@ -883,7 +889,11 @@ class projetos {
 			$sx .= '<TD>';
 			$sx .= trim($line['doc_area']);
 			$sx .= '<TD>';
-			$sx .= trim($line['a_descricao']);
+			$sx .= trim($line['desc1']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_area_estra']);
+			$sx .= '<TD>';
+			$sx .= trim($line['desc2']);
 
 			$ln = $line;
 		}

@@ -42,6 +42,14 @@
 			$dados['obs'] = 'As bolsas do CNPq são complementadas em R$ 50,00 pela PUCPR nos anos de 2014 e 2015 para equiparação com as bolsas da Fundação Araucária.';
 			$dados['header'] = array('Vigências das bolsas','PUCPR','Fundação Araucária (FA)','CNPq*','Total');
 			require ("view/tabela_dispendio_anual.php");
+			
+			$dados = array();
+			$dados['title'] = 'Demanda Bruta e Atendida	';
+			$dados[0] = array('Edital 2014', 43, 43, 0, 43);
+			$dados[1] = array('Edital 2015', 53, 50, 3, 50);
+			$dados['obs'] = 'Todos os alunos do Ensino médio recebem uma bolsa de R$ 150,00. O CNPq faz repasse de R$ 100,00 mensal para cada aluno, complementado com R$ 50,00 pela PUCPR
+							para equipação com as bolsas da Fundação Araucária.';
+			require ("view/tabela_demanda.php");
 
 			?></td>
 		</tr>
