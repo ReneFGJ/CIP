@@ -224,9 +224,9 @@
 	</tr>
 	<TR>
 		<TD class="tabela01" align="center">2015-2016*</td>
-		<TD class="tabela01" align="center">524</td>
-		<TD class="tabela01" align="center">95</td>
-		<TD class="tabela01" align="center">619</td>
+		<TD class="tabela01" align="center">721</td>
+		<TD class="tabela01" align="center">87</td>
+		<TD class="tabela01" align="center">808</td>
 	</tr>
 	<TR>
 		<TD colspan=2 class="lt0">* Planos aprovados com possibilidade de implementação.</td>

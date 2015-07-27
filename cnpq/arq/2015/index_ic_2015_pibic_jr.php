@@ -45,10 +45,8 @@
 			
 			$dados = array();
 			$dados['title'] = 'Demanda Bruta e Atendida	';
-			$dados[0] = array('Edital 2014', 43, 43, 0, 43);
-			$dados[1] = array('Edital 2015', 56, 52, 4, 52);
-			$dados['obs'] = 'Todos os alunos do Ensino médio recebem uma bolsa de R$ 150,00. O CNPq faz repasse de R$ 100,00 mensal para cada aluno, complementado com R$ 50,00 pela PUCPR
-							para equipação com as bolsas da Fundação Araucária.';
+			$dados[1] = array('Edital 2015', 53, 50, 3, 50);
+			$dados['obs'] = '';
 			require ("view/tabela_demanda.php");
 
 			?></td>

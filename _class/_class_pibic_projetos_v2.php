@@ -98,18 +98,18 @@ class projetos {
 		$sql .= " where doc_ano = '" . $ano . "' ";
 		$sql .= " and (doc_edital = '" . $modalidade . "' ";
 		if ($modalidade == 'PIBITI') {
-			$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
+			//$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
 		}
 		$sql .= ") and (doc_protocolo <> doc_protocolo_mae) ";
 		if (strlen($area) > 0) { $sql .= " and doc_area = '" . $area . "' ";
 		}
 		$sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
 		$sql .= " and pb_tipo <> 'X' ";
-		if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' ";
-		}
+		//if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' "; }
 		//$sql .= " and (doc_aluno <> '') ";
 		//$sql .= " and doc_nota > 10 ";
 		$sql .= " order by doc_area, pp_nome ";
+				
 		$rlt = db_query($sql);
 
 		$sx .= '<table class="lt0">';
@@ -122,6 +122,7 @@ class projetos {
 
 		$xarea = '-';
 		$id = 0;
+		$tot_r = 0;
 		while ($line = db_read($rlt)) {
 			$idr = $line['id_pj'];
 			$nota = round($line['doc_nota']);
@@ -137,13 +138,12 @@ class projetos {
 				$sx .= $sh . chr(13);
 				$xarea = $area;
 			}
-			$tot++;
+			
 			$bolsa = trim($line['pb_tipo']);
-			if ($nota < 60) { $bolsa = 'D';
-			}
 			if ($bolsa == 'R') { $bolsa = 'D';
 			}
 			if ($bolsa != 'D') {
+				$tot++;
 				$id++;
 				$tipo = trim($line['pb_tipo']);
 				$vies = trim($line['pb_vies']);
@@ -171,10 +171,12 @@ class projetos {
 				$sx .= nbr_autor($line['doc_1_titulo'], 7);
 				$sx .= '</tr>' . chr(13) . chr(10);
 				$sx .= '<tr><td colspan="6"><img src="img/nada_black.gif" alt="" width="100%" border="0" height="1"></td></tr>' . chr(13) . chr(10);
+			} else {
+				$tot_r++;
 			}
 
 		}
-		$sx .= '<TR><TD colspan=5>Total de ' . $tot . ' projetos nesta modalidade';
+		$sx .= '<TR><TD colspan=5>Total de ' . $tot . '/ projetos '.$tot_r.' reprovados';
 		$sx .= '</table>';
 		return ($sx);
 	}

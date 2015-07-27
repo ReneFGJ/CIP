@@ -1571,11 +1571,15 @@ class docentes {
 			}
 			if ($tit == 'PhD') { $id_tit = 0;
 			}
+			if ($tit == 'Doutorando') { $id_tit = 0;
+			}			
 
 			if ($id_tit == -1) { echo 'Erro ' . $tit . ' - '.$line['pp_cracha'];
-				print_r($line);
+				//print_r($line);
+				echo '<HR>';
 				exit ;
 			}
+
 
 			$ch = trim($line['pp_carga_semanal']);
 			$ss = trim($line['pp_ss']);
