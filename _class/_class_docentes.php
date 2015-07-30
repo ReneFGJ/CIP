@@ -94,7 +94,7 @@ class docentes {
 			$sx .= $line['pp_cracha'];
 			$sx .= '</A>';
 			$sx .= '<TD class="tabela01">';
-			$sx .= $this->tratar_nome($line['pp_nome']);
+			$sx .= $this -> tratar_nome($line['pp_nome']);
 			$sx .= '<TD class="tabela01">';
 			$sx .= $line['pp_email_1'];
 			$sx .= '<TD class="tabela01">';
@@ -821,10 +821,9 @@ class docentes {
 			$sx .= '<TD class="tabela01">';
 			$sx .= $line['pp_nome'];
 			/* ativo */
-			if ($line['pp_ativo'] != 1)
-				{
-					$sx .= '<BR><font color="red">Professor marcado como desligado da instituição</font>';
-				}
+			if ($line['pp_ativo'] != 1) {
+				$sx .= '<BR><font color="red">Professor marcado como desligado da instituição</font>';
+			}
 			$sx .= '<TD align="center" class="tabela01">';
 			$pts = round($line['pp_bl_pts']);
 			if ($pts > 0) {
@@ -842,7 +841,7 @@ class docentes {
 				$sx .= '<font color="blue">Livre</font>';
 			}
 		}
-		$sx .= '<TR><TD colspan=5>Total de professores: '.$tot;
+		$sx .= '<TR><TD colspan=5>Total de professores: ' . $tot;
 		$sx .= '</table>';
 		return ($sx);
 	}
@@ -937,7 +936,6 @@ class docentes {
 
 		return ($cp);
 	}
-
 
 	function structure_od() {
 		$sql = "create table docente_orientacao
@@ -1455,8 +1453,8 @@ class docentes {
 
 	function row() {
 		global $cdf, $cdm, $masc;
-		$cdf = array('id_pp', 'pp_nome', 'pp_cracha', 'pp_cpf', 'pp_carga_semanal', 'pp_ss', 'pp_centro', 'pp_curso');
-		$cdm = array('cod', msg('nome'), msg('cracha'), msg('cpf'), msg('carga_semanal'), msg('Stricto Sensu'), msg('centro'), msg('curso'));
+		$cdf = array('id_pp', 'pp_nome', 'pp_cracha', 'pp_cpf', 'pp_carga_semanal', 'pp_ss', 'pp_centro', 'pp_curso', 'pp_ch');
+		$cdm = array('cod', msg('nome'), msg('cracha'), msg('cpf'), msg('carga_semanal'), msg('Stricto Sensu'), msg('centro'), msg('curso'), msg('horas'));
 		$masc = array('', '', '', '', '', '', '');
 		return (1);
 	}
@@ -1572,14 +1570,13 @@ class docentes {
 			if ($tit == 'PhD') { $id_tit = 0;
 			}
 			if ($tit == 'Doutorando') { $id_tit = 0;
-			}			
+			}
 
-			if ($id_tit == -1) { echo 'Erro ' . $tit . ' - '.$line['pp_cracha'];
+			if ($id_tit == -1) { echo 'Erro ' . $tit . ' - ' . $line['pp_cracha'];
 				//print_r($line);
 				echo '<HR>';
 				exit ;
 			}
-
 
 			$ch = trim($line['pp_carga_semanal']);
 			$ss = trim($line['pp_ss']);
@@ -2322,52 +2319,51 @@ class docentes {
 			return ($sx);
 		}
 
-
-
-
 	}
 
+	//####################################################################################
+	//**************************** Inicio do metodo **************************************
+	/* @function: tratar_nome($var)
+	 *          Faz tratamento de nome proprio
+	 * @author: Elizandro Santos de Lima[Analista de Projetos]
+	 * @Agradecimentos: <Agradecimentos aos autores originais> http://codigofonte.uol.com.br/codigos/formatacao-de-nomes-proprios-em-php / http://www.vivaolinux.com.br/topico/PHP/Funcao-chamando-Funcao
+	 * @date: 04/05/2015
+	 */
+	function tratar_nome($nome) {
+		$nome = strtolower($nome);
+		// Converter o nome(campo) todo para minúsculo
+		$nome = explode(" ", $nome);
+		// Separa todo o nome(campo) por espaços
+		for ($i = 0; $i < count($nome); $i++) {
+			// Tratar cada palavra do nome(campo)
+			if ($nome[$i] == "de" or $nome[$i] == "da" or $nome[$i] == "e" or $nome[$i] == "dos" or $nome[$i] == "do") {
+				$saida .= $nome[$i] . ' ';
+				// Se a palavra estiver dentro das complementares mostrar toda em minúsculo
+			} else {
+				$saida .= ucfirst($nome[$i]) . ' ';
+				// Se for um nome, mostrar a primeira letra maiúscula
+			}
+		}
+		return $saida;
+	}
 
-//####################################################################################                      
-//**************************** Inicio do metodo **************************************
-/* @function: tratar_nome($var)
- *          Faz tratamento de nome proprio
- * @author: Elizandro Santos de Lima[Analista de Projetos]
- * @Agradecimentos: <Agradecimentos aos autores originais> http://codigofonte.uol.com.br/codigos/formatacao-de-nomes-proprios-em-php / http://www.vivaolinux.com.br/topico/PHP/Funcao-chamando-Funcao
- * @date: 04/05/2015
- */	
-  function tratar_nome ($nome) {
-    $nome = strtolower($nome); // Converter o nome(campo) todo para minúsculo
-    $nome = explode(" ", $nome); // Separa todo o nome(campo) por espaços
-    for ($i=0; $i < count($nome); $i++) {
-        // Tratar cada palavra do nome(campo)
-        if ($nome[$i] == "de" or $nome[$i] == "da" or $nome[$i] == "e" or $nome[$i] == "dos" or $nome[$i] == "do") {
-            $saida .= $nome[$i].' '; // Se a palavra estiver dentro das complementares mostrar toda em minúsculo
-        }else {
-            $saida .= ucfirst($nome[$i]).' '; // Se for um nome, mostrar a primeira letra maiúscula
-        }
-    }
-    return $saida;
-}
+	//como usar? => $this->tratar_nome($line['db_campo']);
 
-//como usar? => $this->tratar_nome($line['db_campo']);
+	//**************************** Fim da função *****************************************
 
-//**************************** Fim da função *****************************************
+	//####################################################################################
+	//**************************** Inicio do metodo **************************************
+	/* @function: professores_sem_email($var)
+	 *          Faz tratamento de email vazio
+	 * @author: Elizandro Santos de Lima[Analista de Projetos]
+	 * @date: 05/06/2015
+	 */
+	function professores_sem_email($tipo) {
 
+		//echo "$tipo";
 
-//####################################################################################                      
-//**************************** Inicio do metodo **************************************
-/* @function: professores_sem_email($var)
- *          Faz tratamento de email vazio
- * @author: Elizandro Santos de Lima[Analista de Projetos]
- * @date: 05/06/2015
- */	
-function professores_sem_email($tipo) {
-			
-		//echo "$tipo";	
-		
 		global $http;
-		
+
 		$sql = "select * 
 				from pibic_professor
 				inner join apoio_titulacao on pp_titulacao = ap_tit_codigo	  	
@@ -2377,12 +2373,12 @@ function professores_sem_email($tipo) {
 				order by pp_nome
 							
 							";
-		$rlt = db_query($sql);		
+		$rlt = db_query($sql);
 		$line = db_read($rlt);
 		$tot = 0;
 		$desc_docente = $line['ap_tit_titulo'];
-		
-		$sx = '<h2>'.$desc_docente.' sem e-mail principal cadastrado</h2>';
+
+		$sx = '<h2>' . $desc_docente . ' sem e-mail principal cadastrado</h2>';
 		$sx .= '<table width="100%" class="tabela00">';
 		$sx .= '<TR><TH width="8%">Cracha
 					<TH width="26%">Nome
@@ -2390,7 +2386,7 @@ function professores_sem_email($tipo) {
 					<TH width="23%">e-mail (alt.)
 					<TH width="8%">Atualizado
 					<TH width="12%">Tipo';
-						
+
 		while ($line = db_read($rlt)) {
 			$tot++;
 			$link = '<A HREF="' . $http . 'cip/docentes_ed.php?dd0=' . $line['id_pp'] . '" target="_new">';
@@ -2399,9 +2395,9 @@ function professores_sem_email($tipo) {
 			$sx .= $link;
 			$sx .= $line['pp_cracha'];
 			$sx .= '</A>';
-			
+
 			$sx .= '<TD class="tabela01">';
-			$sx .= $this->tratar_nome($line['pp_nome']);
+			$sx .= $this -> tratar_nome($line['pp_nome']);
 			$sx .= '<TD class="tabela01">';
 			$sx .= $line['pp_email_1'];
 			$sx .= '<TD class="tabela01">';
@@ -2420,15 +2416,103 @@ function professores_sem_email($tipo) {
 			}
 
 		}
-			$sx .= '<tr><td colspan=10>Total ' . $tot . ' de docentes';
-			$sx .= '</table>';
-			
+		$sx .= '<tr><td colspan=10>Total ' . $tot . ' de docentes';
+		$sx .= '</table>';
+
 		return ($sx);
-		
+
 	}
-//**************************** Fim da função *****************************************
 
+	//**************************** Fim da função *****************************************
 
+	//####################################################################################
+	//**************************** Inicio do metodo **************************************
+	/* @function: professores_sem_carga_horária
+	 *          Faz tratamento de carga horária vazia
+	 * @author: Elizandro Santos de Lima[Analista de Projetos]
+	 * @date: 30/07/2015
+	 */
+	function professores_sem_carga_horária() {
+		global $http;
+		//array_push($cp, array('$O : &TP:TP&HR:Horista&TI:TI&DR:Sem vinculo', 'pp_ch',
+		$sql = "select *, case 
+							when pp_ativo = 1 then 'ativo'
+							else 'inativo'
+							end as st
+				from pibic_professor
+				inner join apoio_titulacao on pp_titulacao = ap_tit_codigo	  	
+				where pp_ch isnull
+				and pp_ativo = '1'
+				order by pp_nome, pp_update 
+							
+							";
+		$rlt = db_query($sql);
+		$line = db_read($rlt);
+		$tot = 0;
+
+		//$desc_docente = $line['ap_tit_titulo'];
+		$sx = '<h2> Docentes sem carga horária cadastrada</h2>';
+		//$sx = '<h2>' . $desc_docente . ' sem carga horária cadastrada</h2>';
+
+		$sx .= '<table width="100%" class="tabela00">';
+		$sx .= '<TR><TH width="8%">Cracha
+					<TH width="26%">Nome
+					<TH width="6%">Titulação
+					<TH width="20%">e-mail (princ.)
+					<TH width="20%">e-mail (alt.)
+					<TH width="8%">Atualizado
+					<TH width="8%">Carga horaria
+					<TH width="8%">Status					
+					<TH width="12%">Tipo';
+
+		while ($line = db_read($rlt)) {
+			$tot++;
+			$link = '<A HREF="' . $http . 'cip/docentes_ed.php?dd0=' . $line['id_pp'] . '" target="_new">';
+			$sx .= '<TR>';
+			$sx .= '<TD class="tabela01" align=center>';
+			$sx .= $link;
+			$sx .= $line['pp_cracha'];
+			$sx .= '</A>';
+
+			$sx .= '<TD class="tabela01">';
+			$sx .= $this -> tratar_nome($line['pp_nome']);
+
+			$sx .= '<TD class="tabela01">';
+			$sx .= $this -> tratar_nome($line['ap_tit_titulo']);
+
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_email_1'];
+			$sx .= '<TD class="tabela01">';
+			$sx .= $line['pp_email_2'];
+			$sx .= '<TD class="tabela01" align=center>';
+			$sx .= $line['pp_update'];
+
+			$sx .= '<TD class="tabela01" align=center>';
+			$sx .= $line['pp_ch'];
+
+			$sx .= '<TD class="tabela01" align=center>';
+			$sx .= $line['st'];
+
+			$av = round($line['pp_avaliador']);
+			$sx .= '<TD class="tabela01" align=center>';
+			switch($av) {
+				case '1' :
+					$sx .= '<font color="blue">Avaliador</font>';
+					break;
+				default :
+					$sx .= '<font color="red">Não avaliador</font>';
+					break;
+			}
+
+		}
+		$sx .= '<tr><td colspan=10>Total ' . $tot . ' de docentes';
+		$sx .= '</table>';
+
+		return ($sx);
+
+	}
+
+	//**************************** Fim da função *****************************************
 
 }
 ?>
