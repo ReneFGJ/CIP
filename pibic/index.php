@@ -74,7 +74,8 @@ echo '<TD width="300">';
 	/* Declaracao */
 	require ("__submit_SOLICIT.php");
 	if ($open == 1) {
-		if (($hr == 'HR') or ($perfil -> valid("#TST"))) {
+		if (($hr == 'HR') or ($perfil -> valid("#TST"))) 
+		{
 			echo '<LI><A HREF="declaracao_convite_horista.php">Convite Horas Eventuais IC</A></LI>';
 		}
 	}
@@ -97,8 +98,12 @@ if (date("m") < 5) {
 }
 
 //if ($professor == '88958022')
+	echo '<h1>PIBIC/PIBITI - Parecer do(s) Projeto(s)' . (date("Y")) . '/' . (date("Y") + 1) . '</h1>';
+	echo $ed -> show_protocolo_professor($nw -> user_cracha);
+
 require ("../pibic/__submit_INPL.php");
 if ($open == 1) {
+
 	//echo $ed->bolsas_indicadas($professor,$ano);
 	$id_pesq = $professor;
 	require ("atividade_bolsa_implantacao.php");
@@ -116,19 +121,16 @@ if ($open == 1) {
  echo $ed->edital_resumo_professor(date("Y"),$professor,'PIBIC');
  */
 
-if (date("Ymd") > 20150730) {
-	if ((date("m") >= 7) and (date("m") <= 8)) {
-		echo '<h1>PIBIC/PIBITI - Parecer do(s) Projeto(s)' . (date("Y")) . '/' . (date("Y") + 1) . '</h1>';
-		echo $ed -> show_protocolo_professor($nw -> user_cracha);
-	}
+if ((date("m") >= 7) and (date("m") <= 8)) {
+
 }
 
 /* Relatorio Parcial */
-if (date("m") < 12) {
+if (date("m") < 5) {
 	require ("atividade_IC1_row.php");
 }
 /* RelatÃ³rio Parcial - Correcoes */
-if (date("m") < 12) {
+if (date("m") < 5) {
 	require ("atividade_IC7_row.php");
 }
 /* Relatório Final e resumo */

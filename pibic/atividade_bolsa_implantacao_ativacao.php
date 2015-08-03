@@ -17,7 +17,7 @@ require($include."sisdoc_debug.php");
 <TABLE align="center" width="<?=$tab_max;?>" border=0 >
 <TR valign="top" width="<?=$tab_max;?>" align="center">
 <TD align="left" class="lt2">
-Bem vindo prof.(a) <B><?=$nome;?></B>.<BR>Cod. funcional: <B><?=$id_pesq;?></B><BR>
+Bem vindo prof.(a) <B><?=$nw->user_nome;?></B>.<BR>Cod. funcional: <B><?=$nw->user_login;?></B><BR>
 <BR>
 <?
 $digi = md5($dd[0].$secu);

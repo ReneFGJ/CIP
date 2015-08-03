@@ -98,7 +98,7 @@ class projetos {
 		$sql .= " where doc_ano = '" . $ano . "' ";
 		$sql .= " and (doc_edital = '" . $modalidade . "' ";
 		if ($modalidade == 'PIBITI') {
-			//$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
+			$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
 		}
 		$sql .= ") and (doc_protocolo <> doc_protocolo_mae) ";
 		if (strlen($area) > 0) { $sql .= " and doc_area = '" . $area . "' ";
@@ -123,6 +123,7 @@ class projetos {
 		$xarea = '-';
 		$id = 0;
 		while ($line = db_read($rlt)) {
+			$edital = trim($line['doc_edital']);
 			$idr = $line['id_pj'];
 			$nota = round($line['doc_nota']);
 			//$link = '<A HREF="pibic_projetos_detalhes.php?dd0='.$idr.'&dd90='.checkpost($idr).'" class="lt1a" target="new'.$id.'">';
@@ -150,7 +151,7 @@ class projetos {
 				$tipo = trim($line['pb_tipo']);
 				$vies = trim($line['pb_vies']);
 				$sx .= '<TR ' . coluna() . ' class="lt1a">';
-				$sx .= '<TD><img src="img/logo_bolsa_' . $bolsa . '.png">';
+				$sx .= '<TD><img src="img/logo_bolsa_' . $bolsa . '.png">'.$bolsa.' - '.$edital;
 				//if ($vies == '1' and $tipo == 'I') { $sx .= '*';
 				//}
 				$sx .= '<TD>';

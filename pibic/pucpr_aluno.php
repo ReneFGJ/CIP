@@ -1,18 +1,35 @@
 <?
+$sql = "delete from pibic_aluno where pa_cracha = '$cracha'";
+//$rlt = db_query($sql);
+//exit;
+			
 if (strlen($dd[$dx]) == 8)
 	{
 		$cracha = $dd[$dx];
 		if ($cracha != '00000000') { 
-			require("pucpr_soap_pesquisaAluno.php");
+			$codigo = $cracha;
+			$aluno = $cracha;
+			require('../pibicpr/pucpr_soap_pesquisaAluno.php');
+
+			$sql = "select * from pibic_aluno where pa_cracha = '$cracha' ";
+			$rlt = db_query($sql);
+			
+			if ($line = db_read($rlt))
+				{
+					$rst = True;
+				} else {
+					$rst = False;
+				}
+				
+			
 			if ($rst == True)
 				{
 					$msg = '';
-					$asql = "select * from ".$tdoc;
-					$asql .= " where doc_aluno = '".$aluno."' ";
-					$asql .= " and doc_ano = '".date("Y")."' ";
-					$asql .= " and doc_protocolo <> '".$protocolo."' ";
-					$asql .= " and (doc_status <> 'X' and doc_status <> '@')";
-					
+					$asql = "select * from pibic_bolsa_contempladas ";
+					$asql .= " where pb_aluno = '".$aluno."' ";
+					$asql .= " and pb_ano = '".date("Y")."' ";
+					$asql .= " and pb_protocolo <> '".$protocolo."' ";
+					$asql .= " and (pb_status <> 'X' and pb_status <> 'C')";
 					$arlt = db_query($asql);
 					if ($aline = db_read($arlt))
 						{

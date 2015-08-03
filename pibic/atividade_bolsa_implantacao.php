@@ -22,7 +22,7 @@ $sql .= " left join pibic_bolsa_tipo on pb_tipo = pbt_codigo ";
 $sql .= " where pp_ano = '".date("Y")."' ";
 $sql .= " and pb_ativo = 1 ";
 $sql .= " and pb_professor = '".$id_pesq."' ";
-$sql .= " and (pb_tipo <> 'R' and pb_tipo <> 'D' and pb_tipo <> 'X') ";
+$sql .= " and (pb_tipo <> 'R' and pb_tipo <> 'D' and pb_tipo <> 'X' and pb_tipo <> '#') ";
 //$sql .= " and (pb_tipo = 'F') ";
 if (date("Ymd") > 20130801)
 	{
@@ -32,6 +32,7 @@ if (date("Ymd") > 20130801)
 	}
 $sql .= " and pb_ativacao = 19000101 ";
 $sql .= " order by id_pb ";
+
 $rlt = db_query($sql);
 $to = 0;
 while ($line = db_read($rlt))
@@ -40,7 +41,7 @@ while ($line = db_read($rlt))
 	$link = '<A HREF="atividade_bolsa_implantacao_ativacao.php?dd0='.$line['id_pb'].'&dd1='.$line['pb_tipo'].'&dd2='.md5($line['id_pb'].$secu).'" title="Ativação de bolsa" alt="Ativação de Bolsa">';
 	$bolsa = $line['pb_tipo'];
 	$bolsa_nome = $line['pbt_descricao'];
-	$bolsa_img = '<img src="../pibicpr2/img/logo_bolsa_'.$bolsa.'.png" border=0>';
+	$bolsa_img = '<img src="../pibicpr/img/logo_bolsa_'.$bolsa.'.png" border=0>';
 
 	$ss .= '<LI>';
 	if ($errp == 0)

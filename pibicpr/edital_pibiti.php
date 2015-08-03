@@ -25,23 +25,26 @@ $edital = new projetos;
 		<TD width="30%" align="right" valign="top"><NOBR>
 		<img src="img/logo_pucpr.jpg" height="90" alt="" border="0">&nbsp;
 		<img src="img/logo_re2ol.jpg" height="0" alt="" border="0">&nbsp;
+		<!--
 		<img src="img/logo_fundacao_araucaria.jpg" height="50" alt="" border="0">
+		-->
+		<img src="img/logo_re2ol.jpg" height="50" alt="" border="0">
+
 		</TD>
 	</TR>
 </TABLE>
 <?
 	$tit1 = " "; 
 	$hb = '<table class="lt0" width="100%"><TR>';
-	$hb .= '<TD>Bolsas:</TD>';
+//	$hb .= '<TD>Bolsas:</TD>';
 //	$hb .= '<TD><NOBR><img src="img/logo_bolsa_B.png" width="34" height="15" alt="" border="0"> CNPQ';
-	$hb .= '<TD><NOBR><img src="img/logo_bolsa_=.png" width="34" height="15" alt="" border="0"> Fundação Araucária';
+//  $hb .= '<TD><NOBR><img src="img/logo_bolsa_=.png" width="34" height="15" alt="" border="0"> Fundação Araucária';
 //	$hb .= '<TD><NOBR><img src="img/logo_bolsa_G.png" width="34" height="15" alt="" border="0"> Agência PUC';
 //	$hb .= '<TD><NOBR><img src="img/logo_bolsa_O.png" width="34" height="15" alt="" border="0"> Bolsa PUCPR';
 //	$hb .= '<NOBR>Bolsa de Iniciação Científica em áreas estratégicas - PUCPR</TD>';
 //	$hb .= '<TD><NOBR><img src="img/logo_bolsa_M.png" width="34" height="15" alt="" border="0">';
 //	$hb .= '<NOBR>Bolsa PUCPR Doutorando</TD>';
-	$hb .= '<TD width="10%">&nbsp;</TD>';
-	
+//	$hb .= '<TD width="10%">&nbsp;</TD>';
 	//$hb .= '<TR>';
 	//$hb .= '<TD colspan="5"><img src="img/logo_icv_mini.jpg" width="34" height="15" alt="" border="0">';
 	//$hb .= ' Projeto aprovado para Iniciação Científica Voluntária (obrigatoriedade de adesão para concorrer a bolsas desistentes)</TD>';

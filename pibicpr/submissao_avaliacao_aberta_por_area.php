@@ -21,12 +21,10 @@ $sql = "select  a_cnpq, a_descricao, pp_protocolo, pj_titulo, pj_professor, pp_n
 		$sx .= '<table width="100%" class="tabela00">';
 		$sx .= '<TR><TH width="10%"	 align=left>Área';
 		$sx .=     '<TH width="20%"	 align=left   >Descrição';
-		
 		$sx .=     '<TH width="10%"	 align=left  >protocolo';
 		$sx .=     '<TH width="30%"	 align=left  >Titulo';
 		$sx .=     '<TH width="10%"	 align=left  >Crachá Prof.';
 		$sx .=     '<TH width="15%"	 align=left  >Nome Prof.';
-		
 		$sx .=     '<TH width="5%"	 align=left  >Total';
 		
 		
@@ -34,7 +32,8 @@ $sql = "select  a_cnpq, a_descricao, pp_protocolo, pj_titulo, pj_professor, pp_n
 		$total = 0;
 		$tot = 0;
 		
-		while ($line = db_read($rlt)) {
+		while ($line = db_read($rlt)) 
+		{
 			
 			$tot ++; 
 			$total = $total + $line['total'];
@@ -58,6 +57,8 @@ $sql = "select  a_cnpq, a_descricao, pp_protocolo, pj_titulo, pj_professor, pp_n
 			$sx .= '</font>';
 			}
 			
+
+			
 			
 			$sx .= '<TR>';
 			$sx .= '<TD class="tabela01">'.$area;
@@ -79,7 +80,5 @@ $sql = "select  a_cnpq, a_descricao, pp_protocolo, pj_titulo, pj_professor, pp_n
 		
 		echo($sx);
 
-
-		
 		
 ?>
