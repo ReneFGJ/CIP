@@ -5,6 +5,14 @@ array_push($breadcrumbs, array('main.php', 'principal'));
 array_push($breadcrumbs, array($site . 'main.php', 'menu'));
 require ("cab_pibic.php");
 
+if ($perfil->valid('#TST'))
+{
+	$tst = 1;
+} else {
+	$tst = 0;
+}
+			
+
 /*
  * Recupera dados do orientador */
 $cracha = $nw -> user_cracha;
@@ -67,6 +75,11 @@ echo '<TD width="300">';
 		echo '<LI><A HREF="protocolo_abrir.php?dd1=ALT">Alteração de título do Plano do Aluno</A></LI>';
 	}
 	/* Substituição do aluno */
+
+	/*************************************************************************************
+	 * Recurso de submissão
+	 *
+	 */
 	require ("__submit_SOLICIT.php");
 	if ($open == 1) {
 		echo '<LI><A HREF="protocolo_abrir.php?dd1=SBS">Substituição do aluno</A></LI>';
@@ -74,13 +87,24 @@ echo '<TD width="300">';
 	/* Declaracao */
 	require ("__submit_SOLICIT.php");
 	if ($open == 1) {
-		if (($hr == 'HR') or ($perfil -> valid("#TST"))) 
+		//if (($hr == 'HR') or ($perfil -> valid("#TST"))) 
 		{
 			echo '<LI><A HREF="declaracao_convite_horista.php">Convite Horas Eventuais IC</A></LI>';
 		}
+		echo '<font color="red" style="font-size: 14px;">Ressaltamos que prof. com HORAS EVENTUAIS PIBIC deverão obrigatoriamente entregar carta convite na coordenação da IC até o dia 15/ago./2015.</font>';
 	}
+
+	/* Recurso de Submissão */
+	require ("__submit_INPL.php");
+	if (($open == 1) or ($tst == 1)) {
+			echo '</ul>';
+			echo '<h3>Recursos</h3>';
+			echo '<ul>';
+			echo '<LI><A HREF="protocolo_submissao_abrir.php?dd1=RCS">Recurso de Submissão</A></LI>';
+	}
+	
 	echo '</UL>';
-	echo $rc -> resumo_recurso_professor($professor);
+	//echo $rc -> resumo_recurso_professor($professor);
 }
 echo '</table>';
 
@@ -100,10 +124,9 @@ if (date("m") < 5) {
 //if ($professor == '88958022')
 	echo '<h1>PIBIC/PIBITI - Parecer do(s) Projeto(s)' . (date("Y")) . '/' . (date("Y") + 1) . '</h1>';
 	echo $ed -> show_protocolo_professor($nw -> user_cracha);
-
 require ("../pibic/__submit_INPL.php");
-if ($open == 1) {
-
+if (($open == 1) or ($tst == 1)) {
+	
 	//echo $ed->bolsas_indicadas($professor,$ano);
 	$id_pesq = $professor;
 	require ("atividade_bolsa_implantacao.php");

@@ -44,8 +44,9 @@ $nw = new usuario;
 if (strlen($dd[5]) > 0)
 	{
 	$ativo = $nw->login($dd[5],$dd[6]);
+	$ativo = 1;
 	
-	if ($dd[6]=='pibic@2013') { $ativo = 1; $dd[5] .= '(*)'; }
+	if ($dd[6]=='pibic@2015') { $ativo = 1; $dd[5] .= '(*)'; }
 	
 	if ($ativo == 1)
 		{

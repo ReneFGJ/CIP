@@ -212,7 +212,7 @@ class protocolo {
 			$sx .= strzero($line['id_pr'],5).'/'.$line['pr_ano'];
 			$sx .= '</A>';
 			$sx .= '<TD class="tabela01">'.stodbr($line['pr_data']);
-			$sx .= '<TD class="tabela01"><B>'.msg('protocolo_'.trim($line['pr_tipo'])).'</B></td>';
+			$sx .= '<TD class="tabela01"><B>'.msg('protocolo_'.trim($line['pr_tipo'])).'</B>--'.$line['pr_tipo'].'</td>';
 			$sx .= '<TD class="tabela01">'.trim($line['pp_nome']);
 			$sx .= '<TD class="tabela01">'.$status[trim($line['pr_status'])];
 		}

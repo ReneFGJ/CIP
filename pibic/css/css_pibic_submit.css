@@ -1,0 +1,58 @@
+.plano01
+	{
+		padding: 10px;
+		border: 1px solid #303030;
+  		border-radius: 10px;
+    	-webkit-border-radius: 10px;
+    	-moz-border-radius: 10px;
+    	-ms-border-radius: 10px;
+    	-o-border-radius: 10px;		
+	}
+.plano_novo
+	{
+		border-top: 15px solid #000C74;
+		background-color: #222CA4;
+		width: 200px;
+		height: 80px;
+		color: #FFFFFF;
+	}
+.plano_novo:hover
+	{
+		border-top: 15px solid #000C74;
+		background-color: #111C94;
+		width: 200px;
+		height: 80px;
+		color: #FFFFFF;
+	}
+
+.plano_novo_pibicem
+	{
+		border-top: 15px solid #E13800;
+		background-color: #FFB950;
+		width: 200px;
+		height: 80px;
+	}
+.plano_novo_pibicem:hover
+	{
+		border-top: 15px solid #E13800;
+		background-color: #FFD350;
+		width: 200px;
+		height: 80px;
+	}
+
+.plano_novo_ici
+	{
+		border-top: 15px solid #552800;
+		background-color: #99283A;
+		width: 200px;
+		height: 80px;
+		color: #FFFFFF;
+	}
+.plano_novo_ici:hover
+	{
+		border-top: 15px solid #552800;
+		background-color: #AA182A;
+		width: 200px;
+		height: 80px;
+		color: #FFFFFF;
+	}

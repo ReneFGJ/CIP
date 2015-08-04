@@ -22,6 +22,75 @@ class projetos {
 
 	var $ano;
 
+	function mostra_imagem_tipo_edital($tipo)
+			{
+				global $http;
+				$tipo = lowercase(trim($tipo));
+				switch ($tipo)
+					{
+					case 'pibiti': $img = 'logo_ic_pibiti.png'; break;
+					case 'pibic': $img = 'logo_ic_pibic.png'; break;
+					case 'pibic_em': $img = 'logo_ic_pibic_em.png'; break;
+					default: $img = $tipo; break; 
+					}
+				
+				$sx .= '<img src="'.$http.'img/'.$img.'" width="80">';
+				return($sx);
+			}	
+	
+	function mostra_registro($line)
+			{
+				global $link, $http;
+				$linka = '<A HREF="'.$link.'?dd0='.$line['pb_protocolo'].'&dd90='.checkpost($line['doc_protocolo']).'">';
+				
+				
+				
+				$status = trim($line['pj_status']);
+	
+				if ($status == '@') { $status = '<font color="#ff8000">Não implementado</font>'; $bgc = '#f5f5f5';}
+				if ($status == 'A') { $status = '<font color="green">Ativo</font>';  $bgc = '#d2fad1';}
+				if ($status == 'B') { $status = '<font color="#0000ff">Encerrado</font>';  $bgc = '#faebef';}
+				if ($status == 'C') { $status = '<font color="#ff0000">**Cancelado**</font>';  $bgc = '#ffe1e1';}
+				$bgc = '';
+				$aluno_cod = trim($line['pb_aluno']);
+				$aluno_nome = trim($line['pa_nome']);
+				
+				$docente_cod = trim($line['pb_professor']);
+				$docente_nome = trim($line['pp_nome']);
+			
+				$link = '';
+		
+				$bolsa = trim($line['pbt_descricao']);
+				//$bolsa_img = '<img src="'.$http.'img/'.trim($line['pbt_img']).'" border="0">';
+				
+				$style = ' style="border-top: 1px solid #202020; padding-top: 15px;" ';
+				
+				$sr .= '<TR valign="top"  bgcolor="'.$bgc.'">';
+				$sr .= '<TD rowspan=5 '.$style.' >'.$this->mostra_imagem_tipo_edital($line['doc_edital']);
+			
+				$sr .= '<TD width="10" '.$style.'>'.$it.'</TD>';
+				$sr .= '<TD colspan="3" '.$style.'><B>'.$linka.trim($line['doc_1_titulo']);
+				$sr .= '<TD colspan="1" align="right" '.$style.'><B>'.$linka.$line['doc_protocolo'];
+				$sr .= '</TR>';
+
+				$sr .= '<TR bgcolor="'.$bgc.'">';
+				$sr .= '<TD colspan="2" align="right"><I>Estudante</TD><TD colspan="3">'.$aluno_nome.' ('.$aluno_cod.')';
+				$sr .= '</TR>';
+
+				$sr .= '<TR bgcolor="'.$bgc.'">';
+				$sr .= '<TD colspan="2" align="right"><I>Docente</TD><TD colspan="3">'.$docente_nome.' ('.$docente_cod.')';
+				$sr .= '</TR>';
+	
+				$sr .= '<TR bgcolor="'.$bgc.'">';
+				$sr .= '<TD colspan="2" align="right"><I>Bolsa </TD>
+							<TD colspan="2">'.$bolsa_img. ' '.$bolsa.' / <B>'.$line['pb_ano'].'</B>';
+				$sr .= '<TD align="right"><B>'.$status.'</TD>';
+				$sr .= '</TR>';
+					
+				$sr .= '</TR>';				
+				return($sr);
+			}	
+
 	function valida_limite_submissao($orientador) {
 		global $ttt;
 		$sql = "select * from pibic_professor where pp_cracha = '" . $orientador . "' ";
@@ -3546,6 +3615,32 @@ class projetos {
 		}
 		return (1);
 	}
+	
+	function le_plano($id = '') {
+		$id = strzero(round($id),7);
+		$sql = "select * from pibic_submit_documento
+						left join " . $this -> tabela . " on pj_codigo = doc_protocolo_mae
+						left join pibic_professor on pj_professor = pp_cracha
+						left join apoio_titulacao on ap_tit_codigo = pp_titulacao
+						where id_pj = $id or doc_protocolo = '$id'
+					";
+		$rlt = db_query($sql);
+		if ($line = db_read($rlt)) {
+			$this -> protocolo = trim($line['doc_protocolo']);
+			$this -> line = $line;
+			$this -> status = $line['doc_status'];
+		}
+		return (1);
+	}	
+	
+	function substituicao_motivo()
+		{
+			$mt=array();
+			$mt['101'] = 'Meu aluno não foi contemplado com bolsa';
+			$mt['102'] = 'Não concordo com a avaliação';
+			$mt['106'] = 'Outros motivos';
+			return($mt);
+		}	
 
 	function mostra_plano_botao($nr) {
 		if ($nr == 1 or $nr == 2) { $sx = $this -> mostra_botao_submissao('IC');

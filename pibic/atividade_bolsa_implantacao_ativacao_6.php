@@ -42,7 +42,7 @@ if (strlen($proto)==0)
 	echo '<center><h1>Ativação efetuada</h1></center>';
 	
 	$sql = "select * from ic_noticia ";
-	$sql .= " where nw_ref = 'termo_final_2' ";
+	$sql .= " where nw_ref = 'termo_final_3' ";
 	$rlt = db_query($sql);
 	$line = db_read($rlt);
 	$texto = $line['nw_descricao'];
@@ -109,10 +109,10 @@ if (strlen($proto)==0)
 	$e1 = 'pibicpr@pucpr.br';
 	$mensagem=mail($e1,$e3, $e4, $headers); echo 'enviado para '.$e1;
 		
-	if (strlen($prof_email) > 0) 	{ 	$mensagem=mail($prof_email,$e3, $e4, $headers); echo 'enviado para '.$e1; }
-	if (strlen($prof_email_1) > 0) 	{ 	$mensagem=mail($prof_email_1,$e3, $e4, $headers); echo 'enviado para '.$e1; }
+	if (strlen($prof_email) > 0) 	{ 	$mensagem=mail($prof_email,$e3, $e4, $headers);  }
+	if (strlen($prof_email_1) > 0) 	{ 	$mensagem=mail($prof_email_1,$e3, $e4, $headers);  }
 	
-	if (strlen($disc_email) > 0) 	{ 	$mensagem=mail($disc_email,$e3, $e4, $headers); echo 'enviado para '.$e1; }
-	if (strlen($disc_email_1) > 0) 	{ 	$mensagem=mail($disc_email_1,$e3, $e4, $headers); echo 'enviado para '.$e1; }
+	if (strlen($disc_email) > 0) 	{ 	$mensagem=mail($disc_email,$e3, $e4, $headers);  }
+	if (strlen($disc_email_1) > 0) 	{ 	$mensagem=mail($disc_email_1,$e3, $e4, $headers);  }
 
 ?>

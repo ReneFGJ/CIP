@@ -52,7 +52,7 @@ while ($line = db_read($rlt))
 		$sx .= '<input type="hidden" name="dd3" value="'.checkpost($proto).'">';		
 		$sx .= '<TD colspan=5>';
 		$SX .= '<BR><BR>';
-		$sx .= '<input type="submit" name="acao" value="Solicitar alteração desse protocolo >>>">';
+		$sx .= '<input type="submit" name="acao" value="Solicitar alterar desse protocolo >>>">';
 		$sx .= '</form>';
 	}
 	

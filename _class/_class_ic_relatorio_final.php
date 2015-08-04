@@ -360,6 +360,8 @@ class ic_relatorio_final
 			$id = 0;
 			while ($line = db_read($rlt))
 				{
+					print_r($line);
+					exit;
 					$id++;
 					$idx = trim($line['pb_protocolo']);
 					$area = $line['a_cnpq'];
@@ -384,6 +386,7 @@ class ic_relatorio_final
 					$sx .= '<TD>';
 					$sx .= $line['pa_curso'];					
 					$sx .= chr(13);
+					$sx .= '<td>'.$line['pb_relatorio_final_nota'];
 					$sx .= '<TR id="TRI'.$idx.'" style="display:none;"><TD colspan=10>';
 				}
 			$sx .= '<TR><TD>Total '.$id.' indicações a efetivar';

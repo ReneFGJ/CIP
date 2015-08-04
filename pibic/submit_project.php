@@ -36,6 +36,18 @@ if (strlen($bl) > 0)
 	exit;
 	}
 	
+/* Regra de titulação */
+if ($dc->valida_titulacao_orientador($ss->user_cracha) == 0)
+	{
+	echo '<div>';
+	echo '<font class="lt2">';
+	echo '<img src="../img/icone_exclamation.png" height="90" align="left">';
+	echo 'Prezado Professor,<BR><BR>';
+	echo 'De acordo com as normas da IC, somente podem submeter projetos professores com a titulação de Dr., Msc., Doutorando e Pós-Doutorandos.';
+	echo '</font>';
+	echo '<div>';
+	exit;	
+	}
 
 /* Regra de titulacao */
 if ($dc->valida_titulacao_orientador($ss->user_cracha) == 0)

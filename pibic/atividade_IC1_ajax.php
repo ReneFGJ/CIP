@@ -106,6 +106,7 @@ if ($dd[90]=='ged')
 				$sx .= '</fieldset>';
 	}
 echo $sx;
+echo "Deletado";
 echo date("d/m/Y H:i:s");
 
 ?>
