@@ -39,6 +39,6 @@ while ($line = db_read($rlt)) {
 }
 $sx .= '</table>';
 echo $sx;
-echo '===>' . $tot;
+//echo '===>' . $tot;
 print_r($ln);
 ?>

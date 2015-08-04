@@ -31,6 +31,7 @@ class semic {
 	var $revisor;
 
 	var $tabela = "semic_trabalho";
+	var $tabela2 = 'pibic_bolsa_contempladas';
 	var $tabela_autor = "semic_trabalho_autor";
 
 	function semic_premiacao() {
@@ -469,10 +470,16 @@ class semic {
 								, sm_obs = '" . $dd[2] . "'
 								where id_sm = " . $dd[0];
 				$rlt = db_query($sql);
-
+				
+				/**
+				$sql2 = "update " . $this -> tabela2 . " set pb_resumo_nota = '" . $dd[1] . "'
+						 where id_pb = " . $dd[0];
+				$rlt2 = db_query($sql2);
+				*/
 				redirecina(page() . '?dd0=' . $dd[0] . '&dd90=' . $dd[90]);
 				exit ;
-			}
+			
+}
 			$sx = '<form method="post" action="' . page() . '">';
 			$sx .= '<input type="hidden" name="dd0" value="' . $dd[0] . '">';
 			$sx .= '<input type="hidden" name="dd90" value="' . $dd[90] . '">';
