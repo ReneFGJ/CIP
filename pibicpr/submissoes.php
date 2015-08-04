@@ -28,14 +28,14 @@ if (($perfil->valid('#TST')) or ($perfil->valid('#PIB')) or ($perfil->valid('#AD
 	}
 		if (($perfil->valid('#TST'))) 
 	{
-		array_push($menu,array(msg('submissoes'),'__Resumo projetos aprovados','pibic_seleciona_qualAno.php'));
+		array_push($menu,array(msg('submissoes'),'__Resumo projetos aprovados','pibic_selecionaAno.php'));
 	}
 
 array_push($menu,array(msg('submissoes'),'Projetos e Planos',''));
 array_push($menu,array(msg('submissoes'),'__Planos por professor / titulação','submissao_professor_titulacao.php'));
 array_push($menu,array(msg('submissoes'),'__Projetos do professor','submissao_professor.php'));
 array_push($menu,array(msg('submissoes'),'__Planos de aluno','submissao_plano.php'));
- 
+
  
 array_push($menu,array(msg('submissoes'),'Projetos submetidos',''));
 array_push($menu,array(msg('submissoes'),'__Não finalizados','submissao_nao_finalizadas.php'));
