@@ -26,7 +26,7 @@ if (($perfil->valid('#ADM#PIB')))
 
 echo $semic->mostra_ingles();
 
-if (($perfil->valid('#PIT')) and ($semic->status <> 'D'))
+if (($perfil->valid('#PIT') or $perfil->valid('#TST') ) and ($semic->status <> 'D'))
 	{
 	if (strlen($dd[10]) > 100)
 		{

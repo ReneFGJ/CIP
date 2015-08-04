@@ -431,7 +431,6 @@ class semic {
 		$line = db_read($rlt);
 		$total = $line['total'];
 		return ($total);
-
 	}
 
 	function comunicar_pesquisador($texto = '', $prof = '') {
@@ -440,7 +439,7 @@ class semic {
 		$doc = new docentes;
 		$doc -> le($prof, $prof);
 		$email1 = $doc -> pp_email;
-		$email1 = $doc -> pp_email_1;
+		$email2 = $doc -> pp_email_1;
 
 		$ic = new ic;
 		$tela = $ic -> ic('semic_devolve');
