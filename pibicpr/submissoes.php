@@ -25,7 +25,11 @@ array_push($menu,array(msg('submissoes'),'Resumo',''));
 if (($perfil->valid('#TST')) or ($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	{
 		array_push($menu,array(msg('submissoes'),'__Cockpit','pibic_seleciona_anos.php'));
-	}	
+	}
+		if (($perfil->valid('#TST'))) 
+	{
+		array_push($menu,array(msg('submissoes'),'__Resumo projetos aprovados','pibic_seleciona_qualAno.php'));
+	}
 
 array_push($menu,array(msg('submissoes'),'Projetos e Planos',''));
 array_push($menu,array(msg('submissoes'),'__Planos por professor / titulação','submissao_professor_titulacao.php'));

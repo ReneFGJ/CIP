@@ -5176,4 +5176,112 @@ class projetos {
 
 	//**************************** Fim da funcao *****************************************/
 
+	//####################################################################################
+	//**************************** Inicio do metodo **************************************
+	/* @method: resumo_submissoes_ano_excel($ano, $modalidade)
+	 *          Mostra resultados dos planos submetidos por edital e ano
+	 * @author Elizandro Santos de Lima[Analista de Projetos]
+	 * @date: 04/08/2015
+	 */
+function resumo_submissoes_ano_excel($ano, $modalidade) {
+		print_r($ano);
+		print_r($modalidade);
+		if (strlen($modalidade) > 0) { $wh .= " and (doc_edital = '" . $modalidade . "') ";
+		}
+		$ano = $this -> ano;
+		if (strlen($ano) == 0) { $ano = date("Y");
+		}
+		$cp = ', are1.a_descricao as desc1, are2.a_descricao as desc2 ';
+		$sql = "select * $cp from " . $this -> tabela . "
+					left join pibic_professor on pj_professor = pp_cracha
+					left join centro on pp_escola = centro_codigo
+					left join " . $this -> tabela_planos . " on doc_protocolo_mae = pj_codigo
+					left join pibic_aluno on doc_aluno = pa_cracha
+					left join ajax_areadoconhecimento as are1 on are1.a_cnpq = pj_area
+					left join ajax_areadoconhecimento as are2 on are2.a_cnpq = pj_area_estra
+					inner join pibic_edital on pee_protocolo = doc_protocolo
+					where pj_ano = '$ano'
+					and (pj_status <> '!' and pj_status <> '@' and pj_status <> 'X' and pj_status <> 'E')
+					and (doc_status <> '!' and doc_status <> '@' and doc_status <> 'X' and doc_status <> 'E')
+					$wh
+			";
+		$rlt = db_query($sql);
+		
+
+		$id = 0;
+		$sx = '<table>';
+		$sx .= '<TR>
+					<TH>PROJETO
+					<th>COD.PROFESSOR
+					<th>PROFESSOR
+					<th>SS
+					<TH>ESCOLA
+					<TH>CAMPUS
+					<TH>CURSO
+					<th>TIT.PROJETO
+					<TH>STATUS
+					<th>PROT. PLANO
+					<TH>TÍTULO PLANO
+					<TH>COD.ALUNO
+					<th>ALUNO
+					<th>MODALIDADE
+					<th>CURSO
+					<th>STATUS
+					<th>AREA
+					<th>AREA DESCRICAO
+					<th>AREA ESTRATÉGICA
+					<th>AREA ESTRATÉGICA - DESCRICAO
+										';
+		while ($line = db_read($rlt)) {
+			$id++;
+			$sx .= '<TR>';
+			$sx .= '<TD>';
+			$sx .= trim($line['pj_codigo']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_cracha']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_nome']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_ss']);			
+			$sx .= '<TD>';
+			$sx .= trim($line['centro_nome']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_centro']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_curso']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pj_titulo']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pj_status']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_protocolo']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_1_titulo']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_aluno']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pa_nome']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_edital']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pa_curso']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_status']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_area']);
+			$sx .= '<TD>';
+			$sx .= trim($line['desc1']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_area_estra']);
+			$sx .= '<TD>';
+			$sx .= trim($line['desc2']);
+
+			$ln = $line;
+		}
+		$sx .= '<TR><TD>' . $id . ' total';
+		$sx .= '</table>';
+		return ($sx);
+	}
+	//**************************** Fim da funcao *****************************************/
+
 }

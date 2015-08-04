@@ -8,7 +8,7 @@ $form = new form;
 $cp = array();
 array_push($cp,array('$H8','','',False,False));
 array_push($cp,array('$[2009-'.date("Y").']','','Ano Inicial',True,True));
-array_push($cp,array('$[2009-'.date("Y").']','','Ano Final',True,True));
+array_push($cp,array('$[2009-2016]','','Ano Final',True,True));
 
 $tela = $form->editar($cp,'');
 
