@@ -28,7 +28,7 @@ if ($open == 1)
 		if ($open == 1)
 			{
 			echo '<h1>Relatório Parcial - Correção</h2>';
-			echo '<font color="red" class="lt4">Prazo encerrado!</font>';
+			//echo '<font color="red" class="lt4">Prazo encerrado!</font>';
 			}
 	}
 

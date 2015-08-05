@@ -1,61 +1,38 @@
+<h2 class="title-sobre-encontro">SWB Experience - 10/06/2015</h2>
 <div class="page-header">
-					<h1>SWB Experience - 10/06/2015</h1>
-				</div>
-				<img src="img/header-swb.jpg" style="width: 100%;"/>
-				<br />
-				<div class="download">
-					<a href="files/apresentacao-swb.pdf"><b>Apresentação SWB Experience</b></a>
-				</div>
-				<br />
-				<!--
-				<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				-->
-				<div class="fotos-header">
-					<table cellspacing="5">
-						<tr>
-							<td width="32%"><img src="img/SWB Experience-177.jpg" height="250" /></td>
-							<td>&nbsp;</td>
-							<td width="32%"><img src="img/SWB Experience-147.jpg" height="250" /></td>
-							<td>&nbsp;</td>
-							<td width="32%"><img src="img/SWB Experience-178.jpg" height="250" /></td>
-						</tr>
 
-						<tr valign="top">
-							<td width="32%" class="lt0">SWB experience 2015</td>
-							<td>&nbsp;</td>
-							<td width="32%" class="lt0">Momento de discussão dos alunos divididos em grupos</td>
-							<td>&nbsp;</td>
-							<td width="32%" class="lt0">Palestrante Prof. Fernando Bitencourt Luciano, profa. Vanessa Sotomaior diretora de pesquisa, profa. Cleybe Vieira coordenadora de CSF da PUCPR, profa. Anelise Hofmann</td>
-						</tr>
-						<tr>
-							<td width="32%"><img src="img/fotos-swb-3b.jpg" height="250" /></td>
-							<td>&nbsp;</td>
-							<td width="32%"><img src="img/fotos-swb-2a.jpg" height="250" /></td>
-							<td>&nbsp;</td>
-							<td width="32%"><img src="img/fotos-swb-2b.jpg" height="250" /></td>
-						</tr>
-						<tr valign="top">
-							<td width="32%" class="lt0">Prof. Waldemiro Gremski, Reitor da PUCPR, dirigindo-se aos estudantes egressos do Programa CSF da PUCPR.</td>
-							<td>&nbsp;</td>
-							<td width="32%" class="lt0">Prof. Fernando Bitencourt Luciano, coordenador de pesquisa da PUCPR, proferindo a palestra: "Viajar para liderar, isso faz sentido?".</td>
-							<td>&nbsp;</td>
-							<td width="32%" class="lt0">Momento de discussão em grupo dos ex-bolsistas do CsF.</td>
-						</tr>
-						<tr>
-							<td width="32%"><img src="img/fotos-swb-3a.jpg" height="250" /></td>
-							<td>&nbsp;</td>
-							<td width="32%"></td>
-							<td>&nbsp;</td>
-							<td width="32%"></td>
-						</tr>
-						<tr valign="top">
-							<td width="32%" class="lt0">Profa. Cleybe Vieira, coordenadora do CSF da PUCPR apresentando a concepção do evento SWB Experience, 1st PUCPR Egress Meeting.</td>
-							<td>&nbsp;</td>
-							
-							<td>&nbsp;</td>
-							<td width="32%" class="lt0">-</td>
-						</tr>						
-					</table>
-				</div>
-			</div><!-- /.container -->
+<div class="page-header">
+	<script type="text/javascript" src="js/coin-slider.js"></script>
+	<link rel="stylesheet" href="css/coin-slider-styles.css" type="text/css" />
+	<div id='coin-slider'>
+		<a href="img/fotos-swb-1.jpg" target="_blank"> <img src='img/fotos-swb-1.jpg' > <span> SWB experience 2015 </span> </a>
+		<a href="img/fotos-swb-1a.jpg"> <img src='img/fotos-swb-1a.jpg'  > <span> Momento de discussão dos alunos divididos em grupos </span> </a>
+		<a href="img/fotos-swb-1b.jpg"> <img src='img/fotos-swb-1b.jpg' > <span> Palestrante Prof. Fernando Bitencourt Luciano, profa. Vanessa Sotomaior diretora de pesquisa, profa. Cleybe Vieira coordenadora de CSF da PUCPR, profa. Anelise Hofmann </span> </a>
+		
+		<a href="img/fotos-swb-3b.jpg"> <img src='img/fotos-swb-3b.jpg' > <span> Prof. Waldemiro Gremski, Reitor da PUCPR, dirigindo-se aos estudantes egressos do Programa CSF da PUCPR. </span> </a>
+		<a href="img/fotos-swb-2a.jpg"> <img src='img/fotos-swb-2a.jpg' > <span> Prof. Fernando Bitencourt Luciano, coordenador de pesquisa da PUCPR, proferindo a palestra: "Viajar para liderar, isso faz sentido?". </span> </a>
+		<a href="img/fotos-swb-2b.jpg"> <img src='img/fotos-swb-2b.jpg' > <span> Momento de discussão em grupo dos ex-bolsistas do CsF. </span> </a>
+		
+		<a href="img/fotos-swb-3a.jpg"> <img src='img/fotos-swb-3a.jpg' > <span> Profa. Cleybe Vieira, coordenadora do CSF da PUCPR apresentando a concepção do evento SWB Experience, 1st PUCPR Egress Meeting. </span> </a>	
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#coin-slider').coinslider();
+		});
+
+	</script>
+</div>
+
+<br />
+<div class="download">
+	<h2 class="title-sobre-encontro">Apresentação SWB Experience</h2>
+	<a href="files/apresentacao-swb.pdf" style="color: #fff; background-color: #161616; padding: 5px 1px; text-decoration: none; float: left;" target="_blank"><b>Download da apresentação</b></a>
+</div>
+<br />
+<!--
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+-->
+<!-- /.container -->
+
+</div>

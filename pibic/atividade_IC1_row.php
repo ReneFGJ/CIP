@@ -25,7 +25,7 @@ if ($open == 1)
 	} else {
 		if (date("m") < 3)
 			{
-			echo ' - <font color="red" class="lt4">Prazo encerrado!</font>';
+			//echo ' - <font color="red" class="lt4">Prazo encerrado!</font>';
 			}
 	}
 

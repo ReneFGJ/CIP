@@ -29,6 +29,15 @@ $ic_on = $open;
 /* Body */
 $mn = array();
 
+/* SEMIC */
+echo '===>'.$tot_semic;
+if (($tot_semic > 0) or (!($perfil->valid('#CNQ'))))
+	{
+		//array_push($mn,array('botao_mostra','b1',http.'semic_submit/','submissao-mostra.jpg','imgs',''));
+		array_push($mn,array('SEMIC, submissões e correções de trabalhos','b1','semic_submit','SEMIC','icone-meu-perfil','')); 	
+	}
+	
+
 if ((date("Ymd") <= 20140424) or ($ic_on == 1)) {
 	array_push($mn, array('botao_pibic', 'b1', http . 'pibic/submit_project.php', 'botao_pibic_02.jpg', 'imgs', ''));
 }

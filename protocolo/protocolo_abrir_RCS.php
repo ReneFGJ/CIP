@@ -81,7 +81,7 @@ if ($form -> saved > 0) {
 		/* Encerra abertura */
 
 		echo '<center>';
-		echo '<h1>Solicitação de cancelamento aberta com sucesso!</h1>';
+		echo '<h1>Solicitação de reconsideração aberta com sucesso!</h1>';
 		exit ;
 	} else {
 		echo '<center>';

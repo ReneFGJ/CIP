@@ -348,7 +348,7 @@ class ic_relatorio_final
 					left join ajax_areadoconhecimento on a_cnpq = pb_semic_area  
 					left join pibic_bolsa_tipo on pb_tipo = pbt_codigo
 					left join pibic_aluno on pb_aluno = pa_cracha
-					where (pb_relatorio_final_nota = -99 or pb_relatorio_final_nota = 99 or pb_relatorio_final_nota = 0)
+					where  (pb_relatorio_final > 20150101) and (pb_relatorio_final_nota = 0)
 					and pb_ano = '$ano' and (pbt_edital = 'PIBITI' or pbt_edital = 'PIBIC')
 					and pb_status <> 'C'
 					$wh
@@ -360,8 +360,6 @@ class ic_relatorio_final
 			$id = 0;
 			while ($line = db_read($rlt))
 				{
-					print_r($line);
-					exit;
 					$id++;
 					$idx = trim($line['pb_protocolo']);
 					$area = $line['a_cnpq'];
@@ -878,13 +876,13 @@ function form_crp($ged)
 				$sql = "update pibic_bolsa_contempladas
 							set pb_relatorio_final = 0, pb_relatorio_final_nota = 0
 							where (pb_ano = '".(date("Y")-1)."') and
-								  (pb_relatorio_final isnull)
+								  (pb_relatorio_final is null)
 							";
 				//$rlt = db_query($sql);
 				$sql = "update pibic_bolsa_contempladas
 							set pb_resumo = 0, pb_resumo_nota = 0 
 							where (pb_ano = '".(date("Y")-1)."') and
-								  (pb_resumo isnull)
+								  (pb_resumo is null)
 							";
 				//$rlt = db_query($sql);
 				
@@ -892,17 +890,18 @@ function form_crp($ged)
 				$sql = "select * from pibic_bolsa_contempladas ";
 				$sql .= "left join pibic_aluno on pb_aluno = pa_cracha ";
 				$sql .= "left join pibic_professor on pb_professor = pp_cracha 
-						inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo 
+						left join pibic_bolsa_tipo on pbt_codigo = pb_tipo 
 				";
 				//$sql .= "left join pibic_submit_documento on doc_protocolo = pb_protocolo_mae ";
 				//$sql .= "left join pibic_edital on pb_protocolo = pee_protocolo ";
 				$sql .= " where pb_professor = '".$id_pesq."' ";
 				//$sql .= " and ((pb_relatorio_final = 0) or (pb_relatorio_final  isnull)) ";
-				$sql .= " and pb_status <> '@' and pb_status <> 'C' ";
+				$sql .= " and pb_status <> '@' and pb_status <> 'C' and pb_status <> 'F' ";
 				$sql .= " and (pb_ano = '".(date("Y")-1)."' or (pbt_edital = 'PIBIC_EM' and pb_ano = '".(date("Y"))."')) ";
 				$sql .= " and pb_relatorio_final < 20000000 ";
 				$sql .= " order by pa_nome";
 				$SQL .= " limit 1000 ";
+				
 				$rlt = db_query($sql);
 				
 				$sx .= '<table width="100%" align="center" border=0 class="tabela00">';
