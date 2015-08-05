@@ -66,10 +66,10 @@ require ("db.php");
 							<a href="#large-header">Home</a>
 						</li>
 						<li>
-							<a href="#sobre-encontro">O encontro</a>
+							<a href="#sobre-encontro">The Meeting</a>
 						</li>
 						<li>
-							<a href="#programacao">Programação</a>
+							<a href="#programacao">Programming</a>
 						</li>
 						<!--
 						<li>
@@ -83,16 +83,15 @@ require ("db.php");
 							<a href="#depoimentos">SwB Experience Report</a>
 						</li>
 						<li>
-							<a href="#contato">Contato</a>
+							<a href="#contato">Contact</a>
 						</li>
 						<li><a href="../swbexperience_en/index_en.php" style="color: #fff;"><img border="0" src="../swbexperience_en/img/eua_icon_flag_lang.png" title="English"/></a></li>
                 		<li><a href="../swbexperience/index.php" style="color: #fff;"><img border="0" src="../swbexperience/img/brazil_icon_flag_lang.png" title="Portuguese"/></a></li>
-					
 					</ul>
 				</nav>
 				<div class="info-data-evento">
 					<h1>June 10th 2015</h1>
-					<h4><i class="fa fa-map-marker"></i> Bloco Verde, PUCPR</h4>
+					<!--<h4><i class="fa fa-map-marker"></i> Bloco Verde, PUCPR</h4>-->
 					<h4><i class="fa fa-clock-o"></i> 18h00</h4>
 				</div>
 				<div id="large-header" class="large-header">
@@ -107,45 +106,46 @@ require ("db.php");
 			</div>
 			<!-- Related demos -->
 			<section class="section-size sobre-enc" id="sobre-encontro" data-sr="enter left, hustle 20px">
-				<h2 class="title-sobre-encontro">O encontro</h2>
+				<h2 class="title-sobre-encontro">The Meeting </h2>
 				<p>
-					Este evento traz a oportunidade de encontro de todos os estudantes bolsistas do Ciência sem Fronteiras da PUCPR que já retornaram para PUCPR, criando um espaço para compartilhar experiências, relembrar das coisas boas da viagem.
+					This event provides the chance for all the scholarship students of the PUCPR Science without Borders programme who have returned to the PUCPR to reunite and share their best experiences and recollections of the trip.
 				</p>
 				<p>
-					A PUCPR também quer saber dos bolsistas quais foram as melhores experiências que tiveram na Universidade Destino, bem como as experiências ruins.
+					PUCPR also wants the scholarship students to talk about their good and bad experiences at the destination university.
 				</p>
 				<p>
-					Você tem alguma sugestão de coisas que viu lá fora e acha que seria ótimo e viável ter na PUCPR? Ou vivenciou algum problema que poderia ter sido evitado?
+					Do you have any suggestions about things you saw in other countries that you think would be great and feasible to have at the PUCPR? Or did you encounter any problems that could have been avoided?
 				</p>
 				<p>
-					Venha para o nosso evento e compartilhe suas experiências! Sua opinião será extremamente importante, pois suas sugestões irão diretamente para a Reitoria da PUCPR, para o CNPq/CAPES e para o parceiro do país de destino. Juntos podemos fazer a diferença!
+					Come to our venue and share your experiences! Your opinion is really important to us, and all your suggestions will be directly forwarded to the PUCPR Dean´s Office, to the CNPq/CAPES and to the partner at the destination country. Together, we can make a difference!
+
 				</p>
 				<p>
-					E além disso, teremos a oportunidade de confraternização no momento do Welcome Coffee!
+					We will also have the chance to get together during the Welcome Coffee!
 				</p>
 				<p>
-					Esperamos encontrá-los aqui!
+					We hope to see you there!
 				</p>
 				<br />
-				<h5>Declarações e Premiações</h5>
+				<h5>STATEMENTS AND AWARDS </h5>
 				<p>
-					Após o evento você poderá imprimir uma declaração de sua participação no SWB Experience.
+					After the event, you can print a statement of your participation at the SwB Experience.
 				</p>
 				<p>
-					Esta declaração poderá ser aproveitada nas horas complementares de seu curso, bem como no seu curricullum lattes, pois demonstrará que você está engajado no processo de construir um Brasil melhor, retribuindo o investimento que recebeu do Governo Federal.
+					This statement can be used for the complementary hours of your course and for your Lattes curriculum, since it proves that you are involved in the process of building a better Brazil and of retributing the financial aid you received from the Federal Government.
 				</p>
 				<p>
-					As melhores ideias serão premiadas com uma Menção Honrosa:
+					The best ideas are awarded an Honourable Mention:
 					<br />
-					1) Melhor Ideia para a PUCPR;
+					1)	Best Idea for the PUCPR; 
 					<br />
-					2) Melhor Ideia para a Gestão do Programa para CAPES/CNPq;
+					2)	Best Idea for the CAPES/CNPq Programme Management; 
 					<br />
-					3) Melhor Ideia para o parceiro do país de destino.
+					3)	Best Idea for the partner at the destination country.
 				</p>
 			</section>
 			<section class="section-size schedule" id="programacao" data-sr="enter left, hustle 20px">
-				<h2 class="title-sobre-encontro">Programação</h2>
+				<h2 class="title-sobre-encontro">Programming</h2>
 				<table>
 					<tr>
 						<td><strong>18h00</strong></td>
@@ -153,19 +153,19 @@ require ("db.php");
 					</tr>
 					<tr>
 						<td><strong>18h45</strong></td>
-						<td><img src="img/page_with_curl.png" class="icon" /> Apresentação das Autoridades.</td>
+						<td><img src="img/page_with_curl.png" class="icon" /> Presentation of Authorities.</td>
 					</tr>
 					<tr>
 						<td><strong>19h00</strong></td>
-						<td><img src="img/speech_balloon.png" class="icon" /> Palestra com o Prof. Fernando Luciano, professor PUCPR, palestrante TEDx Toronto: "Viajar para Liderar, isso faz sentido?" </td>
+						<td><img src="img/speech_balloon.png" class="icon" /> Lecture with Prof. Fernando Luciano, PUCPR professor, TEDx Toronto lecturer: "Travel to Lead, does that make sense?" </td>
 					</tr>
 					<tr>
 						<td><strong>19h50</strong></td>
-						<td><img src="img/pencil.png" class="icon" /> Espaço Ideias e Sugestões.</td>
+						<td><img src="img/pencil.png" class="icon" /> Exchanging Ideas and Suggestions.</td>
 					</tr>
 					<tr>
 						<td><strong>21h00</strong></td>
-						<td><img src="img/thumbsup.png" class="icon" /> Novas oportunidades para estudantes Ciência sem Fronteiras.</td>
+						<td><img src="img/thumbsup.png" class="icon" /> New opportunities for Science without Borders students.</td>
 					</tr>
 				</table>
 			</section>
@@ -219,9 +219,9 @@ require ("db.php");
 				?>
 			</section>
 			<section class="section-size" id="contato" data-sr="enter left, hustle 20px">
-				<h2 class="title-sobre-encontro">Contato</h2>
+				<h2 class="title-sobre-encontro">Contact</h2>
 				<p style="color: #fff;">
-					Se você tiver alguma dúvida, entre em contato conosco:
+					If you have any doubts, contact us:
 				</p>
 				<br />
 				<ul class="lista-contato">
@@ -232,12 +232,12 @@ require ("db.php");
 						+55 41 3271-2112
 					</li>
 					<li>
-						<p  style="color: #fff;">
-							Rua Imaculada Conceição, 1155
-							<br />
-							Bairro Prado Velho
-							<br />
-							CEP: 80215-901
+						<p style="color: #fff;">
+							Street Imaculada Conceição, 1155
+							<br/>
+								Neighbourhood Prado Velho
+							<br/>
+							Zip Code: 80215-901
 						</p>
 					</li>
 				</ul>
