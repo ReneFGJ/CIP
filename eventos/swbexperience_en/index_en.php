@@ -20,7 +20,8 @@ require ("db.php");
 		<script src="js/jquery.maskedinput.min.js"></script>
 		<script>
 			(function(i, s, o, g, r, a, m) {
-				i['GoogleAnalyticsObject'] = r; i[r] = i[r] ||
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] ||
 				function() {
 					(i[r].q = i[r].q || []).push(arguments)
 				}, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0];
@@ -77,16 +78,20 @@ require ("db.php");
 						</li>
 						-->
 						<li>
-							<a href="#1swbexperience">1º SWB Experience</a>
+							<a href="#depoimentos">SwB Experience Report</a>
 						</li>
 						<li>
-							<a href="#depoimentos">SwB Experience Report</a>
+							<a href="#1swbexperience">1º SWB Experience</a>
 						</li>
 						<li>
 							<a href="#contato">Contact</a>
 						</li>
-						<li><a href="../swbexperience_en/index_en.php" style="color: #fff;"><img border="0" src="../swbexperience_en/img/eua_icon_flag_lang.png" title="English"/></a></li>
-                		<li><a href="../swbexperience/index.php" style="color: #fff;"><img border="0" src="../swbexperience/img/brazil_icon_flag_lang.png" title="Portuguese"/></a></li>
+						<li>
+							<a href="../swbexperience_en/index_en.php" style="color: #fff;"><img border="0" src="../swbexperience_en/img/eua_icon_flag_lang.png" title="English"/></a>
+						</li>
+						<li>
+							<a href="../swbexperience/index.php" style="color: #fff;"><img border="0" src="../swbexperience/img/brazil_icon_flag_lang.png" title="Portuguese"/></a>
+						</li>
 					</ul>
 				</nav>
 				<div class="info-data-evento">
@@ -118,7 +123,6 @@ require ("db.php");
 				</p>
 				<p>
 					Come to our venue and share your experiences! Your opinion is really important to us, and all your suggestions will be directly forwarded to the PUCPR Dean´s Office, to the CNPq/CAPES and to the partner at the destination country. Together, we can make a difference!
-
 				</p>
 				<p>
 					We will also have the chance to get together during the Welcome Coffee!
@@ -137,9 +141,9 @@ require ("db.php");
 				<p>
 					The best ideas are awarded an Honourable Mention:
 					<br />
-					1)	Best Idea for the PUCPR; 
+					1)	Best Idea for the PUCPR;
 					<br />
-					2)	Best Idea for the CAPES/CNPq Programme Management; 
+					2)	Best Idea for the CAPES/CNPq Programme Management;
 					<br />
 					3)	Best Idea for the partner at the destination country.
 				</p>
@@ -215,7 +219,7 @@ require ("db.php");
 			-->
 			<section class="section-size schedule" id="1swbexperience" data-sr="enter left, hustle 20px">
 				<?php
-				require ("fotos_eventos.php");
+					require ("fotos_eventos_en.php");
 				?>
 			</section>
 			<section class="section-size" id="contato" data-sr="enter left, hustle 20px">
@@ -235,7 +239,7 @@ require ("db.php");
 						<p style="color: #fff;">
 							Street Imaculada Conceição, 1155
 							<br/>
-								Neighbourhood Prado Velho
+							Neighbourhood Prado Velho
 							<br/>
 							Zip Code: 80215-901
 						</p>

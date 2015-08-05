@@ -20,7 +20,8 @@ require ("db.php");
 		<script src="js/jquery.maskedinput.min.js"></script>
 		<script>
 			(function(i, s, o, g, r, a, m) {
-				i['GoogleAnalyticsObject'] = r; i[r] = i[r] ||
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] ||
 				function() {
 					(i[r].q = i[r].q || []).push(arguments)
 				}, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0];
@@ -77,17 +78,20 @@ require ("db.php");
 						</li>
 						-->
 						<li>
-							<a href="#1swbexperience">1º SWB Experience</a>
+							<a href="#depoimentos">SwB Experience Report</a>
 						</li>
 						<li>
-							<a href="#depoimentos">SwB Experience Report</a>
+							<a href="#1swbexperience">1º SWB Experience</a>
 						</li>
 						<li>
 							<a href="#contato">Contato</a>
 						</li>
-						<li><a href="../swbexperience_en/index_en.php" style="color: #fff;"><img border="0" src="../swbexperience_en/img/eua_icon_flag_lang.png" title="English"/></a></li>
-                		<li><a href="../swbexperience/index.php" style="color: #fff;"><img border="0" src="../swbexperience/img/brazil_icon_flag_lang.png" title="Portuguese"/></a></li>
-					
+						<li>
+							<a href="../swbexperience_en/index_en.php" style="color: #fff;"><img border="0" src="../swbexperience_en/img/eua_icon_flag_lang.png" title="English"/></a>
+						</li>
+						<li>
+							<a href="../swbexperience/index.php" style="color: #fff;"><img border="0" src="../swbexperience/img/brazil_icon_flag_lang.png" title="Portuguese"/></a>
+						</li>
 					</ul>
 				</nav>
 				<div class="info-data-evento">
