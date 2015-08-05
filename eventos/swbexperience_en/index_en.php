@@ -45,15 +45,15 @@ require ("db.php");
 				<div class="menu_institucional">
 					<a href="http://www.pucpr.br/institucional/index.php" target="_blank">
 					<div class="menu_inst_1" >
-						A Universidade
+						The University
 					</div> </a>
 					<a class="menu_inst_2" href="http://www.grupomarista.org.br/" target="_blank">
 					<div class="menu_inst_2" >
-						Grupo Marista
+						Marista Group
 					</div> </a>
 					<a class="menu_inst_3" href="http://www.pucpr.br" target="_blank">
 					<div class="menu_inst_3" >
-						Ir para o site da PUCPR
+						Go to the website PUCPR
 					</div> </a>
 				</div>
 				<a href="http://www.pucpr.br" target="_blank"> <div class="logo_pucpr_topo"></div> </a>

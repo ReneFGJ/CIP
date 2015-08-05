@@ -26,7 +26,7 @@
 <br />
 <div class="download">
 	<h2 class="title-sobre-encontro">Apresentação SWB Experience</h2>
-	<a href="files/apresentacao-swb.pdf" style="color: #fff; background-color: #161616; padding: 5px 1px; text-decoration: none; float: left;" target="_blank"><b>Download da apresentação</b></a>
+	<a href="files/SWB-I-SwB Experience Depoimentos pt.pdf" style="color: #fff; background-color: #161616; padding: 5px 1px; text-decoration: none; float: left;" target="_blank"><b>Download da apresentação</b></a>
 </div>
 <br />
 <!--
