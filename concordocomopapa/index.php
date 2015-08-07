@@ -14,8 +14,41 @@ require ("view/header/cab.php");
 		}, {
 			src : "img/papa/img_005.jpg"
 		}]
-	}); 
+	});
+
 </script>
-<div id="example">
+<div id="example" >
 	<img src="img/papa/txto.png">
+	<div id="logo">
+		<center>
+		<a href="http://www.pucpr.br/">
+		<img src="img/papa/logo_pucpr.png" border=0>
+		</a>
+		</center>
+	</div>
+	<div id="pdf_edital">
+		<table  class="tabela01">
+			<tr valign="middle">
+				<td align="right"><a href="_documents/papa/Edital_ 09_2015_Concurso_Papa_Francisco.pdf"><img src="img/papa/pdf-icon.png" width="40" border=0> </a></td>
+				<td class="lt3"> Download do Edital </td>
+			</tr>
+			<tr valign="middle">
+				<td align="right"><a href="_documents/papa/Orientacoes_sobre_a_producao_do_ensaio.pdf"><img src="img/papa/pdf-icon.png" width="40" border=0> </a></td>
+				<td class="lt3"> Orientações sobre a produção do ensaio </td>
+			</tr>
+			<tr valign="middle">
+				<td align="right"><a href="_documents/papa/Enciclica_laudato_si_po_francesco.pdf"><img src="img/papa/pdf-icon.png" width="40" border=0> </a></td>
+				<td class="lt3"> Encíclica do Papa </td>
+			</tr>
+			<tr valign="middle">
+				<td align="right"><a href="_documents/papa/Template_de_Ensaio_2015.doc"><img src="img/papa/pdf-icon.png" width="40" border=0> </a></td>
+				<td class="lt3"> Template do Ensaio </td>
+			</tr>
+		</table>
+	</div>
+	
+	<BR><BR><BR>
+		Contato: iniciacaocientifica@pucpr.br
+		<BR>
+		Telefone: (41) 3271.2112 / 1165
 </div>

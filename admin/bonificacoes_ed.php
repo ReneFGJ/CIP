@@ -9,6 +9,7 @@ require($include.'sisdoc_colunas.php');
 require($include.'_class_form.php');
 require($include.'sisdoc_data.php');
 require($include.'sisdoc_debug.php');
+$form = new form;
 
 	$cl = new bonificacao;
 	$cp = $cl->cp();

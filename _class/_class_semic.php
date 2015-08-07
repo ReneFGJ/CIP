@@ -15,8 +15,8 @@ class semic {
 	var $id;
 	var $journal;
 	var $path;
-	var $evento = 'SEMIC22';
-	var $mostra = 'MP16';
+	var $evento = 'SEMIC23';
+	var $mostra = 'MP17';
 
 	var $erro = '';
 

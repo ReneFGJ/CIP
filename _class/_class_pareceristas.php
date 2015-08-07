@@ -103,7 +103,7 @@ class parecerista {
 		$sql .= " left join pareceristas_area on pa_parecerista = pp_cracha ";
 		$sql .= " left join ajax_areadoconhecimento on pa_area = a_codigo ";
 		$sql .= " order by pp_nome, a_cnpq ";
-		
+
 		$rlt = db_query($sql);
 		$sx = '<table width="100%" border=0>';
 		$sx .= '<H2>Áreas cadastras para avaliação</h2>';
@@ -1008,61 +1008,86 @@ class parecerista {
 		return (True);
 	}
 
-	function area_do_conhecomento_professor_adicionar()
-		{
-		global $dd,$acao;
-		
+	function area_do_conhecomento_professor_adicionar() {
+		global $dd, $acao;
+
 		$form = new form;
-		
+
 		$cp = array();
-		array_push($cp,array('$H8','','',False,True,''));
-		array_push($cp,array('$H8','','Código CNPQ',False,True,''));
-		array_push($cp,array('$Q a_descricao:a_codigo:select a_cnpq || \'-\' || a_descricao as a_descricao, a_codigo from ajax_areadoconhecimento where a_semic=\'1\' order by a_cnpq','','Descricao',True,False,''));
-		$tela = $form->editar($cp,'');
+		array_push($cp, array('$H8', '', '', False, True, ''));
+		array_push($cp, array('$H8', '', 'Código CNPQ', False, True, ''));
+		array_push($cp, array('$Q a_descricao:a_codigo:select a_cnpq || \'-\' || a_descricao as a_descricao, a_codigo from ajax_areadoconhecimento where a_semic=\'1\' order by a_cnpq', '', 'Descricao', True, False, ''));
+		$tela = $form -> editar($cp, '');
 		$sx = '<fieldset>';
 		$sx .= $tela;
 		$sx .= '</fieldset>';
-		
-		if ($form->saved > 0)
-			{
-				$area = $dd[2];
-				$this->area_adiciona($area);
-			} else {
-				$sx .= 'Adicionado com sucesso!';
-			}
-		return($sx);	
-		}
 
+		if ($form -> saved > 0) {
+			$area = $dd[2];
+			$this -> area_adiciona($area);
+		} else {
+			$sx .= 'Adicionado com sucesso!';
+		}
+		return ($sx);
+	}
 
 	function le($id = '') {
 		global $http;
 		if (strlen($id) > 0) { $this -> id = $id;
 		}
-		$sql = "select * from " . $this -> tabela . " ";
-		$sql .= " left join instituicao on us_instituicao = inst_codigo ";
-		$sql .= " where id_us = " . round($this -> id) . " or us_codigo = '" . $id . "'";
-		$rlt = db_query($sql);
-		if ($line = db_read($rlt)) {
-			$avaliador = trim($line['us_codigo']);
-			$id = 'pibic' . date("Y");
-			$link = $http . 'avaliador/acesso.php?dd0=' . $avaliador . '&dd90=' . checkpost($id . $avaliador);
-			$link = '<A HREF=' . $link . ' target=new_' . date("YmdHis") . ' >' . $link . '</A>';
-			$this -> codigo = $line['us_codigo'];
-			$this -> nome = $line['us_nome'];
-			$this -> email = $line['us_email'];
-			$this -> email_alt = $line['us_email_alternativo'];
-			$this -> instituicao_cod = $line['us_instituicao'];
-			$this -> instituicao = $line['inst_nome'];
-			$this -> status = $line['us_aceito'];
-			$this -> link_avaliador = $link;
-			$this -> line = $line;
-			$this -> idx = $line['id_us'];
-
-			if (strlen(trim($line['inst_abreviatura'])) > 0) {
-				$this -> instituicao .= ' (' . trim($line['inst_abreviatura']) . ')';
+		/* professores avaliadores */
+		if (strlen($id) == 8) {
+			$sql = "select * from pibic_professor ";
+			$sql .= " where pp_cracha = '" . $id . "'";
+			$rlt = db_query($sql);
+			if ($line = db_read($rlt)) {
+				$avaliador = trim($line['pp_cracha']);
+				$id = 'pibic' . date("Y");
+				$link = $http . 'avaliador/acesso.php?dd0=' . $avaliador . '&dd90=' . checkpost($id . $avaliador);
+				$link = '<A HREF=' . $link . ' target=new_' . date("YmdHis") . ' >' . $link . '</A>';
+				$this -> codigo = $line['pp_cracha'];
+				$this -> nome = $line['pp_nome'];
+				$this -> email = $line['pp_email'];
+				$this -> email_alt = $line['pp_email_1'];
+				$this -> instituicao_cod = 'PUCPR';
+				$this -> instituicao = 'PUCPR';
+				$this -> status = 'S';
+				$this -> link_avaliador = $link;
+				$this -> line = $line;
+				$this -> idx = $line['id_pp'];
 			}
 			return (True);
+		} else {
+
+			/* banco de pareceristas */
+			$sql = "select * from " . $this -> tabela . " ";
+			$sql .= " left join instituicao on us_instituicao = inst_codigo ";
+			$sql .= " where id_us = " . round($this -> id) . " or us_codigo = '" . $id . "'";
+
+			$rlt = db_query($sql);
+			if ($line = db_read($rlt)) {
+				$avaliador = trim($line['us_codigo']);
+				$id = 'pibic' . date("Y");
+				$link = $http . 'avaliador/acesso.php?dd0=' . $avaliador . '&dd90=' . checkpost($id . $avaliador);
+				$link = '<A HREF=' . $link . ' target=new_' . date("YmdHis") . ' >' . $link . '</A>';
+				$this -> codigo = $line['us_codigo'];
+				$this -> nome = $line['us_nome'];
+				$this -> email = $line['us_email'];
+				$this -> email_alt = $line['us_email_alternativo'];
+				$this -> instituicao_cod = $line['us_instituicao'];
+				$this -> instituicao = $line['inst_nome'];
+				$this -> status = $line['us_aceito'];
+				$this -> link_avaliador = $link;
+				$this -> line = $line;
+				$this -> idx = $line['id_us'];
+
+				if (strlen(trim($line['inst_abreviatura'])) > 0) {
+					$this -> instituicao .= ' (' . trim($line['inst_abreviatura']) . ')';
+				}
+				return (True);
+			}
 		}
+		echo '<font color="red" class="lt4">Não foi localizado e-mail deste avaliador</font>';
 		return (False);
 
 	}
@@ -1999,9 +2024,8 @@ class parecerista {
 
 	function qtd_projetos_por_area() {
 		echo '<H2>Em desenvolvimento!</h2>';
-		
-		
-		 $sql = "select pp_cracha, pp_nome, pp_centro, ap_tit_titulo, pp_curso, pp_carga_semanal,
+
+		$sql = "select pp_cracha, pp_nome, pp_centro, ap_tit_titulo, pp_curso, pp_carga_semanal,
 		 count(a_submit) as total_projeto_area, a_cnpq, a_descricao, a_semic
 		 from pibic_professor
 
@@ -2011,103 +2035,94 @@ class parecerista {
 		 left join ajax_areadoconhecimento on pa_area = a_codigo
 
 		 where ap_tit_codigo in ('003','002','006')
-		 and pp_update = '".date("Y")."'
+		 and pp_update = '" . date("Y") . "'
 		 and pp_ativo = '1'
 
 		 group by pp_cracha, pp_nome, pp_centro, ap_tit_titulo, pp_curso, pp_carga_semanal,
 		 pp_escola, a_submit, a_cnpq, a_descricao, a_semic
 		 order by pp_carga_semanal desc";
 
-		 $rlt = db_query($sql);
+		$rlt = db_query($sql);
 
-		 // Categorias
-		 $xescola = '';
-		 $xtot = 0;
-		 $xtotp = 0;
+		// Categorias
+		$xescola = '';
+		$xtot = 0;
+		$xtotp = 0;
 
-		 $sx = '<table width="100%">';
-		 $sx .= '<H2>Definir Titulo!</h2>';
+		$sx = '<table width="100%">';
+		$sx .= '<H2>Definir Titulo!</h2>';
 
-		 
+		$id = 0;
+		$xpp = '';
+		$sx .= '<TR>';
+		$sx .= '<TH>Cracha<TH>Nome<TH>Campus<TH>Titulação<TH>Curso<TH>Carga Horaria';
+		while ($line = db_read($rlt)) {
+			$escola = $line['pp_escola'];
 
-		 $id = 0;
-		 $xpp = '';
-			$sx .= '<TR>';
-		 $sx .= '<TH>Cracha<TH>Nome<TH>Campus<TH>Titulação<TH>Curso<TH>Carga Horaria'; 
-		 while ($line = db_read($rlt)){
-		 $escola = $line['pp_escola'];
-			
-		 if ($escola != $xescola)
-		 
-		 
-		 {
-		 if ($xtotp > 0)
-		  
-		 {
-		 $sx .= '<TR><TD colspan=10 align="right">
-		 <font color=green>subtotal de professores '.$xtotp;
-		 $sx .=	'<hr size="1" style="border: 1px dashed green;">';
-		 }
-		 
-		
-		 // zera total parcial da escola
-		 $xtotp = 0;
-			
-		 $xescola = $escola;
-		 $sx .= '<TR>
+			if ($escola != $xescola) {
+				if ($xtotp > 0) {
+					$sx .= '<TR><TD colspan=10 align="right">
+		 <font color=green>subtotal de professores ' . $xtotp;
+					$sx .= '<hr size="1" style="border: 1px dashed green;">';
+				}
+
+				// zera total parcial da escola
+				$xtotp = 0;
+
+				$xescola = $escola;
+				$sx .= '<TR>
 		 <TD colspan=10>
-		 <h3>'.$line['centro_nome'].'</h3>';
-		 $sx .= $sh;
-		 }
+		 <h3>' . $line['centro_nome'] . '</h3>';
+				$sx .= $sh;
+			}
 
-		 $pp = $line['pp_cracha'];
-		 	
-		 if ($pp != $xpp) {
+			$pp = $line['pp_cracha'];
 
-		 // acrescenta total geral
-		 $id++;
+			if ($pp != $xpp) {
 
-		 // acrescenta total parcial
-		 $xtotp++;
-		 	
-		 $link = '<A HREF="avaliador_professor_detalhe.php?dd0='.$line['pp_cracha'].'" class="link">';
-		 $sx .= '<TR>';
-		 $sx .= 		'<TD class="tabela01" align="center">';
-		 $sx .= 		$link;
-		 $sx .= 		$line['pp_cracha'];
-		 $sx .= 		'</A>';
+				// acrescenta total geral
+				$id++;
 
-		 $sx .= 		'<TD class="tabela01">';
-		 $sx .= 		$line['pp_nome'];
+				// acrescenta total parcial
+				$xtotp++;
 
-		 $sx .= 		'<TD class="tabela01"><nobr>';
-		 $sx .= 		ucwords(strtolower($line['pp_centro']));// ucwords(strtolower($variavel)) transforma o texto caixa alta para caixa baixa
+				$link = '<A HREF="avaliador_professor_detalhe.php?dd0=' . $line['pp_cracha'] . '" class="link">';
+				$sx .= '<TR>';
+				$sx .= '<TD class="tabela01" align="center">';
+				$sx .= $link;
+				$sx .= $line['pp_cracha'];
+				$sx .= '</A>';
 
-		 $sx .= 		'<TD class="tabela01" align="center">';
-		 $sx .= 		$line['ap_tit_titulo'];
+				$sx .= '<TD class="tabela01">';
+				$sx .= $line['pp_nome'];
 
-		 $sx .= 		'<TD width=30% class="tabela01" style="width:200px;">';
-		 $sx .= 		ucwords(strtolower($line['pp_curso']));// ucwords(strtolower($variavel)) transforma o texto caixa alta para caixa baixa
+				$sx .= '<TD class="tabela01"><nobr>';
+				$sx .= ucwords(strtolower($line['pp_centro']));
+				// ucwords(strtolower($variavel)) transforma o texto caixa alta para caixa baixa
 
-		 $sx .= 		'<TD class="tabela01" align="center">';
-		 $sx .= 		$line['pp_carga_semanal'];
+				$sx .= '<TD class="tabela01" align="center">';
+				$sx .= $line['ap_tit_titulo'];
 
-		 $xpp = 		$pp;
+				$sx .= '<TD width=30% class="tabela01" style="width:200px;">';
+				$sx .= ucwords(strtolower($line['pp_curso']));
+				// ucwords(strtolower($variavel)) transforma o texto caixa alta para caixa baixa
 
-		 }
-		 if ($line['a_semic']==1)
-		 {
-		 $sx .= '<TR><TD><TD colspan=1><nobr>'.$line['a_cnpq'].' - '.$line['a_descricao'].'<TD>'.$line['total_projeto_area'].'<TD>'.$line['total_projeto_area'];
-		 }
+				$sx .= '<TD class="tabela01" align="center">';
+				$sx .= $line['pp_carga_semanal'];
 
-		 }
+				$xpp = $pp;
 
-		 $sh .= '</TR>';
-		 $sx .= '</table>';
+			}
+			if ($line['a_semic'] == 1) {
+				$sx .= '<TR><TD><TD colspan=1><nobr>' . $line['a_cnpq'] . ' - ' . $line['a_descricao'] . '<TD>' . $line['total_projeto_area'] . '<TD>' . $line['total_projeto_area'];
+			}
 
-		 return($sx);
+		}
 
-		 
+		$sh .= '</TR>';
+		$sx .= '</table>';
+
+		return ($sx);
 
 	}
 
@@ -2222,7 +2237,6 @@ class parecerista {
 
 	//**************************** Fim do metodo *****************************************
 
-	
 	//####################################################################################
 	//**************************** Inicio do metodo **************************************
 	/* @method: banco_professores_ic()
@@ -2260,7 +2274,7 @@ class parecerista {
 
 		while ($line = db_read($rlt)) {
 			$escola = $line['pp_escola'];
-			
+
 			if ($escola != $xescola) {
 				if ($xtotp > 0) {
 					$sx .= '<TR><TD colspan=10 align="right">
@@ -2308,13 +2322,12 @@ class parecerista {
 				$sx .= ucwords(strtolower($line['pp_curso']));
 				// ucwords(strtolower($variavel)) transforma o texto caixa alta para caixa baixa
 
-
 				$xpp = $pp;
 
 			}
-//		if ($line['a_semic'] == 1) {
-//				$sx .= '<TR><TD><TD colspan=2><nobr>' . $line['a_cnpq'] . ' - ' . $line['a_descricao'];
-//			}
+			//		if ($line['a_semic'] == 1) {
+			//				$sx .= '<TR><TD><TD colspan=2><nobr>' . $line['a_cnpq'] . ' - ' . $line['a_descricao'];
+			//			}
 
 		}
 
@@ -2323,9 +2336,8 @@ class parecerista {
 		$sx .= '</table>';
 
 		return ($sx);
-	}	
-	
-	
+	}
+
 }
 ?>
 

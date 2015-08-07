@@ -188,10 +188,10 @@ class parecer_pibic
 			$instituicao = $par->instituicao;
 			$email = array();
 			array_push($email,'pibicpr@pucpr.br');
-			array_push($email,'renefgj@gmail.com');
 			array_push($email,$par->email);
 			array_push($email,$par->email_alt);
-			array_push($email,$admin_email);
+			array_push($email,$admin_email);		
+			
 			
 			$linka = $par->link_avaliador;
 			
@@ -235,7 +235,7 @@ class parecer_pibic
 							echo '<BR>E-mail enviado para '.$email_send;
 						}
 				}
-			echo '<font color="green">Indicado e enviado e-mail!</font>';
+			echo '<br><font color="green">Indicado e enviado e-mail!</font>';
 			return(True);
 		}
 	

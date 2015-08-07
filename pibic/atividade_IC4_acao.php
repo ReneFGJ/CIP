@@ -48,7 +48,7 @@ echo $pos->show($pag,5,'',$pages);
 
 if (strlen($dd[0]) > 0)
 	{ $cap->semic_le($dd[0]); }
-
+;
 $status = $cap->status;
 
 /* Verifica se já foi concluida a submissao */
@@ -107,6 +107,20 @@ if ($pag == 6)
 
 if (($pag==1) or ($pag==2) or ($pag==3) or ($pag==4) or ($pag==5))
 	{
+	$sql = "select * from semic_ic_trabalho where sm_codigo = '".$dd[0]."'";
+	$rlt = db_query($sql);
+	$line = db_read($rlt);
+	$obs = trim($line['sm_obs']);
+	
+	if (strlen($obs) > 0)
+		{
+			echo '<div>';
+			echo '***** Informações para adequação ******<BR>';
+			echo '<img src="/reol/img/icone_alert.png" align="left"> ';
+			echo '<font class="lt4"><font color="red">'.$obs.'</font></font>';
+			echo '</div>';
+		}
+	
 	echo '<Table width="100%" class="tabela00">';
 	echo '<TR><TD>';
 	echo $form->editar($cp,$tabela);
