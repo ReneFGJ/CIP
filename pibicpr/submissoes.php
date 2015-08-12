@@ -100,6 +100,11 @@ array_push($menu,array('Área do conhecimento','Área do conhecimento SEMIC','rel_
 array_push($menu,array('Área do conhecimento','Área do conhecimento Submissao','rel_ajax_areadoconhecimento_submissao.php'));
 array_push($menu,array('Área do conhecimento','Cadastro de área do conhecimento','areadoconhecimento.php'));
 
+if ($perfil->valid('#TST') or ($perfil->valid('#PIB')))
+	{
+		array_push($menu,array('Documentos postados','Documentos CEP e CEUA postados','documentospostados.php'));
+	}
+	
 echo '<TABLE width="710" align="center" border="0">
 		<TR>';
 		$tela = menus($menu,"3");
