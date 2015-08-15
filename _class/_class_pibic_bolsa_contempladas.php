@@ -299,7 +299,7 @@ function parecer_nao_entregues($ano)
 				
 				array_push($cp,array('$S8','pb_aluno','Aluno (Cracha)',False,True,''));
 				
-				$nota = '-90:Não postado&-99:Para avaliação&0:Postar documento&1:Nota 1&2:2&3:3&4:4&5:5&6:6&7:7&8:8&9:9&10:10';
+				$nota = '-90:Não postado&-99:Para avaliação&0:Postar dpcumento&1:Nota 1&2:2&3:3&4:4&5:5&6:6&7:7&8:8&9:9&10:10';
 
 				array_push($cp,array('${','','PIBICJr',False,True,''));
 				array_push($cp,array('$S100','pb_aluno_nome','Nome do Aluno (PIBICJr)',False,True,''));

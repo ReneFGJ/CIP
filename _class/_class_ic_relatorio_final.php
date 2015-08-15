@@ -965,6 +965,7 @@ function form_crp($ged)
 				while ($line = db_read($rlt))
 				{
 					$nota = round($line['pb_resumo_nota']);
+					//print_r($line);
 					if ($nota == 0)
 					{
 						$id++;

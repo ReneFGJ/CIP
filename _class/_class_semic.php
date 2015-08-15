@@ -1760,6 +1760,7 @@ class semic {
 					group by ix_word, ix_idioma 
 					order by ix_word ";
 		$rlt = db_query($sql);
+		echo '<HR>'.$sql.'<HR>';
 
 		$pt = array();
 		$en = array();
@@ -1836,7 +1837,7 @@ class semic {
 		$rlt = fopen($file, 'w');
 		fwrite($rlt, $sx);
 		fclose($rlt);
-
+		echo '<HR>FIM<HR>';
 		return (1);
 
 	}
@@ -1981,10 +1982,10 @@ class semic {
 	}
 
 	function lista_de_trabalhos_to_site_cicpg() {
-		global $dd;
+		global $dd,$jid;
 		$sql = "select identify_type, title, section_id from articles
 					left join sections on article_section = section_id 
-					where articles.journal_id = 85 and (article_publicado <> 'X' and article_publicado <> 'N') 
+					where articles.journal_id = ".$jid." and (article_publicado <> 'X' and article_publicado <> 'N') 
 					group by identify_type, title, section_id
 					order by title, identify_type					
 					";
@@ -1994,7 +1995,7 @@ class semic {
 		$sb = '';
 		while ($line = db_read($rlt)) {
 			$file_new = trim($line['identify_type']);
-			$file = '../eventos/cicpg/sumario_' . $line['section_id'] . '.php';
+			$file = '../semic/sumario_' . $line['section_id'] . '.php';
 			$title = $line['title'];
 			if (strpos($title, '/') > 0) {
 				$title = substr($title, 0, strpos($title, '/'));
@@ -2017,7 +2018,7 @@ class semic {
 			fclose($xxx);
 		}
 
-		$file = '../eventos/cicpg/sumario-geral-detalhes.php';
+		$file = '../semic/sumario-geral-detalhes.php';
 		$xxx = fopen($file, 'w');
 		fwrite($xxx, $sb);
 		fclose($xxx);
@@ -2028,7 +2029,7 @@ class semic {
 			</div>
 			';
 
-		$file = '../eventos/cicpg/sumario_areas.php';
+		$file = '../semic/sumario_areas.php';
 
 		$rlt = fopen($file, 'w');
 		fwrite($rlt, $sa);

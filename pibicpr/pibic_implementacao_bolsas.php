@@ -31,15 +31,16 @@ if (strlen($dd[4]) == 0) { $dd[4] = (date("Y")-1); }
 
 $sql = "select * from pibic_bolsa ";
 $sql .= " left join pibic_professor on pp_cracha = pb_professor ";
-$sql .= " left join pibic_aluno on pa_cracha = pb_aluno ";
-$sql .= " left join pibic_submit_documento on doc_protocolo = pb_protocolo ";
+$sql .= " left join pibic_bolsa_contempladas on pibic_bolsa_contempladas.pb_protocolo = pibic_bolsa.pb_protocolo ";
+$sql .= " left join pibic_aluno on pa_cracha = pibic_bolsa_contempladas.pb_aluno ";
+$sql .= " left join pibic_submit_documento on doc_protocolo = pibic_bolsa.pb_protocolo ";
 $sql .= " where pp_ano = '".$ano."' ";
 //$sql .= " and pb_ativacao < ".$ano.'0101';
 $sql .= " and doc_edital = '".$dd[1]."' ";
-$sql .= " and pb_ativo = 1 ";
+$sql .= " and pibic_bolsa.pb_ativo = 1 ";
 if (strlen($dd[3]) > 0)
-	{ $sql .= " and pb_tipo = '".$dd[3]."' "; }
-$sql .= " order by pp_nome, pb_protocolo  ";
+	{ $sql .= " and pibic_bolsa.pb_tipo = '".$dd[3]."' "; }
+$sql .= " order by pp_nome, pibic_bolsa.pb_protocolo  ";
 $rlt = db_query($sql);
 
 $tot = 0;

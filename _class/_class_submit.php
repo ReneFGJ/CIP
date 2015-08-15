@@ -1199,6 +1199,7 @@ class submit {
 					FROM pibic_ged_documento 
 					left join pibic_ged_documento_tipo on doct_codigo = doc_tipo
 					where doc_tipo = 'CEP' or doc_tipo = 'CEU'
+					and doc_ano >= '2014'
 					order by  doc_ano, doc_dd0	
 				 	";
 					

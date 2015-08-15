@@ -43,7 +43,7 @@ class parecer_pibic
 					print_r($line);
 					echo '<HR>';
 				}			
-				
+				echo '===>'.$i;
 			$sql = "select pp_avaliador, us_bolsista, us_nome, count(*) as avaliacoes
 							from ".$this->tabela."
 						left join pareceristas on pp_avaliador = us_codigo 
@@ -52,6 +52,7 @@ class parecer_pibic
 					group by pp_avaliador, us_bolsista, us_nome
 					order by us_nome ";
 			$rlt = db_query($sql);
+			echo $sql;
 			
 			$av = array(0,0);
 			$at = array(0,0);
@@ -101,7 +102,7 @@ class parecer_pibic
 			
 			$sx .= '<table class="tabela00" width="100%">';
 			$xtipo = '';
-			$status = array('@'=>'<font color="blue">Não avaliado</font>','A'=>'Avaliador','B'=>'Avaliado e liberado declaração','D'=>'<font color="orange">Declinado</font>');
+			$status = array('@'=>'<font color="blue">Não avaliado</font>','A'=>'Avaliador','B'=>'Avaliador e liberado declaração','D'=>'<font color="orange">Declinado</font>');
 			
 			while ($line = db_read($rlt))
 			{
@@ -187,12 +188,10 @@ class parecer_pibic
 			$aluno = $pb->pb_est_nome;
 			$instituicao = $par->instituicao;
 			$email = array();
-			array_push($email,'pibicpr@pucpr.br');
 			array_push($email,$par->email);
 			array_push($email,$par->email_alt);
-			array_push($email,$admin_email);		
-			
-			
+			array_push($email,'renefgj@gmail.com');
+			array_push($email,$admin_email);
 			$linka = $par->link_avaliador;
 			
 			$ic = new ic;
@@ -225,17 +224,16 @@ class parecer_pibic
 			$texto = '<img src="'.$http.'img/email_ic_header.png"><BR>'.$texto;
 			$texto .= '<BR><BR><img src="'.$http.'img/email_ic_foot.png"><BR>'.$icname;
 										
-			for ($rq=0;$rq < count($email);$rq++)
+			for ($r=0;$r < count($email);$r++)
 				{
-					$email_send = trim($email[$rq]);
+					$email_send = trim($email[$r]);
 					if (strlen($email_send) > 0)
 						{
-							 
-							enviaremail($email_send,'',$titulo,$texto);
-							echo '<BR>E-mail enviado para '.$email_send;
+							 enviaremail($email_send,'',$titulo,$texto);
+							 echo '<BR>E-mail enviado para '.$email_send;
 						}
 				}
-			echo '<br><font color="green">Indicado e enviado e-mail!</font>';
+			echo '<font color="green">Indicado!</font>';
 			return(True);
 		}
 	
@@ -308,7 +306,6 @@ class parecer_pibic
 			while ($line = db_read($rlt))
 				{
 					$proto = $line['pp_protocolo'];
-					
 					$pp01 = $line['pp_p01'];
 					$pp02 = $line['pp_p02'];
 					$pp03 = $line['pp_p03'];
@@ -321,12 +318,12 @@ class parecer_pibic
 					$aval = trim($line['pp_avaliador']);
 					if (substr($proto,0,1)=='1')
 						{
-							$quali .= '<tr><td width="5%">Avaliador '.$av.'<td>'.mst(trim($line['pp_abe_01'])).'<HR>';
+							$quali .= mst(trim($line['pp_abe_01'])).'<HR>';
 							$xava = $aval;
 							
-							$rs1 .= '<td><BR>'.($av).': <B>'.$this->valor_avaliacao($pp01).'</B>';
-							$rs2 .= '<td><BR>'.($av).': <B>'.$this->valor_avaliacao($pp02).'</B>';
-							$rs3 .= '<td><BR>'.($av).': <B>'.$this->valor_avaliacao($pp03).'</B>';
+							$rs1 .= '<BR>Avaliador '.($av).': <B>'.$this->valor_avaliacao($pp01).'</B>';
+							$rs2 .= '<BR>Avaliador '.($av).': <B>'.$this->valor_avaliacao($pp02).'</B>';
+							$rs3 .= '<BR>Avaliador '.($av).': <B>'.$this->valor_avaliacao($pp03).'</B>';
 							$av++;
 						} else {
 							if ($proto != $xproto)
@@ -336,47 +333,31 @@ class parecer_pibic
 									
 								}
 											
-							$rs4 .= '<td><BR>Protocolo:'.$proto.', <B>'.$this->valor_avaliacao_plano($pp05).'</B>';
-							$rs5 .= '<td><BR>Protocolo:'.$proto.', <B>'.$this->valor_avaliacao_plano($pp06).'</B>';
-							$rs6 .= '<td><BR>Protocolo:'.$proto.', <B>'.$this->valor_cronograma($pp07).'</B>';
+							$rs4 .= '<BR>Protocolo:'.$proto.', avaliador '.$av1.': '.$this->valor_avaliacao_plano($pp05).'</B>';
+							$rs5 .= '<BR>Protocolo:'.$proto.', avaliador '.$av1.': '.$this->valor_avaliacao_plano($pp06).'</B>';
+							$rs6 .= '<BR>Protocolo:'.$proto.', avaliador '.$av1.': '.$this->valor_cronograma($pp07).'</B>';
 							$av1++;
 						}
 				}
 
 				$sx .= '<h3>Projeto do professor</h3>';
-				$sx .= '<table class="tabela01 lt1" cellspacing=0 cellpadding=5>';
-				$sx .= '<tr><th></th><th width="15%">Avaliador 1</th>
-								<th  width="15%">Avaliador 2</th>';
-				$sx .= '<tr>';
-				$sx .= '<td ><B>'.$crt[1].'</B>';
+
+				$sx .= '<BR><B>'.$crt[1].'</B>';
 				$sx .= $rs1;
-				$sx .= '<tr>';
-				$sx .= '<td><B>'.$crt[2].'</B>';
+				$sx .= '<BR><BR><B>'.$crt[2].'</B>';
 				$sx .= $rs2;
-				$sx .= '<tr>';
-				$sx .= '<td><B>'.$crt[3].'</B>';
+				$sx .= '<BR><BR><B>'.$crt[3].'</B>';
 				$sx .= $rs3;
-				$sx .= '</table>';
 				
-				$sx .= '<h3>Plano(s) de aluno(s)</h3>';	
-				$sx .= '<table class="tabela01 lt1" cellspacing=0 cellpadding=5>';
-				$sx .= '<tr><th></th>
-							<th width="15%">Avaliador 1</th>
-							<th width="15%">Avaliador 2</th>';
-				$sx .= '<tr>';
-				$sx .= '<td><B>'.$crt[5].'</B>';
+				$sx .= '<h3>Plano(s) de aluno(s)</h3>';								
+
+				$sx .= '<B>'.$crt[5].'</B>';
 				$sx .= $rs4;
-				$sx .= '<tr>';
-				$sx .= '<td><B>'.$crt[6].'</B>';
+				$sx .= '<BR><BR><B>'.$crt[6].'</B>';
 				$sx .= $rs5;	
-				$sx .= '<tr>';
-				$sx .= '<td><B>'.$crt[7].'</B>';
-				$sx .= $rs6;
-				$sx .= '</table>';	
-				
-			$sx .= '<table class="tabela01 lt1" cellspacing=0 cellpadding=5 width="100%">';
-			$sx .= '<tr><td>';									
-			$sx .= '<B>Parecer qualitativo</B><BR><BR>';
+				$sx .= '<BR><BR><B>'.$crt[7].'</B>';
+				$sx .= $rs6;										
+			$sx .= '<BR><BR><B>Parecer qualitativo</B><BR><BR>';
 			$sx .= $quali;
 			echo $sx;
 					
@@ -536,7 +517,7 @@ class parecer_pibic
 			return($sx);
 		}
 	
-	function parecer_abertos_submissao($dd1,$dd2,$tipo='',$status)
+	function parecer_abertos_submissao($dd1=20100101,$dd2=20500101,$tipo='',$status)
 		{
 			global $jid;
 			
@@ -549,54 +530,47 @@ class parecer_pibic
 			//	{ $sql .= " and pp_tipo = '".$tipo."' "; }
 			$sql .= " and (pp_data >= $dd1 and pp_data <= $dd2) ";
 			$sql .= " order by us_nome, pp_data desc ";	
-			
 			$rlt = db_query($sql);
 					
 			$sx .= '<table width="100%" border=0 class="lt1">';
-			$sx .= '<TR><TD colspan=10><H2>Indicações não avaliadas</h2>';
-			$sx .= '<font class="lt1">Indicados entre '.stodbr($dd1).' e '.stodbr($dd2);
-			$sx .= '<BR><BR>&nbsp;&nbsp;';
+			$sx .= '<TR><TD colspan=10><H9>Indicações não avaliadas</h9>';
+			$sx .= '<BR>&nbsp;&nbsp;<font class="lt0">Indicados entre '.stodbr($dd1).' e '.stodbr($dd2);
 			$xnome = 'x';
 			$id=0;
-			
 			while ($line = db_read($rlt))
 				{
 					$id++;
 					$link = '<A href="#" onclick="newxy2(\'parecer_declinar.php?dd0='.$line['id_pp'].'\',600,400);" class="link">Declinar</A>';
-					
-					if ($line['pp_status'] != '@') 
-						{
-						  $link = 'AVALIADO';
-						  if ($line['pp_status'] == 'D') {$link = 'DECLINADO';} 
+					if ($line['pp_status'] != '@') {
+						 $link = 'AVALIADO';
+						if ($line['pp_status'] == 'D') { $link = 'DECLINADO'; } 
 						}
-						$linkv = '<A HREF="pibic_projetos_detalhes.php?dd0='.$line['pp_protocolo'].'&dd90='.checkpost($line['pp_protocolo']).'" target="_new'.$line['id_pp'].'">';
-						
+					$linkv = '<A HREF="pibic_projetos_detalhes.php?dd0='.$line['pp_protocolo'].'&dd90='.checkpost($line['pp_protocolo']).'" target="_new'.$line['id_pp'].'">';
 					$nome = trim($line['us_nome']);
-					
 					if ($xnome != $nome)
 						{
-						  $sx .= '<TR>';
-						  $sx .= '<TD colspan=10><h4>'.$line['us_nome'].'</h4>';
-						  $xnome = $nome;
+						$sx .= '<TR>';
+						$sx .= '<TD colspan=10><h7>'.$line['us_nome'].'</h7>';
+						$xnome = $nome;
 						}
-						
-						$sx .= '<TR valign="top">';			
-						$sx .= '<TD width="20">&nbsp;';
-		
-						$sx .= '<TD align="center" class="tabela01">';
-						$sx .= $linkv.$line['pp_protocolo'].'</A>';
-						
-						$sx .= '<TD align="Left" class="tabela01">';
-						$sx .= ucfirst(strtolower($line['pj_titulo']));
-						
-						$sx .= '<TD align="center" class="tabela01">';
-						$sx .= stodbr($line['pp_data']);
-						
-						$sx .= '<TD align="center" class="tabela01">';
-						$sx .= $link;
-						
-						$sx .= '<TD align="center" class="tabela01">';
-						$sx .= $line['pp_tipo'];					
+					$sx .= '<TR valign="top">';			
+					
+					$sx .= '<TD width="20">&nbsp;';
+							
+					$sx .= '<TD align="center" class="tabela01">';
+					$sx .= stodbr($line['pp_data']);
+
+					$sx .= '<TD align="center">';
+					$sx .= $link;
+
+					$sx .= '<TD align="center" class="tabela01">';
+					$sx .= $linkv.$line['pp_protocolo'].'</A>';
+					
+					$sx .= '<TD class="tabela01">';
+					$sx .= $line['pj_titulo'];
+					
+					$sx .= '<TD class="tabela01">';
+					$sx .= $line['pp_tipo'];					
 					
 					$ln = $line;
 				}
@@ -804,21 +778,19 @@ class parecer_pibic
 			$sx .= '<TR><TD colspan=10>Total de '.$tot1.' projetos indicados';
 			$sx .= '</table>';
 			
-			$sa = '<table width="450" class="tabela00">';
-			$sa .= '<TR><TH align="center" width="16%">Avaliados
-						<TH align="center" width="16%">Abertos
-						<TH align="center" width="16%">Declinados
-						<TH align="center" width="16%">Total indicados
-						<th ALIGN="CENTER" width="16%">% avaliado
-						<th ALIGN="CENTER" width="16%">% declinado';
+			$sa = '<table width="400" class="tabela00">';
+			$sa .= '<TR><TH align="center" width="20%">Avaliados
+						<TH align="center" width="20%">Abertos
+						<TH align="center" width="20%">Declinados
+						<TH align="center" width="20%">Total indicados
+						<th ALIGN="CENTER" width="20%">% avaliador';
 			$sa .= '<TR><TD class="tabela01" align="center">'.$tot2;
 			$sa .= '    <TD class="tabela01" align="center">'.$tot3;
 			$sa .= '    <TD class="tabela01" align="center">'.$tot4;
 			$sa .= '    <TD class="tabela01" align="center">'.$tot1;
 			if ($tot1 > 0)
 				{
-				$sa .= '    <TD class="tabela01" align="center">'.number_format($tot2/($tot2+$tot3)*100,1).'%';
-				$sa .= '    <TD class="tabela01" align="center">'.number_format($tot4/($tot1)*100,1).'%';
+				$sa .= '    <TD class="tabela01" align="center">'.number_format($tot2/$tot1*100,1).'%';
 				}
 			$sa .= '</table>';
 			
@@ -1729,7 +1701,7 @@ class parecer_pibic
 
 				/** Quarta questão **/
 				$opc = '';
-				$opc .= '1:SIM<BR> ';
+				$opc .= '1:SIM. Recomendo que o projeto seja direcionado para o Programa PIBITI.<BR> ';
 				$opc .= '&0:NÃO<BR> ';
 				$opc .= '&2:Tenho dúvida, peço que o comitê gestor analise.';
 				
@@ -1783,7 +1755,7 @@ class parecer_pibic
 						$opc .= '&0:NÃO<BR> ';
 						$opc .= '&2:Tenho dúvida, peço que o comitê de Ética analise a obrigatoriedade';
 					
-						$cap = '<B>Critério 4</B>: Este projeto envolve seres humanos ou animais? Deve ser analisado pelo Comitê de Ética (CEP) ou Comitê de Ética no Uso de Animais (CEUA)?';		
+						$cap = '<B>Critério 4</B>: Este projeto envolve seres humanos ou animais e, portanto, deve ser analisado pelo Comitê de Ética (CEP) ou Comitê de Ética no Uso de Animais (CEUA), respectivamente ?';		
 						array_push($cp,array('$R '.$opc,'pp_p09',$cap,True,True));
 						
 		
@@ -1796,31 +1768,7 @@ class parecer_pibic
 										$area_nome = trim($xline['a_descricao']);
 									}
 							/** Área Estratégica **/
-								$cap = 'Área Estratégica</B>: Este projeto foi assinalado pelo professor proponente como tendo aderência a área estratégica <b>'.$this->mostra_area($estrategica).'</B> da PUCPR';
-								$estrategica = trim($estrategica);
-																
-								$extra = array();
-								/* biotecnologia */
-								//$extra['9.18.00.00-X'] = 'O uso de ferramentas moleculares e terapia celular com o objetivo de melhorar a saúde, reprodução e produção de animais de fazenda';
-								/* <B>Energia</B>: */
-								//$extra['9.03.00.00-X'] = 'Como consumir menos energia e reduzir o impacto ambiental em nossas cidades?';
-								/* <B>Cidades</B>: */
-								//$extra['9.13.00.00-X'] = 'Urbanismo e tecnologia inteligentes';
-								/* <B>Direitos Humanos</B>: */
-								//$extra['9.17.00.00-X'] = 'Pesquisas interdisciplinares para políticas públicas e resolução de conflitos';
-								/* <B>TIC</B>: */
-								//$extra['9.04.00.00-X'] = 'Utilização inteligente das TICs em negócios, políticas públicas, tecnologia em saúde e cidades inteligentes.';
-								/* <B>Saúde</B>: */
-								//$extra['9.02.00.00-X'] = 'Como utilizar a terapia com células-tronco para tratar pacientes com doenças incuráveis';
-								/* <B>Direitos Humanos</B>: */
-								//$extra['9.20.00.00-X'] = 'Desenvolvido na Penitenciária Feminina do Paraná com  foco nos temas: Reinserção social e empregabilidade; Saúde da mulher; Direitos humanos e jurídicos da mulher em situação de privação de liberdade';
-								/* <B>Direitos Humanos</B>: */
-								//$extra['9.00.00.01-X'] = 'Políticas públicas com enfoque nos direitos humanos de acesso e formação no ensino superior';
-																
-								//$cap .= '<BR><BR>';
-								//$cap .= '"'.$extra[$estrategica].'"';
-								$cap .= '. <BR><BR>O projeto se enquadra na área assinalada?';
-								
+								$cap = 'Área Estratégica</B>: Este projeto foi assinalado pelo professor proponente como tendo aderência a área estratégica (<b>'.$this->mostra_area($estrategica).'</B>) da PUCPR. O projeto se enquadra na área assinalada?';
 								array_push($cp,array('$R '.$opc_sn,'pp_p05',$cap,True,True));
 							} else {
 								array_push($cp,array('$HV','pp_p05','0',True,True));								
@@ -1911,8 +1859,8 @@ class parecer_pibic
 					$sql = "select * from ".$this->tabela." ";
 					$sql .= "left join pibic_projetos on pp_protocolo = pj_codigo ";
 					$sql .= " where pp_avaliador = '".$parecerista."' ";
-					$sql .= " and pp_status = '@' 
-								and pp_tipo = '$tipo' ";
+					$sql .= " and pp_status = '@'
+							  and pp_tipo = '$tipo' ";
 				} else {
 					$sql = "select * from ".$this->tabela." ";
 					$sql .= "left join pibic_bolsa_contempladas on pp_protocolo = pb_protocolo ";
@@ -1920,6 +1868,8 @@ class parecer_pibic
 					$sql .= " and pp_status = '@' and pp_tipo = '$tipo' and pb_status <> 'C' ";
 					$sql .= " order by id_pp desc, pp_protocolo ";					
 				}									
+//			echo $sql;
+//			echo '<HR>';
 			$rlt = db_query($sql);
 			$sx .= '<div><table width="97%" align="center" class="lt1" border=0 >'.chr(13);
 			
@@ -2023,23 +1973,19 @@ class parecer_pibic
 			switch ($tipo)
 				{
 				case 'RPAC': $ntipo = 'Correção Relatório Parcial'; break;
-				case 'RPAR': $ntipo = 'Relatório Parcial'; break;
-				case 'RPAJ': $ntipo = 'Relatório Parcial - PIBIC Jr'; break;
-				case 'RPAC': $ntipo = 'Correção Relatório Parcial'; break;
 				case 'SUBMI': $ntipo = 'Projeto IC/IT'; break;
 				}
 			$sx .= '<TR><TD>';
 			$sx .= "<TR valign=top ><TD rowspan=2 width=90>
 					<img src=../editora/img_edicao/$img   height=80>
-					<TD>Protocolo: <B>".$link.$protocolo."</A></B> - (".$ntipo.")</TD>";
-			/*
-				$sx .= '<TD>Prazo para avalição:<I> $data_prazo [$status]</I></TD>';
-				$sx .= '<TD width=50 aling=center class=lt5 rowspan=2>
+					<TD>Protocolo: <B>".$link.$protocolo."</A></B> - (".$ntipo.")</TD>
+					
+					<TD>Prazo para avalição:<I> $data_prazo [$status]</I></TD>
+					<TD width=50 aling=center class=lt5 rowspan=2>
 					<center><font color=$cor >
 					<font class=lt0>faltam<BR></font>$dias<BR>
-					<font class=lt0>dias$lido</font></font>';
-			*/
-			$sx .= "<TR>
+					<font class=lt0>dias$lido</font></font>
+					<TR>
 					<TD colspan=3 ><B>".$link.$titulo_plano." </A></TD>
 					</TR>
 					<TR><TD colspan=4><HR width=80% size=1></TR>";

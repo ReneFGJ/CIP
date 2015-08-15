@@ -95,8 +95,8 @@ echo '<TD width="300">';
 	}
 
 	/* Recurso de Submissão */
-	require ("__submit_INPL.php");
-	if (($open == 1) or ($tst == 1)) {
+	require ("__submit_REC1.php");
+	if ($open == 1) {
 			echo '</ul>';
 			echo '<h3>Recursos</h3>';
 			echo '<ul>';
@@ -156,15 +156,21 @@ if (date("m") < 5) {
 if (date("m") < 5) {
 	require ("atividade_IC7_row.php");
 }
-/* Relatório Final e resumo */
+/* Relatório Final */
 if (file_exists('__submit_RFIN.php')) {
 	require ("__submit_RFIN.php");
-	if ((date("m") >= 5) and (date("m") < 11) and ($open == 1)) {
+	if (($open == 1)) {
 		require ("atividade_IC3_row.php");
+	}
+}
+/* resumo */
+if (file_exists('__submit_RESU.php')) {
+	require ("__submit_RESU.php");
+	if (($open == 1)) {
 		require ("atividade_IC4_row.php");
 	}
 }
-/* Relatório Final e resumo */
+/* Relatório Final e resumo correcao */
 if (file_exists('__submit_RFIC.php')) {
 	require ("__submit_RFIC.php");
 	if ((date("m") > 5) and (date("m") < 11) and ($open == 1)) {

@@ -1,0 +1,82 @@
+@media print{
+	
+	#aba1 { display: block ;}
+	#aba2 { display: block ;}
+	#aba3 { display: block ;}
+	#aba4 { display: block ;}
+	#aba5 { display: block ;}
+	#aba6 { display: block ;}
+	
+	#cabecalho-user-screen{
+		display: none;
+	}
+	
+	#cabecalho-impressao-cip{
+		float: left;
+		display: block;
+		margin-top: 0px;		
+	}
+	
+	#cabecalho-impressao-pucpr{
+		float: left;
+		display: block;
+	}
+	
+	#menu-pagina{
+		display: none;
+	}
+	
+	#rodape{
+		display: none;
+	}
+	
+	#marista{
+		display: none;
+	}
+	
+	#breadcrumb{
+		display: none;
+	}
+	
+	#breadcrumbs{
+		display: none;
+	}
+	.screen {
+		display: none;
+	}
+}
+
+@media screen{
+	#cabecalho-user-screen{
+		display: block;
+	}
+	
+	#cabecalho-impressao-cip{
+		float: left;
+		display: none;
+	}
+	
+	#cabecalho-impressao-pucpr{
+		float: left;
+		display: none;
+	}
+	
+	#menu-pagina{
+		display: block;
+	}
+	
+	#rodape{
+		display: block;
+	}
+	
+	#marista{
+		display: block;
+	}
+	
+	#breadcrumb{
+		display: block;
+	}
+	#breadcrumbs{
+		display: block;
+	}
+}

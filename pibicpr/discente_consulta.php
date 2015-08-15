@@ -11,7 +11,7 @@ array_push($cp,array('$H4','','',False,True,''));
 array_push($cp,array('$S8','','Cracha',False,True,''));
 array_push($cp,array('$O 1:SIM&0:NÃO','','Atualizar dados',False,True,''));
 
-	echo '<h1>Consulta de discente - Integração com o SIGA</h1>';
+	echo '<h1>Consulta de discente - Integração com o SGA</h1>';
 	$tela = $form->editar($cp,'');	
 	if ($form->saved > 0)
 		{
