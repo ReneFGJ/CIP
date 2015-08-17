@@ -46,7 +46,7 @@ array_push($menu,array('Perfil dos Orientadores','Perfil por Planos','indicador_
 
 if ($perfil->valid('#ADM')) 
 		{
-			array_push($menu,array('Relatório','Guia do estudante ','ic_guia_do_estudante.php?dd1='.(date("Y")-2).'&dd2='.(date("Y")-1)));	
+			array_push($menu,array('Relatório','Guia do estudante ','ic_guia_do_estudante.php?dd1='.(date("Y")-1).'&dd2='.(date("Y"))));	
 		}
 
 ///////////////////////////////////////////////////// redirecionamento
