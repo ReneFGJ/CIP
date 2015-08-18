@@ -174,7 +174,7 @@ class projetos {
 		}
 		$sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
 		$sql .= " and pb_tipo <> 'X' ";
-		//if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' "; }
+		if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' "; }
 		//$sql .= " and (doc_aluno <> '') ";
 		//$sql .= " and doc_nota > 10 ";
 		$sql .= " order by doc_area, pp_nome ";

@@ -83,7 +83,11 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	array_push($menu,array('Edital (Publicação)','Edital (PIBIC) - Resultado Final','edital.php?dd0=H&dd1=PIBIC&dd2='.date("Y").'&printer=S'));
 	array_push($menu,array('Edital (Publicação)','Edital (PIBITI) - Resultado Final','edital_pibiti.php?dd0=H&dd1=PIBITI&dd2='.date("Y").'&printer=S'));
 	array_push($menu,array('Edital (Publicação)','Edital (PIBIC_EM) - Resultado Final','edital_pibic_em.php?dd0=H&dd1=PIBICE&dd2='.date("Y").'&printer=S'));
-	array_push($menu,array('Edital (Publicação)','Edital (Inclusão Social) - Resultado Final','edital_inclusao.php?dd0=H&dd1=PIBIC&dd2='.date("Y").'&printer=S'));
+	
+	array_push($menu,array('Edital (Publicação)','Fundação Araucária',''));
+	array_push($menu,array('Edital (Publicação)','__Edital (Inclusão Social) - Resultado Final','edital_inclusao.php?dd0=N&dd1=PIBIC&dd2='.date("Y").'&printer=S'));
+	array_push($menu,array('Edital (Publicação)','__Edital (FA-IC) - Resultado Final','edital.php?dd0=F&dd1=PIBIC&dd2='.date("Y").'&printer=S'));
+	array_push($menu,array('Edital (Publicação)','__Edital (FA-IT) - Resultado Final','edital_pibiti.php?dd0=H&dd1=PIBITI&dd2='.date("Y").'&printer=S'));
 	
 	array_push($menu,array('Edital (Recursos)','Recursos para o edital','recurso_lista.php'));
 	array_push($menu,array('Edital (Recursos)','__Cadastrar Recurso','recurso.php'));	
