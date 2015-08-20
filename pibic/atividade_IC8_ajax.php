@@ -106,7 +106,7 @@ if ($dd[90]=='ged')
 				$sx .= $ged->file_list('',page());
 				$sx .= '</table>';			
 				$nota = $pb->line['pb_relatorio_final_nota'];
-				if (($nota <> 2) and ($nota <> (-1)))
+				if (($nota <> 2) and ($nota != (-1)))
 					{
 						$sx .= $ged->upload_form('RELAF','Submeter relatório final');		
 					} else {

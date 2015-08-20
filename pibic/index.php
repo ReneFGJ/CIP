@@ -132,18 +132,6 @@ if (($open == 1) or ($tst == 1)) {
 	require ("atividade_bolsa_implantacao.php");
 }
 
-/*
- $ed = new pibic_edital;
- echo '<h3>PIBIC_EM (Jr)</h3>';
- echo $ed->edital_resumo_professor(date("Y"),$professor,'PIBICE');
-
- echo '<h3>PIBITI</h3>';
- echo $ed->edital_resumo_professor(date("Y"),$professor,'PIBITI');
-
- echo '<h3>PIBIC</h3>';
- echo $ed->edital_resumo_professor(date("Y"),$professor,'PIBIC');
- */
-
 if ((date("m") >= 7) and (date("m") <= 8)) {
 
 }
@@ -152,7 +140,7 @@ if ((date("m") >= 7) and (date("m") <= 8)) {
 if (date("m") < 5) {
 	require ("atividade_IC1_row.php");
 }
-/* RelatÃ³rio Parcial - Correcoes */
+/* RelatÃario Parcial - Correcoes */
 if (date("m") < 5) {
 	require ("atividade_IC7_row.php");
 }

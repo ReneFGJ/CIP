@@ -14,9 +14,9 @@ $pb->le('',$dd[0]);
 
 echo $pb->mostar_dados();
 
-$data_rp = round($pb->pb_rf_nota);
+$data_rp = round($pb->pb_rf_nota_correcao);
 
-if ($data_rp == 2)
+if ($data_rp <= 2)
 	{
 		if (date("Ymd") > 20130829)
 			{

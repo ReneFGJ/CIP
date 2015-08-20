@@ -23,7 +23,7 @@ if ($semic_valida < 20100101)
 	{
 		if (date("Ymd") > 20130701)
 			{
-				echo $rp->prazo_encerrado();
+				
 				echo $rp->semic_crp($ged);
 			} else {
 				echo $rp->semic_crp($ged);

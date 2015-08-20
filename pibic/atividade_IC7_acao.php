@@ -16,7 +16,7 @@ echo $pb->mostar_dados();
 
 $data_rp = round($pb->pb_rp);
 
-//	echo $rp->prazo_encerrado();
+//	
 	echo $rp->form_crp($ged);
 //	} else {
 //		echo '<BR><BR>';

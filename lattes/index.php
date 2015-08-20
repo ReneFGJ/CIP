@@ -1,0 +1,30 @@
+<?
+$breadcrumbs=array();
+require("cab_lattes.php");
+
+require($include."sisdoc_menus.php");
+$estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
+
+$menu = array();
+$_SESSION['ano_ini'] = '2009';
+$_SESSION['ano_fim'] = date("Y");
+
+array_push($menu,array('Lattes','Professores e CPF','programas_professores.php'));
+
+array_push($menu,array('Produção Científica - Discente e Docente','Produção institucional em artigos científicos','lattes_producao.php'));
+array_push($menu,array('Produção Científica Pós-Graduação','Artigos x Qualis','producao_revistas.php'));
+array_push($menu,array('Produção Científica Pós-Graduação','__Produção Programa x Pesquisador','producao_revistas_programa_professor.php'));
+array_push($menu,array('Produção Científica Pós-Graduação','__Produção Programa x Pesquisador (Baixa produção)','producao_revistas_programa_professor_baixa_producao.php'));
+
+array_push($menu,array('Produção Científica Pós-Graduação','Livros publicados','producao_livros.php'));
+array_push($menu,array('Produção Científica Pós-Graduação','Livros organizados','producao_livros_organizados.php'));
+array_push($menu,array('Produção Científica Pós-Graduação','Capítulos de livros','producao_capitulos.php'));
+
+array_push($menu,array('Eventos','Trabalhos publicados em eventos','producao_eventos.php'));
+
+array_push($menu,array('Producao','Producao Escola','producao_escola.php'));
+
+$tela = menus($menu,"3");
+
+require("../foot.php");	
+?>
