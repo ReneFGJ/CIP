@@ -80,7 +80,7 @@ class layout
 			{
 				$sx = '<div class="coluna_esquerda">
 				<p>&nbsp;</p>
-<h2>Bem-vindo ao XXII Semin&aacute;rio de Inicia&ccedil;&atilde;o Cient&iacute;fica da Pontif&iacute;cia Universidade Cat&oacute;lica do Paran&aacute; (SEMIC)</h2>
+<h2>Bem-vindo ao XXI Semin&aacute;rio de Inicia&ccedil;&atilde;o Cient&iacute;fica da Pontif&iacute;cia Universidade Cat&oacute;lica do Paran&aacute; (SEMIC)</h2>
 <p>&nbsp;</p>
 <p>A Inicia&ccedil;&atilde;o Cient&iacute;fica &eacute; sempre um desafio e a prepara&ccedil;&atilde;o do Semin&aacute;rio Anual &eacute; o segundo desafio desse percurso junto aos alunos iniciantes no campo da ci&ecirc;ncia. A import&acirc;ncia desse caminho &eacute; ineg&aacute;vel na descoberta de novos talentos e temos registrado boas surpresas. Queremos que o evento de 2013 seja mais uma delas, pois afinal de contas atingimos a maioridade: 21 anos de PIBIC na PUCPR!</p>
 <p>Os demais programas que fazem parte do SEMIC s&atilde;o mais recentes: PIBIC Jr desde 2006 e PIBITI desde 2010, mas como &ldquo;irm&atilde;os mais novos&rdquo;, miram-se no espelho do mais velho.</p>
@@ -98,15 +98,15 @@ class layout
     <td>Total</td>
   </tr>
   <tr>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
+    <td>721</td>
+    <td>55</td>
+    <td>81</td>
+    <td>12</td>
+    <td>10</td>
+    <td>02</td>
+    <td>09</td>
+    <td>358</td>
+    <td>1.248</td>
   </tr>
 </table>
 <p>i=trabalhos a serem apresentados em ingl&ecirc;s</p>
@@ -159,15 +159,15 @@ class layout
     <td>Total</td>
   </tr>
   <tr>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
-    <td>-</td>
+    <td>721</td>
+    <td>55</td>
+    <td>81</td>
+    <td>12</td>
+    <td>10</td>
+    <td>02</td>
+    <td>09</td>
+    <td>358</td>
+    <td>1.248</td>
   </tr>
 </table>
 <p>i= works to be presented in English</p>

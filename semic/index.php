@@ -1,126 +1,120 @@
 <?php
-require ("cab.php");
+require("db.php");
+/*
+ * Incluir Classes para a página
+ */
+require("_class/_class_semic_layout.php");
+$site = new layout;
+
+$LANG = $_SESSION['idioma'];
+$idioma = $_GET['idioma'];
+if (strlen($idioma) > 0)
+	{ $LANG = $idioma; }
+else 
+	{ 
+		if (strlen($LANG) == 0) { $LANG = 'pt_BR'; }
+	}
+$_SESSION['idioma'] = $LANG;
+
+/* 
+ * BBM - Header Site 
+ */
+
+/* varial Ingles*/
+if ($LANG == 'en') {
+	echo $site->header_site();
+	echo $site->coluna_esquerda_en();
+	echo $site->banner_vermelho();
+	$read_more = 'leia mais';
+} else {
+	/*Portugues*/
+	echo $site->header_site();
+	echo $site->coluna_esquerda();
+	echo $site->banner_vermelho();
+	$read_more = 'leia mais';
+}
 ?>
-
-<header>
-	<img src="img/bk_topo_pt1.png" />
-</header>
-
-<div class="text">
-	<h1>Bem-vindo ao XXII Seminário de Iniciação Científica da Pontifícia Universidade Católica do Paraná (SEMIC) </h1>
-	<p>
-		A Iniciação Científica é sempre um desafio e a preparação do Seminário Anual é o segundo desafio desse percurso junto aos alunos iniciantes no campo da ciência. A importância desse caminho é inegável na descoberta de novos talentos e temos registrado boas surpresas. No nosso evento de 2014 não será diferente!
-	</p>
-
-	<p>
-		Os demais programas que fazem parte do SEMIC são mais recentes: PIBIC Jr desde 2006 e PIBITI desde 2010, mas como "irmãos mais novos", miram-se no espelho do mais velho.
-		E, como parte do SEMIC, temos também a apresentação de algumas pesquisas realizadas nos programas da Pós-Graduação stricto sensu. Desse modo, a totalidade de trabalhos no evento atinge 1.300 pesquisas, subdivididas nas seguintes modalidades:
-	</p>
-
-	<p>
-		i=trabalhos a serem apresentados em inglês
-	</p>
-
-	<p>
-		Em relação às atividades, mantemos as sessões alinhadas com os temas da internacionalização da Universidade e do desenvolvimento tecnológico e inovação:
-	</p>
-
-	<ul class="lista-normal">
-		<li>
-			Sessão internacional com apresentação de  67 trabalhos em inglês (PIBIC =55, PIBITI = 12);
-		</li>
-		<li>
-			Sessão Ciência sem Fronteiras - com depoimento de alguns dos 65 alunos da PUCPR que já regressaram do exterior;
-		</li>
-		<li>
-			Espaço Pesquisar é Evoluir - com mostra de protótipos de projetos/propostas de pesquisa com teor de inovação.
-		</li>
-	</ul>
-
-	<p>
-		Nossa intenção é criar um ambiente propício para a discussão de ideias inovadoras, para o compartilhar dos resultados das pesquisas e, ainda, o espaço para os jovens pesquisadores e empreendedores receberem o feedback de pesquisadores experientes que atuam na qualidade de avaliadores.
-	</p>
-
-	<p>
-		Na sessão de mobilidade nacional queremos compartilhar a experiência inicial dos 10 alunos no programa PIBIC - PIBITI sanduíche e na internacional dos 02 alunos que estão sendo o piloto da proposta PIBIC - PIBITI Internacional.
-		Após todos esses acontecimentos, chegamos ao encerramento do evento, momento em que anunciamos os melhores trabalhos em cada uma das categorias. Não perca esse momento de celebração!
-	</p>
-
-	<p>
-		Agradecer a todos os atores que contribuíram para que mais um ano de Iniciação Científica acontecesse na Universidade é quase uma missão impossível. Registro os meus sinceros agradecimentos pelo apoio recebido da administração da PUCPR, em especial da Pró-Reitoria de Pesquisa e Pós-Graduação.
-	</p>
-
-	<p>
-		De maneira particular, quero reconhecer o trabalho diário, intenso e dedicado dos professores orientadores que tornam possível este evento, pois nos oferecem a matéria prima. Agradeço também a todos os pesquisadores avaliadores que contribuíram com seu "feedback" para o avanço da qualidade da pesquisa desenvolvida pelos alunos.
-	</p>
-
-	<p>
-		Não posso deixar de falar da parceria que tenho com brilhantes pesquisadores membros do Comitê Gestor, suporte decisivo em momentos delicados. E, com muito apreço, agradeço a minha incansavelmente equipe de colaboradores que respondem prontamente a todas as demandas formuladas.
-	</p>
-
-	<a href="http://www2.pucpr.br/reol/eventos/cicpg/" target="_blank"><img src="img/cicpg.png"  /></a>
-
-	<p>
-		Neste ano, o SEMIC dividirá espaço na PUCPR com o <a href="http://www2.pucpr.br/reol/eventos/cicpg/" target="_blank">3. Congresso Sul Brasileiro de Iniciação Científica e Pós-Graduação</a>, trazendo pesquisadores de todo o país para nossa Curitiba.
-	</p>
-
-	<p>
-		Desejo a todos momentos proveitosos e de grande realização!
-		<br />
-		<br />
-		Saudações,
-		<br />
-		Cleybe Vieira
-		<br />
-		Coordenadora da Iniciação Científica
-	</p>
-</div>
-
-<div class="barra-lateral">
-	<ul class="lista-social">
-		<a href="https://www.facebook.com/pucpr2" target="_blank">
-		<li>
-			<i class="fa fa-facebook-square"></i> /pucpr2
-		</li></a>
-		<a href="https://twitter.com/PUCPR_imprensa" target="_blank">
-		<li>
-			<i class="fa fa-twitter-square"></i> @pucpr_imprensa
-		</li></a>
-		<a href="https://www.youtube.com/user/canalpucpr" target="_blank">
-		<li>
-			<i class="fa fa-youtube-square"></i> /canalpucpr
-		</li></a>
-	</ul>
-
-	<div class="item-inside-barra">
-		<h2>3. CICPG - 4, 5 e 6 de Novembro</h2>
-		<a href="http://www2.pucpr.br/reol/eventos/cicpg/" target="_blank"><img src="img/cicpg.png"  style="width: 100%;"/></a>
+    <div class="box_vermelho_home">
+	<a href="pesquisa_evoluir.php"><img src="imagens/banner_espaco_pesquisador.jpg" border="0"></a>
 	</div>
 
-	<div class="item-inside-barra">
-		<h2>Torne-se um pesquisador na PUCPR</h2>
-		<ul>
-			<a href="http://www.pucpr.br/pesquisacientifica/iniciacaocientifica/pibic.php" target="_blank">
-			<li>
-				PIBIC
-			</li></a>
-			<a href="http://www.pucpr.br/pesquisacientifica/iniciacaocientifica/pibicjr.php" target="_blank">
-			<li>
-				PIBIC Jr.
-			</li></a>
-			<a href="http://www.pucpr.br/pesquisacientifica/iniciacaocientifica/pibiti.php" target="_blank">
-			<li>
-				PIBITI
-			</li></a>
-			<a href="http://www2.pucpr.br/reol/cienciasemfronteiras/" target="_blank">
-			<li>
-				Ciência sem Fronteiras
-			</li></a>
-		</ul>
-	</div>
+	
+	<?
 
-</div>
-<!-- fecha div lateral -->
-<?php
-require("foot.php");
+if ((date("Ymd") <= 20121108) and ($LANG!='en'))
+{
+	$read_more = 'leia mais';
+	$normas = 'NORMAS GERAIS PARA ELABORAÇÃO DO PÔSTER DOS ALUNOS DA GRADUAÇÃO E<BR> PÓS-GRADUAÇÃO';
+	$normas2 = 'NORMAS GERAIS PARA APRESENTAÇÃO ORAL PARA ALUNOS DE GRADUAÇÃO';
+	?>
+	<BR>
+	<div class="box_vermelho_home">		
+	<table width="100%">
+		<TR valign="top"><TD width="50%">
+			<div class="titulo_nota_home_vermelha"><font color="white"><?=$normas;?></font></div>
+			<div class="saiba_mais"><a href="programacao.php#NORMAS">+ <?=$read_more;?></a></div>
+		</td><TD>
+			<div class="titulo_nota_home_vermelha"><font color="white"><?=$normas2;?></font></div>
+			<div class="saiba_mais"><a href="programacao.php#NORMAS2">+ <?=$read_more;?></a></div>
+		</TD></TR>
+		</table>
+	</div>
+	<BR>
+	<?
+	$read_more = 'leia mais';	
+}
+require("_tabalhos_premiados.php");
+
+if ($LANG=='en')
+	{
+		require("_content_apresentacao_en.php");
+	} else {
+		require("_content_apresentacao.php");
+	}
+
+echo $site->coluna_esquerda_fecha();
+
+/* Coluna da Direita */
+	echo $site->coluna_direita();
+	if ($LANG == 'en')
+		{
+			echo $site->box_amarelo('Learn how to become a PUCPR researcher');
+		} else {
+			echo $site->box_amarelo('Saiba como se tornar um pesquisador da PUCPR');		
+		}
+	
+	echo $site->menu_pesquisador();
+	
+	/*
+	 * 
+	 */
+	$tema = array();
+	array_push($tema,array('Ciências Sociais Aplicadas','As Ciências Sociais Aplicadas estudam aspectos da organização da sociedade humana, suas inter-relações e aspectos organizacionais. Seu recorte de observação pode ocorrer tanto no nível individual quanto no de grupos. Entre seus campos de atuação estão Administração, Direito, Ciências Políticas, Estudos da Comunicação, Contabilidade, entre outros.','1'));
+	array_push($tema,array('Ciências Exatas','As ciências exatas têm no tripé Matemática, Física e Química sua porção conhecida como área básica. No que diz respeito à área aplicada temos as Engenharias, Geologia, Computação, Estatística, entre outras. Suas descobertas estão diretamente relacionadas ao avanço das tecnologias e consequente crescimento econômico e social.','2'));
+	array_push($tema,array('Ciências Agrárias','As Ciências Agrárias visam a melhoria no manejo e a preservação dos recursos naturais, o que coloca o campo como um dos mais importantes no cenário científico atual. Com a crescente demanda por alimentos, por exemplo, é necessário um investimento cada vez maior em pesquisas que apontem a melhor utilização dos recursos naturais. Entre as áreas de estudo estão Agronomia, Engenharia Florestal, Engenharia de Pesca, Medicina Veterinária e Zootecnia.','3'));
+	array_push($tema,array('Ciências Saúde','As Ciências da Saúde, como o nome já diz, englobam diversos campos de estudo que visam melhorar e entender a saúde. Seu avanço é crucial para a melhoria da qualidade de vida e longevidade da população. Entre seus campos de atuação estão a Medicina Humana, Biologia, Biomedicina, Análises Clínicas, Farmácia, Ciências do Esporte, Odontologia, Psicologia, Engenharia Biomédica, entre outras.','4'));
+	array_push($tema,array('Ciências Humanas','Um dos papeis das Ciências Humanas é tentar desvendar a complexidade dos seres humanos como indivíduos e seres sociais, e suas interações com a sociedade. Entre seus campos de estudo estão Filosofia, História, Antropologia, Pedagogia, Linguística, Sociologia, entre outros.','5'));
+	
+	if ($LANG == 'en')
+	{
+		$tema = array();
+		array_push($tema,array('Applied Social Sciences','The Applied Social Sciences study aspects of the organization of human society, their interrelationships and organizational aspects. Their observation can occur at the individual and at the group aspect. Among their fields are Administration, Law, Political Science, Communication Studies, Accounting and others.','1'));
+		array_push($tema,array('Exact Sciences ','The exact sciences have on their tripod Mathematics, Physics and Chemistry as their portion known as basic area. Regarding to the area we have applied the Engineering, Geology, Computing, Statistics, and others. Their discoveries are directly related to the advancement of technologies and the economic and social growth.','2'));
+		array_push($tema,array('Agricultural Sciences','The Agricultural Sciences aim to improve the management and preservation of natural resources, which makes the field as one of the most important in current scientific scenario. With the demand growing fo food, for example, investment is needed in studies that show the best use of natural resources. Among the areas of study are Agriculture, Forestry, Fishing Engineering, Veterinary Medicine and Zootechnics.','3'));
+		array_push($tema,array('Health Sciences','The Health Sciences, as the name suggests, involve several fields of study to improve and understand health. Their advance is crucial to improve the quality of life and longevity of the population. Among their fields of expertise are Human Medicine, Biology, Biomedicine, Clinical Analysis, Pharmacy, Sciences of movement, Dentistry, Psychology,  Biomedical Engineering, and others.','4'));
+		array_push($tema,array('Human Sciences ','The Human Sciences study the complexity of human beings as individuals and social beings, and their interactions with society. In these fields are include the study of  Philosophy, History, Anthropology, Education, Linguistic, Sociology and others.','5'));	
+	}
+	
+	for ($r=0;$r < count($tema);$r++)				
+		{ echo $site->notas_esquerda($tema[$r][0],$tema[$r][1],$tema[$r][2]); }
+		
+	echo $site->redes_sociais();
+
+	echo $site->coluna_direita_fecha();
+
+/*
+ * BBM - Foot Site
+ */
+
+echo $site->foot_site();
 ?>

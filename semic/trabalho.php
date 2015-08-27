@@ -1,14 +1,5 @@
 <?php
-require ("cab.php");
-?>
-
-<header>
-	<img src="img/bk_topo_pt1.png" />
-</header>
-
-<div class="text-full">
-	
-<?php
+require("db.php");
 require($include."sisdoc_autor.php");
 /*
  * Incluir Classes para a página
@@ -26,17 +17,21 @@ if (checkpost($dd[0])==$dd[90])
 	
 	}
 
+/* 
+ * BBM - Header Site 
+ */
+echo $site->header_site();
+
 echo '<HR>';
 echo $site->abre_secao($art->modalidade);
-echo '<h3>'.$art->sigla.' - '.$art->line['article_3_keywords'].'</h3><BR>';
+echo '<h3>'.$art->sigla.'</h3><BR>';
 
 echo $art->mostrar_artigo();
 
 echo $site->fecha_secao();
 
-echo '</div>';
 /*
  * BBM - Foot Site
  */
-require("foot.php");
+echo $site->foot_site();
 ?>

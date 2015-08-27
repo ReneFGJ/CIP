@@ -1,212 +1,291 @@
-<?php
-require ("cab.php");
-?>
-<header>
-	<img src="img/bk_topo_pt1.png" />
-</header>
+<?
+require('db.php');
+/*
+ * Incluir Classes para a página
+ */
+require("_class/_class_semic_layout.php");
+$site = new layout;
 
-<div class="text">
-	<h1>Expediente</h1>
-	<p>
-		<b>Grão-Chanceler:</b> Dom Moacyr José Vitti
-		<br />
-		<b>Presidente da Associação Paranaense de Cultura:</b> Delcio Afonso Balestrin
-		<br />
-		<b>Vice-Presidente da Associação Paranaense de Cultura:</b> Antônio Benedito de Oliveira
-		<br />
-		<b>Reitor:</b> Waldemiro Gremski
-		<br />
-		<b>Vice-Reitor:</b> Paulo Otávio Mussi Augusto
-		<br />
-		<b>Pró-Reitor de Graduação:</b> Vidal Martins
-		<br />
-		<b>Pró-Reitor de Pesquisa e Pós-Graduação:</b> Paula Cristina Trevilatto
-		<br />
-		<b>Pró-Reitor Comunitário e de Extensão:</b> José Luiz Casela
-		<br />
-		<b>Pró-Reitor de Administração, Planejamento e Desenvolvimento:</b> Paulo de Paula baptista
-		<br />
-		<b>Diretora de Pesquisa:</b> Vanessa Santos Sotomaior
-		<br />
-		<b>Diretor de Pós-Graduação:</b> Nathan Mendes
-		<br />
-		<b>Coordenação da Iniciação Científica:</b> Cleybe Hiole Vieira
-		<br />
+//require("../_class/_class_ficha_catalografica.php");
+//$fc = new ficha_catalografica;
 
-		<br />
-		<h3>COMITÊ GESTOR</h3>
-	<p>
-		Adalgiza Aparecida de Oliveira
-		<br />
-		Amélia do Carmo Sampaio Rossi
-		<br />
-		Cleybe Hiole Vieira
-		<br />
-		Cristina Baena
-		<br />
-		Eduardo Agostinho
-		<br />
-		Edvaldo Antônio Ribeiro Rosa
-		<br />
-		Emerson Paraiso
-		<br />
-		Ericson Savio Falabretti
-		<br />
-		Gezelda Moraes
-		<br />
-		Júlio César Nievola
-		<br />
-		Lucia Mazieiro
-		<br />
-		Paulo Renato Parreira
-		<br />
-		Renata Ernlund Freitas de Macedo
-		<br />
-		Roberto Flavio Silva Pecoits Filho
-	</p>
-	<br />
-	<h3>COMITÊ LOCAL</h3>
+/* 
+ * BBM - Header Site 
+ */
+echo $site->header_site();
 
-	<h4>CIÊNCIAS DA VIDA</h4>
+//echo $site->banner_vermelho();
 
-	<p>
-		Almir Petersen Barreto
-		<br />
-		Ana Maria Trindade Gregio
-		<br />
-		Andréa Novais Moreno
-		<br />
-		Beatriz Helena Sottile França
-		<br />
-		Carlos Alberto Mayora Aita
-		<br />
-		Edvaldo Antônio Ribeiro Rosa
-		<br />
-		Janete Dubiaski da Silva
-		<br />
-		José Rocha Faria Neto
-		<br />
-		Paula Cristina Trevilatto
-		<br />
-		Paulo Henrique Couto
-		<br />
-		Roberto Pecoits Filho
-		<br />
-		Rodrigo Rached
-		<br />
-		Salmo Raskin
-		<br />
-	</p>
+//echo $site->abre_secao('Expediente');
+echo '<div class="txt_conteudo"><BR>';
 
-	<h4>CIÊNCIAS AGRONÔMICAS E VETERINÁRIAS </h4>
-	<p>
-		Cláudia Turra Pimpão
-		<br />
-		Cristina Santos Sotomaior
-		<br />
-		Renata Ernlund Freitas de Macedo
-		<br />
-		Ruy Inácio Neiva de Carvalho
-	</p>
-	<br />
+$sx ='
+<p>
+<center>PONTIFÍCIA UNIVERSIDADE CATÓLICA DO PARANÁ ADMINISTRAÇÃO SUPERIOR</center>
 
-	<h4>CIÊNCIAS EXATAS E DA TERRA </h4>
-	<p>
-		Cinthia Obladen de Almendra Freitas
-		<br />
-		Fabrício Enembreck
-		<br />
-		João Elias Abdalla Filho
-		<br />
-		Júlio César Nievola
-		<br />
-		Leandro dos Santos Coelho
-		<br />
-		Luciano Antonio Mendes
-		<br />
-		Luís Mauro Moura
-		<br />
-		Luiz Augusto de Paula Lima Júnior
-		<br />
-		Marcelo Rudek
-		<br />
-		Munir Antônio Gariba
-		<br />
-		Nilson Barbieri
-		<br />
-		Sérgio Eduardo Gouvea da Costa
-		<br />
-		Viviana Cocco Mariani
-		<br />
-	</p>
+Grão-Chanceler: <b>Dom Moacyr José Vitti</b>
+Presidente da Associação Paranaense de Cultura: <b>Delcio Afonso Balestrin</b>
+Vice-Presidente da Associação Paranaense de Cultura: <b>Antônio Benedito de Oliveira</b>
+Reitor: <b>Clemente Ivo Juliatto</b>
+Vice-Reitor: <b>Paulo Otávio Mussi Augusto</b>
+Pró-Reitor Acadêmico: <b>Eduardo Damião da Silva</b>
+Pró-Reitor de Pesquisa e Pós-Graduação: <b>Waldemiro Gremski</b>
+Pró-Reitor Comunitário e de Extensão: <b>Paulo Otávio Mussi Augusto</b> (Interino)
+Pró-Reitor de Administração, Planejamento e Desenvolvimento: <b>José Luiz Casela</b>
 
-	<h4>CIÊNCIAS HUMANAS </h4>
-	<p>
-		Antonio Edmilson Paschoal
-		<br />
-		César Candiotto
-		<br />
-		Clélia Peretti
-		<br />
-		Daniel Omar Perez
-		<br />
-		Dilmeire Sant´anna Ramos Vosgerau
-		<br />
-		Joana Paulin Romanowski
-		<br />
-		Romilda Teodora Ens
-		<br />
-	</p>
+Diretoria de Pós-Graduação
+<b>Nathan Mendes</b>
 
-	<h4>CIÊNCIAS SOCIAIS APLICADAS </h4>
-	<p>
-		Cláudia Maria Barbosa
-		<br />
-		Clóvis Ultramari
-		<br />
-		Danielle Anne Pamplona
-		<br />
-		Harry Alberto Bollmann
-		<br />
-		Heitor Takashi Kato
-		<br />
-		Katya Kozicki
-		<br />
-		Maria Alexandra Viegas Cortez Cunha
-		<br />
-		Samira Kauchakje
-	</p>
-	<br />
+Diretoria de Pesquisa
+<b>Paula Cristina Trevilatto</b>
 
-	<h3>Versão eletrônica </h3>
-	<p>
-		Alessandra de Lacerda Carvalho
-		<br />
-		Edena Maria Beiga Grein
-		<br />
-		Mariani Pimenta Barbosa
-		<br />
-		Rene Faustino Gabriel Júnior
-		<br />
-		Marilia Antunes Ferreira
-		<br />
-	</p>
+Coordenadoria de Iniciação Científica 
+<b>Cleybe Hiole Vieira</b>
 
-	<h3>Organização </h3>
-	<p>
-		Cleybe Hiole Vieira
-	</p>
+<b>COMITÊ GESTOR</b>
+Cesar Candiotto
+Cleybe Hiole Vieira
+Edvaldo Antônio Ribeiro Rosa
+Fábio Rueda Faucz
+Gezelda Moraes
+Júlio César Nievola
+Maria Alexandra Viegas Cortez Cunha
+Paula Cristina Trevilatto
+Renata Ernlund Freitas de Macedo
+Roberto Pecoits Filho
 
-	<h3>Capa</h3>
-	<p>
-		Felipe Machado de Souza
-	</p>
+<b>COMITÊ LOCAL</b>
 
-	<h3>Projeto gráfico e diagramação </h3>
-	<p>
-		Felipe Machado de Souza
-	</p>
-</div>
-<?php
-require ("foot.php");
+<b>GRANDE ÁREA: CIÊNCIAS DA VIDA</b>
+
+Área: Ciências Biológicas
+Almir Petersen Barreto
+Andréa Novais Moreno
+Edvaldo Antônio Ribeiro Rosa
+Fábio Rueda Faucz
+Janete Dubiaski da Silva
+Salmo Raskin
+Paula Cristina Trevilatto
+
+Área: Ciências Médicas e da Saúde
+Ana Maria Trindade Gregio
+Beatriz Helena Sottile França
+Carlos Alberto Afonso
+Carlos Alberto Mayora Aita
+José Rocha Faria Neto
+Paulo Henrique Couto
+Roberto Pecoits Filho
+Rodrigo Rached
+
+Área: Ciências Agronômicas e Veterinárias
+Airton Rodrigues Pinto Júnior
+Cláudia Turra Pimpão
+Cristina Santos Sotomaior
+Renata Ernlund Freitas de Macedo
+Ruy Inácio Neiva de Carvalho
+
+<b>GRANDE ÁREA: CIÊNCIAS EXATAS E DA TERRA</b>
+
+Área: Engenharias e Ciências Matemáticas
+João Elias Abdalla Filho
+Leandro dos Santos Coelho
+Luciano Antonio Mendes
+Luís Mauro Moura
+Marcelo Rudek
+Munir Antônio Gariba
+Nilson Barbieri
+Sérgio Eduardo Gouvea da Costa
+Viviana Cocco Mariani
+
+Área: Computação
+Cinthia Obladen de Almendra Freitas
+Fabrício Enembreck
+Júlio César Nievola
+Luiz Augusto de Paula Lima Júnior
+
+<b>GRANDE ÁREA: CIÊNCIAS HUMANAS</b>
+
+Área: Ciências Humanas
+Antonio Edmilson Paschoal
+Cesar Candiotto
+Clélia Peretti
+Daniel Omar Perez
+Dilmeire Sant´Anna Ramos Vosgerau
+Joana Paulin Romanowski
+Romilda Teodora Ens
+
+<b>GRANDE ÁREA: CIÊNCIAS SOCIAIS APLICADAS</b>
+Cláudia Maria Barbosa
+Clóvis Ultramari
+Danielle Anne Pamplona
+Harry Alberto Bollmann
+Heitor Takashi Kato
+Katya Kozicki
+Maria Alexandra Viegas Cortez Cunha
+Samira Kauchakje
+
+<b>Cardeno do SEMIC</b>
+<I>Organizadora</I>
+Cleybe Hiola Vieira
+
+<I>Versão eletrônica</I>
+Alessandra de Lacerda Carvalho
+Edena Maria Beiga Grein
+Everton Asmé
+Rafael Moreira Calasans
+Rene Faustino Gabriel Júnior
+
+<b>Capa</b>
+Felipe Machado de Souza
+
+<b>Projeto gráfico e diagramação</b>
+Felipe Machado de Souza
+</P>
+';
+
+if ($LANG == 'en')
+{
+	$sx = '
+<p>
+Pontifical Catholic University of Parana - PUCPR 
+
+<b>Central Administration</b>
+
+Chancellor: Dom Moacyr José Vitti
+Chair of the Board of Trustees: Brother Delcio Afonso Balestrin, FMS
+Vice-Chair of the Board of Trustees: Brother Antônio Benedito de Oliveira, FMS
+President: Brother Clemente Ivo Juliatto, FMS
+Vice President: Paulo Otávio Mussi Augusto
+Executive Vice President for Academic Affairs: Eduardo Damião da Silva
+Executive Vice President for Research and Graduate Studies: Waldemiro Gremski
+Executive Vice President for Community Affairs and Extension: Másimo Della Justina
+Executive Vice President for Administration and Institutional Development: José Luiz Casela
+Director for Research: Paula Cristina Trevilatto 
+Director for Graduate Studies: Nathan Mendes
+Coordinator for Undergraduate Research: Cleybe Hiole Vieira
+
+<b>Undergraduate Research Committee</b>
+Adalgiza de Oliveira
+Amélia do Carmo Sampaio Rossi
+César Candiotto
+Cleybe Hiole Vieira
+Eduardo Agostinho
+Edvaldo Antônio Ribeiro Rosa
+Gezelda Moraes
+Júlio César Nievola
+Lucia Mazieiro
+Maria Alexandra Viegas Cortez Cunha
+Mauro Nagashima
+Paula Cristina Trevilatto
+Paulo Renato Parreira 
+Renata Ernlund Freitas de Macedo
+
+<b>Undergraduate Research Committee – Board of Reviewers
+Life Sciences:</b>
+Almir Petersen Barreto
+Ana Maria Trindade Gregio 
+Andréa Novais Moreno
+Beatriz Helena Sottile França 
+Carlos Alberto Mayora Aita
+Edvaldo Antônio Ribeiro Rosa
+Janete Dubiaski da Silva
+José Rocha Faria Neto 
+Paula Cristina Trevilatto
+Paulo Henrique Couto
+Roberto Pecoits Filho
+Rodrigo Rached
+Salmo Raskin
+
+<b>Agricultural and Veterinary Sciences</b>
+Cláudia Turra Pimpão
+Cristina Santos Sotomaior
+Renata Ernlund Freitas de Macedo
+Ruy Inácio Neiva de Carvalho
+
+<b>Exact Sciences and Engineering</b>
+Cinthia Obladen de Almendra Freitas
+Fabrício Enembreck
+João Elias Abdalla Filho
+Júlio César Nievola
+Leandro dos Santos Coelho
+Luciano Antonio Mendes
+Luís Mauro Moura
+Luiz Augusto de Paula Lima Júnior
+Marcelo Rudek
+Munir Antônio Gariba
+Nilson Barbieri
+Sérgio Eduardo Gouvea da Costa
+Viviana Cocco Mariani
+
+<b>Humanities</b>
+Antonio Edmilson Paschoal
+César Candiotto
+Clélia Peretti
+Daniel Omar Perez
+Dilmeire Sant’anna Ramos Vosgerau
+Joana Paulin Romanowski
+Romilda Teodora Ens
+
+<b>Applied Social Sciences</b>
+Cláudia Maria Barbosa
+Clóvis Ultramari 
+Danielle Anne Pamplona
+Harry Alberto Bollmann
+Heitor Takashi Kato
+Katya Kozicki
+Maria Alexandra Viegas Cortez Cunha
+Samira Kauchakje
+
+<b>Proceedings</b>
+<I>Organization	</I>
+Cleybe Hiola Vieira
+
+<I>Eletronic Version</I>
+Alessandra de Lacerda Carvalho
+Edena Maria Beiga Grein
+Everton Asmé
+Rafael Moreira Calasans
+Rene Faustino Gabriel Júnior
+
+<b>Proofreading</b>
+Debora Capella
+
+<b>English translation and revision</b>
+Ane Cibele Palma
+Carmen Terezinha Koppe
+Elis Carrijo Guimarães Mendonça
+Gisele Rietow
+Karina Aires R. Fernandes Couto de Moraes
+
+<b>Cover</b>
+Felipe Machado de Souza
+</P>
+
+<b>Graphic Design and Layout</b>
+Felipe Machado de Souza
+</P>
+';
+}
+
+$sx = troca($sx,chr(10),'<BR>');
+echo ($sx);
+echo '</div>';
+
+/* Ficha */
+/*
+$fc->cutter = 'S471r';
+$fc->cdd = '506.3';
+$fc->line_1th = 'Seminário de Iniciação Científica (20. : 2012 nov. 6-8 : Curitiba, PR)';
+$fc->line_2th = 'Resumos do XXI Seminário de Iniciação Científica [recurso eletrônico] ; XV Mostra de Pesquisa da Pós-Graduação ; XI Seminário de Pesquisa Jr ; III PIBITI / organizadora Cleybe Hiole Vieira. - Curitiba : Champagnat, 2013.';
+$fc->line_3th = 'Vários autores.<BR>ISSN 2176-1930';
+$fc->ponto_acesso = '1. Ciência - Congressos. 2. Pesquisa – Congressos. I. Vieira, Cleybe Hiole.';
+$fc->pistas = 'II.  Mostra de Pesquisa da Pós-Graduação (14. : 2012 nov. 6-8 : Curitiba, PR). III. Seminário de Pesquisa Jr (10. : 2012 nov. 6-8 : Curitiba, PR). IV. PIBITI (2. : 2012 nov. 6-8 : Curitiba, PR). V. Título.';
+//echo $fc->mostra();
+*/
+echo $site->fecha_secao();
+
+/*
+ * BBM - Foot Site
+ */
+echo $site->foot_site();
 ?>

@@ -1,0 +1,114 @@
+<?php
+class head
+	{
+	var $title_site = 'SEMIC - Sistema de avaliação';
+	
+	function cab($cab_top='')
+		{
+			$sx = '
+<!DOCTYPE html>
+<html>
+<head>';
+			$sx .= '
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><meta name="description" content="">
+<link rel="shortcut icon" type="image/x-icon" href="http://www2.pucpr.br/reol/favicon.ico" />
+<link rel="stylesheet" href="http://www2.pucpr.br/reol/css/style_cabecalho.css">
+<link rel="stylesheet" href="css/style_semic.css">
+<<<<<<< HEAD
+<link href="css/fonts.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
+=======
+>>>>>>> dropbox
+<script language="JavaScript" type="text/javascript" src="http://www2.pucpr.br/reol/js/jquery-1.7.1.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://www2.pucpr.br/reol/js/jquery.corner.js"></script>
+<title>'.$this->title_site.'</title>
+';
+			$sx.='	
+<div id="conteudo">
+<<<<<<< HEAD
+
+<div id="cab_top">
+	'.$cab_top.'
+</div>
+=======
+	<div id="cab_top" class="lt5">
+	</div>
+>>>>>>> dropbox
+';
+			return($sx);			
+		}
+
+	function cab_logado($tipoTrabalhoStr, $idTrabalhoStr, $nomeAvaliador, $titulo=NULL, $botaoEsquerda=NULL, $botaoDireita=NULL)
+		{
+			#botao_(direita|esquerda) = array(link, simboloFontAwesome)
+			if($titulo == NULL){
+				$titulo = "Avaliação de $tipoTrabalhoStr - $idTrabalhoStr";
+			}
+			$cab_top = $titulo;
+
+			function geraBotaoAwesome($botao, $styleMod){
+				list($link, $simboloFontAwesome) = $botao;
+				return '<a href='.$link.' style="'.$styleMod.'"> <i class='.$simboloFontAwesome.'></i> </a>';
+			}
+
+			//XXX ainda não alinhado, idéia: usar icones com visibility:hidden
+			if($botaoEsquerda !== NULL){
+				$cab_top = $cab_top.geraBotaoAwesome($botaoEsquerda, "float:left; margin:8 0 0 15;");
+			}
+			if($botaoDireita !== NULL){
+				$cab_top = geraBotaoAwesome($botaoDireita, "float:right; margin: 8 15 0 0;").$cab_top;
+			}
+
+			$sx = $this->cab($cab_top);
+			$sx .= "<div id=nome_avaliador> Avaliador: ".$nomeAvaliador."</div>";
+			return $sx;
+		}
+
+	function quebra($simboloFontAwesome, $styleMod="")
+		{
+			//ver http://fortawesome.github.io/Font-Awesome/icons/ para referencia
+			$sx .= '<div class="quebra_simbolo" sytle="'.$styleMod.'">'.
+				   ' <hr class="left"/> '. 
+				   '  <i class='.$simboloFontAwesome.'></i>'.
+				   ' <hr class="right"/> '. 
+				   '</div>';
+			return($sx);
+		}
+	function menu()
+		{
+			return('');
+		}
+	function main_content()
+		{
+			return('');
+		}
+	function foot()
+		{
+			$sx .= '<div id="foot">';
+			$sx .= '<BR><center>
+						&copy 2006-'.date("Y").'
+						</center>
+					';
+			$sx .= '</div>';
+
+			$sx .= '</div>';
+			return($sx);
+		}	
+	function renderiza_erro_e_sai($tipoErro=NULL)
+		{
+			echo $this->cab("Erro");
+			echo "<center>";
+			switch($tipoErro){
+				case NULL:
+				case "erro":
+				default:
+					#Erro genérico
+					echo "Ocorreu um erro na sua requisição. Verifique a URL";
+					break;
+			}
+			echo "</center>";
+			echo $this->foot();
+			exit(1);
+		}
+	}	
+?>

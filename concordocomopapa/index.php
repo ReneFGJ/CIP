@@ -26,6 +26,13 @@ require ("view/header/cab.php");
 		</a>
 		</center>
 	</div>
+	<div style="width: 500px;">
+		- Este concurso tem como objetivos estimular a comunidade discente a conhecer e
+refletir sobre o conteúdo da "Carta Encíclica LAUDATO SI´ do Santo Padre Francisco Sobre o
+Cuidado da Casa Comum" uma vez que como afirmado no documento: "Precisamos de um
+debate que nos uma a todos, porque o desafio ambiental, que vivemos, e as raízes humanas
+dizem respeito e têm impacto sobre todos nós." (Francisco, 2015:13)
+	</div>
 	<div id="pdf_edital">
 		<table  class="tabela01">
 			<tr valign="middle">

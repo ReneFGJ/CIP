@@ -1,0 +1,16 @@
+div.topo {
+	background:url(imagens/bk_topo_en1.png) no-repeat;
+	width:840px;
+	height: 45px;
+	padding-top:375px;
+	}
+div.bt_inicio {
+	background:url(imagens/bt_inicio.png) no-repeat left;
+	width: 71px;
+	height:29px;
+	float:left;
+	margin-left:35px;
+	}
+div.bt_inicio:hover {
+	background:url(imagens/bt_inicio.png) no-repeat right;
+	}

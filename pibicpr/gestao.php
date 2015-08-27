@@ -45,8 +45,13 @@ if (($perfil->valid('#PIB')) or ($perfil->valid('#ADM')))
 	require("../pibic/__submit_RFIN.php");
 	if ($open == 1) { $sx = '<IMG SRC="'.$http.'img/icone_switch_on.png" border=0 height="22">'; }
 	else			{ $sx = '<IMG SRC="'.$http.'img/icone_switch_off.png" border=0 height="22">'; }
-	array_push($menu,array('Submissões (Abrir/Fechar)',$sx . ' Relatório Final e Resumo','submissao_switch.php?dd1=RFIN'));
+	array_push($menu,array('Submissões (Abrir/Fechar)',$sx . ' Relatório Final','submissao_switch.php?dd1=RFIN'));
 
+	require("../pibic/__submit_RESU.php");
+	if ($open == 1) { $sx = '<IMG SRC="'.$http.'img/icone_switch_on.png" border=0 height="22">'; }
+	else			{ $sx = '<IMG SRC="'.$http.'img/icone_switch_off.png" border=0 height="22">'; }
+	array_push($menu,array('Submissões (Abrir/Fechar)','__'.$sx . ' Resumo','submissao_switch.php?dd1=RESU'));
+	
 	require("../pibic/__submit_RFIC.php");
 	if ($open == 1) { $sx = '<IMG SRC="'.$http.'img/icone_switch_on.png" border=0 height="22">'; }
 	else			{ $sx = '<IMG SRC="'.$http.'img/icone_switch_off.png" border=0 height="22">'; }

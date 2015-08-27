@@ -35,6 +35,7 @@ if (($perfil->valid('#ADM#SCR#COO')))
 	array_push($menu,array('SEMIC','semic.php'));
 	array_push($menu,array('SEMIC em números','semic_numeros.php'));
 	array_push($menu,array('Avaliadores','semic_avaliadores.php'));
+	array_push($menu,array('SEMIC (Pré)','semic_pre.php'));
 	}
 
 require('../_class/_class_header.php');

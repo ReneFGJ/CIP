@@ -1984,7 +1984,7 @@ class semic {
 		global $dd;
 		$sql = "select identify_type, title, section_id from articles
 					left join sections on article_section = section_id 
-					where articles.journal_id = 85 and (article_publicado <> 'X' and article_publicado <> 'N') 
+					where articles.journal_id = 76 and (article_publicado <> 'X' and article_publicado <> 'N') 
 					group by identify_type, title, section_id
 					order by title, identify_type					
 					";
