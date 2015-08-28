@@ -33,6 +33,7 @@ class semic {
 	var $tabela = "semic_trabalho";
 	var $tabela2 = 'pibic_bolsa_contempladas';
 	var $tabela_autor = "semic_trabalho_autor";
+	var $tabela_troca = "tesauro_editorial";
 
 	function semic_premiacao() {
 		$sql = "drop table semic_premiacao_tipo";
@@ -470,16 +471,16 @@ class semic {
 								, sm_obs = '" . $dd[2] . "'
 								where id_sm = " . $dd[0];
 				$rlt = db_query($sql);
-				
+
 				/**
-				$sql2 = "update " . $this -> tabela2 . " set pb_resumo_nota = '" . $dd[1] . "'
-						 where id_pb = " . $dd[0];
-				$rlt2 = db_query($sql2);
-				*/
+				 $sql2 = "update " . $this -> tabela2 . " set pb_resumo_nota = '" . $dd[1] . "'
+				 where id_pb = " . $dd[0];
+				 $rlt2 = db_query($sql2);
+				 */
 				redirecina(page() . '?dd0=' . $dd[0] . '&dd90=' . $dd[90]);
 				exit ;
-			
-}
+
+			}
 			$sx = '<form method="post" action="' . page() . '">';
 			$sx .= '<input type="hidden" name="dd0" value="' . $dd[0] . '">';
 			$sx .= '<input type="hidden" name="dd90" value="' . $dd[90] . '">';
@@ -608,7 +609,7 @@ class semic {
 	}
 
 	function semic_mostrar($id, $ed2 = '') {
-		global $edit;
+		global $edit, $dd;
 		$idx = $id;
 		if ($this -> tabela == 'semic_trabalho') {
 			$sql = "select * from " . $this -> tabela . " 
@@ -707,7 +708,36 @@ class semic {
 
 			$sx .= '<center><font class="lt4">' . $link0T . $line['sm_titulo'] . '</A></font></center>';
 			$sx .= '<center><font class="lt3"><I>' . $link1T . $line['sm_titulo_en'] . '</A></I></font></center>';
-
+			$sx .= '<BR>';
+			
+			
+			//Validacao de Titulos
+			//*************inicio*************
+			$tit_por = trim($line['sm_titulo']);
+			$tit_en = trim($line['sm_titulo_en']);
+			
+			$sx .= '<form action="'.page().'" method="get">';
+			$sx .= '<input type="submit" name="dd10" value="Ajustar título">';
+			     if(strlen($dd[10]) > 0) {
+					$tit_por = $this -> troca_string($tit_por);
+					$tit_en = $this -> troca_string($tit_en); 
+					 
+					$sx .= '<center><font class="lt4">'. $link0T .$tit_por. '</A></font></center>';
+					$sx .= '<center><font class="lt3"><i>'. $link1T .$tit_en. '</i></A></font></center>'; 
+					
+				 }
+			$sx .= '<input type="hidden" name="dd0" value="'.$dd[0].'">';
+			$sx .= '<input type="hidden" name="dd90" value="'.$dd[90].'">';
+			$sx .= '<input type="hidden" name="pag" value="1">';
+			$sx .= '</form>';
+			
+			//atualiza aterações no banco
+			//$sql = "update " . $this -> tabela2 . " set pb_titulo_projeto = '" . $tit_por . "' where  =  ";
+			//$rlt = db_query($sql);
+			//***************fim**************
+			
+						
+			$sx .= '<BR>';
 			$obs = trim($line['sm_obs']);
 			if (strlen($obs) > 0) {
 				$sx .= '<HR>';
@@ -1247,9 +1277,12 @@ class semic {
 		$sql_pos = "select pos_codigo, pos_nome from programa_pos where pos_corrente = '1' order by pos_nome";
 		$cp = array();
 		array_push($cp, array('$H8', 'id_sm', '', False, False));
+		
 		array_push($cp, array('$T80:3', 'sm_titulo', 'Título do trabalho', True, True));
 		array_push($cp, array('$T80:3', 'sm_titulo_en', 'Título do trabalho em inglês', True, True));
+		
 
+		
 		array_push($cp, array('$Q pos_nome:pos_codigo:' . $sql_pos, 'sm_programa', 'Programa de Pós-Graduação', True, True));
 
 		$docente = $ss -> user_cracha;
@@ -1760,7 +1793,7 @@ class semic {
 					group by ix_word, ix_idioma 
 					order by ix_word ";
 		$rlt = db_query($sql);
-		echo '<HR>'.$sql.'<HR>';
+		echo '<HR>' . $sql . '<HR>';
 
 		$pt = array();
 		$en = array();
@@ -1982,10 +2015,10 @@ class semic {
 	}
 
 	function lista_de_trabalhos_to_site_cicpg() {
-		global $dd,$jid;
+		global $dd, $jid;
 		$sql = "select identify_type, title, section_id from articles
 					left join sections on article_section = section_id 
-					where articles.journal_id = ".$jid." and (article_publicado <> 'X' and article_publicado <> 'N') 
+					where articles.journal_id = " . $jid . " and (article_publicado <> 'X' and article_publicado <> 'N') 
 					group by identify_type, title, section_id
 					order by title, identify_type					
 					";
@@ -3300,6 +3333,31 @@ class semic {
 
 		echo '</table>';
 		return (1);
+	}
+
+	/* @function: troca_string($var)
+	 * Faz tratamento de string da frase
+	 * @date: 27/08/2015
+	 */
+	function troca_string($frase) {
+		
+		$frase = lowercase($frase);
+		$frase = uppercase(substr($frase, 0,1)).substr($frase, 1,strlen($frase));
+		
+		$fraserecebida = $frase;
+
+		$sql = "select * from " . $this -> tabela_troca;
+		$rlt = db_query($sql);
+
+		while ($line = db_read($rlt)) {
+
+			$incorreto = trim($line['ts_termo']);
+			$correto = trim($line['ts_termo_autorizado']);
+
+			$fraserecebida = troca($fraserecebida, $incorreto, $correto);
+		}
+
+		return $fraserecebida;
 	}
 
 }
