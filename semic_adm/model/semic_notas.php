@@ -7,9 +7,9 @@ class semic_nota {
 
 		$wh = "where st_ano = '$ano' ";
 		if ($tipo == '1') { $wh .= " and st_oral = 'S' ";
-		}		
+		}
 		if ($tipo == '2') { $wh .= " and st_poster = 'S' ";
-		}		
+		}
 		if ($tipo == '3') { $wh .= " and st_eng = 'N' ";
 		}
 		if ($tipo == '4') { $wh .= " and st_eng = 'S' ";
@@ -39,12 +39,11 @@ class semic_nota {
 		$xsec = '';
 		while ($line = db_read($rlt)) {
 			$sec = $line['st_section'];
-			
-			if ($sec != $xsec)
-				{
-					$sx .= '<TR><Td colspan=10 class="lt3">'.$sec;
-					$xsec = $sec;
-				}
+
+			if ($sec != $xsec) {
+				$sx .= '<TR><Td colspan=10 class="lt3">' . $sec;
+				$xsec = $sec;
+			}
 			$sx .= '<tr>';
 			$sx .= '<td class="tabela01">';
 			$sx .= UpperCase($line['pp_nome'], 7);
@@ -79,23 +78,126 @@ class semic_nota {
 
 			/* PIBITI */
 			if (trim($line['st_edital']) == 'PIBITI') {
-				$pos = 't';
+				$pos = '<B>T</B>';
 			} else {
 				$pos = '';
 			}
 
 			/* Internaciona */
-			if ($line['st_eng'] == 'S') { $pre = 'i';
+			if ($line['st_eng'] == 'S') { $pre = '<B>i</B>';
 			} else {
 				$pre = '';
 			}
 			$sx .= '<td align="center" width="80" class="tabela01">';
 			$sx .= $pre . trim($line['st_section']) . trim($line['st_nr']) . $pos;
 		}
-		$sx .= '<tr><td colspan=6>* Bolsista CNPq';
+		$sx .= '<tr><td colspan=6>* Bolsista CNPq/';
 		$sx .= '<tr><td colspan=6><B>';
 		$sx .= 'Total de apresentações: ' . $to3 . ' (Oral: ' . $to1 . ', Postêr: ' . $to2 . ', Oral/Postêr:' . $to4 . ') ';
 		$sx .= '</table>';
+		return ($sx);
+
+	}
+
+	function nao_indicados_apresentacao() {
+		$ano = $this -> ano;
+
+		$wh = " where st_ano = '$ano' and (pb_status = 'A' or pb_status = 'F') ";
+		$sql = "select * from semic_nota_trabalhos 
+								left join pibic_bolsa_contempladas on st_codigo = pb_protocolo
+								left join pibic_professor on pb_professor = pp_cracha
+								left join pibic_aluno on pb_aluno = pa_cracha
+								$wh
+								order by pp_nome, pa_nome
+					";
+		$rlt = db_query($sql);
+
+		$sx = '<table width="100%" class="tabela00">';
+		$to1 = 0;
+		$to2 = 0;
+		$to3 = 0;
+		$to4 = 0;
+		$sx .= '<tr>
+					<th>Orientador</th>
+					<th>Estudante</th>
+					<th>Campus</th>
+					<th>Modalidade</th>
+					<th>Trabalho</th>
+					</tr>';
+		$xsec = '';
+		$email_p = array();
+		$email_ = '';
+		while ($line = db_read($rlt)) {
+			$ora = trim($line['st_oral']);
+			$pst = trim($line['st_poster']);
+
+			if ((strlen($ora) == 0) and (strlen($pst) == 0)) {
+				$tot1++;
+
+				$email = trim($line['pp_email']);
+				if (strlen($email) > 0) { array_push($email_p, $email);
+					$email_ .= $email . '; ';
+				}
+				$email = trim($line['pp_email_1']);
+				if (strlen($email) > 0) { array_push($email_p, $email);
+					$email_ .= $email . '; ';
+				}
+
+				$sx .= '<tr>';
+				$sx .= '<td class="tabela01">';
+				$sx .= UpperCase($line['pp_nome'], 7);
+				$sx .= '</td>';
+
+				$sx .= '<td class="tabela01">';
+				$sx .= trim($line['pa_nome']);
+				$sx .= $line['st_cnpq'];
+				$sx .= '</td>';
+
+				$sx .= '<td class="tabela01">';
+				$sx .= $line['pp_centro'];
+				$sx .= '</td>';
+
+				$sx .= '<td class="tabela01" align="center">';
+				$oral = $line['st_oral'];
+				$post = $line['st_poster'];
+				if ($oral == 'S') { $mod = 'Oral';
+					$to1++;
+				}
+				if ($post == 'S') { $mod = 'Poster';
+					$to2++;
+				}
+				if (($oral == 'S') and ($post == 'S')) { $mod = 'Oral/Poster';
+					$to4++;
+					$to1--;
+					$to2--;
+				}
+				$to3++;
+				$sx .= $mod;
+				$sx .= '</td>';
+
+				/* PIBITI */
+				if (trim($line['st_edital']) == 'PIBITI') {
+					$pos = '<B>T</B>';
+				} else {
+					$pos = '';
+				}
+
+				/* Internaciona */
+				if ($line['st_eng'] == 'S') { $pre = '<B>i</B>';
+				} else {
+					$pre = '';
+				}
+				$sx .= '<td align="center" width="80" class="tabela01">';
+				$sx .= $pre . trim($line['st_section']) . trim($line['st_nr']) . $pos;
+			}
+
+		}
+		$sx .= '<tr><td colspan=6>* Bolsista CNPq/';
+		$sx .= '<tr><td colspan=6><B>';
+		$sx .= 'Total de apresentações: ' . $to3 . ' (Oral: ' . $to1 . ', Postêr: ' . $to2 . ', Oral/Postêr:' . $to4 . ') ';
+		$sx .= '</table>';
+		$sx .= '<h1>E-mail dos orientadores</h1>';
+		$sx .= $email_;
 		return ($sx);
 
 	}
@@ -133,26 +235,25 @@ class semic_nota {
 		while ($line = db_read($rlt)) {
 			$sc = trim($line['st_section']);
 			$cor = '';
-			if (strlen($sc)==0)
-				{
-					$cor = '<font color="red">';
-				}
+			if (strlen($sc) == 0) {
+				$cor = '<font color="red">';
+			}
 			$sx .= '<tr>';
 			$sx .= '<td class="tabela01">';
-			$sx .= $cor.UpperCase($line['pp_nome'], 7);
+			$sx .= $cor . UpperCase($line['pp_nome'], 7);
 			$sx .= '</td>';
 
 			$sx .= '<td class="tabela01">';
-			$sx .= $cor.trim($line['pa_nome']);
+			$sx .= $cor . trim($line['pa_nome']);
 			$sx .= $line['st_cnpq'];
 			$sx .= '</td>';
 
 			$sx .= '<td class="tabela01">';
-			$sx .= $cor.$line['pp_centro'];
+			$sx .= $cor . $line['pp_centro'];
 			$sx .= '</td>';
 
 			$sx .= '<td class="tabela01" align="center">';
-			$oral = $cor.$line['st_oral'];
+			$oral = $cor . $line['st_oral'];
 			$post = $line['st_poster'];
 			if ($oral == 'S') { $mod = 'Oral';
 				$to1++;
@@ -171,13 +272,13 @@ class semic_nota {
 
 			/* PIBITI */
 			if (trim($line['st_edital']) == 'PIBITI') {
-				$pos = 't';
+				$pos = '<B>T</B>';
 			} else {
 				$pos = '';
 			}
 
 			/* Internaciona */
-			if ($line['st_eng'] == 'S') { $pre = 'i';
+			if ($line['st_eng'] == 'S') { $pre = '<B>i</B>';
 			} else {
 				$pre = '';
 			}
@@ -400,13 +501,13 @@ class semic_nota {
 
 			$i = $line['st_eng'];
 			if ($i == 'S') {
-				$en = 'i';
+				$en = '<B>i</B>';
 			} else {
 				$en = '';
 			}
 
 			if (trim($line['st_edital']) == 'PIBITI') {
-				$pos = 't';
+				$pos = '<B>T</B>';
 			} else {
 				$pos = '';
 			}
@@ -682,7 +783,7 @@ class semic_nota {
 				$eng = 'S';
 			}
 			$bolsa = $line['pb_tipo'];
-			if (($bolsa == 'C') or ($bolsa == 'E') or ($bolsa == 'H') or ($bolsa == 'B')) {
+			if (($bolsa == 'C') or ($bolsa == 'E') or ($bolsa == 'H') or ($bolsa == 'B') or ($bolsa == '2')) {
 				$cnpq = '*';
 			}
 
@@ -881,7 +982,7 @@ class semic_nota {
 		$rlt = db_query($sql);
 
 		/* Indicacao CNPQ */
-		$sql = "update semic_nota_trabalhos set st_oral = 'S', st_poster = 'S' where st_cnpq = '*' and st_ano = '$ano' and st_nota_rel_final > 10 ";
+		$sql = "update semic_nota_trabalhos set st_oral = 'S', st_poster = 'S' where st_cnpq = '*' and st_ano = '$ano' ";
 		$rlt = db_query($sql);
 
 		/* Indicacao Poster */

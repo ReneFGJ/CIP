@@ -20,7 +20,7 @@ if ($data_rp < 20100101)
 	{
 		if (date("Ymd") > 20130320)
 			{
-				echo $rp->prazo_encerrado();
+				
 				echo $rp->form_crp($ged);
 			} else {
 				echo $rp->form_crp($ged);

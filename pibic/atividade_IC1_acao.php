@@ -25,7 +25,7 @@ if ($data_rp < 20151001)
 				{
 					echo $rp->form($ged);
 				} else {
-					echo $rp->prazo_encerrado();
+					
 				}
 	} else {
 		echo '<BR><BR>';

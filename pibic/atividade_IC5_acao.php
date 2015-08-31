@@ -20,7 +20,7 @@ if ($data_rp == 2)
 	{
 		if (date("Ymd") > 20130829)
 			{
-				echo $rp->prazo_encerrado();
+				
 				echo $rp->form2($ged);
 			} else {
 				echo $rp->form2($ged);

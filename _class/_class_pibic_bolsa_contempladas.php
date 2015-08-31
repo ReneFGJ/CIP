@@ -163,7 +163,15 @@ function parecer_nao_entregues($ano)
 			return($sx);		
 		}
 		
-		
+	function substituicao_motivo_semic()
+		{
+			$mt=array();
+			$mt['501'] = 'Meu aluno não está no edital para apresentação oral/pôster';
+			//$mt['502'] = 'Necessidade de reavaliação';
+			$mt['502'] = 'Outros motivos';
+			return($mt);
+		}	
+
 	function parecer_nao_entregues_areas_desagrupadas($ano)
 		{
 			/* localiza projetos */
@@ -5314,7 +5322,8 @@ $sa .= '</TR>';
 									position: absolute;
 									z-index: 2;										
 									margin-left: 200px;				
-									">';
+									"
+									class="nopr">';
 						$ss .= '</div>';									
 						break;
 					case 'S':
@@ -5323,7 +5332,8 @@ $sa .= '</TR>';
 									position: absolute;
 									z-index: 2;										
 									margin-left: 200px;				
-									">';
+									"
+									class="nopr">';
 						$ss .= '</div>';									
 						break;
 					case 'A':
@@ -5332,7 +5342,8 @@ $sa .= '</TR>';
 									position: absolute;
 									z-index: 2;										
 									margin-left: 200px;				
-									">';
+									"
+									class="nopr">';
 						$ss .= '</div>';
 						break;	
 					case 'F':
@@ -5341,7 +5352,8 @@ $sa .= '</TR>';
 									position: absolute;
 									z-index: 2;										
 									margin-left: 200px;				
-									">';
+									"
+									class="nopr">';
 						$ss .= '</div>';
 						break;
 					}
@@ -5430,19 +5442,19 @@ $sa .= '</TR>';
 				$sx .= '<B>'.$this->pb_titulo_plano.'</B>';
 				
 				$sx .= '<TR class="lt0">';
-				$sx .= '<TD>'.msg('teacher');
+				$sx .= '<TD colspan=3>'.msg('teacher');
 				//$sx .= '<TD>'.msg('centro');
 				$sx .= '<font class="lt1">';
 				$sx .= '<BR><B>'.$this->pb_professor_nome.' ('.$this->pb_professor.')';;
 				//$sx .= '<TD colspan=3><B>'.$this->pb_professor_centro;
 
 				$sx .= '<TR class="lt0">';
-				$sx .= '<TD>'.msg('student');
+				$sx .= '<TD colspan=3>'.msg('student');
 				$sx .= '<font class="lt1">';
 				$sx .= '<BR><B>'.$this->pb_est_nome.' ('.$this->pb_aluno.')';
 				
 				$sx .= '<TR class="lt0">';
-				$sx .= '<TD>'.msg('course');
+				$sx .= '<TD colspan=3>'.msg('course');
 				$sx .= '<font class="lt1">';
 				$sx .= '<BR><B>'.$this->pb_est_curso;
 
