@@ -34,6 +34,7 @@ class semic {
 	var $tabela2 = 'pibic_bolsa_contempladas';
 	var $tabela_autor = "semic_trabalho_autor";
 	var $tabela_troca = "tesauro_editorial";
+	var $tabela_ajuste_titulo = "semic_ic_trabalho";
 
 	function semic_premiacao() {
 		$sql = "drop table semic_premiacao_tipo";
@@ -623,6 +624,8 @@ class semic {
 					left join pibic_bolsa_tipo on pbt_codigo = sm_modalidade
 					where id_sm = " . round($id) . " or sm_codigo = '" . $id . "'";
 		}
+
+//echo $sql;
 		$rlt = db_query($sql);
 		if ($line = db_read($rlt)) {
 			$this -> status = $line['sm_status'];
@@ -716,6 +719,7 @@ class semic {
 			$tit_por = trim($line['sm_titulo']);
 			$tit_en = trim($line['sm_titulo_en']);
 			
+			
 			$sx .= '<form action="'.page().'" method="get">';
 			$sx .= '<input type="submit" name="dd10" value="Ajustar título">';
 			     if(strlen($dd[10]) > 0) {
@@ -731,9 +735,33 @@ class semic {
 			$sx .= '<input type="hidden" name="pag" value="1">';
 			$sx .= '</form>';
 			
-			//atualiza aterações no banco
-			//$sql = "update " . $this -> tabela2 . " set pb_titulo_projeto = '" . $tit_por . "' where  =  ";
-			//$rlt = db_query($sql);
+			 
+			
+			//atualiza aterações no banco	
+			/**
+			$sql = "select id_sm, sm_titulo, sm_titulo_en from " .$this -> tabela_ajuste_titulo .
+					" where set sm_titulo  = '".$tit_por."'
+						    , sm_titulo_en = '".$tit_en."'
+						    where  id_sm   = '".$dd[0]."'"; 
+				
+			echo $sql;
+			  
+			/**
+			 * Ajuste
+			$sql = "update " . $this -> tabela_ajuste_titulo .
+			"  set sm_titulo  = 'FILOSOFIA E MÍSTICA NO TRACTATUS DE WITTGENSTEIN'".
+			  ", sm_titulo_en = 'PHILOSOPHY AND MYSTIC IN WITTGENSTEIN TRACTATUS' where  id_sm = '2584'" ;
+
+			$rlt = db_query($sql);
+			*/
+			 
+			$sql = "update " . $this -> tabela_ajuste_titulo . 
+				   " set sm_titulo   = '".$tit_por."'
+				    , sm_titulo_en   = '".$tit_en."'
+				      where  id_sm   = '".$dd[0]."'";
+
+			$rlt = db_query($sql);
+			
 			//***************fim**************
 			
 						

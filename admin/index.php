@@ -75,6 +75,12 @@ array_push($menu,array(msg('Lattes'),msg('importar_arquivo_lattes'),'cnqp_coleta
 array_push($menu,array(msg('Lattes'),msg('lattes_producao'),'admin_lattes.php'));
 
 
+array_push($menu, array(msg('SEMIC'), '__Incluir Palavras, dicionário editorial', 'tesauro_editorial.php'));
+if ($perfil -> valid('#TST')) {
+	
+}
+
+
 //array_push($menu,array('Manutenção','Criar Tabelas','create_table.php')); 
 ///////////////////////////////////////////////////// redirecionamento
 if ((isset($dd[1])) and (strlen($dd[1]) > 0))
