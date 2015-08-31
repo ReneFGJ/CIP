@@ -625,7 +625,7 @@ class semic {
 					where id_sm = " . round($id) . " or sm_codigo = '" . $id . "'";
 		}
 
-//echo $sql;
+		//echo $sql;
 		$rlt = db_query($sql);
 		if ($line = db_read($rlt)) {
 			$this -> status = $line['sm_status'];
@@ -712,59 +712,53 @@ class semic {
 			$sx .= '<center><font class="lt4">' . $link0T . $line['sm_titulo'] . '</A></font></center>';
 			$sx .= '<center><font class="lt3"><I>' . $link1T . $line['sm_titulo_en'] . '</A></I></font></center>';
 			$sx .= '<BR>';
-			
-			
+
 			//Validacao de Titulos
 			//*************inicio*************
 			$tit_por = trim($line['sm_titulo']);
 			$tit_en = trim($line['sm_titulo_en']);
-			
-			
-			$sx .= '<form action="'.page().'" method="get">';
+
+			$sx .= '<form action="' . page() . '" method="get">';
 			$sx .= '<input type="submit" name="dd10" value="Ajustar título">';
-			     if(strlen($dd[10]) > 0) {
-					$tit_por = $this -> troca_string($tit_por);
-					$tit_en = $this -> troca_string($tit_en); 
-					 
-					$sx .= '<center><font class="lt4">'. $link0T .$tit_por. '</A></font></center>';
-					$sx .= '<center><font class="lt3"><i>'. $link1T .$tit_en. '</i></A></font></center>'; 
-					
-				 }
-			$sx .= '<input type="hidden" name="dd0" value="'.$dd[0].'">';
-			$sx .= '<input type="hidden" name="dd90" value="'.$dd[90].'">';
+			if (strlen($dd[10]) > 0) {
+				$tit_por = $this -> troca_string($tit_por);
+				$tit_en = $this -> troca_string($tit_en);
+
+				$sx .= '<center><font class="lt4">' . $link0T . $tit_por . '</A></font></center>';
+				$sx .= '<center><font class="lt3"><i>' . $link1T . $tit_en . '</i></A></font></center>';
+
+			}
+			$sx .= '<input type="hidden" name="dd0" value="' . $dd[0] . '">';
+			$sx .= '<input type="hidden" name="dd90" value="' . $dd[90] . '">';
 			$sx .= '<input type="hidden" name="pag" value="1">';
 			$sx .= '</form>';
-			
-			 
-			
-			//atualiza aterações no banco	
+
+			//atualiza aterações no banco
 			/**
-			$sql = "select id_sm, sm_titulo, sm_titulo_en from " .$this -> tabela_ajuste_titulo .
-					" where set sm_titulo  = '".$tit_por."'
-						    , sm_titulo_en = '".$tit_en."'
-						    where  id_sm   = '".$dd[0]."'"; 
-				
-			echo $sql;
-			  
-			/**
+			 $sql = "select id_sm, sm_titulo, sm_titulo_en from " .$this -> tabela_ajuste_titulo .
+			 " where set sm_titulo  = '".$tit_por."'
+			 , sm_titulo_en = '".$tit_en."'
+			 where  id_sm   = '".$dd[0]."'";
+
+			 echo $sql;
+
+			 /**
 			 * Ajuste
-			$sql = "update " . $this -> tabela_ajuste_titulo .
-			"  set sm_titulo  = 'FILOSOFIA E MÍSTICA NO TRACTATUS DE WITTGENSTEIN'".
-			  ", sm_titulo_en = 'PHILOSOPHY AND MYSTIC IN WITTGENSTEIN TRACTATUS' where  id_sm = '2584'" ;
+			 $sql = "update " . $this -> tabela_ajuste_titulo .
+			 "  set sm_titulo  = 'FILOSOFIA E MÍSTICA NO TRACTATUS DE WITTGENSTEIN'".
+			 ", sm_titulo_en = 'PHILOSOPHY AND MYSTIC IN WITTGENSTEIN TRACTATUS' where  id_sm = '2584'" ;
+
+			 $rlt = db_query($sql);
+			 */
+
+			$sql = "update " . $this -> tabela_ajuste_titulo . " set sm_titulo   = '" . $tit_por . "'
+				    , sm_titulo_en   = '" . $tit_en . "'
+				      where  id_sm   = '" . $dd[0] . "'";
 
 			$rlt = db_query($sql);
-			*/
-			 
-			$sql = "update " . $this -> tabela_ajuste_titulo . 
-				   " set sm_titulo   = '".$tit_por."'
-				    , sm_titulo_en   = '".$tit_en."'
-				      where  id_sm   = '".$dd[0]."'";
 
-			$rlt = db_query($sql);
-			
 			//***************fim**************
-			
-						
+
 			$sx .= '<BR>';
 			$obs = trim($line['sm_obs']);
 			if (strlen($obs) > 0) {
@@ -1305,12 +1299,10 @@ class semic {
 		$sql_pos = "select pos_codigo, pos_nome from programa_pos where pos_corrente = '1' order by pos_nome";
 		$cp = array();
 		array_push($cp, array('$H8', 'id_sm', '', False, False));
-		
+
 		array_push($cp, array('$T80:3', 'sm_titulo', 'Título do trabalho', True, True));
 		array_push($cp, array('$T80:3', 'sm_titulo_en', 'Título do trabalho em inglês', True, True));
-		
 
-		
 		array_push($cp, array('$Q pos_nome:pos_codigo:' . $sql_pos, 'sm_programa', 'Programa de Pós-Graduação', True, True));
 
 		$docente = $ss -> user_cracha;
@@ -3368,19 +3360,25 @@ class semic {
 	 * @date: 27/08/2015
 	 */
 	function troca_string($frase) {
-		
+
 		$frase = lowercase($frase);
-		$frase = uppercase(substr($frase, 0,1)).substr($frase, 1,strlen($frase));
-		
+		$frase = uppercase(substr($frase, 0, 1)) . substr($frase, 1, strlen($frase));
+
 		$fraserecebida = $frase;
 
-		$sql = "select * from " . $this -> tabela_troca;
+		$sql = "select * from " . $this -> tabela_troca ." where ts_ativo = '1'";
 		$rlt = db_query($sql);
 
 		while ($line = db_read($rlt)) {
 
+			$ita = $line['ts_italico'];
+
 			$incorreto = trim($line['ts_termo']);
 			$correto = trim($line['ts_termo_autorizado']);
+
+			if ($ita == '1') {
+				$correto = '<i>' . $correto . '</i>';
+			}
 
 			$fraserecebida = troca($fraserecebida, $incorreto, $correto);
 		}
