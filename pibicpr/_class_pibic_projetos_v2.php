@@ -22,6 +22,75 @@ class projetos {
 
 	var $ano;
 
+	function mostra_imagem_tipo_edital($tipo)
+			{
+				global $http;
+				$tipo = lowercase(trim($tipo));
+				switch ($tipo)
+					{
+					case 'pibiti': $img = 'logo_ic_pibiti.png'; break;
+					case 'pibic': $img = 'logo_ic_pibic.png'; break;
+					case 'pibic_em': $img = 'logo_ic_pibic_em.png'; break;
+					default: $img = $tipo; break; 
+					}
+				
+				$sx .= '<img src="'.$http.'img/'.$img.'" width="80">';
+				return($sx);
+			}	
+	
+	function mostra_registro($line)
+			{
+				global $link, $http;
+				$linka = '<A HREF="'.$link.'?dd0='.$line['pb_protocolo'].'&dd90='.checkpost($line['doc_protocolo']).'">';
+				
+				
+				
+				$status = trim($line['pj_status']);
+	
+				if ($status == '@') { $status = '<font color="#ff8000">Não implementado</font>'; $bgc = '#f5f5f5';}
+				if ($status == 'A') { $status = '<font color="green">Ativo</font>';  $bgc = '#d2fad1';}
+				if ($status == 'B') { $status = '<font color="#0000ff">Encerrado</font>';  $bgc = '#faebef';}
+				if ($status == 'C') { $status = '<font color="#ff0000">**Cancelado**</font>';  $bgc = '#ffe1e1';}
+				$bgc = '';
+				$aluno_cod = trim($line['pb_aluno']);
+				$aluno_nome = trim($line['pa_nome']);
+				
+				$docente_cod = trim($line['pb_professor']);
+				$docente_nome = trim($line['pp_nome']);
+			
+				$link = '';
+		
+				$bolsa = trim($line['pbt_descricao']);
+				//$bolsa_img = '<img src="'.$http.'img/'.trim($line['pbt_img']).'" border="0">';
+				
+				$style = ' style="border-top: 1px solid #202020; padding-top: 15px;" ';
+				
+				$sr .= '<TR valign="top"  bgcolor="'.$bgc.'">';
+				$sr .= '<TD rowspan=5 '.$style.' >'.$this->mostra_imagem_tipo_edital($line['doc_edital']);
+			
+				$sr .= '<TD width="10" '.$style.'>'.$it.'</TD>';
+				$sr .= '<TD colspan="3" '.$style.'><B>'.$linka.trim($line['doc_1_titulo']);
+				$sr .= '<TD colspan="1" align="right" '.$style.'><B>'.$linka.$line['doc_protocolo'];
+				$sr .= '</TR>';
+
+				$sr .= '<TR bgcolor="'.$bgc.'">';
+				$sr .= '<TD colspan="2" align="right"><I>Estudante</TD><TD colspan="3">'.$aluno_nome.' ('.$aluno_cod.')';
+				$sr .= '</TR>';
+
+				$sr .= '<TR bgcolor="'.$bgc.'">';
+				$sr .= '<TD colspan="2" align="right"><I>Docente</TD><TD colspan="3">'.$docente_nome.' ('.$docente_cod.')';
+				$sr .= '</TR>';
+	
+				$sr .= '<TR bgcolor="'.$bgc.'">';
+				$sr .= '<TD colspan="2" align="right"><I>Bolsa </TD>
+							<TD colspan="2">'.$bolsa_img. ' '.$bolsa.' / <B>'.$line['pb_ano'].'</B>';
+				$sr .= '<TD align="right"><B>'.$status.'</TD>';
+				$sr .= '</TR>';
+					
+				$sr .= '</TR>';				
+				return($sr);
+			}	
+
 	function valida_limite_submissao($orientador) {
 		global $ttt;
 		$sql = "select * from pibic_professor where pp_cracha = '" . $orientador . "' ";
@@ -98,14 +167,14 @@ class projetos {
 		$sql .= " where doc_ano = '" . $ano . "' ";
 		$sql .= " and (doc_edital = '" . $modalidade . "' ";
 		if ($modalidade == 'PIBITI') {
-			$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
+			//$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
 		}
 		$sql .= ") and (doc_protocolo <> doc_protocolo_mae) ";
 		if (strlen($area) > 0) { $sql .= " and doc_area = '" . $area . "' ";
 		}
 		$sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
 		$sql .= " and pb_tipo <> 'X' ";
-		//if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' "; }
+		if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' "; }
 		//$sql .= " and (doc_aluno <> '') ";
 		//$sql .= " and doc_nota > 10 ";
 		$sql .= " order by doc_area, pp_nome ";
@@ -123,7 +192,6 @@ class projetos {
 		$xarea = '-';
 		$id = 0;
 		while ($line = db_read($rlt)) {
-			$edital = trim($line['doc_edital']);
 			$idr = $line['id_pj'];
 			$nota = round($line['doc_nota']);
 			//$link = '<A HREF="pibic_projetos_detalhes.php?dd0='.$idr.'&dd90='.checkpost($idr).'" class="lt1a" target="new'.$id.'">';
@@ -151,7 +219,7 @@ class projetos {
 				$tipo = trim($line['pb_tipo']);
 				$vies = trim($line['pb_vies']);
 				$sx .= '<TR ' . coluna() . ' class="lt1a">';
-				$sx .= '<TD><img src="img/logo_bolsa_' . $bolsa . '.png">'.$bolsa.' - '.$edital;
+				$sx .= '<TD><img src="img/logo_bolsa_' . $bolsa . '.png">';
 				//if ($vies == '1' and $tipo == 'I') { $sx .= '*';
 				//}
 				$sx .= '<TD>';
@@ -3547,6 +3615,32 @@ class projetos {
 		}
 		return (1);
 	}
+	
+	function le_plano($id = '') {
+		$id = strzero(round($id),7);
+		$sql = "select * from pibic_submit_documento
+						left join " . $this -> tabela . " on pj_codigo = doc_protocolo_mae
+						left join pibic_professor on pj_professor = pp_cracha
+						left join apoio_titulacao on ap_tit_codigo = pp_titulacao
+						where id_pj = $id or doc_protocolo = '$id'
+					";
+		$rlt = db_query($sql);
+		if ($line = db_read($rlt)) {
+			$this -> protocolo = trim($line['doc_protocolo']);
+			$this -> line = $line;
+			$this -> status = $line['doc_status'];
+		}
+		return (1);
+	}	
+	
+	function substituicao_motivo()
+		{
+			$mt=array();
+			$mt['101'] = 'Meu aluno não foi contemplado com bolsa';
+			$mt['102'] = 'Não concordo com a avaliação';
+			$mt['106'] = 'Outros motivos';
+			return($mt);
+		}	
 
 	function mostra_plano_botao($nr) {
 		if ($nr == 1 or $nr == 2) { $sx = $this -> mostra_botao_submissao('IC');
@@ -5081,5 +5175,453 @@ class projetos {
 	}
 
 	//**************************** Fim da funcao *****************************************/
+
+	//####################################################################################
+	//**************************** Inicio do metodo **************************************
+	/* @method: resumo_submissoes_ano_excel($ano, $modalidade)
+	 *          Mostra resultados dos planos submetidos por edital e ano
+	 * @author Elizandro Santos de Lima[Analista de Projetos]
+	 * @date: 04/08/2015
+	 */
+function resumo_submissoes_ano_excel($ano, $modalidade) {
+		print_r($ano);
+		print_r($modalidade);
+		if (strlen($modalidade) > 0) { $wh .= " and (doc_edital = '" . $modalidade . "') ";
+		}
+		$ano = $this -> ano;
+		if (strlen($ano) == 0) { $ano = date("Y");
+		}
+		$cp = ', are1.a_descricao as desc1, are2.a_descricao as desc2 ';
+		$sql = "select * $cp from " . $this -> tabela . "
+					left join pibic_professor on pj_professor = pp_cracha
+					left join centro on pp_escola = centro_codigo
+					left join " . $this -> tabela_planos . " on doc_protocolo_mae = pj_codigo
+					left join pibic_aluno on doc_aluno = pa_cracha
+					left join ajax_areadoconhecimento as are1 on are1.a_cnpq = pj_area
+					left join ajax_areadoconhecimento as are2 on are2.a_cnpq = pj_area_estra
+					inner join pibic_edital on pee_protocolo = doc_protocolo
+					where pj_ano = '$ano'
+					and (pj_status <> '!' and pj_status <> '@' and pj_status <> 'X' and pj_status <> 'E')
+					and (doc_status <> '!' and doc_status <> '@' and doc_status <> 'X' and doc_status <> 'E')
+					$wh
+			";
+		$rlt = db_query($sql);
+		
+
+		$id = 0;
+		$sx = '<table>';
+		$sx .= '<TR>
+					<TH>PROJETO
+					<th>COD.PROFESSOR
+					<th>PROFESSOR
+					<th>SS
+					<TH>ESCOLA
+					<TH>CAMPUS
+					<TH>CURSO
+					<th>TIT.PROJETO
+					<TH>STATUS
+					<th>PROT. PLANO
+					<TH>TÍTULO PLANO
+					<TH>COD.ALUNO
+					<th>ALUNO
+					<th>MODALIDADE
+					<th>CURSO
+					<th>STATUS
+					<th>AREA
+					<th>AREA DESCRICAO
+					<th>AREA ESTRATÉGICA
+					<th>AREA ESTRATÉGICA - DESCRICAO
+										';
+		while ($line = db_read($rlt)) {
+			$id++;
+			$sx .= '<TR>';
+			$sx .= '<TD>';
+			$sx .= trim($line['pj_codigo']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_cracha']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_nome']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_ss']);			
+			$sx .= '<TD>';
+			$sx .= trim($line['centro_nome']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_centro']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pp_curso']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pj_titulo']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pj_status']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_protocolo']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_1_titulo']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_aluno']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pa_nome']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_edital']);
+			$sx .= '<TD>';
+			$sx .= trim($line['pa_curso']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_status']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_area']);
+			$sx .= '<TD>';
+			$sx .= trim($line['desc1']);
+			$sx .= '<TD>';
+			$sx .= trim($line['doc_area_estra']);
+			$sx .= '<TD>';
+			$sx .= trim($line['desc2']);
+
+			$ln = $line;
+		}
+		$sx .= '<TR><TD>' . $id . ' total';
+		$sx .= '</table>';
+		return ($sx);
+	}
+	//**************************** Fim da funcao *****************************************/
+
+
+function mostra_edital_email_professores_fa_ic($ano, $bolsa, $modalidade, $tipo = '') {
+		$sql = "select * from pibic_submit_documento where doc_edital = 'PIBICE' ";
+		//			$rlt = db_query($sql);
+		//			while ($line = db_read($rlt))
+		//				{
+		//					print_r($line);
+		//					exit;
+		//				}
+
+		$cps = 'doc_1_titulo, doc_ava_estrategico, id_pj, pj_codigo, doc_doutorando, doc_area, ap_tit_titulo, pp_nome, pp_email, pp_centro, pp_ss, doc_icv, doc_estrategica, doc_nota, doc_protocolo_mae, doc_protocolo ';
+		$cps .= ', pp_prod, pp_cracha, doc_aluno, doc_avaliacoes, pb_vies, doc_protocolo ';
+		if ($modalidade != 'PIBICE') { $cps .= ', pb1.pb_tipo as pb_tipo, pa_nome ';
+		}
+		//$cps = '*';
+		$sql = "select " . $cps . " from pibic_submit_documento ";
+		$sql .= " inner join pibic_professor on pp_cracha = doc_autor_principal ";
+		$sql .= " inner join apoio_titulacao on pp_titulacao = ap_tit_codigo ";
+		if ($modalidade != 'PIBICE') {
+			$sql .= " inner join pibic_aluno on pa_cracha = doc_aluno ";
+			$sql .= " left join pibic_bolsa as pb1 on (doc_protocolo = pb1.pb_protocolo) ";
+
+		}
+		$sql .= " left join pibic_projetos on pj_codigo = doc_protocolo_mae ";
+		$sql .= " where doc_ano = '" . $ano . "' ";
+		$sql .= " and (doc_edital = '" . $modalidade . "' ";
+		if ($modalidade == 'PIBITI') {
+			//$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
+		}
+		$sql .= ") and (doc_protocolo <> doc_protocolo_mae) ";
+		if (strlen($area) > 0) { $sql .= " and doc_area = '" . $area . "' ";
+		}
+		$sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
+		$sql .= " and pb_tipo <> 'X' ";
+		if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' "; }
+		//$sql .= " and (doc_aluno <> '') ";
+		//$sql .= " and doc_nota > 10 ";
+		$sql .= " order by doc_area, pp_nome ";
+		
+		$rlt = db_query($sql);
+
+		$sx .= '<table class="lt0">';
+		$tot = 0;
+		$sh .= '<TR><TH>bolsa';
+		$sh .= '<TH>tit';
+		$sh .= '<TH>professor';
+		$sh .= '<TH>email_professor';		
+		$sh .= '<TH>aluno';
+		$sh .= '<TH>título do plano de trabalho';
+
+		$xarea = '-';
+		$id = 0;
+		while ($line = db_read($rlt)) {
+			$idr = $line['id_pj'];
+			$nota = round($line['doc_nota']);
+			//$link = '<A HREF="pibic_projetos_detalhes.php?dd0='.$idr.'&dd90='.checkpost($idr).'" class="lt1a" target="new'.$id.'">';
+			$cp = 'ap_tit_titulo, pp_nome, pp_email, pa_nome, doc_1_titulo';
+			$area = $line['doc_area'];
+			if ($area != $xarea) {
+				$edital = trim($line['doc_edital']);
+				if ($edital == 'PIBICE') { $edital = 'PIBIC_EM';
+				}
+				$sx .= '<TR><TD class="lt4" colspan=6><center>' . $this -> areas_mostra($area);
+				$sx .= '<BR>' . $edital;
+				$sx .= $sh . chr(13);
+				$xarea = $area;
+			}
+			$tot++;
+			$bolsa = trim($line['pb_tipo']);
+
+			if ($bolsa == 'R') { $bolsa = 'D';
+			}
+			
+			if (($edital == 'PIBITI') and ($bolsa == 'I')) { $bolsa = 'V'; }
+			
+			if ($bolsa != 'D') {
+				$id++;
+				$tipo = trim($line['pb_tipo']);
+				$vies = trim($line['pb_vies']);
+				$sx .= '<TR ' . coluna() . ' class="lt1a">';
+				$sx .= '<TD><img src="img/logo_bolsa_' . $bolsa . '.png">';
+				//if ($vies == '1' and $tipo == 'I') { $sx .= '*';
+				//}
+				$sx .= '<TD>';
+				$sx .= $link;
+				$sx .= $line['ap_tit_titulo'];
+				$sx .= '<TD width="20%">';
+				$sx .= $link;
+				$sx .= nbr_autor($line['pp_nome'], 7);
+				$sx .= '<TD width="20%">';
+				$sx .= $link;
+				$sx .= trim($line['pp_email']);
+				$sx .= '<TD width="20%">';				
+				$sx .= $link;
+				$aluno = trim($line['pa_nome']);
+				if (strlen($aluno) == 0) { $aluno = ':: Sem Definição de Aluno ::';
+				} else { $aluno = trim(nbr_autor($line['pa_nome'], 7));
+				}
+				if (strlen($aluno) == 0) { $aluno = ':: Sem Definiçâo de Aluno ::';
+				}
+				$sx .= $aluno;
+				$sx .= '<TD>';
+				$sx .= $link;
+				$sx .= nbr_autor($line['doc_1_titulo'], 7);
+				$sx .= '</tr>' . chr(13) . chr(10);
+				$sx .= '<tr><td colspan="6"><img src="img/nada_black.gif" alt="" width="100%" border="0" height="1"></td></tr>' . chr(13) . chr(10);
+			}
+
+		}
+		$sx .= '<TR><TD colspan=5>Total de ' . $tot . ' projetos nesta modalidade';
+		$sx .= '</table>';
+		return ($sx);
+	}
+
+function mostra_edital_email_professores_fa_it($ano, $bolsa, $modalidade, $tipo = '') {
+		$sql = "select * from pibic_submit_documento where doc_edital = 'PIBICE' ";
+		//			$rlt = db_query($sql);
+		//			while ($line = db_read($rlt))
+		//				{
+		//					print_r($line);
+		//					exit;
+		//				}
+
+		$cps = 'doc_1_titulo, doc_ava_estrategico, id_pj, pj_codigo, doc_doutorando, doc_area, ap_tit_titulo, pp_nome, pp_email, pp_centro, pp_ss, doc_icv, doc_estrategica, doc_nota, doc_protocolo_mae, doc_protocolo ';
+		$cps .= ', pp_prod, pp_cracha, doc_aluno, doc_avaliacoes, pb_vies, doc_protocolo ';
+		if ($modalidade != 'PIBICE') { $cps .= ', pb1.pb_tipo as pb_tipo, pa_nome ';
+		}
+		//$cps = '*';
+		$sql = "select " . $cps . " from pibic_submit_documento ";
+		$sql .= " inner join pibic_professor on pp_cracha = doc_autor_principal ";
+		$sql .= " inner join apoio_titulacao on pp_titulacao = ap_tit_codigo ";
+		if ($modalidade != 'PIBICE') {
+			$sql .= " inner join pibic_aluno on pa_cracha = doc_aluno ";
+			$sql .= " left join pibic_bolsa as pb1 on (doc_protocolo = pb1.pb_protocolo) ";
+
+		}
+		$sql .= " left join pibic_projetos on pj_codigo = doc_protocolo_mae ";
+		$sql .= " where doc_ano = '" . $ano . "' ";
+		$sql .= " and (doc_edital = '" . $modalidade . "' ";
+		if ($modalidade == 'PIBITI') {
+			//$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
+		}
+		$sql .= ") and (doc_protocolo <> doc_protocolo_mae) ";
+		if (strlen($area) > 0) { $sql .= " and doc_area = '" . $area . "' ";
+		}
+		$sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
+		$sql .= " and pb_tipo <> 'X' ";
+		if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' "; }
+		//$sql .= " and (doc_aluno <> '') ";
+		//$sql .= " and doc_nota > 10 ";
+		$sql .= " order by doc_area, pp_nome ";
+		
+		$rlt = db_query($sql);
+
+		$sx .= '<table class="lt0">';
+		$tot = 0;
+		$sh .= '<TR><TH>bolsa';
+		$sh .= '<TH>tit';
+		$sh .= '<TH>professor';
+		$sh .= '<TH>email_professor';		
+		$sh .= '<TH>aluno';
+		$sh .= '<TH>título do plano de trabalho';
+
+		$xarea = '-';
+		$id = 0;
+		while ($line = db_read($rlt)) {
+			$idr = $line['id_pj'];
+			$nota = round($line['doc_nota']);
+			//$link = '<A HREF="pibic_projetos_detalhes.php?dd0='.$idr.'&dd90='.checkpost($idr).'" class="lt1a" target="new'.$id.'">';
+			$cp = 'ap_tit_titulo, pp_nome, pp_email, pa_nome, doc_1_titulo';
+			$area = $line['doc_area'];
+			if ($area != $xarea) {
+				$edital = trim($line['doc_edital']);
+				if ($edital == 'PIBICE') { $edital = 'PIBIC_EM';
+				}
+				$sx .= '<TR><TD class="lt4" colspan=6><center>' . $this -> areas_mostra($area);
+				$sx .= '<BR>' . $edital;
+				$sx .= $sh . chr(13);
+				$xarea = $area;
+			}
+			$tot++;
+			$bolsa = trim($line['pb_tipo']);
+
+			if ($bolsa == 'R') { $bolsa = 'D';
+			}
+			
+			if (($edital == 'PIBITI') and ($bolsa == 'I')) { $bolsa = 'V'; }
+			
+			if ($bolsa != 'D') {
+				$id++;
+				$tipo = trim($line['pb_tipo']);
+				$vies = trim($line['pb_vies']);
+				$sx .= '<TR ' . coluna() . ' class="lt1a">';
+				$sx .= '<TD><img src="img/logo_bolsa_' . $bolsa . '.png">';
+				//if ($vies == '1' and $tipo == 'I') { $sx .= '*';
+				//}
+				$sx .= '<TD>';
+				$sx .= $link;
+				$sx .= $line['ap_tit_titulo'];
+				$sx .= '<TD width="20%">';
+				$sx .= $link;
+				$sx .= nbr_autor($line['pp_nome'], 7);
+				$sx .= '<TD width="20%">';
+				$sx .= $link;
+				$sx .= trim($line['pp_email']);
+				$sx .= '<TD width="20%">';				
+				$sx .= $link;
+				$aluno = trim($line['pa_nome']);
+				if (strlen($aluno) == 0) { $aluno = ':: Sem Definição de Aluno ::';
+				} else { $aluno = trim(nbr_autor($line['pa_nome'], 7));
+				}
+				if (strlen($aluno) == 0) { $aluno = ':: Sem Definiçâo de Aluno ::';
+				}
+				$sx .= $aluno;
+				$sx .= '<TD>';
+				$sx .= $link;
+				$sx .= nbr_autor($line['doc_1_titulo'], 7);
+				$sx .= '</tr>' . chr(13) . chr(10);
+				$sx .= '<tr><td colspan="6"><img src="img/nada_black.gif" alt="" width="100%" border="0" height="1"></td></tr>' . chr(13) . chr(10);
+			}
+
+		}
+		$sx .= '<TR><TD colspan=5>Total de ' . $tot . ' projetos nesta modalidade';
+		$sx .= '</table>';
+		return ($sx);
+	}
+
+function mostra_edital_email_professores_fa_inclusao($ano, $bolsa, $modalidade, $tipo = '') {
+		$sql = "select * from pibic_submit_documento where doc_edital = 'PIBICE' ";
+		//			$rlt = db_query($sql);
+		//			while ($line = db_read($rlt))
+		//				{
+		//					print_r($line);
+		//					exit;
+		//				}
+
+		$cps = 'doc_1_titulo, doc_ava_estrategico, id_pj, pj_codigo, doc_doutorando, doc_area, ap_tit_titulo, pp_nome, pp_email, pp_centro, pp_ss, doc_icv, doc_estrategica, doc_nota, doc_protocolo_mae, doc_protocolo ';
+		$cps .= ', pp_prod, pp_cracha, doc_aluno, doc_avaliacoes, pb_vies, doc_protocolo ';
+		if ($modalidade != 'PIBICE') { $cps .= ', pb1.pb_tipo as pb_tipo, pa_nome ';
+		}
+		//$cps = '*';
+		$sql = "select " . $cps . " from pibic_submit_documento ";
+		$sql .= " inner join pibic_professor on pp_cracha = doc_autor_principal ";
+		$sql .= " inner join apoio_titulacao on pp_titulacao = ap_tit_codigo ";
+		if ($modalidade != 'PIBICE') {
+			$sql .= " inner join pibic_aluno on pa_cracha = doc_aluno ";
+			$sql .= " left join pibic_bolsa as pb1 on (doc_protocolo = pb1.pb_protocolo) ";
+
+		}
+		$sql .= " left join pibic_projetos on pj_codigo = doc_protocolo_mae ";
+		$sql .= " where doc_ano = '" . $ano . "' ";
+		$sql .= " and (doc_edital = '" . $modalidade . "' ";
+		if ($modalidade == 'PIBITI') {
+			//$sql .= " or (pb_vies = '1' and pb_tipo = 'I') ";
+		}
+		$sql .= ") and (doc_protocolo <> doc_protocolo_mae) ";
+		if (strlen($area) > 0) { $sql .= " and doc_area = '" . $area . "' ";
+		}
+		$sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
+		$sql .= " and pb_tipo <> 'X' ";
+		if (strlen($tipo) > 0) { $sql .= " and pb_tipo = '$tipo' "; }
+		//$sql .= " and (doc_aluno <> '') ";
+		//$sql .= " and doc_nota > 10 ";
+		$sql .= " order by doc_area, pp_nome ";
+		
+		$rlt = db_query($sql);
+
+		$sx .= '<table class="lt0">';
+		$tot = 0;
+		$sh .= '<TR><TH>bolsa';
+		$sh .= '<TH>tit';
+		$sh .= '<TH>professor';
+		$sh .= '<TH>email_professor';		
+		$sh .= '<TH>aluno';
+		$sh .= '<TH>título do plano de trabalho';
+
+		$xarea = '-';
+		$id = 0;
+		while ($line = db_read($rlt)) {
+			$idr = $line['id_pj'];
+			$nota = round($line['doc_nota']);
+			//$link = '<A HREF="pibic_projetos_detalhes.php?dd0='.$idr.'&dd90='.checkpost($idr).'" class="lt1a" target="new'.$id.'">';
+			$cp = 'ap_tit_titulo, pp_nome, pp_email, pa_nome, doc_1_titulo';
+			$area = $line['doc_area'];
+			if ($area != $xarea) {
+				$edital = trim($line['doc_edital']);
+				if ($edital == 'PIBICE') { $edital = 'PIBIC_EM';
+				}
+				$sx .= '<TR><TD class="lt4" colspan=6><center>' . $this -> areas_mostra($area);
+				$sx .= '<BR>' . $edital;
+				$sx .= $sh . chr(13);
+				$xarea = $area;
+			}
+			$tot++;
+			$bolsa = trim($line['pb_tipo']);
+
+			if ($bolsa == 'R') { $bolsa = 'D';
+			}
+			
+			if (($edital == 'PIBITI') and ($bolsa == 'I')) { $bolsa = 'V'; }
+			
+			if ($bolsa != 'D') {
+				$id++;
+				$tipo = trim($line['pb_tipo']);
+				$vies = trim($line['pb_vies']);
+				$sx .= '<TR ' . coluna() . ' class="lt1a">';
+				$sx .= '<TD><img src="img/logo_bolsa_' . $bolsa . '.png">';
+				//if ($vies == '1' and $tipo == 'I') { $sx .= '*';
+				//}
+				$sx .= '<TD>';
+				$sx .= $link;
+				$sx .= $line['ap_tit_titulo'];
+				$sx .= '<TD width="20%">';
+				$sx .= $link;
+				$sx .= nbr_autor($line['pp_nome'], 7);
+				$sx .= '<TD width="20%">';
+				$sx .= $link;
+				$sx .= trim($line['pp_email']);
+				$sx .= '<TD width="20%">';				
+				$sx .= $link;
+				$aluno = trim($line['pa_nome']);
+				if (strlen($aluno) == 0) { $aluno = ':: Sem Definição de Aluno ::';
+				} else { $aluno = trim(nbr_autor($line['pa_nome'], 7));
+				}
+				if (strlen($aluno) == 0) { $aluno = ':: Sem Definiçâo de Aluno ::';
+				}
+				$sx .= $aluno;
+				$sx .= '<TD>';
+				$sx .= $link;
+				$sx .= nbr_autor($line['doc_1_titulo'], 7);
+				$sx .= '</tr>' . chr(13) . chr(10);
+				$sx .= '<tr><td colspan="6"><img src="img/nada_black.gif" alt="" width="100%" border="0" height="1"></td></tr>' . chr(13) . chr(10);
+			}
+
+		}
+		$sx .= '<TR><TD colspan=5>Total de ' . $tot . ' projetos nesta modalidade';
+		$sx .= '</table>';
+		return ($sx);
+	}
 
 }

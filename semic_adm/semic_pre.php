@@ -31,6 +31,8 @@ if (strlen($dd[0]) > 0) {
 	array_push($menu, array(msg('SEMIC') . ' - Edital', 'Apresentação Oral por áreas', '_semic_apresentacao.php?dd0=1'));
 	array_push($menu, array(msg('SEMIC') . ' - Edital', 'Apresentação Postêr por áreas', '_semic_apresentacao.php?dd0=2'));
 	array_push($menu, array(msg('SEMIC') . ' - Edital', 'Trabalhos não indicados para apresentação', '_semic_para_nao_apresentacao.php'));
+	
+	array_push($menu, array(msg('SEMIC') . ' - Edital', 'Trabalhos Oral e Poster', '_semic_row.php?dd0=1'));
 
 
 $tela = menus($menu, "3");

@@ -773,8 +773,8 @@ class artigo
 			require_once("../_class/_class_ic.php");
 			$ic = new ic;
 			$ic = $ic->ic("ART_FASE_10");
-			$assunto = utf8_decode($ic['nw_titulo']);
-			$texto = utf8_decode($ic['nw_descricao']);
+			$assunto = $ic['nw_titulo'];
+			$texto = $ic['nw_descricao'];
 			$texto .= $this->mostra();
 			$texto .= '<BR><BR><font style="font-size:8px">'.'ART_FASE_10</font>';
 			$email = $pos->coordenador_do_professor($ss->user_cracha);
