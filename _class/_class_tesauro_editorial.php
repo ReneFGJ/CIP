@@ -28,8 +28,8 @@ class tesauro
 		function row()
 			{
 				global $cdf,$cdm,$masc;
-				$cdf = array('id_ts','ts_codigo','ts_termo','ts_termo_autorizado','ts_termo_asc','ts_composto','ts_italico');
-				$cdm = array('cod',msg('codigo'),msg('nome'),msg('autorizado'));
+				$cdf = array('id_ts','ts_codigo','ts_termo','ts_termo_autorizado','ts_italico');
+				$cdm = array('cod',msg('codigo'),msg('nome'),msg('autorizado'),msg('itálico'));
 				$masc = array('','','','','','');
 				return(1);				
 			}
