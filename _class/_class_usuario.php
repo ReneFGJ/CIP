@@ -58,11 +58,23 @@ class users {
 		$rlt = db_query($sql);
 		if ($line = db_read($rlt)) {
 			$email1 = trim($line['us_email']);
-			$text = msg('send_email_text');
-			$text .= '<BR><BR>Password: <B>' . $line['us_senha'] . '</B>';
-			enviaremail('monitoramento@sisdoc.com.br', '', msg('your_password', $text));
-			enviaremail($email1, '', msg('your_password', $text));
-			$ok = 'send_email_ok';
+			
+			echo '<HR>';
+			
+			$cod = 'send_email_content';
+			$ic = new ic;
+			$ic = $ic->ic($cod);
+			
+			$assunto = utf8_decode($ic['nw_titulo']);
+			$texto = utf8_decode($ic['nw_descricao']);		
+			
+			$text = msg('password').': <B>' . $line['us_senha'] . '</B>';
+			$text .= '<BR><BR>'.$texto;
+			
+			echo $text;
+			
+			enviaremail($email1, '',$assunto, $text);
+			$ok = 'send_email_ok'.' '.msg('to').' '.$email;
 		} else {
 			$ok = 'send_email_erro';
 		}

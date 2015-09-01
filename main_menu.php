@@ -30,7 +30,6 @@ $ic_on = $open;
 $mn = array();
 
 /* SEMIC */
-echo '===>'.$tot_semic;
 if (($tot_semic > 0) or (!($perfil->valid('#CNQ'))))
 	{
 		//array_push($mn,array('botao_mostra','b1',http.'semic_submit/','submissao-mostra.jpg','imgs',''));

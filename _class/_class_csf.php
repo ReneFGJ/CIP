@@ -698,37 +698,58 @@ class csf
 												
 	function world_onde_curso_universidade()
 			{
+				$sql = "select * from (
+										select pa_curso, pa_nome, pb_colegio_orientador, pb_colegio, 
+											   pa_email, pa_email_1
+										from pibic_bolsa_contempladas 
+										inner join pibic_aluno on pb_aluno = pa_cracha
+										where pb_tipo = 'S'
+										and (pb_status <> 'C' and pb_status <> '@')
+										) as alunos
+								     left join(
+										select inst_nome, inst_log, inst_lat 
+										from instituicao) as instituicao on pb_colegio = inst_nome
+										group by inst_nome, inst_log, inst_lat,
+											 pa_curso, pa_nome, pb_colegio_orientador, pb_colegio,
+											 pa_email, pa_email_1
+										order by pa_curso, pa_nome, pb_colegio";	
 				
-				$sql = "select pa_curso, pa_nome, pb_colegio_orientador, pb_colegio, pa_email, pa_email_1
-				        from pibic_bolsa_contempladas 
-						inner join pibic_aluno on pb_aluno = pa_cracha
-						where pb_tipo = 'S'
-						and (pb_status <> 'C' and pb_status <> '@')
-					    group by pa_curso, pb_colegio_orientador, pb_colegio, pa_nome, pa_email, pa_email_1
-						order by pa_curso, pa_nome, pb_colegio
-						 ";
 				$rlt = db_query($sql);
 				
 				$sx  = '<table width="100%" class="lt1">' ;
+				//mostra latitude e longitude
+				//$sx .= '<TR><TH style="text-align:left">Curso__Estudante<TH>Instituição<TH>País<TH>Lat<TH>Long';
 				$sx .= '<TR><TH style="text-align:left">Curso__Estudante<TH>Instituição<TH>País';
 				
 				$xpais = 'X';
-				
+				$id = 0;
 				while ($line = db_read($rlt))
 					{
-						$pais = msg(trim($line['pa_curso']));
-							if ($pais != $xpais){
-								$sx .= '<TR bgcolor="#C0C0C0"><TD colspan=5 class="lt3"><strong>'.$pais; 
-								$xpais = $pais; 
-							    }
-								$sx .= '<TR>';
-						
-						$sx .= '<TD>&nbsp;&nbsp;&nbsp;'.$this->tratar_nome($line['pa_nome']);
-						$sx .= '<TD>'.$line['pb_colegio'];
-						$sx .= '<TD>'.$line['pb_colegio_orientador'];
-						//$sx .= '<TD>'.substr($line['pa_nome'],0,strpos($line['pa_nome'],' '));
+					$id++;
+					$pais = msg(trim($line['pa_curso']));
+						if ($pais != $xpais){
+							$sx .= '<TR bgcolor="#C0C0C0"><TD colspan=5 class="lt3"><strong>'.$pais; 
+							$xpais = $pais; 
+						    }
+							$sx .= '<TR>';
+					$sx .= '<TD>&nbsp;&nbsp;&nbsp;'.$this->tratar_nome($line['pa_nome']);
+					$sx .= '<TD>'.$line['pb_colegio'];
+					//mostra e-mails
+					//$sx .= '<TD>'.$line['pa_email'];
+					//$sx .= '<TD>'.$line['pa_email_1'];
+					$sx .= '<TD>'.$line['pb_colegio_orientador'];
+					//mostra latitude e longitude
+					//$sx .= '<TD>'.$line['inst_lat'];
+					//$sx .= '<TD>'.$line['inst_log'];
+
 					}
 				$sx .= '</table></br></br>';
+				
+				$sx .= '<table width="100%" class="lt1" border=1>';
+				$sx .= '<TR>';
+				$sx .= '	<TH style="text-align:right"><strong>Total de '.$id.' estudantes</strong>';
+				$sx .= '</table></br>';
+				$sx .= '</table></br>';
 				return($sx);			
 			}							
 
@@ -1272,6 +1293,7 @@ class csf
  * @author Elizandro Santos de Lima[Analista de Projetos]
  * @date: 24/04/2015
  */	
+ 
 	function grafico_estudantes_genero()
 	{	
 		$sql = "
@@ -1765,10 +1787,7 @@ class csf
 			$sx .= '<TR><TD colspan=5>Total '.$id.' alunos do programa CsF';
 			$sx .= '</table>';
 		
-		if ($perfil->valid('#TST'))
-			{	
 				return($sx);
-			}	
 			
 
 }

@@ -30,17 +30,41 @@ require ("pibic_edital_3_resumo.php");
 //$sql = 'CREATE INDEX index_key_05 ON "pibic_aluno" (pa_cracha); ';
 //$rlt = db_query($sql);
 
+/************************************* atualiza alunos implementados*/
+$sql = "alter table pibic_submit_documento add column pp_aluno_original char(8) ";
+//$rlt = db_query($sql);
+
+$sql = "select id_doc, doc_aluno, pb3.pb_aluno as aluno, pp_aluno_original from pibic_submit_documento ";
+$sql .= " inner join pibic_aluno on pa_cracha = doc_aluno ";
+$sql .= " left join pibic_bolsa as pb1 on (doc_protocolo = pb1.pb_protocolo) ";
+$sql .= " left join pibic_projetos on pj_codigo = doc_protocolo_mae ";
+$sql .= " left join pibic_bolsa_contempladas as pb3 on ((pb3.pb_protocolo = doc_protocolo) and (pb3.pb_status<>'C') and (pb3.pb_ano='" . (date("Y")) . "')) ";
+$sql .= " where doc_ano = '" . date("Y") . "' ";
+$sql .= " and (doc_protocolo <> doc_protocolo_mae) ";
+$rlt = db_query($sql);
+while ($line = db_read($rlt)) {
+	$a1 = $line['doc_aluno'];
+	$a2 = trim($line['aluno']);
+	if (($a1 != $a2) and (strlen($a2) > 0)) {
+		$sql = "update pibic_submit_documento set pp_aluno_original = doc_aluno where id_doc = " . $line['id_doc'];
+		//$sql .= " and pp_aluno_original is null ";
+		$xrlt = db_query($sql);
+		$sql = "update pibic_submit_documento set doc_aluno = '" . $a2 . "' where id_doc = " . $line['id_doc'];
+		$xrlt = db_query($sql);
+	}
+}
+
+/****************************/
 
 $sql = "select * from pibic_submit_documento
 		 	left join pibic_aluno on pa_cracha = doc_aluno
 			where pa_cracha isnull ";
 $rlt = db_query($sql);
-while ($line = db_read($rlt))
-	{
-		$sql = "update pibic_submit_documento set doc_aluno = '00000000' where id_doc = ".$line['id_doc'];
-		$xrlt = db_query($sql);
-		echo $sql;
-	}
+while ($line = db_read($rlt)) {
+	$sql = "update pibic_submit_documento set doc_aluno = '00000000' where id_doc = " . $line['id_doc'];
+	$xrlt = db_query($sql);
+	echo $sql;
+}
 
 $cps = 'pb3.id_pb as idp, doc_ava_estrategico, id_pj, pj_codigo, doc_doutorando, doc_area, pb2.pb_tipo as pb_tipo_ant, pb3.pb_tipo as pb_tipo_atu,pb1.pb_tipo as pb_tipo, ap_tit_titulo, pp_nome, pp_centro, pp_ss, pa_nome, doc_icv, doc_estrategica, doc_nota, doc_protocolo_mae, doc_protocolo ';
 $cps .= ', pp_prod, pp_cracha, doc_aluno, doc_avaliacoes ';
@@ -63,8 +87,6 @@ $sql .= " and (doc_status <> 'X' and doc_status <> '@' ) ";
 $sql .= " and (doc_aluno <> '') ";
 $sql .= " and doc_nota > 10 ";
 $sql .= " order by  doc_area, doc_nota desc, doc_protocolo ";
-
-
 
 if ($dtipo == 'PIBICE') {
 	$cps = 'pb3.id_pb as idp, doc_ava_estrategico, id_pj, pj_codigo, doc_doutorando, doc_area, pb2.pb_tipo as pb_tipo_ant, pb3.pb_tipo as pb_tipo_atu,pb1.pb_tipo as pb_tipo, ap_tit_titulo, pp_nome, pp_centro, pp_ss, doc_icv, doc_estrategica, doc_nota, doc_protocolo_mae, doc_protocolo ';
@@ -148,7 +170,7 @@ while ($line = db_read($rlt)) {
 	if (strlen($bolsa_ant) > 0) { $bolsa_ant_img = '<IMG SRC="img/logo_bolsa_' . $bolsa_ant . '.png" border=0 height="16" >';
 	} else { $bolsa_ant_img = '-';
 	}
-	
+
 	$doutorando = $line['doc_doutorando'];
 	if ($doutorando == 1) { $doutorando = 'SIM';
 	} else { $doutorando = '-';

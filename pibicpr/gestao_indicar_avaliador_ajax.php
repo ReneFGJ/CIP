@@ -83,6 +83,11 @@ switch ($rtipo) {
 		$field = 'pb_relatorio_final';
 		$limit_avaliacoes = 10;
 		break;
+	case 'RFNR' :
+	/* Relatório Parcial Junior */
+		$field = 'pb_relatorio_final_correcao';
+		$limit_avaliacoes = 10;
+		break;		
 	default :
 		echo '<font color="red">Relatório não implementado ' . $rtipo . '</font>';
 		exit ;

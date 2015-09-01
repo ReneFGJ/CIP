@@ -1182,6 +1182,75 @@ class submit {
 		return ($sx);
 	}
 
+
+
+
+//####################################################################################                      
+//**************************** Inicio do metodo **************************************
+/* @method: submit_documentos_postados()
+ *          busca documento CEP E CEUA postados
+ * @author Elizandro Santos de Lima[Analista de Projetos]
+ * @date: 12/08/2015
+ */
+ function submit_documentos_postados() {
+			
+			$sql = "
+					SELECT doc_dd0, doc_filename, doc_tipo, doct_nome, doc_ano, doc_data 
+					FROM pibic_ged_documento 
+					left join pibic_ged_documento_tipo on doct_codigo = doc_tipo
+					where doc_tipo = 'CEP' or doc_tipo = 'CEU'
+					and doc_ano >= '2014'
+					order by  doc_ano, doc_dd0	
+				 	";
+					
+			$rlt = db_query($sql);	
+			
+			$sx = '<table width="100%">';
+			$sx .= '<H2>Postagems de documentos CEP e CEUA</h2>';
+			$sx .= '<TR class="tabela01">
+						<TH width="5%" >Protocolo
+						<TH width="22%"	>Arquivo Postado
+						<TH width="5%"	>Tipo
+						<TH width="25%"	>Descrição tipo de documento	
+						<TH width="8%"	>Ano
+						<TH width="10%"	>Data Postagem
+					';
+			
+			$tot = 0;
+			
+			while ($line = db_read($rlt)){
+				
+			$tot++;					
+
+			$var01 	= $line['doc_dd0'];
+			$var02  = $line['doc_filename'];						
+			$var03 	= $line['doc_tipo'];
+			$var04 	= $line['doct_nome'];
+			$var05 	= $line['doc_ano'];
+			$var06 	= $line['doc_data'];
+			
+			$sx .= '<TR>';
+			$sx .= '<TD class="tabela01" align="left">'		.$var01;
+			$sx .= '<TD class="tabela01 align="left">'		.$var02;
+			$sx .= '<TD class="tabela01" align="center">'	.$var03;
+			$sx .= '<TD class="tabela01" align="left">'	.$var04;
+			$sx .= '<TD class="tabela01" align="center">'	.$var05;
+			$sx .= '<TD class="tabela01" align="center">'	.$var06;			
+			}
+			
+			$sx .=  '<TR>
+					 	<TD colspan=5 align=right BGCOLOR="#C0C0C0" valign="bottom">
+						<font color="red">Total de '.$tot.' documentos postados</font>';
+			$sx  .= '</table>';
+			
+			return($sx);
+		}
+     
+//**************************** Fim do metodo *****************************************
+
+
+
+
 }
 ?>
 

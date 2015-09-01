@@ -21,48 +21,12 @@ $edital = new projetos;
 		<TD class="lt5" align="center"><?=$relatorio_titulo;?><?=$tit1;?></TD>
 		<TD width="30%" align="right" valign="top"><NOBR>
 		<img src="img/logo_pucpr.jpg" height="90" alt="" border="0">&nbsp;
-		<img src="img/logo_re2ol.jpg" height="0" alt="" border="0">&nbsp;
-		<!--
+
 		<img src="img/logo_fundacao_araucaria.jpg" height="50" alt="" border="0">
-		-->
-		<img src="img/logo_re2ol.jpg" height="50" alt="" border="0">
 		</TD>
 	</TR>
 </TABLE>
 <?
-	$tit1 = " "; 
-	//$hb = '<table class="lt0" width="100%"><TR>';
-	//$hb .= '<TD>Bolsas:</TD>';
-	//$hb .= '<TD><NOBR><img src="img/logo_cnpq_mini.jpg" width="34" height="15" alt="" border="0"> CNPQ';
-	//$hb .= '<TD><NOBR><img src="img/logo_fa_mini.jpg" width="34" height="15" alt="" border="0"> Fundação Araucária';
-	//$hb .= '<TD><NOBR><img src="img/logo_bolsa_C.png" width="34" height="15" alt="" border="0"> CNPq';
-	//$hb .= '<TD><NOBR><img src="img/logo_bolsa_N.png" width="34" height="15" alt="" border="0"> Fundação Araucária - Inclusão Social';
-	//$hb .= '<TD><NOBR><img src="img/logo_pucpr_mini.jpg" width="34" height="15" alt="" border="0"> PUCPR';
-	//$hb .= '<TD><NOBR><img src="img/logo_bolsa_7.png" width="34" height="15" alt="" border="0"> Junventude';	
-	//$hb .= '<TD><NOBR><img src="img/logo_bolsa_U.png" width="34" height="15" alt="" border="0">';
-	//$hb .= '<TD><NOBR><img src="img/logo_bolsa_[.png" width="34" height="15" alt="" border="0"> Ciência & Transcedência';
-	//$hb .= '<NOBR>Bolsa de Iniciação Científica em áreas estratégicas - PUCPR</TD>';
-	//$hb .= '<TD><NOBR><img src="img/logo_bolsa_M.png" width="34" height="15" alt="" border="0">';
-	//$hb .= '<NOBR>Bolsa PUCPR Doutorando</TD>';
-	//$hb .= '<TD width="10%">&nbsp;</TD>';
-	
-	//$hb .= '<TR>';
-	//$hb .= '<TD colspan="5"><img src="img/logo_icv_mini.jpg" width="34" height="15" alt="" border="0">';
-	//$hb .= ' Projeto aprovado para Iniciação Científica Voluntária (obrigatoriedade de adesão para concorrer a bolsas desistentes)</TD>';
-
-//	$hb .= '<TR>';
-//	$hb .= '<TD colspan="5"><img src="img/logo_aprov_mini.jpg" width="34" height="15" alt="" border="0">';
-//	$hb .= ' Projeto qualificado para Iniciação Científica (obrigatoriedade de adesão a ICV para concorrer a bolsas desistentes)</TD>';
-
-	//$hb .= '<TR>';
-//	$hb .= '<TD colspan="5"><img src="img/logo_gr2_mini.jpg" width="34" height="15" alt="" border="0">';
-//  $hb .= ' Bolsa de Iniciação Científica concedida diretamente ao pesquisador em editais de orgãos de fomento ou por empresas</TD>';
-
-//	$hb .= '<TR>';
-//	$hb .= '<TD colspan="5"><img src="img/logo_estra_mini.jpg" width="34" height="15" alt="" border="0">';
-//	$hb .= ' Bolsa de Iniciação Científica concedida a projetos em áreas estratégicas</TD>';
-
-	//$hb .= '</table>';
 	
 	echo $hb;
 } else {

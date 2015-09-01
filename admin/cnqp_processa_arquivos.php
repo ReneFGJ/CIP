@@ -34,6 +34,7 @@ if (strlen($arq) > 0)
 		if ($tipo == 'LIVRO') { $lt->inport_livros($sData); $lt->delete_file($arq); }
 		if ($tipo == 'CAPIT') { $lt->inport_livros_capitulos($sData); $lt->delete_file($arq); }
 		if ($tipo == 'PROJE') { $lt->inport_projetos($sData); $lt->delete_file($arq); }
+		if ($tipo == 'QUALI') { $lt->inport_qualis_periodico($sData); $lt->delete_file($arq); }
 		
 		if (strlen($tipo) > 0)
 			{

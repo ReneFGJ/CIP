@@ -1,3 +1,8 @@
+<?php
+require("cab.php");
+require($include."sisdoc_debug.php");
+require($include."sisdoc_menus.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,14 +85,6 @@
               <span>Bolsas por gênero </span>
             </div>
           </a>
-		  
-		  <!--
-          <a href="pagina-grafico-5.php">
-            <div class="botao-6">
-              <span>Perfil dos estudantes de Intercâmbio</span>
-            </div>
-          </a>
-		  -->	
         </div>
 
     <div class="clear"></div>

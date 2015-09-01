@@ -145,6 +145,7 @@ if ($consulta == true) {
 	//	print_r($result);
 }
 /* Monitoramento de erros */
+$debug = False;
 if ($debug == True) {
 	echo '<TABLE width="600" border="1"><TR><TD><TT>';
 	echo '<B>' . $al_pessoa . '</B>';

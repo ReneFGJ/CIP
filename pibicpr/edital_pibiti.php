@@ -25,10 +25,7 @@ $edital = new projetos;
 		<TD width="30%" align="right" valign="top"><NOBR>
 		<img src="img/logo_pucpr.jpg" height="90" alt="" border="0">&nbsp;
 		<img src="img/logo_re2ol.jpg" height="0" alt="" border="0">&nbsp;
-		<!--
 		<img src="img/logo_fundacao_araucaria.jpg" height="50" alt="" border="0">
-		-->
-		<img src="img/logo_re2ol.jpg" height="50" alt="" border="0">
 
 		</TD>
 	</TR>

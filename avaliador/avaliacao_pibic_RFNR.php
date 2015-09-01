@@ -12,27 +12,7 @@ $bolsa = new pibic_bolsa_contempladas;
 
 /* Le dados da Indicação */
 $parecer_pibic->tabela = 'pibic_parecer_'.date("Y");
-$parecer_pibic->le($dd[0]);
-$dd[8]='1';
-/* Se em branco */
-
-if (strlen($acao)==0)
-	{
-	$sql = "select * from ".$parecer_pibic->tabela."	
-			where pp_protocolo = '".$parecer_pibic->line['pp_protocolo']."'
-			and pp_p01 = '-1' 
-			order by id_pp 
-		";
-	$aaa = db_query($sql);
-	if ($xline = db_read($aaa))
-		{
-		$dd[5]=date("Ymd");
-		$dd[6]=date("H:i");
-		$dd[7]='@';
-		$dd[17]=$xline['pp_abe_09'];
-		$acao = 'post';
-		}
-	}
+$ok = $parecer_pibic->le($dd[0]);
 	
 /* Recupera protocolo do projeto */
 $protocolo = $parecer_pibic->protocolo;
@@ -43,7 +23,6 @@ echo '<TR><TD>';
 
 $id = $dd[0];
 if ($dd[90] != checkpost($id)) { echo 'Erro de post'; exit; }
-$ok = $parecer->le($protocolo);
 
 /* */
 $sql = "update ".$parecer_pibic->tabela." set pp_data_leitura = ".date("Ymd")." where id_pp = ".round($id);
@@ -65,7 +44,8 @@ $ged->tabela = $bolsa->tabela_ged;
 $ged->protocol = $bolsa->pb_protocolo;
 $ged->convert('pibic_ged_files','pibic_ged_documento');
 
-$bolsa->filelist();
+//echo $bolsa->filelist();
+echo $ged->filelist();
 
 $comentarios = 'Comentários';
 
@@ -73,22 +53,18 @@ $sp = '<HR width=70% size=1><BR>';
 
 echo '<P>';
 echo mst('
-<BR><BR>
+<BR><BR><B>Prezado avaliador</B>
+<BR><BR>Para cada pergunta abaixo haverá um campo de preenchimento obrigatório para seus comentários relacionados com a opção assinalada. Informamos que as frases na cor azul são informativas e restritas aos avaliadores e tem o propósito de dar uma uniformidade mínima nas avaliações.
+<BR><BR>Após a sua avaliação, o parecer será enviado ao professor orientador para conhecimento e correções, se for o caso. Nosso intuito é que aluno e professor orientador recebam seu feedback qualitativo e, a partir destes, poderão aprimorar o andamento da pesquisa e o aprendizado do aluno.
+<BR><BR>Agradecemos imensamente sua participação e colaboração.
+<BR><BR>Comitê Gestor 
 ');
 echo '</P>';
-echo '<HR><h7>RESUMO e <I>ABSTRACT</I></H7>';
-/* Apresentação do resumo */
-require("../_class/_class_semic.php");
-$semic = new semic;
-$semic->tabela = 'semic_ic_trabalho';
-$semic->tabela_autor = 'semic_ic_trabalho_autor';
-$proto = $bolsa->pb_protocolo;
 
-echo $semic->semic_mostrar($proto,'');
 
-$form_title = '<BR><B>Ficha de Avaliação do Relatório Final e Resumo</B>';
+$form_title = '<BR><B>Ficha de Avaliação da Correção do Relatório Final</B>';
 /** Campos do formulario **/
-require('avaliacao_pibic_RFIN_cp.php');
+require('avaliacao_pibic_RFNR_cp.php');
 
 if (strlen($acao) > 0)
 	{
@@ -98,7 +74,7 @@ if (strlen($acao) > 0)
 				if (($cp[$r][3]==True) and (strlen(trim($dd[$r]))==0))
 					{
 						$txt = $cp[$r][2];
-						$sr .= '<LI><B>'.$txt.' (dd'.$r.')</B> é obriatório</LI>'.chr(13);
+						$sr .= '<LI><B>'.$txt.'</B> é obriatório</LI>'.chr(13);
 					}
 			}
 		if (strlen($sr) > 0)
@@ -130,8 +106,7 @@ if (strlen($acao) > 0)
 		{
 			/* recupera status de aprovação */
 			if ($cp[$r][1]=='pp_p01') { $is = $dd[$r]; }
-			if ($cp[$r][1]=='id_pp') { $cp[$r][1]=''; }
-			//echo '<BR>'.$r.'--'.$cp[$r][1];
+
 			/* */
 			if (strlen($cp[$r][1]) > 0)
 				{
@@ -146,6 +121,7 @@ if (strlen($acao) > 0)
 echo '<TR><TD>'.msg('avaliador_info');
 echo '<TR><TD align=center class=lt5>'.$form_title;
 echo '<TR><TD>';
+$tabela = '';
 editar();
 echo '</table>';
 	
@@ -155,8 +131,7 @@ if ($saved > 0)
 		
 		require('../_class/_class_ic.php');
 		$ic = new ic;
-		$ics = 'RFIN_RESULT_'.$is;
-		if ($is < 0) { $ics = 'RFIN_RESULT_R'; }
+		$ics = 'RFC_RESULT_'.$is;
 	
 		$text = $ic->ic($ics);
 		
@@ -171,7 +146,7 @@ if ($saved > 0)
 		$conteudo = troca($conteudo,'$aluno',$bolsa->pb_est_nome);
 		
 		
-		require("avaliacao_pibic_RFIN_pdf.php");		
+		require("avaliacao_pibic_RFNR_pdf.php");		
 		
 		/* Enviar e-mail */
 		require("../pibicpr/_email.php");
@@ -180,13 +155,12 @@ if ($saved > 0)
 		
 		
 		$emails = array();
-		//array_push($emails,'monitoramento@sisdoc.com.br');
+		//array_push($emails,'renefgj@gmail.com');
+		
 		array_push($emails,'pibicpr@pucpr.br');
-		if ($is <> 0)
-			{
-			if (strlen($email1) > 0) { array_push($emails,$email1); }
-			if (strlen($email2) > 0) { array_push($emails,$email2); }
-			}
+		array_push($emails,'renefgj@gmail.com');
+		if (strlen($email1) > 0) { array_push($emails,$email1); }
+		if (strlen($email2) > 0) { array_push($emails,$email2); }
 		
 		for ($r=0;$r < count($emails);$r++)
 			{
@@ -202,7 +176,7 @@ if ($saved > 0)
  			//$admin_nome
 	 
 	 		$quebra_linha="\r\n";
-			$file_name = "parecer_relatorio_final-".$bolsa->pb_protocolo.'.pdf';
+			$file_name = "parecer_relatorio_final_correcao-".$bolsa->pb_protocolo.'.pdf';
 	 
  			//cabeçalho da mensagem
 			$boundary = "XYZ-" . date("dmYis") . "-ZYX"; 
@@ -229,14 +203,14 @@ if ($saved > 0)
  			mail($para, $assunto, $mens, $headers);
 			echo '<BR>Enviado e-mail para '.$para;		
 			}	
-
+		
 		$sql = "update pibic_bolsa_contempladas set 
-				pb_relatorio_final_nota = ".round($is).",
-				pb_resumo_nota = ".round($is)."
+				pb_relatorio_final_correcao_nota = ".round($is)."
 				where pb_protocolo = '".$bolsa->pb_protocolo."' ";
 		$qrlt = db_query($sql);	
 		$sql = "update ".$parecer_pibic->tabela." set pp_status = 'B' where id_pp = ".round($id);
 		$qrlt = db_query($sql);
+		
 		redirecina('main.php');
 		}
 

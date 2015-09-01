@@ -38,7 +38,8 @@ class ic_relatorio_final
 			global $dd;
 			$pb = new pibic_bolsa_contempladas;
 				$sql = "select * from ".$pb->tabela."
-					left join pibic_parecer_".date("Y")." on pp_protocolo = pb_protocolo and pp_tipo='RFIN' and pp_status = 'B' 
+					left join pibic_parecer_".date("Y")." on pp_protocolo = pb_protocolo 
+							and pp_tipo='RFIN' and pp_status = 'B' 
 					inner join pibic_aluno on pb_aluno = pa_cracha 
 					inner join pibic_professor on pb_professor = pp_cracha
  					inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
@@ -411,15 +412,17 @@ class ic_relatorio_final
 		{
 			$pb = new pibic_bolsa_contempladas;
 				$sql = "select * from ".$pb->tabela."
-					left join pibic_parecer_".date("Y")." on pp_protocolo = pb_protocolo and pp_tipo='RFIN' and pp_status = 'B' 
+					left join pibic_parecer_".date("Y")." on pp_protocolo = pb_protocolo 
+						and pp_tipo='RFIN' and pp_status = 'B' 
 					inner join pibic_aluno on pb_aluno = pa_cracha 
 					inner join pibic_professor on pb_professor = pp_cracha
  					inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
  					left join ajax_areadoconhecimento on pb_semic_area = a_cnpq
  					left join semic_ic_trabalho on sm_codigo = pb_protocolo
  					left join centro on pp_escola = centro_codigo 
+ 					left join pibic_ged_documento on doc_dd0 = pb_protocolo
 					where pb_status <> 'C' and (pp_p01 = '-1')
-					and pb_ano = '".(date("Y")-1)."'
+					and pb_ano = '".(date("Y")-1)."' and doc_tipo = 'RFC'
 					order by centro_nome, pp_nome, pa_nome					
 				";
 			$rlt = db_query($sql);
@@ -428,6 +431,7 @@ class ic_relatorio_final
 			$id = 0;
 			while ($line = db_read($rlt))
 				{
+					
 					$id++;
 					$idx = trim($line['pb_protocolo']);
 					$area = $line['a_cnpq'];
@@ -463,7 +467,7 @@ class ic_relatorio_final
 							var trs = "#TR"+id;
 							var tri = "#TRI"+id;
 							$(tri).show();
-							var file = "rfr_indicar_avaliador_ajax.php?dd0="+id;
+							var file = "rfc_indicar_avaliador_ajax.php?dd0="+id;
 							var jqxhz = $.ajax( file )
 								.done(function(dados) 
 									{ $( tri ).html(dados); })
@@ -744,7 +748,7 @@ function form_crp($ged)
 						
 			$sx .= '<TR>';
 			$sx .= '<TD width="100%" colspan=2>';
-			$sx .= $this->form_upload_arquivo($ged,'RELAF');
+			$sx .= $this->form_upload_arquivo($ged,'RFC');
 			
 			$sx .= '<TR>';
 			$sx .= '<TD width="50%">';
@@ -818,7 +822,7 @@ function form_crp($ged)
 	function lista_correcoes_pendentes($id_pesq)
 		{
 				global $tab_max;
-
+				
 				$sql = "select * from pibic_bolsa_contempladas ";
 				$sql .= "left join pibic_aluno on pb_aluno = pa_cracha ";
 				$sql .= "left join pibic_professor on pb_professor = pp_cracha 
@@ -827,8 +831,10 @@ function form_crp($ged)
 				//$sql .= "left join pibic_submit_documento on doc_protocolo = pb_protocolo_mae ";
 				//$sql .= "left join pibic_edital on pb_protocolo = pee_protocolo ";
 				$sql .= " where pb_professor = '".$id_pesq."' ";
-				$sql .= " and ((pb_relatorio_final_nota = 2) or (pb_relatorio_final  isnull)) ";
+				$sql .= " and ((pb_relatorio_final_nota = 2) or (pb_relatorio_final_nota = -1) or (pb_relatorio_final_nota = -90) or (pb_relatorio_final  isnull)) ";
 				$sql .= " and (pb_status <> '@' and pb_status <> 'C' ) ";
+				$sql .= " and ((pb_relatorio_final_correcao isnull)) ";
+				
 				$sql .= " and pb_ano = '".(date("Y")-1)."' ";
 				$sql .= " order by pa_nome";
 				$SQL .= " limit 1000 ";
@@ -854,7 +860,7 @@ function form_crp($ged)
 					$sx .= $aluno;
 					$sx .= '<BR>Modalidade: '.$bolsa.' ('.$bolsa_nome.'/'.$line['pb_ano'].')';
 					$sx .= '<TD >';
-					$sx .= '<form action="atividade_IC5_acao.php">';
+					$sx .= '<form action="atividade_IC8_acao.php">';
 					$sx .= '<input type="hidden" name="dd0" value="'.trim($line['pb_protocolo']).'">';
 					$sx .= '<input type="hidden" name="dd1" value="'.trim($line['id_pb']).'">';
 					$sx .= '<input type="hidden" name="dd90" value="'.checkpost(trim($line['pb_protocolo'])).'">';

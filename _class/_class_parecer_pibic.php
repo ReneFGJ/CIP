@@ -804,19 +804,21 @@ class parecer_pibic
 			$sx .= '<TR><TD colspan=10>Total de '.$tot1.' projetos indicados';
 			$sx .= '</table>';
 			
-			$sa = '<table width="400" class="tabela00">';
-			$sa .= '<TR><TH align="center" width="20%">Avaliados
-						<TH align="center" width="20%">Abertos
-						<TH align="center" width="20%">Declinados
-						<TH align="center" width="20%">Total indicados
-						<th ALIGN="CENTER" width="20%">% avaliador';
+			$sa = '<table width="450" class="tabela00">';
+			$sa .= '<TR><TH align="center" width="16%">Avaliados
+						<TH align="center" width="16%">Abertos
+						<TH align="center" width="16%">Declinados
+						<TH align="center" width="16%">Total indicados
+						<th ALIGN="CENTER" width="16%">% avaliado
+						<th ALIGN="CENTER" width="16%">% declinado';
 			$sa .= '<TR><TD class="tabela01" align="center">'.$tot2;
 			$sa .= '    <TD class="tabela01" align="center">'.$tot3;
 			$sa .= '    <TD class="tabela01" align="center">'.$tot4;
 			$sa .= '    <TD class="tabela01" align="center">'.$tot1;
 			if ($tot1 > 0)
 				{
-				$sa .= '    <TD class="tabela01" align="center">'.number_format($tot2/$tot1*100,1).'%';
+				$sa .= '    <TD class="tabela01" align="center">'.number_format($tot2/($tot2+$tot3)*100,1).'%';
+				$sa .= '    <TD class="tabela01" align="center">'.number_format($tot4/($tot1)*100,1).'%';
 				}
 			$sa .= '</table>';
 			

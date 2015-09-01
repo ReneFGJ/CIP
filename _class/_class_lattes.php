@@ -76,6 +76,7 @@ class lattes
 				array_push($tps,'CAPIT');
 				array_push($tps,'ARTIG');
 				array_push($tps,'PROJE');
+				array_push($tps,'QUALI');
 				
 				$file = '';
 				for ($r=0;$r < count($tps);$r++)
@@ -117,11 +118,12 @@ class lattes
 		function tipo_obra($ln)
 			{
 				$tp = '';
+				echo '<pre>'.$ln.'</pre>';
 				if (strpos($ln,'"Título do Livro";"ISBN";"Ano Publicação";') > 0) { $tp = 'LIVRO'; }
 				if (strpos($ln,'"Título da Obra Publicada";"ISBN";"Ano Publicação";"') > 0) { $tp = 'LVORG'; }
 				if (strpos($ln,'"Título do Trabalho";"Evento";"ISBN"') > 0) { $tp = 'EVENT'; }
 				if (strpos($ln,'"Título";"ISBN";"Ano Publicação";"DSC_IDIOMA";') > 0) { $tp = 'CAPIT'; }
-				
+				if (strpos(' '.$ln,'ISSN;Título;Estrato;Área de Avaliação;Status') > 0) { $tp = 'QUALI'; }
 				if (strpos($ln,'"Título do Projeto";') > 0) { $tp = 'PROJE'; }
 				
 				if (strpos($ln,'"Tipo da Produção";"Idioma";"Ano";"Título do Artigo";') > 0) { $tp = 'ARTIG'; }
@@ -905,7 +907,193 @@ class lattes
 					return($sx);
 				
 			}
-		
+		function resumo_qualis_escola($escola,$areas,$anoi=1990,$anof=2999,$tp=0,$producao='A')
+			{
+				$ano = date("Y");
+				$area = '00079';
+				$sx = '<table width="100%" class="tabela00">';
+				$sx .= '<TR><TH>ISSN<TH>Journal<TH><TH>Estr.<TH>Ano<TH>Vol.<TH>Pag.<TH>Autor';
+				for ($r=0;$r < count($areas);$r++)
+				{
+					$area = $areas[$r];
+					$wh_areas = " and (eq_area = '".$area."' ) ";
+								
+					$sql = "select j_name, eq_estrato, eq_ano, j_issn, la_ano, 
+							la_periodico, la_vol, la_pag, la_professor, la_tipo,
+							pp_nome, la_titulo, la_nul, pp_curso
+							
+							from lattes_artigos
+							inner join pibic_professor on pp_cracha = la_professor
+							left join lattes_journals on j_codigo = la_periodico
+							left join qualis_estrato on (j_issn = eq_issn) $wh_areas and (eq_ano = '".$ano."')";
+					$wh = "	where pp_escola = '$escola'
+							and (la_ano >= '$anoi' and la_ano <= '$anof')
+							and (la_tipo = '".$producao."') "; 
+					$sql .= $wh . "
+							group by j_name, eq_estrato, eq_ano, j_issn, la_ano, la_periodico, la_vol, la_pag, la_professor, la_tipo, pp_nome, la_titulo, la_nul, pp_curso
+							order by pp_nome, la_ano desc, eq_estrato, la_periodico, la_vol, la_pag, la_professor, pp_curso ";
+					
+					$rlt = db_query($sql);
+					
+					$at = array(0,0,0,0,0,0,0,0,0);
+					$ar = array($at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at,$at);
+					$xissn = 'x';
+					$xvol = 'x';
+					$xpag = 'x';
+					$xano = 'x';
+					
+					$xano = 0;
+					$xest = 'x';
+					
+					$tot1=0;
+					$tot2=0;
+					
+					while ($line = db_read($rlt))
+					{
+						$ok = 1;
+						$issn = trim($line['j_issn']);
+						$vol = trim($line['la_vol']);
+						$pag = round(sonumero(trim($line['la_pag'])));
+						$ano = trim($line['la_ano']);
+						
+						if (($issn == $xissn) and ($vol == $xvol)
+							and ($ano == $xano) and ($xpag == $pag))
+							{ $ok = 0; }
+						
+						$xissn = trim($line['j_issn']);
+						$xvol = trim($line['la_vol']);
+						$xpag = round(sonumero(trim($line['la_pag'])));
+						$xano = trim($line['la_ano']);
+													
+							
+						$estrato = trim($line['eq_estrato']);
+						$id = 8;
+						
+						$cor = '';
+						if ($ok==0) { $cor = '<font color="red">'; }
+						
+						if ($estrato == 'A1') { $id = 0; }
+						if ($estrato == 'A2') { $id = 1; }
+						
+						if ($estrato == 'B1') { $id = 2; }
+						if ($estrato == 'B2') { $id = 3; }
+						if ($estrato == 'B3') { $id = 4; }
+						if ($estrato == 'B4') { $id = 5; }
+						if ($estrato == 'B5') { $id = 6; }
+						
+						if ($estrato == 'C') { $id = 7; }
+						
+						
+						/** Elimina duplicados */
+						if ($ok==1)
+							{
+							$ano = round($line['la_ano']);
+							$ano = ($ano-(date("Y"))+35);
+							if ($ano >=0)
+								{ $ar[$ano][$id] = $ar[$ano][$id] + 1; }
+							}
+						
+						//if (substr($line['eq_estrato'],0,1)=='A')
+						{						
+						if ($xano != $line['la_ano'])
+							{ $sx .= '<TR><TD class="lt3" colspan=2><B>'.$line['la_ano']; $xano = $line['la_ano'].'</B>'; }
+
+						if ($xest != $line['pp_nome'])
+							{
+								if ($tot1 > 0)
+									{
+									$sx .= '<TR><TD class="lt2" colspan=4 align="right"><i>total '.$tot1.'</i>';
+									$tot1 = 0;  		
+									}
+								$xest = $line['pp_nome'];
+								 $sx .= '<TR><TD class="lt2" colspan=2><h1>'.$xest.' ('.$line['pp_curso'].')</h1>';  
+							}
+
+						$fi = $line['la_jcr'];
+						$sx .= '<TR valign="top" >';
+						$sx .= '<TD>'.$cor.$line['j_issn'];
+						$sx .= '<TD><B>'.$cor.$line['j_name'].'</B>';
+						$sx .= '<BR><I>'.$line['la_titulo'].'</I>';
+						$sx .= '<TD>'.$cor.$line['qa_descricao'];
+						$sx .= '<TD>'.$cor.$line['eq_estrato'];
+						$sx .= '<TD><nobr>'.$line['la_vol']
+									.'('.$line['la_nul'].')'
+									.', '.$line['la_ano'];
+						$sx .= '<TD><NOBR>p. '.$line['la_pag'];
+						$sx .= '<TR><TD><TD colspan=10>';
+						//$sx .= $cor.$line['pp_nome'].' ('.$line['la_professor'].')';
+						//$sx .= '<TD>'.$cor.$line['id_la'];
+						$tot1++;
+						$tot2++;
+						}
+					}
+					$sx .= '<TR><TD colspan=7><center>';
+					$sa = '<table width="100%" class="tabela00">';
+					$sa .= '<TR align="center"><TH>ano<TH>A1<TH>A2<TH>B1<TH>B2<TH>B3<TH>B4<TH>B5<TH>C<TH>s.q<TH>Total<TH>Equiv.';
+					$at = array(0,0,0,0,0,0,0,0,0);
+					for ($rq=35;$rq >= 0;$rq--)
+						{
+							if (count($ar[$rq]) > 0)
+							{
+								$tt = 0;
+								$tte= 0;
+								$multe = $this->equivalencia();
+																
+								$sq = '<TR><TD align="center" class="tabela01">'.(date('Y')+$rq-35);
+								for ($y=0;$y < count($ar[$rq]);$y++)
+								{
+									$sq .= '<TD width="8%" align="center" class="tabela01">';
+									$mt = $ar[$rq][$y];
+									$at[$y] = $at[$y] + $mt;
+									  
+									$tt = $tt + $mt;
+									if ($mt == 0) { $mt = '&nbsp;'; }
+									$sq .= $mt;
+									$tte = $tte + $multe[$y] * $mt; 
+								}
+								$sq .= '<TD width="8%" align="center" class="tabela01"><B>'.$tt;
+								$sq .= '<TD width="8%" align="center" class="tabela01"><B>'.number_format($tte,2,',','.');
+								if ($tt > 0) { $sa .= $sq; }
+							}
+						}
+					if ($tp==3)
+						{
+							$sa .= '<TR><TD><B>Total</B>';
+							for ($y=0;$y < 11;$y++)
+								{
+								$sa .= '<TD class="tabela01" align="center">';
+								$sa .= $at[$y];
+								}
+						}
+					$sa .= '</table>';
+				}
+				$sx .= '<TR><TD class="lt2" colspan=4 align="right"><i>total '.$tot1.'</i>';
+				$sx .= '<TR><TD class="lt2" colspan=4 align="right"><i><B>total geral '.$tot2.'</B></i>'; 
+				$sx .= '</table>';
+				
+				
+				/* Grafico Pizza */
+				$grp = "['Estrato Qualis','Artigos'] ";
+				$sql = "select eq_estrato, count(*) as total
+							from lattes_artigos
+							inner join pibic_professor on pp_cracha = la_professor
+							left join lattes_journals on j_codigo = la_periodico
+							left join qualis_estrato on (j_issn = eq_issn) $wh_areas ";
+				$sql .= $wh. " group by eq_estrato ";
+				
+				$rlt = db_query($sql);
+				$grp = "['Estrato','Total']";
+				while ($line = db_read($rlt))
+					{
+						$grp .= ', '.chr(13).chr(10);
+						$grp .= "['".trim($line['eq_estrato'])."', ";
+						$grp .= $line['total']."] ";
+					}				
+				
+				if ($tp==0) { return($sa.$sx); }		
+				if ($tp==1) { return($sa); }
+				if ($tp==3) { return($sa); }
+			}
 		function resumo_qualis_ss($programa,$areas,$anoi=1990,$anof=2999,$tp=0,$producao='A')
 			{
 				$ano = date("Y");
@@ -1677,6 +1865,7 @@ class lattes
 		function linhas($ln)
 			{
 				$lns = array();
+				$ln = troca($ln,chr(10),chr(13));
 				$ln .= chr(13);
 				while (strpos($ln,chr(13)) > 0)
 					{
@@ -1746,7 +1935,109 @@ class lattes
 						$ok = $this->inport_projeto($cp);
 					}
 				echo '</table>';
-			}				
+			}	
+		function recupera_area($area)
+			{
+				if (strlen($area)==0) { return(''); }
+				if ($area = 'Atualizado') { return(''); }
+				
+				$sql = "update qualis_area set qa_descricao = 'ADMINISTRAÇÃO, CIÊNCIAS CONTÁBEIS E TURISMO' where id_qa = 79 ";
+				//$rlt = db_query($sql);
+				
+				$sql = "select * from qualis_area where qa_descricao = '$area' ";
+				$rlt = db_query($sql);
+				if ($line = db_read($rlt))
+					{
+						return($line['qa_codigo']);
+					} else {
+						echo '<BR><font color=red>OPS, área não localizada "'.$area.'"</font>';
+						exit;
+
+						$sql = "select max(id_qa) as max from qualis_area ";
+						$rlt = db_query($sql);
+						$line = db_read($rlt);
+						print_r($line);
+						exit;
+						$sql = "insert into qualis_area 
+								(qa_descricao, qa_ativo, qa_codigo, qa_atualizado)
+								values
+								('$area','1','00084','2015')
+						";
+						$rlt = db_query($sql);
+						exit;
+						return('');
+					}
+			}
+		function salva_qualis($issn,$qualis,$area)
+			{
+				$ano = date("Y");
+				if (substr($issn,4, 1) == '-')
+				{
+				$sql = "select * from qualis_estrato where eq_issn = '$issn' and eq_area = '$area' ";
+				$rlt = db_query($sql);
+				if ($line = db_read($rlt))
+					{
+						$sql = "update qualis_estrato set 
+									eq_estrato = '$qualis',
+									eq_ano = '".date("Y")."'
+								where id_qe = ".$line['id_qe'];
+						$rlt = db_query($sql);
+						return(1);
+					} else {
+						$sql = "insert into qualis_estrato (eq_estrato, eq_ano, eq_area, eq_issn)
+								values
+								('$qualis','$ano','$area','$issn')
+						";
+						$rlt = db_query($sql);
+						return(2);
+					}
+				}
+				return('');
+			}						
+		function inport_qualis_periodico($ln)
+			{
+
+				$lns = $this->linhas($ln);
+				$nome = 'x';
+				echo '<table width="704"><TR><TD>Processamento<TR><TD><TT>';
+				$xareas = '';
+				$area = '';
+				for ($r=1;$r < count($lns);$r++)
+					{
+						$l = splitx(';',$lns[$r]);
+						$issn = $l[0];
+						$name = $l[1];
+						$qualis = $l[2];
+						$areas = $l[3];
+
+						
+						if ($xareas != $areas)
+							{
+								$area = $this->recupera_area($areas);
+								$xareas = $areas;
+								echo '<h1>'.$areas.'</h1>';
+							}
+							
+						echo '<BR>';
+						echo $issn;	
+						echo '-'.$name;
+						echo '-'.$qualis;
+													
+						if (strlen($area) > 0)
+							{
+								$ok = $this->salva_qualis($issn,$qualis,$area);
+								if ($ok == 1)
+									{
+										echo ' <font color="green">atualizado</font>';
+									}
+								if ($ok == 2)
+									{
+										echo ' <font color="blue">criado</font>';
+									}
+							}
+					}
+				echo '</table>';
+			}
 		function inport_livros_capitulos($ln)
 			{
 				//$sql = "delete from lattes_artigos"; $rlt = db_query($sql);
@@ -1760,7 +2051,7 @@ class lattes
 						$ok = $this->inport_livro_capitulo($cp);
 					}
 				echo '</table>';
-			}	
+			}				
 		function inport_livros($ln)
 			{
 				//$sql = "delete from lattes_artigos"; $rlt = db_query($sql);
