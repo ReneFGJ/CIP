@@ -26,8 +26,20 @@ require ("view/header/cab.php");
 		</a>
 		</center>
 	</div>
+	<div style="width: 500px; background: #C0C0C0; border: 1px; border-color: #8B1217;">
+		 Este concurso tem como objetivos estimular a comunidade discente a conhecer e
+refletir sobre o conteúdo da "Carta Encíclica LAUDATO SI´ do Santo Padre Francisco Sobre o
+Cuidado da Casa Comum" uma vez que como afirmado no documento: "Precisamos de um
+debate que nos uma a todos, porque o desafio ambiental, que vivemos, e as raízes humanas
+dizem respeito e têm impacto sobre todos nós." (Francisco, 2015:13)
+	</div>
+	<br />
 	<div id="pdf_edital">
 		<table  class="tabela01">
+			<tr valign="middle">
+				<td align="right"><a href="_documents/papa/Edital_15_2015 - Errata_edital_09_2015.pdf"><img src="img/papa/pdf-icon.png" width="40" border=0> </a></td>
+				<td class="lt3"> Errata do Edital </td>
+			</tr>			
 			<tr valign="middle">
 				<td align="right"><a href="_documents/papa/Edital_ 09_2015_Concurso_Papa_Francisco.pdf"><img src="img/papa/pdf-icon.png" width="40" border=0> </a></td>
 				<td class="lt3"> Download do Edital </td>
