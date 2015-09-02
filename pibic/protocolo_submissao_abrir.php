@@ -23,6 +23,10 @@ echo '<h1>' . msg('protocolo_' . $dd[1]) . '</h1>';
 
 $professor = trim($nw -> user_cracha);
 $ano = date("Y");
+if ($dd[1]=='RSM')
+	{
+		$ano = (date("Y")-1);
+	}
 $sql = "select * from pibic_projetos 
 			left join pibic_aluno on pj_aluno = pa_cracha
 			left join pibic_professor on pj_professor = pp_cracha

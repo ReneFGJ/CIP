@@ -749,6 +749,7 @@ class csf
 				$sx .= '<TR>';
 				$sx .= '	<TH style="text-align:right"><strong>Total de '.$id.' estudantes</strong>';
 				$sx .= '</table></br>';
+				
 				$sx .= '</table></br>';
 				return($sx);			
 			}							

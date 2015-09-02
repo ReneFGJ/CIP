@@ -38,7 +38,7 @@ array_push($cp,array('$S15','pa_cc_conta','Conta corrente',False,True,''));
 
 
 array_push($cp,array('$A','','Lattes',False,True,''));
-array_push($cp,array('$S100','pa_lattes','Link para Lattes',True,True,''));
+array_push($cp,array('$S100','pa_lattes','Link para Lattes',False,True,''));
 
 $dd[3] = UpperCaseSQL($dd[2]);
 if (trim($dd[8]) == '//') { $dd[8] = ''; }

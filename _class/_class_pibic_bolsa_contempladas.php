@@ -163,7 +163,15 @@ function parecer_nao_entregues($ano)
 			return($sx);		
 		}
 		
-		
+	function substituicao_motivo_semic()
+		{
+			$mt=array();
+			$mt['501'] = 'Meu aluno não está no edital para apresentação oral/pôster';
+			//$mt['502'] = 'Necessidade de reavaliação';
+			$mt['502'] = 'Outros motivos';
+			return($mt);
+		}	
+
 	function parecer_nao_entregues_areas_desagrupadas($ano)
 		{
 			/* localiza projetos */
@@ -299,7 +307,7 @@ function parecer_nao_entregues($ano)
 				
 				array_push($cp,array('$S8','pb_aluno','Aluno (Cracha)',False,True,''));
 				
-				$nota = '-90:Repostar documento&-99:Para avaliação&0:Postar documento&-1:Não aprovado&1:Nota 1&2:2&3:3&4:4&5:5&6:6&7:7&8:8&9:9&10:10';
+				$nota = '-90:Não postado&-99:Para avaliação&0:Postar documento&1:Nota 1&2:2&3:3&4:4&5:5&6:6&7:7&8:8&9:9&10:10';
 
 				array_push($cp,array('${','','PIBICJr',False,True,''));
 				array_push($cp,array('$S100','pb_aluno_nome','Nome do Aluno (PIBICJr)',False,True,''));
@@ -4521,26 +4529,6 @@ $sa .= '</TR>';
 	return($sx);
 				
 	}
-
-	function indicador_orientandos_projeto($ano='',$tipo='')
-			{
-				$wh = " and ((pbt_edital = 'PIBIC') or (pbt_edital = 'PIBITI') or (pbt_edital = 'IS')) ";
-				$ano = date("Y");
-				$sql = "select count(*) as total, pp_ss from (
-							select pb_professor, pp_ss, pb_protocolo_mae from pibic_bolsa_contempladas
-							left join pibic_professor on pb_professor = pp_cracha
-							where pb_ano = '".date("Y")."' 
-							group by pb_professor, pp_ss, pb_protocolo_mae
-							) as tabela
-						group by pp_ss
-						";
-				$rlt = db_query($sql);
-				while ($line = db_read($rlt))
-					{
-						print_r($line);
-						echo '<BR>';
-					}
-			}
 	
 		
 	function indicador_bolsa_completadas($filtro='',$tipo='',$campus='')
@@ -5334,7 +5322,8 @@ $sa .= '</TR>';
 									position: absolute;
 									z-index: 2;										
 									margin-left: 200px;				
-									">';
+									"
+									class="nopr">';
 						$ss .= '</div>';									
 						break;
 					case 'S':
@@ -5343,7 +5332,8 @@ $sa .= '</TR>';
 									position: absolute;
 									z-index: 2;										
 									margin-left: 200px;				
-									">';
+									"
+									class="nopr">';
 						$ss .= '</div>';									
 						break;
 					case 'A':
@@ -5352,7 +5342,8 @@ $sa .= '</TR>';
 									position: absolute;
 									z-index: 2;										
 									margin-left: 200px;				
-									">';
+									"
+									class="nopr">';
 						$ss .= '</div>';
 						break;	
 					case 'F':
@@ -5361,7 +5352,8 @@ $sa .= '</TR>';
 									position: absolute;
 									z-index: 2;										
 									margin-left: 200px;				
-									">';
+									"
+									class="nopr">';
 						$ss .= '</div>';
 						break;
 					}
@@ -5450,19 +5442,19 @@ $sa .= '</TR>';
 				$sx .= '<B>'.$this->pb_titulo_plano.'</B>';
 				
 				$sx .= '<TR class="lt0">';
-				$sx .= '<TD>'.msg('teacher');
+				$sx .= '<TD colspan=3>'.msg('teacher');
 				//$sx .= '<TD>'.msg('centro');
 				$sx .= '<font class="lt1">';
 				$sx .= '<BR><B>'.$this->pb_professor_nome.' ('.$this->pb_professor.')';;
 				//$sx .= '<TD colspan=3><B>'.$this->pb_professor_centro;
 
 				$sx .= '<TR class="lt0">';
-				$sx .= '<TD>'.msg('student');
+				$sx .= '<TD colspan=3>'.msg('student');
 				$sx .= '<font class="lt1">';
 				$sx .= '<BR><B>'.$this->pb_est_nome.' ('.$this->pb_aluno.')';
 				
 				$sx .= '<TR class="lt0">';
-				$sx .= '<TD>'.msg('course');
+				$sx .= '<TD colspan=3>'.msg('course');
 				$sx .= '<font class="lt1">';
 				$sx .= '<BR><B>'.$this->pb_est_curso;
 
@@ -5487,15 +5479,11 @@ $sa .= '</TR>';
 					$sx = '<B>'.stodbr($d1).'</B>';
 					
 					$sa = '';
-					if ($n1 < 1) { $sxx = ' '.msg('not_avalied'); }
-					if ($n1 == -1) { $sxx = ' '.'<font color="red">'.msg('pendente').'</font>'; }
-					if ($n1 == -90) { $sxx = ' '.'<font color="blue">'.msg('repostar').'</font>'; }
-					if ($n1 == 1) { $sxx = ' <font color="#303080">'.msg('aprovado').'</font>'; }
-					if ($n1 == 2) { $sxx = ' '.'<font color="red">'.msg('pendente').'</font>'; }
-					if ($n1 == 3) { $sxx = ' '.msg('reprovado'); }
-					if ($n1 == 4) { $sxx = ' <font color="#303080">'.msg('aprovado (gestor)'.'</font>'); }
-					$sx .= $sxx;
-					//$sx .= "($n1)";
+					if ($n1 < 1) { $sx .= ' '.msg('not_avalied'); }
+					if ($n1 == 1) { $sx .= ' <font color="#303080">'.msg('aprovado').'</font>'; }
+					if ($n1 == 2) { $sx .= ' '.'<font color="red">'.msg('pendente').'</font>'; }
+					if ($n1 == 3) { $sx .= ' '.msg('reprovado'); }
+					if ($n1 == 4) { $sx .= ' <font color="#303080">'.msg('aprovado (gestor)'.'</font>'); }
 				}
 			return($sx);
 		}

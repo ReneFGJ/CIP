@@ -102,6 +102,15 @@ echo '<TD width="300">';
 			echo '<ul>';
 			echo '<LI><A HREF="protocolo_submissao_abrir.php?dd1=RCS">Recurso de Submissão</A></LI>';
 	}
+
+	/* Recurso de Apresentação Oral */
+	require ("__submit_REC2.php");
+	if ($open == 1) {
+			echo '</ul>';
+			echo '<h3>Recursos</h3>';
+			echo '<ul>';
+			echo '<LI><A HREF="protocolo_abrir.php?dd1=RSM">Recurso de Apresentação Oral/Poster</A></LI>';
+	}
 	
 	echo '</UL>';
 	//echo $rc -> resumo_recurso_professor($professor);

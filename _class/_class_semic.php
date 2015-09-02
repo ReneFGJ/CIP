@@ -3377,6 +3377,7 @@ class semic {
 			$correto = trim($line['ts_termo_autorizado']);
 
 			if ($ita == '1') {
+
 				$correto = '<i>' . $correto . '</i>';
 			}
 

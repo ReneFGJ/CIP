@@ -26,14 +26,22 @@ require ("view/header/cab.php");
 		</a>
 		</center>
 	</div>
+<<<<<<< HEAD:concordocompapa/index.php
 	<div style="width: 500px; background: #C0C0C0; border: 1px; border-color: #8B1217;">
 		 Este concurso tem como objetivos estimular a comunidade discente a conhecer e
+=======
+	<div style="width: 500px;">
+		- Este concurso tem como objetivos estimular a comunidade discente a conhecer e
+>>>>>>> origin/master:concordocomopapa/index.php
 refletir sobre o conteúdo da "Carta Encíclica LAUDATO SI´ do Santo Padre Francisco Sobre o
 Cuidado da Casa Comum" uma vez que como afirmado no documento: "Precisamos de um
 debate que nos uma a todos, porque o desafio ambiental, que vivemos, e as raízes humanas
 dizem respeito e têm impacto sobre todos nós." (Francisco, 2015:13)
 	</div>
+<<<<<<< HEAD:concordocompapa/index.php
 	<br />
+=======
+>>>>>>> origin/master:concordocomopapa/index.php
 	<div id="pdf_edital">
 		<table  class="tabela01">
 			<tr valign="middle">
