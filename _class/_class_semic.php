@@ -825,16 +825,43 @@ class semic {
 			$sx .= '<div style="text-align: justify">';
 			$sx .= $resumo;
 			$sx .= '<BR><BR>';
-			$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $line['sm_rem_06'];
+			
+			//old
+			//$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $line['sm_rem_06'];
+			//new			
+			//Troca virgula por ponto e deixa somente a primeira letra em maiuscula
+			$palavra_chave_pt = $line['sm_rem_06'];
+			$troca_01 = str_replace("," , ".", $palavra_chave_pt);
+			$troca_02 = str_replace(":" , ".", $troca_01);
+			$troca_03 = str_replace(";" , ".", $troca_02);
+			$troca_04 = ucfirst(strtolower(trim($troca_03)));
+			$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $troca_04;
+			
 			$sx .= '</div>';
-
 			$sx .= '<BR><BR>';
-
 			$sx .= '<div style="text-align: justify">';
 			$sx .= $abstract;
 			$sx .= '<BR><BR>';
-			$sx .= $link16 . '<B>Palavras-chave</B>: ' . $linkx . $line['sm_rem_16'];
-			$sx .= '</div>';
+			
+			//old
+			//$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $line['sm_rem_16'];
+			//new
+			//Troca virgula por ponto e deixa somente a primeira letra em maiuscula
+			$palavra_chave_en = $line['sm_rem_16'];
+			$troca_01_en = str_replace("," , ".", $palavra_chave_en);
+			$troca_02_en = str_replace(":" , ".", $troca_01_en);
+			$troca_03_en = str_replace(";" , ".", $troca_02_en);
+			$troca_04_en = ucfirst(strtolower(trim($troca_03_en)));
+			$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $troca_04_en;
+			
+			$sx .= '</div>';			
+			
+			$sqlup = "update " . $this -> tabela_ajuste_titulo . " set sm_rem_06   = '" . $troca_04 . "'
+															     , sm_rem_16       = '" . $troca_04_en . "'
+															       where  id_sm    = '" . $dd[0] . "'";
+
+			$rlt = db_query($sqlup);
+			
 		}
 		$sx .= '<div style="text-align: justify">';
 		$sx .= '<BR><BR><BR>' . $autores2;
@@ -3348,7 +3375,6 @@ class semic {
 	 * @date: 27/08/2015
 	 */
 	function troca_string($frase) {
-
 		$frase = lowercase($frase);
 		$frase = uppercase(substr($frase, 0, 1)) . substr($frase, 1, strlen($frase));
 
@@ -3358,17 +3384,13 @@ class semic {
 		$rlt = db_query($sql);
 
 		while ($line = db_read($rlt)) {
-
 			$ita = $line['ts_italico'];
-
 			$incorreto = trim($line['ts_termo']);
 			$correto = trim($line['ts_termo_autorizado']);
 
 			if ($ita == '1') {
-
 				$correto = '<i>' . $correto . '</i>';
 			}
-
 			$fraserecebida = troca($fraserecebida, $incorreto, $correto);
 		}
 
