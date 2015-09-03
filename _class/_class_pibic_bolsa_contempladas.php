@@ -167,6 +167,9 @@ function parecer_nao_entregues($ano)
 		{
 			$mt=array();
 			$mt['501'] = 'Meu aluno não está no edital para apresentação oral/pôster';
+			$mt['503'] = 'Ausência do estudante devido a Intercâmbio (CsF)';
+			$mt['504'] = 'Ausência e substituição do orientador no SEMIC';
+			$mt['504'] = 'Aluno trabalha, o orientador/colaborar irá apresenta';
 			//$mt['502'] = 'Necessidade de reavaliação';
 			$mt['502'] = 'Outros motivos';
 			return($mt);

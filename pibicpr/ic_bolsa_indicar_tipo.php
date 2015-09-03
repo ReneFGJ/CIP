@@ -129,6 +129,7 @@ if ($sc < $chm)
 		$sql .= " where pb_professor = '".$dd[1]."' and (pb_tipo = 'P' or pb_tipo = 'F' or pb_tipo = 'C' or pb_tipo = 'E' or pb_tipo = 'U') and pb_ativo = 1 ";
 		$sql .= " and pp_ano = '".date("Y")."' ";
 		$rlt = db_query($sql);
+		if (date("Ymd")=="20150902") { $bolsa_max_paga = 3; }		
 		if ($line = db_read($rlt))
 			{ 
 			if ($line['total'] >= $bolsa_max_paga)
@@ -183,10 +184,11 @@ if ($dd[5] == 'F')
 	$sql .= " where pb_professor = '".$dd[1]."' and pb_tipo = 'F' and pb_ativo = 1 ";
 	$sql .= " and pp_ano = '".date("Y")."' ";
 	$rlt = db_query($sql);
+	$totf = 2;
 	if ($line = db_read($rlt))
 		{ 
 		$total = $line['total'];
-		if ($total >= 2)
+		if ($total >= $totf)
 			{
 			$ok = -3; $msg .= 'Professor já possui uma bolsa da Fundação Araucária.<BR>'; 
 			}

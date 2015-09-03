@@ -151,6 +151,7 @@ class parecerista {
 		$rlt = db_query($sql);
 		$xpp = '';
 		$area = '';
+		$s = '';
 		while ($line = db_read($rlt)) {
 			$pp = $line['pp_cracha'];
 			if ($pp != $xpp) {
@@ -238,6 +239,19 @@ class parecerista {
 		$id = 0;
 		$xpp = '';
 		while ($line = db_read($rlt)) {
+			$ativo = 1;
+			$cracha = trim($line['pp_cracha']);
+			$data = date("Ymd");
+			$area = trim($line['a_cnpq']);
+			
+			if (strlen($area) > 0)
+			{
+			$s .= "<BR>insert into us_avaliador_area (pa_area, pa_update, pa_ativo, pa_cracha)
+					values
+					('$area','$data','$ativo','$cracha');
+			";
+			}
+						
 			$pp = $line['pp_cracha'];
 			if ($pp != $xpp) {
 				$id++;
@@ -269,6 +283,7 @@ class parecerista {
 		}
 		$sx .= '<TR><TD colspan=5>Total ' . $id;
 		$sx .= '</table>';
+		echo $s;
 		return ($sx);
 
 	}
