@@ -834,7 +834,7 @@ class semic {
 			$troca_01 = str_replace("," , ".", $palavra_chave_pt);
 			$troca_02 = str_replace(":" , ".", $troca_01);
 			$troca_03 = str_replace(";" , ".", $troca_02);
-			$troca_04 = ucfirst(strtolower(trim($troca_03)));
+			$troca_04 = ucfirst(trim($troca_03));
 			$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $troca_04;
 			
 			$sx .= '</div>';
@@ -844,15 +844,15 @@ class semic {
 			$sx .= '<BR><BR>';
 			
 			//old
-			//$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $line['sm_rem_16'];
+			//$sx .= $link16 . '<B>Palavras-chave</B>: ' . $linkx . $line['sm_rem_16'];
 			//new
 			//Troca virgula por ponto e deixa somente a primeira letra em maiuscula
 			$palavra_chave_en = $line['sm_rem_16'];
 			$troca_01_en = str_replace("," , ".", $palavra_chave_en);
 			$troca_02_en = str_replace(":" , ".", $troca_01_en);
 			$troca_03_en = str_replace(";" , ".", $troca_02_en);
-			$troca_04_en = ucfirst(strtolower(trim($troca_03_en)));
-			$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $troca_04_en;
+			$troca_04_en = ucfirst(trim($troca_03_en));
+			$sx .= $link16 . '<B>Keywords</B>: ' . $linkx . $troca_04_en;
 			
 			$sx .= '</div>';			
 			
@@ -3391,6 +3391,7 @@ class semic {
 			if ($ita == '1') {
 				$correto = '<i>' . $correto . '</i>';
 			}
+
 			$fraserecebida = troca($fraserecebida, $incorreto, $correto);
 		}
 
