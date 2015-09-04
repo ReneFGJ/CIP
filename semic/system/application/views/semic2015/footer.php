@@ -16,17 +16,19 @@
 
 			<td width="33%"><b><?php echo msg('apoio');?></b>
 			<BR>
-			<a HREF="<?php echo base_url('/index.php/semic/apoio');?>" class="link_foot"><?php echo msg('cab_expediente_01');?></A>
+				<a href="http://cienciaefe.pucpr.br/" target="_new">
+				<img src="<?php echo base_url('img/semic2015/logo_cf.png');?>" height="50" border=0>
+				</a>
 			</td>
 
 			<td width="33%"><b><?php echo msg('colaboração');?></b>
 			<br><br>
-			<a href="#">
-				<img src="<?php echo base_url('img/semic2015/logo_cnpq.png');?>" height="50">
+			<a href="http://www.cnpq.br/" target="_new">
+				<img src="<?php echo base_url('img/semic2015/logo_cnpq.png');?>" height="25" border=0>
 			</a>
-			<br><br>
-			<a href="#">
-				<img src="<?php echo base_url('img/semic2015/logo_fa.png');?>" height="70">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="http://www.fappr.pr.gov.br/" target="_new">
+				<img src="<?php echo base_url('img/semic2015/logo_fa.png');?>" height="40" border=0>
 			</a>			
 			</td>
 		</tr>
