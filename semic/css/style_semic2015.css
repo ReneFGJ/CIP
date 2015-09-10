@@ -3,7 +3,7 @@ body {
 	font-size: 12px;
     width: 1024px;
     margin: 0 auto;	
-    background-image: url('http://www2.pucpr.br/reol/semic/img/semic2015/background.png');
+    /* background-image: url('http://www2.pucpr.br/reol/semic/img/semic2015/background.png'); */
 }
 a {
 	text-decoration: none;

@@ -918,7 +918,7 @@ class semic {
 		$wh = " and sm_docente = '$cracha' ";
 		if ($tipo == '*') { $wh = '';
 		}
-		$inner = '';
+		$inner = 'inner join pibic_bolsa_contempladas on sm_codigo = pb_protocolo';
 		if (trim($this -> tabela) == 'semic_ic_trabalho') {
 			//$inner = "
 			//						left join pibic_parecer_".date("Y")." on pp_protocolo = sm_codigo and pp_tipo = 'RFIN'
@@ -939,7 +939,8 @@ class semic {
 
 		$rlt = db_query($sql);
 		$sx .= '<table width="100%" class="tabela00">';
-		$sx .= '<TR><TH width="60">Protocolo';
+		$sx .= '<TR><TH width="20">CNPq';
+		$sx .= '<TH width="60">Protocolo';
 		$sx .= '<TH>Título';
 		$sx .= '<TH width="80">Relatório';
 		$sx .= '<TH>idioma';
@@ -947,6 +948,13 @@ class semic {
 		$tot = 0;
 		$xidm = 'x';
 		while ($line = db_read($rlt)) {
+			$cnpq = '';
+			$tipo = trim($line['pb_tipo']);
+			
+			if (($tipo == 'C') or ($tipo == 'E') or ($tipo == 'H') or ($tipo == 'B'))
+				{
+					$cnpq = 'SIM';
+				}
 			$idm = $line['id_sm'];
 			if ($idm != $xidm) {
 				$xidm = $idm;
@@ -992,6 +1000,9 @@ class semic {
 				if (($view == 1) and ($tipo == '*')) { $linkv = '<A HREF="' . $page . '?dd0=' . $line['id_sm'] . '&pag=1&dd90=' . checkpost($line['id_sm']) . '" class="link">';
 				}
 				$sx .= '<TR>';
+				$sx .= '<td class="tabela01" align="center">';
+				$sx .= $cnpq;
+				$sx .= '</td>';
 				$sx .= '<TD class="tabela01" align="center">' . strzero($line['id_sm'], 7);
 				$sx .= '<TD class="tabela01 lt3">';
 				$sx .= $linkv . $line['sm_titulo'] . '</A>';

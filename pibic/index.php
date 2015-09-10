@@ -107,9 +107,9 @@ echo '<TD width="300">';
 	require ("__submit_REC2.php");
 	if ($open == 1) {
 			echo '</ul>';
-			echo '<h3>Recursos</h3>';
+			echo '<h3>Recursos/Justificativa SEMIC</h3>';
 			echo '<ul>';
-			echo '<LI><A HREF="protocolo_abrir.php?dd1=RSM">Recurso de Apresentação Oral/Poster</A></LI>';
+			echo '<LI><A HREF="protocolo_abrir.php?dd1=RSM">Recurso/Justificativa de Apresentação Oral/Poster</A></LI>';
 	}
 	
 	echo '</UL>';

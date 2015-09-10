@@ -146,7 +146,7 @@ class semic_nota {
 								left join pibic_bolsa_contempladas on st_codigo = pb_protocolo
 								left join pibic_professor on pb_professor = pp_cracha
 								left join pibic_aluno on pb_aluno = pa_cracha 
-								$wh
+								$wh and (pb_status = 'A' or pb_status = 'F')
 								order by st_edital, st_section, pp_nome, pa_nome
 					";
 
