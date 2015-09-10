@@ -35,6 +35,7 @@ class semic {
 	var $tabela_autor = "semic_trabalho_autor";
 	var $tabela_troca = "tesauro_editorial";
 	var $tabela_ajuste_titulo = "semic_ic_trabalho";
+	var $tabela_nota_trab = "semic_nota_trabalhos";
 
 	function semic_premiacao() {
 		$sql = "drop table semic_premiacao_tipo";
@@ -720,33 +721,33 @@ class semic {
 
 			$sx .= '<form action="' . page() . '" method="get">';
 			//Se a pagina é a de Submissão dos resumo, não mostra o botão
-			if ( page()  == 'atividade_IC4_acao.php') {
+			if (page() == 'atividade_IC4_acao.php') {
 				//não mopstra o botão
 			} else {
-			//Se for a pagina de correção de trabalhos, mostra o botão	
-			$sx .= '<input type="submit" name="dd10" value="Ajustar título">';
-			if (strlen($dd[10]) > 0) {
-				$tit_por = $this -> troca_string($tit_por);
-				$tit_en = $this -> troca_string($tit_en);
+				//Se for a pagina de correção de trabalhos, mostra o botão
+				$sx .= '<input type="submit" name="dd10" value="Ajustar título">';
+				if (strlen($dd[10]) > 0) {
+					$tit_por = $this -> troca_string($tit_por);
+					$tit_en = $this -> troca_string($tit_en);
 
-				$sx .= '<center><font class="lt4">' . $link0T . $tit_por . '</A></font></center>';
-				$sx .= '<center><font class="lt3"><i>' . $link1T . $tit_en . '</i></A></font></center>';
+					$sx .= '<center><font class="lt4">' . $link0T . $tit_por . '</A></font></center>';
+					$sx .= '<center><font class="lt3"><i>' . $link1T . $tit_en . '</i></A></font></center>';
 
-			}
-			$sx .= '<input type="hidden" name="dd0" value="' . $dd[0] . '">';
-			$sx .= '<input type="hidden" name="dd90" value="' . $dd[90] . '">';
-			$sx .= '<input type="hidden" name="pag" value="1">';
-			$sx .= '</form>';
+				}
+				$sx .= '<input type="hidden" name="dd0" value="' . $dd[0] . '">';
+				$sx .= '<input type="hidden" name="dd90" value="' . $dd[90] . '">';
+				$sx .= '<input type="hidden" name="pag" value="1">';
+				$sx .= '</form>';
 
-			$sql = "update " . $this -> tabela_ajuste_titulo . " set sm_titulo   = '" . $tit_por . "'
+				$sql = "update " . $this -> tabela_ajuste_titulo . " set sm_titulo   = '" . $tit_por . "'
 				    , sm_titulo_en   = '" . $tit_en . "'
 				      where  id_sm   = '" . $dd[0] . "'";
 
-			$rlt = db_query($sql);
+				$rlt = db_query($sql);
 
-			//***************fim**************
+				//***************fim**************
 			}
-			
+
 			$sx .= '<BR>';
 			$obs = trim($line['sm_obs']);
 			if (strlen($obs) > 0) {
@@ -825,43 +826,43 @@ class semic {
 			$sx .= '<div style="text-align: justify">';
 			$sx .= $resumo;
 			$sx .= '<BR><BR>';
-			
+
 			//old
 			//$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $line['sm_rem_06'];
-			//new			
+			//new
 			//Troca virgula por ponto e deixa somente a primeira letra em maiuscula
 			$palavra_chave_pt = $line['sm_rem_06'];
-			$troca_01 = str_replace("," , ".", $palavra_chave_pt);
-			$troca_02 = str_replace(":" , ".", $troca_01);
-			$troca_03 = str_replace(";" , ".", $troca_02);
+			$troca_01 = str_replace(",", ".", $palavra_chave_pt);
+			$troca_02 = str_replace(":", ".", $troca_01);
+			$troca_03 = str_replace(";", ".", $troca_02);
 			$troca_04 = ucfirst(trim($troca_03));
 			$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $troca_04;
-			
+
 			$sx .= '</div>';
 			$sx .= '<BR><BR>';
 			$sx .= '<div style="text-align: justify">';
 			$sx .= $abstract;
 			$sx .= '<BR><BR>';
-			
+
 			//old
 			//$sx .= $link16 . '<B>Palavras-chave</B>: ' . $linkx . $line['sm_rem_16'];
 			//new
 			//Troca virgula por ponto e deixa somente a primeira letra em maiuscula
 			$palavra_chave_en = $line['sm_rem_16'];
-			$troca_01_en = str_replace("," , ".", $palavra_chave_en);
-			$troca_02_en = str_replace(":" , ".", $troca_01_en);
-			$troca_03_en = str_replace(";" , ".", $troca_02_en);
+			$troca_01_en = str_replace(",", ".", $palavra_chave_en);
+			$troca_02_en = str_replace(":", ".", $troca_01_en);
+			$troca_03_en = str_replace(";", ".", $troca_02_en);
 			$troca_04_en = ucfirst(trim($troca_03_en));
 			$sx .= $link16 . '<B>Keywords</B>: ' . $linkx . $troca_04_en;
-			
-			$sx .= '</div>';			
-			
+
+			$sx .= '</div>';
+
 			$sqlup = "update " . $this -> tabela_ajuste_titulo . " set sm_rem_06   = '" . $troca_04 . "'
 															     , sm_rem_16       = '" . $troca_04_en . "'
 															       where  id_sm    = '" . $dd[0] . "'";
 
 			$rlt = db_query($sqlup);
-			
+
 		}
 		$sx .= '<div style="text-align: justify">';
 		$sx .= '<BR><BR><BR>' . $autores2;
@@ -3380,7 +3381,7 @@ class semic {
 
 		$fraserecebida = $frase;
 
-		$sql = "select * from " . $this -> tabela_troca ." where ts_ativo = '1'";
+		$sql = "select * from " . $this -> tabela_troca . " where ts_ativo = '1'";
 		$rlt = db_query($sql);
 
 		while ($line = db_read($rlt)) {
@@ -3397,5 +3398,34 @@ class semic {
 
 		return $fraserecebida;
 	}
+
+
+	function row() {
+		global $cdf, $cdm, $masc;
+		$cdf = array('id_st', 'st_codigo', 'st_edital', 'st_eng', 'st_oral', 'st_poster');
+		$cdm = array('', 'cod', 'Edital', 'Inglês', 'Oral', 'Poster', '');
+		$masc = array('', '', '', '', '', '','');
+		return (1);
+	}
+
+
+	function cp() {
+		global $dd;
+		$cp = array();
+		if (strlen($dd[4]) == 0) 
+		{
+			$dd[4] = UpperCaseSql($dd[3]);
+		}
+		//$dd[0] = $par->codigo;
+		array_push($cp, array('$H8', 	        'id_st',     'id_st', False, False,''));
+		array_push($cp, array('$A', 			'', 		'Dados do trabalho', False, True, ''));
+		array_push($cp, array('$S30', 	        'st_codigo', 	'Codigo do trabalho', False, False, ''));
+		array_push($cp, array('$O 1:Sim&0:Não', 'st_eng', 	'Inglês', True, True, ''));
+		array_push($cp, array('$O 1:Sim&0:Não', 'st_oral', 	'Oral', True, True, ''));
+		array_push($cp, array('$O 1:Sim&0:Não', 'st_poster','Poster', True, True, ''));
+		return ($cp);
+	}
+	
+	
 
 }
