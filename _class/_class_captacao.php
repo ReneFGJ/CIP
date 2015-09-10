@@ -1330,7 +1330,7 @@ class captacao {
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          [\'Captação (Ano)\', \'Proponente PUCPR\',\'Tendência\'],
+          [\'Captação (Ano)\', \'Proponente PUCPR\',\'--\'],
           ' . $sd2 . '
         ]);
 		
