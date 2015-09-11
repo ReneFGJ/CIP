@@ -35,6 +35,7 @@ class semic {
 	var $tabela_autor = "semic_trabalho_autor";
 	var $tabela_troca = "tesauro_editorial";
 	var $tabela_ajuste_titulo = "semic_ic_trabalho";
+	var $tabela_nota_trab = "semic_nota_trabalhos";
 
 	function semic_premiacao() {
 		$sql = "drop table semic_premiacao_tipo";
@@ -52,7 +53,7 @@ class semic {
 		$sql = "";
 		/***/
 		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00001','Jovens ideias'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00002','Pesquisar È evoluir'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00002','Pesquisar √© evoluir'); ";
 		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00003','PIBIC Jr'); ";
 
 		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00005','Internacional oral'); ";
@@ -66,21 +67,21 @@ class semic {
 		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00049','CICPG Oral - Sociais Aplicadas'); ";
 
 		/***/
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00055','CICPG pÙster - Vida'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00056','CICPG pÙster - Exatas e Engenharia'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00057','CICPG pÙster - Sociais Aplicadas'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00058','CICPG pÙster - Humanidades e Letras'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00059','CICPG pÙster - Sociais Aplicadas'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00055','CICPG pÛster - Vida'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00056','CICPG pÛster - Exatas e Engenharia'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00057','CICPG pÛster - Sociais Aplicadas'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00058','CICPG pÛster - Humanidades e Letras'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00059','CICPG pÛster - Sociais Aplicadas'); ";
 
 		/***/
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00010','Internacional pÙster'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00010','Internacional pÛster'); ";
 
 		/***/
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00015','PIBIC pÙster - Vida'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00016','PIBIC pÙster - Exatas e Engenharia'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00017','PIBIC pÙster - Sociais Aplicadas'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00018','PIBIC pÙster - Humanidades e Letras'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00019','PIBIC pÙster - Sociais Aplicadas'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00015','PIBIC pÛster - Vida'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00016','PIBIC pÛster - Exatas e Engenharia'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00017','PIBIC pÛster - Sociais Aplicadas'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00018','PIBIC pÛster - Humanidades e Letras'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00019','PIBIC pÛster - Sociais Aplicadas'); ";
 
 		/***/
 		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00020','PIBIC oral - Vida'); ";
@@ -90,11 +91,11 @@ class semic {
 		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00024','PIBIC oral - Sociais Aplicadas'); ";
 
 		/***/
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00030','PÛs-GraduaÁ„o - Vida (Oral, PÙster, externo)'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00031','PÛs-GraduaÁ„o - Exatas e Engenharia (Oral, PÙster, externo)'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00032','PÛs-GraduaÁ„o - Sociais Aplicadas (Oral, PÙster, externo)'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00033','PÛs-GraduaÁ„o - Humanidades e Letras (Oral, PÙster, externo)'); ";
-		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00034','PÛs-GraduaÁ„o - Sociais Aplicadas (Oral, PÙster, externo)'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00030','P√≥s-Gradua√ß√£o - Vida (Oral, pÛster, externo)'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00031','P√≥s-Gradua√ß√£o - Exatas e Engenharia (Oral, pÛster, externo)'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00032','P√≥s-Gradua√ß√£o - Sociais Aplicadas (Oral, pÛster, externo)'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00033','P√≥s-Gradua√ß√£o - Humanidades e Letras (Oral, pÛster, externo)'); ";
+		$sql .= "insert into semic_premiacao_tipo (spt_codigo, spt_descricao) values ('00034','P√≥s-Gradua√ß√£o - Sociais Aplicadas (Oral, pÛster, externo)'); ";
 		$rlt = db_query($sql);
 
 		exit ;
@@ -166,7 +167,7 @@ class semic {
 					";
 		echo $sql;
 		$rlt = db_query($sql);
-		$sx .= '<h1>Trabalhos sem apresentaÁ„o / sem avaliaÁ„o</h1>';
+		$sx .= '<h1>Trabalhos sem apresentaÁ„o / sem avalia√ß√£o</h1>';
 		while ($line = db_read($rlt)) {
 			$cod = trim($line['av_area']);
 			$wor = strzero(trim($line['av_numtrab']), 2);
@@ -207,10 +208,10 @@ class semic {
 				$funcao = "Colaborador";
 				break;
 			case "7" :
-				$funcao = "Mestrando de PÛs-GraduaÁ„o";
+				$funcao = "Mestrando de P√≥s-Gradua√ß√£o";
 				break;
 			case "8" :
-				$funcao = "Doutorando de PÛs-GraduaÁ„o";
+				$funcao = "Doutorando de P√≥s-Gradua√ß√£o";
 				break;
 			case "4" :
 				$funcao = "Pibic Junior";
@@ -273,7 +274,7 @@ class semic {
 					$tot = 0;
 				}
 				$sx .= '<TR><TD colspan=2><h3>' . $area . ' - ' . $line['a_descricao'] . '</h3>';
-				$sx .= '<TR><TH>Total<TH>¡rea<TH>Modalidade';
+				$sx .= '<TR><TH>Total<TH>√Årea<TH>Modalidade';
 				$xar = $ar;
 			}
 			$sx .= '<TR><TD align="center" class="tabela01">' . $line['total'] . '</TD>
@@ -403,7 +404,7 @@ class semic {
 				$rlt = db_query($sql);
 			}
 		} else {
-			echo 'Erro de cÛdigo de protocolo';
+			echo 'Erro de c√≥digo de protocolo';
 			exit ;
 		}
 	}
@@ -487,7 +488,7 @@ class semic {
 			$sx .= '<input type="hidden" name="dd90" value="' . $dd[90] . '">';
 			$sx .= '<fieldset><legend>AÁıes</legend>';
 			$sx .= '<table width="100%" class="tabela00">';
-			$sx .= '<TR><TD>Coment·rios e observaÁıes';
+			$sx .= '<TR><TD>Coment√°rios e observAÁıes';
 			$sx .= '<TR><TD><textarea name="dd2" cols=80 rows=5>' . $dd[2] . '</textarea>';
 			if ($this -> line['sm_status'] == '@') {
 				$sx .= '<TR><TD><input type="radio" name="dd1" value="A"> aceitar submiss„o';
@@ -542,7 +543,7 @@ class semic {
 			if (strlen($line['sm_rem_03']) == 0) { $erro .= 'Falta o <B>MÈtodo</B>.<BR>';
 			}
 			//if (strlen($line['sm_rem_04'])==0) { $erro .= 'Falta os <B>Resultados</B>.<BR>'; }
-			//if (strlen($line['sm_rem_05'])==0) { $erro .= 'Faltam as <B>Conclusıes ou consideraÁıes</B>.<BR>'; }
+			//if (strlen($line['sm_rem_05'])==0) { $erro .= 'Faltam as <B>Conclus√µes ou considerAÁıes</B>.<BR>'; }
 			if (strlen($line['sm_rem_06']) == 0) { $erro .= 'Faltam as <B>Palavras-chave</B>.<BR>';
 			}
 
@@ -553,7 +554,7 @@ class semic {
 			if (strlen($line['sm_rem_13']) == 0) { $erro .= 'Falta o <B>MÈtodo</B> em InglÍs.<BR>';
 			}
 			//if (strlen($line['sm_rem_14'])==0) { $erro .= 'Falta os <B>Resultados</B> em InglÍs.<BR>'; }
-			//if (strlen($line['sm_rem_15'])==0) { $erro .= 'Faltam as <B>Conclusıes ou consideraÁıes</B> em InglÍs.<BR>'; }
+			//if (strlen($line['sm_rem_15'])==0) { $erro .= 'Faltam as <B>Conclus√µes ou considerAÁıes</B> em InglÍs.<BR>'; }
 			if (strlen($line['sm_rem_16']) == 0) { $erro .= 'Faltam as <B>Palavras-chave</B> em InglÍs.<BR>';
 			}
 
@@ -578,13 +579,13 @@ class semic {
 			$rs1 = troca($rs1, ' ', ';');
 			$total = count(splitx(';', $rs1));
 
-			if ($total < 150) { $erro .= '<BR><font color="red" class="lt2">O Resumo em inglÍs tem menos de 150 palavras</font>';
+			if ($total < 150) { $erro .= '<BR><font color="red" class="lt2">O Resumo em InglÍs tem menos de 150 palavras</font>';
 			}
-			if ($total > 600) { $erro .= '<BR><font color="red" class="lt2">O Resumo em inglÍs tem mais de 500 palavras</font>';
+			if ($total > 600) { $erro .= '<BR><font color="red" class="lt2">O Resumo em InglÍs tem mais de 500 palavras</font>';
 			}
 		}
 		if (strlen($erro) > 0) {
-			$this -> erro = 'do resumo È obrigatÛrio<BR></font><BR>' . $erro . ' ';
+			$this -> erro = 'do resumo √© obrigat√≥rio<BR></font><BR>' . $erro . ' ';
 			return ('');
 		}
 		return ('ok');
@@ -672,10 +673,10 @@ class semic {
 						$funcao = "Colaborador";
 						break;
 					case "7" :
-						$funcao = "Mestrando de PÛs-GraduaÁ„o";
+						$funcao = "Mestrando de P√≥s-Gradua√ß√£o";
 						break;
 					case "8" :
-						$funcao = "Doutorando de PÛs-GraduaÁ„o";
+						$funcao = "Doutorando de P√≥s-Gradua√ß√£o";
 						break;
 					case "4" :
 						$funcao = "Pibic Junior";
@@ -719,34 +720,34 @@ class semic {
 			$tit_en = trim($line['sm_titulo_en']);
 
 			$sx .= '<form action="' . page() . '" method="get">';
-			//Se a pagina È a de Submiss„o dos resumo, n„o mostra o bot„o
-			if ( page()  == 'atividade_IC4_acao.php') {
-				//n„o mopstra o bot„o
+			//Se a pagina √© a de submiss„o dos resumo, N„o mostra o bot√£o
+			if (page() == 'atividade_IC4_acao.php') {
+				//N„o mopstra o bot√£o
 			} else {
-			//Se for a pagina de correÁ„o de trabalhos, mostra o bot„o	
-			$sx .= '<input type="submit" name="dd10" value="Ajustar tÌtulo">';
-			if (strlen($dd[10]) > 0) {
-				$tit_por = $this -> troca_string($tit_por);
-				$tit_en = $this -> troca_string($tit_en);
+				//Se for a pagina de corre√ß√£o de trabalhos, mostra o bot√£o
+				$sx .= '<input type="submit" name="dd10" value="Ajustar TÌtulo">';
+				if (strlen($dd[10]) > 0) {
+					$tit_por = $this -> troca_string($tit_por);
+					$tit_en = $this -> troca_string($tit_en);
 
-				$sx .= '<center><font class="lt4">' . $link0T . $tit_por . '</A></font></center>';
-				$sx .= '<center><font class="lt3"><i>' . $link1T . $tit_en . '</i></A></font></center>';
+					$sx .= '<center><font class="lt4">' . $link0T . $tit_por . '</A></font></center>';
+					$sx .= '<center><font class="lt3"><i>' . $link1T . $tit_en . '</i></A></font></center>';
 
-			}
-			$sx .= '<input type="hidden" name="dd0" value="' . $dd[0] . '">';
-			$sx .= '<input type="hidden" name="dd90" value="' . $dd[90] . '">';
-			$sx .= '<input type="hidden" name="pag" value="1">';
-			$sx .= '</form>';
+				}
+				$sx .= '<input type="hidden" name="dd0" value="' . $dd[0] . '">';
+				$sx .= '<input type="hidden" name="dd90" value="' . $dd[90] . '">';
+				$sx .= '<input type="hidden" name="pag" value="1">';
+				$sx .= '</form>';
 
-			$sql = "update " . $this -> tabela_ajuste_titulo . " set sm_titulo   = '" . $tit_por . "'
+				$sql = "update " . $this -> tabela_ajuste_titulo . " set sm_titulo   = '" . $tit_por . "'
 				    , sm_titulo_en   = '" . $tit_en . "'
 				      where  id_sm   = '" . $dd[0] . "'";
 
-			$rlt = db_query($sql);
+				$rlt = db_query($sql);
 
-			//***************fim**************
+				//***************fim**************
 			}
-			
+
 			$sx .= '<BR>';
 			$obs = trim($line['sm_obs']);
 			if (strlen($obs) > 0) {
@@ -825,43 +826,43 @@ class semic {
 			$sx .= '<div style="text-align: justify">';
 			$sx .= $resumo;
 			$sx .= '<BR><BR>';
-			
+
 			//old
 			//$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $line['sm_rem_06'];
-			//new			
+			//new
 			//Troca virgula por ponto e deixa somente a primeira letra em maiuscula
 			$palavra_chave_pt = $line['sm_rem_06'];
-			$troca_01 = str_replace("," , ".", $palavra_chave_pt);
-			$troca_02 = str_replace(":" , ".", $troca_01);
-			$troca_03 = str_replace(";" , ".", $troca_02);
+			$troca_01 = str_replace(",", ".", $palavra_chave_pt);
+			$troca_02 = str_replace(":", ".", $troca_01);
+			$troca_03 = str_replace(";", ".", $troca_02);
 			$troca_04 = ucfirst(trim($troca_03));
 			$sx .= $link06 . '<B>Palavras-chave</B>: ' . $linkx . $troca_04;
-			
+
 			$sx .= '</div>';
 			$sx .= '<BR><BR>';
 			$sx .= '<div style="text-align: justify">';
 			$sx .= $abstract;
 			$sx .= '<BR><BR>';
-			
+
 			//old
 			//$sx .= $link16 . '<B>Palavras-chave</B>: ' . $linkx . $line['sm_rem_16'];
 			//new
 			//Troca virgula por ponto e deixa somente a primeira letra em maiuscula
 			$palavra_chave_en = $line['sm_rem_16'];
-			$troca_01_en = str_replace("," , ".", $palavra_chave_en);
-			$troca_02_en = str_replace(":" , ".", $troca_01_en);
-			$troca_03_en = str_replace(";" , ".", $troca_02_en);
+			$troca_01_en = str_replace(",", ".", $palavra_chave_en);
+			$troca_02_en = str_replace(":", ".", $troca_01_en);
+			$troca_03_en = str_replace(";", ".", $troca_02_en);
 			$troca_04_en = ucfirst(trim($troca_03_en));
 			$sx .= $link16 . '<B>Keywords</B>: ' . $linkx . $troca_04_en;
-			
-			$sx .= '</div>';			
-			
+
+			$sx .= '</div>';
+
 			$sqlup = "update " . $this -> tabela_ajuste_titulo . " set sm_rem_06   = '" . $troca_04 . "'
 															     , sm_rem_16       = '" . $troca_04_en . "'
 															       where  id_sm    = '" . $dd[0] . "'";
 
 			$rlt = db_query($sqlup);
-			
+
 		}
 		$sx .= '<div style="text-align: justify">';
 		$sx .= '<BR><BR><BR>' . $autores2;
@@ -941,7 +942,7 @@ class semic {
 		$sx .= '<TR><TH width="20">CNPq';
 		$sx .= '<TH width="60">Protocolo';
 		$sx .= '<TH>TÌtulo';
-		$sx .= '<TH width="80">RelatÛrio';
+		$sx .= '<TH width="80">Relat√≥rio';
 		$sx .= '<TH>idioma';
 		$sx .= '<TH width="80"><I>Status</I>';
 		$tot = 0;
@@ -949,11 +950,10 @@ class semic {
 		while ($line = db_read($rlt)) {
 			$cnpq = '';
 			$tipo = trim($line['pb_tipo']);
-			
-			if (($tipo == 'C') or ($tipo == 'E') or ($tipo == 'H') or ($tipo == 'B'))
-				{
-					$cnpq = 'SIM';
-				}
+
+			if (($tipo == 'C') or ($tipo == 'E') or ($tipo == 'H') or ($tipo == 'B')) {
+				$cnpq = 'SIM';
+			}
 			$idm = $line['id_sm'];
 			if ($idm != $xidm) {
 				$xidm = $idm;
@@ -978,7 +978,7 @@ class semic {
 						$view = 1;
 						break;
 					case "C" :
-						$sta = 'Para correÁ„o';
+						$sta = 'Para corre√ß√£o';
 						$edit = 1;
 						$view = 1;
 						break;
@@ -1222,13 +1222,13 @@ class semic {
 		$instituicao = substr($instituicao, 0, 15);
 		if (strlen($funcao) == 0) {
 			echo '<TR><TD colspan=4><font color="red">';
-			echo 'ParticipaÁ„o do autor È necess·ria';
+			echo 'Participa√ß√£o do autor √© necess√°ria';
 			return (0);
 		}
 		//if (strlen($instituicao) == 0)
 		//				{
 		//echo '<TR><TD colspan=4><font color="red">';
-		//echo 'InstituiÁ„o do autor È necess·ria';
+		//echo 'Institui√ß√£o do autor √© necess√°ria';
 		//return(0);
 		//}
 
@@ -1240,7 +1240,7 @@ class semic {
 			$rlt = db_query($sql);
 			if ($line = db_read($rlt)) {
 				echo '<TR><TD colspan=4><font color="red">';
-				echo 'Autor j· cadastrado';
+				echo 'Autor j√° cadastrado';
 				return (0);
 			} else {
 				$sql = "insert into " . $this -> tabela_autor . "
@@ -1317,7 +1317,7 @@ class semic {
 		return (1);
 	}
 
-	/* SUBMISS¬O MOSTRA DE PESQUISA */
+	/* SUBMISS√ÇO MOSTRA DE PESQUISA */
 	function cp_01() {
 		global $ss;
 		$docente = $ss -> user_cracha;
@@ -1327,9 +1327,9 @@ class semic {
 		array_push($cp, array('$H8', 'id_sm', '', False, False));
 
 		array_push($cp, array('$T80:3', 'sm_titulo', 'TÌtulo do trabalho', True, True));
-		array_push($cp, array('$T80:3', 'sm_titulo_en', 'TÌtulo do trabalho em inglÍs', True, True));
+		array_push($cp, array('$T80:3', 'sm_titulo_en', 'TÌtulo do trabalho em InglÍs', True, True));
 
-		array_push($cp, array('$Q pos_nome:pos_codigo:' . $sql_pos, 'sm_programa', 'Programa de PÛs-GraduaÁ„o', True, True));
+		array_push($cp, array('$Q pos_nome:pos_codigo:' . $sql_pos, 'sm_programa', 'Programa de P√≥s-Gradua√ß√£o', True, True));
 
 		$docente = $ss -> user_cracha;
 		array_push($cp, array('$HV', 'sm_docente', $docente, True, True));
@@ -1340,12 +1340,12 @@ class semic {
 		array_push($cp, array('$HV', 'sm_lastupdate', date("Ymd"), False, True));
 		$mod = ' : ';
 		$mod .= '&Projeto de pesquisa:Projeto de pesquisa (somente poster)';
-		$mod .= '&Em andamento - Poster:Proj. em andamento (postÍr)';
-		$mod .= '&Trabalho concluÌdo - Poster:Trabalho concluÌdo (postÍr)';
-		$mod .= '&Trabalho concluÌdo - Oral:Trabalho concluÌdo (apresentaÁ„o oral)';
-		$mod .= '&Trabalho concluÌdo - Oral em InglÍs:Trabalho concluÌdo (apresentaÁ„o oral em inglÍs)';
+		$mod .= '&Em andamento - Poster:Proj. em andamento (post√™r)';
+		$mod .= '&Trabalho conclu√≠do - Poster:Trabalho conclu√≠do (post√™r)';
+		$mod .= '&Trabalho conclu√≠do - Oral:Trabalho conclu√≠do (apresentaÁ„o oral)';
+		$mod .= '&Trabalho conclu√≠do - Oral em InglÍs:Trabalho conclu√≠do (apresentaÁ„o oral em InglÍs)';
 
-		array_push($cp, array('$O M:Mestrado&D:Doutorado' . $modp, 'sm_formacao', 'FormaÁ„o', True, True));
+		array_push($cp, array('$O M:Mestrado&D:Doutorado' . $modp, 'sm_formacao', 'Forma√ß√£o', True, True));
 		array_push($cp, array('$O ' . $mod, 'sm_modalidade', 'Categoria', True, True));
 		//$sql = "ALTER TABLE ".$this->tabela." alter column sm_modalidade type char(50)";
 		//$rlt = db_query($sql);
@@ -1359,7 +1359,7 @@ class semic {
 		$cp = array();
 		array_push($cp, array('$H8', 'sm_codigo', '', True, True));
 		array_push($cp, array('$T80:3', 'sm_titulo', 'TÌtulo do trabalho', True, True));
-		array_push($cp, array('$T80:3', 'sm_titulo_en', 'TÌtulo do trabalho em inglÍs', True, True));
+		array_push($cp, array('$T80:3', 'sm_titulo_en', 'TÌtulo do trabalho em InglÍs', True, True));
 
 		array_push($cp, array('$Q centro_nome:centro_codigo:' . $sql_centro, 'sm_programa', 'Escola', True, True));
 
@@ -1390,7 +1390,7 @@ class semic {
 		array_push($cp, array('$HV', 'sm_status', '@', False, True));
 
 		if (($rst != 1)) {
-			array_push($cp, array('$M', '', '<font color="red">O nome de um discente e um orientado s„o requeridos!.</font>', True, True));
+			array_push($cp, array('$M', '', '<font color="red">O nome de um discente e um orientado s√£o requeridos!.</font>', True, True));
 		}
 		return ($cp);
 	}
@@ -1409,7 +1409,7 @@ class semic {
 		array_push($cp, array('$HV', 'sm_status', '@', False, True));
 
 		if (($rst != 1)) {
-			array_push($cp, array('$M', '', '<font color="red">O nome de um discente e um orientado s„o requeridos!.</font>', True, True));
+			array_push($cp, array('$M', '', '<font color="red">O nome de um discente e um orientado s√£o requeridos!.</font>', True, True));
 		}
 		return ($cp);
 	}
@@ -1477,7 +1477,7 @@ class semic {
 	function cp_05() {
 		global $dd;
 		$declaracao = '<H3>DeclaraÁ„o de submiss„o</H3>';
-		$declaracao .= 'Declaro que o projeto acima descrito ser· publicado nos anais da Mostra de Pesquisa e que os autores registrados fizeram ou fazem parte da equipe de pesquisa.';
+		$declaracao .= 'Declaro que o projeto acima descrito ser√° publicado nos anais da Mostra de Pesquisa e que os autores registrados fizeram ou fazem parte da equipe de pesquisa.';
 		$id = function_002($dd[0]);
 		$idx = $this -> semic_resumo_checar($dd[0]);
 		if (strlen($idx) == 0) { $id = '';
@@ -1499,7 +1499,7 @@ class semic {
 	function cp_05A() {
 		global $dd;
 		$declaracao = '<H3>DeclaraÁ„o de submiss„o</H3>';
-		$declaracao .= 'Declaro que o projeto acima descrito ser· publicado nos anais da Mostra de Pesquisa e que os autores registrados fizeram ou fazem parte da equipe de pesquisa.';
+		$declaracao .= 'Declaro que o projeto acima descrito ser√° publicado nos anais da Mostra de Pesquisa e que os autores registrados fizeram ou fazem parte da equipe de pesquisa.';
 		$id = function_002($dd[0]);
 		$idx = $this -> semic_resumo_checar($dd[0]);
 		if (strlen($idx) == 0) { $id = '';
@@ -1610,7 +1610,7 @@ class semic {
 				$sx .= '<TD>';
 				$sx .= $line['total'];
 				$sx .= '<TD>';
-				$sx .= $link2 . '[declaraÁ„o]</A>';
+				$sx .= $link2 . '[DeclaraÁ„o]</A>';
 				$sx .= '<TD>';
 				$sx .= $link3 . '[enviar e-mail]</A>';
 			}
@@ -1743,10 +1743,10 @@ class semic {
 				}
 			}
 
-			$txt1 = '<BR><B>Sess„o de Poster</B> 06/11/2012 das 15h 30min as 17h e 30min.';
-			$txt2 = '<BR><B>Sess„o de Poster</B> 08/11/2012 das 8h 30min ‡s 10h e 30min.';
-			$txt3 = '<BR><B>Sess„o de Poster</B> 06/11/2012 das 15h 30min as 17h e 30min. <B>Internacional</B>';
-			$txt3 = '<BR><B>Sess„o de Poster</B>';
+			$txt1 = '<BR><B>Sess√£o de Poster</B> 06/11/2012 das 15h 30min as 17h e 30min.';
+			$txt2 = '<BR><B>Sess√£o de Poster</B> 08/11/2012 das 8h 30min √†s 10h e 30min.';
+			$txt3 = '<BR><B>Sess√£o de Poster</B> 06/11/2012 das 15h 30min as 17h e 30min. <B>Internacional</B>';
+			$txt3 = '<BR><B>Sess√£o de Poster</B>';
 
 			if (strlen($tt1) > 0) {$ttt .= $txt1 . '<BR>' . $tt1 . '<BR>';
 			}
@@ -1952,7 +1952,7 @@ class semic {
 				}
 				echo ' (' . $file . ')';
 				$tela = $this -> lista_de_trabalhos();
-				$tela = troca($tela, 'N - CSF', 'CiÍncia sem fronteiras');
+				$tela = troca($tela, 'N - CSF', 'Ci√™ncia sem fronteiras');
 				$tela = troca($tela, '- POS-G', '');
 
 				$fa = fopen($file . '.php', 'w');
@@ -1961,7 +1961,7 @@ class semic {
 
 			}
 		}
-		echo 'ExportaÁ„o concluÌda';
+		echo 'Exporta√ß√£o conclu√≠da';
 
 		return (1);
 	}
@@ -1978,7 +1978,7 @@ class semic {
 		$rlt = db_query($sql);
 		$err = 0;
 		$sx = '<table>';
-		$sx .= '<TR><TH>Protocolo<TH colspan=2>CÛd. Trabalho Interno<TH>CÛdigo SEMIC<TH>ID Semic';
+		$sx .= '<TR><TH>Protocolo<TH colspan=2>C√≥d. Trabalho Interno<TH>C√≥digo SEMIC<TH>ID Semic';
 		while ($line = db_read($rlt)) {
 			if (substr($line['pb_protocolo'], 0, 1) == '0') {
 				$linka = '<A hREF="pibic_detalhe.php?dd0=' . $line['pb_protocolo'] . '" target="new">';
@@ -2027,13 +2027,13 @@ class semic {
 			$id = trim($line['article_ref']);
 			$id = troca($id, '=', '');
 			$img = "img/3-poster-grad.png";
-			$txt = '<font class="font-modalidade">PÙster</font>';
+			$txt = '<font class="font-modalidade">pÛster</font>';
 			if (strpos($id, '*') > 0) {
 				$img = "img/3-oral-grad.png";
 				$txt = '<font class="font-modalidade"><nobr>Apres. Oral</nobr></font>';
 			}
 			/* Local */
-			$local = 'sess„o de pÙster';
+			$local = 'sess√£o de pÛster';
 			$local = '(a definir)';
 			$link = '<A HREF="semic_dia.php?dd1=' . $line['blk_data'] . '">';
 
@@ -2113,7 +2113,7 @@ class semic {
 		$rlt = fopen($file, 'w');
 		fwrite($rlt, $sa);
 		fclose($rlt);
-		echo 'ExportaÁ„o 2 concluÌda';
+		echo 'Exporta√ß√£o 2 conclu√≠da';
 		return (1);
 	}
 
@@ -2129,7 +2129,7 @@ class semic {
 			";
 
 		$rlt = db_query($sql);
-		$sx .= '<H2>Trabalhos sem programaÁ„o</H2>';
+		$sx .= '<H2>Trabalhos sem programa√ß√£o</H2>';
 		$sx .= '<table class="lt0">';
 		while ($line = db_read($rlt)) {
 			$cor = '';
@@ -2164,7 +2164,7 @@ class semic {
 					order by sp_data, sp_hora, sp_sala
 			";
 		$rlt = db_query($sql);
-		$sx .= '<H2>ProgramaÁ„o sem trabalhos</H2>';
+		$sx .= '<H2>Programa√ß√£o sem trabalhos</H2>';
 		$sx .= '<table class="lt0">';
 		while ($line = db_read($rlt)) {
 			$cor = '';
@@ -2300,15 +2300,15 @@ class semic {
 	function sumario_geral() {
 		$sx = '';
 		$sx .= '<ul class="pesquisador">';
-		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBIC&dd2=N#PIBIC">IniciaÁ„o CientÌfica (PIBIC)</A></LI>';
-		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBITI&dd2=N#PIBITI">IniciaÁ„o TecnolÛgica (PIBITI)</A></LI>';
-		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBIC_EM&dd2=#PIBIC_EM">IniciaÁ„o CientÌfica Junior (PIBIC_EM)</A></LI>';
-		$sx .= '<LI><A HREF="' . page() . '?dd1=POS-G&dd2=N#POS-G">Mostra de Pesquisa da PÛs-GraduaÁ„o</A></LI>';
-		$sx .= '<LI><A HREF="' . page() . '?dd1=CSF&dd2=N#CSF">CiÍncia sem fronteiras</A></LI>';
+		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBIC&dd2=N#PIBIC">Inicia√ß√£o Cient√≠fica (PIBIC)</A></LI>';
+		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBITI&dd2=N#PIBITI">Inicia√ß√£o Tecnol√≥gica (PIBITI)</A></LI>';
+		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBIC_EM&dd2=#PIBIC_EM">Inicia√ß√£o Cient√≠fica Junior (PIBIC_EM)</A></LI>';
+		$sx .= '<LI><A HREF="' . page() . '?dd1=POS-G&dd2=N#POS-G">Mostra de Pesquisa da P√≥s-Gradua√ß√£o</A></LI>';
+		$sx .= '<LI><A HREF="' . page() . '?dd1=CSF&dd2=N#CSF">Ci√™ncia sem fronteiras</A></LI>';
 		$sx .= '<BR><BR>';
-		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBIC&dd2=S#iPIBIC">IniciaÁ„o CientÌfica Internacional (iPIBIC)</A></LI>';
-		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBITI&dd2=S#iPIBITI">IniciaÁ„o TecnolÛgica Internacional (iPIBITI)</A></LI>';
-		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBIC_EM&dd2=S#iPIBIC_EM">IniciaÁ„o CientÌfica Junior (iPIBIC_EM)</A></LI>';
+		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBIC&dd2=S#iPIBIC">Inicia√ß√£o Cient√≠fica Internacional (iPIBIC)</A></LI>';
+		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBITI&dd2=S#iPIBITI">Inicia√ß√£o Tecnol√≥gica Internacional (iPIBITI)</A></LI>';
+		$sx .= '<LI><A HREF="' . page() . '?dd1=PIBIC_EM&dd2=S#iPIBIC_EM">Inicia√ß√£o Cient√≠fica Junior (iPIBIC_EM)</A></LI>';
 		$sx .= '</UL>';
 
 		$sx .= $this -> resumo_artigos_publicados();
@@ -2351,7 +2351,7 @@ class semic {
 		}
 		if ($x == 'E') { $sx = 'CiÍncias Humanas';
 		}
-		if ($x == 'P') { $sx = 'Mostra de PÛs-graduaÁ„o';
+		if ($x == 'P') { $sx = 'Mostra de P√≥s-gradua√ß√£o';
 		}
 		return ($sx);
 	}
@@ -2552,11 +2552,11 @@ class semic {
 			$id++;
 			//print_r($line);
 			$au = ($line['article_autores']);
-			$au = troca($au, 'Poster;', ' - PÙster');
-			$au = troca($au, 'ApresentaÁ„o Poster InglÍs', ' - PÙster InglÍs');
-			$au = troca($au, ' - Poster.', ' -  PÙster');
+			$au = troca($au, 'Poster;', ' - pÛster');
+			$au = troca($au, 'apresentaÁ„o Poster InglÍs', ' - pÛster InglÍs');
+			$au = troca($au, ' - Poster.', ' -  pÛster');
 			$au = troca($au, 'Poster - Verficar', ' - [confirmar]');
-			$au = troca($au, 'ApresentaÁ„o Oral Portugues', ' - ApresentaÁ„o Oral PortuguÍs');
+			$au = troca($au, 'apresentaÁ„o Oral Portugues', ' - apresentaÁ„o Oral PortuguÍs');
 
 			$sql = "update articles set article_autores = '" . $au . "' where id_article = " . $line['id_article'];
 			$xrlt = db_query($sql);
@@ -2707,7 +2707,7 @@ class semic {
 			";
 		$rlt = db_query($sql);
 		$tot = 0;
-		$sx .= '<H1>Resumos - Projetos ativos n„o publicados no SEMIC</H1>';
+		$sx .= '<H1>Resumos - Projetos ativos N„o publicados no SEMIC</H1>';
 		$sx .= '<img src="../img/icone_star_2.jpg" height="24"> Prioridade na revis„o';
 		$sx .= '<table width="100%" class="lt1" border=1 >';
 		$sx .= '<TR><TH>Protocolo<TH width="50%">TÌtulo<TH>Protocolo';
@@ -2759,7 +2759,7 @@ class semic {
 			";
 		$rlt = db_query($sql);
 		$tot = 0;
-		$sx .= '<H1>Resumos - ReogranizaÁ„o de trabalhos</H1>';
+		$sx .= '<H1>Resumos - Reograniza√ß√£o de trabalhos</H1>';
 		$sx .= '<img src="../img/icone_star_2.jpg" height="24"> Prioridade na revis„o';
 		$sx .= '<table width="100%" class="lt1" border=0 >';
 		$sx .= '<TR><TH>Protocolo<TH width="25">en<TH>TÌtulo';
@@ -2963,7 +2963,7 @@ class semic {
 			$area = trim($line['pb_semic_area']);
 			$area = substr($area, 0, 4);
 
-			/* Busca EdiÁ„o */
+			/* Busca Edi√ß√£o */
 			$iss = new issue;
 			$issue = $iss -> ultima_edicao_publicada($jid);
 
@@ -2972,7 +2972,7 @@ class semic {
 			require ("autores_limpa.php");
 
 			echo '<BR>Fase II';
-			/* Busca sess„o */
+			/* Busca sess√£o */
 			$sect = new sections;
 			$seccao = $sect -> section($jid, $secao_nome, substr($area, 0, 4));
 			echo '<BR>Fase III';
@@ -3125,7 +3125,7 @@ class semic {
 			";
 		$rlt = db_query($sql);
 		$tot = 0;
-		$sx .= '<H1>Resumos aprovados para publicaÁ„o</H1>';
+		$sx .= '<H1>Resumos aprovados para publica√ß√£o</H1>';
 		$sx .= '<table width="100%" class="lt1">';
 		$sx .= '<TR><TH>Protocolo<TH>TÌtulo';
 		while ($line = db_read($rlt)) {
@@ -3170,7 +3170,7 @@ class semic {
 		$rlt = db_query($sql);
 
 		$toti = 0;
-		$ar = array('1' => 'CiÍncias Exatas e da Terra', '2' => 'CiÍncias BiolÛgicas', '3' => 'Engenharias', '4' => 'CiÍncias da Sa˙de', '5' => 'CiÍncias Agr·rias', '6' => 'CiÍncias Sociais Aplicadas', '7' => 'CiÍncias Humanas', '8' => 'Ling¸Ìstica, Letras e Artes', '9' => 'Outros');
+		$ar = array('1' => 'CiÍncias Exatas e da Terra', '2' => 'CiÍncias BiolÛgicas', '3' => 'Engenharias', '4' => 'CiÍncias da Sa˙de', '5' => 'CiÍncias Agr·rias', '6' => 'CiÍncias Sociais Aplicadas', '7' => 'CiÍncias Humanas', '8' => 'LinguÌstica, Letras e Artes', '9' => 'Outros');
 		$rlt = db_query($sql);
 		$sx .= '<table>';
 		$tot = 0;
@@ -3189,7 +3189,7 @@ class semic {
 
 		$fld1 = "pb_relatorio_parcial";
 		$fld2 = "pb_relatorio_final";
-		/***** Calcula Gr·fico ****/
+		/***** Calcula Gr√°fico ****/
 		/** Idiomas **/
 		$sql = "select count(*) as total, pb_semic_area, a_descricao from pibic_bolsa_contempladas ";
 		$sql .= " left join ajax_areadoconhecimento on pb_semic_area = a_cnpq ";
@@ -3204,7 +3204,7 @@ class semic {
 		$toti = 0;
 
 		$sx = '<table width="100%">';
-		$sx .= '<TR><TH>·rea<TH>descriÁ„o<TH>total';
+		$sx .= '<TR><TH>¡rea<TH>descriÁ„o<TH>total';
 		$tot = 0;
 		while ($line = db_read($rlt)) {
 			$tot++;
@@ -3225,7 +3225,7 @@ class semic {
 		global $dd;
 		$fld1 = "pb_relatorio_parcial";
 		$fld2 = "pb_relatorio_final";
-		/***** Calcula Gr·fico ****/
+		/***** Calcula Gr√°fico ****/
 		/** Idiomas **/
 		$sql = "select * from pibic_bolsa_contempladas ";
 		$sql .= " left join ajax_areadoconhecimento on pb_semic_area = a_cnpq ";
@@ -3278,7 +3278,7 @@ class semic {
 		global $dd;
 		$fld1 = "pb_relatorio_parcial";
 		$fld2 = "pb_relatorio_final";
-		/***** Calcula Gr·fico ****/
+		/***** Calcula Gr√°fico ****/
 		/** Idiomas **/
 		$sql = "select count(*) as total, pb_semic_idioma from pibic_bolsa_contempladas ";
 		$sql .= " where ((" . $fld1 . " > 20000101) or (" . $fld2 . " > 20000101)) and (pb_status = 'A')  ";
@@ -3291,7 +3291,7 @@ class semic {
 		$data_idioma = array();
 		$toti = 0;
 
-		/*** Acertas possÌveis erros de envio **/
+		/*** Acertas poss√≠veis erros de envio **/
 		//$sql = "update pibic_bolsa_contempladas set pb_semic_idioma = 'pt_BR' where ((pb_semic_idioma = '') or (pb_semic_idioma isnull)) and  (".$fld1." > 20120101) ";
 		//echo $sql;
 		//$xrlt = db_query($sql);
@@ -3326,7 +3326,7 @@ class semic {
 		global $dd;
 		$fld1 = "pb_relatorio_parcial";
 		$fld2 = "pb_relatorio_final";
-		/***** Calcula Gr·fico ****/
+		/***** Calcula Gr√°fico ****/
 		/** Idiomas **/
 		$sql = "select * from pibic_bolsa_contempladas ";
 		$sql .= " where ((" . $fld1 . " > 20000101) or (" . $fld2 . " > 20000101)) and (pb_status = 'A')  ";
@@ -3391,7 +3391,7 @@ class semic {
 
 		$fraserecebida = $frase;
 
-		$sql = "select * from " . $this -> tabela_troca ." where ts_ativo = '1'";
+		$sql = "select * from " . $this -> tabela_troca . " where ts_ativo = '1'";
 		$rlt = db_query($sql);
 
 		while ($line = db_read($rlt)) {
@@ -3408,5 +3408,31 @@ class semic {
 
 		return $fraserecebida;
 	}
+
+	function row() {
+		global $cdf, $cdm, $masc;
+		$cdf = array('id_st', 'st_codigo', 'st_edital', 'st_eng', 'st_oral', 'st_poster');
+		$cdm = array('', 'Codigo', 'Edital', 'InglÍs', 'Oral', 'Poster', '');
+		$masc = array('', '', '', '', '', '', '');
+		return (1);
+	}
+
+	function cp() {
+		global $dd;
+		$cp = array();
+		if (strlen($dd[4]) == 0) {
+			$dd[4] = UpperCaseSql($dd[3]);
+		}
+		//$dd[0] = $par->codigo;
+		array_push($cp, array('$H8', 'id_st', 'id_st', False, False, ''));
+		array_push($cp, array('$A', '', 'Dados do trabalho', False, True, ''));
+		array_push($cp, array('$S30', 'st_codigo', 'Codigo do trabalho', False, False, ''));
+		array_push($cp, array('$O 1:Sim&0:N„o', 'st_eng', 'InglÍs', True, True, ''));
+		array_push($cp, array('$O 1:Sim&0:N„o', 'st_oral', 'Oral', True, True, ''));
+		array_push($cp, array('$O 1:Sim&0:N„o', 'st_poster', 'Poster', True, True, ''));
+		return ($cp);
+	}
+
+	
 
 }
