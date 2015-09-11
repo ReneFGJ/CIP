@@ -28,12 +28,11 @@ echo '<div id="conteudo">';
 	if ($form->saved > 0)
 		{
 			echo 'Salvo';
-			$cl->updatex();
+			//$cl->updatex();
 			redirecina('semic_list.php');
 		} else {
 			echo $tela;
 		}
-echo '</div>';		
 require("../foot.php");	
 ?>
 

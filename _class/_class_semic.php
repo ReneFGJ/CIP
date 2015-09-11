@@ -3411,9 +3411,9 @@ class semic {
 
 	function row() {
 		global $cdf, $cdm, $masc;
-		$cdf = array('id_st', 'st_codigo', 'st_edital', 'st_eng', 'st_oral', 'st_poster');
-		$cdm = array('', 'Codigo', 'Edital', 'Inglês', 'Oral', 'Poster', '');
-		$masc = array('', '', '', '', '', '', '');
+		$cdf = array('id_st', 'st_codigo', 'st_edital', 'st_eng', 'st_oral', 'st_poster', 'st_ano');
+		$cdm = array('', 'Codigo', 'Edital', 'Inglês', 'Oral', 'Poster', 'Ano', '');
+		$masc = array('', '', '', '', '', '', '', '');
 		return (1);
 	}
 
@@ -3426,10 +3426,13 @@ class semic {
 		//$dd[0] = $par->codigo;
 		array_push($cp, array('$H8', 'id_st', 'id_st', False, False, ''));
 		array_push($cp, array('$A', '', 'Dados do trabalho', False, True, ''));
-		array_push($cp, array('$S30', 'st_codigo', 'Codigo do trabalho', False, False, ''));
-		array_push($cp, array('$O 1:Sim&0:Não', 'st_eng', 'Inglês', True, True, ''));
-		array_push($cp, array('$O 1:Sim&0:Não', 'st_oral', 'Oral', True, True, ''));
-		array_push($cp, array('$O 1:Sim&0:Não', 'st_poster', 'Poster', True, True, ''));
+		array_push($cp, array('${', '', 'Editar Dados', False, True, ''));
+		array_push($cp, array('$S10', 'st_codigo', 'Codigo do trabalho', False, False, ''));
+		array_push($cp, array('$O  : &S:Sim&N:Não', 'st_eng', 'Inglês', True, True, ''));
+		array_push($cp, array('$O  : &S:Sim&N:Não', 'st_oral', 'Oral', FALSE, True, ''));
+		array_push($cp, array('$O  : &S:Sim&N:Não', 'st_poster', 'Poster', FALSE, True, ''));
+		array_push($cp, array('$S10', 'st_ano', 'Ano', False, False, ''));
+		array_push($cp, array('$}', '', '', False, True, ''));
 		return ($cp);
 	}
 
