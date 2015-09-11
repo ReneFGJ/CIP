@@ -120,7 +120,11 @@ require_once BASEPATH.'codeigniter/CodeIgniter'.EXT;
  **/
 function base_url($x)
 	{
-		return('/reol/semic/'.$x);
+		//return('/reol/semic/'.$x);
+		
+		//para rodar local
+		return('/projetos/CIP/semic/'.$x);
+		
 		//return('http://www2.pucpr.br/reol/csf/'.$x);
 		print_r($_SERVER);
 	}

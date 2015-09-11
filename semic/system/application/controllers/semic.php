@@ -44,7 +44,7 @@ class semic extends Controller {
 		$this->load->view('semic2015/menu_top');
 
 	}
-	
+	//Pagina programacao
 	function programmation()
 		{
 		$this -> cab();
@@ -53,11 +53,14 @@ class semic extends Controller {
 		$data = array();
 		
 
-		/* Em construcao */
-		$data['content'] = $this -> load -> view('semic2015/programation', NULL, true);
+		/* Programacao */
+		//$data['content'] = $this -> load -> view('semic2015/programation', NULL, true);
 		
 		/* Em construcao */
-		$data['content'] .= $this -> load -> view('semic2015/under_construction', NULL, true);
+		//$data['content'] .= $this -> load -> view('semic2015/under_construction', NULL, true);
+		
+		/* Programacao puc cultural */
+		$data['content'] = $this -> load -> view('semic2015/programation_puc_cultural', NULL, true);
 		
 		$data['layout'] = 1;
 		$this-> load->view('semic2015/content',$data);

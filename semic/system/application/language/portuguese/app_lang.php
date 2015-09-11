@@ -25,7 +25,7 @@ $lang['top_menu_05'] = 'Edições Anteriores';
 $lang['top_menu_06'] = 'Instruções aos autores';
 
 $lang['whats_semic'] = 'O que é o SEMIC?';
-$lang['whats_semic_text'] = 'O Seminário de Iniciação Científica (SEMIC) e a Mostra de Pesquisa da Pós-Graduação da PUCPR são eventos abertos à comunidade, em que são exibidos os trabalhos de Iniciação Científica desenvolvidos pelos alunos ao longo do ano.';
+$lang['whats_semic_text'] = 'O Seminário de Iniciação Científica (SEMIC) da PUCPR são eventos abertos à comunidade, em que são exibidos os trabalhos de Iniciação Científica desenvolvidos pelos alunos ao longo do ano.';
 $lang['read_more'] = '+ leia mais';
 
 $lang['modalidade_edital'] = 'Modalidades de IC';
@@ -35,4 +35,7 @@ $lang['about_system'] = 'Sobre o evento';
 $lang['contact_system'] = 'Contato com a organização';
 
 $lang['programmation'] = 'Programação';
+$lang['casaestrela'] = 'Casa Estrela';
+$lang['ies'] = 'IES';
+
 ?>
