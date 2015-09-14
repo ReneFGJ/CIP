@@ -120,6 +120,7 @@ require_once BASEPATH.'codeigniter/CodeIgniter'.EXT;
  **/
 function base_url($x)
 	{
+		//para rodar no servidor
 		//return('/reol/semic/'.$x);
 		
 		//para rodar local
