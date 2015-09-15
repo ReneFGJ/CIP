@@ -11,7 +11,7 @@
 			Atuações da Maestrina <strong>ROSEMERI PAESE</strong> e dos Músicos <strong>MARCELO MIRA, RODRIGO REIS, ADRIANO AKIRA</strong> e <strong>EDUARDO SCHEEREN</strong>.
 		</li>
 		<li>
-			Apresentação na Abertura do SEMIC no TUCA- Teatro da PUCPR: 06/10 ? 3af-feira ? 8h30
+			Apresentação na Abertura do SEMIC no TUCA- Teatro da PUCPR: 06/10 - terça-feira - 8h30
 		</li>
 	</ul>
 	<BR>
@@ -79,7 +79,7 @@
 </div>
 <BR>
 <BR>
-<h1>PROGRAMAÇÃO CIÊNTIFICA</h1>
+<h1>PROGRAMAÇÃO CIENTÍFICA</h1>
 <div align="left">
 	<p>
 		<h2><strong>Palestra</strong></h2>
@@ -145,7 +145,6 @@
 	<p>
 		<strong>Prof. Dr. Harry Alberto Bollmann</strong>
 	</p>
-	
 	<p align="justify">
 		Engenheiro Civil pela PUCPR, mestrado em Engenharia Hidráulica e Saneamento pela USP e doutorado em Recursos Hídricos e Saneamento Ambiental pela UFRGS. Atualmente é professor Titular da PUCPR junto ao Mestrado e Doutorado em Gestão Urbana, e ao Curso de Graduação em Engenharia Ambiental. É membro do LEAD Institute International desde 1994, atuando em temas correlacionados ao Meio Ambiente e Desenvolvimento Sustentável. É também co-editor da Revista URBE - Revista Brasileira de Gestão Urbana da PUCPR, e revisor das revistas Árvore (Scielo) da Universidade Federal de Viçosa, e da Revista Engenharia Sanitária e Ambiental (Scielo) da Associação Brasileira de Engenharia Sanitária e Ambiental. Faz parte do Comitê dos Mananciais da Região Metropolitana de Curitiba e da Câmara Técnica do Karst junto à Coordenação da Região Metropolitana de Curitiba. Tem experiência na área de Engenharia Ambiental, com ênfase em Planejamento Ambiental Integrado, atuando principalmente nos seguintes temas: planejamento dos recursos hídricos, assentamentos urbanos sustentáveis, monitoramento da qualidade das águas, avaliação ambiental, bacias hidrográficas urbanas e recuperação de áreas degradadas.
 	</p>
