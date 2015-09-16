@@ -12,7 +12,7 @@
 	Serão três dias de intensos debates científicos, palestras, mesas-redondas, mini-curso, sessões de pôsteres, exposição de protótipos de projetos inovadores, apresentações culturais e artísticas. E, muito mais: a oportunidade de estabelecer network com 2.000 estudantes (do ensino médio, da graduação e estudantes internacionais), todos interessados em pesquisa; 500 pesquisadores que atuaram como orientadores das pesquisas, além de 200 avaliadores.
 	</p> 
 	<p align="justify">
-	Com certeza esse espaço será um turbilhão de novas ideias, com a energia da juventude comprometida com ?Um mundo + HUMANO por meio da pesquisa?!
+	Com certeza esse espaço será um turbilhão de novas ideias, com a energia da juventude comprometida com "Um mundo + HUMANO por meio da pesquisa"!
 	</p>
 	<p align="justify">
 	Desejo a todos momentos de realização e sucesso.
@@ -49,7 +49,7 @@
 		Convidamos todos os jovens pesquisadores a se engajarem neste caminho, participando dos debates propostos em torno dos seguintes temas: migrações forçadas, violência, infância e juventude, dentre outros.
 	</p>
 	<p align="justify">
-		Finalizaremos o evento com a discussão da interface entre Direitos Humanos e Cidades numa discussão inicial sobre <i> “um novo projeto urbano sustentável que consiga reconectar as pessoas com o seu espaço vital, sem esquecer de buscar as soluções emergenciais para as crises da atualidade”</i>.  Cidades será o nosso desafio para o evento de 2016!
+		Finalizaremos o evento com a discussão da interface entre Direitos Humanos e Cidades numa discussão inicial sobre <i><strong> “um novo projeto urbano sustentável que consiga reconectar as pessoas com o seu espaço vital, sem esquecer de buscar as soluções emergenciais para as crises da atualidade”</strong></i>.  Cidades será o nosso desafio para o evento de 2016!
 	</p>
 
 	<br />

@@ -176,4 +176,20 @@ class semic extends Controller {
 		$this -> load -> view('semic2015/footer');
 	}
 
+
+	//Pagina instrucoes aos autores
+	function edicoes_anteriores() {
+		$this -> cab();
+		$this -> load -> view('semic2015/main_image');
+		$data = array();
+
+		/* Programacao puc cultural */
+		$data['content'] = $this -> load -> view('semic2015/edicoes-anteriores', NULL, true);
+
+		$data['layout'] = 1;
+		$this -> load -> view('semic2015/content', $data);
+
+		$this -> load -> view('semic2015/footer');
+	}
+
 }

@@ -1,4 +1,5 @@
 <hr size="5" width="100%" align="left" noshade>
+
 <h1>O que é o SEMIC?</h1>
 <div >
 	<h2><strong>Iniciação Científica e Tecnológica</strong></h2>
