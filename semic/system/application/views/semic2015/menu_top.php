@@ -9,3 +9,4 @@
 		<li><a href="<?php echo base_url('index.php/semic/faq');?>"><?php echo msg('top_menu_07');?></a></li>		
 	</ul>
 </div>
+<div class="center">
