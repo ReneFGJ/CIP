@@ -13,10 +13,10 @@ class semic extends Controller {
 	}
 
 	function cab() {
-		
+
 		/* Carrega classes adicionais */
 		$this -> lang -> load("app", "portuguese");
-		
+
 		$css = array();
 		$js = array();
 		array_push($css, 'style_vegas.css');
@@ -27,7 +27,7 @@ class semic extends Controller {
 		/* transfere para variavel do codeigniter */
 		$data['css'] = $css;
 		$data['js'] = $js;
-		
+
 		//$id = $this -> session -> userdata('idioma');
 		if (isset($_SESSION['idioma'])) {
 			$id = $_SESSION['idioma'];
@@ -40,53 +40,55 @@ class semic extends Controller {
 		}
 		$this -> idioma = trim($id);
 
-		$this -> load -> view("semic2015/header",$data);
-		$this->load->view('semic2015/menu_top');
+		$this -> load -> view("semic2015/header", $data);
+		$this -> load -> view('semic2015/menu_top');
 
 	}
+
 	//Pagina programacao
-	function programmation()
-		{
+	function programmation() {
 		$this -> cab();
 		$this -> load -> view('semic2015/main_image');
-		
+
 		$data = array();
-		
 
 		/* Programacao */
 		//$data['content'] = $this -> load -> view('semic2015/programation', NULL, true);
-		
+
 		/* Em construcao */
 		//$data['content'] .= $this -> load -> view('semic2015/under_construction', NULL, true);
-		
+
 		/* Programacao puc cultural */
 		$data['content'] = $this -> load -> view('semic2015/programation_puc_cultural', NULL, true);
-		
+
+		/* Programacao Cientifica */
+		//$data['content'] = $this -> load -> view('semic2015/programation_puc_cientifica', NULL, true);
+
 		$data['layout'] = 1;
-		$this-> load->view('semic2015/content',$data);
-		
+		$this -> load -> view('semic2015/content', $data);
+
 		$this -> load -> view('semic2015/footer');
-		}
+	}
 
 	function index() {
 		$this -> cab();
 		$this -> load -> view('semic2015/main_image');
-		
+
 		$data = array();
-		
-		$box = array('text'=>'whats_semic','link');
-		$data['content'] = $this-> load->view('semic2015/box_highlight',$box, true);
-		
+
+		$box = array('text' => 'whats_semic', 'link');
+		$data['content'] = $this -> load -> view('semic2015/box_highlight', $box, true);
+
 		/* Em construcao */
 		$data['content'] .= $this -> load -> view('semic2015/under_construction', NULL, true);
-		
-		/* Menu lateral */		
+
+		/* Menu lateral */
 		$data['content_right'] = $this -> load -> view('semic2015/content_right', NULL, true);
 		$data['content_right'] .= $this -> load -> view('semic2015/menu_edital', NULL, true);
-				
+
 		$data['layout'] = 2;
-		$this-> load->view('semic2015/content',$data);
-		
+		$this -> load -> view('semic2015/content', $data);
+
 		$this -> load -> view('semic2015/footer');
 	}
 
@@ -106,5 +108,50 @@ class semic extends Controller {
 		$this -> index();
 	}
 
+	//Pagina duvidas
+	function faq() {
+		$this -> cab();
+		$this -> load -> view('semic2015/main_image');
+		$data = array();
+
+		/* Programacao puc cultural */
+		$data['content'] = $this -> load -> view('semic2015/faq', NULL, true);
+
+		$data['layout'] = 1;
+		$this -> load -> view('semic2015/content', $data);
+
+		$this -> load -> view('semic2015/footer');
+	}
+
+	//Pagina instrucoes aos autores
+	function instructions() {
+		$this -> cab();
+		$this -> load -> view('semic2015/main_image');
+		$data = array();
+
+		/* Programacao puc cultural */
+		$data['content'] = $this -> load -> view('semic2015/instructions', NULL, true);
+
+		$data['layout'] = 1;
+		$this -> load -> view('semic2015/content', $data);
+
+		$this -> load -> view('semic2015/footer');
+	}
+	
+	//Pagina instrucoes aos autores
+	function contact() {
+		$this -> cab();
+		$this -> load -> view('semic2015/main_image');
+		$data = array();
+
+		/* Programacao puc cultural */
+		$data['content'] = $this -> load -> view('semic2015/contact', NULL, true);
+
+		$data['layout'] = 1;
+		$this -> load -> view('semic2015/content', $data);
+
+		$this -> load -> view('semic2015/footer');
+	}	
+	
 
 }

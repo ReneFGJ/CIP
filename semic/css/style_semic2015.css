@@ -1,7 +1,7 @@
 body {
 	font-family: "CICPG", Arial, Helvetica, sans-serif;
 	font-size: 12px;
-    width: 1024px;
+    width: 1280px;
     margin: 0 auto;	
     /* background-image: url('http://www2.pucpr.br/reol/semic/img/semic2015/background.png'); */
 }
@@ -62,10 +62,10 @@ a {
 	}			
 #content
 	{
-		font-size: 12px;
-		background-color: #faf6dd;
+		font-size: 16px;
+		background-color: #ffffff;
 		border-top: 1px solid #333;
-		padding: 5px;		
+		padding: 25px;		
 	}
 #foot
 	{
@@ -81,8 +81,8 @@ a {
 	}	
 #banner
 	{
-		width: 1024px;
-		height: 300px;
+		width: 1280px;
+		height: 370px;
 	}
 #logo
 	{
