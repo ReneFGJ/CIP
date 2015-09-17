@@ -27,29 +27,39 @@ a {
 	background-color: #5E405A;
 	padding: 10px 20px;
 	color: #efefef;
+	border-radius: 10px;
 }
 .box h1 {
 	font-size: 15px;
 	color: #debb8a;
+	border-radius: 10px;
+	
 }
 /* BOX 2 */
 .box2 {
 	background-color: #debb8a;
 	padding: 10px 20px;
 	color: #382736;
+	border-radius: 10px;
 }
+
+
 /* Edital */
 .menu_edital {
-	font-size: 30px;
+	font-size: 19px;
 	font-family: "Garamond";
 	color: #5E405A;
 	padding: 2px 20px 2px 0px;
+	
 }
 .menu_edital:hover {
-	font-size: 30px;
+	font-size: 19px;
 	font-family: "Garamond";
 	color: #fff;
 	background-color: #5E405A;
+	border-radius: 10px;
+	 
+	
 }
 .readmore, .readmore2 {
 	margin-top: 10px;
@@ -216,54 +226,22 @@ a {
 .celula-tabela-horario p {
 	padding: 10px 40px;
 }
-.estilo_data4_1 {
-	background-color: rgba(206, 209, 198, 0.8);
-}
-.estilo_data4_2 {
-	background-color: rgba(206, 209, 198, 0.6);
-}
-.estilo_data4_3 {
-	background-color: rgba(206, 209, 198, 0.4);
-}
-.estilo_data4_4 {
-	background-color: rgba(206, 209, 198, 0.3);
-}
-.estilo_data4_5 {
-	background-color: rgba(206, 209, 198, 0.2);
-}
-.estilo_data5_1 {
-	background-color: rgba(206, 209, 198, 0.8);
-}
-.estilo_data5_2 {
-	background-color: rgba(206, 209, 198, 0.6);
-}
-.estilo_data5_3 {
-	background-color: rgba(206, 209, 198, 0.4);
-}
-.estilo_data5_4 {
-	background-color: rgba(206, 209, 198, 0.2);
-}
-.estilo_data6_1 {
-	background-color: rgba(206, 209, 198, 0.8);
-}
-.estilo_data6_2 {
-	background-color: rgba(206, 209, 198, 0.6);
-}
-.estilo_data6_3 {
-	background-color: rgba(206, 209, 198, 0.4);
-}
-.estilo_data6_4 {
-	background-color: rgba(206, 209, 198, 0.2);
-}
-.borda-programacao-cientifica {
-	border-left: 5px solid #94b65c;
-}
-.borda-programacao-cultural {
-	border-left: 5px solid #f39200;
-}
-.borda-programacao-apresentacao {
-	border-left: 5px solid #951b81;
-}
+.estilo_data4_1 {background-color: rgba(206, 209, 198, 0.8);}
+.estilo_data4_2 {background-color: rgba(206, 209, 198, 0.6);}
+.estilo_data4_3 {background-color: rgba(206, 209, 198, 0.4);}
+.estilo_data4_4 {background-color: rgba(206, 209, 198, 0.3);}
+.estilo_data4_5 {background-color: rgba(206, 209, 198, 0.2);}
+.estilo_data5_1 {background-color: rgba(206, 209, 198, 0.8);}
+.estilo_data5_2 {background-color: rgba(206, 209, 198, 0.6);}
+.estilo_data5_3 {background-color: rgba(206, 209, 198, 0.4);}
+.estilo_data5_4 {background-color: rgba(206, 209, 198, 0.2);}
+.estilo_data6_1 {background-color: rgba(206, 209, 198, 0.8);}
+.estilo_data6_2 {background-color: rgba(206, 209, 198, 0.6);}
+.estilo_data6_3 {background-color: rgba(206, 209, 198, 0.4);}
+.estilo_data6_4 {background-color: rgba(206, 209, 198, 0.2);}
+.borda-programacao-cientifica {border-left: 5px solid #94b65c;}
+.borda-programacao-cultural   {border-left: 5px solid #f39200;}
+.borda-programacao-apresentacao {border-left: 5px solid #951b81;}
 .flecha-dir-programacao {
 	float: right;
 	margin-right: 5%;

@@ -33,7 +33,7 @@
 		A PUCPR definiu recentemente algumas áreas estratégicas que estão alinhadas com os desafios globais, com as competências internas, com o planejamento e a missão institucional, a saber: Direitos Humanos, Cidades, Energia, Biotecnologia, Saúde, Tecnologia da Comunicação e Informação.
 	</p>
 	<p align="left">
-		<img src="<?php echo base_url('img/semic2015/conceito.png');?>" height="70%" border=0 > </a>
+		<center> <img src="<?php echo base_url('img/semic2015/conceito.png');?>" height="70%" border=0 > </a> </center>
 	</p>
 	<br />
 	<p align="justify">
