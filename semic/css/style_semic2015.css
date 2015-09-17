@@ -320,8 +320,8 @@ a {
 .semic-2006 {background-image: url('../img/semic2015/capa_semic2006.jpg');}
 
 .round-foto {
-	width: 150px;
-	height: 200px;
+	width: 100px;
+	height: 150px;
 	background-size: cover;
 	display: block;
 	border-radius: 10px;
@@ -352,12 +352,14 @@ footer {
 	background-color: white;
 }
 .descricao-evento-anterior {
+	width: 480px;
 	float: left;
 	height: auto;
 	text-align:justify;
+	font-size: 14px;
 }
 
-.descricao-evento-anterior a:link    {color:#5E405A; 	 background-color:transparent; text-decoration:none}
+.descricao-evento-anterior a:link    {color:#5E405A; background-color:transparent; text-decoration:none}
 .descricao-evento-anterior a:visited {color:#5E405A; background-color:transparent; text-decoration:none}
 .descricao-evento-anterior a:hover   {color:red; 	 background-color:transparent; text-decoration:underline}
-.descricao-evento-anterior a:active  {color:blue;  background-color:transparent; text-decoration:underline
+.descricao-evento-anterior a:active  {color:blue;  	 background-color:transparent; text-decoration:underline
