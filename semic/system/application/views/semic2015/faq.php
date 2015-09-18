@@ -1,5 +1,6 @@
-<h1>FAQ</h1>
-<div align="left">
+
+<div align="left" class="content-6">
+	<h1>FAQ</h1>
 	<p>
 		<ol>
 			<li>
@@ -65,7 +66,7 @@
 		<br />
 		<br />
 	<p>
-		<h4>CERTIFICADO</h4>
+		<h3>Certificado</h3>
 	</p>
 	<ol>
 		<li>
@@ -86,3 +87,9 @@
 	</ol>
 	</p>
 </div>
+<div id="toTop" style="display: none;">^ Voltar ao topo</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() { $(window).scroll(function() { if($(this).scrollTop() != 0) { $('#toTop').fadeIn();   } else { $('#toTop').fadeOut(); } }); $('#toTop').click(function() { $('body,html').animate({scrollTop:0},800); });
+});
+</script>

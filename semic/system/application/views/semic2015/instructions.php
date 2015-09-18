@@ -1,7 +1,7 @@
 <h1>NORMAS GERAIS PARA PARTICIPAÇÃO NO XXIII SEMIC</h1>
 <br />
 <h2>Orientações</h2>
-<div align="left">
+<div align="left" class="content-6">
 	<p align="justify">
 		Para localizar o código do trabalho, o aluno deverá acessar o site do XXIII SEMIC (www.pucpr.br/semic) entrar no link em Sumário Geral, apertar CTRL + F, abrirá uma caixa de "localizar", deverá ser digitado o sobrenome do autor em maiúsculo e apertar Enter, automaticamente será remitido ao projeto. O aluno deverá anotar este código, pois ele será o identificador do seu trabalho.
 	</p>
@@ -246,4 +246,11 @@
 	</p>
 
 	</p> <p align="justify"></p>
+	
 </div>
+<div id="toTop" style="display: none;">^ Voltar ao topo</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() { $(window).scroll(function() { if($(this).scrollTop() != 0) { $('#toTop').fadeIn();   } else { $('#toTop').fadeOut(); } }); $('#toTop').click(function() { $('body,html').animate({scrollTop:0},800); });
+});
+</script>

@@ -149,3 +149,24 @@
 		Engenheiro Civil pela PUCPR, mestrado em Engenharia Hidráulica e Saneamento pela USP e doutorado em Recursos Hídricos e Saneamento Ambiental pela UFRGS. Atualmente é professor Titular da PUCPR junto ao Mestrado e Doutorado em Gestão Urbana, e ao Curso de Graduação em Engenharia Ambiental. É membro do LEAD Institute International desde 1994, atuando em temas correlacionados ao Meio Ambiente e Desenvolvimento Sustentável. É também co-editor da Revista URBE - Revista Brasileira de Gestão Urbana da PUCPR, e revisor das revistas Árvore (Scielo) da Universidade Federal de Viçosa, e da Revista Engenharia Sanitária e Ambiental (Scielo) da Associação Brasileira de Engenharia Sanitária e Ambiental. Faz parte do Comitê dos Mananciais da Região Metropolitana de Curitiba e da Câmara Técnica do Karst junto à Coordenação da Região Metropolitana de Curitiba. Tem experiência na área de Engenharia Ambiental, com ênfase em Planejamento Ambiental Integrado, atuando principalmente nos seguintes temas: planejamento dos recursos hídricos, assentamentos urbanos sustentáveis, monitoramento da qualidade das águas, avaliação ambiental, bacias hidrográficas urbanas e recuperação de áreas degradadas.
 	</p>
 </div>
+
+<div id="toTop" style="display: none;">
+	^ Voltar ao topo
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(window).scroll(function() {
+			if($(this).scrollTop() != 0) {
+				$('#toTop').fadeIn();
+			} else {
+				$('#toTop').fadeOut();
+			}
+		});
+		$('#toTop').click(function() {
+			$('body,html').animate({
+				scrollTop : 0
+			}, 800);
+		});
+	});
+</script>

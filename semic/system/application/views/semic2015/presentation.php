@@ -1,31 +1,32 @@
 <hr size="5" width="100%" align="left" noshade>
-<h1>APRESENTAÇÃO</h1> 
+<h1>APRESENTAÇÃO</h1>
 <div >
 	<h2><strong>Iniciação Científica e Tecnológica</strong></h2>
 	<p align="justify">
 		A Iniciação Científica e Tecnológica na PUCPR é uma atividade estratégica na formação de estudantes críticos, criativos e conectados com o entorno e, por que não dizer, globalmente, na busca de soluções que possam contribuir para uma sociedade melhor
 	</p>
 	<p align="justify">
-	Este evento é a ocasião em que os estudantes apresentam os resultados de suas pesquisas desenvolvidas ao longo de 12 meses, portanto, um momento de celebração do percurso realizado. É, também, uma mostra concreta do que a PUCPR propicia aos estudantes, cada qual trilhando seu percurso individual amparados numa rede de pesquisadores experientes.
-	</p> 
-	<p align="justify">
-	Serão três dias de intensos debates científicos, palestras, mesas-redondas, mini-curso, sessões de pôsteres, exposição de protótipos de projetos inovadores, apresentações culturais e artísticas. E, muito mais: a oportunidade de estabelecer network com 2.000 estudantes (do ensino médio, da graduação e estudantes internacionais), todos interessados em pesquisa; 500 pesquisadores que atuaram como orientadores das pesquisas, além de 200 avaliadores.
-	</p> 
-	<p align="justify">
-	Com certeza esse espaço será um turbilhão de novas ideias, com a energia da juventude comprometida com "Um mundo + HUMANO por meio da pesquisa"!
+		Este evento é a ocasião em que os estudantes apresentam os resultados de suas pesquisas desenvolvidas ao longo de 12 meses, portanto, um momento de celebração do percurso realizado. É, também, uma mostra concreta do que a PUCPR propicia aos estudantes, cada qual trilhando seu percurso individual amparados numa rede de pesquisadores experientes.
 	</p>
 	<p align="justify">
-	Desejo a todos momentos de realização e sucesso.
-	</p> 
+		Serão três dias de intensos debates científicos, palestras, mesas-redondas, mini-curso, sessões de pôsteres, exposição de protótipos de projetos inovadores, apresentações culturais e artísticas. E, muito mais: a oportunidade de estabelecer network com 2.000 estudantes (do ensino médio, da graduação e estudantes internacionais), todos interessados em pesquisa; 500 pesquisadores que atuaram como orientadores das pesquisas, além de 200 avaliadores.
+	</p>
+	<p align="justify">
+		Com certeza esse espaço será um turbilhão de novas ideias, com a energia da juventude comprometida com "Um mundo + HUMANO por meio da pesquisa"!
+	</p>
+	<p align="justify">
+		Desejo a todos momentos de realização e sucesso.
+	</p>
 	<br />
 	<p align="justify">
-	Saudações Universitárias
+		Saudações Universitárias
 	</p>
 	<br />
 	<strong>Cleybe  Vieira</strong>
 	<br />
-	Coordenadora da Iniciação Científica da PUCPR 
-	<br /><br />
+	Coordenadora da Iniciação Científica da PUCPR
+	<br />
+	<br />
 	<hr size="8" width="100%" align="left" noshade>
 	<br />
 	<h1>CONCEITO</h1>
@@ -33,7 +34,9 @@
 		A PUCPR definiu recentemente algumas áreas estratégicas que estão alinhadas com os desafios globais, com as competências internas, com o planejamento e a missão institucional, a saber: Direitos Humanos, Cidades, Energia, Biotecnologia, Saúde, Tecnologia da Comunicação e Informação.
 	</p>
 	<p align="left">
-		<center> <img src="<?php echo base_url('img/semic2015/conceito.png');?>" height="70%" border=0 > </a> </center>
+		<center>
+			<img src="<?php echo base_url('img/semic2015/conceito.png');?>" height="70%" border=0 > </a>
+		</center>
 	</p>
 	<br />
 	<p align="justify">
@@ -51,8 +54,28 @@
 	<p align="justify">
 		Finalizaremos o evento com a discussão da interface entre Direitos Humanos e Cidades numa discussão inicial sobre <i><strong> “um novo projeto urbano sustentável que consiga reconectar as pessoas com o seu espaço vital, sem esquecer de buscar as soluções emergenciais para as crises da atualidade”</strong></i>.  Cidades será o nosso desafio para o evento de 2016!
 	</p>
-
 	<br />
 	<hr size="5" width="100%" align="left" noshade>
 	<hr size="8" width="100%" align="left" noshade>
 </div>
+
+<div id="toTop" style="display: none;">
+	^ Voltar ao topo
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(window).scroll(function() {
+			if($(this).scrollTop() != 0) {
+				$('#toTop').fadeIn();
+			} else {
+				$('#toTop').fadeOut();
+			}
+		});
+		$('#toTop').click(function() {
+			$('body,html').animate({
+				scrollTop : 0
+			}, 800);
+		});
+	});
+</script>

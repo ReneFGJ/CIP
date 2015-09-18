@@ -33,7 +33,6 @@ a {
 	font-size: 15px;
 	color: #debb8a;
 	border-radius: 10px;
-	
 }
 /* BOX 2 */
 .box2 {
@@ -42,7 +41,6 @@ a {
 	color: #382736;
 	border-radius: 10px;
 }
-
 
 /* Edital */
 .menu_edital {
@@ -57,9 +55,7 @@ a {
 	font-family: "Garamond";
 	color: #fff;
 	background-color: #5E405A;
-	border-radius: 10px;
-	 
-	
+	border-radius: 10px;	
 }
 .readmore, .readmore2 {
 	margin-top: 10px;
@@ -239,6 +235,7 @@ a {
 .estilo_data6_2 {background-color: rgba(206, 209, 198, 0.6);}
 .estilo_data6_3 {background-color: rgba(206, 209, 198, 0.4);}
 .estilo_data6_4 {background-color: rgba(206, 209, 198, 0.2);}
+
 .borda-programacao-cientifica {border-left: 5px solid #94b65c;}
 .borda-programacao-cultural   {border-left: 5px solid #f39200;}
 .borda-programacao-apresentacao {border-left: 5px solid #951b81;}
@@ -248,7 +245,6 @@ a {
 	margin-top: -18%;
 }
 /* Tooltip */
-
 .tooltip-content {
 	position: absolute;
 	z-index: 9999;
@@ -265,7 +261,6 @@ a {
 	cursor: default;
 }
 /* Tooltip content*/
-
 .tooltip-content img {
 	position: relative;
 	height: 170px;
@@ -313,7 +308,6 @@ a {
 	-moz-box-shadow: 5px 5px 10px #5E4058;
 }
 
-
 .item-evento-anterior {
 	width: 100%;
 	border-top: solid 2px #5B4059;
@@ -349,4 +343,37 @@ footer {
 .descricao-evento-anterior a:link    {color:#5E405A; background-color:transparent; text-decoration:none}
 .descricao-evento-anterior a:visited {color:#5E405A; background-color:transparent; text-decoration:none}
 .descricao-evento-anterior a:hover   {color:red; 	 background-color:transparent; text-decoration:underline}
-.descricao-evento-anterior a:active  {color:blue;  	 background-color:transparent; text-decoration:underline
+.descricao-evento-anterior a:active  {color:blue;  	 background-color:transparent; text-decoration:underline}
+
+
+.content-5 p {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 13px;
+	line-height: 16px;
+}
+
+.content-6 p, li, strong, h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.content-6 h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 28px;
+	line-height: 20px;
+}
+.content-6 h3 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+#toTop { background: none repeat scroll 0 0 #f7f7f7; border: 1px solid #ccc; bottom: 10px; color: #333; cursor: pointer; display: none; font-family: verdana; font-size: 11px; padding: 5px; position: fixed; right: 10px; text-align: center; width: 100px;
+}
+
+

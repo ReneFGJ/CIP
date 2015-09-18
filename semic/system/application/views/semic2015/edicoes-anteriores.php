@@ -5,9 +5,7 @@
 		<!--SEMIC 2014 -->
 		<div class="item-evento-anterior">
 			<div class="foto-evento-anterior" >
-				<a href="http://www2.pucpr.br/reol/eventos/cicpg/" target="_blank" >
-					<div class="semic-2014 round-foto"></div>
-				</a>
+				<a href="http://www2.pucpr.br/reol/eventos/cicpg/" target="_blank" > <div class="semic-2014 round-foto"></div> </a>
 			</div>
 			<div class="descricao-evento-anterior">
 				<a href="http://www2.pucpr.br/reol/eventos/cicpg/" target="_blank"><h3>2014 - III Congresso Sul Brasileiro de Iniciação Científica e Pós-Graduação (04, 05 e 06 de novembro de 2014)</h3></a>
@@ -22,13 +20,10 @@
 				</p>
 			</div>
 		</div>
-		
 		<!--SEMIC 2013 -->
 		<div class="item-evento-anterior">
 			<div class="foto-evento-anterior">
-				<a href="http://www2.pucpr.br/reol/semic2013/" target="_blank">
-					<div class="semic-2013 round-foto"></div>
-				</a>
+				<a href="http://www2.pucpr.br/reol/semic2013/" target="_blank"> <div class="semic-2013 round-foto"></div> </a>
 			</div>
 			<div class="descricao-evento-anterior">
 				<a href="http://www2.pucpr.br/reol/semic2013/" target="_blank"><h3>2013 - XXI Seminário de Iniciação Científica, XIV Mostra de Pesquisa, I PIBITI (22, 23 e 24 de novembro de 2013)</h3></a>
@@ -37,13 +32,10 @@
 				</p>
 			</div>
 		</div>
-		
 		<!--SEMIC 2012 -->
 		<div class="item-evento-anterior">
 			<div class="foto-evento-anterior">
-				<a href="http://www2.pucpr.br/reol/semic2012/" target="_blank">
-					<div class="semic-2012 round-foto"></div>
-				</a>
+				<a href="http://www2.pucpr.br/reol/semic2012/" target="_blank"> <div class="semic-2012 round-foto"></div> </a>
 			</div>
 			<div class="descricao-evento-anterior">
 				<a href="http://www2.pucpr.br/reol/semic2012/" target="_blank"><h3>2012 - XX Seminário de Iniciação Científica, XIV Mostra de Pesquisa, I PIBITI (6, 7 e 8 de novembro de 2012)</h3></a>
@@ -52,13 +44,10 @@
 				</p>
 			</div>
 		</div>
-		
 		<!--SEMIC 2011 -->
 		<div class="item-evento-anterior">
 			<div class="foto-evento-anterior">
-				<a href="http://www2.pucpr.br/reol/index.php/SEMIC19?dd99=contact" target="_blank">
-					<div class="semic-2011 round-foto"></div>
-				</a>
+				<a href="http://www2.pucpr.br/reol/index.php/SEMIC19?dd99=contact" target="_blank"> <div class="semic-2011 round-foto"></div> </a>
 			</div>
 			<div class="descricao-evento-anterior">
 				<a href="http://www2.pucpr.br/reol/index.php/SEMIC19?dd99=contact" target="_blank"><h3>2011 - XIX Seminário de Iniciação Científica, XIII Mostra de Pesquisa, I PIBITI (25, 26 e 27 de outubro de 2011)</h3></a>
@@ -68,13 +57,10 @@
 				</p>
 			</div>
 		</div>
-		
 		<!--SEMIC 2010 -->
 		<div class="item-evento-anterior">
 			<div class="foto-evento-anterior">
-				<a href="http://www2.pucpr.br/reol/index.php/semic18" target="_blank">
-					<div class="semic-2010 round-foto"></div>
-				</a>
+				<a href="http://www2.pucpr.br/reol/index.php/semic18" target="_blank"> <div class="semic-2010 round-foto"></div> </a>
 			</div>
 			<div class="descricao-evento-anterior">
 				<a href="http://www2.pucpr.br/reol/index.php/semic18" target="_blank"><h3>2010 - XVIII Seminário de Iniciação Científica e a XII Mostra de Pesquisa (26 e 27 de outubro de 2010)</h3></a>
@@ -83,13 +69,10 @@
 				</p>
 			</div>
 		</div>
-		
 		<!--SEMIC 2009 -->
 		<div class="item-evento-anterior">
 			<div class="foto-evento-anterior">
-				<a href="http://www2.pucpr.br/reol/index.php/semic17" target="_blank">
-					<div class="semic-2009 round-foto"></div>
-				</a>
+				<a href="http://www2.pucpr.br/reol/index.php/semic17" target="_blank"> <div class="semic-2009 round-foto"></div> </a>
 			</div>
 			<div class="descricao-evento-anterior">
 				<a href="http://www2.pucpr.br/reol/index.php/semic17" target="_blank"><h3>2009 - XVII Seminário de Iniciação Científica e a XI Mostra de Pesquisa (27 e 28 de outubro de 2009)</h3></a>
@@ -98,13 +81,10 @@
 				</p>
 			</div>
 		</div>
-		
 		<!--SEMIC 2008 -->
 		<div class="item-evento-anterior">
 			<div class="foto-evento-anterior">
-				<a href="http://www2.pucpr.br/reol/index.php/PIBIC2008?dd99=" target="_blank">
-					<div class="semic-2008 round-foto"></div>
-				</a>
+				<a href="http://www2.pucpr.br/reol/index.php/PIBIC2008?dd99=" target="_blank"> <div class="semic-2008 round-foto"></div> </a>
 			</div>
 			<div class="descricao-evento-anterior">
 				<a href="http://www2.pucpr.br/reol/index.php/PIBIC2008?dd99=" target="_blank"><h3>2008 - XVI Seminário de Iniciação Científica e a X Mostra de Pesquisa (11 e 12 de novembro de 2008)</h3></a>
@@ -113,13 +93,10 @@
 				</p>
 			</div>
 		</div>
-		
 		<!--SEMIC 2007 -->
 		<div class="item-evento-anterior">
 			<div class="foto-evento-anterior">
-				<a href="http://www2.pucpr.br/reol/index.php/PIBIC2007?dd99=" target="_blank">
-					<div class="semic-2007 round-foto"></div>
-				</a>
+				<a href="http://www2.pucpr.br/reol/index.php/PIBIC2007?dd99=" target="_blank"> <div class="semic-2007 round-foto"></div> </a>
 			</div>
 			<div class="descricao-evento-anterior">
 				<a href="http://www2.pucpr.br/reol/index.php/PIBIC2007?dd99=" target="_blank"><h3>2007 - XV Seminário de Iniciação Científica e a IX Mostra de Pesquisa da PUCPR (30 e 31 de outubro de 2007)</h3></a>
@@ -128,13 +105,10 @@
 				</p>
 			</div>
 		</div>
-		
 		<!--SEMIC 2006 -->
 		<div class="item-evento-anterior">
 			<div class="foto-evento-anterior">
-				<a href="http://www2.pucpr.br/reol/index.php/PIBIC2006?dd99=" target="_blank">
-					<div class="semic-2006 round-foto"></div>
-				</a>
+				<a href="http://www2.pucpr.br/reol/index.php/PIBIC2006?dd99=" target="_blank"> <div class="semic-2006 round-foto"></div> </a>
 			</div>
 			<div class="descricao-evento-anterior">
 				<a href="http://www2.pucpr.br/reol/index.php/PIBIC2006?dd99=" target="_blank"><h3>2006 - XIV Seminário de Iniciação Científica e a VIII Mostra de Pesquisa (24 e 25 de outubro de 2006)</h3></a>
@@ -143,7 +117,25 @@
 				</p>
 			</div>
 		</div>
-		
 	</div>
 </div>
-
+<div id="toTop" style="display: none;">
+	^ Voltar ao topo
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(window).scroll(function() {
+			if($(this).scrollTop() != 0) {
+				$('#toTop').fadeIn();
+			} else {
+				$('#toTop').fadeOut();
+			}
+		});
+		$('#toTop').click(function() {
+			$('body,html').animate({
+				scrollTop : 0
+			}, 800);
+		});
+	});
+</script>
