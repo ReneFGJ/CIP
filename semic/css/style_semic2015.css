@@ -306,7 +306,13 @@ a {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	margin-top: 20px;
+	border: 2px solid;
+ 	border-color: #84847F;
+ 	box-shadow: 5px 5px 10px #5E4058;
+	-webkit-box-shadow: 5px 5px 10px #5E4058;
+	-moz-box-shadow: 5px 5px 10px #5E4058;
 }
+
 .item-evento-anterior {
 	width: 100%;
 	border-top: solid 2px #5B4059;
@@ -317,6 +323,7 @@ a {
 	width: 25%;
 	float: left;
 }
+
 footer {
 	width: 100%;
 	background-color: white;
@@ -335,6 +342,7 @@ footer {
 	height: auto;
 	text-align:justify;
 	font-size: 14px;
+	
 }
 
 .descricao-evento-anterior a:link    {color:#5E405A; background-color:transparent; text-decoration:none}
