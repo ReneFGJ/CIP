@@ -1,6 +1,7 @@
 <body>
-<div id="banner"></div>
-
+<div id="banner">
+	
+</div>
 <script>
 $("#banner").vegas({
 	slides : [{

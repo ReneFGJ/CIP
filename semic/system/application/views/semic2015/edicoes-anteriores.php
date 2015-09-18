@@ -5,7 +5,7 @@
 		<!--SEMIC 2014 -->
 		<div class="item-evento-anterior">
 			<div class="foto-evento-anterior" >
-				<a href="http://www2.pucpr.br/reol/eventos/cicpg/" target="_blank">
+				<a href="http://www2.pucpr.br/reol/eventos/cicpg/" target="_blank" >
 					<div class="semic-2014 round-foto"></div>
 				</a>
 			</div>
@@ -146,3 +146,4 @@
 		
 	</div>
 </div>
+
