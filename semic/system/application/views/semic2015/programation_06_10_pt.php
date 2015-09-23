@@ -5,41 +5,52 @@
 		</div>
 		<div class="estilo_data4_1 celula-tabela-horario">
 			<p class="borda-programacao-cientifica">
-				<span class="estilo-horario">08h30</span> - <strong>Abertura:</strong> "Um mundo Mais Humano por meio da pesquisa"
+				<span class="estilo-horario">08h30 às 09h20</span> - <strong>Abertura Oficial</strong>
+				<br />
+				<br />
+				<strong>Local:</strong> Auditório TUCA - Bloco azul
+			</p>
+			<p class="borda-programacao-cientifica">
+				<span class="estilo-horario">09h20 às 10h15</span> - <strong>Palestra de abertura</strong>
+				<br />
+				<br />
+				<strong>Título:</strong> "Um mundo Mais Humano por meio da pesquisa"
 				<br />
 				<strong>Palestrante:</strong> Prof. Profa. Dra Jucimeri I. Silveira (PUCPR)
-
 				<br />
-				<strong>Local:</strong> TUCA - Bloco azul
+				<strong>Local:</strong> Auditório TUCA - Bloco azul
 			</p>
-
 			<p class="borda-programacao-apresentacao">
-				<span class="estilo-horario3">10h30</span> - <strong>Sessão de Poster I</strong> -
-				PUC Jovens Ideias, Pesquisar é Evoluir
-				<br>
-				10h30 às 12h30</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar-->
-
+				<span class="estilo-horario3">10h30 às 12h30</span> - <strong>Sessão de Pôster I</strong>
+				<br />
+				<br />
+				<strong>Áreas:</strong> PIBIC: Ciências Sociais Aplicadas e Ciências Agrárias
+				<br />
+				<strong>Local:</strong> Hall - Bloco verde
 			</p>
 			<div class="flecha-dir-programacao">
 				<i class="fa fa-caret-right"></i>
 			</div>
-
-			<!--- Bloco Apresentação oral -->
+			<!--- Bloco Apresentação oral
 			<p class="borda-programacao-apresentacao">
-				<span class="estilo-horario3">10h30</span> - <strong>Apresentação Oral - Bloco 1 -</strong>
-				10h30 às 12h30</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar-->
+			<span class="estilo-horario3">10h30</span> - <strong>Apresentação Oral - Bloco 1 -</strong>
+			10h30 às 12h30</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar
 			</p>
 
+			-->
 			<div class="flecha-dir-programacao">
 				<i class="fa fa-caret-right"></i>
 			</div>
-
 			<p class="borda-programacao-cientifica">
-				<span class="estilo-horario">10h30</span> - <strong>Mini Curso</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Redação Científica (parte 1)</span> com Dr. Milton Pires Ramos, Coordenador de IC da TECPAR.
+				<span class="estilo-horario">10h30 às 12h30 </span> - <strong>Mini Curso</strong>
+				<span class="tooltip tooltip-effect-5">
 					<br />
-					<strong>Local:</strong> <span class="erro">(a definir)</span> <span class="tooltip-content clearfix">
-						<br>
-						10h30 às 12h30 <span class="tooltip-text"> Parte 1
+					<br />
+					<span class="tooltip-item">Redação Científica (parte 1)</span>
+					<br />
+					<strong>Ministrante:</strong> Dr. Milton Pires Ramos, Coordenador de IC da TECPAR.
+					<br />
+					<strong>Local:</strong> <span> Auditório Gregor Mendel</span> <span class="tooltip-content clearfix"> <span class="tooltip-text"> Parte I
 							<br />
 							- Apresentação;
 							<br />
@@ -59,124 +70,125 @@
 							<br />
 							- Estabelecer uma progressão para uma leitura fluída - impulsionar a leitura.
 			</p>
-
 		</div>
 		<div class="estilo_data4_2 celula-tabela-horario">
-
 			</span>
 			</span>
-			</span>
-			<!--<button class="botao-inscricao" style="margin-left: 13%;"><i class="fa fa-external-link"></i> Inscrição para Mini-curso  </button>
+			</span> <!--<button class="botao-inscricao" style="margin-left: 13%;"><i class="fa fa-external-link"></i> Inscrição para Mini-curso  </button>
 			-->
-
-			<!--- Bloco Apresentação Oral -->
+			<!--- Bloco Apresentação Oral
 			<p class="borda-programacao-apresentacao">
-				<span class="estilo-horario3">13h30</span> - <strong>Apresentação Oral - Bloco II -</strong>
-				13h30 as 15h15</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar-->
+			<span class="estilo-horario3">13h30</span> - <strong>Apresentação Oral - Bloco II -</strong>
+			13h30 as 15h15</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar
 			</p>
-
+			-->
 			<!--- Bloco Mesa Redonda -->
 			<p class="borda-programacao-cientifica">
-				<span class="estilo-horario">13h30</span> - <strong>Mesa Redonda 1</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Migrações forçadas</span>
+				<span class="estilo-horario">13h30 às 15h15</span> - <strong>Mesa Redonda 1
+				<br />
+				<br />
+				</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item"><strong>Título:</strong> Migrações forçadas</span>
 					<br />
-					<strong>Local:</strong> <span class="erro">(a definir)</span>.
-					<br>
-					13h30 as 15h15 <span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
+					<strong>Coordenadora:</strong> <span> Profa. Dra. Maria Cecília Pilla (PUCPR)</span>
+					<br />
+					<strong>Local:</strong> <span> Auditório Gregor Mendel</span> <span class="tooltip-content clearfix"> <span class="tooltip-text">Participantes: <span class="erro"> Prof. Dr. George Galindo (UNB) e Profa. Dra. Maria Isabel Chysóstomo (UFV)</span>
 			</p>
 			</span>
 			</span>
 			</span>
-
 		</div>
 		<!--- Novo Bloco -->
 		<div class="estilo_data4_1 celula-tabela-horario">
-
 			<div class="flecha-dir-programacao">
 				<i class="fa fa-caret-right"></i>
 			</div>
 			<!--- Bloco Cultural -->
 			<p class="borda-programacao-cultural">
-				<span class="estilo-horario2">15h15</span><!--<i class="fa fa-circle cor-cultural"></i>-->
-				- <strong>Evento Cultural</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Do erudito ao popular - Concerto da Orquestra da PUCPR
+				<span class="estilo-horario2">15h15 às 15h45</span> - <strong>Evento Cultural</strong>
+				<br />
+				<br />
+				<span class="tooltip tooltip-effect-5"> <span class="tooltip-item"> <strong>Título:</strong> Do erudito ao popular - Concerto da Orquestra da PUCPR
 						<br />
-						<strong>Local:</strong> <span class="erro">(a definir)</span> </br>
-						15h15-15h45
-						<br />
-						<strong>Ingressos:</strong> <span class="erro">(a definir)</span> <span class="tooltip-content clearfix"> <span class="tooltip-text"> <span class="erro">(a definir)</span>
+						<strong>Local:</strong> <span> Auditório Tuca - Bloco azul</span>.</span>
+					<br />
+					<strong>Ingressos:</strong> <span> Na secretaria do evento</span> <span class="tooltip-content clearfix"> <span class="tooltip-text"> <span class="erro">(a definir)</span>
 			</p>
 			</span>
 			</span>
 			</span>
-
 		</div>
 		<!--- Novo Bloco -->
 		<div class="estilo_data4_2 celula-tabela-horario">
-
 			<!--- Bloco Científico - Pôster -->
 			<p class="borda-programacao-apresentacao">
-				<span class="estilo-horario3">16h00</span> - <strong>Sessão de Poster II</strong>
-				</br>16h00 às 17h45 </span> <!--<span style="font-size: 12px;"> (em breve)</span> <br /><strong>Local:</strong> à confirmar.-->
+				<span class="estilo-horario3">15h30 às 17h30</span> - <strong>Sessão de Pôster II</strong>
+				<br />
+				<br />
+				<strong>Áreas:</strong> PIBITI: (todas as áreas)
+				<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIBIC: Ciências Exatas
+				<br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pôster de alunos em Intercâmbio/CSF
 			</p>
-			
-			<!--- Bloco Apresentação oral -->
+			<!--- Bloco Apresentação oral
 			<p class="borda-programacao-apresentacao">
-				<span class="estilo-horario3">16h00</span> - <strong>Apresentação Oral - Bloco III -</strong>
-				16h00 às 17h45</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar-->
-			</p>			
-
+			<span class="estilo-horario3">16h00</span> - <strong>Apresentação Oral - Bloco III -</strong>
+			16h00 às 17h45</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar
+			</p>
+			-->
 			<!--- Bloco Mesa Redonda -->
 			<p class="borda-programacao-cientifica">
-				<span class="estilo-horario">16h00</span> - <strong>Mesa Redonda 2</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Pesquisa como metodologia de ensino e aprendizagem</span>
+				<span class="estilo-horario">16h00 às 20h00</span> - <strong>Mesa Redonda 2</strong>
+				<br />
+				<br />
+				<span class="tooltip tooltip-effect-5"> <span class="tooltip-item"><strong>Título:</strong> Pesquisa na graduação</span>
 					<br />
-					<strong>Local:</strong> <span class="erro">(a definir)</span>.
+					<strong>Local:</strong> <span> Auditório Brasilio Vicente de Castro</span>.
 					<br>
-					16h00 às 20h00 <span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
+					<span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">Participantes: Profa. Dra. Vanessa Santos Sotomaior, Profa. Dra. Cleybe Vieira, Profa. Dra. Cinthia Bittencourt Spricigo</span>
 			</p>
-
-
-
 			<div class="flecha-dir-programacao">
 				<i class="fa fa-caret-right"></i>
 			</div>
-
 			</span>
 			</span>
 			</span>
-
 		</div>
 		<!--- Novo Bloco -->
 		<div class="estilo_data4_1 celula-tabela-horario">
-
-			<!--- Bloco Apresentação Oral -->
-			<p class="borda-programacao-apresentacao">
-				<span class="estilo-horario3">18h30</span> - <strong>Apresentação Oral - Bloco IV -</strong>
-				18h30 as 20h15</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar-->
-			</p>
-
 			<!--- Bloco Mesa Redonda -->
 			<p class="borda-programacao-cientifica">
-				<span class="estilo-horario">18h30</span> - <strong>Mesa Redonda 3</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Cinema e as novas tecnologias</span>
+				<span class="estilo-horario">18h30 às 20h00</span> - <strong>Mesa Redonda 3</strong>
+				<br />
+				<br />
+				<span class="tooltip tooltip-effect-5"> <span class="tooltip-item"><strong>Título:</strong> Cinema e as novas tecnologias:</span> Sons e sentidos
 					<br />
 					<strong>Local:</strong> Auditório Gregor Mendel.
+					<br />
+					<strong>Mediadora:</strong> Celina Alvetti (PUCPR)
 					<br>
-					18h30 às 20h15 <span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
+					<span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">Ulisses Galetto (PUCPR) e Marcelo Munhoz (PUCPR))</span>
 			</p>
 		</div>
-
 		<!--- Novo Bloco -->
 		<div class="estilo_data4_2 celula-tabela-horario">
 			<!--- Bloco Mesa Redonda -->
 			<p class="borda-programacao-cientifica">
-				<span class="estilo-horario">19h30</span> - <strong>Mesa Redonda 4</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Posicionamento da Universidade e Direitos Humanos - Acordos Internacionais</span>
+				<span class="estilo-horario">19h30 às 21h00</span> - <strong>Mesa Redonda 4</strong>
+				<br />
+				<br />
+				<span class="tooltip tooltip-effect-5"> <span class="tooltip-item"><strong>Título:</strong> “Crise contemporânea e os compromissos éticos com os direitos humanos e o desenvolvimento sustentável: por cidades mais humanas”</span>
 					<br />
-					<strong>Local:</strong> Auditório TUCA
-					<br>
-					19h30 às 21h00 <span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
+					<strong>Coordenação:</strong> Profa. Dra. Paula Trevilatto e Profa. Dra. Jucimeri Silveira
+					<br />
+					<strong>Participantes:</strong> <font color = "#8b1217">Gustavo Fruet</font> (Prefeito de Curitiba), <font color = "#8b1217">Waldemiro Gremski</font> (Reitor da PUCPR), <font color = "#8b1217">Agenor Brighenti</font> (CNBB)
+					<br />
+					<strong>Tema:</strong> Orientações do Papa Francisco aos prefeitos, em audiência realizada em 21 de julho de 2015, no Vaticano, sobre o papel dos governantes locais na sustentabilidade do mundo e no desenvolvimento humano. Crise climática, migrações forçadas, novas formas de escravidão. Compromissos políticos na defesa e proteção aos direitos humanos, e implementação de políticas públicas que contribuam na construção de cidades mais humanas.
+					<br />
+					<strong>Local:</strong> Auditório TUCA - Bloco azul <span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro"> Gustavo Fruet (Prefeito de Curitiba), Waldemiro Gremski (Reitor PUCPR), Agenor Brighenti (CNBB)</span>
 			</p>
-
 			<div class="flecha-dir-programacao">
 				<i class="fa fa-caret-right"></i>
 			</div>
-
 		</div>
 	</div>

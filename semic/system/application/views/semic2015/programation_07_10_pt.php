@@ -2,51 +2,56 @@
 	<div class="data-programacao cor-data-programacao_2">
 		<h5>7 de outubro</h5>
 	</div>
-	<div class="estilo_data6_1 celula-tabela-horario">
-
-		<!--- Bloco Apresentação oral -->
-		<p class="borda-programacao-apresentacao">
-			<span class="estilo-horario3">08h30</span> - <strong>Apresentação Oral - Bloco V -</strong>
-			08h30 às 10h15</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar-->
-		</p>
-
-	</div>
 	<!--- Novo Bloco -->
 	<div class="estilo_data4_2 celula-tabela-horario">
-
 		<!--- Bloco Mesa Redonda -->
 		<p class="borda-programacao-cientifica">
-			<span class="estilo-horario">09h30</span> - <strong>Mesa Redonda 5</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Mulher em situação de risco e de violência: Desafios e possibilidades</span>
+			<span class="estilo-horario">09h30 às 12h00</span> - <strong>Mesa Redonda 5</strong>
+			<br />
+			<br />
+			<span class="tooltip tooltip-effect-5"> 
+				<span class="tooltip-item"> <strong>Título: </strong> Mulher em situação de risco e de violência: Desafios e possibilidades</span>
+				<br />
+				<strong>Coordenadora:</strong> Profa. Dra. Cristiane Regina Arns de Oliveira (PUCPR/Programa Ciência e Transcendência)
+				<br />
+				<strong>Participantes:</strong> Profa. Dra. Priscilla Placha Sá (PUCPR), Dra. Rita de Cássia Rodrigues Costa Neumann (Diretora da penitenciária feminina do Paraná), Michele Bravos (Jornalista), Aparecida Varela Silva (Agente penitenciária)
 				<br />
 				<strong>Local:</strong> Auditório Carlos Costa
 				<br>
-				09h30 às 12h00 <span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
+				<span class="tooltip-content clearfix"> 
+					<span class="tooltip-text"> Coordenadora: <span class="tooltip-text"> Profa. Dra. Cristiane Regina Arns de Oliveira (PUCPR/Programa Ciência e Transcendência)</span>
+						<br />
+						<span class="tooltip-text"> Participantes: <span class="tooltip-text"> Profa. Dra. Priscilla Placha Sá (PUCPR), Dra. Rita de Cássia Rodrigues Costa Neumann (Diretora da penitenciária feminina do Paraná), Michele Bravos (Jornalista), Aparecida Varela Silva (Agente penitenciária)</span>
 		</p>
-
 		<!--- Bloco Cultural -->
 		<p class="borda-programacao-cultural">
-			<span class="estilo-horario2">09h30</span><!--<i class="fa fa-circle cor-cultural"></i>-->
-			- <strong>Evento Cultural</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Concurso Literário Científico: Eu não concordo com o Papa Francisco: um diálogo sobre a encíclica Laudato si
+			<span class="estilo-horario2">09h30 às 12h00</span> - <strong>Evento Cultural</strong>
+			<br />
+			<br />
+			<span class="tooltip tooltip-effect-5"> <span class="tooltip-item"> <strong>Tìtulo:</strong> Concurso Literário Científico: Eu não concordo com o Papa Francisco: um diálogo sobre a encíclica Laudato si
+					<br />
+					<strong>Participantes:</strong> Marcial Maçaneiro (PUCPR), Fabiano Incerti (Instituto Ciência e Fé) e alunos finalistas
 					<br />
 					<strong>Local:</strong> Auditório Mario de Abreu </br>
-					09h30-12h00
 					<br />
 		</p>
-		<div class="flecha-dir-programacao">
-			<i class="fa fa-caret-right"></i>
-		</div>
-
 	</div>
 	<!--- Novo Bloco -->
 	<div class="estilo_data4_1 celula-tabela-horario">
-
 		<!---- Programaçao científica -->
 		<p class="borda-programacao-cientifica">
-			<span class="estilo-horario">10h30</span> - <strong>Mini Curso</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Redação Científica (parte 1)</span> com Dr. Milton Pires Ramos, Coordenador de IC da TECPAR.
+			<span class="estilo-horario">10h30 às 12h30</span> - <strong>Mini Curso</strong>
+			<br />
+			<br />
+			<span class="tooltip tooltip-effect-5"> 
+				<span class="tooltip-item">Redação Científica (parte 2)</span>
 				<br />
-				<strong>Local:</strong> <span class="erro">(a definir)</span> <span class="tooltip-content clearfix">
+				<strong>Ministrante:</strong> Dr. Milton Pires Ramos, Coordenador de IC da TECPAR.
+				<br />
+				<strong>Local:</strong> <span>Auditório Gregor Mendel</span> 
+				<span class="tooltip-content clearfix">
 					<br>
-					10h30 às 12h30 <span class="tooltip-text"> Parte 1
+					<span class="tooltip-text"> Parte 2
 						<br />
 						- Apresentação;
 						<br />
@@ -66,100 +71,98 @@
 						<br />
 						- Estabelecer uma progressão para uma leitura fluída - impulsionar a leitura.
 		</p>
-
-		<!--- Bloco Científico - Pôster -->
+		<!--- Bloco Científico - Pôster
 		<p class="borda-programacao-apresentacao">
-			<span class="estilo-horario3">10h30</span> - <strong>Sessão de Poster II</strong>
-			</br>10h30-12h30 </span> <!--<span style="font-size: 12px;"> (em breve)</span> <br /><strong>Local:</strong> à confirmar.-->
-		</p>
-
-		<!--- Bloco Apresentação oral -->
+		<span class="estilo-horario3">10h30</span> - <strong>Sessão de Poster III</strong>
+		</br>10h30-12h30 </span> <!--<span style="font-size: 12px;"> (em breve)</span> <br /><strong>Local:</strong> à confirmar.-->
+		</p> <!--- Bloco Apresentação oral
 		<p class="borda-programacao-apresentacao">
-			<span class="estilo-horario3">10h30</span> - <strong>Apresentação Oral - Bloco VI -</strong>
-			10h30-12h30</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar-->
+		<span class="estilo-horario3">10h30</span> - <strong>Apresentação Oral - Bloco VI -</strong>
+		10h30-12h30</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar
 		</p>
-
+		-->
 	</div>
 	<!--- Novo Bloco -->
 	<div class="estilo_data4_2 celula-tabela-horario">
-
-		<!--- Bloco Apresentação Oral -->
+		<!--- Bloco Apresentação Oral
 		<p class="borda-programacao-apresentacao">
-			<span class="estilo-horario3">13h15</span> - <strong>Apresentação Oral - Bloco VII -</strong>
-			13h30-15h15</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar-->
+		<span class="estilo-horario3">13h15</span> - <strong>Apresentação Oral - Bloco VII -</strong>
+		13h30-15h15</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar
 		</p>
+		-->
 	</div>
-
 	<!--- Novo Bloco -->
-	<div class="estilo_data4_1 celula-tabela-horario">
-
-		<!--- Bloco Mesa Redonda -->
-		<p class="borda-programacao-cientifica">
-			<span class="estilo-horario">14h00</span> - <strong>Mesa Redonda 6</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Direitos Humanos e mídia: os grandes veículos de comunicação nacional e a maioridade penal </span>
+	<div class="estilo_data4_2 celula-tabela-horario">
+		<!--- Bloco Científico - Pôster -->
+		<p class="borda-programacao-apresentacao">
+			<span class="estilo-horario3">10h30 às 12h30</span> - <strong>Sessão de Poster III</strong>
+			</br>
+			<br />
+			</span> <!--<span style="font-size: 12px;"> (em breve)</span> <br /><strong>Local:</strong> à confirmar.-->
+			<strong>Áreas:</strong> PIBIC: Ciências Humanas,
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PIBIC Jr: (todas as áreas)
+		</p>
+		<!--- Novo Bloco -->
+		<div class="estilo_data4_1 celula-tabela-horario">
+			<!--- Bloco Mesa Redonda -->
+			<p class="borda-programacao-cientifica">
+				<span class="estilo-horario">14h00 às 16h00</span> - <strong>Mesa Redonda 6</strong>
 				<br />
-				<strong>Local:</strong> Auditório Gregor Mendel.
-				<br>
-				14h00-16h00 <span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
-		</p>
-		</span>
-		</span>
-		</span>
-
-	</div>
-	<!--- Novo Bloco -->
-	<div class="estilo_data4_2 celula-tabela-horario">
-
-		<!--- Bloco Científico - Pôster -->
-		<p class="borda-programacao-apresentacao">
-			<span class="estilo-horario3">15h30</span> - <strong>Sessão de Poster II</strong>
-			</br>15h30-17h30 </span> <!--<span style="font-size: 12px;"> (em breve)</span> <br /><strong>Local:</strong> à confirmar.-->
-		</p>
-
+				<br />
+				<span class="tooltip tooltip-effect-5"> <span class="tooltip-item"> <strong>Título:</strong> Direitos Humanos e mídia: os grandes veículos de comunicação nacional e a maioridade penal </span>
+					<br />
+					<strong>Coordenador:</strong> Fabiano Incerti (Instituto Ciência e Fé)
+					<br />
+					<strong>Participantes:</strong> Leandro Fortes (jornalista, professor e escritor), Vivian Lemos (Jornalista), Natasha Cruz (Jornalista)
+					<br />
+					<strong>Local:</strong> Auditório Gregor Mendel.
+					<br>
+					<span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
+			</p>
+			</span>
+			</span>
+			</span>
+		</div>
 	</div>
 	<!--- Novo Bloco -->
 	<div class="estilo_data4_1 celula-tabela-horario">
-
 		<!--- Bloco Apresentação Oral -->
 		<p class="borda-programacao-apresentacao">
-			<span class="estilo-horario3">16h30</span> - <strong>Apresentação Oral - Bloco VIII -</strong>
-			13h30-15h15</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar-->
+			<span class="estilo-horario3">15h30 às 17h30</span> - <strong>Sessão de Pôster IV</strong>
+			<br />
+			<br />
+			<strong>Áreas:</strong> PIBIC: Ciências da vida
 		</p>
 		</span>
 		</span>
 		</span>
-
 	</div>
 	<!--- Novo Bloco -->
 	<div class="estilo_data4_2 celula-tabela-horario">
-
 		<!--- Bloco Mesa Redonda -->
 		<p class="borda-programacao-cientifica">
-			<span class="estilo-horario">18h30</span> - <strong>Palestra 4</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Democracia e criminalização dos movimentos sociais</span>
+			<span class="estilo-horario">18h45 às 20h30</span> - <strong>Palestra 1</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Democracia e criminalização dos movimentos sociais</span>
+				<br />
+				<br />
+				<strong>Título:</strong> Criminalização dos movimentos sociais
+				<br />
+				<strong>Palestrante:</strong> Fernando Gallardo Vieira Prioste (Advogado, coordenador e assessor jurídico na organização de direitos humanos Terra de direitos)
+				<br />
+				<strong>Debatedor:</strong> Prof. Jelson Roberto de Oliveira (PUCPR)
 				<br />
 				<strong>Local:</strong> Auditório Gregor Mendel
 				<br>
-				18h30-20h30 <span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
+				<span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
 		</p>
-
 	</div>
 	<!--- Novo Bloco -->
 	<div class="estilo_data4_1 celula-tabela-horario">
-
-		<!--- Bloco Apresentação oral -->
-		<p class="borda-programacao-apresentacao">
-			<span class="estilo-horario3">18h45</span> - <strong>Apresentação Oral - Bloco IX -</strong>
-			16h00 às 17h45</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar-->
-		</p>
-
 		<div class="flecha-dir-programacao">
 			<i class="fa fa-caret-right"></i>
 		</div>
-
 		</span>
 		</span>
 		</span>
-
 	</div>
-	
 </div>
-

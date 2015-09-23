@@ -1,0 +1,351 @@
+/* CSS */
+body {
+	font-family: "CICPG", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0 auto;
+	/* background-image: url('http://www2.pucpr.br/reol/semic/img/semic2015/background.png'); */
+}
+.erro {
+	color: red;
+}
+/* Pagimas */
+.pg09 {
+	width: 100%;
+}
+.page_min {
+	padding-top: 0px;
+}
+.center {
+	width: 1280px;
+	margin: 0 auto;
+	border: 0px solid #000000;
+}
+a {
+	text-decoration: none;
+}
+.box {
+	background-color: #5E405A;
+	padding: 10px 20px;
+	color: #efefef;
+	border-radius: 10px;
+}
+.box h1 {
+	font-size: 15px;
+	color: #debb8a;
+	border-radius: 10px;
+	
+}
+/* BOX 2 */
+.box2 {
+	background-color: #debb8a;
+	padding: 10px 20px;
+	color: #382736;
+	border-radius: 10px;
+}
+
+
+/* Edital */
+.menu_edital {
+	font-size: 19px;
+	font-family: "Garamond";
+	color: #5E405A;
+	padding: 2px 20px 2px 0px;
+	
+}
+.menu_edital:hover {
+	font-size: 19px;
+	font-family: "Garamond";
+	color: #fff;
+	background-color: #5E405A;
+	border-radius: 10px;
+	 
+	
+}
+.readmore, .readmore2 {
+	margin-top: 10px;
+	text-align: right;
+}
+.readmore a {
+	margin-top: 20px;
+	background-color: #5E405A;
+	color: #debb8a;
+}
+.readmore a:hover {
+	margin-top: 20px;
+	background-color: #5E405A;
+	color: #fedbaa;
+}
+#content {
+	width: 1230px;
+	font-size: 16px;
+	background-color: #ffffff;
+	border-top: 1px solid #333;
+	padding: 25px;
+}
+#foot {
+	font-size: 12px;
+	background-color: #faf6dd;
+	border-top: 1px solid #333;
+	padding: 20px;
+}
+#foot a {
+	font-size: 12px;
+	color: #5E405A;
+}
+#banner {
+	width: 100%;
+	height: 370px;
+}
+#logo {
+	position: absolute;
+	top: 0px;
+	right: 200px;
+	border: 1px solid #333;
+}
+#semic_top_menu {
+	list-style: none;
+	vertical-align: baseline;
+	font-size: 14px;
+	margin: 0px;
+	background-color: #5E405A;
+}
+#semic_top_menu a {
+	display: block;
+	position: relative;
+	margin: 0px;
+}
+#semic_top_menu ul li {
+	display: inline;
+	margin: 0px 0px 0px 0px;
+}
+#semic_top_menu li a {
+	padding: 10px 15px;
+	margin: 0px;
+	display: inline-block;
+	border-right: 1px solid #3E203A;
+	/* visual do link */
+	background-color: #5E405A;
+	color: #eee;
+	text-decoration: none;
+}
+#semic_top_menu li a:hover {
+	background-color: #3E203A;
+	color: #fff;
+}
+/* Programacao */
+.evento-cientifico-modalidade {
+	width: 15px;
+	height: 15px;
+	background-color: #94b65c;
+	float: left;
+}
+.evento-cultural-modalidade {
+	width: 15px;
+	height: 15px;
+	background-color: #f39200;
+	float: left;
+}
+.evento-apresentacoes-modalidade {
+	width: 15px;
+	height: 15px;
+	background-color: rgba(149, 27, 129, 0.7);
+	float: left;
+}
+.identificacao-salas {
+	width: 35%;
+	background-color: #eaede2;
+	float: left;
+	padding: 20px 30px;
+}
+.margin-identificacao {
+	margin-left: 15%;
+	margin-right: 15px;
+}
+#programacao-info {
+	width: 100%;
+	height: 100%;
+	clear: both;
+}
+.programacao-horario {
+	width: 33%;
+	float: left;
+	border-right: 1px solid #fff;
+}
+.estilo-horario {
+	font-size: 20px;
+	color: #000;
+	padding: 3px;
+	font-weight: bold;
+	background-color: #94b65c;
+}
+.estilo-horario2 {
+	font-size: 20px;
+	color: #000;
+	padding: 3px;
+	font-weight: bold;
+	background-color: #f39200;
+}
+.estilo-horario3 {
+	font-size: 20px;
+	color: #000;
+	padding: 3px;
+	font-weight: bold;
+	background-color: rgba(149, 27, 129, 0.7);
+}
+.estilo-horario4 {
+	font-size: 20px;
+	color: #000;
+	padding: 3px;
+	font-weight: bold;
+}
+.data-programacao {
+	background-color: rgba(73, 125, 47, 1);
+	float: left;
+	width: 100%;
+	color: #fff;
+}
+.cor-data-programacao_1 {
+	background-color: #5d3f59;
+}
+.cor-data-programacao_2 {
+	background-color: #5d3f59;
+}
+.cor-data-programacao_3 {
+	background-color: #5d3f59;
+}
+.data-programacao h5 {
+	font-size: 20px;
+	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
+	margin-left: 40px;
+}
+.celula-tabela-horario {
+	float: left;
+	width: 100%;
+	color: #232323;
+}
+.celula-tabela-horario p {
+	padding: 10px 40px;
+}
+.estilo_data4_1 {background-color: rgba(206, 209, 198, 0.8);}
+.estilo_data4_2 {background-color: rgba(206, 209, 198, 0.6);}
+.estilo_data4_3 {background-color: rgba(206, 209, 198, 0.4);}
+.estilo_data4_4 {background-color: rgba(206, 209, 198, 0.3);}
+.estilo_data4_5 {background-color: rgba(206, 209, 198, 0.2);}
+.estilo_data5_1 {background-color: rgba(206, 209, 198, 0.8);}
+.estilo_data5_2 {background-color: rgba(206, 209, 198, 0.6);}
+.estilo_data5_3 {background-color: rgba(206, 209, 198, 0.4);}
+.estilo_data5_4 {background-color: rgba(206, 209, 198, 0.2);}
+.estilo_data6_1 {background-color: rgba(206, 209, 198, 0.8);}
+.estilo_data6_2 {background-color: rgba(206, 209, 198, 0.6);}
+.estilo_data6_3 {background-color: rgba(206, 209, 198, 0.4);}
+.estilo_data6_4 {background-color: rgba(206, 209, 198, 0.2);}
+.borda-programacao-cientifica {border-left: 5px solid #94b65c;}
+.borda-programacao-cultural   {border-left: 5px solid #f39200;}
+.borda-programacao-apresentacao {border-left: 5px solid #951b81;}
+.flecha-dir-programacao {
+	float: right;
+	margin-right: 5%;
+	margin-top: -18%;
+}
+/* Tooltip */
+
+.tooltip-content {
+	position: absolute;
+	z-index: 9999;
+	width: 360px;
+	left: 50%;
+	margin: 0 0 20px -180px;
+	bottom: 100%;
+	text-align: left;
+	font-size: 1.2em;
+	line-height: 1.4;
+	box-shadow: -5px -5px 15px rgba(48,54,61,0.2);
+	background: #2a3035;
+	opacity: 0;
+	cursor: default;
+}
+/* Tooltip content*/
+
+.tooltip-content img {
+	position: relative;
+	height: 170px;
+	display: block;
+	float: left;
+	margin-right: 1em;
+}
+.tooltip-text {
+	font-size: 0.68em;
+	line-height: 1.35;
+	display: block;
+	padding: 1.31em 1.21em 1.21em 0;
+	color: #fff;
+}
+.tooltip-effect-5 .tooltip-text {
+	padding: 1.4em;
+}
+.tooltip-text a {
+	font-weight: bold;
+}
+/** edicoes anteriores**/
+.semic-2014 {background-image: url('../img/semic2015/capa_cicpg2014.jpg');}	
+.semic-2013 {background-image: url('../img/semic2015/capa_semic2013.jpg');}
+.semic-2012 {background-image: url('../img/semic2015/capa_semic2012.jpg');}
+.semic-2011 {background-image: url('../img/semic2015/capa_semic2011.jpg');}
+.semic-2010 {background-image: url('../img/semic2015/capa_semic2010.jpg');}
+.semic-2009 {background-image: url('../img/semic2015/capa_semic2009.jpg');}
+.semic-2008 {background-image: url('../img/semic2015/capa_semic2008.jpg');}
+.semic-2007 {background-image: url('../img/semic2015/capa_semic2007.jpg');}
+.semic-2006 {background-image: url('../img/semic2015/capa_semic2006.jpg');}
+
+.round-foto {
+	width: 100px;
+	height: 150px;
+	background-size: cover;
+	display: block;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	margin-top: 20px;
+	border: 2px solid;
+ 	border-color: #84847F;
+ 	box-shadow: 5px 5px 10px #5E4058;
+	-webkit-box-shadow: 5px 5px 10px #5E4058;
+	-moz-box-shadow: 5px 5px 10px #5E4058;
+}
+
+.item-evento-anterior {
+	width: 100%;
+	border-top: solid 2px #5B4059;
+	margin-bottom: 40px;
+	float: left;
+}
+.foto-evento-anterior {
+	width: 25%;
+	float: left;
+}
+
+footer {
+	width: 100%;
+	background-color: white;
+	margin-top: 100px;
+	border-top: 1px solid #565656;
+}
+.content-5 {
+	width: 62%;
+	height: 2290px;
+	margin-left: 18%;
+	background-color: white;
+}
+.descricao-evento-anterior {
+	width: 480px;
+	float: left;
+	height: auto;
+	text-align:justify;
+	font-size: 14px;
+	
+}
+
+.descricao-evento-anterior a:link    {color:#5E405A; background-color:transparent; text-decoration:none}
+.descricao-evento-anterior a:visited {color:#5E405A; background-color:transparent; text-decoration:none}
+.descricao-evento-anterior a:hover   {color:red; 	 background-color:transparent; text-decoration:underline}
+.descricao-evento-anterior a:active  {color:blue;  	 background-color:transparent; text-decoration:underline

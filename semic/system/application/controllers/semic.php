@@ -22,7 +22,7 @@ class semic extends Controller {
 		array_push($css, 'style_vegas.css');
 		array_push($css, 'style_semic2015.css');
 		array_push($js, 'vegas/vegas.min.js');
-		//array_push($js, 'zepto.min.js');
+		array_push($js, 'countdown.js');
 
 		/* transfere para variavel do codeigniter */
 		$data['css'] = $css;
@@ -39,7 +39,6 @@ class semic extends Controller {
 			$id = 'pt';
 		}
 		$this -> idioma = trim($id);
-
 		$this -> load -> view("semic2015/header", $data);
 		$this -> load -> view('semic2015/menu_top');
 
@@ -64,18 +63,17 @@ class semic extends Controller {
 	function index() {
 		$this -> cab();
 		$this -> load -> view('semic2015/main_image');
-
 		$data = array();
 
 		$box = array('text' => 'whats_semic', 'link');
 		$data['content'] = $this -> load -> view('semic2015/box_highlight', $box, true);
-
+		
 		/* Pagina apresentacao */
-		$data['content'] .= $this -> load -> view('semic2015/presentation', NULL, true);
-
+		$data['content'] .= $this -> load -> view('semic2015/presentation', $data, true);
+		
 		/* Menu lateral */
-		$data['content_right'] = $this -> load -> view('semic2015/content_right', NULL, true);
-		$data['content_right'] .= $this -> load -> view('semic2015/menu_edital', NULL, true);
+		//$data['content_right'] = $this -> load -> view('semic2015/content_right', $data, true);
+		$data['content_right'] = $this -> load -> view('semic2015/menu_edital', $data, true);
 
 		$data['layout'] = 2;
 		$this -> load -> view('semic2015/content', $data);
@@ -83,6 +81,43 @@ class semic extends Controller {
 		$this -> load -> view('semic2015/footer');
 	}
 
+	function summary() {
+		$this -> cab();
+		$this -> load -> view('semic2015/main_image');
+
+		$data = array();
+
+		$box = array('text' => 'whats_semic', 'link');
+		$this -> load -> view('semic2015/anais/sumario_cloud', $data);
+		$this -> load -> view('semic2015/anais/sumario_geral', $data);
+		
+
+		$this -> load -> view('semic2015/footer');
+	}
+	
+	/* VIEW */
+	function view($id)
+		{
+			$this -> cab();
+			$this -> load -> view('semic2015/main_image');
+						
+			$id = trim($id);
+			$path = $_SERVER['SCRIPT_FILENAME'];
+			$path = substr($path,0,strpos($path,'index.php'));
+			$path .= 'system/application/views/semic2015/anais/';
+			$file = $path.$id.'.php';
+			
+			$data = array();
+			
+			if (file_exists(($file)))
+				{
+					$data['content'] = $this->load->view('semic2015/anais/'.trim($id),$data,True);
+				} else {
+					$data['content'] = $this->load->view('semic2015/anais/not_found',$data,True);
+				}
+		$this -> load -> view('semic2015/content', $data);
+		$this -> load -> view('semic2015/footer');
+		}
 	//Pagina programacao
 	function programmation() {
 		$this -> cab();
@@ -191,5 +226,20 @@ class semic extends Controller {
 
 		$this -> load -> view('semic2015/footer');
 	}
+	
+	//Pagina Expediente
+	function expedient() {
+		$this -> cab();
+		$this -> load -> view('semic2015/main_image');
+		$data = array();
+
+		/* Expediente */
+		$data['content'] = $this -> load -> view('semic2015/expedient', NULL, true);
+
+		$data['layout'] = 1;
+		$this -> load -> view('semic2015/content', $data);
+
+		$this -> load -> view('semic2015/footer');
+	}	
 
 }

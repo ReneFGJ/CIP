@@ -5,6 +5,75 @@ body {
 	margin: 0 auto;
 	/* background-image: url('http://www2.pucpr.br/reol/semic/img/semic2015/background.png'); */
 }
+
+#summary
+	{
+		padding: 20px;
+		background-color: #faf6dd;
+		display:table;
+		width: 95%;
+		text-align: justify;
+	}
+.cloud_1 {
+	background-color: #fefefe;
+}
+.cloud_2 {
+	background-color: #fefefe;
+}
+.cloud_3 {
+	background-color: #fefefe;
+}
+
+.cloud
+	{
+	font-size: 14px;
+	color: #5E405A;
+	padding: 5px;
+	height: 28px;
+	margin-top: 5px;
+	margin-right: 10px;
+	float: left;
+	}
+
+.cloud:hover
+	{
+	color: #ffffff;
+	background-color: #5E405A;
+	}
+
+.trabalho_background_tr
+	{
+	background-color: #cfcfcf;	
+	}
+.trabalho_background {
+	background-color: #efefef;
+}
+.lt0 {
+	font-size: 10px;
+}
+.lt1 {
+	font-size: 12px;
+}
+a.lt1 {
+	font-size: 12px;
+	text-decoration: none;
+	color: #000080;
+}
+.lt2 {
+	font-size: 14px;
+}
+.lt3 {
+	font-size: 16px;
+}
+.lt4 {
+	font-size: 18px;
+}
+.lt5 {
+	font-size: 22px;
+}
+.lt6 {
+	font-size: 26px;
+}
 .erro {
 	color: red;
 }
@@ -41,21 +110,19 @@ a {
 	color: #382736;
 	border-radius: 10px;
 }
-
 /* Edital */
 .menu_edital {
 	font-size: 19px;
 	font-family: "Garamond";
 	color: #5E405A;
 	padding: 2px 20px 2px 0px;
-	
 }
 .menu_edital:hover {
 	font-size: 19px;
 	font-family: "Garamond";
 	color: #fff;
 	background-color: #5E405A;
-	border-radius: 10px;	
+	border-radius: 10px;
 }
 .readmore, .readmore2 {
 	margin-top: 10px;
@@ -89,8 +156,8 @@ a {
 	color: #5E405A;
 }
 #banner {
-	width: 100%;
-	height: 370px;
+	width: 949px;
+	height: 208px;
 }
 #logo {
 	position: absolute;
@@ -161,11 +228,16 @@ a {
 	width: 100%;
 	height: 100%;
 	clear: both;
+
 }
+
 .programacao-horario {
 	width: 33%;
 	float: left;
 	border-right: 1px solid #fff;
+	
+	border: 2px solid #696969;
+	border-radius: 13px;
 }
 .estilo-horario {
 	font-size: 20px;
@@ -173,6 +245,7 @@ a {
 	padding: 3px;
 	font-weight: bold;
 	background-color: #94b65c;
+	border-radius: 10px;
 }
 .estilo-horario2 {
 	font-size: 20px;
@@ -180,6 +253,7 @@ a {
 	padding: 3px;
 	font-weight: bold;
 	background-color: #f39200;
+	border-radius: 10px;
 }
 .estilo-horario3 {
 	font-size: 20px;
@@ -187,12 +261,14 @@ a {
 	padding: 3px;
 	font-weight: bold;
 	background-color: rgba(149, 27, 129, 0.7);
+	border-radius: 10px;
 }
 .estilo-horario4 {
 	font-size: 20px;
 	color: #000;
 	padding: 3px;
 	font-weight: bold;
+	border-radius: 10px;
 }
 .data-programacao {
 	background-color: rgba(73, 125, 47, 1);
@@ -202,43 +278,80 @@ a {
 }
 .cor-data-programacao_1 {
 	background-color: #5d3f59;
+	border-radius: 10px;
 }
 .cor-data-programacao_2 {
 	background-color: #5d3f59;
+		border-radius: 10px;
 }
 .cor-data-programacao_3 {
 	background-color: #5d3f59;
+	border-radius: 10px;
 }
 .data-programacao h5 {
 	font-size: 20px;
 	font-family: 'CICPG', 'EBGaramondRegular', 'Tahoma', 'Arial';
 	margin-left: 40px;
+	
 }
 .celula-tabela-horario {
 	float: left;
 	width: 100%;
 	color: #232323;
+	
 }
 .celula-tabela-horario p {
 	padding: 10px 40px;
+	
 }
-.estilo_data4_1 {background-color: rgba(206, 209, 198, 0.8);}
-.estilo_data4_2 {background-color: rgba(206, 209, 198, 0.6);}
-.estilo_data4_3 {background-color: rgba(206, 209, 198, 0.4);}
-.estilo_data4_4 {background-color: rgba(206, 209, 198, 0.3);}
-.estilo_data4_5 {background-color: rgba(206, 209, 198, 0.2);}
-.estilo_data5_1 {background-color: rgba(206, 209, 198, 0.8);}
-.estilo_data5_2 {background-color: rgba(206, 209, 198, 0.6);}
-.estilo_data5_3 {background-color: rgba(206, 209, 198, 0.4);}
-.estilo_data5_4 {background-color: rgba(206, 209, 198, 0.2);}
-.estilo_data6_1 {background-color: rgba(206, 209, 198, 0.8);}
-.estilo_data6_2 {background-color: rgba(206, 209, 198, 0.6);}
-.estilo_data6_3 {background-color: rgba(206, 209, 198, 0.4);}
-.estilo_data6_4 {background-color: rgba(206, 209, 198, 0.2);}
-
-.borda-programacao-cientifica {border-left: 5px solid #94b65c;}
-.borda-programacao-cultural   {border-left: 5px solid #f39200;}
-.borda-programacao-apresentacao {border-left: 5px solid #951b81;}
+.estilo_data4_1 {
+	background-color: rgba(206, 209, 198, 0.8);
+}
+.estilo_data4_2 {
+	background-color: rgba(206, 209, 198, 0.6);
+}
+.estilo_data4_3 {
+	background-color: rgba(206, 209, 198, 0.4);
+}
+.estilo_data4_4 {
+	background-color: rgba(206, 209, 198, 0.3);
+}
+.estilo_data4_5 {
+	background-color: rgba(206, 209, 198, 0.2);
+}
+.estilo_data5_1 {
+	background-color: rgba(206, 209, 198, 0.8);
+}
+.estilo_data5_2 {
+	background-color: rgba(206, 209, 198, 0.6);
+}
+.estilo_data5_3 {
+	background-color: rgba(206, 209, 198, 0.4);
+}
+.estilo_data5_4 {
+	background-color: rgba(206, 209, 198, 0.2);
+}
+.estilo_data6_1 {
+	background-color: rgba(206, 209, 198, 0.8);
+}
+.estilo_data6_2 {
+	background-color: rgba(206, 209, 198, 0.6);
+}
+.estilo_data6_3 {
+	background-color: rgba(206, 209, 198, 0.4);
+}
+.estilo_data6_4 {
+	background-color: rgba(206, 209, 198, 0.2);
+}
+.borda-programacao-cientifica {
+	border-left: 5px solid #94b65c;
+}
+.borda-programacao-cultural {
+	border-left: 5px solid #f39200;
+}
+.borda-programacao-apresentacao {
+	border-left: 5px solid #951b81;
+}
 .flecha-dir-programacao {
 	float: right;
 	margin-right: 5%;
@@ -282,16 +395,33 @@ a {
 	font-weight: bold;
 }
 /** edicoes anteriores**/
-.semic-2014 {background-image: url('../img/semic2015/capa_cicpg2014.jpg');}	
-.semic-2013 {background-image: url('../img/semic2015/capa_semic2013.jpg');}
-.semic-2012 {background-image: url('../img/semic2015/capa_semic2012.jpg');}
-.semic-2011 {background-image: url('../img/semic2015/capa_semic2011.jpg');}
-.semic-2010 {background-image: url('../img/semic2015/capa_semic2010.jpg');}
-.semic-2009 {background-image: url('../img/semic2015/capa_semic2009.jpg');}
-.semic-2008 {background-image: url('../img/semic2015/capa_semic2008.jpg');}
-.semic-2007 {background-image: url('../img/semic2015/capa_semic2007.jpg');}
-.semic-2006 {background-image: url('../img/semic2015/capa_semic2006.jpg');}
-
+.semic-2014 {
+	background-image: url('../img/semic2015/capa_cicpg2014.jpg');
+}
+.semic-2013 {
+	background-image: url('../img/semic2015/capa_semic2013.jpg');
+}
+.semic-2012 {
+	background-image: url('../img/semic2015/capa_semic2012.jpg');
+}
+.semic-2011 {
+	background-image: url('../img/semic2015/capa_semic2011.jpg');
+}
+.semic-2010 {
+	background-image: url('../img/semic2015/capa_semic2010.jpg');
+}
+.semic-2009 {
+	background-image: url('../img/semic2015/capa_semic2009.jpg');
+}
+.semic-2008 {
+	background-image: url('../img/semic2015/capa_semic2008.jpg');
+}
+.semic-2007 {
+	background-image: url('../img/semic2015/capa_semic2007.jpg');
+}
+.semic-2006 {
+	background-image: url('../img/semic2015/capa_semic2006.jpg');
+}
 .round-foto {
 	width: 100px;
 	height: 150px;
@@ -302,12 +432,11 @@ a {
 	-moz-border-radius: 10px;
 	margin-top: 20px;
 	border: 2px solid;
- 	border-color: #84847F;
- 	box-shadow: 5px 5px 10px #5E4058;
+	border-color: #84847F;
+	box-shadow: 5px 5px 10px #5E4058;
 	-webkit-box-shadow: 5px 5px 10px #5E4058;
 	-moz-box-shadow: 5px 5px 10px #5E4058;
 }
-
 .item-evento-anterior {
 	width: 100%;
 	border-top: solid 2px #5B4059;
@@ -318,7 +447,6 @@ a {
 	width: 25%;
 	float: left;
 }
-
 footer {
 	width: 100%;
 	background-color: white;
@@ -335,31 +463,41 @@ footer {
 	width: 480px;
 	float: left;
 	height: auto;
-	text-align:justify;
+	text-align: justify;
 	font-size: 14px;
-	
 }
-
-.descricao-evento-anterior a:link    {color:#5E405A; background-color:transparent; text-decoration:none}
-.descricao-evento-anterior a:visited {color:#5E405A; background-color:transparent; text-decoration:none}
-.descricao-evento-anterior a:hover   {color:red; 	 background-color:transparent; text-decoration:underline}
-.descricao-evento-anterior a:active  {color:blue;  	 background-color:transparent; text-decoration:underline}
-
-
+.descricao-evento-anterior a:link {
+	color: #5E405A;
+	background-color: transparent;
+	text-decoration: none
+}
+.descricao-evento-anterior a:visited {
+	color: #5E405A;
+	background-color: transparent;
+	text-decoration: none
+}
+.descricao-evento-anterior a:hover {
+	color: red;
+	background-color: transparent;
+	text-decoration: underline
+}
+.descricao-evento-anterior a:active {
+	color: blue;
+	background-color: transparent;
+	text-decoration: underline
+}
 .content-5 p {
 	font-family: Arial, Helvetica, sans-serif;
 	color: #000000;
 	font-size: 13px;
 	line-height: 16px;
 }
-
 .content-6 p, li, strong, h2 {
 	font-family: Arial, Helvetica, sans-serif;
 	color: #000000;
 	font-size: 16px;
 	line-height: 20px;
 }
-
 .content-6 h1 {
 	font-family: Arial, Helvetica, sans-serif;
 	color: #000000;
@@ -372,8 +510,19 @@ footer {
 	font-size: 18px;
 	line-height: 20px;
 }
-
-#toTop { background: none repeat scroll 0 0 #f7f7f7; border: 1px solid #ccc; bottom: 10px; color: #333; cursor: pointer; display: none; font-family: verdana; font-size: 11px; padding: 5px; position: fixed; right: 10px; text-align: center; width: 100px;
+#toTop {
+	background: none repeat scroll 0 0 #f7f7f7;
+	border: 1px solid #ccc;
+	bottom: 10px;
+	color: #333;
+	cursor: pointer;
+	display: none;
+	font-family: verdana;
+	font-size: 11px;
+	padding: 5px;
+	position: fixed;
+	right: 10px;
+	text-align: center;
+	width: 100px;
 }
-
 

@@ -1,7 +1,5 @@
 <table >
 	<tr>
-		<br />
-		<br />
 		<td colspan=2 align="center" bgcolor="#FFE4C4" style="border-radius: 8px;"> 
 			<h3> <?php echo msg('modalidade_edital');?> </h3> 
 		</td>

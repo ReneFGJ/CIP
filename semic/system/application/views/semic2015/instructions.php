@@ -3,7 +3,7 @@
 <h2>Orientações</h2>
 <div align="left" class="content-6">
 	<p align="justify">
-		Para localizar o código do trabalho, o aluno deverá acessar o site do XXIII SEMIC (www.pucpr.br/semic) entrar no link em Sumário Geral, apertar CTRL + F, abrirá uma caixa de "localizar", deverá ser digitado o sobrenome do autor em maiúsculo e apertar Enter, automaticamente será remitido ao projeto. O aluno deverá anotar este código, pois ele será o identificador do seu trabalho.
+		Para localizar o código do trabalho, o aluno deverá acessar o site do XXIII SEMIC (www.pucpr.br/semic) entrar no link em Sumário Geral, apertar CTRL + F, abrirá uma caixa de "localizar", deverá ser digitado o sobrenome do autor em maiúsculo e apertar Enter, automaticamente será remitido ao projeto com informações de data, local e horário de apresentação. O aluno deverá anotar este código, pois ele será o identificador do seu trabalho.
 	</p>
 	<p align="justify">
 		Para as apresentações em inglês os códigos são identificados com letras "i" na frente.
@@ -64,9 +64,6 @@
 	</p>
 	<br />
 	<p align="justify">
-		Depois de localizado o código do trabalho, na aba Programação, o aluno encontrará uma tabela com todas as informações da programação do evento, incluindo a sala de sua apresentação oral. O aluno deverá localizar o seu código na tabela, usando CTRL + F e digitando o código localizado em sumário geral.
-	</p>
-	<p align="justify">
 		O aluno deverá participar de todo o bloco em que seu trabalho está incluído, por exemplo: das 8h00 às 09h15. Não será permitida a entrada do aluno na sala após o início das apresentações ou apenas para a sua apresentação. O aluno deverá utilizar uma apresentação de Power Point (modelo encontrado no site do <a href="http://www.pucpr.br/pesquisacientifica/iniciacaocientifica/modelosdedocumentos.php" target="_new">PIBIC</a>) como material de apoio.
 	</p>
 	<p align="justify">
@@ -76,7 +73,7 @@
 		Os alunos que optaram pela apresentação oral internacional, deverão fazer os slides em inglês, seguindo as mesmas normas acima.
 	</p>
 	<p align="justify">
-		A apresentação oral deverá ter no máximo 15 minutos, mais 05 minutos de perguntas e respostas para uma banca de dois avaliadores.
+		A apresentação oral deverá ter no <font color = "#8b1217">máximo 10 minutos</font>, mais <font color = "#8b1217">05 minutos de perguntas e respostas</font> para uma banca de dois avaliadores.
 	</p>
 	<p align="justify">
 		A equipe de apoio do evento está terminantemente proibida de auxiliar o aluno na troca de slides no momento da apresentação e na instalação da apresentação no computador da sala de apresentação. Assim, o aluno deverá pedir a um colega que o auxilie.
@@ -159,6 +156,9 @@
 			</li>
 			<br />
 		</ul>
+	</p>
+	<p align="justify">
+		Para apresentação do pôster o aluno deverá fixa-lo momentos antes da sessão iniciar e permanecer ao lado do banner durante toda a sessão, ou até realizar a sua apresentação, após a apresentação o aluno deverá retirar o pôster  do local fixado. A sessão tem duração de 2 horas, portanto, o aluno deverá aguardar até que o avaliador apresente-se. Pessoas da equipe de STAFF circularão entre os pôsteres auxiliando caso haja necessidade.
 	</p>
 	<br />
 	<h2>Colação de Pôster</h2>
@@ -246,11 +246,25 @@
 	</p>
 
 	</p> <p align="justify"></p>
-	
 </div>
-<div id="toTop" style="display: none;">^ Voltar ao topo</div>
+<div id="toTop" style="display: none;">
+	^ Voltar ao topo
+</div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript">
-$(function() { $(window).scroll(function() { if($(this).scrollTop() != 0) { $('#toTop').fadeIn();   } else { $('#toTop').fadeOut(); } }); $('#toTop').click(function() { $('body,html').animate({scrollTop:0},800); });
-});
+	$(function() {
+		$(window).scroll(function() {
+			if($(this).scrollTop() != 0) {
+				$('#toTop').fadeIn();
+			} else {
+				$('#toTop').fadeOut();
+			}
+		});
+		$('#toTop').click(function() {
+			$('body,html').animate({
+				scrollTop : 0
+			}, 800);
+		});
+	});
+
 </script>

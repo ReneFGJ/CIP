@@ -23,6 +23,14 @@
 			<br />
 			<li>
 				<p align="justify">
+					<strong>Sou aluno PIBIC/PIBITI e vou apresentar meu projeto apenas o ano que vem, posso participar como ouvinte este ano?</strong>
+					<br/>
+					Sim, todos os alunos que apresentarão no próximo ano estão convidados para participar das apresentações este ano, porém para receberem a declaração de ouvinte deverão efetuar o credenciamento na secretaria do evento com o crachá da PUCPR.
+				</p>
+			</li>
+			<br />
+			<li>
+				<p align="justify">
 					<strong>Não posso apresentar o trabalho na data indicada, como devo proceder?</strong>
 					<br/>
 					Não será possível mudanças no cronograma, o aluno que não participar da apresentação não receberá a declaração de participação no programa PIBIC/PIBITI conforme cadernos de normas, ficando o Comitê Gestor responsável pela análise de devolução de bolsas em caso de alunos bolsistas. Em casos extremos o professor orientador deverá encaminhar uma justificativa à coordenação e deverá apresentar o trabalho no lugar do aluno.
