@@ -1,4 +1,3 @@
-
 <div align="left" class="content-6">
 	<h1>FAQ</h1>
 	<p>
@@ -17,7 +16,7 @@
 				<p align="justify">
 					<strong>Quando terei que apresentar o meu trabalho?</strong>
 					<br />
-					Verifique a data e horário que está disponível no site do <a href="http://www2.pucpr.br/reol/semic"><?php echo msg('link_semic');?></a>, no menu  "Sumário Geral" e digite (CTLR+F) para localizar seu nome. Após localizar o nome verifique qual é seu código de trabalho, com ele você deverá clicar em "Programação" para localizar então o horário de apresentação Oral ou Pôster.
+					Verifique a data e horário que está disponível no site do <a href="http://www.pucpr.br/semic" target="_blank"><?php echo msg('link_semic');?></a>, no menu  "Sumário Geral" e digite (CTLR+F) para localizar seu nome. Após localizar o nome verifique qual é seu código de trabalho, com ele você deverá clicar em "Programação" para localizar então o horário de apresentação Oral ou Pôster.
 				</p>
 			</li>
 			<br />
@@ -93,11 +92,45 @@
 			</p>
 		</li>
 	</ol>
+	<br />
+	<br />
+	<p>
+		<h3>Participação</h3>
 	</p>
+	<ul>
+		<li>
+			<p align="justify">
+				<strong>Estudantes PIBIC, PIBITI e PIBIC JR</strong>
+				<br/>
+				No dia 05/10 das 11h30 às 19h30 o estudante que apresentará tanto na modalidade oral quanto pôster deverá retirar o KIT de apresentação na secretaria do evento, exceto estudantes dos campus fora de sede que deverão retirar o KIT no dia 06/10 a partir das 07h00. A utilização da camiseta é obrigatória no momento da apresentação.
+			</p>
+			<p>
+				Para retirada do KIT o aluno deverá apresentar a carteirinha da PUCPR.
+			</p>
+			<p>
+				Todos os alunos PIBIC/PIBITI deverão obrigatoriamente estar munido de seu crachá de estudante (PUCPR) durante o evento, somente com ele o aluno terá acesso aos blocos de apresentação do mesmo. A equipe de STAFF ficará na porta de cada sala de apresentação para validar a entrada e saída das salas.
+			</p>
+		</li>
+	</ul>
+	<ul>
+		<li>
+			<p align="justify">
+				<strong>Alunos ouvintes</strong>
+				<br/>
+				Os alunos ouvintes que queiram participar do evento deverão estar munidos de seu crachá da PUCPR para validar a entrada e saída das salas.  O sistema contabilizará a entrada e saída apenas se o aluno permanecer no bloco inteiro de apresentação. A declaração somente será emitida se o aluno participar 50% do evento, ou seja, 7 blocos INTEIROS de apresentação e/ou palestras e mesa redonda.
+			</p>
+			<!--
+			<p>
+				Alunos de outras instituições deverão realizar o pré-credenciamento no site do <a href="http://www.pucpr.br/semic" target="_blank"><?php echo msg('link_semic');?> </a>  e emitir o código ID que será gerado, este será o código que validará a participação do aluno no evento.
+			</p>
+			-->
+		</li>
+	</ul>
+	</p>
+<br />
+	<hr size="5" width="100%" align="left" noshade>
+	<hr size="8" width="100%" align="left" noshade>
 </div>
-<div id="toTop" style="display: none;">^ Voltar ao topo</div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script type="text/javascript">
-$(function() { $(window).scroll(function() { if($(this).scrollTop() != 0) { $('#toTop').fadeIn();   } else { $('#toTop').fadeOut(); } }); $('#toTop').click(function() { $('body,html').animate({scrollTop:0},800); });
-});
-</script>
+<div id="toTop" style="display: none;">
+	^ Voltar ao topo
+</div>

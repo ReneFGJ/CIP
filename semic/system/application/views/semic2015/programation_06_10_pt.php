@@ -1,7 +1,7 @@
 <div id="programacao-info">
 	<div class="programacao-horario">
 		<div class="data-programacao cor-data-programacao_1">
-			<h5>6 de outubro</h5>
+			<h5>6 de outubro </h5> 
 		</div>
 		<div class="estilo_data4_1 celula-tabela-horario">
 			<p class="borda-programacao-cientifica">
@@ -10,8 +10,9 @@
 				<br />
 				<strong>Local:</strong> Auditório TUCA - Bloco azul
 			</p>
+			
 			<p class="borda-programacao-cientifica">
-				<span class="estilo-horario">09h20 às 10h15</span> - <strong>Palestra de abertura</strong>
+				<span class="estilo-horario">09h20 às 10h10</span> - <strong>Palestra de abertura</strong>
 				<br />
 				<br />
 				<strong>Título:</strong> "Um mundo Mais Humano por meio da pesquisa"
@@ -20,6 +21,7 @@
 				<br />
 				<strong>Local:</strong> Auditório TUCA - Bloco azul
 			</p>
+			
 			<p class="borda-programacao-apresentacao">
 				<span class="estilo-horario3">10h30 às 12h30</span> - <strong>Sessão de Pôster I</strong>
 				<br />
@@ -31,13 +33,20 @@
 			<div class="flecha-dir-programacao">
 				<i class="fa fa-caret-right"></i>
 			</div>
-			<!--- Bloco Apresentação oral
-			<p class="borda-programacao-apresentacao">
-			<span class="estilo-horario3">10h30</span> - <strong>Apresentação Oral - Bloco 1 -</strong>
-			10h30 às 12h30</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar
-			</p>
 
-			-->
+			<!--- Novo Bloco -->
+			<div class="estilo_data4_2 celula-tabela-horario">
+				<!--- Bloco cientifico Jovens ideias -->
+				<p class="borda-programacao-cientifica">
+					<span class="estilo-horario">10h30 às 12h30</span> - <strong>Exposição Científica</strong>
+					<br />
+					<br />
+						<strong>Trabalhos:</strong> PUC Jovens Ideias e Espaço Pesquisar é Evoluir
+						<br />
+						<strong>Local:</strong> Bloco azul - Térreo	
+				</p>
+			</div>
+
 			<div class="flecha-dir-programacao">
 				<i class="fa fa-caret-right"></i>
 			</div>
@@ -74,14 +83,7 @@
 		<div class="estilo_data4_2 celula-tabela-horario">
 			</span>
 			</span>
-			</span> <!--<button class="botao-inscricao" style="margin-left: 13%;"><i class="fa fa-external-link"></i> Inscrição para Mini-curso  </button>
-			-->
-			<!--- Bloco Apresentação Oral
-			<p class="borda-programacao-apresentacao">
-			<span class="estilo-horario3">13h30</span> - <strong>Apresentação Oral - Bloco II -</strong>
-			13h30 as 15h15</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar
-			</p>
-			-->
+			</span> 
 			<!--- Bloco Mesa Redonda -->
 			<p class="borda-programacao-cientifica">
 				<span class="estilo-horario">13h30 às 15h15</span> - <strong>Mesa Redonda 1
@@ -97,28 +99,65 @@
 			</span>
 			</span>
 		</div>
+
 		<!--- Novo Bloco -->
 		<div class="estilo_data4_1 celula-tabela-horario">
 			<div class="flecha-dir-programacao">
 				<i class="fa fa-caret-right"></i>
 			</div>
+			
+			<!--- Bloco Cultural -->
+			<p class="borda-programacao-cultural">
+				<span class="estilo-horario2">14h00 às 15h30</span> - <strong>Evento Cultural</strong>
+				<br />
+				<br />
+					<strong>Título:</strong> Transcedendo na Estrela - Constelações Sistêmicas
+						<br />
+						<strong>Local:</strong> <span> Casa Estrela</span>.
+					<br />
+					<strong>Ingressos:</strong> <span> Na secretaria do evento</span>
+					<br />
+					<strong>Sessões:</strong> <span> Com duração de 90 minutos</span>
+					
+			</p>
+			
 			<!--- Bloco Cultural -->
 			<p class="borda-programacao-cultural">
 				<span class="estilo-horario2">15h15 às 15h45</span> - <strong>Evento Cultural</strong>
 				<br />
 				<br />
-				<span class="tooltip tooltip-effect-5"> <span class="tooltip-item"> <strong>Título:</strong> Do erudito ao popular - Concerto da Orquestra da PUCPR
+				<span class="tooltip tooltip-effect-5"> 
+					<span class="tooltip-item"> 
+						<strong>Título:</strong> Do erudito ao popular - Concerto da Orquestra da PUCPR
 						<br />
 						<strong>Local:</strong> <span> Auditório Tuca - Bloco azul</span>.</span>
 					<br />
-					<strong>Ingressos:</strong> <span> Na secretaria do evento</span> <span class="tooltip-content clearfix"> <span class="tooltip-text"> <span class="erro">(a definir)</span>
+					<strong>Ingressos:</strong> <span> Na secretaria do evento</span> 
+					<span class="tooltip-content clearfix"> 
+					<span class="tooltip-text"> 
+						<span class="erro">(a definir)</span>
 			</p>
 			</span>
 			</span>
 			</span>
+
 		</div>
+		
+			<!--- Novo Bloco -->
+			<div class="estilo_data4_2 celula-tabela-horario">
+				<!--- Bloco cientifico Jovens ideias -->
+				<p class="borda-programacao-cientifica">
+					<span class="estilo-horario">15h30 às 17h30</span> - <strong>Exposição Científica</strong>
+					<br />
+					<br />
+						<strong>Trabalhos:</strong> PUC Jovens Ideias e Espaço Pesquisar é Evoluir
+						<br />
+						<strong>Local:</strong> Bloco azul - Térreo	
+				</p>
+			</div>
+		
 		<!--- Novo Bloco -->
-		<div class="estilo_data4_2 celula-tabela-horario">
+		<div class="estilo_data4_1 celula-tabela-horario">
 			<!--- Bloco Científico - Pôster -->
 			<p class="borda-programacao-apresentacao">
 				<span class="estilo-horario3">15h30 às 17h30</span> - <strong>Sessão de Pôster II</strong>
@@ -138,7 +177,7 @@
 			-->
 			<!--- Bloco Mesa Redonda -->
 			<p class="borda-programacao-cientifica">
-				<span class="estilo-horario">16h00 às 20h00</span> - <strong>Mesa Redonda 2</strong>
+				<span class="estilo-horario">16h00 às 20h15</span> - <strong>Mesa Redonda 2</strong>
 				<br />
 				<br />
 				<span class="tooltip tooltip-effect-5"> <span class="tooltip-item"><strong>Título:</strong> Pesquisa na graduação</span>
@@ -155,10 +194,10 @@
 			</span>
 		</div>
 		<!--- Novo Bloco -->
-		<div class="estilo_data4_1 celula-tabela-horario">
+		<div class="estilo_data4_2 celula-tabela-horario">
 			<!--- Bloco Mesa Redonda -->
 			<p class="borda-programacao-cientifica">
-				<span class="estilo-horario">18h30 às 20h00</span> - <strong>Mesa Redonda 3</strong>
+				<span class="estilo-horario">18h30 às 20h15</span> - <strong>Mesa Redonda 3</strong>
 				<br />
 				<br />
 				<span class="tooltip tooltip-effect-5"> <span class="tooltip-item"><strong>Título:</strong> Cinema e as novas tecnologias:</span> Sons e sentidos
@@ -171,8 +210,8 @@
 			</p>
 		</div>
 		<!--- Novo Bloco -->
-		<div class="estilo_data4_2 celula-tabela-horario">
-			<!--- Bloco Mesa Redonda -->
+		<div class="estilo_data4_1 celula-tabela-horario">
+			<!--- Bloco PUC Jovens Ideias  -->
 			<p class="borda-programacao-cientifica">
 				<span class="estilo-horario">19h30 às 21h00</span> - <strong>Mesa Redonda 4</strong>
 				<br />
@@ -181,9 +220,7 @@
 					<br />
 					<strong>Coordenação:</strong> Profa. Dra. Paula Trevilatto e Profa. Dra. Jucimeri Silveira
 					<br />
-					<strong>Participantes:</strong> <font color = "#8b1217">Gustavo Fruet</font> (Prefeito de Curitiba), <font color = "#8b1217">Waldemiro Gremski</font> (Reitor da PUCPR), <font color = "#8b1217">Agenor Brighenti</font> (CNBB)
-					<br />
-					<strong>Tema:</strong> Orientações do Papa Francisco aos prefeitos, em audiência realizada em 21 de julho de 2015, no Vaticano, sobre o papel dos governantes locais na sustentabilidade do mundo e no desenvolvimento humano. Crise climática, migrações forçadas, novas formas de escravidão. Compromissos políticos na defesa e proteção aos direitos humanos, e implementação de políticas públicas que contribuam na construção de cidades mais humanas.
+					<strong>Participantes:</strong> Gustavo Fruet (Prefeito de Curitiba), Waldemiro Gremski (Reitor da PUCPR), Agenor Brighenti (CNBB)
 					<br />
 					<strong>Local:</strong> Auditório TUCA - Bloco azul <span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro"> Gustavo Fruet (Prefeito de Curitiba), Waldemiro Gremski (Reitor PUCPR), Agenor Brighenti (CNBB)</span>
 			</p>

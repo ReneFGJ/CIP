@@ -8,6 +8,12 @@
 	<p align="justify">
 		Este evento é a ocasião em que os estudantes apresentam os resultados de suas pesquisas desenvolvidas ao longo de 12 meses, portanto, um momento de celebração do percurso realizado. É, também, uma mostra concreta do que a PUCPR propicia aos estudantes, cada qual trilhando seu percurso individual amparados numa rede de pesquisadores experientes.
 	</p>
+	
+	<p align="justify">
+		Neste ano, esta rede se amplia extra-muros entre os estudantes, pois estarão conosco 7 bolsistas CNPq do programa PIBITI do SENAI, que farão a apresentação dos resultados de suas pesquisas durante o evento. 
+	</p>
+	
+	
 	<p align="justify">
 		Serão três dias de intensos debates científicos, palestras, mesas-redondas, mini-curso, sessões de pôsteres, exposição de protótipos de projetos inovadores, apresentações culturais e artísticas. E, muito mais: a oportunidade de estabelecer network com 2.000 estudantes (do ensino médio, da graduação e estudantes internacionais), todos interessados em pesquisa; 500 pesquisadores que atuaram como orientadores das pesquisas, além de 200 avaliadores.
 	</p>
@@ -62,20 +68,3 @@
 <div id="toTop" style="display: none;">
 	^ Voltar ao topo
 </div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$(window).scroll(function() {
-			if($(this).scrollTop() != 0) {
-				$('#toTop').fadeIn();
-			} else {
-				$('#toTop').fadeOut();
-			}
-		});
-		$('#toTop').click(function() {
-			$('body,html').animate({
-				scrollTop : 0
-			}, 800);
-		});
-	});
-</script>

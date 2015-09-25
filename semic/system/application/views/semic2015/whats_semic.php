@@ -14,10 +14,6 @@
 	<p align="justify">
 		A Iniciação Científica é uma atividade voltada para a formação de recursos humanos para a pesquisa. A PUCPR é a instituição de ensino privada que mais investe em pesquisa no Paraná, concentrando 20% de toda a produção científica do Estado. "Na vigência 2014/2015, temos aproximadamente 1300 estudantes envolvidos nos programas de iniciação científica da Universidade", informa a profa. Cleybe Vieira, coordenadora da Iniciação Científica da PUCPR. Sem dúvida alguma, adentrar o universo científico é um grande diferencial na formação de nossos alunos, complementa.
 	</p>
-	
-	
-	
-	
 	<br />
 	<hr size="5" width="100%" align="left" noshade>
 	<hr size="8" width="100%" align="left" noshade>
@@ -25,21 +21,3 @@
 <div id="toTop" style="display: none;">
 	^ Voltar ao topo
 </div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$(window).scroll(function() {
-			if($(this).scrollTop() != 0) {
-				$('#toTop').fadeIn();
-			} else {
-				$('#toTop').fadeOut();
-			}
-		});
-		$('#toTop').click(function() {
-			$('body,html').animate({
-				scrollTop : 0
-			}, 800);
-		});
-	});
-
-</script>

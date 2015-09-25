@@ -28186,3 +28186,7 @@ primário do Paraná (1903-1953)</a></b></td>
 <tr>
 	<td colspan=3 align="center"><hr size=1 width="50%"></td>
 </tr></table>
+
+<div id="toTop" style="display: none;">
+	^ Voltar ao topo
+</div>

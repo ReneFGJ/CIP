@@ -13,15 +13,20 @@ body {
 		display:table;
 		width: 95%;
 		text-align: justify;
+
 	}
 .cloud_1 {
 	background-color: #fefefe;
+			border-radius: 10px;
+				
 }
 .cloud_2 {
 	background-color: #fefefe;
+			border-radius: 10px;
 }
 .cloud_3 {
 	background-color: #fefefe;
+			border-radius: 10px;
 }
 
 .cloud
@@ -239,6 +244,8 @@ a {
 	border: 2px solid #696969;
 	border-radius: 13px;
 }
+
+
 .estilo-horario {
 	font-size: 20px;
 	color: #000;
@@ -246,6 +253,7 @@ a {
 	font-weight: bold;
 	background-color: #94b65c;
 	border-radius: 10px;
+	
 }
 .estilo-horario2 {
 	font-size: 20px;
@@ -286,7 +294,7 @@ a {
 }
 .cor-data-programacao_3 {
 	background-color: #5d3f59;
-	border-radius: 10px;
+		border-radius: 10px;
 }
 .data-programacao h5 {
 	font-size: 20px;

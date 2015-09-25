@@ -52,3 +52,6 @@
 <BR>
 <BR>
 </div> 
+<div id="toTop" style="display: none;">
+	^ Voltar ao topo
+</div>

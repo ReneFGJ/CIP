@@ -36,16 +36,15 @@
 				<span class="tooltip-item"><strong>Título:</strong> Redes de proteção e os desafios no enfrentamento às violações de direitos humanos de crianças e adolescentes</span>
 				
 				<br />
-								<strong>Coordenação:</strong> Profa. Jucimeri I. Silveira (PUPCR)
+				<strong>Coordenação:</strong> Profa. Jucimeri I. Silveira (PUPCR)
 				<br />
-								<strong>Participantes:</strong> Douglas Moreira (Jornalista – Centro Marista de defesa da infância), Débora Carvalho (Psicóloga – Programa Curitiba mais humana) e Cezar Bueno (PUCPR)
-				
-				
-				
+				<strong>Participantes:</strong> Douglas Moreira (Jornalista – Centro Marista de defesa da infância), Débora Carvalho (Psicóloga – Programa Curitiba mais humana) e Cezar Bueno (PUCPR)
 				<br />
 				<strong>Local:</strong> Auditório Carlos Costa
 				<br>
-				10h30-12h00 <span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
+				<span class="tooltip-content clearfix"> 
+					<span class="tooltip-text"> Participantes: 
+						<span class="erro">Douglas Moreira (Jornalista – Centro Marista de defesa da infância), Débora Carvalho (Psicóloga – Programa Curitiba mais humana) e Cezar Bueno (PUCPR)</span>
 		</p>
 	</div>
 	

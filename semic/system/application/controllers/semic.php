@@ -132,6 +132,7 @@ class semic extends Controller {
 		$data['content'] .= $this -> load -> view('semic2015/programation_07_10_pt', NULL, true);
 		$data['content'] .= $this -> load -> view('semic2015/programation_08_10_pt', NULL, true);
 		$data['content'] .= $this -> load -> view('semic2015/programation_end', NULL, true);
+		$data['content'] .= $this -> load -> view('semic2015/programation_map', NULL, true);
 
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);

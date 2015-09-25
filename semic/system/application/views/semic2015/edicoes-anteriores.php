@@ -119,23 +119,10 @@
 		</div>
 	</div>
 </div>
+<br />
+	<hr size="5" width="100%" align="left" noshade>
+	<hr size="8" width="100%" align="left" noshade>
+</div>
 <div id="toTop" style="display: none;">
 	^ Voltar ao topo
 </div>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$(window).scroll(function() {
-			if($(this).scrollTop() != 0) {
-				$('#toTop').fadeIn();
-			} else {
-				$('#toTop').fadeOut();
-			}
-		});
-		$('#toTop').click(function() {
-			$('body,html').animate({
-				scrollTop : 0
-			}, 800);
-		});
-	});
-</script>

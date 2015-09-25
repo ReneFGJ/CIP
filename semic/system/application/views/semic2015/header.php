@@ -51,6 +51,4 @@ header('Content-type: text/html; charset=ISO-8859-1');
   ga('send', 'pageview');
 
 </script>
-
-
 <body>

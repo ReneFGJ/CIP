@@ -1,28 +1,46 @@
 <div class="programacao-horario">
 	<div class="data-programacao cor-data-programacao_2">
-		<h5>7 de outubro</h5>
+		<h5>7 de outubro</h5> 
 	</div>
 	<!--- Novo Bloco -->
-	<div class="estilo_data4_2 celula-tabela-horario">
+	<div class="estilo_data4_1 celula-tabela-horario">
 		<!--- Bloco Mesa Redonda -->
 		<p class="borda-programacao-cientifica">
 			<span class="estilo-horario">09h30 às 12h00</span> - <strong>Mesa Redonda 5</strong>
 			<br />
 			<br />
 			<span class="tooltip tooltip-effect-5"> 
-				<span class="tooltip-item"> <strong>Título: </strong> Mulher em situação de risco e de violência: Desafios e possibilidades</span>
+				<span class="tooltip-item"> <strong>Título: </strong> A Mulher em situação de risco e de violência: Desafios e possibilidades</span>
 				<br />
 				<strong>Coordenadora:</strong> Profa. Dra. Cristiane Regina Arns de Oliveira (PUCPR/Programa Ciência e Transcendência)
 				<br />
-				<strong>Participantes:</strong> Profa. Dra. Priscilla Placha Sá (PUCPR), Dra. Rita de Cássia Rodrigues Costa Neumann (Diretora da penitenciária feminina do Paraná), Michele Bravos (Jornalista), Aparecida Varela Silva (Agente penitenciária)
+				<strong>Participantes:</strong> Profa. Dra. Priscilla Placha Sá (PUCPR), Dra. Rita de Cássia Rodrigues Costa Naumann (Diretora da penitenciária feminina do Paraná), Michele Bravos (Jornalista), Aparecida Varela Silva (Agente penitenciária)
 				<br />
 				<strong>Local:</strong> Auditório Carlos Costa
 				<br>
 				<span class="tooltip-content clearfix"> 
 					<span class="tooltip-text"> Coordenadora: <span class="tooltip-text"> Profa. Dra. Cristiane Regina Arns de Oliveira (PUCPR/Programa Ciência e Transcendência)</span>
 						<br />
-						<span class="tooltip-text"> Participantes: <span class="tooltip-text"> Profa. Dra. Priscilla Placha Sá (PUCPR), Dra. Rita de Cássia Rodrigues Costa Neumann (Diretora da penitenciária feminina do Paraná), Michele Bravos (Jornalista), Aparecida Varela Silva (Agente penitenciária)</span>
+						<span class="tooltip-text"> Participantes: <span class="tooltip-text"> Profa. Dra. Priscilla Placha Sá (PUCPR), Dra. Rita de Cássia Rodrigues Costa Naumann (Diretora da penitenciária feminina do Paraná), Michele Bravos (Jornalista), Aparecida Varela Silva (Agente penitenciária)</span>
 		</p>
+		
+		</div>
+			<!--- Novo Bloco -->
+	<div class="estilo_data4_2 celula-tabela-horario">
+		<!--- Bloco Cultural -->
+			<p class="borda-programacao-cultural">
+				<span class="estilo-horario2">09h00 às 10h30</span> - <strong>Evento Cultural</strong>
+				<br />
+				<br />
+					<strong>Título:</strong> Transcedendo na Estrela - Constelações Sistêmicas
+						<br />
+						<strong>Local:</strong> <span> Casa Estrela</span>.
+					<br />
+					<strong>Ingressos:</strong> <span> Na secretaria do evento</span>
+					<br />
+					<strong>Sessões:</strong> <span> Com duração de 90 minutos</span>	
+			</p>
+		
 		<!--- Bloco Cultural -->
 		<p class="borda-programacao-cultural">
 			<span class="estilo-horario2">09h30 às 12h00</span> - <strong>Evento Cultural</strong>
@@ -36,6 +54,7 @@
 					<br />
 		</p>
 	</div>
+
 	<!--- Novo Bloco -->
 	<div class="estilo_data4_1 celula-tabela-horario">
 		<!---- Programaçao científica -->
@@ -71,16 +90,15 @@
 						<br />
 						- Estabelecer uma progressão para uma leitura fluída - impulsionar a leitura.
 		</p>
-		<!--- Bloco Científico - Pôster
-		<p class="borda-programacao-apresentacao">
-		<span class="estilo-horario3">10h30</span> - <strong>Sessão de Poster III</strong>
-		</br>10h30-12h30 </span> <!--<span style="font-size: 12px;"> (em breve)</span> <br /><strong>Local:</strong> à confirmar.-->
-		</p> <!--- Bloco Apresentação oral
-		<p class="borda-programacao-apresentacao">
-		<span class="estilo-horario3">10h30</span> - <strong>Apresentação Oral - Bloco VI -</strong>
-		10h30-12h30</span><!--<span style="font-size: 12px;"> (em breve)</span><br /><strong>Local:</strong> à confirmar
-		</p>
-		-->
+			<!--- Bloco cientifico Jovens ideias -->
+	<p class="borda-programacao-cientifica">
+		<span class="estilo-horario">10h30 às 12h30</span> - <strong>Exposição Científica</strong>
+		<br />
+		<br />
+			<strong>Trabalhos:</strong> PUC Jovens Ideias e Espaço Pesquisar é Evoluir
+			<br />
+			<strong>Local:</strong> Térreo - Bloco azul 	
+	</p>
 	</div>
 	<!--- Novo Bloco -->
 	<div class="estilo_data4_2 celula-tabela-horario">
@@ -125,6 +143,7 @@
 			</span>
 		</div>
 	</div>
+	
 	<!--- Novo Bloco -->
 	<div class="estilo_data4_1 celula-tabela-horario">
 		<!--- Bloco Apresentação Oral -->
@@ -134,18 +153,30 @@
 			<br />
 			<strong>Áreas:</strong> PIBIC: Ciências da vida
 		</p>
-		</span>
-		</span>
-		</span>
 	</div>
+	
 	<!--- Novo Bloco -->
 	<div class="estilo_data4_2 celula-tabela-horario">
+		<!--- Bloco cientifico Jovens ideias -->
+		<p class="borda-programacao-cientifica">
+			<span class="estilo-horario">15h30 às 17h30</span> - <strong>Exposição Científica</strong>
+			<br />
+			<br />
+				<strong>Trabalhos:</strong> PUC Jovens Ideias e Espaço Pesquisar é Evoluir
+				<br />
+				<strong>Local:</strong> Térreo - Bloco azul 	
+		</p>
+	</div>
+	
+	
+	<!--- Novo Bloco -->
+	<div class="estilo_data4_1 celula-tabela-horario">
 		<!--- Bloco Mesa Redonda -->
 		<p class="borda-programacao-cientifica">
-			<span class="estilo-horario">18h45 às 20h30</span> - <strong>Palestra 1</strong><span class="tooltip tooltip-effect-5"> <span class="tooltip-item">Democracia e criminalização dos movimentos sociais</span>
+			<span class="estilo-horario">18h45 às 20h30</span> - <strong>Palestra 1</strong>
 				<br />
 				<br />
-				<strong>Título:</strong> Criminalização dos movimentos sociais
+				<strong>Título:</strong> Democracia e criminalização dos movimentos sociais
 				<br />
 				<strong>Palestrante:</strong> Fernando Gallardo Vieira Prioste (Advogado, coordenador e assessor jurídico na organização de direitos humanos Terra de direitos)
 				<br />
@@ -153,16 +184,6 @@
 				<br />
 				<strong>Local:</strong> Auditório Gregor Mendel
 				<br>
-				<span class="tooltip-content clearfix"> <span class="tooltip-text"> Participantes: <span class="erro">(a definir)</span>
 		</p>
-	</div>
-	<!--- Novo Bloco -->
-	<div class="estilo_data4_1 celula-tabela-horario">
-		<div class="flecha-dir-programacao">
-			<i class="fa fa-caret-right"></i>
-		</div>
-		</span>
-		</span>
-		</span>
 	</div>
 </div>
