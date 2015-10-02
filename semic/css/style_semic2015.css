@@ -206,18 +206,21 @@ a {
 	height: 15px;
 	background-color: #94b65c;
 	float: left;
+	border-radius: 10px;
 }
 .evento-cultural-modalidade {
 	width: 15px;
 	height: 15px;
 	background-color: #f39200;
 	float: left;
+	border-radius: 10px;
 }
 .evento-apresentacoes-modalidade {
 	width: 15px;
 	height: 15px;
 	background-color: #A85398;
 	float: left;
+	border-radius: 10px;
 }
 
 .identificacao-salas {

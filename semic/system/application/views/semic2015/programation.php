@@ -8,7 +8,7 @@
 	<span>&nbsp;  Eventos Culturais</span>
 	<br />
 	<div class="evento-apresentacoes-modalidade"></div>
-	<span>&nbsp;  Apresentações e Exposições</span>
+	<span>&nbsp;  Apresentação Oral, Sessão de Poster e <br /> Exposições Científica dos Estudantes</span>
 	<br />
 	<div class="botao_cultural">
 		<img src="<?php echo base_url('img/semic2015/bt_prog_cult.png');?>" />
