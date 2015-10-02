@@ -9,7 +9,7 @@
 		</tr>
 		<tr>
 			<td colspan=2 class="lt3"><font class="lt6">FISIO3</font>
-				<br><b>Fisioterapia e Terapia Ocupacional</b></td>
+				<br><b>Muscoloesquelético</b></td>
 		</tr>
 		<tr>
 			<td align="center"><font class="lt5"><b>Efeitos do exercício resistido realizado em solo  na força e potência muscular de idosas</b></font>

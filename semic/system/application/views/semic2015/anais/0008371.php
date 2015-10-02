@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>JORDÃO, M. E. C. T.; KUSMA, S. Z. Avaliação de Efetividade de Estratégias de Promoção da Saúde: definição de relatórios das cidades das regiões Norte e Nordeste do Brasil. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. SC2.</td>
+			<td colspan=2>JORDÃO, M. E. C. T.; KUSMA, S. Z. Avaliação de efetividade de estratégias de promoção da saúde: definição de relatórios das cidades das regiões norte e nordeste do Brasil. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. SC2.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Saúde Coletiva</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Avaliação de Efetividade de Estratégias de Promoção da Saúde: definição de relatórios das cidades das regiões Norte e Nordeste do Brasil</b></font>
+			<td align="center"><font class="lt5"><b>Avaliação de efetividade de estratégias de promoção da saúde: definição de relatórios das cidades das regiões norte e nordeste do Brasil</b></font>
 			<BR>
-			<font class="lt4"><i>Evaluation of Effectiveness of Health Promotion Strategies: Definition of Reports of Cities of the Regions North and Northeast of Brazil</i></font>
+			<font class="lt4"><i>Evaluation of effectiveness of health promotion strategies: reports definition of the north and northeast regions cities of Brazil</i></font>
 			<BR>
 			</td>
 		</tr>

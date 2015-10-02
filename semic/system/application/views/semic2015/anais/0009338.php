@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>O poder e as regras do ciberspaço: a prática de vigilância na internet e suas implicações nos direitos de propriedade e liberdade</b></font>
 			<BR>
-			<font class="lt4"><i>Power and cyberspace´s rules: monitoring practice in internet and its implications in property and liberty rights</i></font>
+			<font class="lt4"><i>Power and cyberspace´s rules: monitoring internet practice and its implications in property and freedom rights</i></font>
 			<BR>
 			</td>
 		</tr>

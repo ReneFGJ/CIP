@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>BENVENUTTI, C. G. A.; BUTURI, M. J. L. G. A.; PICCOLI, M. L. C. S. A.; FRANCO, J. Doseamento de óleos essenciais e de sinefrina em diferentes fases de maturação de [e]lt;i[e]lt;citrus aurantium[e]lt;/i[e]rt; l., rutaceae. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FAR1.</td>
+			<td colspan=2>BENVENUTTI, C. G. A.; BUTURI, M. J. L. G. A.; PICCOLI, M. L. C. S. A.; FRANCO, J. Doseamento de óleos essenciais e de sinefrina em diferentes fases de maturação de [e]lt;i[e]lt;citrus [e]lt;i[e]rt;aurantium[e]lt;/i[e]rt;[e]lt;/i[e]rt; l., rutaceae. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FAR1.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Farmácia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Doseamento de óleos essenciais e de sinefrina em diferentes fases de maturação de [e]lt;i[e]lt;citrus aurantium[e]lt;/i[e]rt; l., rutaceae</b></font>
+			<td align="center"><font class="lt5"><b>Doseamento de óleos essenciais e de sinefrina em diferentes fases de maturação de [e]lt;i[e]lt;citrus [e]lt;i[e]rt;aurantium[e]lt;/i[e]rt;[e]lt;/i[e]rt; l., rutaceae</b></font>
 			<BR>
-			<font class="lt4"><i>Essential oils and synephrine determination of [e]lt;i[e]rt;citrus aurantium[e]lt;/i[e]rt; l., rutaceae, in different stages of maturity</i></font>
+			<font class="lt4"><i>Essential oils and synephrine determination of [e]lt;i[e]rt;citrus [e]lt;i[e]rt;aurantium[e]lt;/i[e]rt;[e]lt;/i[e]rt; l., rutaceae, in different stages of maturity</i></font>
 			<BR>
 			</td>
 		</tr>

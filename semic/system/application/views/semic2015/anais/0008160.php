@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Avaliação da produção de silagens de grãos úmidos de duas cultivares de aveia semeadas em sistema de sobre semeadura em pastagem de tifton 85</b></font>
 			<BR>
-			<font class="lt4"><i>Productive evaluations of silage of high moisture grains of two different cultivars of oat seeded in oversowing system in Tifton 85 pasture</i></font>
+			<font class="lt4"><i>Productive evaluations of silage of high moisture grains of two different cultivars of oat seeded in oversowing system in tifton 85 pasture</i></font>
 			<BR>
 			</td>
 		</tr>

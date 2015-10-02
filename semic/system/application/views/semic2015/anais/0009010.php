@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Avaliação do comportamento da pressão arterial e uso de drogas anti-hipertensivas em pacientes renais crônicos submetidos a diferentes níveis de ingestão de sódio alimentar</b></font>
 			<BR>
-			<font class="lt4"><i>Blood Pressure Performance Evaluation and use of antihypertensive drugs in chronic kidney disease patients undergoing to different levels of dietary sodium intake</i></font>
+			<font class="lt4"><i>Blood pressure performance evaluation and use of antihypertensive drugs in chronic kidney disease patients undergoing to different levels of dietary sodium intake</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>OPIECHON, J. S. S.; BORGES, V. A imagem do indígena perante o colonizador Português e o desenvolvimento do nacionalismo no Brasil (1836-1881). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. HIS14.</td>
+			<td colspan=2>OPIECHON, J. S. S.; BORGES, V. A imagem do indígena perante o colonizador português e o desenvolvimento do nacionalismo no Brasil (1836-1881). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. HIS14.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>História</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>A imagem do indígena perante o colonizador Português e o desenvolvimento do nacionalismo no Brasil (1836-1881)</b></font>
+			<td align="center"><font class="lt5"><b>A imagem do indígena perante o colonizador português e o desenvolvimento do nacionalismo no Brasil (1836-1881)</b></font>
 			<BR>
-			<font class="lt4"><i>The Image of the Indian towards the Portuguese colonizers and nationalism development in Brazil (1836-1881)</i></font>
+			<font class="lt4"><i>The image of the indian towards the portuguese colonizers and nationalism development in Brazil (1836-1881)</i></font>
 			<BR>
 			</td>
 		</tr>

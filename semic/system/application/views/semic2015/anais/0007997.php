@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>BABONI, F. B.; FRANçA, A.; VIEGAS, E. K.; SANTIN, A. O. Sintetização de hardware para algoritmos de aprendizado de máquina usando ROCCC. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. iCCOMP19T.</td>
+			<td colspan=2>BABONI, F. B.; FRANçA, A.; VIEGAS, E. K.; SANTIN, A. O. Sintetização de hardware para algoritmos de aprendizado de máquina usando roccc. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. iCCOMP19T.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Ciência da Computação</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Sintetização de hardware para algoritmos de aprendizado de máquina usando ROCCC</b></font>
+			<td align="center"><font class="lt5"><b>Sintetização de hardware para algoritmos de aprendizado de máquina usando roccc</b></font>
 			<BR>
-			<font class="lt4"><i>Hardware synthesizing for machine learning algorithms using ROCCC</i></font>
+			<font class="lt4"><i>Hardware synthesizing for machine learning algorithms using roccc</i></font>
 			<BR>
 			</td>
 		</tr>

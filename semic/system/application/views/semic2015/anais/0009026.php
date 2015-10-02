@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>BRITO, A. C. L.; FERNANDES, M. L. A psicologia em seminários e revistas teológicas no século XX. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PSICO13.</td>
+			<td colspan=2>BRITO, A. C. L.; FERNANDES, M. L. A Psicologia em seminários e revistas teológicas no século xx. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PSICO13.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral/Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-post-grad.png');?>" title="Oral/Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Psicologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>A psicologia em seminários e revistas teológicas no século XX</b></font>
+			<td align="center"><font class="lt5"><b>A Psicologia em seminários e revistas teológicas no século xx</b></font>
 			<BR>
-			<font class="lt4"><i>The Psychology in seminaries and theological journals of the twentieth century</i></font>
+			<font class="lt4"><i>Psychology in seminaries and theological journals of the twentieth century</i></font>
 			<BR>
 			</td>
 		</tr>

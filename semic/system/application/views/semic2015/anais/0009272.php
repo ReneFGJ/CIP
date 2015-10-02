@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>BRUEL, N. L.; HEINZEN, B. C.; DIJKINGA, F. J.; MAIA, D. R.; PEREIRA, J. O. F. S.; SOTOMAIOR, C. S. Qualidade espermática do sêmen ovino criopreservado associado à produção [e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt; de embriões. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEDVET24.</td>
+			<td colspan=2>BRUEL, N. L.; HEINZEN, B. C.; DIJKINGA, F. J.; MAIA, D. R.; PEREIRA, J. O. F. S.; SOTOMAIOR, C. S. Qualidade espermática do sêmen ovino criopreservado associado à produção [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; de embriões. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEDVET24.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Medicina Veterinária</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Qualidade espermática do sêmen ovino criopreservado associado à produção [e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt; de embriões</b></font>
+			<td align="center"><font class="lt5"><b>Qualidade espermática do sêmen ovino criopreservado associado à produção [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; de embriões</b></font>
 			<BR>
-			<font class="lt4"><i>Sperm quality of ovine semen cryopreserved in different diluents associated with [e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt; embryo production</i></font>
+			<font class="lt4"><i>Sperm quality of ovine semen cryopreserved in different diluents associated with [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; embryo production</i></font>
 			<BR>
 			</td>
 		</tr>

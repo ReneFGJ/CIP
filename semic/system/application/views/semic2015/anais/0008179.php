@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		SILVA, Kelly Morali da<sup>1</sup>; ERCOLE, Tairine Graziella<sup>2</sup>; CARVALHO, Ruy Inacio Neiva de<sup>3</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

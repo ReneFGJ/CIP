@@ -216,9 +216,10 @@ a {
 .evento-apresentacoes-modalidade {
 	width: 15px;
 	height: 15px;
-	background-color: rgba(149, 27, 129, 0.7);
+	background-color: #A85398;
 	float: left;
 }
+
 .identificacao-salas {
 	width: 35%;
 	background-color: #eaede2;
@@ -278,6 +279,17 @@ a {
 	font-weight: bold;
 	border-radius: 10px;
 }
+
+.estilo-horario_intervalos {
+	font-size: 20px;
+	color: #000;
+	padding: 3px;
+	font-weight: bold;
+	background-color: #FAF5D8;
+	border-radius: 10px;
+}
+
+
 .data-programacao {
 	background-color: rgba(73, 125, 47, 1);
 	float: left;
@@ -352,7 +364,7 @@ a {
 	background-color: rgba(206, 209, 198, 0.2);
 }
 .borda-programacao-cientifica {
-	border-left: 5px solid #94b65c;
+	border-left: 5px solid #94b65c; 
 }
 .borda-programacao-cultural {
 	border-left: 5px solid #f39200;
@@ -360,11 +372,16 @@ a {
 .borda-programacao-apresentacao {
 	border-left: 5px solid #951b81;
 }
+.borda-programacao-intertvalo {
+	border-left: 5px solid #FAF5D8;
+}
+
 .flecha-dir-programacao {
 	float: right;
 	margin-right: 5%;
 	margin-top: -18%;
 }
+
 /* Tooltip */
 .tooltip-content {
 	position: absolute;
@@ -534,3 +551,216 @@ footer {
 	width: 100px;
 }
 
+
+	
+/* tooltip S */
+
+.tooltip {
+	display: inline;
+	position: relative;
+	z-index: 999;
+}
+
+/* Trigger text */
+
+.tooltip-item {
+	background: rgba(0,0,0,0.1);
+	text-decoration: underline;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 700;
+	padding: 0 10px;
+	
+}
+
+/* Gap filler */
+
+.tooltip-item::after {
+	content: '';
+	position: absolute;
+	width: 360px;
+	height: 20px;
+	bottom: 100%;
+	left: 50%;
+	pointer-events: none;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.tooltip:hover .tooltip-item::after {
+	pointer-events: auto;
+}
+
+/* Tooltip */
+
+.tooltip-content {
+	position: absolute;
+	z-index: 9999;
+	width: 360px;
+	left: 50%;
+	margin: 0 0 20px -180px;
+	bottom: 100%;
+	text-align: left;
+	font-size: 1.2em;
+	line-height: 1.4;
+	box-shadow: -5px -5px 15px rgba(48,54,61,0.2);
+	background: #2a3035;
+	opacity: 0;
+	cursor: default;
+	pointer-events: none;
+	border-radius: 10px;
+}	
+
+/* Efeitos para aparecer o tooltip*/
+.tooltip-effect-1 .tooltip-content {
+	-webkit-transform: translate3d(0,-10px,0);
+	transform: translate3d(0,-10px,0);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.tooltip-effect-2 .tooltip-content {
+	-webkit-transform-origin: 50% calc(100% + 10px);
+	transform-origin: 50% calc(100% + 10px);
+	-webkit-transform: perspective(1000px) rotate3d(1,0,0,45deg);
+	transform: perspective(1000px) rotate3d(1,0,0,45deg);
+	-webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+	transition: opacity 0.2s, transform 0.2s;
+}
+
+.tooltip-effect-3 .tooltip-content {
+	-webkit-transform: translate3d(0,10px,0) rotate3d(1,1,0,25deg);
+	transform: translate3d(0,10px,0) rotate3d(1,1,0,25deg);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.tooltip-effect-4 .tooltip-content {
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	-webkit-transform: scale3d(0.7,0.3,1);
+	transform: scale3d(0.7,0.3,1);
+	-webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+	transition: opacity 0.2s, transform 0.2s;
+}
+
+.tooltip-effect-5 .tooltip-content {
+	width: 250px;
+	margin-left: -90px;
+	-webkit-transform-origin: 50% calc(100% + 6em);
+	transform-origin: 50% calc(100% + 6em);
+	-webkit-transform: rotate3d(0,0,1,15deg);
+	transform: rotate3d(0,0,1,15deg);
+	-webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+	transition: opacity 0.2s, transform 0.2s;
+	-webkit-transition-timing-function: ease, cubic-bezier(.17,.67,.4,1.39);
+	transition-timing-function: ease, cubic-bezier(.17,.67,.4,1.39);
+}
+
+.tooltip:hover .tooltip-content {
+	pointer-events: auto;
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+	transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+}
+
+.tooltip.tooltip-effect-2:hover .tooltip-content {
+	-webkit-transform: perspective(1000px) rotate3d(1,0,0,0deg);
+	transform: perspective(1000px) rotate3d(1,0,0,0deg);
+}
+
+/* Arrow */
+
+.tooltip-content::after {
+	content: '';
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: transparent;
+	border-top-color: #2a3035;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+/* Tooltip content*/
+
+.tooltip-content img {
+	position: relative;
+	height: 170px;
+	display: block;
+	float: left;
+	margin-right: 1em;
+}
+
+.tooltip-text {
+	font-size: 0.68em;
+	line-height: 1.35;
+	display: block;
+	padding: 1.31em 1.21em 1.21em 0;
+	color: #fff;
+	text-align: inherit;
+}
+
+.tooltip-effect-5 .tooltip-text {''
+	padding: 1.4em;
+}
+
+.tooltip-text a {
+	font-weight: bold;
+}
+
+.botao_cultural {
+	display: inline-block;
+	background-color: #F39200;
+	color: #444;
+	padding: 10px 20px;
+	text-decoration: none;
+	box-sizing: border-box;
+	border: 0px;
+	border-radius: 10px;
+  /* posicionamento*/
+	margin-top:-120px;
+	margin-left:42%; 
+}
+
+.botao_cultural img {
+	background-color:#F8C486;
+	border-radius: 5px; 
+}
+
+.botao_cultural a:link, a:visited, a:active {
+	text-decoration: none;
+	}
+.botao_cultural a:hover {
+	text-decoration: underline;  
+	color:#FFFFFF; 
+	background-color:#5D3F59;
+	border-radius: 2px;
+	font-size:150%;
+	}
+
+.docs {
+	display: inline-block;
+	text-decoration: none;
+	box-sizing: border-box;
+	border: 0px;
+	border-radius: 10px;
+  /* posicionamento*/
+	margin-top:-90px;
+	margin-left:73%; 
+}
+
+.docs a:link, a:visited, a:active {
+	text-decoration: none;
+	}
+.docs a:hover {
+text-decoration: underline;  
+	color:#FFFFFF; 
+	background-color:#5D3F59;
+	border-radius: 5px;
+	font-size:150%;
+	}

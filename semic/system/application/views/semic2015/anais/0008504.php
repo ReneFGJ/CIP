@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SANTOS, D. S.; OLIVEIRA, L. B. A noçãoa noção de pessoa em Emmanuel Mounier de pessoa em Emmanuel Mounier. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FILO61.</td>
+			<td colspan=2>SANTOS, D. S.; OLIVEIRA, L. B. A noção de pessoa em Emmanuel Mounier. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FILO61.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,7 +12,7 @@
 				<br><b>Filosofia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>A noçãoa noção de pessoa em Emmanuel Mounier de pessoa em Emmanuel Mounier</b></font>
+			<td align="center"><font class="lt5"><b>A noção de pessoa em Emmanuel Mounier</b></font>
 			<BR>
 			<font class="lt4"><i>The concept of person in Emmanuel Mounier</i></font>
 			<BR>
@@ -53,7 +53,7 @@ de “ser” pessoa.					<B>Conclusões</B>: A partir da análise e dos resultados obt
 a importância tanto da pesquisa dos pressupostos filosóficos de Emmanuel
 Mounier, quanto da análise dos seus conceitos. Desta forma, foi possível construir e
 entender melhor sua linha de pensamento.				</P>
-			</div><B>Palavras-chave</B>: Personalismo, pessoa, transcendência.			<BR>
+			</div><B>Palavras-chave</B>: Personalismo. pessoa. transcendência.			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
@@ -80,7 +80,7 @@ concepts of person.					<B>Conclusion</B>: From the analysis and the obtained re
 possible to ascertain the importance of both researching the philosophical bases of
 Emmanuel Mounier and analyzing his concepts. This way, it was possible to build a
 better understanding of his line of thought.				</P>
-			</div><B>Keywords</B>: Personalism, person, transcendence.</td>
+			</div><B>Keywords</B>: Personalism. person. transcendence.</td>
 		</tr>
 	</table>
 	<BR>

@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		OLIVEIRA, Felipe Sielski Romualdo de<sup>1</sup>; GONDOLFO, Regina Benatti<sup>2</sup>; OLIVEIRA, Lucas Emanuel Silva e<sup>3</sup>; BARRA, Claudia Maria Cabral Moro<sup>4</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

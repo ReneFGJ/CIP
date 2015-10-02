@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Razões para a escolha da não amamentação referidas por puérperas</b></font>
 			<BR>
-			<font class="lt4"><i>Reasons for the choice of not breastfeeding mothers referred by</i></font>
+			<font class="lt4"><i>Reasons for the choice of not breastfeeding referred by mothers</i></font>
 			<BR>
 			</td>
 		</tr>
@@ -36,7 +36,7 @@ b) Identificar as influências familiares , profissionais de saúde e sociais na e
 Seguindo os passos de análise temática , venha até oito unidades de contexto e vinte e uma unidades de significado,					<B>Conclusões</B>: Conclui-se que os motivos que levam a interrupção da amamentação exclusiva são em sua maioria preveniveis através da educação em saúde e, caso ocorram, poderiam ser abordados precocemente pelos profissionais da saúde nas consultas pós-parto, evitando-se que a mulher interrompa a amamentação.
 	Conclui-se ainda, que dentre as influências para a interrupção da amamentação, aparece a prescrição médica do leite artificial, pois quando a mulher procura o serviço de saúde, precisa-se introduzir, na maioria das vezes, o leite artificial. 
 Ressalta-se que este trabalho não esgota o assunto e recomenda-se que novas pesquisas sejam realizadas, para que cada vez mais entenda-se os reais motivos que levam às mulheres a interromper a amamentação exclusiva e conduzam a proposições de iniciativas que visem diminuir este quadro.				</P>
-			</div><B>Palavras-chave</B>: amamentação; interrupção; razões			<BR>
+			</div><B>Palavras-chave</B>: Amamentação. interrupção. razões			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
@@ -46,7 +46,7 @@ b ) identify the family influences , social and health professionals in choosing
 Following in the footsteps of thematic analysis , come up to eight context units and twenty-one units of meaning ,					<B>Conclusion</B>: we conclude that the reasons which lead to interruption of exclusive breastfeeding are mostly preventable through health education , and if so , could be addressed early by health professionals in the postpartum consultation , avoiding the woman stop breastfeeding.
 We conclude also that among the influences for the cessation of breastfeeding appears to prescription of artificial milk, because when a woman seeks health care, need to be introduced , for the most part , the artificial milk.
 It is emphasized that this work does not exhaust the subject and it is recommended that further research be conducted , for which increasingly meant the real reasons that lead women to stop exclusive breastfeeding and lead to proposals for initiatives to reduce this frame				</P>
-			</div><B>Keywords</B>: breast-feeding; interruption; reasons</td>
+			</div><B>Keywords</B>: Breast-feeding. interruption. reasons</td>
 		</tr>
 	</table>
 	<BR>

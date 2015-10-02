@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Estudos sobre a mensuração e avaliação doprocesso da gestão do conhecimento</b></font>
 			<BR>
-			<font class="lt4"><i>Studies about the measurement and evaluation of the Knowledge Management (KM) process</i></font>
+			<font class="lt4"><i>Studies about the measurement and evaluation of the knowledge management (km) process</i></font>
 			<BR>
 			</td>
 		</tr>

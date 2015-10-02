@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Um olhar para a realidade: conhecendo o processo de organização das “profissionais do sexo” em Curitiba, PR</b></font>
 			<BR>
-			<font class="lt4"><i>A look to reality: Knowing the organization processo of “sex professionals” in Curitiba, PR</i></font>
+			<font class="lt4"><i>A look to reality: knowing the organization processo of “sex professionals” in Curitiba, PR</i></font>
 			<BR>
 			</td>
 		</tr>
@@ -38,7 +38,7 @@
 			<div style="text-align:justify;">
 				<P>
 					<B>Introduction</B>: initially, this study presents the State of the art on the theme "process of organisation and work of sex workers", revealing that in Brazil the prostitution is a constant since the colonial period and became an object of study from the second half of the 20th century. Also shows that from the Decade of 1990, began a network of integrated organizations for prostitutes to claim their social rights of citizenship, and also the recognition of prostitution as a job like any other "that entail rights and duties, and today prostitution as a multimillion-dollar industry.Objetivo: Assim apropriando-se do objeto de estudo e tendo como objetivo “conhecer o processo de organização das ‘profissionais do sexo’ e os espaços de requisição e atuação profissional em Curitiba”.					<B>Objectives</B>: The present research had as objective “acknowledging the organization process of ‘sex professionals’ and their requisition and professional acting spaces in Curitiba.					<B>Methods</B>: In this matter, a bibliographic research was made in the perspective of building a theorical reference that allowed the student to have a bigger comprehension of the phenomenon. We highlight the importance of sites on that matter, just like the internet spaces where there is the commercialization of the ‘sex professionals’ work.					<B>Results</B>: In the research process we also had the field research, interviewing these professionals in  several spaces of professional acting. In the systemizing process of the collected data, we highlight, based on bibliographic research, prostitution in human history, demystifying some taboos that surround this profession that is considered the most ancient in the world.  It presents the acting spaces of ‘sex professionals’ understanding its organization and how it expresses in the space of geographic, social and economic territory. Highlights the matters concerning these professionals work, like work journey, local and job condition, payment, safety and risks. It yet presents that types of places in which their work is made, the number of professionals and the establishments of prostitution that exist in Curitiba.					<B>Conclusion</B>: In conclusion, it is highlighted that this occupation is acknowledged by the Brazilian Code of Occupation, as well as the segment’s demands.				</P>
-			</div><B>Keywords</B>: Prostitution, Work, Organization.</td>
+			</div><B>Keywords</B>: Prostitution. Work. Organization.</td>
 		</tr>
 	</table>
 	<BR>

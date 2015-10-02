@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SILVA, V. V. C. Z.; BAYER, A. C.; FOGAçA, L. A. Desenvolvimento de [e]lt;i[e]rt;[e]lt;i[e]rt;handroanthus[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;impetiginosus[e]lt;/i[e]rt;[e]lt;/i[e]rt; em diferentes níveis de sacarose e intensidade luminosa durante a etapa de multiplicação [e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EAMB17T.</td>
+			<td colspan=2>SILVA, V. V. C. Z.; BAYER, A. C.; FOGAçA, L. A. Desenvolvimento de [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;handroanthus[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;impetiginosus[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; em diferentes níveis de sacarose e intensidade luminosa durante a etapa de multiplicação [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt;. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EAMB17T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Engenharia Ambiental</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Desenvolvimento de [e]lt;i[e]rt;[e]lt;i[e]rt;handroanthus[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;impetiginosus[e]lt;/i[e]rt;[e]lt;/i[e]rt; em diferentes níveis de sacarose e intensidade luminosa durante a etapa de multiplicação [e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;</b></font>
+			<td align="center"><font class="lt5"><b>Desenvolvimento de [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;handroanthus[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;impetiginosus[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; em diferentes níveis de sacarose e intensidade luminosa durante a etapa de multiplicação [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt;</b></font>
 			<BR>
-			<font class="lt4"><i>Development of [e]lt;i[e]rt;[e]lt;i[e]rt;handroanthus[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;impetiginosus[e]lt;/i[e]rt;[e]lt;/i[e]rt; in levels of different sucrose and light intensity during [e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt; multiplication</i></font>
+			<font class="lt4"><i>Development of [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;handroanthus[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;impetiginosus[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; in levels of different sucrose and light intensity during [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; multiplication</i></font>
 			<BR>
 			</td>
 		</tr>

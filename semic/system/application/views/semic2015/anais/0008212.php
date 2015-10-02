@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>HANGAI, K. T.; GRAF, M. E.; MATTOZO, C. A.; KUSMA, S. Z. Análise qualitativa e de resultados imediatos da implementação de um protocolo de intervenção para prevenção de infecção de sítio cirúrgico no serviço de neurocirurgia de um Hospital Universitário. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED8.</td>
+			<td colspan=2>HANGAI, K. T.; GRAF, M. E.; MATTOZO, C. A.; KUSMA, S. Z. Análise qualitativa e de resultados imediatos da implementação de um protocolo de intervenção para prevenção de infecção de sítio cirúrgico no serviço de neurocirurgia de um hospital universitário. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED8.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Medicina</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Análise qualitativa e de resultados imediatos da implementação de um protocolo de intervenção para prevenção de infecção de sítio cirúrgico no serviço de neurocirurgia de um Hospital Universitário</b></font>
+			<td align="center"><font class="lt5"><b>Análise qualitativa e de resultados imediatos da implementação de um protocolo de intervenção para prevenção de infecção de sítio cirúrgico no serviço de neurocirurgia de um hospital universitário</b></font>
 			<BR>
-			<font class="lt4"><i>Qualitative Analysis and Immediate Results of Protocol Implementation of an action for Infection Prevention of Surgical Site in Service Neurosurgery of an University Hospital</i></font>
+			<font class="lt4"><i>Qualitative analysis and immediate results of protocol implementation of an action for infection prevention of surgical site in service neurosurgery of an university hospital</i></font>
 			<BR>
 			</td>
 		</tr>

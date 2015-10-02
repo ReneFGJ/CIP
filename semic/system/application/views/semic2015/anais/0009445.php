@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>MATTGE, K.; SILVA, M. G. A.; POZZOBON, M. G. G.; POPPI, J. C.; ASSUNçÃO, E. C.; SZYMANSKI, N. Mapeamento de bromélias do gênero tillandsia na rede elétrica do município de Toledo, PR:  um estudo sobre bioindicadores de poluição atmosférica. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EAMB27T.</td>
+			<td colspan=2>MATTGE, K.; SILVA, M. G. A.; POZZOBON, M. G. G.; POPPI, J. C.; ASSUNçÃO, E. C.; SZYMANSKI, N. Mapeamento de bromélias do gênero tillandsia na rede elétrica do município de toledo, pr:  um estudo sobre bioindicadores de poluição atmosférica. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EAMB27T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Engenharia Ambiental</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Mapeamento de bromélias do gênero tillandsia na rede elétrica do município de Toledo, PR:  um estudo sobre bioindicadores de poluição atmosférica</b></font>
+			<td align="center"><font class="lt5"><b>Mapeamento de bromélias do gênero tillandsia na rede elétrica do município de toledo, pr:  um estudo sobre bioindicadores de poluição atmosférica</b></font>
 			<BR>
-			<font class="lt4"><i>Bromeliads mapping tillandsia gender in the power grid of the city of Toledo, PR: a study on bio-indicators of air pollution</i></font>
+			<font class="lt4"><i>Bromeliads mapping tillandsia gender in the power grid of the city of toledo, pr: a study on bio-indicators of air pollution</i></font>
 			<BR>
 			</td>
 		</tr>

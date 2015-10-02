@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		BETONI, Felipe Hartcopp<sup>1</sup>; BIENERT, Konrado<sup>2</sup>; COELHO, Leandro Dos Santos<sup>3</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

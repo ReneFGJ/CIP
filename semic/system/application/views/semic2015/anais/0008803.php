@@ -35,7 +35,7 @@
 Este entendimento adotado em diversos julgados ofende seriamente uma serie de princípios que norteiam o direito processual penal, e até mesmo os dispositivos constitucionais de nossa Carta Maior, como a dignidade da pessoa humana.
 
 Ocorre que, ao responder um processo criminal, o indivíduo é automaticamente exposto a nítido constrangimento, observando que ao ser indiciado o indivíduo passa a constar nos arquivos criminais do Estado, existindo ainda certa “condenação pública”.					<B>Objetivo</B>: O objetivo deste artigo é mostrar que os princípios consittucionais de direito penal estão sendo violados. A principal ideia aqui é mostrar que atos simples de investigação são capazes de evitar todo o embaraço ,tais como como oitiva  de testemunhas que trabalharam na empresa.					<B>Metodologia</B>: Os métodos usados [e]#8203;[e]#8203;aqui são a interpretação das disposições legais , estudo sobre a jurisprudência , a posição da doutrina e como seria a correcta aplicação do direito processual penal , respeitando a dignidade dos direitos humanos.					<B>Resultados</B>: 					<B>Conclusões</B>: 				</P>
-			</div><B>Palavras-chave</B>: Sócio-gerente; Crimes fiscais; relatório; poderes excessivos ; Contrato Social.			<BR>
+			</div><B>Palavras-chave</B>: Sócio-gerente. Crimes fiscais. relatório. poderes excessivos . Contrato Social.			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
@@ -44,7 +44,7 @@ Ocorre que, ao responder um processo criminal, o indivíduo é automaticamente exp
 This understanding adopted in several judged seriously offends a series of principles that guide the criminal procedural law and even constitutional provisions of our Carta Maior , such as the dignity of the human person .
 
 It happens that, when answering a criminal case , the individual is automatically exposed to sharp constraints , noting that when indicted the individual begins to appear in state criminal files , and there is certain " public condemnation " .					<B>Objectives</B>: The objective of this article is show that constitutionals rules and even criminal law principles are being broken. The main idea here is show that simple acts are able to avoid the whole embarrassment as well, like the hearing of witnesses that worked in the company					<B>Methods</B>: The methods used here are the real interpretation of the legal provisions, study about the jurisprudence, the position of the doctrine and how would be the correct application of criminal procedural law, respecting the dignity of the humans rights.					<B>Results</B>: 					<B>Conclusion</B>: 				</P>
-			</div><B>Keywords</B>: Managing partner; Tax crimes; Report; excessive powers; Social Contract.</td>
+			</div><B>Keywords</B>: Managing partner. Tax crimes. Report. excessive powers. Social Contract.</td>
 		</tr>
 	</table>
 	<BR>

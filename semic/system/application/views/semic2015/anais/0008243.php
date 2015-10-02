@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		GUMIELA, Aline Marzalek<sup>1</sup>; LUCIANO, Fernando Bittencourt<sup>2</sup>; WOLUPECK, Hanna Lethycia<sup>3</sup>; ARAUJO, Monyque Kais<sup>4</sup>; MACEDO, Renata Ernlund Freitas de<sup>5</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

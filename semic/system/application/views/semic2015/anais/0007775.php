@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		SANTOS, Tatielle Priscila Cintra Dos<sup>1</sup>; DZIURA, Giselle Luzia<sup>2</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

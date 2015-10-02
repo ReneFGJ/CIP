@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>ALMEIDA, R. C. G. A.; KASEKER, M. P. Convergência midiática no GRPCOM. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. COMUN12.</td>
+			<td colspan=2>ALMEIDA, R. C. G. A.; KASEKER, M. P. Convergência midiática no grpcom. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. COMUN12.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Comunicação</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Convergência midiática no GRPCOM</b></font>
+			<td align="center"><font class="lt5"><b>Convergência midiática no grpcom</b></font>
 			<BR>
-			<font class="lt4"><i>Midiatic convergence at the GRPCOM</i></font>
+			<font class="lt4"><i>Midiatic convergence at the grpcom</i></font>
 			<BR>
 			</td>
 		</tr>

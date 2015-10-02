@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>A identidade multicultural indígena construída pela voz de resistência nativa</b></font>
 			<BR>
-			<font class="lt4"><i>The multicultural identity of Brazilian indians constructed by the native voice of resistance</i></font>
+			<font class="lt4"><i>The multicultural identity of Brazilian indians created by the native voice of resistance</i></font>
 			<BR>
 			</td>
 		</tr>

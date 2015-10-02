@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>LOFRANO, A. R. R.; MASKE, W. A Imigração Italiana para o Paraná (1870-1914). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. HIS1.</td>
+			<td colspan=2>LOFRANO, A. R. R.; MASKE, W. A imigração italiana para o Paraná (1870-1914). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. HIS1.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>História</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>A Imigração Italiana para o Paraná (1870-1914)</b></font>
+			<td align="center"><font class="lt5"><b>A imigração italiana para o Paraná (1870-1914)</b></font>
 			<BR>
-			<font class="lt4"><i>The Italian Immigration in Paraná (1870-1914)</i></font>
+			<font class="lt4"><i>The italian immigration in Paraná (1870-1914)</i></font>
 			<BR>
 			</td>
 		</tr>

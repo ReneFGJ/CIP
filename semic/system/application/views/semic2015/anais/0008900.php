@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>A gestão dos recursos financeiros da educação e o plano nacional da educação - 2014-2024</b></font>
 			<BR>
-			<font class="lt4"><i>The management of financial resources of education and the national education 2014 -2024</i></font>
+			<font class="lt4"><i>The management of education financial resourcesand the national education plan2014 -2024</i></font>
 			<BR>
 			</td>
 		</tr>

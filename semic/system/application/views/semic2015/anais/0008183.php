@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Fomento florestal em pequenas propriedades rurais Brasileiras: estratégias e efetividade</b></font>
 			<BR>
-			<font class="lt4"><i>Forest development in small rural properties Brazil: strategies and effectiveness</i></font>
+			<font class="lt4"><i>Forest development in small rural Brazilian properties: strategies and effectiveness</i></font>
 			<BR>
 			</td>
 		</tr>

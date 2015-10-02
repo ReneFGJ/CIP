@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>DAVID, F. S.; KERSTEN, R. A. Elaboração de um guia ilustrado de identificação de espécies arbóreas e arbustivas do campus Curitiba da PUCPR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ECO2T.</td>
+			<td colspan=2>DAVID, F. S.; KERSTEN, R. A. Elaboração de um guia ilustrado de identificação de espécies arbóreas e arbustivas do campus Curitiba, PR da pucpr. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ECO2T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Ecologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Elaboração de um guia ilustrado de identificação de espécies arbóreas e arbustivas do campus Curitiba da PUCPR</b></font>
+			<td align="center"><font class="lt5"><b>Elaboração de um guia ilustrado de identificação de espécies arbóreas e arbustivas do campus Curitiba, PR da pucpr</b></font>
 			<BR>
-			<font class="lt4"><i>Field guide to the trees and shrubs on the Pontifícal Catholic University of Paraná</i></font>
+			<font class="lt4"><i>Field guide to the trees and shrubs on the pontifícal catholic university of Paraná</i></font>
 			<BR>
 			</td>
 		</tr>

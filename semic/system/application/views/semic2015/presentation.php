@@ -3,7 +3,7 @@
 <div >
 	<h2><strong>Iniciação Científica e Tecnológica</strong></h2>
 	<p align="justify">
-		A Iniciação Científica e Tecnológica na PUCPR é uma atividade estratégica na formação de estudantes críticos, criativos e conectados com o entorno e, por que não dizer, globalmente, na busca de soluções que possam contribuir para uma sociedade melhor
+		A Iniciação Científica e Tecnológica na PUCPR é uma atividade estratégica na formação de estudantes críticos, criativos e conectados com o entorno e, por que não dizer, globalmente, na busca de soluções que possam contribuir para uma sociedade melhor.
 	</p>
 	<p align="justify">
 		Este evento é a ocasião em que os estudantes apresentam os resultados de suas pesquisas desenvolvidas ao longo de 12 meses, portanto, um momento de celebração do percurso realizado. É, também, uma mostra concreta do que a PUCPR propicia aos estudantes, cada qual trilhando seu percurso individual amparados numa rede de pesquisadores experientes.

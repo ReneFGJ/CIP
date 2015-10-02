@@ -44,7 +44,7 @@ Outrossim, pôde-se constatar que a maior incidência de acidentes de trânsito, no
 Table 1, in contemplating the hospital morbidity (hospitalization rate) of the Unified Health System by external causes, according to place of residence of patients, especially those caused by traffic accidents in the year 2011, revealed that the male gender It is involved in most instances, with a total of 135,697 cases or 77.94% relative to the total. The feminine gender is represented in 22.06% of cases, which corresponds to 38,418 events.
 In all, 174 115 cases recorded in that period.
 Furthermore, it could be seen that the highest incidence of traffic accidents in the observed period, occurred in the southeastern region, which had 76,943 records (44.19%), followed by the northeast with 45,777 occurrences (26.29					<B>Conclusion</B>: Investing in effective and skilled programs to lower the statistics presented here does not mean only save , but mostly safeguarding the lives of road users , as well as allowing greater access of citizens to public health quality.				</P>
-			</div><B>Keywords</B>: Health . Public resources . Traffic-accidents. Brazilian state . Public politic.</td>
+			</div><B>Keywords</B>: Health . Public resources . Traffic accidents. Brazilian State . Public policies.</td>
 		</tr>
 	</table>
 	<BR>

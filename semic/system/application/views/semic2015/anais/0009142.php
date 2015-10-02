@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>JESUS, K. F.; TREVISAN, F. C. Analisar o conceito de intelecto, segundo Aristóteles, tendo como ponto de partida sua distinção entre ativo e passivo. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FILO65.</td>
+			<td colspan=2>JESUS, K. F.; TREVISAN, F. C. Analisar o conceito de intelecto, segundo aristóteles, tendo como ponto de partida sua distinção entre ativo e passivo. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FILO65.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Filosofia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Analisar o conceito de intelecto, segundo Aristóteles, tendo como ponto de partida sua distinção entre ativo e passivo</b></font>
+			<td align="center"><font class="lt5"><b>Analisar o conceito de intelecto, segundo aristóteles, tendo como ponto de partida sua distinção entre ativo e passivo</b></font>
 			<BR>
-			<font class="lt4"><i>Analyze the intellect concept, according to Aristotle, taking as its starting point a distinction between active and passive</i></font>
+			<font class="lt4"><i>Analyze the intellect concept, according to aristotle, taking as its starting point a distinction between active and passive</i></font>
 			<BR>
 			</td>
 		</tr>

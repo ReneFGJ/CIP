@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Cirurgia bariátrica: expectativas pré operatórias</b></font>
 			<BR>
-			<font class="lt4"><i>Bariatric Surgery: pe-operative expectations</i></font>
+			<font class="lt4"><i>Bariatric surgery: pre-surgery expectations</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>ASSUNçÃO, E. C.; POPPI, J. S. C.; MATTGE, K.; MAçANEIRO JUNIOR, L. T.; SZYMANSKI, N. Monitoramento físico químico das águas do Rio do Ouro. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEC19.</td>
+			<td colspan=2>ASSUNçÃO, E. C.; POPPI, J. S. C.; MATTGE, K.; MAçANEIRO JUNIOR, L. T.; SZYMANSKI, N. Monitoramento físico químico das águas do rio do ouro. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEC19.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Engenharia Mecânica</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Monitoramento físico químico das águas do Rio do Ouro</b></font>
+			<td align="center"><font class="lt5"><b>Monitoramento físico químico das águas do rio do ouro</b></font>
 			<BR>
-			<font class="lt4"><i>Chemical physical monitoring of Rio do Ouro waters</i></font>
+			<font class="lt4"><i>Chemical physical monitoring of rio do ouro waters</i></font>
 			<BR>
 			</td>
 		</tr>

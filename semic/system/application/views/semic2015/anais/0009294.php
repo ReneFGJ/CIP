@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>JANUÁRIO, J. O. E. A.; SCORTEGNANA, M. J.; SANTOS, D. V. D.; SUGAWARA, K. A. N.; KUSMA, S. Z. LocDoc - Definição de Hospitais da cidade de Curitiba, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED9T.</td>
+			<td colspan=2>JANUÁRIO, J. O. E. A.; SCORTEGNANA, M. J.; SANTOS, D. V. D.; SUGAWARA, K. A. N.; KUSMA, S. Z. Locdoc - definição de hospitais da cidade de Curitiba, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED9T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Medicina</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>LocDoc - Definição de Hospitais da cidade de Curitiba, PR</b></font>
+			<td align="center"><font class="lt5"><b>Locdoc - definição de hospitais da cidade de Curitiba, PR</b></font>
 			<BR>
-			<font class="lt4"><i>LocDoc - Definition of Curitiba´s  Hospitals</i></font>
+			<font class="lt4"><i>Locdoc - definition of Curitiba, PR´s  hospitals</i></font>
 			<BR>
 			</td>
 		</tr>

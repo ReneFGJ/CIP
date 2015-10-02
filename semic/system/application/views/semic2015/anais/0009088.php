@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>A comunidade vegetal de uma área de floresta ombrófila mista paranaense</b></font>
 			<BR>
-			<font class="lt4"><i>Plant communitie on a souther brazilian subtropical rain forest</i></font>
+			<font class="lt4"><i>Plant communitie on a souther Brazilian subtropical rain forest</i></font>
 			<BR>
 			</td>
 		</tr>

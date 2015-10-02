@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>BATISTA, O. H. D. S.; FREITAS, C. O. A. Neuromarketing na internet: é possível influenciar o consumidor?. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIR10.</td>
+			<td colspan=2>BATISTA, O. H. D. S.; FREITAS, C. O. A. Neuromarketing na internet: é possível influênciar o consumidor?. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIR10.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Direito</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Neuromarketing na internet: é possível influenciar o consumidor?</b></font>
+			<td align="center"><font class="lt5"><b>Neuromarketing na internet: é possível influênciar o consumidor?</b></font>
 			<BR>
-			<font class="lt4"><i>Neuromarketing on Intenret: is it possible to influence the consumer?</i></font>
+			<font class="lt4"><i>Neuromarketing on intenret: is it possible to influence the consumer?</i></font>
 			<BR>
 			</td>
 		</tr>

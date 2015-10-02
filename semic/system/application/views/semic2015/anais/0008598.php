@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>ORNELLAS, C. A. D.; RUSSO NETO, L. Ensaio de integridade em estacas - PIT. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ECV2T.</td>
+			<td colspan=2>ORNELLAS, C. A. D.; RUSSO NETO, L. Ensaio de integridade em estacas - pit. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ECV2T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Engenharia Civil</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Ensaio de integridade em estacas - PIT</b></font>
+			<td align="center"><font class="lt5"><b>Ensaio de integridade em estacas - pit</b></font>
 			<BR>
-			<font class="lt4"><i>Pile Integrity Test - PIT</i></font>
+			<font class="lt4"><i>Pile integrity test - pit</i></font>
 			<BR>
 			</td>
 		</tr>
@@ -32,7 +32,7 @@
 			<div style="text-align:justify;">
 				<P>
 					<B>Introdução</B>: Diante da impossibilidade de se verificar a integridade de todas as estacas de uma obra com o uso do PDA, foi desenvolvido um ensaio não destrutivo exclusivo para esta finalidade, denominado PIT (Pile Integrity Tester), com base na interpretação da onda de tensão gerada por golpes no topo da estaca.					<B>Objetivo</B>: Neste trabalho, é apresentado o ensaio PIT (obtidos em três estacas) com diferentes tipos de dosagem.					<B>Metodologia</B>: Os resultados coletados foram transferidos para um programa de computador específico, denominado PIT-W (PDI, 2003), onde tornou-se possível interpretar e determinar se as variações são aceitáveis ou de grande preocupação para a integridade.					<B>Resultados</B>: Os registros de instalação, o volume de concreto, comprimento da estaca e outras observações também foram levados em conta durante toda a interpretação. As estacas com utilização de agregado mais graúdo conduziram a maiores velocidades de ondas.					<B>Conclusões</B>: Foi possível quantificar a variação da velocidade de propagação da onda com o tempo de cura de cada traço.				</P>
-			</div><B>Palavras-chave</B>: Estacas; Ensaios não destrutivos. Ensaio de integridade de estacas.			<BR>
+			</div><B>Palavras-chave</B>: Estacas. Ensaios não destrutivos. Ensaio de integridade de estacas.			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">

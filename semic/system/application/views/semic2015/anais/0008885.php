@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		ROCHA, Matheus Viana<sup>1</sup>; LEITE, Julio Cesar de Moura<sup>2</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>CARVALHO, M. C.; CHEZANOSKI, D.; BISSIATO, R. B.; FERNANDEZ, F. A. B.; SILVESTRIN, A. R. C. Avaliação do crescimento de bracatinga [e]lt;i[e]rt;Mimosa scabrella[e]lt;/i[e]rt; em área de mata ciliar em recuperação. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FLORE17.</td>
+			<td colspan=2>CARVALHO, M. C.; CHEZANOSKI, D.; BISSIATO, R. B.; FERNANDEZ, F. A. B.; SILVESTRIN, A. R. C. Avaliação do crescimento de bracatinga [e]lt;i[e]rt;mimosa scabrella[e]lt;/i[e]rt; em área de mata ciliar em recuperação. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FLORE17.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Recursos Florestais e Engenharia Florestal</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Avaliação do crescimento de bracatinga [e]lt;i[e]rt;Mimosa scabrella[e]lt;/i[e]rt; em área de mata ciliar em recuperação</b></font>
+			<td align="center"><font class="lt5"><b>Avaliação do crescimento de bracatinga [e]lt;i[e]rt;mimosa scabrella[e]lt;/i[e]rt; em área de mata ciliar em recuperação</b></font>
 			<BR>
-			<font class="lt4"><i>To evaluate the growth bracatinga [e]lt;/i[e]rt;Mimosa scabrella[e]lt;i[e]rt; in riparian area recovery</i></font>
+			<font class="lt4"><i>Evaluating the growth bracatinga [e]lt;/i[e]rt;mimosa scabrella[e]lt;i[e]rt; in riparian area recovery</i></font>
 			<BR>
 			</td>
 		</tr>

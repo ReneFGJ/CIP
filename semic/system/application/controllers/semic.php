@@ -132,7 +132,7 @@ class semic extends Controller {
 		$data['content'] .= $this -> load -> view('semic2015/programation_07_10_pt', NULL, true);
 		$data['content'] .= $this -> load -> view('semic2015/programation_08_10_pt', NULL, true);
 		$data['content'] .= $this -> load -> view('semic2015/programation_end', NULL, true);
-		$data['content'] .= $this -> load -> view('semic2015/programation_map', NULL, true);
+		//$data['content'] .= $this -> load -> view('semic2015/programation_map', NULL, true);
 
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);
@@ -141,16 +141,16 @@ class semic extends Controller {
 		//$data['content'] .= $this -> load -> view('semic2015/under_construction', NULL, true);
 
 		/* Programacao puc cultural */
-		$data['content'] = $this -> load -> view('semic2015/programation_puc_cultural', NULL, true);
+		$data['content'] = $this -> load -> view('semic2015/programation_end2', NULL, true);
 
 		/* Programacao Cientifica */
 		//$data['content'] = $this -> load -> view('semic2015/programation_puc_cientifica', NULL, true);
 
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);
-
 		$this -> load -> view('semic2015/footer');
-	}
+	
+}
 
 	//Pagina duvidas
 	function faq() {
@@ -212,7 +212,6 @@ class semic extends Controller {
 		$this -> load -> view('semic2015/footer');
 	}
 
-
 	//Pagina instrucoes aos autores
 	function edicoes_anteriores() {
 		$this -> cab();
@@ -236,6 +235,21 @@ class semic extends Controller {
 
 		/* Expediente */
 		$data['content'] = $this -> load -> view('semic2015/expedient', NULL, true);
+
+		$data['layout'] = 1;
+		$this -> load -> view('semic2015/content', $data);
+
+		$this -> load -> view('semic2015/footer');
+	}
+	
+	//Pagina programacao
+	function programmation_cult() {
+		$this -> cab();
+		$this -> load -> view('semic2015/main_image');
+		$data = array();
+
+		/* Expediente */
+		$data['content'] = $this -> load -> view('semic2015/programation_puc_cultural', NULL, true);
 
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);

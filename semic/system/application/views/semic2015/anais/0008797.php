@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2> . In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ODO27.</td>
+			<td colspan=2>PEREIRA, T. M.; TREVILATTO, P. C. Reabsorção radicular e polimorfismos no gene rank. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ODO27.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral/Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-post-grad.png');?>" title="Oral/Pôster">
@@ -12,7 +12,7 @@
 				<br><b>Odontologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b></b></font>
+			<td align="center"><font class="lt5"><b>Reabsorção radicular e polimorfismos no gene rank</b></font>
 			<BR>
 			<font class="lt4"><i></i></font>
 			<BR>
@@ -21,7 +21,7 @@
 	</table>
 	<br>
 	<div style="text-align:right;">
-				<BR>
+		PEREIRA, Thais Munhoz<sup>1</sup>; TREVILATTO, Paula Cristina<sup>2</sup>		<BR>
 		PIBIC		- Bolsa CNPq-PIBIC		<BR>
 		<I>--</I>
 	</div>
@@ -43,7 +43,7 @@
 	</table>
 	<BR>
 	<BR>
-		<BR>
+	<sup>1</sup> Estudante. PUCPR<br><sup>2</sup> Orientador. PUCPR	<BR>
 	<BR>
 	<BR>
 	<BR>

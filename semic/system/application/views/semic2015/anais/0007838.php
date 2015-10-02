@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Bioética ambiental: percepção ambiental e o diálogo entre o social, legal e biológico a respeito do passeio público de Curitiba, PR</b></font>
 			<BR>
-			<font class="lt4"><i>Environmental bioethics : Environmental perception and dialogue between the social, legal and biological issues about Parque do Passeio Público, Curitiba, PR</i></font>
+			<font class="lt4"><i>Environmental bioethics : environmental perception and dialogue between the social, legal and biological issues about parque do passeio público, Curitiba, PR</i></font>
 			<BR>
 			</td>
 		</tr>

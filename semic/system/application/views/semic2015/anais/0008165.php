@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>PADILHA, J. M.; FRANçA JUNIOR, N.; ESPOSITO, S. E. Efeito da diferenciação celular na susceptibilidade à apoptose induzida por diclofenaco de sódio em células de neuroblastoma [e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MORF3.</td>
+			<td colspan=2>PADILHA, J. M.; FRANçA JUNIOR, N.; ESPOSITO, S. E. Efeito da diferenciação celular na susceptibilidade à apoptose induzida por diclofenaco de sódio em células de neuroblastoma [e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MORF3.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Morfologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Efeito da diferenciação celular na susceptibilidade à apoptose induzida por diclofenaco de sódio em células de neuroblastoma [e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;</b></font>
+			<td align="center"><font class="lt5"><b>Efeito da diferenciação celular na susceptibilidade à apoptose induzida por diclofenaco de sódio em células de neuroblastoma [e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;</b></font>
 			<BR>
-			<font class="lt4"><i>Effect of cell differentiation in susceptibility to apoptosis induced by sodium diclofenac on neuroblastoma cells [e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;</i></font>
+			<font class="lt4"><i>Effect of cell differentiation in susceptibility to apoptosis induced by sodium diclofenac on neuroblastoma cells [e]lt;i[e]rt;[e]lt;i[e]rt;in vitro[e]lt;/i[e]rt;[e]lt;/i[e]rt;</i></font>
 			<BR>
 			</td>
 		</tr>

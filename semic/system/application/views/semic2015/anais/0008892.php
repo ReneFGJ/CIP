@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Relacionar os níveis de atividade física e aptidão relacionada à saúde, de estudantes universitários, com os fatores correlatos</b></font>
 			<BR>
-			<font class="lt4"><i>Relate the levels of physical activity and fitness related to health, college students, with correlated factors</i></font>
+			<font class="lt4"><i>Relating the levels of physical activity and fitness regarding the health, of college students, with correlated factors</i></font>
 			<BR>
 			</td>
 		</tr>

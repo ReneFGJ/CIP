@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Avaliação do uso de bacias hidrográficas sobre a qualidade da água</b></font>
 			<BR>
-			<font class="lt4"><i>Avaliação do uso de bacias hidrográficas sobre a qualidade da água</i></font>
+			<font class="lt4"><i>Watershed basins usage evaluation over the water quality</i></font>
 			<BR>
 			</td>
 		</tr>

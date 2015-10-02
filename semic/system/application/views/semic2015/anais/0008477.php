@@ -38,7 +38,7 @@ rpm por 30 s. Em seguida , o material foi prensado a 120±2°C por 5 min
 com pressão de 4 MPa em prensa hidráulica Marconi MA098/A. Para os
  testes de flexão estática utilizou-se uma máquina de ensaio universalmarca EMIC, seguindo a norma (ISO 178), realizando 10 repetições. Os testes de absorção de água e inchamento foram realizados utilizando a norma (ASTM - 570-98), com 5 repetições. Para a massa específica, utilizou-se a norma (ASTM – D 792-91). As caracterizações morfológicas foram realizadas por microscopia eletrônica de varredura.					<B>Resultados</B>: As resistências à flexão estática aumentaram 14% e 89% com o incremento no teor de resinas UF e FF, respectivamente. Para baixos teores de resina os compósitos com UF foram mecanicamente mais resistentes. Quanto a absorção de água e inchamento, os compósitos de UF foram os mais higroscópicos.					<B>Conclusões</B>: Com o aumento da resina, a performance dos compósitos melhorou quanto a resistência a umidade  as resistências mecânicas. Portanto, é possível utilizar a casca de pinhão
  para confecção de compósitos termofixos.				</P>
-			</div><B>Palavras-chave</B>: casca de pinhão, compósito, caracterização.			<BR>
+			</div><B>Palavras-chave</B>: Casca de pinhão. compósito. caracterização.			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
@@ -47,7 +47,7 @@ com pressão de 4 MPa em prensa hidráulica Marconi MA098/A. Para os
 followed by 3000 rpm for 30 s. After, the mixture was molded by flatpressing, using a Marconi MA098/A hydraulic press. For bending tests, it was used an EMIC universal tests machine, following the (ISO 178), performing 10 replicates. Water absorption and thickness swelling tests were conducted following the (ASTM D792-08). with 5replicates. The morphological characterizations were performed by scanning electron
 microscopy.					<B>Results</B>: gth increased 14% and 89% withthe increase of the resins. At low resin contents, UF composites were mechanically more resistant. About the water absorption and thickness
 swelling, UF composites were more hygroscopic.					<B>Conclusion</B>: The increase in the proportion of the resins improved the performance of composites for moisture resistance. Therefore, it is possible to use the husk of pine nuts for making thermoset composites, however, their use should be for purposes where the need for large mechanical resistances are low.				</P>
-			</div><B>Keywords</B>: pinis nuts, composites, characterization.</td>
+			</div><B>Keywords</B>: Pinis nuts. composites. characterization.</td>
 		</tr>
 	</table>
 	<BR>

@@ -18,7 +18,7 @@ instituição social espontânea. In: SEMIC, Seminário de Iniciação Científica, 23,
 sindical sobre os interesses trabalhistas e dos sindicatos enquanto
 instituição social espontânea</b></font>
 			<BR>
-			<font class="lt4"><i>Freedom and Unionism: the prevalence of uniqueness
+			<font class="lt4"><i>Freedom and unionism: the prevalence of uniqueness
 union on labor and trade union interests while
 spontaneous social institution</i></font>
 			<BR>

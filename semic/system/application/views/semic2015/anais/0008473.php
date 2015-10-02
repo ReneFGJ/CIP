@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Representações da áfrica na literatura africana contemporânea: reverberações de um imaginário eurocêntrico ou a constituição da áfrica vista “por dentro” na literatura africana de língua inglesa?</b></font>
 			<BR>
-			<font class="lt4"><i>Africa´s representations in contemporary African literature: reverberations from an Eurocentric imaginary or the constitution of Africa inner point of view in African literature of English language?</i></font>
+			<font class="lt4"><i>Africa´s representations in contemporary african literature: reverberations from an eurocentric imaginary or the constitution of africa inner point of view in african literature of english language?</i></font>
 			<BR>
 			</td>
 		</tr>

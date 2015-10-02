@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>NASCIMENTO, D. C.; MOSER, A. M. Contribuições da análise do comportamento para o aconselhamento e acompanhamento do luto: um estudo do tipo estado da arte. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PSICO10.</td>
+			<td colspan=2>NASCIMENTO, D. C.; MOSER, A. M. Contribuições da análise do comportamento para o aconselhamento e acompanhamento do luto: um estudo do tipo Estado da arte. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PSICO10.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Psicologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Contribuições da análise do comportamento para o aconselhamento e acompanhamento do luto: um estudo do tipo estado da arte</b></font>
+			<td align="center"><font class="lt5"><b>Contribuições da análise do comportamento para o aconselhamento e acompanhamento do luto: um estudo do tipo Estado da arte</b></font>
 			<BR>
-			<font class="lt4"><i>Contributions from Behavior Analysis to Grief Counseling: A state of art</i></font>
+			<font class="lt4"><i>Contributions from behavior analysis to grief counseling: a state of art</i></font>
 			<BR>
 			</td>
 		</tr>

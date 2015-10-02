@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		MORAIS, Tatiane Phauloz de<sup>1</sup>; THIEL, Janice Cristine<sup>2</sup>		<BR>
-		PIBIC		- Opção para Iniciação Científica Voluntária		<BR>
+		PIBIC		- Bolsa CNPq-PIBIC		<BR>
 		<I>--</I>
 	</div>
 	<BR>

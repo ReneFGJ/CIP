@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Cirurgia bariátrica: percepções após um ano de cirurgia</b></font>
 			<BR>
-			<font class="lt4"><i>Bariatric Surgery: Perceptions after one year of the surgery</i></font>
+			<font class="lt4"><i>Bariatric surgery: perceptions after one year of the surgery</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Aplicação de métodos de tomada de decisão na avaliação de interoperabilidade organizacional</b></font>
 			<BR>
-			<font class="lt4"><i>Decision Making Methods to Enterprise Interoperability Assessment</i></font>
+			<font class="lt4"><i>Decision making methods to enterprise interoperability assessment</i></font>
 			<BR>
 			</td>
 		</tr>

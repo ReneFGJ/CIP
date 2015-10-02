@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Principais queixas escolares nos prontuários de Psicologia: relações com funcionamento adaptativo e problemas de comportamento</b></font>
 			<BR>
-			<font class="lt4"><i>Complaints school in psychology records : relations with adaptive functioning and behavior</i></font>
+			<font class="lt4"><i>School complaints in psychology records: relations with adaptive functioning and behavior</i></font>
 			<BR>
 			</td>
 		</tr>

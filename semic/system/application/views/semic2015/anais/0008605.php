@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>O monoteísmo judaico-cristão e sua relação com imperialismos e colonailismos, na bíblia e ao longo da história</b></font>
 			<BR>
-			<font class="lt4"><i>The Judeo-Christian monotheism and its relationship with imperialisms and colonialism, in the Bible and trough history</i></font>
+			<font class="lt4"><i>The judeo-christian monotheism and its relationship with imperialisms and colonialism, in the bible and trough history</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		FREITAS, Izabelle Cristine Hannemann de<sup>1</sup>; BATTIROLA, Julio<sup>2</sup>; LOURES, Eduardo de Freitas Rocha<sup>3</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

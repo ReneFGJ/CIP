@@ -3,8 +3,8 @@
 		<tr valign="top">
 			<td colspan=2>MOURA, G.; ARTIOLI., G. G.; URBINATI, K. M. S. S. Análise gênica e variabilidade de frequência cardíaca no sobrepeso e obesidade infantil. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EF30.</td>
 			<td width="100" align="right" rowspan=2>
-				Pôster				<br>
-				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
+				Oral				<br>
+				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
 			</td>
 		</tr>
 		<tr>

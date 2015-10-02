@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>TAVARES, M. N.; GARCIA, G. E. Avaliação do processo de biorremediação, compostos hidrocarbonetos policíclicos aromáticos (HPA). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EAMB29.</td>
+			<td colspan=2>TAVARES, M. N.; GARCIA, G. E. Avaliação do processo de biorremediação, compostos hidrocarbonetos policíclicos aromáticos (hpa). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EAMB29.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Engenharia Ambiental</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Avaliação do processo de biorremediação, compostos hidrocarbonetos policíclicos aromáticos (HPA)</b></font>
+			<td align="center"><font class="lt5"><b>Avaliação do processo de biorremediação, compostos hidrocarbonetos policíclicos aromáticos (hpa)</b></font>
 			<BR>
-			<font class="lt4"><i>The bioremediation process evaluation, compounds polycyclic aromatic hydrocarbons (PAH)</i></font>
+			<font class="lt4"><i>The bioremediation process evaluation, compounds polycyclic aromatic hydrocarbons (pah)</i></font>
 			<BR>
 			</td>
 		</tr>

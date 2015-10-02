@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>BARBOSA, C. K.; ANATER, A.; ARAÚJO, C. M. T. D.; ROCHA, D. C. C.; RIBEIRO, D. R.; IACHINSKI, E. A.; RÉGIO, R. R.; SOARES, R.; PIMPAO, C. T. Avaliação dos efeitos deletérios causados por diferentes concentrações de aflatoxina b1 em jundiás ([e]lt;i[e]rt;Rhamdia quelen[e]lt;/i[e]rt;), através de avaliações bioquímicas do sangue. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEDVET15.</td>
+			<td colspan=2>BARBOSA, C. K.; ANATER, A.; ARAÚJO, C. M. T. D.; ROCHA, D. C. C.; RIBEIRO, D. R.; IACHINSKI, E. A.; RÉGIO, R. R.; SOARES, R.; PIMPAO, C. T. Avaliação dos efeitos deletérios causados por diferentes concentrações de aflatoxina b1 em jundiás ([e]lt;i[e]rt;rhamdia quelen[e]lt;/i[e]rt;), através de avaliações bioquímicas do sangue. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEDVET15.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Medicina Veterinária</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Avaliação dos efeitos deletérios causados por diferentes concentrações de aflatoxina b1 em jundiás ([e]lt;i[e]rt;Rhamdia quelen[e]lt;/i[e]rt;), através de avaliações bioquímicas do sangue</b></font>
+			<td align="center"><font class="lt5"><b>Avaliação dos efeitos deletérios causados por diferentes concentrações de aflatoxina b1 em jundiás ([e]lt;i[e]rt;rhamdia quelen[e]lt;/i[e]rt;), através de avaliações bioquímicas do sangue</b></font>
 			<BR>
-			<font class="lt4"><i>Evaluation of the Effects Caused by Different Concentrations of Aflatoxin B1 in Jundiás (Rhamdia quelen) by Hematologic Evaluations</i></font>
+			<font class="lt4"><i>Evaluation of the effects caused by different concentrations of aflatoxin b1 in jundiás (rhamdia quelen) by hematologic evaluations</i></font>
 			<BR>
 			</td>
 		</tr>

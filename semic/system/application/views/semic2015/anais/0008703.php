@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Análise da correlação dos dados de karnofsky com dados clínicos de pacientes em hemodiálise</b></font>
 			<BR>
-			<font class="lt4"><i>Correlation analysis of Karnofsky data with clinical data of patients in hemodialysis</i></font>
+			<font class="lt4"><i>Correlation analysis of karnofsky data with clinical data of patients in hemodialysis</i></font>
 			<BR>
 			</td>
 		</tr>

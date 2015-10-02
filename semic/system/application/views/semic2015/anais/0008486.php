@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>RAZENTE, D. M.; VALARINI, S. B. M. Esôfago de Barrett e adenocarcinoma de esôfago: estudo de  prevalência na cidade de Curitiba, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED14.</td>
+			<td colspan=2>RAZENTE, D. M.; VALARINI, S. B. M. Esôfago de Barrett e adenocarcinoma de esôfago: estudo de prevalência na cidade de Curitiba, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED14.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Medicina</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Esôfago de Barrett e adenocarcinoma de esôfago: estudo de  prevalência na cidade de Curitiba, PR</b></font>
+			<td align="center"><font class="lt5"><b>Esôfago de Barrett e adenocarcinoma de esôfago: estudo de prevalência na cidade de Curitiba, PR</b></font>
 			<BR>
-			<font class="lt4"><i>Barrett´s oesophagus and Adenocarcinoma: a prevalence study</i></font>
+			<font class="lt4"><i>Barrett´s oesophagus and adenocarcinoma: a prevalence study</i></font>
 			<BR>
 			</td>
 		</tr>

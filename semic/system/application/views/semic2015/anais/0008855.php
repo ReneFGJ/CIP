@@ -3,8 +3,8 @@
 		<tr valign="top">
 			<td colspan=2>SILVA, W. R.; AGUIAR, M. L.; SCHEEREN, E. M. A. Identificação de padrões de recuperação do equilíbrio e manutenção da postura em pessoas hígidas. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EF28.</td>
 			<td width="100" align="right" rowspan=2>
-				Oral/Pôster				<br>
-				<img src="<?php echo base_url('img/semic/icone-oral-post-grad.png');?>" title="Oral/Pôster">
+				Pôster				<br>
+				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
 			</td>
 		</tr>
 		<tr>

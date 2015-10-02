@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>OLIVEIRA, H. P. R.; CRESTANI, A. M. Z. Espaço público e privado: dos indicadores socioespaciais destas espacialidades em tensão: caso da rua XV de Novembro em Curitiba, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PLAN21.</td>
+			<td colspan=2>OLIVEIRA, H. P. R.; CRESTANI, A. M. Z. Espaço público e privado: dos indicadores socioespaciais destas espacialidades em tensão: caso da rua xv de novembro em Curitiba, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PLAN21.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Planejamento Urbano e Regional</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Espaço público e privado: dos indicadores socioespaciais destas espacialidades em tensão: caso da rua XV de Novembro em Curitiba, PR</b></font>
+			<td align="center"><font class="lt5"><b>Espaço público e privado: dos indicadores socioespaciais destas espacialidades em tensão: caso da rua xv de novembro em Curitiba, PR</b></font>
 			<BR>
-			<font class="lt4"><i>Public and Private spaces: socio-spacial indicators´ of these spacialities in tension - study case of XV de Novembro street in Curitiba, PR</i></font>
+			<font class="lt4"><i>Public and private spaces: socio-spacial indicators of these spacialities in tension - study case of xv de novembro street in Curitiba, PR</i></font>
 			<BR>
 			</td>
 		</tr>

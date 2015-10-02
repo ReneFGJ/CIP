@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>VOLPE, F. C.; FAGUNDES, O.; FERNANDES, M. C. P.; STAICHOK, C.; MOCELIN, M.; AULER, F. Perfil antropométrico de atletas de artes marciais combinadas (MMA). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. NUT21.</td>
+			<td colspan=2>VOLPE, F. C.; FAGUNDES, O.; FERNANDES, M. C. P.; STAICHOK, C.; MOCELIN, M.; AULER, F. Perfil antropométrico de atletas de artes marciais combinadas (mma). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. NUT21.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Nutrição</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Perfil antropométrico de atletas de artes marciais combinadas (MMA)</b></font>
+			<td align="center"><font class="lt5"><b>Perfil antropométrico de atletas de artes marciais combinadas (mma)</b></font>
 			<BR>
-			<font class="lt4"><i>Anthropometric profile of athletes Mixed Martial Arts (MMA)</i></font>
+			<font class="lt4"><i>Anthropometric profile of athletes mixed martial arts (mma)</i></font>
 			<BR>
 			</td>
 		</tr>

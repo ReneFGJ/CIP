@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>POVALUK, S. M.; NEUNDORF, A. Das alternativas à modernidade, ou modernidades alternativas: a tradição, a crítica e as representações da modernidade em Friedrich Nietzsche. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. HIS20.</td>
+			<td colspan=2>POVALUK, S. M.; NEUNDORF, A. Das alternativas à modernidade, ou modernidades alternativas: a tradição, a crítica e as representações da modernidade em friedrich Nietzsche. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. HIS20.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>História</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Das alternativas à modernidade, ou modernidades alternativas: a tradição, a crítica e as representações da modernidade em Friedrich Nietzsche</b></font>
+			<td align="center"><font class="lt5"><b>Das alternativas à modernidade, ou modernidades alternativas: a tradição, a crítica e as representações da modernidade em friedrich Nietzsche</b></font>
 			<BR>
-			<font class="lt4"><i>Alternatives to modernity, or alternative modernity’s: tradition, criticism and the representations of modernity in Friedrich Nietzsche</i></font>
+			<font class="lt4"><i>Alternatives to modernity, or alternative modernity’s: tradition, criticism and the representations of modernity in friedrich Nietzsche</i></font>
 			<BR>
 			</td>
 		</tr>

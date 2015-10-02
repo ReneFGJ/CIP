@@ -1,14 +1,14 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SANTOS, T. S. C. S.; MOSER, A. M. Verificando o senso de justiça em surdos usuários de libras. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. iPSICO8.</td>
+			<td colspan=2>SANTOS, T. S. C. S.; MOSER, A. M. Verificando o senso de justiça em surdos usuários de libras. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PSICO8.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
 			</td>
 		</tr>
 		<tr>
-			<td colspan=2 class="lt3"><font class="lt6">iPSICO8</font>
+			<td colspan=2 class="lt3"><font class="lt6">PSICO8</font>
 				<br><b>Psicologia</b></td>
 		</tr>
 		<tr>

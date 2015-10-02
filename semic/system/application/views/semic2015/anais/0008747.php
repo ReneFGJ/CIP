@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>FIDELIS, L. M.; HARDT, L. C. P. A.; PACE, T. H. Mapeamento de modelos de referências de cidades-sede da copa do mundo de futebol masculino da Alemanha (2006) e da África do Sul (2010). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PLAN13.</td>
+			<td colspan=2>FIDELIS, L. M.; HARDT, L. C. P. A.; PACE, T. H. Mapeamento de modelos de referências de cidades-sede da copa do mundo de futebol masculino da alemanha (2006) e da áfrica do sul (2010). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PLAN13.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Planejamento Urbano e Regional</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Mapeamento de modelos de referências de cidades-sede da copa do mundo de futebol masculino da Alemanha (2006) e da África do Sul (2010)</b></font>
+			<td align="center"><font class="lt5"><b>Mapeamento de modelos de referências de cidades-sede da copa do mundo de futebol masculino da alemanha (2006) e da áfrica do sul (2010)</b></font>
 			<BR>
-			<font class="lt4"><i>Mapping models of references of host cities for the men´s world cup Germany (2006) and South Africa (2010)</i></font>
+			<font class="lt4"><i>Mapping models of references of host cities for the men´s world cup germany (2006) and south africa (2010)</i></font>
 			<BR>
 			</td>
 		</tr>

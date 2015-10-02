@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		PISSAIA, Marcus Vinícius<sup>1</sup>; DEBAS, Alesson Rodrigo Bueno<sup>2</sup>; OLLHOFF, Rudiger Daniel<sup>3</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		SILVA, Caroline de Carvalho<sup>1</sup>; SOUZA, Clayton Fernandes de<sup>2</sup>; VALENGA, Francine<sup>3</sup>; PILARSKI, Miria Mayer<sup>4</sup>; PAIVA, Pablo Henrique Eduardo Nazario de<sup>5</sup>; LUCYSZYN, Neoli<sup>6</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

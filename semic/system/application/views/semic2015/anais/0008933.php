@@ -32,7 +32,7 @@
 			<div style="text-align:justify;">
 				<P>
 					<B>Introdução</B>: O principal foco do  proejto foi coletar informações sobre quais empresas fazem parte de projetos de fomento florestal no estado de santa-catarina, e coletar os respectivos dados, para desta forma dispor um quadro de informações representando de um aspecto geral o mercado de fomento do estado.					<B>Objetivo</B>: .					<B>Metodologia</B>: .					<B>Resultados</B>: .					<B>Conclusões</B>: .				</P>
-			</div><B>Palavras-chave</B>: fomento, agricultura familiar, comércio de florestas.			<BR>
+			</div><B>Palavras-chave</B>: Fomento. agricultura familiar. comércio de florestas.			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">

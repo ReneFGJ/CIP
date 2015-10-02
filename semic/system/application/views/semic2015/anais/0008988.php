@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Adoção homoparental: um estudo sobre as representações sociais em universitários dos cursos de direito e Psicologia</b></font>
 			<BR>
-			<font class="lt4"><i>Adoption homoparental : a study about the social representations of university course of law and psychology</i></font>
+			<font class="lt4"><i>Homoparental adoption: a study about the social representations of university students of law and psychology</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Métodos de medição de tensão e corrente em um sistema de baixa potência de até 100a de corrente alternada</b></font>
 			<BR>
-			<font class="lt4"><i>Methods for voltage and current measurement in a low-power system of til 100A of alternate currentt</i></font>
+			<font class="lt4"><i>Methods for voltage and current measurement in a low-power system of up to 100a of alternate current</i></font>
 			<BR>
 			</td>
 		</tr>

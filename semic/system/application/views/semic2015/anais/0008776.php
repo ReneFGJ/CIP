@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>COLMAN, J. T.; IVANO, F. V. H.; KAY, A. K. Análise comparativa da qualidade de vida de pacientes submetidos à gastrectomia vertical e derivação gástrica em Y de Roux pelo método BAROS. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED26.</td>
+			<td colspan=2>COLMAN, J. T.; IVANO, F. V. H.; KAY, A. K. Análise comparativa da qualidade de vida de pacientes submetidos à gastrectomia vertical e derivação gástrica em y de roux pelo método baros. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED26.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Medicina</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Análise comparativa da qualidade de vida de pacientes submetidos à gastrectomia vertical e derivação gástrica em Y de Roux pelo método BAROS</b></font>
+			<td align="center"><font class="lt5"><b>Análise comparativa da qualidade de vida de pacientes submetidos à gastrectomia vertical e derivação gástrica em y de roux pelo método baros</b></font>
 			<BR>
-			<font class="lt4"><i>Comparative analysis of the quality of life of patients submitted to  sleeve gastrectomy  and gastric bypass in Y de Roux with the BAROS method</i></font>
+			<font class="lt4"><i>Comparative analysis of the quality of life of patients submitted to  sleeve gastrectomy  and gastric bypass in y de roux with the baros method</i></font>
 			<BR>
 			</td>
 		</tr>

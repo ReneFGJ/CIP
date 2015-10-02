@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		SILVEIRA JUNIOR, Osvaldo da<sup>1</sup>; RUSCHEL, Edson<sup>2</sup>; SANTOS, Eduardo Alves Portela<sup>3</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

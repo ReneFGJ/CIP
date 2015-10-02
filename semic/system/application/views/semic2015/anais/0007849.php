@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		FOLLMANN, Paulo Eduardo<sup>1</sup>; ROQUE, Thais Mayara Mattielo<sup>2</sup>; SOSTISSO, Caio Muriel<sup>3</sup>; KAEFER, Joao Edson<sup>4</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

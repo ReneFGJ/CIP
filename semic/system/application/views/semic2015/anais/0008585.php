@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		JESUS, Rebecca Mayre Miranda de<sup>1</sup>; ANDRADE, Carla de<sup>2</sup>; SCHOEMBERGER, Adrielle Cristina<sup>3</sup>; LOBO, Gustavo Schecheli<sup>4</sup>; COSTA, Leandro Batista<sup>5</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

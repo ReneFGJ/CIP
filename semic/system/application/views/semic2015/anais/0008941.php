@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>BARBON, C. H. C.; PEREIRA, A. M. T. B. O estado da arte das condições de professores universitários: os processos de estresse e resiliência. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. SC13.</td>
+			<td colspan=2>BARBON, C. H. C.; PEREIRA, A. M. T. B. O Estado da arte das condições de professores universitários: os processos de estresse e resiliência. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. SC13.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,7 +12,7 @@
 				<br><b>Saúde Coletiva</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>O estado da arte das condições de professores universitários: os processos de estresse e resiliência</b></font>
+			<td align="center"><font class="lt5"><b>O Estado da arte das condições de professores universitários: os processos de estresse e resiliência</b></font>
 			<BR>
 			<font class="lt4"><i>The state of art conditions of university professors: the stress and resilience processes</i></font>
 			<BR>

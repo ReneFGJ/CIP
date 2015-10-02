@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Necessidades alimentares especiais de escolares e o cuidado em saúde: uma análise à luz da bioética</b></font>
 			<BR>
-			<font class="lt4"><i>Special dietary needs at school and the health care</i></font>
+			<font class="lt4"><i>Special dietary needs at school and the health care: analysisfrom the perspective ofbioethics</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		COGO, Sheron Campos<sup>1</sup>; NETIPANYJ, Marcela Ferreira Dias<sup>2</sup>; SOARES JUNIOR, Paulo Cesar<sup>3</sup>; ESPOSITO, Selene Elifio<sup>4</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		MINHARO, Danyella Machado<sup>1</sup>; TREVILATTO, Paula Cristina<sup>2</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

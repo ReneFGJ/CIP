@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>PINTO, G. R. N.; ARAÚJO, C. M. T. D.; ENGRACIA FILHO, J. R. Imunoexpressão de proteína s-100 em células dendríticas de pele de bovinos F2 mestiços holadês X gir. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEDVET69.</td>
+			<td colspan=2>PINTO, G. R. N.; ARAÚJO, C. M. T. D.; ENGRACIA FILHO, J. R. Imunoexpressão de proteína s-100 em células dendríticas de pele de bovinos f2 mestiços holadês x gir. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEDVET69.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Medicina Veterinária</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Imunoexpressão de proteína s-100 em células dendríticas de pele de bovinos F2 mestiços holadês X gir</b></font>
+			<td align="center"><font class="lt5"><b>Imunoexpressão de proteína s-100 em células dendríticas de pele de bovinos f2 mestiços holadês x gir</b></font>
 			<BR>
-			<font class="lt4"><i>S-100 protein immunoreactivity of dendritic cells in the skin of F2 holstein X gir crossbred cattle</i></font>
+			<font class="lt4"><i>S-100 protein immunoreactivity of dendritic cells in the skin of f2 holstein x gir crossbred cattle</i></font>
 			<BR>
 			</td>
 		</tr>

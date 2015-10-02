@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Avaliação dos efeitos das interferênciasantrópicas em bacias hidrográficasurbanas: qualidade das nascentes do rio belém, Curitiba, PR</b></font>
 			<BR>
-			<font class="lt4"><i>Assessment of the effects of interference in anthropogenic river basin urban: quality of bethlehem river springs, Curitiba, PR</i></font>
+			<font class="lt4"><i>Assessment of the effects of interference in anthropogenic urban river basin: quality of belémriver springs, Curitiba, PR</i></font>
 			<BR>
 			</td>
 		</tr>

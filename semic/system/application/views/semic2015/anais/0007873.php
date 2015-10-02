@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>TRAVINSKI, S.; JALUSKA, T. T. Espaços religiosos de curitiba: Santuário Nossa Senhora do Perpétuo Socorro: uma estratégia para a educação religiosa. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO30.</td>
+			<td colspan=2>TRAVINSKI, S.; JALUSKA, T. T. Espaços religiosos de Curitiba, PR: santuário nossa senhora do perpétuo socorro: uma estratégia para a educação religiosa. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO30.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Teologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Espaços religiosos de curitiba: Santuário Nossa Senhora do Perpétuo Socorro: uma estratégia para a educação religiosa</b></font>
+			<td align="center"><font class="lt5"><b>Espaços religiosos de Curitiba, PR: santuário nossa senhora do perpétuo socorro: uma estratégia para a educação religiosa</b></font>
 			<BR>
-			<font class="lt4"><i>Religious spaces of Curitiba: Shrine Our Lady of Perpétuo Socorro: a strategy for religious education</i></font>
+			<font class="lt4"><i>Religious spaces of Curitiba, PR: shrine our lady of perpétuo socorro: a strategy for religious education</i></font>
 			<BR>
 			</td>
 		</tr>

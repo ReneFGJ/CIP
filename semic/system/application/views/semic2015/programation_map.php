@@ -10,7 +10,7 @@
 		color: #fff;
 		height: auto;
 		border-radius: 10px;
-	}
+	}
 </style>
 <h1><span> Locais importantes</span></h1>
 <div class="estilo_data4_1 celula-tabela-horario">

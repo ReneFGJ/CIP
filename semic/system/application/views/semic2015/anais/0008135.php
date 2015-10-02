@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		RIBAS, Willian Vinicius<sup>1</sup>; FREIRE, Roberto Zanetti<sup>2</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

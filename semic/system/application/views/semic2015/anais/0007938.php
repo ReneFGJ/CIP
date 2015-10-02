@@ -9,7 +9,7 @@
 		</tr>
 		<tr>
 			<td colspan=2 class="lt3"><font class="lt6">iFISIO5</font>
-				<br><b>Fisioterapia e Terapia Ocupacional</b></td>
+				<br><b>Muscoloesquelético</b></td>
 		</tr>
 		<tr>
 			<td align="center"><font class="lt5"><b>Interferência dos exercícios de estabilização central ou isostretching na qualidade de vida e desconforto lombar em bailarinas clássicas</b></font>

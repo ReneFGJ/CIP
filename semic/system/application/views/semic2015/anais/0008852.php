@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Estudo comparativo da escala de basso, beattie e bresnahan e da escala de kuhn e wrathall para avaliação de lesão medular em ratos submetidos ao uso de neurotrofina-3 e células tronco de tecido adipos</b></font>
 			<BR>
-			<font class="lt4"><i>Comparative study of scale Basso, Beattie and Bresnahan and Kuhn and Wrathall scale for evaluating spinal cord injury in rats Wistar</i></font>
+			<font class="lt4"><i>Comparative study of scale basso, beattie and bresnahan and kuhn and wrathall scale for evaluating spinal cord injury in rats wistar</i></font>
 			<BR>
 			</td>
 		</tr>

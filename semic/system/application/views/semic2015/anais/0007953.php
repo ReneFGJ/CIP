@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Otimização de processos e do fluxo de pessoas em uma clínica de medicina do trabalho através de simulação computacional</b></font>
 			<BR>
-			<font class="lt4"><i>Optimization of process and people flow in a clinic of work medicine through computer simulation</i></font>
+			<font class="lt4"><i>Optimization of processes and the flow of people at an occupational medicine clinic  through computer simulation</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Limites à responsabilidade patrimonial dos sócios na tutela executiva</b></font>
 			<BR>
-			<font class="lt4"><i>Limits to the liability heritage of the partners in Executive process</i></font>
+			<font class="lt4"><i>Limits to the liability heritage of the partners in executive process</i></font>
 			<BR>
 			</td>
 		</tr>

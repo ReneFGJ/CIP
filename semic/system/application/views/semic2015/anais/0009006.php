@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>MRTVI, M. L. O.; BITTAR, W. B. Compliance no brasil: a responsabilidade penal de empresas privadas nos crimes ambientais. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIRpb27.</td>
+			<td colspan=2>MRTVI, M. L. O.; BITTAR, W. B. Compliance no Brasil: a responsabilidade penal de empresas privadas nos crimes ambientais. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIRpb27.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,7 +12,7 @@
 				<br><b>Direito Público</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Compliance no brasil: a responsabilidade penal de empresas privadas nos crimes ambientais</b></font>
+			<td align="center"><font class="lt5"><b>Compliance no Brasil: a responsabilidade penal de empresas privadas nos crimes ambientais</b></font>
 			<BR>
 			<font class="lt4"><i>Compliance in Brazil : the criminal liability of private companies in environmental crimes</i></font>
 			<BR>

@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>ORTIZ, T. M.; SCORTEGNANA, M. J.; SANTOS, D. V. D.; SUGAWARA, K. A. N.; KUSMA, S. Z. LocDoc - definição de palavras chave para a busca dos locais de saúde. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED10T.</td>
+			<td colspan=2>ORTIZ, T. M.; SCORTEGNANA, M. J.; SANTOS, D. V. D.; SUGAWARA, K. A. N.; KUSMA, S. Z. Locdoc - definição de palavras chave para a busca dos locais de saúde. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED10T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Medicina</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>LocDoc - definição de palavras chave para a busca dos locais de saúde</b></font>
+			<td align="center"><font class="lt5"><b>Locdoc - definição de palavras chave para a busca dos locais de saúde</b></font>
 			<BR>
-			<font class="lt4"><i>LocDoc - Defining Keywords for the search of Local Health</i></font>
+			<font class="lt4"><i>Locdoc - defining keywords to search for health care units</i></font>
 			<BR>
 			</td>
 		</tr>

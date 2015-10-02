@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>MAGUERROSKI, C.; WEBER, S.; TEIXEIRA, V. R. N.; PASSERINO, A. S. M. Análise do ganho de peso de pacas Agouti paca. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ZOOTC4.</td>
+			<td colspan=2>MAGUERROSKI, C.; WEBER, S.; TEIXEIRA, V. R. N.; PASSERINO, A. S. M. Análise do ganho de peso de pacas agouti paca. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ZOOTC4.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Zootecnia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Análise do ganho de peso de pacas Agouti paca</b></font>
+			<td align="center"><font class="lt5"><b>Análise do ganho de peso de pacas agouti paca</b></font>
 			<BR>
-			<font class="lt4"><i>Weight gain analysis in Agouti paca</i></font>
+			<font class="lt4"><i>Weight gain analysis in agouti paca</i></font>
 			<BR>
 			</td>
 		</tr>

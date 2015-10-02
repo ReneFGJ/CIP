@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>FORNELLS, S. D. B. G.; GABRIELI, P.; RODRIGUES, E. M. F. Cursos de ciências da religião no cenário brasileiro. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO15.</td>
+			<td colspan=2>FORNELLS, S. D. B. G.; GABRIELI, P.; RODRIGUES, E. M. F. Cursos de ciências da religião no cenário Brasileiro. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO15.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Teologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Cursos de ciências da religião no cenário brasileiro</b></font>
+			<td align="center"><font class="lt5"><b>Cursos de ciências da religião no cenário Brasileiro</b></font>
 			<BR>
-			<font class="lt4"><i>Mapping of religion of science courses in the Brazilian scene</i></font>
+			<font class="lt4"><i>Mapping of the science courses religion  in the Brazilian scene</i></font>
 			<BR>
 			</td>
 		</tr>

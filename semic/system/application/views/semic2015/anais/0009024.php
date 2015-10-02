@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>LESEUX, A.; SILVA, M. G. A. Identificação e caracterização morfológica das espécies arbóreas do bairro santa maria do município de Toledo, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. BIOG3.</td>
+			<td colspan=2>LESEUX, A.; SILVA, M. G. A. Identificação e caracterização morfológica das espécies arbóreas do bairro santa maria do município de toledo, pr. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. BIOG3.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Biologia Geral</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Identificação e caracterização morfológica das espécies arbóreas do bairro santa maria do município de Toledo, PR</b></font>
+			<td align="center"><font class="lt5"><b>Identificação e caracterização morfológica das espécies arbóreas do bairro santa maria do município de toledo, pr</b></font>
 			<BR>
-			<font class="lt4"><i>Identification and characterization Morphological species of Santa Maria of trees of Toledo, PR</i></font>
+			<font class="lt4"><i>Identification and morphological characterization of tree species of santa maria neighborhood of the city of toledo, pr</i></font>
 			<BR>
 			</td>
 		</tr>

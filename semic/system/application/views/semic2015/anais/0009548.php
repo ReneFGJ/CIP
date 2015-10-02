@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>BATISTA, C.; JAREK, M. A ideia de vida na crítica da violência de Walter Benjamin. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FILO3.</td>
+			<td colspan=2>BATISTA, C.; JAREK, M. A ideia de vida na crítica da violência de Walter Benjamin Benjamin. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FILO3.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Filosofia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>A ideia de vida na crítica da violência de Walter Benjamin</b></font>
+			<td align="center"><font class="lt5"><b>A ideia de vida na crítica da violência de Walter Benjamin Benjamin</b></font>
 			<BR>
-			<font class="lt4"><i>The idea of life in the critique of violence from Walter Benjamin</i></font>
+			<font class="lt4"><i>The idea of life in the critique of violence from Walter Benjamin Benjamin</i></font>
 			<BR>
 			</td>
 		</tr>

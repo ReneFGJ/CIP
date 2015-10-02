@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Desenvolvimento e produção da cultura da chia produzida em diferentes arranjos espaciais</b></font>
 			<BR>
-			<font class="lt4"><i>Development and production of culture chia produced in different arrangements space</i></font>
+			<font class="lt4"><i>Development and production of chia culture produced in different spacial arrangements</i></font>
 			<BR>
 			</td>
 		</tr>

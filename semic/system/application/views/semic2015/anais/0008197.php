@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Automação e disponibilização de fontes históricas e fotografias antigas: preservação da memória familiar</b></font>
 			<BR>
-			<font class="lt4"><i>Automation and availability of historical sources and old photos: memory of preserving family</i></font>
+			<font class="lt4"><i>Automation and availability of historical sources and old photos: family preserving memory</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		SILVA, Alex de Oliveira<sup>1</sup>; GARCIA, Diego<sup>2</sup>; CINTHO, Lilian Mie Mukai<sup>3</sup>; BARRA, Claudia Maria Cabral Moro<sup>4</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>CAETANO, D. B.; MASKE, W. As relações entre Brasil e Itália durante a primeira república (1889-1930). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. HIS2.</td>
+			<td colspan=2>CAETANO, D. B.; MASKE, W. As relações entre Brasil e itália durante a primeira república (1889-1930). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. HIS2.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>História</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>As relações entre Brasil e Itália durante a primeira república (1889-1930)</b></font>
+			<td align="center"><font class="lt5"><b>As relações entre Brasil e itália durante a primeira república (1889-1930)</b></font>
 			<BR>
-			<font class="lt4"><i>The relations between Brazil and Italy during the Brazilian first republic (1889-1930)</i></font>
+			<font class="lt4"><i>The relations between Brazil and italy during the Brazilian first republic (1889-1930)</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -9,7 +9,7 @@
 		</tr>
 		<tr>
 			<td colspan=2 class="lt3"><font class="lt6">FISIO4</font>
-				<br><b>Fisioterapia e Terapia Ocupacional</b></td>
+				<br><b>Muscoloesquelético</b></td>
 		</tr>
 		<tr>
 			<td align="center"><font class="lt5"><b>A cinesioterapia no tratamento fisioterapêutico em crianças autistas</b></font>
@@ -41,7 +41,7 @@ Os critérios de inclusão foram: crianças com diagnóstico clínico do Transtorno d
 	Passado o mês de vínculo, os sujeitos da pesquisa foram submetidos a primeira avaliação (Av.1) .Após 14 atendimentos a avaliação foi aplicada novamente (Av.2).
 	A intervenção era realizada duas vezes por semana, com duração de 30 minutos. Os exercícios propostos buscaram estimular posturas antigravitárias, equilíbrio, propriocepção e facilitação sensório-motora com ênfase no desenvolvimento motor (noção espacial, noção temporal, lateralidade e esquema corporal). Para o desenvolvimento das atividades foram necessárias uma bola suíça e um roll ball. 
 Um total de 15 sujeitos foram identificados. Após a verificação dos critérios de inclusão e exclusão 12 indivíduos entraram no estudo. Destes 3 foram perdas amostrais. A amostra foi composta de 9 crianças com idade de 4 a 5 cinco anos, todas do gênero masculino.					<B>Resultados</B>: Ao comparar os momentos de avaliação Av.1 e Av.2 pode-se observar diferença estatisticamente significativa.					<B>Conclusões</B>: Através da cinesioterapia observou-se melhora importante em relação aos seguintes domínios: Noção temporal (NT), Noção espacial (NE) e lateralidade sob a ótica da Avaliação Vitor da Fonseca. Propõe-se que mais estudos sejam feitos para aprofundar o tema abordado.				</P>
-			</div><B>Palavras-chave</B>: autismo. fisioterapia, cinesioterapia,psicomotricidade			<BR>
+			</div><B>Palavras-chave</B>: Autismo. fisioterapia. cinesioterapia.psicomotricidade			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
@@ -56,7 +56,7 @@ Therapies occurred for 30 minutes at play in the association and dependencies st
 Last month bond, the subjects underwent initial evaluation (Av.1) .After 14 calls the evaluation was applied again (Av.2).
 The intervention was performed twice a week, lasting 30 minutes. The proposed exercises sought to stimulate antigravitárias postures, balance, proprioception and sensorimotor facilitation with a focus on motor development (spatial sense, temporal notion, laterality and body schema). For the development of activities were necessary a Swiss ball and roll ball.
 A total of 15 subjects were identified. After checking the inclusion and exclusion criteria 12 subjects entered the study. Three of these were sample losses. The sample consisted of 9 children aged 4-5 five years, all male.					<B>Results</B>: When comparing time points Av.1 and Av.2 can observe statistically significant difference.					<B>Conclusion</B>: Through therapeutic exercise was observed significant improvement on the following areas: temporal Notion ( NT ) , space Notion ( NE ) and laterality from the perspective of Vitor da Fonseca Evaluation. It is proposed that more studies be done to deepen the theme addressed.				</P>
-			</div><B>Keywords</B>: autism, phisical teraphy,Kinesiotherapy, psychomotor</td>
+			</div><B>Keywords</B>: Autism. phisical teraphy.Kinesiotherapy. psychomotor</td>
 		</tr>
 	</table>
 	<BR>

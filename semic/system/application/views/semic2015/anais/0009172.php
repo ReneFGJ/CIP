@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>GIORDANI, S. M.; RAMIRO, M. G. N. A ascensão e a manutenção do poder na Alemanha nazista. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIR35.</td>
+			<td colspan=2>GIORDANI, S. M.; RAMIRO, M. G. N. A ascensão e a manutenção do poder na alemanha nazista. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIR35.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Direito</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>A ascensão e a manutenção do poder na Alemanha nazista</b></font>
+			<td align="center"><font class="lt5"><b>A ascensão e a manutenção do poder na alemanha nazista</b></font>
 			<BR>
-			<font class="lt4"><i>The ascension and the maintenance of the power in nazi Germany</i></font>
+			<font class="lt4"><i>The ascension and the maintenance of the power in nazi germany</i></font>
 			<BR>
 			</td>
 		</tr>

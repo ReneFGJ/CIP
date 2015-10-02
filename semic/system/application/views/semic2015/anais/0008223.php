@@ -32,13 +32,13 @@
 			<div style="text-align:justify;">
 				<P>
 					<B>Introdução</B>: As organizações de terceiro setor ocupam importante espaço na configuração das sociedades contemporâneas					<B>Objetivo</B>: Diante disto, esta pesquisa busca compreender como se processa a prática comunicacional nas organizações de terceiro setor de Curitiba, a partir da análise de suas estruturas e estratégias.					<B>Metodologia</B>: Para tanto, realizou-se uma pesquisa bibliográfica sobre o tema, para então se criar um questionário a ser enviado para as entidades de Curitiba. Optou-se por, incialmente, coletar as percepções teóricas sobre as estratégias necessárias para fomentar a comunicação no terceiro setor e por averiguar se o perfil do RP é adequado para tal comunicação.					<B>Resultados</B>: A partir do estudo, percebeu-se que a comunicação organizacional integrada possui um caráter estratégico, afinal as estratégias são orientações centrais para as decisões, o que mostra-se imprescindível ao terceiro setor que, na maioria, busca recursos para garantir serviços ou benfeitorias aos cidadãos. Entretanto, tal pesquisa terá continuidade a fim de questionar os profissionais de comunicação sobre suas estratégias e necessidades para a comunicação do terceiro setor de Curitiba, PR.					<B>Conclusões</B>: 				</P>
-			</div><B>Palavras-chave</B>: Comunicação, Terceiro Setor , Relações Públicas			<BR>
+			</div><B>Palavras-chave</B>: Comunicação. Terceiro Setor . Relações Públicas			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
 				<P>
 					<B>Introduction</B>: Third Sector organizations occupy important space in the configuration of Contemporary Societies.					<B>Objectives</B>: Given this, the research seeks to understand how it handles the communication practice in Curitiba third sector organizations, from the analysis of its structures and strategies.					<B>Methods</B>: Therefore, we carried out a literature search on the subject, and then create a questionnaire to be sent to the entities in Curitiba. It chose, initially, collect the theoretical insights into the strategies needed to foster communication in the nonprofit sector and to consider whether the profile of the RP is suitable for such communication.					<B>Results</B>: From the study, it was noted that the integrated organizational communication has a strategic character, after all the strategies are central guidelines for decisions, which proves to be essential to the third sector that mostly search features to ensure services or improvements to citizens. However, such research will continue to question the media professionals about their strategies and needs for communication of the third Curitiba, PR sector.					<B>Conclusion</B>: 				</P>
-			</div><B>Keywords</B>: Communication, third sector, public relations</td>
+			</div><B>Keywords</B>: Communication. third sector. public relations</td>
 		</tr>
 	</table>
 	<BR>

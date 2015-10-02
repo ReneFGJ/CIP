@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>LIMA, D. R. D. A.; MICALI, A. C.; FARIA, A. C. R. A. Avaliação da estratificação do risco de úlceras de membros inferiores nos pacientes diabéticos do ambulatório da Santa Casa de Curitiba, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED54.</td>
+			<td colspan=2>LIMA, D. R. D. A.; MICALI, A. C.; FARIA, A. C. R. A. Avaliação da estratificação do risco de úlceras de membros inferiores nos pacientes diabéticos do ambulatório da santa casa de Curitiba, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED54.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Medicina</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Avaliação da estratificação do risco de úlceras de membros inferiores nos pacientes diabéticos do ambulatório da Santa Casa de Curitiba, PR</b></font>
+			<td align="center"><font class="lt5"><b>Avaliação da estratificação do risco de úlceras de membros inferiores nos pacientes diabéticos do ambulatório da santa casa de Curitiba, PR</b></font>
 			<BR>
-			<font class="lt4"><i>Lower limb ulcer stratification risk assessment in diabetic patients of the outpatient Santa Casa de Curitiba, PR hospital</i></font>
+			<font class="lt4"><i>Lower limb ulcer stratification risk assessment in diabetic patients of the outpatient santa casa de Curitiba, PR hospital</i></font>
 			<BR>
 			</td>
 		</tr>

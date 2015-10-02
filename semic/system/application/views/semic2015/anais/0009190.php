@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		TACLA, Rafaella do Rosario<sup>1</sup>; AGUIAR, Luiz Roberto<sup>2</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

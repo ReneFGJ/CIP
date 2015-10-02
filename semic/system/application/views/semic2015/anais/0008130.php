@@ -39,7 +39,7 @@ No pensamento de Rawls a justiça precisa ser sinônima de equidade, entendida com
 Em seguida foram trabalhados de forma separada a incursão no pensamento de cada autor, sintetizando os principais pontos da filosofia política, sobretudo o tema da justiça e equidade, que entendemos ser o tema de maior aproximação entre os filósofos. A fim de uma compreensão maximizada da investigação propostas, buscou-se comparar alguns conceitos que ambos os autores discutem com ênfase nas temáticas da política.
 Num terceiro momento, foram a partir dos dados extraídos de aproximação e distanciamento produzido um texto síntese com os resultados que serão apresentados nessa pesquisa.
 Por fim chegou-se a um balanço positivo da pesquisa, onde se encontrou dois elementos que são de proximidade entre os autores: a ética e justiça.					<B>Resultados</B>: 					<B>Conclusões</B>: 				</P>
-			</div><B>Palavras-chave</B>: Ética; Política; Justiça; Agostinho; Rawls			<BR>
+			</div><B>Palavras-chave</B>: Ética. Política. Justiça. Agostinho. Rawls			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
@@ -52,7 +52,7 @@ The thought of Rawls justice needs to be synonymous with equality, understood as
 Then they were worked separately the raid at the thought of each author, summarizing the main points of political philosophy, especially the issue of justice and equity, which we understand to be the subject of closer ties among philosophers. In order to maximized understanding of research proposals, we sought to compare some concepts that both authors discuss with emphasis on issues of policy.
 Thirdly, were based on data extracted approach and distance produced a text summary with the results that are presented in this research.
 Finally we reached a positive assessment of research, where he met two elements that are of closeness between the authors: ethics and justice.					<B>Results</B>: 					<B>Conclusion</B>: 				</P>
-			</div><B>Keywords</B>: Ethics; Policy; justice; Augustine; Rawls.</td>
+			</div><B>Keywords</B>: Ethics. Policy. justice. Augustine. Rawls.</td>
 		</tr>
 	</table>
 	<BR>

@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		SILVA, Erica Merlim Perentel<sup>1</sup>; HARDT, Carlos<sup>2</sup>; HARDT, Marlos<sup>3</sup>; BOTELHO, Rebeca Alves<sup>4</sup>; SEHLI, Dyala Assef<sup>5</sup>; HARDT, Letícia Peret Antunes<sup>6</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

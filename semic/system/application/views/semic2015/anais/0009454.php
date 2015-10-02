@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SOUSA, J. A.; SILVESTRIN, A. R. C. Comportamento em campo de mudas de eucalipto adubadas com NPK em substituição ao adubo de liberação controlada. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FLORE15T.</td>
+			<td colspan=2>SOUSA, J. A.; SILVESTRIN, A. R. C. Comportamento em campo de mudas de eucalipto adubadas com npk em substituição ao adubo de liberação controlada. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FLORE15T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Recursos Florestais e Engenharia Florestal</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Comportamento em campo de mudas de eucalipto adubadas com NPK em substituição ao adubo de liberação controlada</b></font>
+			<td align="center"><font class="lt5"><b>Comportamento em campo de mudas de eucalipto adubadas com npk em substituição ao adubo de liberação controlada</b></font>
 			<BR>
-			<font class="lt4"><i>Behavior fertilized [e]lt;/i[e]rt;Eucalyptus[e]lt;i[e]rt; seedlings field with NPK replacing the controlled release fertilizers</i></font>
+			<font class="lt4"><i>Behavior of [e]lt;/i[e]rt;eucalyptus[e]lt;i[e]rt; seedlings in the field fertilized with npk replacing the controlled release fertilizers</i></font>
 			<BR>
 			</td>
 		</tr>

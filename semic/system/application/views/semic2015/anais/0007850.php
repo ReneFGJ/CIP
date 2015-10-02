@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Comportamento de híbridos de canola semeados em diferentes épocas</b></font>
 			<BR>
-			<font class="lt4"><i>Hybrid Canola performance at different times of sowing</i></font>
+			<font class="lt4"><i>Hybrid canola performance at different times of sowing</i></font>
 			<BR>
 			</td>
 		</tr>

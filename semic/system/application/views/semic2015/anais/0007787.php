@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>THOMAZ, M. C.; DALASTRA, I. M. Efeito do meio de cultura, temperatura, fotoperíodo e óleos no crescimento micelial e no controle de [e]lt;I[e]rt;Penicilliu[e]lt;/I[e]rt; spp. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. AGRO40T.</td>
+			<td colspan=2>THOMAZ, M. C.; DALASTRA, I. M. Efeito do meio de cultura, temperatura, fotoperíodo e óleos no crescimento micelial e no controle de [e]lt;i[e]rt;penicilliu[e]lt;/i[e]rt; spp. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. AGRO40T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Agronomia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Efeito do meio de cultura, temperatura, fotoperíodo e óleos no crescimento micelial e no controle de [e]lt;I[e]rt;Penicilliu[e]lt;/I[e]rt; spp</b></font>
+			<td align="center"><font class="lt5"><b>Efeito do meio de cultura, temperatura, fotoperíodo e óleos no crescimento micelial e no controle de [e]lt;i[e]rt;penicilliu[e]lt;/i[e]rt; spp</b></font>
 			<BR>
-			<font class="lt4"><i>Effect of culture medium, temperature, photoperiod and oils in the mycelial growth and control of [e]lt;/I[e]rt;Penicillium[e]lt;I[e]rt; spp.</i></font>
+			<font class="lt4"><i>Effect of culture medium, temperature, photoperiod and oils in the mycelial growth and control of [e]lt;/i[e]rt;penicillium[e]lt;i[e]rt; spp.</i></font>
 			<BR>
 			</td>
 		</tr>

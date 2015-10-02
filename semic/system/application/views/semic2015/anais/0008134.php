@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Avaliação quantitativa de remoção da placa supragengival sob diferentes tempos de escovação na ausência do dentifrício</b></font>
 			<BR>
-			<font class="lt4"><i>Quantitative evaluation of supragingival plaque removal under different brushing times Without toothpaste</i></font>
+			<font class="lt4"><i>Quantitative evaluation of supragingival plaque removal under different brushing times without toothpaste</i></font>
 			<BR>
 			</td>
 		</tr>

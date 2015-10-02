@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Alternativas projetuais como estratégia de design para unir empresários e artesãos em processos colaborativos: caso das egressas da penitenciária feminina do Estado</b></font>
 			<BR>
-			<font class="lt4"><i>Projectual Alternatives as design strategy to stimulate collaborative processes between entrepreneurs and craftsmen: the case of female prisoners of the Women of the State</i></font>
+			<font class="lt4"><i>Projectual alternatives as design strategy to stimulate collaborative processes between entrepreneurs and craftsmen: the case of female prisoners of the women of the state</i></font>
 			<BR>
 			</td>
 		</tr>

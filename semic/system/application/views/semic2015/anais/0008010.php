@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SILVA, T. C.; BRIGHENTI, A. Perfil dos “padres novos” no estado do Paraná segundo os seminaristas. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO39.</td>
+			<td colspan=2>SILVA, T. C.; BRIGHENTI, A. Perfil dos “padres novos” no Estado do Paraná segundo os seminaristas. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO39.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,7 +12,7 @@
 				<br><b>Teologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Perfil dos “padres novos” no estado do Paraná segundo os seminaristas</b></font>
+			<td align="center"><font class="lt5"><b>Perfil dos “padres novos” no Estado do Paraná segundo os seminaristas</b></font>
 			<BR>
 			<font class="lt4"><i>Perfil of "new priests" in Paraná state according to the seminarians</i></font>
 			<BR>

@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Avaliação de pacientes com síncope em unidade de emergência: diretrizes baseadas em evidência [e]lt;i[e]rt;versus[e]lt;/i[e]rt; mundo real</b></font>
 			<BR>
-			<font class="lt4"><i>Evaluation of patients with syncope in the emergency unit: evidence based guidelines [e]lt;/i[e]rt;versus[e]lt;i[e]rt; real world</i></font>
+			<font class="lt4"><i>Evaluation of patients with syncope in the emergency unit: based guidelines on evidence [e]lt;/i[e]rt;versus[e]lt;i[e]rt; real world</i></font>
 			<BR>
 			</td>
 		</tr>

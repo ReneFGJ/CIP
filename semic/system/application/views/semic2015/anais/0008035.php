@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>AGOSTINHO, E. L.; ALLEGRETTI, A. C. V.; MOYSES, S. J. Tomada de decisão em saúde bucal na atenção primária, no SUS Curitiba,  PR, sob a perspectiva do profissional cirurgião-dentista. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. SC4.</td>
+			<td colspan=2>AGOSTINHO, E. L.; ALLEGRETTI, A. C. V.; MOYSES, S. J. Tomada de decisão em saúde bucal na atenção primária, no sus Curitiba, PR,  pr, sob a perspectiva do profissional cirurgião-dentista. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. SC4.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Saúde Coletiva</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Tomada de decisão em saúde bucal na atenção primária, no SUS Curitiba,  PR, sob a perspectiva do profissional cirurgião-dentista</b></font>
+			<td align="center"><font class="lt5"><b>Tomada de decisão em saúde bucal na atenção primária, no sus Curitiba, PR,  pr, sob a perspectiva do profissional cirurgião-dentista</b></font>
 			<BR>
-			<font class="lt4"><i>Decision making on oral health in primary care, at the SUS-Curitiba, PR, from the perspectives of dentists</i></font>
+			<font class="lt4"><i>Decision making on oral health in primary care, at the sus-Curitiba, PR, from the perspectives of dentists</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Determinação da compactação do solo em área de mata ciliar em processo de recuperação</b></font>
 			<BR>
-			<font class="lt4"><i>Determination of soil compaction in riparian area recovery</i></font>
+			<font class="lt4"><i>Determination of soil compression in riparian area recovery</i></font>
 			<BR>
 			</td>
 		</tr>

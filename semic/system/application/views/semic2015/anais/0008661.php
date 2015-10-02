@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Alimentação complementar em crianças entre 0 e 2 anos de escolas públicas</b></font>
 			<BR>
-			<font class="lt4"><i>Complementary Feeding in the first 2 Years of life in Public Daycare</i></font>
+			<font class="lt4"><i>Complementary feeding in the first 2 years of life in public daycare</i></font>
 			<BR>
 			</td>
 		</tr>

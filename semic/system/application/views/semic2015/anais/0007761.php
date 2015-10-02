@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>WUNSCH, V. L.; SOUZA, W. A morte como sentido para a vida no [e]lt;I[e]rt;evangelium vitae[e]lt;/I[e]rt; na perspectiva escatológica e bioética. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO10.</td>
+			<td colspan=2>WUNSCH, V. L.; SOUZA, W. A morte como sentido para a vida no [e]lt;i[e]rt;evangelium vitae[e]lt;/i[e]rt; na perspectiva escatológica e bioética. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO10.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Teologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>A morte como sentido para a vida no [e]lt;I[e]rt;evangelium vitae[e]lt;/I[e]rt; na perspectiva escatológica e bioética</b></font>
+			<td align="center"><font class="lt5"><b>A morte como sentido para a vida no [e]lt;i[e]rt;evangelium vitae[e]lt;/i[e]rt; na perspectiva escatológica e bioética</b></font>
 			<BR>
-			<font class="lt4"><i>Death as meaning to life in Evangelium Vitae and Bioethics in the eschatological perspective</i></font>
+			<font class="lt4"><i>Death as meaning to life in evangelium vitae and bioethics in the eschatological perspective</i></font>
 			<BR>
 			</td>
 		</tr>

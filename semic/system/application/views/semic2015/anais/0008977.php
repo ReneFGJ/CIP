@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>BATTISTI, M. T.; RORIG, M. C. L. Avaliação da pressão arterial em cães submetidos a neuroleptoanalgesia com dexmedetomidina e petidina no hospital veterinário – PUCPR  campus Toledo, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED68.</td>
+			<td colspan=2>BATTISTI, M. T.; RORIG, M. C. L. Avaliação da pressão arterial em cães submetidos a neuroleptoanalgesia com dexmedetomidina e petidina no hospital veterinário – pucpr  campus toledo, pr. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED68.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Medicina</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Avaliação da pressão arterial em cães submetidos a neuroleptoanalgesia com dexmedetomidina e petidina no hospital veterinário – PUCPR  campus Toledo, PR</b></font>
+			<td align="center"><font class="lt5"><b>Avaliação da pressão arterial em cães submetidos a neuroleptoanalgesia com dexmedetomidina e petidina no hospital veterinário – pucpr  campus toledo, pr</b></font>
 			<BR>
-			<font class="lt4"><i>Evaluation of blood pressure in dogs undergoing neuroleptoanalgesia with dexmedetomidine and pethidine in the Veterinary Hospital – PUCPR  Campus Toledo, PR</i></font>
+			<font class="lt4"><i>Evaluation of blood pressure in dogs undergoing neuroleptoanalgesia with dexmedetomidine and pethidine in the veterinary hospital – pucpr  campus toledo, pr</i></font>
 			<BR>
 			</td>
 		</tr>

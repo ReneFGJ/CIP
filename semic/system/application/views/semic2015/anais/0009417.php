@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Um estudo sobre o método de taguchi e delineamentos de experimentos em gestão da qualidade</b></font>
 			<BR>
-			<font class="lt4"><i>A Study about Taguchi method and designs of experiments in quality management</i></font>
+			<font class="lt4"><i>A study about taguchi method and designs of experiments in quality management</i></font>
 			<BR>
 			</td>
 		</tr>

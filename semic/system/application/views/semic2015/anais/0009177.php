@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>MARTINS, D. D.; TEIXEIRA, S. A. Impacto da substituição tributária do ICMS no ciclo operacional e financeiro no comércio atacadista: um estudo de caso. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ECON4.</td>
+			<td colspan=2>MARTINS, D. D.; TEIXEIRA, S. A. Impacto da substituição tributária do icms no ciclo operacional e financeiro no comércio atacadista: um estudo de caso. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ECON4.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Economia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Impacto da substituição tributária do ICMS no ciclo operacional e financeiro no comércio atacadista: um estudo de caso</b></font>
+			<td align="center"><font class="lt5"><b>Impacto da substituição tributária do icms no ciclo operacional e financeiro no comércio atacadista: um estudo de caso</b></font>
 			<BR>
-			<font class="lt4"><i>Impact of the ICMS tax substitution in the operational and financial cycle of a wholesale company: a case study</i></font>
+			<font class="lt4"><i>Impact of the icms tax substitution in the operational and financial cycle of a wholesale company: a case study</i></font>
 			<BR>
 			</td>
 		</tr>

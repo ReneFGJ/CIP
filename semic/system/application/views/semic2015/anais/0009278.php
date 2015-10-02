@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		HEINZEN, Bruna Cristina<sup>1</sup>; BRUEL, Norton Lee<sup>2</sup>; SILVA, Jonathan Jesus da<sup>3</sup>; DIJKINGA, Fernando Jean<sup>4</sup>; MAIA, Dhéri<sup>5</sup>; PEREIRA, JoÃo Filipi Scheffer<sup>6</sup>; FRACARO, Letícia<sup>7</sup>; SOTOMAIOR, Cristina Santos<sup>8</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

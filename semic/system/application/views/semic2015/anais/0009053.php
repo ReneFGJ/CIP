@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>ARAUJO, O. M.; RIBEIRO, L. A. P. Estudo comparado: sindicalismo brasileiro e português. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIRpr11.</td>
+			<td colspan=2>BENTO, R. M. A.; RIBEIRO, L. A. P. Estudo comparado: sindicalismo Brasileiro e português. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIRpr11.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,16 +12,16 @@
 				<br><b>Direito Privado</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Estudo comparado: sindicalismo brasileiro e português</b></font>
+			<td align="center"><font class="lt5"><b>Estudo comparado: sindicalismo Brasileiro e português</b></font>
 			<BR>
-			<font class="lt4"><i>Comparative study : Brazilian and Portuguese trade unionism</i></font>
+			<font class="lt4"><i>Comparative study : Brazilian and portuguese trade unionism</i></font>
 			<BR>
 			</td>
 		</tr>
 	</table>
 	<br>
 	<div style="text-align:right;">
-		ARAUJO, Ozana Maria de<sup>1</sup>; RIBEIRO, Luiz Alberto Pereira<sup>2</sup>		<BR>
+		BENTO, Rosana Maria Araujo<sup>1</sup>; RIBEIRO, Luiz Alberto Pereira<sup>2</sup>		<BR>
 		PIBIC		- Opção para Iniciação Científica Voluntária		<BR>
 		<I>--</I>
 	</div>
@@ -37,7 +37,7 @@
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
 				<P>
-					<B>Introduction</B>: Introduction: The comparative study of union institutions in Brazil and Portugal detects that suffered many changes during its creation to the present as in its structure, freedom of association, the immunity of union members as well as the laws and guiding principles the syndicalism. These changes occurred in order to guarantee fundamental rights at work, aiming to better living conditions of employees, assistance to members of the unionized category. Trade unionism since its inception to the present is still immature, it remains the initial design of the trade union organization in Brazil: a single union. In Portugal reigns trade union pluralism.					<B>Objectives</B>: The purpose of these lines is to ascertain whether comparisons are harboring the union structure, immunity of trade union members, freedom of association and legislation.					<B>Methods</B>: We conducted a qualitative literature in the field of legislation, doctrine and Internet sites about trade unionism in origin, structure, autonomy and comparison of the countries concerned, showing the differences in the principles governing such institutions as the source, legislation , principles of trade union unity and the maintenance of unions.					<B>Results</B>: It is necessary that a review of the structure of trade unionism in Brazil, his way of costing and the actors work the universe tread on equal conditions in the legal universe.					<B>Conclusion</B>: It appears that the structure imposed in the light of Staff Text 1988 reserve-unions some prerogatives as the right to administer it without state intervention, you can not have another union in the same category, living up to the principle trade union unity. Allied to these prerogatives emerging mode of how unions are financed. Is emphasized  that from birth, the movement still immature, dependent on contributions torn compulsorily workers and unrelated companies. In Portugal, trade union institutions are most active, press the welfare of workers, has the bias of the trade union plurality.				</P>
+					<B>Introduction</B>: The comparative study of union institutions in Brazil and Portugal detects that suffered many changes during its creation to the present as in its structure, freedom of association, the immunity of union members as well as the laws and guiding principles the syndicalism. These changes occurred in order to guarantee fundamental rights at work, aiming to better living conditions of employees, assistance to members of the unionized category. Trade unionism since its inception to the present is still immature, it remains the initial design of the trade union organization in Brazil: a single union. In Portugal reigns trade union pluralism.					<B>Objectives</B>: The purpose of these lines is to ascertain whether comparisons are harboring the union structure, immunity of trade union members, freedom of association and legislation.					<B>Methods</B>: We conducted a qualitative literature in the field of legislation, doctrine and Internet sites about trade unionism in origin, structure, autonomy and comparison of the countries concerned, showing the differences in the principles governing such institutions as the source, legislation , principles of trade union unity and the maintenance of unions.					<B>Results</B>: It is necessary that a review of the structure of trade unionism in Brazil, his way of costing and the actors work the universe tread on equal conditions in the legal universe.					<B>Conclusion</B>: It appears that the structure imposed in the light of Staff Text 1988 reserve-unions some prerogatives as the right to administer it without state intervention, you can not have another union in the same category, living up to the principle trade union unity. Allied to these prerogatives emerging mode of how unions are financed. Is emphasized  that from birth, the movement still immature, dependent on contributions torn compulsorily workers and unrelated companies. In Portugal, trade union institutions are most active, press the welfare of workers, has the bias of the trade union plurality.				</P>
 			</div><B>Keywords</B>: Unionism . Brazil . Portugal .</td>
 		</tr>
 	</table>

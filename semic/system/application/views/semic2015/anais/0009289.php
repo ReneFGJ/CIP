@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Avaliação dos parâmetros relacionados à produção de leite de vacas leiteiras alimentadas com ureia de liberação lenta</b></font>
 			<BR>
-			<font class="lt4"><i>Evaluation milk production parameters of lactating cows fed a source of slow release urea</i></font>
+			<font class="lt4"><i>Evaluation of parameters related to the production of dairy cows fed with urea slow release milk</i></font>
 			<BR>
 			</td>
 		</tr>

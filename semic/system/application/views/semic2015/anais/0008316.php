@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>PEREIRA, E. C. A.; SOUZA FILHO, C. F. M. Mineração e os riscos ao direito dos povos tradicionais na América Latina. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIResp5.</td>
+			<td colspan=2>PEREIRA, E. C. A.; SOUZA FILHO, C. F. M. Mineração e os riscos ao direito dos povos tradicionais na américa latina. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIResp5.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Direitos Especiais</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Mineração e os riscos ao direito dos povos tradicionais na América Latina</b></font>
+			<td align="center"><font class="lt5"><b>Mineração e os riscos ao direito dos povos tradicionais na américa latina</b></font>
 			<BR>
-			<font class="lt4"><i>Mining and risks to traditional rights of peoples in Latin America</i></font>
+			<font class="lt4"><i>Mining and risks to traditional people´s rights in latin america</i></font>
 			<BR>
 			</td>
 		</tr>
@@ -38,7 +38,7 @@
 			<div style="text-align:justify;">
 				<P>
 					<B>Introduction</B>: At the beginning of the 21st century with the reaffirmation democratic occurring in most of the countries of South America, who wrote constitutions recognizing the rights of indigenous peoples and other traditional populations and creating devices for protection of nature, it is possible to imagine that there would be a change in the essence of economic developmentalism capitalist exploitation of mineral, however, there were no differences. Instead, there was an expansion in investments of this development so at the expense of nature and traditional peoples, especially in Brazil, with criminalization, demobilization and weakening of social movements and eat attempts to relativize the collective rights established in the Constitution, mitigating or negating the constitutional provisions created, whether on the rights of indigenous and tribal peoples, called traditional, are the rights of all of nature.					<B>Objectives</B>: So this study aimed to study public policies and legislation of the Andean countries in relation to mineral extraction and its interrelation with indigenous peoples and other people protected by national legislation.					<B>Methods</B>: For this study was focused in the constitutions of countries involved in the research past the specific infra laws and other regulations, complementing the doctrinal concepts, all based on the analysis of bibliographic and documentary resources relating to the topic.					<B>Results</B>: What enabled us to verify that i) There is legislation protecting traditional populations, but in many cases contradictory; ii) There are many situations involving social conflict between traditional populations and large enterprises, both in Brazil and in Latin America, generating conflicts of large proportions.					<B>Conclusion</B>: For all the above, it is concluded that the respect and the realization of human rights of indigenous and traditional peoples should prevail before the extractive model that is used as an excuse to be one of the most profitable forms of economic development. However so there is this respect should be recognized and encouraged the efforts to facilitate the advances of a new legal culture that recognizes and respects the rights of peoples.				</P>
-			</div><B>Keywords</B>: Mining. Prior Consultation. Latin America. Traditional populations.</td>
+			</div><B>Keywords</B>: Mining. Prior Consultation. Latin America. Traditional population.</td>
 		</tr>
 	</table>
 	<BR>

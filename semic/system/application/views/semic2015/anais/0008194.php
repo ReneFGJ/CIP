@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>NOGUEIRA, T.; WESTPHAELN, V. P. D.; SILVA NETO, U. X.; FARINIUK, L. F.; CARNEIRO, E. Expressão de ligante do receptor ativador de NFkB (RANKL)em lesões periapicais sintomáticas e assintomáticas. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ODO43.</td>
+			<td colspan=2>NOGUEIRA, T.; WESTPHAELN, V. P. D.; SILVA NETO, U. X.; FARINIUK, L. F.; CARNEIRO, E. Expressão de ligante do receptor ativador de nfkb (rankl)em lesões periapicais sintomáticas e assintomáticas. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ODO43.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Odontologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Expressão de ligante do receptor ativador de NFkB (RANKL)em lesões periapicais sintomáticas e assintomáticas</b></font>
+			<td align="center"><font class="lt5"><b>Expressão de ligante do receptor ativador de nfkb (rankl)em lesões periapicais sintomáticas e assintomáticas</b></font>
 			<BR>
-			<font class="lt4"><i>Expression levels of receptor activator of NF-[e]#954;B ligand in symptomatic and asymptomatic periapical lesions</i></font>
+			<font class="lt4"><i>Expression levels of receptor activator of nf-[e]#954;b ligand in symptomatic and asymptomatic periapical lesions</i></font>
 			<BR>
 			</td>
 		</tr>

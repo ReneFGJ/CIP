@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		OLIVEIRA, Willian Klassen de<sup>1</sup>; COSTA, Leandro Batista<sup>2</sup>; ANDRADE, Carla de<sup>3</sup>; LUCIANO, Fernando Bittencourt<sup>4</sup>; OLIVEIRA, Geovane Rosa de<sup>5</sup>; MACEDO, Renata Ernlund Freitas de<sup>6</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

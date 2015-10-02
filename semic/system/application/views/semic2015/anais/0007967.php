@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Coping religioso espiritual no tratamento da dependência química</b></font>
 			<BR>
-			<font class="lt4"><i>Spiritual-religious coping in the treatment of Drug-addiction</i></font>
+			<font class="lt4"><i>Spiritual-religious coping in the treatment of drug-addiction</i></font>
 			<BR>
 			</td>
 		</tr>
@@ -38,7 +38,7 @@
 			<div style="text-align:justify;">
 				<P>
 					<B>Introduction</B>: Integrated into the line of Theology Research Society and the Graduate Program in Theology, this study is part of the research that has been carried out  on subjectivity, spirituality and health. This project continues the research started in 2010, focusing on the role of religion and spirituality in the treatment of people with substance abuse problems.					<B>Objectives</B>: To highlight  the functioning of religiosity/spirituality on the drug addiction treatment and the maintenance of abstinence; to verify through the Religious-Spiritual Coping Scale (the Brief RCOPE) which elements of religiousness / spirituality are more involved in the drug addiction process, and identify the prevalence of Generalized Anxiety Disorder.					<B>Methods</B>: Quantitative. Application of the Brief RCOPE Scale and the Generalised Anxiety Scale in sample of people under the treatment of drug addiction.					<B>Results</B>: The survey was conducted in three therapeutic communities for drug addiction treatment in Curitiba and metropolitan region, with the participation of fifty-five male subjects,  level of education: high school degree (22.2%) and some fundamental education (35.2%). Economic family income up to three minimum wages with 66%. Participants are mostly (61.8%) single, 16.4% divorced and only 20% are married. The results show that the participants who are in treatment make a median use of both positive and negative spiritual religious coping. The factors of positive religious coping which are frequently employed were: Life Transformation; Benevolent Religious Reappraisal and search of the other institutional. The negative spiritual religious coping most used were: negative appraisal of meaning, suggesting the spiritual struggles The project drew attention to a high probability of Generalized Anxiety Disorder (68.6%).					<B>Conclusion</B>: Future studies on spiritual struggles and Generalized Anxiety Disorder (GAD) are needed in order to develop more effective intervention proposals, both in the field of theology and psychotherapy. Comparing this research to the previous one held in 2010/2012, where participants were longer in abstinence and many of them were engaged in religious communities, the current data suggest that religiosity / spirituality plays a key role in the treatment of drug addiction.				</P>
-			</div><B>Keywords</B>: Spirituality. Religiosity. Health. Substance abuse. [e]lt;i[e]rt; coping [e]lt;/i[e]rt; religious-spiritual.</td>
+			</div><B>Keywords</B>: Spirituality. Religiosity. Health. Substance abuse. religious-spiritual [e]lt;i[e]rt; coping [e]lt;/i[e]rt;</td>
 		</tr>
 	</table>
 	<BR>

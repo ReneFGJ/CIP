@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Avaliação tomográfica do preparo do canal radicular com instrumentos de uso único</b></font>
 			<BR>
-			<font class="lt4"><i>Cone-beam Computed Tomography  evaluation of root canal preparation with single-use instruments</i></font>
+			<font class="lt4"><i>Cone-beam computed tomography  evaluation of root canal preparation with single-use instruments</i></font>
 			<BR>
 			</td>
 		</tr>

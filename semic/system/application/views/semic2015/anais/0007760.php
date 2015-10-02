@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>MANFRINATO, M. P. M. F. A. M.; SOUZA, W. A morte como sentido para a vida no “estudos CNBB 98; questões de bioética” na perspectiva escatológica e bioética. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO7.</td>
+			<td colspan=2>MANFRINATO, M. P. M. F. A. M.; SOUZA, W. A morte como sentido para a vida no “estudos cnbb 98; questões de bioética” na perspectiva escatológica e bioética. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO7.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Teologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>A morte como sentido para a vida no “estudos CNBB 98; questões de bioética” na perspectiva escatológica e bioética</b></font>
+			<td align="center"><font class="lt5"><b>A morte como sentido para a vida no “estudos cnbb 98; questões de bioética” na perspectiva escatológica e bioética</b></font>
 			<BR>
-			<font class="lt4"><i>Death as meaning for life in the “98 CNBB Studies: Bioethics issues” in eschatological and bioethical perspective</i></font>
+			<font class="lt4"><i>Death as meaning for life in the “98 cnbb studies: bioethics issues” in eschatological and bioethical perspective</i></font>
 			<BR>
 			</td>
 		</tr>

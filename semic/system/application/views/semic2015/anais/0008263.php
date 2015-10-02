@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		BASTOS, Karina Franco de<sup>1</sup>; FERREIRA, Jacques de Lima<sup>2</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

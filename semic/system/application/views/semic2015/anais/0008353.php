@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>CALEFFI, M. C. S.; RUSSO, C. T. Levantamento dos diagnósticos de lesões de baixo grau (LSIL) e lesões de alto grau (HSIL) em mulheres de diferentes faixas etárias (25 a 59 anos) atendidas no Hospital do Câncer de Londrina, PR durante o ano de 2013. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED106.</td>
+			<td colspan=2>CALEFFI, M. C. S.; RUSSO, C. T. Levantamento dos diagnósticos de lesões de baixo grau (lsil) e lesões de alto grau (hsil) em mulheres de diferentes faixas etárias (25 a 59 anos) atendidas no hospital do câncer de londrina, pr durante o ano de 2013. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED106.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Medicina</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Levantamento dos diagnósticos de lesões de baixo grau (LSIL) e lesões de alto grau (HSIL) em mulheres de diferentes faixas etárias (25 a 59 anos) atendidas no Hospital do Câncer de Londrina, PR durante o ano de 2013</b></font>
+			<td align="center"><font class="lt5"><b>Levantamento dos diagnósticos de lesões de baixo grau (lsil) e lesões de alto grau (hsil) em mulheres de diferentes faixas etárias (25 a 59 anos) atendidas no hospital do câncer de londrina, pr durante o ano de 2013</b></font>
 			<BR>
-			<font class="lt4"><i>Raising for low-grade lesions (LSIL) and high-grade lesions (HSIL) diagnosed in different age groups women (25-59 years) assisted in the Cancer Hospital of Londrina, during the year 2013</i></font>
+			<font class="lt4"><i>Raising for low-grade lesions (lsil) and high-grade lesions (hsil) diagnosed in different age groups women (25-59 years) assisted in the cancer hospital of londrina, during the year 2013</i></font>
 			<BR>
 			</td>
 		</tr>

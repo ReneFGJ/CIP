@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		SOARES, Guilherme Mota Miranda<sup>1</sup>; RODRIGUES, Rafael Saraiva de Andrade<sup>2</sup>; NIEVOLA, Julio Cesar<sup>3</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

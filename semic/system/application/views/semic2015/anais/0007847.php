@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Organização da modateca do curso de design de moda</b></font>
 			<BR>
-			<font class="lt4"><i>Organization of modateca in the fashion Design
+			<font class="lt4"><i>Organization of modateca in the fashion design
 course</i></font>
 			<BR>
 			</td>

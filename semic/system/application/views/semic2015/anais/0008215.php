@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>FERREIRA, H. K. G.; ENS, R. T. Formação de professores: o que dizem as teses e dissertações da PRCPR, em 2013. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EDU5.</td>
+			<td colspan=2>FERREIRA, H. K. G.; ENS, R. T. Formação de professores: o que dizem as teses e dissertações da prcpr, em 2013. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EDU5.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Educação</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Formação de professores: o que dizem as teses e dissertações da PRCPR, em 2013</b></font>
+			<td align="center"><font class="lt5"><b>Formação de professores: o que dizem as teses e dissertações da prcpr, em 2013</b></font>
 			<BR>
-			<font class="lt4"><i>Teacher education: what the dissertations and theses of PUCPR say, in 2013</i></font>
+			<font class="lt4"><i>Teacher education: what the dissertations and theses of pucpr say, in 2013</i></font>
 			<BR>
 			</td>
 		</tr>

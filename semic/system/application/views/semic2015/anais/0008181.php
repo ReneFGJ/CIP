@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		ALVES, Gabriela Barreiros<sup>1</sup>; RIBEIRO, Franciele Dalvana<sup>2</sup>; CARVALHO, Ruy Inacio Neiva de<sup>3</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

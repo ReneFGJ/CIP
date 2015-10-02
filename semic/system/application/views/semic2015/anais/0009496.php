@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SOUZA, A. P. M.; TSUKAMOTO, N. M. S. Importância da LIBRAS  na sociedade. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. LETR12.</td>
+			<td colspan=2>SOUZA, A. P. M.; TSUKAMOTO, N. M. S. Importância da libras  na sociedade. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. LETR12.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Letras</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Importância da LIBRAS  na sociedade</b></font>
+			<td align="center"><font class="lt5"><b>Importância da libras  na sociedade</b></font>
 			<BR>
-			<font class="lt4"><i>Importance of LIBRAS  in society</i></font>
+			<font class="lt4"><i>Importance of libras  in society</i></font>
 			<BR>
 			</td>
 		</tr>

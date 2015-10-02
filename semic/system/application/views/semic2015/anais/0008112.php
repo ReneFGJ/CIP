@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>OLIVEIRA, M. I.; EYNG, A. M. Percepções de estudantes da educação básica sobre: direitos humanos, justiça e violências nas escolas – II etapa. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EDU13.</td>
+			<td colspan=2>OLIVEIRA, M. I.; EYNG, A. M. Percepções de estudantes da educação básica sobre: direitos humanos, justiça e violências nas escolas – ii etapa. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EDU13.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,7 +12,7 @@
 				<br><b>Educação</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Percepções de estudantes da educação básica sobre: direitos humanos, justiça e violências nas escolas – II etapa</b></font>
+			<td align="center"><font class="lt5"><b>Percepções de estudantes da educação básica sobre: direitos humanos, justiça e violências nas escolas – ii etapa</b></font>
 			<BR>
 			<font class="lt4"><i>Sense of the students of the basic education regardi: 
 human rights, justice and violence in schools -second stage</i></font>

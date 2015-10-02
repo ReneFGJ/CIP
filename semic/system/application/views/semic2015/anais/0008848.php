@@ -39,7 +39,7 @@
 •	Obter os dados das características construtivas;
 •	Obter os dados das estruturas de resposta a emergências existentes;
 •	Formatar dados para entrada no Software Hazus-MH.					<B>Metodologia</B>: A estratégia adotada para a elaboração do inventário foi realizar a coleta de dados dos órgãos governamentais de Defesa Civil do Paraná, do Instituto de Pesquisa e Planejamento Urbano de Curitiba (IPPUC) e do Instituto Brasileiro de Geografia e Estatística (IBGE).					<B>Resultados</B>: Muitos dos dados necessários para a composição do inventário não foram obtidos, pois simplesmente não existem para ser tornarem disponíveis. Isso dificulta em demasia a utilização de tecnologias que necessitam de tais recursos, o que impede o desenvolvimento do país.					<B>Conclusões</B>: Atualmente o Brasil se encontra extremamente carente em termos de infra estrutura de dados espaciais. Porém, algumas ações isoladas como ocorre no estado do Paraná, através de órgãos como o IPPUC, possuem um trabalho um tanto quanto diferenciado em relação ao restante do país.				</P>
-			</div><B>Palavras-chave</B>: hazus, dados espaciais, desastres naturais, inundações.			<BR>
+			</div><B>Palavras-chave</B>: Hazus. dados espaciais. desastres naturais. inundações.			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
@@ -51,7 +51,7 @@
 • Get the data of the constructive characteristics ;
 • Get the data from the response of structures to existing emergencies;
 • Format data for entry into the Hazus -MH Software.					<B>Methods</B>: The strategy adopted for the preparation of the inventory was to collect the data of government agencies of the Paraná Civil Defense , the Institute of Research and Planning of Curitiba Urban ( IPPUC ) and the Brazilian Institute of Geography and Statistics (IBGE).					<B>Results</B>: Much of the data needed for inventory composition were not obtained because simply do not exist to be become available. This makes it difficult too much the use of technologies that require such resources , which prevents the development of the country					<B>Conclusion</B>: Currently Brazil is sorely lacking in terms of spatial data infra structure. However, some isolated actions as in the state of Paraná, through bodies such as the IPPUC , have a job somewhat different from the rest of the country.				</P>
-			</div><B>Keywords</B>: hazus, spatial data, natural disaster, flooding.</td>
+			</div><B>Keywords</B>: Hazus. spatial data. natural disaster. flooding.</td>
 		</tr>
 	</table>
 	<BR>

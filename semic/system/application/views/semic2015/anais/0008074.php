@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>O procedimento científico em humano, demasiado humano de Nietzsche</b></font>
 			<BR>
-			<font class="lt4"><i>Scientific procedure in Human, too human of Nietzsche</i></font>
+			<font class="lt4"><i>Scientific procedure in human, too human of Nietzsche</i></font>
 			<BR>
 			</td>
 		</tr>

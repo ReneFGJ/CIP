@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Determinação proteica por biureto de lácteos em diferentes temperaturas</b></font>
 			<BR>
-			<font class="lt4"><i>Determination of milk protein in biuret at different temperatures</i></font>
+			<font class="lt4"><i>Dairy protein determination by biuret at different temperatures</i></font>
 			<BR>
 			</td>
 		</tr>

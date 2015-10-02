@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>COSTA, L. V. B.; TERRA, C. A. A arbitragem como forma eficaz de solução de conflitos no direito brasileiro: discussão doutrinária e jurisprudencial, com ênfase nas relações empresariais e societárias. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIR26.</td>
+			<td colspan=2>COSTA, L. V. B.; TERRA, C. A. A arbitragem como forma eficaz de solução de conflitos no direito Brasileiro: discussão doutrinária e jurisprudencial, com ênfase nas relações empresariais e societárias. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIR26.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,7 +12,7 @@
 				<br><b>Direito</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>A arbitragem como forma eficaz de solução de conflitos no direito brasileiro: discussão doutrinária e jurisprudencial, com ênfase nas relações empresariais e societárias</b></font>
+			<td align="center"><font class="lt5"><b>A arbitragem como forma eficaz de solução de conflitos no direito Brasileiro: discussão doutrinária e jurisprudencial, com ênfase nas relações empresariais e societárias</b></font>
 			<BR>
 			<font class="lt4"><i>Arbitration as an effective means of conflict resolution in Brazilian law: doctrinal and jurisprudential discussion, with an emphasis on industrial relations and corporate</i></font>
 			<BR>

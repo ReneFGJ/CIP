@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Níveis tensionais ideais para a prevenção de eventos cardiovasculares nos idoso: uma revisão de literatura</b></font>
 			<BR>
-			<font class="lt4"><i>Optimum Blood Pressure Levels for cardiovascular event prevention in elderly:  a literature review</i></font>
+			<font class="lt4"><i>Optimum blood pressure levels for cardiovascular event prevention in elderly:  a literature review</i></font>
 			<BR>
 			</td>
 		</tr>

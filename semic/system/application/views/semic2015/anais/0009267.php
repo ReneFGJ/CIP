@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		CESARO, Giovanna<sup>1</sup>; CORRÊA, Jessica Audrey Feijó<sup>2</sup>; ROSA, Edvaldo Antonio Ribeiro<sup>3</sup>; ROSA, Rosimeire Takaki<sup>4</sup>; SOARES JÚNIOR, Paulo César<sup>5</sup>; LAURINDO, Carlos Augusto Henning<sup>6</sup>; MANDUCA, Rachel Tereza Rigotti<sup>7</sup>; LUCIANO, Fernando Bittencourt<sup>8</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

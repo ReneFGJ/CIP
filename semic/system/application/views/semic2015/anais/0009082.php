@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>A construção da identidade individual e social na literatura de autoria feminina norte-americana contemporânea</b></font>
 			<BR>
-			<font class="lt4"><i>The construction of individual and social identities in literature produced by contemporary north american women writers</i></font>
+			<font class="lt4"><i>The construction of individual and social identities in contemporary northamerican women writers’literature</i></font>
 			<BR>
 			</td>
 		</tr>

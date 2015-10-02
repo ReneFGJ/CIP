@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Utilização de parâmetros produtivos como critério de tratamento seletivo de ovinos</b></font>
 			<BR>
-			<font class="lt4"><i>Production parameters as criteria to targeted selective treatment (TST) in sheep</i></font>
+			<font class="lt4"><i>Production parameters as criteria to targeted selective treatment (tst) in sheep</i></font>
 			<BR>
 			</td>
 		</tr>

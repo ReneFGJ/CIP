@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Necessidades alimentares especiais de escolares: construção de indicadores para monitoramento do direito humano à alimentação adequada</b></font>
 			<BR>
-			<font class="lt4"><i>Special dietary needs at school: construction of indicators for monitoring of the human right to adequate food</i></font>
+			<font class="lt4"><i>Special dietary needs at school: indicators creation for monitoring the human right to adequate food</i></font>
 			<BR>
 			</td>
 		</tr>

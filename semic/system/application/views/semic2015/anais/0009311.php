@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Elaboração de algoritmo de decisão para prescrição na especialidade de estomatologia</b></font>
 			<BR>
-			<font class="lt4"><i>Development of an algorithm for prescrição na especialidade of Stomatology</i></font>
+			<font class="lt4"><i>Decision algorithm development for prescription in the specialty of stomatology</i></font>
 			<BR>
 			</td>
 		</tr>

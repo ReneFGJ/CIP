@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		SILVA, Jonathan Jesus da<sup>1</sup>; DIJKINGA, Fernando Jean<sup>2</sup>; SANT´ANNA, Catia de Paula<sup>3</sup>; PEREIRA, JoÃo Filipi Scheffer<sup>4</sup>; FRACARO, Letícia<sup>5</sup>; SOTOMAIOR, Cristina Santos<sup>6</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>MATTANA, R. L. S.; GARCIA, J. O. L.; BARROS, L. D.; HOLSBACH, V. T. K.; MARTINS, F. D. C.; RORIG, M. C. L. L.; ZULPO, D. L. Epidemiologia molecular da [e]lt;i[e]rt;Ehrlichia canis[e]lt;/i[e]rt; e anaplasma platys em cães domiciliados da região de Toledo, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEDVET57.</td>
+			<td colspan=2>MATTANA, R. L. S.; GARCIA, J. O. L.; BARROS, L. D.; HOLSBACH, V. T. K.; MARTINS, F. D. C.; RORIG, M. C. L. L.; ZULPO, D. L. Epidemiologia molecular da [e]lt;i[e]rt;ehrlichia canis[e]lt;/i[e]rt; e anaplasma platys em cães domiciliados da região de toledo, pr. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEDVET57.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Medicina Veterinária</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Epidemiologia molecular da [e]lt;i[e]rt;Ehrlichia canis[e]lt;/i[e]rt; e anaplasma platys em cães domiciliados da região de Toledo, PR</b></font>
+			<td align="center"><font class="lt5"><b>Epidemiologia molecular da [e]lt;i[e]rt;ehrlichia canis[e]lt;/i[e]rt; e anaplasma platys em cães domiciliados da região de toledo, pr</b></font>
 			<BR>
-			<font class="lt4"><i>Molecular epidemiology of [e]lt;/i[e]rt;Ehrlichia canis[e]lt;/i[e]rt; and anaplasma platys in household dogs from Toledo, PR</i></font>
+			<font class="lt4"><i>Molecular epidemiology of [e]lt;/i[e]rt;ehrlichia canis[e]lt;/i[e]rt; and anaplasma platys in household dogs from toledo, pr</i></font>
 			<BR>
 			</td>
 		</tr>

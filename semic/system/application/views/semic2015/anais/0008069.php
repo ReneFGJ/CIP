@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SILVEIRA, J.; AULER, F.; MOURO, F. C.; BARBOSA, J. S. F.; RIBEIRO, C. S. G. Uso de processados e ultraprocessados: uma solução nutricional na merenda escolar?. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. NUT9.</td>
+			<td colspan=2>SILVEIRA, J.; AULER, F.; MORO, F. C.; BARBOSA, J. S. F.; RIBEIRO, C. S. G. Uso de processados e ultraprocessados: uma solução nutricional na merenda escolar?. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. NUT9.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -21,7 +21,7 @@
 	</table>
 	<br>
 	<div style="text-align:right;">
-		SILVEIRA, Juliana da<sup>1</sup>; AULER, Flavia<sup>2</sup>; MOURO, Fernanda Caetano<sup>3</sup>; BARBOSA, Jéssica Focht<sup>4</sup>; RIBEIRO, Cilene da Silva Gomes<sup>5</sup>		<BR>
+		SILVEIRA, Juliana da<sup>1</sup>; AULER, Flavia<sup>2</sup>; MORO, Fernanda Caetano<sup>3</sup>; BARBOSA, Jéssica Focht<sup>4</sup>; RIBEIRO, Cilene da Silva Gomes<sup>5</sup>		<BR>
 		PIBIC		- Opção para Iniciação Científica Voluntária		<BR>
 		<I>--</I>
 	</div>

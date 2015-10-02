@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>COSTA, W. D. S.; KOZLOWSKI, L. A. Identificação de biótipos de buva ([e]lt;i[e]rt;Conyza spp[e]lt;/i[e]rt;) resistentes ao herbicida glyphosate. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. AGRO10.</td>
+			<td colspan=2>COSTA, W. D. S.; KOZLOWSKI, L. A. Identificação de biótipos de buva ([e]lt;i[e]rt;conyza spp[e]lt;/i[e]rt;) resistentes ao herbicida glyphosate. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. AGRO10.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Agronomia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Identificação de biótipos de buva ([e]lt;i[e]rt;Conyza spp[e]lt;/i[e]rt;) resistentes ao herbicida glyphosate</b></font>
+			<td align="center"><font class="lt5"><b>Identificação de biótipos de buva ([e]lt;i[e]rt;conyza spp[e]lt;/i[e]rt;) resistentes ao herbicida glyphosate</b></font>
 			<BR>
-			<font class="lt4"><i>Identification biotypes of hairy fleabane ([e]lt;/i[e]rt;Conyza spp[e]lt;/i[e]rt;)  glyphosate resistant</i></font>
+			<font class="lt4"><i>Biotypes identification of hairy fleabane ([e]lt;/i[e]rt;conyza spp[e]lt;/i[e]rt;)  glyphosate resistant</i></font>
 			<BR>
 			</td>
 		</tr>

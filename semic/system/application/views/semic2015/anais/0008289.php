@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>GIBBERT, P. C.; SCHOFFEN, A. L. S.; BINOTTO, T.; GUSATTO, F.; BORTOLINI, M. F. Avaliação da qualidade fisiológica de [e]lt;i[e]rt;[e]lt;i[e]rt;Senegalia[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;polyphylla[e]lt;/i[e]rt;[e]lt;/i[e]rt; (dc.) britton [e] rose através do teste de raios x. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FLORE13T.</td>
+			<td colspan=2>GIBBERT, P. C.; SCHOFFEN, A. L. S.; BINOTTO, T.; GUSATTO, F.; BORTOLINI, M. F. Avaliação da qualidade fisiológica de [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;Senegalia[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;polyphylla[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; (dc.) britton [e] rose através do teste de raios x. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FLORE13T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Recursos Florestais e Engenharia Florestal</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Avaliação da qualidade fisiológica de [e]lt;i[e]rt;[e]lt;i[e]rt;Senegalia[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;polyphylla[e]lt;/i[e]rt;[e]lt;/i[e]rt; (dc.) britton [e] rose através do teste de raios x</b></font>
+			<td align="center"><font class="lt5"><b>Avaliação da qualidade fisiológica de [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;Senegalia[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;polyphylla[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; (dc.) britton [e] rose através do teste de raios x</b></font>
 			<BR>
-			<font class="lt4"><i>Evaluation of the physiological quality of [e]lt;i[e]rt;[e]lt;i[e]rt;Senegalia[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;polyphylla[e]lt;/i[e]rt;[e]lt;/i[e]rt; (dc.) britton [e] rose through the x-ray test</i></font>
+			<font class="lt4"><i>Evaluation of the physiological quality of [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;Senegalia[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; [e]lt;i[e]rt;[e]lt;i[e]rt;[e]lt;i[e]rt;polyphylla[e]lt;/i[e]rt;[e]lt;/i[e]rt;[e]lt;/i[e]rt; (dc.) britton [e] rose through the x-ray test</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -9,7 +9,7 @@
 		</tr>
 		<tr>
 			<td colspan=2 class="lt3"><font class="lt6">FISIO1</font>
-				<br><b>Fisioterapia e Terapia Ocupacional</b></td>
+				<br><b>Muscoloesquelético</b></td>
 		</tr>
 		<tr>
 			<td align="center"><font class="lt5"><b>Dor e qualidade de vida de pacientes com lombalgia cronica</b></font>

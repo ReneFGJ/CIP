@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>ROCHA, J. F.; ALVES, W. S. L. O.; KOZLOWSKI, L. A. Identificação de extratos vegetais e óleos essenciais com potencial atividade herbicida - fase II. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. AGRO12T.</td>
+			<td colspan=2>ROCHA, J. F.; ALVES, W. S. L. O.; KOZLOWSKI, L. A. Identificação de extratos vegetais e óleos essenciais com potencial atividade herbicida - fase ii. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. AGRO12T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,7 +12,7 @@
 				<br><b>Agronomia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Identificação de extratos vegetais e óleos essenciais com potencial atividade herbicida - fase II</b></font>
+			<td align="center"><font class="lt5"><b>Identificação de extratos vegetais e óleos essenciais com potencial atividade herbicida - fase ii</b></font>
 			<BR>
 			<font class="lt4"><i>Identification of plant extracts and essential oils with potential herbicide activity</i></font>
 			<BR>

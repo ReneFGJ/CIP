@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Interferência da escarificação e gessagem sobreatributos físicos do solo e rendimento da cultura do feijoeiro</b></font>
 			<BR>
-			<font class="lt4"><i>Interference of scarification and phosphogypsum sobreatributos physical soil and income of culture of bean</i></font>
+			<font class="lt4"><i>Interference of scarification and gypsum on soil physical properties and yield of bean crop</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>MAEDA, V. Y.; BARBARINI, N. O uso de celulares entre estudantes de Psicologia da PUCPR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PSICO11.</td>
+			<td colspan=2>MAEDA, V. Y.; BARBARINI, N. O uso de celulares entre estudantes de Psicologia da pucpr. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. PSICO11.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,7 +12,7 @@
 				<br><b>Psicologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>O uso de celulares entre estudantes de Psicologia da PUCPR</b></font>
+			<td align="center"><font class="lt5"><b>O uso de celulares entre estudantes de Psicologia da pucpr</b></font>
 			<BR>
 			<font class="lt4"><i>The social representation of mobile phone among university students</i></font>
 			<BR>

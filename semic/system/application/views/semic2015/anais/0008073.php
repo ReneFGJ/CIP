@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SILVA, G. A.; COSTA, G. A.; PROCHNAU, I. S. Análise microbiológica da formulação de gel de Dapsona. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FAR16.</td>
+			<td colspan=2>SILVA, G. A.; COSTA, G. A.; PROCHNAU, I. S. Análise microbiológica da formulação de gel de dapsona. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FAR16.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Farmácia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Análise microbiológica da formulação de gel de Dapsona</b></font>
+			<td align="center"><font class="lt5"><b>Análise microbiológica da formulação de gel de dapsona</b></font>
 			<BR>
-			<font class="lt4"><i>Microbiological analysis of the Dapsone gel formulation</i></font>
+			<font class="lt4"><i>Microbiological analysis of the dapsone gel formulation</i></font>
 			<BR>
 			</td>
 		</tr>

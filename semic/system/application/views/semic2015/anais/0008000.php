@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Ambiente computacional em nuvem para o processamento massivo de dados (big data)</b></font>
 			<BR>
-			<font class="lt4"><i>Cloud computing environment for processing (BIG DATA)</i></font>
+			<font class="lt4"><i>Cloud computing environment for processing (big data)</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>REZINO, S. F.; PERONDI, I. A pecadora perdoada por jesus e que ama: um estudo de Lc 7,36-50. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO28.</td>
+			<td colspan=2>REZINO, S. F.; PERONDI, I. A pecadora perdoada por jesus e que ama: um estudo de lc 7,36-50. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO28.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Teologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>A pecadora perdoada por jesus e que ama: um estudo de Lc 7,36-50</b></font>
+			<td align="center"><font class="lt5"><b>A pecadora perdoada por jesus e que ama: um estudo de lc 7,36-50</b></font>
 			<BR>
-			<font class="lt4"><i>The sinner forgiven by Jesus and that love: one study  to Lk 7:36-50</i></font>
+			<font class="lt4"><i>The sinner forgiven by jesus and that love: one study  to lk 7:36-50</i></font>
 			<BR>
 			</td>
 		</tr>

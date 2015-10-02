@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>ROCHA, M. C. C.; GARCIA, G. E. Estudo de caso da viabilidade do sistema de tratamento do dejeto de suínos implantado na fazenda gralha azul PUCPR, Fazenda Rio Grande, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EAMB30T.</td>
+			<td colspan=2>ROCHA, M. C. C.; GARCIA, G. E. Estudo de caso da viabilidade do sistema de tratamento do dejeto de suínos implantado na fazenda gralha azul pucpr, fazenda rio grande, pr. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EAMB30T.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Engenharia Ambiental</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Estudo de caso da viabilidade do sistema de tratamento do dejeto de suínos implantado na fazenda gralha azul PUCPR, Fazenda Rio Grande, PR</b></font>
+			<td align="center"><font class="lt5"><b>Estudo de caso da viabilidade do sistema de tratamento do dejeto de suínos implantado na fazenda gralha azul pucpr, fazenda rio grande, pr</b></font>
 			<BR>
-			<font class="lt4"><i>Case study of the viability of pig manure treatment system implemented on the farm PUCPR Gralha Azul, Fazenda Rio Grande, PR</i></font>
+			<font class="lt4"><i>Case study of the feasibility of pig manure treatment system implemented on the farm gralha azul pucpr, fazenda rio grande, pr</i></font>
 			<BR>
 			</td>
 		</tr>

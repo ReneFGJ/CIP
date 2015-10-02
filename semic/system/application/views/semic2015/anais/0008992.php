@@ -9,7 +9,7 @@
 		</tr>
 		<tr>
 			<td colspan=2 class="lt3"><font class="lt6">FISIO7</font>
-				<br><b>Fisioterapia e Terapia Ocupacional</b></td>
+				<br><b>Muscoloesquelético</b></td>
 		</tr>
 		<tr>
 			<td align="center"><font class="lt5"><b>Efeitos de um protocolo de reabilitação motora com suporte parcial de peso sobre a funcionalidade de pacientes pós-ave - continuação</b></font>

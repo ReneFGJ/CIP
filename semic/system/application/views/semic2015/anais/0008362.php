@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Adesivo fotopolimerizável vs. dual na cimentação de pinos de fibra de vidro intra-radiculares</b></font>
 			<BR>
-			<font class="lt4"><i>Light-curing vs Dual dental adhesive systems used to cement intraradicular posts.</i></font>
+			<font class="lt4"><i>Light-curing vs dual dental adhesive systems used to cement intraradicular posts.</i></font>
 			<BR>
 			</td>
 		</tr>

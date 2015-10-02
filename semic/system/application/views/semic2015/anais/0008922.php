@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SOUZA, A. L.; SILVA, C. A. L. Mídia e educação: uma análise a partir do projeto ler e pensar da Gazeta do Povo em Curitiba, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. COMUN6.</td>
+			<td colspan=2>SOUZA, A. L.; SILVA, C. A. L. Mídia e educação: uma análise a partir do projeto ler e pensar da gazeta do povo em Curitiba, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. COMUN6.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Comunicação</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Mídia e educação: uma análise a partir do projeto ler e pensar da Gazeta do Povo em Curitiba, PR</b></font>
+			<td align="center"><font class="lt5"><b>Mídia e educação: uma análise a partir do projeto ler e pensar da gazeta do povo em Curitiba, PR</b></font>
 			<BR>
-			<font class="lt4"><i>Media education: an analysis from the project read and think of Gazeta do Povo in Curitiba, PR</i></font>
+			<font class="lt4"><i>Media education: an analysis from the project “ler e pensar” by gazeta do povo, in Curitiba, PR</i></font>
 			<BR>
 			</td>
 		</tr>

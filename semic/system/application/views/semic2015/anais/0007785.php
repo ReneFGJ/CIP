@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Fusões e aquisições de empresas de capital aberto</b></font>
 			<BR>
-			<font class="lt4"><i>Mergers and acquisitions of companies open capital</i></font>
+			<font class="lt4"><i>Mergers and acquisitions of open capital companies</i></font>
 			<BR>
 			</td>
 		</tr>

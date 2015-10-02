@@ -46,7 +46,7 @@ foi utilizado um publico alvo – pouco mais de 30 entrevistados, o qual são resid
 dos bairros CIC, Portão e Novo Mundo.					<B>Objetivo</B>: O objetivo deste trabalho consiste em evidenciar para a população curitibana o que é o Direito Administrativo, o que é a Licitação e qual a opinião do público alvo quanto a implantação do metrô.					<B>Metodologia</B>: O método utilizado no presente projeto de pesquisa baseou-se em pesquisas
 jurisprudências, pesquisas doutrinárias e pela internet. Num segundo momento, o
 mecanismo passou a ser a pesquisa com a população curitibana.					<B>Resultados</B>: 					<B>Conclusões</B>: 				</P>
-			</div><B>Palavras-chave</B>: metrô curitibano, licitação.			<BR>
+			</div><B>Palavras-chave</B>: Metrô curitibano. licitação.			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
@@ -59,7 +59,7 @@ Paulo Scalco technical advisor and Juarez Varallo Pont, superintendent
 Municipal Administration for Planning and Administration. Also
 It used a target audience - just over 30 respondents, who are resident
 neighborhoods CIC, Portão and Novo Mundo.					<B>Objectives</B>: The method used in this research project was based on case law research, doctrinal research and the Internet. Secondly, the mechanism became the research with the Curitiba population.					<B>Methods</B>: The objective of this work is to emphasize to the Curitiba population which is the Administrative Law, which is the bid and what the target audience of opinion on the implementation of the subway.					<B>Results</B>: 					<B>Conclusion</B>: 				</P>
-			</div><B>Keywords</B>: Curitiba subway, bidding</td>
+			</div><B>Keywords</B>: Curitiba subway. bidding</td>
 		</tr>
 	</table>
 	<BR>

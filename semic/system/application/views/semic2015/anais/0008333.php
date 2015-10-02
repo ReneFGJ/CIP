@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>LAHM, M. M.; VALE, J. D. Levantamento de famílias de morcegos em dois estratos florestais do Parque Estadual da Cabeça do Cachorro – São Pedro do Iguaçu, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ZOO8.</td>
+			<td colspan=2>LAHM, M. M.; VALE, J. D. Levantamento de famílias de morcegos em dois estratos florestais do parque estadual da cabeça do cachorro – são pedro do iguaçu, pr. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ZOO8.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Zoologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Levantamento de famílias de morcegos em dois estratos florestais do Parque Estadual da Cabeça do Cachorro – São Pedro do Iguaçu, PR</b></font>
+			<td align="center"><font class="lt5"><b>Levantamento de famílias de morcegos em dois estratos florestais do parque estadual da cabeça do cachorro – são pedro do iguaçu, pr</b></font>
 			<BR>
-			<font class="lt4"><i>Survey of bat families in two forest strata of the State Park "Cabeça do Cachorro" - São Pedro do Iguaçu, PR</i></font>
+			<font class="lt4"><i>Survey of bat families in two forest strata of the state park "cabeça do cachorro" - são pedro do iguaçu, pr</i></font>
 			<BR>
 			</td>
 		</tr>

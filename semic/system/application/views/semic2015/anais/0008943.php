@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>FERNANDO, A.; VEISSID, R.; PEREIRA, A. M. T. B. O estado da arte das condições de professores universitários: os processos de Burnout e engagement. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. SC12.</td>
+			<td colspan=2>FERNANDO, A.; VEISSID, R.; PEREIRA, A. M. T. B. O Estado da arte das condições de professores universitários: os processos de burnout e engagement. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. SC12.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Saúde Coletiva</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>O estado da arte das condições de professores universitários: os processos de Burnout e engagement</b></font>
+			<td align="center"><font class="lt5"><b>O Estado da arte das condições de professores universitários: os processos de burnout e engagement</b></font>
 			<BR>
-			<font class="lt4"><i>The state of art conditions of university professors: the Burnout process and engagement</i></font>
+			<font class="lt4"><i>The state of art conditions of university professors: the burnout process and engagement</i></font>
 			<BR>
 			</td>
 		</tr>
@@ -38,7 +38,7 @@
 			<div style="text-align:justify;">
 				<P>
 					<B>Introduction</B>: Burnout syndrome has attracted the attention of researchers since the 80s of last century, the disorders that can lead, reaching even prevent workers develop their daily activities. Most authors define burnout as a response to cronificado occupational stress. Moreover, it has been observed that the professional engagement can modulate the response to burnout.					<B>Objectives</B>: Get survey of publications undertaken to date on the burnout and engagement processes in academics.					<B>Methods</B>: We conducted a search on PsychINFO, Capes Portal and Scielo using the following descriptors: university teacher, lecturer, college professor, burnout, work engagement or professional engagement. The material collected was initially analyzed to check corresponded to the intended objectives and sorted later in an Excel spreadsheet.					<B>Results</B>: In PsychINFO, using the descriptors in English it was established in 1131 records in elementary school teachers while in college the total was 11 for burnout. As for the construct of engagement it was no different publications was located in 1180 for the first and no to higher education. Emotional exhaustion was the size of burnout that most stood out in the studies assessed. As a potential variable to trigger the syndrome was appointed the multiplicity of tasks, inadequate working spaces, reduced salary, activity overload and insufficient time for the preparation of affairs. Just a job compared burnout and engagement noting that even with high exhaustion, most of the surveyed teachers had high levels of professional engagement.					<B>Conclusion</B>: It was noted that most of the studies referred to elementary school teachers and so far there are few in relation to the university level, indicating a lack of research in this segment, as if they were less vulnerable to the syndrome, which polls earned refute.				</P>
-			</div><B>Keywords</B>: University professor. Lecturer. Burnout. Work engagement.</td>
+			</div><B>Keywords</B>: University professors. Lecturer. Burnout. Professional engagement.</td>
 		</tr>
 	</table>
 	<BR>

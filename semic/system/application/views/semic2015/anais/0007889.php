@@ -14,7 +14,7 @@
 		<tr>
 			<td align="center"><font class="lt5"><b>Efeitos do uso pré-operatório de agentes biológicos isolados ou em combinação com imunossupressores nas complicações precoces após cirurgias abdominais em portadores de doença de Crohn</b></font>
 			<BR>
-			<font class="lt4"><i>Effects of biological agents for use alone or in combination with immunosuppressants preoperative in early complications after surgery abdominal in patients with Crohn´s disease</i></font>
+			<font class="lt4"><i>Effects of biological agents for use alone or in combination with immunosuppressants preoperative in early complications after abdominal surgery in patients with crohn´s disease</i></font>
 			<BR>
 			</td>
 		</tr>

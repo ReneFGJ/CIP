@@ -45,13 +45,13 @@ metropolitanas, de modo a enxergar como as regras jurídicas podem servir de
 elemento para gerar a necessidade de convergência de interesses entre os diversos
 entes envolvidos.					<B>Metodologia</B>: O método a ser utilizado foca na consulta às seguintes fontes: referenciais normativos que se aplicam à questão a ser examinada; revisão doutrinária acerca do tema e, por fim,
 análise de jurisprudência sobre o assunto.					<B>Resultados</B>: 					<B>Conclusões</B>: 				</P>
-			</div><B>Palavras-chave</B>: Serviço público, saneamento básico			<BR>
+			</div><B>Palavras-chave</B>: Serviço público. saneamento básico			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
 				<P>
 					<B>Introduction</B>: A metropolitan area to be established aims at enabling the organization, execution and planning of public functions of interest common to all its members. Once set regionalization, it is no longer an isolated sewerage system, but a paid sanitary sewer system. Public sanitation services are directly related to public health. This, in turn, is part of a set of social rights, whose inspiration the value of equality between people. Therefore, the academic purpose this aims to respond mediate way the question: who is responsible for the public service of sewerage in metropolitan areas? On the other hand, the general objective unfolds in two specific objectives with regard to sanitation services. They are: (i) investigate the normative references, the doctrine and jurisprudence of the Supreme Court apply to the question, (ii) evaluate the ownership of the sanitation services in metropolitan areas.					<B>Objectives</B>: The academic purpose of this is aimed at answering mode mediate the following question: who is responsible for the sanitation of public service basics in metropolitan areas? The overall objective unfolds in two specific objectives with regard the sanitation service. They are: (i) investigate the normative references, the doctrine and jurisprudence of the Supreme Court apply to the question, evaluating the model implemented to provide public service sanitation suits protection guidelines of the interests of users and (ii) evaluate the ownership of the sanitation services in regions metropolitan in order to see how the legal rules can serve as element to generate the need for convergence of interests between the various entities involved.					<B>Methods</B>: The method being used focuses on consulting the following sources: regulatory frameworks that apply to the question to be examined; doctrine review on the subject and, finally, jurisprudence analysis on the subject.					<B>Results</B>: 					<B>Conclusion</B>: 				</P>
-			</div><B>Keywords</B>: Public service, sanitation</td>
+			</div><B>Keywords</B>: Public service. sanitation</td>
 		</tr>
 	</table>
 	<BR>

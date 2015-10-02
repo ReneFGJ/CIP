@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>MURARO, A. A.; BRIGHENTI, A. Perfil dos “padres novos” no estado do Paraná segundo jovens de organizações eclesiais. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO40.</td>
+			<td colspan=2>MURARO, A. A.; BRIGHENTI, A. Perfil dos “padres novos” no Estado do Paraná segundo jovens de organizações eclesiais. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. TEO40.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,7 +12,7 @@
 				<br><b>Teologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Perfil dos “padres novos” no estado do Paraná segundo jovens de organizações eclesiais</b></font>
+			<td align="center"><font class="lt5"><b>Perfil dos “padres novos” no Estado do Paraná segundo jovens de organizações eclesiais</b></font>
 			<BR>
 			<font class="lt4"><i>Profile of "new priests" in Paraná state second youth church organizations</i></font>
 			<BR>

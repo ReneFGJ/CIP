@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>FANHANI, M.; ORLANDI, T. Legislações e políticas públicas existentes sobre o gerenciamento de resíduos sólidos no município de Toledo, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIResp33.</td>
+			<td colspan=2>FANHANI, M.; ORLANDI, T. Legislações e políticas públicas existentes sobre o gerenciamento de resíduos sólidos no município de toledo, pr. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIResp33.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Direitos Especiais</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Legislações e políticas públicas existentes sobre o gerenciamento de resíduos sólidos no município de Toledo, PR</b></font>
+			<td align="center"><font class="lt5"><b>Legislações e políticas públicas existentes sobre o gerenciamento de resíduos sólidos no município de toledo, pr</b></font>
 			<BR>
-			<font class="lt4"><i>Legislation and public policy and existing on the solid waste management in Toledo, PR city in western Paraná</i></font>
+			<font class="lt4"><i>Legislation and public policy existing on the solid waste management in toledo, pr city in western Paraná</i></font>
 			<BR>
 			</td>
 		</tr>

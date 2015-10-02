@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>POZZOLO, G. A.; RAUH, L. K. Estudos preliminares da ação anti-inflamatória tópica do Cranberry [e]lt;I[e]rt;Vaccinium macrocarpon[e]lt;/I[e]rt; em modelo de inflamação cutânea. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FARM1.</td>
+			<td colspan=2>POZZOLO, G. A.; RAUH, L. K. Estudos preliminares da ação anti-inflamatória tópica do cranberry [e]lt;i[e]rt;vaccinium [e]lt;i[e]rt;macrocarpon[e]lt;/i[e]rt;[e]lt;/i[e]rt; em modelo de inflamação cutânea. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. FARM1.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Farmacologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Estudos preliminares da ação anti-inflamatória tópica do Cranberry [e]lt;I[e]rt;Vaccinium macrocarpon[e]lt;/I[e]rt; em modelo de inflamação cutânea</b></font>
+			<td align="center"><font class="lt5"><b>Estudos preliminares da ação anti-inflamatória tópica do cranberry [e]lt;i[e]rt;vaccinium [e]lt;i[e]rt;macrocarpon[e]lt;/i[e]rt;[e]lt;/i[e]rt; em modelo de inflamação cutânea</b></font>
 			<BR>
-			<font class="lt4"><i>Preliminary studies of topical anti- inflammatory action of Cranberry [e]lt;/I[e]rt;Vaccinium macrocarpon[e]lt;I[e]rt; in skin inflammation  model</i></font>
+			<font class="lt4"><i>Preliminary studies of topical anti- inflammatory action of cranberry [e]lt;/i[e]rt;vaccinium [e]lt;i[e]rt;macrocarpon[e]lt;/i[e]rt;[e]lt;i[e]rt; in skin inflammation  model</i></font>
 			<BR>
 			</td>
 		</tr>

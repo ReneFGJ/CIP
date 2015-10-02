@@ -80,7 +80,7 @@ A princípio, procuramos fundamentar a nossa pesquisa escolhendo previamente as o
 
 
 At first, we try to support our research beforehand choosing whose works which would help us in the investigation of the tension between skeptical thinking represented by David Hume and classical thought (metaphysical) represented by Aristotle. For this, we employ of the authors cited above. Required was also reading works that clarify the Enlightenment context and its influence on such, became willing to reading accompanied commentators performing fichamentos that allowed us to have a greater understanding of that context.					<B>Results</B>: In addition to a greater understanding of Humean thought and the Aristotelian, the acquired results provide us with a greater understanding of the very way the contemporary (influenced by Enlightenment thought) understand the reality.					<B>Conclusion</B>: In conclusion, we emphasize the breadth and the scope of Aristotelian thought at the expense of the Humean thought constituency to that already explained by classical philosophy. David Hume during the preparation of its epistemology, appropriates disputed elements by their own fundamentals, making metaphysics survive even in a skeptical said system.				</P>
-			</div><B>Keywords</B>: Hume, Aristotle, skepticism, metaphysics</td>
+			</div><B>Keywords</B>: Hume. Aristotle. skepticism. metaphysics</td>
 		</tr>
 	</table>
 	<BR>

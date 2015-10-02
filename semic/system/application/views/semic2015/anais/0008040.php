@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SCHUARCA, R. L.; MARTIM, E. Otimização das condições operacionais de um reator PRF. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. iEQ2.</td>
+			<td colspan=2>SCHUARCA, R. L.; MARTIM, E. Otimização das condições operacionais de um reator prf. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. iEQ2.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Engenharia Química</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Otimização das condições operacionais de um reator PRF</b></font>
+			<td align="center"><font class="lt5"><b>Otimização das condições operacionais de um reator prf</b></font>
 			<BR>
-			<font class="lt4"><i>Optimization of operating conditions of a PFR reactor</i></font>
+			<font class="lt4"><i>Optimization of operating conditions of a pfr reactor</i></font>
 			<BR>
 			</td>
 		</tr>

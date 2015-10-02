@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>PEREIRA, R. L. C. S.; SILVA NETO, U. X. Avaliação do efeito do uso do hidróxido de cálcio comomedicação intracanal no selamento apical dos cimentosobturadores AH plus e fillapex. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ODO36.</td>
+			<td colspan=2>PEREIRA, R. L. C. S.; SILVA NETO, U. X. Avaliação do efeito do uso do hidróxido de cálcio comomedicação intracanal no selamento apical dos cimentosobturadores ah plus e fillapex. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. ODO36.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Odontologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Avaliação do efeito do uso do hidróxido de cálcio comomedicação intracanal no selamento apical dos cimentosobturadores AH plus e fillapex</b></font>
+			<td align="center"><font class="lt5"><b>Avaliação do efeito do uso do hidróxido de cálcio comomedicação intracanal no selamento apical dos cimentosobturadores ah plus e fillapex</b></font>
 			<BR>
-			<font class="lt4"><i>Evaluation of calcium hydroxide effect on sealing ability of AHPlus and MTA Fillapex sealers</i></font>
+			<font class="lt4"><i>Evaluation of calcium hydroxide effect on sealing ability of ahplus and mta fillapex sealers</i></font>
 			<BR>
 			</td>
 		</tr>

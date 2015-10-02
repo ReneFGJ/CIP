@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SILVA, A. V. L. M.; RIBEIRO, L. A. P. O jovem e a crise do desemprego no conteXto da globalização na europa. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIRpr9.</td>
+			<td colspan=2>SILVA, A. V. L. M.; RIBEIRO, L. A. P. O jovem e a crise do desemprego no contexto da globalização na europa. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIRpr9.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,10 +12,10 @@
 				<br><b>Direito Privado</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>O jovem e a crise do desemprego no conteXto da globalização na europa</b></font>
+			<td align="center"><font class="lt5"><b>O jovem e a crise do desemprego no contexto da globalização na europa</b></font>
 			<BR>
 			<font class="lt4"><i>The young and the employment crisis in the
-conteXt of globalization in europe</i></font>
+context of globalization in europe</i></font>
 			<BR>
 			</td>
 		</tr>
@@ -57,7 +57,7 @@ desemprego entre os jovens no continente alarmam para a tendência global de
 reconfiguração das formas, relações e dificuldades a serem encontradas no
 mercado de trabalho. Em vista da crise financeira, o desemprego parece emergir
 como uma dívida inesperada a ser paga pela juventude presente e futura.				</P>
-			</div><B>Palavras-chave</B>: Globalização econômica; Precarização; Crise financeira; Desemprego juvenil.			<BR>
+			</div><B>Palavras-chave</B>: Globalização econômica. Precarização. Crise financeira. Desemprego juvenil.			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
@@ -72,7 +72,7 @@ has contributed to the concretion of financial collapses, which once represented
 mere risks. The transitioning global context and the financial crisis that has
 stricken the European continent in 2008 lead to an increase in the unemployment
 rate, especially among the youth.					<B>Objectives</B>: In this context, the present research project aims to analyze this job scarcity scenario, which has been increasing since the advent of the financial crisis and emerging of other changes due to globalization.					<B>Methods</B>: In order to meet such objectives, it is suggested to start from singular approaches referring to the theme, and develop further the proposed analysis.					<B>Results</B>: Besides having to deal with a depreciation of human assets and with the straining of job offers, due to the work environment transformations, young people also have to face their natural fragility before the job market. Such fragility translates in the resistance to employ youths due to their young age and lack of experience, which in turn leads to their placement in precarious jobs and consequent discouraging, low future perspectives and the eminent risk of social exclusion.					<B>Conclusion</B>: The increase in youth unemployment rates in Europe, alert to the global trend of shifting of forms, relations and difficulties to be faced in the job market. In view of the financial crisis, unemployment seems to emerge as an unexpected debt inherited and to be paid by the present and future youth.				</P>
-			</div><B>Keywords</B>: Economic globalization; job insecurity; financial crisis; youth unemployment.</td>
+			</div><B>Keywords</B>: Economic globalization. job insecurity. financial crisis. youth unemployment.</td>
 		</tr>
 	</table>
 	<BR>

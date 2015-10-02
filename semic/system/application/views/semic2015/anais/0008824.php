@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>DIAS, G. F.; AMARAL, A. N. M. Efeito do P-cresilsulfato na indução de eriptose. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. IMU2.</td>
+			<td colspan=2>DIAS, G. F.; AMARAL, A. N. M. Efeito do p-cresilsulfato na indução de eriptose. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. IMU2.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Imunologia</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Efeito do P-cresilsulfato na indução de eriptose</b></font>
+			<td align="center"><font class="lt5"><b>Efeito do p-cresilsulfato na indução de eriptose</b></font>
 			<BR>
-			<font class="lt4"><i>P-Cresil sulfate effect in inducing eryptosis</i></font>
+			<font class="lt4"><i>P-cresil sulfate effect in inducing eryptosis</i></font>
 			<BR>
 			</td>
 		</tr>

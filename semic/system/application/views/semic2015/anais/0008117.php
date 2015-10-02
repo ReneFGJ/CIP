@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>JANUÁRIO, P. F. H.; ROSA, R. L. Perfil da gestão do programa segundo tempo no município de São José dos Pinhais, PR. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EF25.</td>
+			<td colspan=2>JANUÁRIO, P. F. H.; ROSA, R. L. Perfil da gestão do programa segundo tempo no município de são josé dos pinhais, pr. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. EF25.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Educação Física</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Perfil da gestão do programa segundo tempo no município de São José dos Pinhais, PR</b></font>
+			<td align="center"><font class="lt5"><b>Perfil da gestão do programa segundo tempo no município de são josé dos pinhais, pr</b></font>
 			<BR>
-			<font class="lt4"><i>The second time program management profile in the city of São José dos Pinhais, PR</i></font>
+			<font class="lt4"><i>The second time program management profile in the city of são josé dos pinhais, pr</i></font>
 			<BR>
 			</td>
 		</tr>

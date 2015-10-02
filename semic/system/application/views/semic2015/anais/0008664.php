@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		OLIVEIRA, Mara Freitas de<sup>1</sup>; SOUZA, Clayton Fernandes de<sup>2</sup>; SILVEIRA, Joana Léa Meira<sup>3</sup>; VALENGA, Francine<sup>4</sup>; BARBIERI, Shayla Fernanda<sup>5</sup>; LUCYSZYN, Neoli<sup>6</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

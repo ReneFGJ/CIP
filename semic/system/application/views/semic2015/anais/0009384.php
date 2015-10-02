@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>BRUSCH, W.; LIMA, A. M. S. Afonso Henriques: a construção de uma imagem de monarca ideal a partir da obra: crônica de Portugal de 1419. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. HIS17.</td>
+			<td colspan=2>BRUSCH, W.; LIMA, A. M. S. Afonso henriques: a construção de uma imagem de monarca ideal a partir da obra: crônica de portugal de 1419. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. HIS17.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>História</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Afonso Henriques: a construção de uma imagem de monarca ideal a partir da obra: crônica de Portugal de 1419</b></font>
+			<td align="center"><font class="lt5"><b>Afonso henriques: a construção de uma imagem de monarca ideal a partir da obra: crônica de portugal de 1419</b></font>
 			<BR>
-			<font class="lt4"><i>Afonso Henriques : the construction of an ideal monarch image from: cronica de 1419 de Portugal</i></font>
+			<font class="lt4"><i>Afonso henriques: the construction of an ideal monarch image from:  portugal chronicle from 1419.</i></font>
 			<BR>
 			</td>
 		</tr>

@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>FERNANDES, M. C. P.; VOLPE, F.; FAGUNDES, O.; STAICHOK, C.; MOCELIN, M.; AULER, F. Consumo alimentar de atletas de artes marciais combinadas (MMA). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. NUT19.</td>
+			<td colspan=2>FERNANDES, M. C. P.; VOLPE, F.; FAGUNDES, O.; STAICHOK, C.; MOCELIN, M.; AULER, F. Consumo alimentar de atletas de artes marciais combinadas (mma). In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. NUT19.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Nutrição</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Consumo alimentar de atletas de artes marciais combinadas (MMA)</b></font>
+			<td align="center"><font class="lt5"><b>Consumo alimentar de atletas de artes marciais combinadas (mma)</b></font>
 			<BR>
-			<font class="lt4"><i>Nutritional profile of atheles Mixed Martial Arts (MMA)</i></font>
+			<font class="lt4"><i>Nutritional profile of atheles mixed martial arts (mma)</i></font>
 			<BR>
 			</td>
 		</tr>

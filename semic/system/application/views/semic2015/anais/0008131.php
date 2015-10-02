@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>SANTOS, A. F. A. D.; KUSMA, S. Z.; SAID, M. E. S.; WOIDELLO, A.; TANNOUS, L. A. Análise de pedidos de vaga em UTI em um Centro Municipal de Urgências Médicas. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED90.</td>
+			<td colspan=2>SANTOS, A. F. A. D.; KUSMA, S. Z.; SAID, M. E. S.; WOIDELLO, A.; TANNOUS, L. A. Análise de pedidos de vaga em uti em um centro municipal de urgências médicas. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MED90.</td>
 			<td width="100" align="right" rowspan=2>
 				Pôster				<br>
 				<img src="<?php echo base_url('img/semic/icone-poster-grad.png');?>" title="Pôster">
@@ -12,9 +12,9 @@
 				<br><b>Medicina</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Análise de pedidos de vaga em UTI em um Centro Municipal de Urgências Médicas</b></font>
+			<td align="center"><font class="lt5"><b>Análise de pedidos de vaga em uti em um centro municipal de urgências médicas</b></font>
 			<BR>
-			<font class="lt4"><i>Analysis of Vacancy in UTI in a  Municipal Emergency Medical Center</i></font>
+			<font class="lt4"><i>Analysis of vacancy in uti in a  municipal emergency medical center</i></font>
 			<BR>
 			</td>
 		</tr>

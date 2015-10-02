@@ -60,7 +60,7 @@ de ações pastorais que possam ser mais efetivas no processo de formação
 religiosa com a juventude e adolescência. Essas ações pastorais precisam 
 ocorrer numa dimensão eclesial e ao mesmo tempo através de um trabalho 
 ecumênico.				</P>
-			</div><B>Palavras-chave</B>: Adolescência, espiritualidade, modernidade liquida,  hiperconsumo			<BR>
+			</div><B>Palavras-chave</B>: Adolescência. espiritualidade. modernidade liquida.  hiperconsumo			<BR>
 			<BR>
 			</td><td width="2%">&nbsp;</td><td width="44%"> Abstract
 			<div style="text-align:justify;">
@@ -69,7 +69,7 @@ ecumênico.				</P>
 Identify the sociocultural transformations of contemporary society given as "liquid", "fragmented", "individualistic" in the structuring of spiritual identity in adolescence;
 Examine the influences of modernity in the current increase in adolescent and youth religious mentality;
 Reflect on the religious role of adolescents, and hence of young people, with the help of the positive aspects that modernity can offer.					<B>Methods</B>: For this research we seek to employ a methodology that encompasses both the bibliographical research as the field work, in the sense that we aim for mutual scientific completion, the data collected the contribution of source works presented as literature					<B>Results</B>: In this study we observed some graphics that express an overview of the religious experience of adolescents in the city of Cornelius. These charts are the result of an anonymous questionnaire carried out in two schools and two youth groups of that city, who gathered a total of 57 respondents.					<B>Conclusion</B>: In this perspective, this research points to possible ways in pastoral horizon of work with young people and adolescents. From the statistical survey results we obtained results that showed a line of situational reality of the city of Cornelius, with the theoretical background of the authors who make up the bibliographic database of this research. This situation analysis, the possible see the urgent need for pastoral action that may be more effective in the religious formation process with youth and adolescence. These actions need to occur in a pastoral ecclesial dimension and at the same time through an ecumenical work.				</P>
-			</div><B>Keywords</B>: Adolescence, spirituality, liquid modernity, hyper.</td>
+			</div><B>Keywords</B>: Adolescence. spirituality. liquid modernity. hyper.</td>
 		</tr>
 	</table>
 	<BR>

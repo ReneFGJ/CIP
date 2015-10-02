@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>IACHINSKI, E. A.; ANATER, A.; BARBOSA, C. K.; ARAÚJO, C. M. T. D.; ROCHA, D. C. C.; RIBEIRO, D. R.; RÉGIO, R. R.; SOARES, R.; PIMPAO, C. T. Avaliação dos efeitos deletérios causados por diferentes concentrações de aflatoxina b1 em jundiás ([e]lt;i[e]rt;Rhamdia quelen[e]lt;/i[e]rt;), através de avaliações bioquímicas do sangue. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEDVET14.</td>
+			<td colspan=2>IACHINSKI, E. A.; ANATER, A.; BARBOSA, C. K.; ARAÚJO, C. M. T. D.; ROCHA, D. C. C.; RIBEIRO, D. R.; RÉGIO, R. R.; SOARES, R.; PIMPAO, C. T. Avaliação dos efeitos deletérios causados por diferentes concentrações de aflatoxina b1 em jundiás ([e]lt;i[e]rt;rhamdia quelen[e]lt;/i[e]rt;), através de avaliações bioquímicas do sangue. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. MEDVET14.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Medicina Veterinária</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Avaliação dos efeitos deletérios causados por diferentes concentrações de aflatoxina b1 em jundiás ([e]lt;i[e]rt;Rhamdia quelen[e]lt;/i[e]rt;), através de avaliações bioquímicas do sangue</b></font>
+			<td align="center"><font class="lt5"><b>Avaliação dos efeitos deletérios causados por diferentes concentrações de aflatoxina b1 em jundiás ([e]lt;i[e]rt;rhamdia quelen[e]lt;/i[e]rt;), através de avaliações bioquímicas do sangue</b></font>
 			<BR>
-			<font class="lt4"><i>Evaluation of the effects caused by different concentrations aflatoxin b1 in silver catfish ([e]lt;/i[e]rt;Rhamdia quelen[e]lt;i[e]rt;), by the blood biochemical analysis</i></font>
+			<font class="lt4"><i>Evaluation of the effects caused by different concentrations aflatoxin b1 in silver catfish ([e]lt;/i[e]rt;rhamdia quelen[e]lt;i[e]rt;), by the blood biochemical analysis</i></font>
 			<BR>
 			</td>
 		</tr>

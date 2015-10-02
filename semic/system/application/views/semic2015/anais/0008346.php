@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		BASSEGIO, Chaiane<sup>1</sup>; EMMEL, Eduarda Cristina<sup>2</sup>; MALAGGI, Paola Baltazar<sup>3</sup>; FOGAÁA, Luciana Alves<sup>4</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>

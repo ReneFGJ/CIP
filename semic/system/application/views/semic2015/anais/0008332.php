@@ -1,7 +1,7 @@
 <div id="trabalho">
 	<table width="100%" border=0>
 		<tr valign="top">
-			<td colspan=2>COLTRO, L. A.; SOUZA FILHO, C. F. M. Efetividade e consequências da aplicação da consulta previa prevista na convenção 169/OIT. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIResp3.</td>
+			<td colspan=2>COLTRO, L. A.; SOUZA FILHO, C. F. M. Efetividade e consequências da aplicação da consulta previa prevista na convenção 169/oit. In: SEMIC, Seminário de Iniciação Científica, 23, 2015, Curitiba-PR. Anais do 23º Seminário de Iniciação Científica. Curitiba: PUCPR, 2015. p. DIResp3.</td>
 			<td width="100" align="right" rowspan=2>
 				Oral				<br>
 				<img src="<?php echo base_url('img/semic/icone-oral-grad.png');?>" title="Oral">
@@ -12,9 +12,9 @@
 				<br><b>Direitos Especiais</b></td>
 		</tr>
 		<tr>
-			<td align="center"><font class="lt5"><b>Efetividade e consequências da aplicação da consulta previa prevista na convenção 169/OIT</b></font>
+			<td align="center"><font class="lt5"><b>Efetividade e consequências da aplicação da consulta previa prevista na convenção 169/oit</b></font>
 			<BR>
-			<font class="lt4"><i>Convention 169 ILO:  prior and informed participation in Latin America</i></font>
+			<font class="lt4"><i>Convention 169 ilo:  prior and informed participation in latin america</i></font>
 			<BR>
 			</td>
 		</tr>

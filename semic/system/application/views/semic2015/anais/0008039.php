@@ -22,7 +22,7 @@
 	<br>
 	<div style="text-align:right;">
 		LUNG, Alicia<sup>1</sup>; MARTIM, Emerson<sup>2</sup>		<BR>
-		PIBIC		- Bolsa CNPq-PIBITI		<BR>
+		PIBITI		- Bolsa CNPq-PIBITI		<BR>
 		<I>--</I>
 	</div>
 	<BR>
