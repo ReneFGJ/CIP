@@ -13,76 +13,76 @@
 	}
 </style>
 <!--Bloco Programacao cultural   -->
-<h1 > PROGRAMAÇÃO PUCPR CULTURAL</h1>
+<h1 > PUCPR CULTURAL PROGRAM </h1>
 <div align="left">
 	<p>
-		<b>ABERTURA</b>
+	<b>OPENING</b>
 		<br />
-		PARTICIPAÇÃO PERFOMÁTICA DO CORAL CHAMPAGNAT DA PUCPR	SOB A REGÊNCIA DA MAESTRINA <b>ROSEMERI PAESE</b>
+		Performative participation of Champagnat Choir of PUCPR	under the regency of Conductor <b>ROSEMERI PAESE</b>
 	</p>
 	<p>
-		<b>Participações Especiais:</b> Professores músicos <b>Marcelo Mira, Rodrigo Reis, Adriano Akira</b> e <b>Eduardo Scheeren</b>.
+		<b>Special Participation:</b> Teachers and mausicians <b>Marcelo Mira, Rodrigo Reis, Adriano Akira</b> e <b>Eduardo Scheeren</b>.
 		<br />
 		<br />
-		<b>Local:</b> Auditório TUCA - Bloco azul, térreo - PUCPR
+		<b>Local:</b> Theatre TUCA - blue block, downstairs - PUCPR
 		<br />
 		<ul>
 			<li>
-				06/10 terça-feira - 8h30
+				October, 6th - Tuesday - 8h30 
 			</li>
 		</ul>
 	</p>
 	<br />
 	<br />
 	<p>
-		<b>TRANSCENDENDO NA ESTRELA - CONSTELAÇÕES SISTÊMICAS NA CASA ESTRELA</b>
+		<b>TRANSCENDING THE STAR - SYSTEMIC CONSTELLATIONS AT "CASA ESTRELA"</b>
 		<br />
-		VIVÊNCIA GRUPAL CONDUZIDA PELAS CONSTELADORAS <b>MARUSA HELENNA DA GRAÇA</b> E <b>VERA BOEING</b> NA <b>CASA ESTRELA</b>, O LOCAL MÁGICO NO MARCO ZERO DO CAMPUS DA PUCPR.
+		Group experience led by <b>MARUSA HELENNA DA GRAÇA</b> and <b>VERA BOEING</b> in the  <b>"Casa Estrela"</b>(Star house), the magical place at ground zero of PUCPR campus.
 	</p>
 	<p align="justify">
-		Com o tema <b> "Um Lugar para os Excluídos - Somos Todos Um"</b>, a vivência é baseada nos conceitos e na técnica de <b>Bert Hellinger</b>, o criador das Constelações Familiares.
+		With the theme <b> "A Place to the excluded - We Are All One"</b>,  the Experience is based on the concepts and techniques of<b>Bert Hellinger</b>, the creator of Family Constellations.
 	</p>
 	<p align="justify">
-		<b>Marusa Gonçalves</b> e <b>Vera Boeing</b> são nomes locais de referência no Brasil em Constelações Sistêmicas.
+		<b>Marusa da Graça</b> and <b>Vera Boeing</b> are reference local names in Brazil in Systemic Constellations.
 	</p>
 	<p>
-		Sessões com duração de 90 minutos.
+		Sessions (lasting 90 minutes)
 		<br/>
 		<br />
 		<b>Local:</b> Casa Estrela - PUCPR
 	</p>
 	<ul>
 		<li>
-			06/10 - terça-feira  - 14h
+			October 6th  - Tuesday ? 2pm
 		</li>
 		<li>
-			07/10 - quarta-feira - 9h
+			October 7th  - Wednesday - 9am
 		</li>
 	</ul>
 	<p>
-		Inscrições e retirada de ingressos no Credenciamento (40 vagas por sessão)
+		Registration and withdrawal of tickets (40 seats per session)
 	</p>
 	<br />
 	<br />
 	<p>
 		<b>DO ERUDITO AO POPULAR - CONCERTO DA ORQUESTRA DA PUCPR</b>
 		<br />
-		SOB A REGÊNCIA DO MAESTRO PAULO TORRES.
+		under the direction of MAESTRO PAULO TORRES.
 	</p>
 	<p align="justify">
-		A apresentação didática vai mostrar os grandes compositores dos períodos Barroco, Clássico, Romântico e Moderno em ordem cronológica.
+		The didactic presentation will show the development throughout history of a large symphony orchestra and the great composers of Baroque period, Classical, Romantic and Modern chronologically.
 	</p>
 	<p>
 		<br />
-		<b>Local:</b> Apresentação no Auditório TUCA - Bloco azul, térreo - PUCPR
+		<b>Local:</b> Presentation at TUCA- PUCPR´s Theatre
 		<br />
 		<ul>
 			<li>
-				06/10 terça-feira - 15h
+				October 6th  - Tuesday – 3pm
 			</li>
 		</ul>
 	<p>
-		Não é necessário retirar ingresso (lotação do TUCA: 500 lugares)
+		It is not necessary to withdraw tickets (capacity of TUCA: 500 seats)
 	</p>
 </div>
 <br />
@@ -91,7 +91,7 @@
 	<b>CASA ESTRELA</b>
 </p>
 <p align="justify">
-	A <b><a class="screenshot" rel="<?php echo base_url('img/semic2015/casa_estrela_2.jpg');?>" title="Casa Estrela PUCPR - patrimônio da Arquitetura local, restaurada e reedificada pela PUCPR">Casa Estrela</a></b>, patrimônio da Arquitetura local, restaurada e reedificada pela PUCPR, única no mundo por sua peculiaridade na intenção da forma, foi construída manualmente em madeira por Augusto Gonçalves de Castro (perito contador) e sua esposa Dionízia Azulay no início da década de 30. A família Castro era Esperantista, Teosofista e adepta da Fraternidade Universal.
+	The <b><a class="screenshot" rel="<?php echo base_url('img/semic2015/casa_estrela_2.jpg');?>" title="Casa Estrela PUCPR - Heritage of local architecture, restored and rebuilt by PUCPR, ">Casa Estrela</a></b>, heritage of local architecture, restored and rebuilt by PUCPR, unique in the world for its uniqueness in the intention of form, was manually built in wood by Augusto Gonçalves de Castro (counter expert) and his wife Dionízia Azulay in the early 30´s. The Castro family was Esperanto expert, Theosophist and supporter of Universal Brotherhood.
 </p>
 <div >
 	<table width="1024" align="center">
@@ -101,7 +101,7 @@
 			<img src="<?php echo base_url('img/semic2015/casa_estrela_1.png');?>" style="height:300; border=1px; solid;  border-radius:10px; border-color:#84847F;"></td>
 		</tr>
 		<tr>
-			<td class="lt01" align="left"><h5>Vista frontal e interior da Casa Estrela</h5></td>
+			<td class="lt01" align="left"><h5>Front and inside the Casa Estrela</h5></td>
 		</tr>
 	</table>
 </div>
@@ -119,7 +119,7 @@
 </div>
 
 <div id="toTop" style="display: none;">
-	^ Voltar ao topo
+	^ Back to the top
 </div>
 <!-- Tooltipi do mapa  -->
 <script type="text/javascript" src="./Simple Tooltips w  CSS & jQuery   Tutorial by Soh Tanaka_files/jquery.min.js"></script>

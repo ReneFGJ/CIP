@@ -43,7 +43,7 @@
 		Com o tema <b> "Um Lugar para os Excluídos - Somos Todos Um"</b>, a vivência é baseada nos conceitos e na técnica de <b>Bert Hellinger</b>, o criador das Constelações Familiares.
 	</p>
 	<p align="justify">
-		<b>Marusa Gonçalves</b> e <b>Vera Boeing</b> são nomes locais de referência no Brasil em Constelações Sistêmicas.
+		<b>Marusa da Graça</b> e <b>Vera Boeing</b> são nomes locais de referência no Brasil em Constelações Sistêmicas.
 	</p>
 	<p>
 		Sessões com duração de 90 minutos.
