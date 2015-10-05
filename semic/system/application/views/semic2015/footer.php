@@ -19,6 +19,7 @@
 				<BR>
 				<a HREF="<?php echo base_url('index.php/semic/contact');?>" class="link_foot"><?php echo msg('contact_system');?></a>
 			</td>
+			
 			<!--Div Apoio -->
 			<td width="25%" ><b><?php echo msg('apoio');?></b>
 				<br>
@@ -27,9 +28,17 @@
 					<a href="http://cienciaefe.pucpr.br/" target="_new"> 
 						<img src="<?php echo base_url('img/semic2015/logo_cf.png');?>" height="40" border=0> </a>
 						&nbsp;
+						
 					<a href="http://www.solmarista.org.br/" target="_new"> 
 						<img src="<?php echo base_url('img/semic2015/marista_rede.png');?>" height="50" border=0> 
-					</a> 
+					</a>
+					&nbsp;
+					
+					<a href="http://www.parafusoeducom.org" target="_new"> 
+						<img src="<?php echo base_url('img/semic2015/logoparafuso.png');?>" height="40" border=0> 
+					</a>
+					
+					
 					<!--
 					&nbsp;&nbsp; 
 					<a href="http://www.centrodedefesa.org.br/" target="_new"> 
