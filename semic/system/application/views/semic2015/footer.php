@@ -38,7 +38,6 @@
 						<img src="<?php echo base_url('img/semic2015/logoparafuso.png');?>" height="40" border=0> 
 					</a>
 					
-					
 					<!--
 					&nbsp;&nbsp; 
 					<a href="http://www.centrodedefesa.org.br/" target="_new"> 

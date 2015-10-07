@@ -20,6 +20,10 @@
 		margin-bottom:5px; 
 	}
 	
+	.left{	
+		height: 50px;;
+	}	
+	
 </style>
 
 <div id="programacao-info">
@@ -151,6 +155,9 @@
 					<br />
 					<strong>Local: </strong> Auditório Gregor Mendel 
 					<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_verde.png');?>" title="Auditório Gregor Mendel - CCBS - Bloco Verde - Térreo"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>" /></a>
+
+					<strong>Material: </strong> <a href="<?php echo base_url('documents/Mini_Curso_Redacao_cientifica_PUCPR_SEMIC2015_Aula 1.pdf');?>" target="_blank" title="PDF do Material do curso"><img class="left" src="<?php echo base_url('img/semic2015/pdf-icon.png');?> " /></a>
+					
 					<span class="tooltip-content clearfix"> 
 						<span class="tooltip-text"> <b>Parte I:</b>
 							<br />
@@ -206,7 +213,7 @@
 					<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_verde.png');?>" title="Auditório Gregor Mendel - CCBS - Bloco Verde - Térreo"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>" /></a>
 					<span class="tooltip-content clearfix"> 
 					<span class="tooltip-text"><b>Participantes:</b> 
-					<br /> Prof. Dr. George Galindo <small><i>(UNB)</i></small> e Profa. Dra. Maria Isabel Chysóstomo <small><i>(UFV).</i></small>
+					<br /> Prof. Dr. George Galindo <small><i>(UNB)</i></small>, Profa. Dra. Maria Isabel Chysóstomo <small><i>(UFV)</i></small> e Prof. Dr. Rene Alfonso Castro Berardi <small><i>(PUCPR, doutor em Sociologia , professor da Escola de Negócios e membro do Núcleo de Direitos Humanos da PUCPR).</i></small>
 			</p>
 			</span>
 			</span>
