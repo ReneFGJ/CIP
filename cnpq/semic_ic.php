@@ -28,25 +28,11 @@ $menu = array();
 if (date("m") >= 10)
 	{
 		array_push($menu,array('SEMIC','Site do SEMIC','http://www.pucpr.br/semic" target="_new'));
+		array_push($menu,array('SEMIC','Trabalhos apresentados no SEMIC (CNPq)','semic_trabalhos_cnpq.php?dd1='.$moda));
 		array_push($menu,array('SEMIC','Trabalhos apresentados no SEMIC','semic_trabalhos.php?dd1='.$moda));
-		array_push($menu,array('SEMIC','Avaliação dos trabalhos','semic_notas.php'));
-		array_push($menu,array('SEMIC','Vinculos Protocolos / SEMIC','semic_apresentacao.php'));		
-	} else {
-		if ($moda == 'PIBITI')
-			{
-				array_push($menu,array('Edital de aprovação','Aprovados com bolsa CNPq','edital.php?dd0=B&dd1='.$moda.'&dd2='.date("Y")));		
-			} else {
-				if ($moda == 'PIBICE') {
-					array_push($menu,array('Edital de aprovação','Aprovados com bolsa CNPq','edital.php?dd0=H&dd1='.$moda.'&dd2='.date("Y")));	
-				} else {
-					array_push($menu,array('Edital de aprovação','Aprovados com bolsa CNPq','edital.php?dd0=C&dd1='.$moda.'&dd2='.date("Y")));
-				}
-				
-			}
-		array_push($menu,array('Edital de aprovação','Relação dos projetos submetidos em '.$ano,'edital.php?dd0=&dd1='.$moda.'&dd2='.date("Y")));
-		array_push($menu,array('Edital de aprovação','Projetos não aprovados','edital.php?dd0=R&dd1='.$moda.'&dd2='.date("Y")));		
+		array_push($menu,array('SEMIC','Avaliação dos trabalhos','semic_notas.php'));	
 	}
-array_push($menu,array('Avaliadores','Lista de avaliadores e avaliações','semic_avaliadores.php'));
+array_push($menu,array('Avaliadores','Lista de avaliadores','semic_avaliadores.php'));
 array_push($menu,array('Avaliadores','Notas dos avaliadores','semic_avaliadores_2.php'));
 echo menus($menu,"3");
 
