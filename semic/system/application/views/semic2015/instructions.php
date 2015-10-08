@@ -1,5 +1,12 @@
 <h1>NORMAS GERAIS PARA PARTICIPAÇÃO NO XXIII SEMIC</h1>
 <br />
+<br>
+<br>
+<a href="#" onclick="newwin2('https://cip.pucpr.br/index.php/semic/poster_localizacao/',800,600);">Localize seu pôster aqui!</a>
+<script>
+	function newwin2(url) {  NewWindow=window.open(url,'newwin','scrollbars=yes,resizable=yes,width=850,height=650,top=10,left=10');  NewWindow.focus(); void(0);}
+</script>
+</br>
 <h2>Orientações</h2>
 <div align="left" class="content-6">
 	<p align="justify">

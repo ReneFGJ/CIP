@@ -5,6 +5,14 @@ require ("cab_cnpq.php");
 require ($include . "sisdoc_menus.php");
 $estilo_admin = 'style="width: 200; height: 30; background-color: #EEE8AA; font: 13 Verdana, Geneva, Arial, Helvetica, sans-serif;"';
 
+$menua = array();
+array_push($menua,array('Sobre o Seminário o XXIII SEMIC','Panorama do evento','semic_about.php'));
+array_push($menua,array('Sobre o Seminário o XXIII SEMIC','Premiações do SEMIC','semic_premiacao.php'));
+array_push($menua,array('Programas','<font color="BLUE"><B>PIBIC</B></font>','semic_ic.php?dd0=PIBIC'));
+array_push($menua,array('Programas','<font color="BROWN"><B>PIBITI</B></font>','semic_ic.php?dd0=PIBITI'));
+array_push($menua,array('Programas','<font color="ORANGE"><B>PIBIC_EM (Jr)</B></font>','semic_ic.php?dd0=PIBICE'));
+
+
 /////////////////////////////////////////////////// MANAGERS
 
 echo '<h1>Inciação Científica (IC) da PUCPR</h1>';
@@ -36,7 +44,7 @@ array_push($menu, array('Programas', '<font color="ORANGE" class="lt3"><B>PIBIC_
 		<div style="width: 300px">
 		<br><br>
 		Prezado avaliador CNPq,<br><br>
-		Bem vindo ao processo de homologação do Edital 2015 PIBIC/PIBITI com vigência em 2015 e 2016.<br><br>
+		Bem vindo ao processo de avaliação do SEMIC do Edital 2014/2015 PIBIC/PIBITI.<br><br>
 		Organizamos ao lado um menu onde poderá ter acesso a diversas informações sobre o processo de submissão, avaliação e resultado final, bem como informações sobre a pesquisa na PUCPR. <br><br>
 		Em caso de dúvida não hesite em entrar em contato pelo e-mail <A href="mailto:cleybe.vieira@pucpr.br">cleybe.vieira@pucpr.br</A> ou diretamente com nossa equipe de Iniciação Científica pelos telefones (41) 3271-2112, 3271-1165 de segunda a sexta-feira das 08h00 as 18h00. <br><br>
 		<br><br>
@@ -53,7 +61,12 @@ array_push($menu, array('Programas', '<font color="ORANGE" class="lt3"><B>PIBIC_
 		</div>
 		</td>
 		<td style="border-right: 1px solid #333333;"></td>
-		<td><?php echo menus($menu, "3"); ?></td>
+		<td>
+			<h3>Sobre o XXIII SEMIC</h3>
+			<?php echo menus($menua, "3"); ?>
+			<h3>Inciação Científica (IC) da PUCPR</h3>
+			<?php echo menus($menu, "3"); ?>
+		</td>
 	</tr>
 </table>
 <?
