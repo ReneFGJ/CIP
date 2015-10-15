@@ -36,8 +36,6 @@ $lang['cab_expediente_01'] = 'Apoiadores do evento';
 $lang['about_system'] = 'Sobre o evento';
 $lang['contact_system'] = 'Contato com a organização';
 
-$lang['cwb'] = 'Ciência sem Fronteiras';
-
 $lang['programmation'] = 'Programação';
 $lang['casaestrela'] = 'Casa Estrela';
 $lang['link_semic'] = 'SEMIC';
