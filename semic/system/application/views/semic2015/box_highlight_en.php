@@ -5,4 +5,5 @@
 	<a href="<?php echo base_url('index.php/semic/whats_semic');?>" class="readmore"><?php echo msg('read_more');?></a>
 	</div>	
 </div>
+
 <BR>

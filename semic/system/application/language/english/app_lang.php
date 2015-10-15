@@ -10,6 +10,7 @@ function msg($t)
 				return($t);
 			}
 	}
+	
 $lang['versao'] = 'v0.15.25';
 
 /* Formulário de consulta */

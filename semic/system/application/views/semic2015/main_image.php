@@ -19,6 +19,7 @@ $tempo = ($temp1 - $temp2 );
 					<td width="100" bgcolor="#EDF3E5">
 						<font class="lt6">Faltam</font><br>
 						<br>
+						
 						<script type="application/javascript">
 							var myCountdown2 = new Countdown({
 								time : <?php echo $tempo;?>,
