@@ -68,6 +68,19 @@ class semic extends Controller {
 		$box = array('text' => 'whats_semic', 'link');
 		$data['content'] = $this -> load -> view('semic2015/box_highlight', $box, true);
 		
+			$path = $_SERVER['CONTEXT_DOCUMENT_ROOT'];
+			$file = $path . '/semic/system/application/views/semic2015/anais/';
+			$file .=  'premiacao.php';
+			
+		if (file_exists($file))
+		{
+			/* Pagina apresentacao */
+			$data['content'] .= '<h1>Trabalhos Premiados - SEMIC 2015</h1>';
+			$data['content'] .= '<div class="premios">';
+			$data['content'] .= $this -> load -> view('semic2015/anais/premiacao', $data, true);
+			$data['content'] .= '</div>';
+		}
+
 		/* Pagina apresentacao */
 		$data['content'] .= $this -> load -> view('semic2015/presentation', $data, true);
 		

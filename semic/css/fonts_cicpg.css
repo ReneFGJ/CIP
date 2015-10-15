@@ -8,3 +8,11 @@
     src: url('font/cicpg-font-bold.woff?12345') format('woff'), url('font/cicpg-font-bold.ttf') format('truetype'), url('font/cicpg-font-bold.svg') format('svg');
     font-weight: bold
 }
+
+.premios
+	{
+		border: 1px solid #000000;
+		background-color: #fbf5db;
+		padding: 10px;
+		border-radius: 10px;
+	}
