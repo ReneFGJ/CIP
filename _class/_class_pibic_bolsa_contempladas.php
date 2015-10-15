@@ -173,6 +173,41 @@ function parecer_nao_entregues($ano)
 			//$mt['502'] = 'Necessidade de reavaliação';
 			$mt['502'] = 'Outros motivos';
 			return($mt);
+		}
+
+	function semic_mostra_trabalhos($p1,$p2='',$p3='',$p4='')
+		{
+			global $link;			
+				$wh = " and (pbt_edital = '$p1' )";
+				if (strlen($p3) > 0)
+					{
+						$wh .= " and (pb_tipo = '$p3') ";
+					}
+				$sql .= "select *
+							from ".$this->tabela." 
+							inner join pibic_bolsa_tipo on pbt_codigo = pb_tipo
+							inner join pibic_aluno on pb_aluno = pa_cracha 
+							inner join pibic_professor on pb_professor = pp_cracha
+							left join apoio_titulacao on ap_tit_codigo = pp_titulacao
+							where (pb_status <> 'C' and pb_ano = '".$p2."') 
+							$wh
+							order by pp_nome
+							";
+				$rlt = db_query($sql);
+				$sx = '';
+				$sx .= '<table width="100%" class="tabela01" border=0>';
+				$id = 0;
+				$xprof = '';
+				
+				while ($line = db_read($rlt))
+				{
+					$link = 'http://www2.pucpr.br/reol/cnpq/pibic_detalhe.php';
+					$id++;
+					$sx .= $this->mostra_registro($line);
+				}
+				$sx .= '<tr><td colspan=5><I>Total de '.$id.' projetos</I></td></tr>';
+				$sx .= '</table>';
+				return($sx);			
 		}	
 
 	function parecer_nao_entregues_areas_desagrupadas($ano)

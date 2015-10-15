@@ -1,5 +1,5 @@
 <hr size="5" width="100%" align="left" noshade>
-<h1><?php echo msg('presentation');?></h1>
+<h1>PRESENTATION</h1>
 <div >
 	<h2><strong>Scientific and Technological Initiation</strong></h2>
 	<p align="justify">

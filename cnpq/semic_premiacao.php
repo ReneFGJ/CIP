@@ -25,7 +25,7 @@ require("cab_cnpq.php");
 <table class="lt1">
 	<tr><td colspan=2><h3>PREMIAÇÃO DOS MELHORES TRABALHOS</h3></td></tr>
 	<tr>
-		<td><img src="arq/2015/rs_premio_PIBIC_2.png"></td>
+		<td><img src="arq/2015/rs_premio_PIBIC.png"></td>
 	</tr>
 	<tr>		
 		<td><img src="arq/2015/rs_premio_PIBITI.png"></td>		

@@ -22,7 +22,8 @@ if ($dd[1] == 'PIBITI')
 		echo '<h2>Bolsas Iniciação Tecnológica Voluntária</h2>';
 		echo $pb->semic_mostra_trabalhos($dd[1],date("Y")-1,'Y');
 	} else {
-		echo $pb->semic_mostra_trabalhos($dd[1],date("Y")-1);
+		echo '<h2>Bolsas CNPq</h2>';
+		echo $pb->semic_mostra_trabalhos($dd[1],date("Y")-1,'C');
 	}
 
 require("../foot.php");	

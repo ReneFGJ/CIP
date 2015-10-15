@@ -15,7 +15,7 @@ $tempo = ($temp1 - $temp2 );
 					<td><div id="banner">
 
 					</div></td>
-
+					<!--
 					<td width="100" bgcolor="#EDF3E5">
 						<font class="lt6">Faltam</font><br>
 						<br>
@@ -30,6 +30,7 @@ $tempo = ($temp1 - $temp2 );
 						<br><font class="lt6">para o XXIII SEMIC</font>						
 						</td>
 			</td>
+			-->
 		</tr>
 	</table>
 	<td width="20%" bgcolor="#EDF3E5">&nbsp;</td>
