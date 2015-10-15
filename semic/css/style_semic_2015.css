@@ -1,0 +1,98 @@
+.cloud_1
+	{
+		background-color: #dfdfff;
+		padding: 15px 15px 15px 15px;
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+.cloud_2
+	{
+		background-color: #ffdfdf;
+		padding: 15px 15px 15px 15px;
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+.cloud_3
+	{
+		background-color: #dfffdf;
+		padding: 15px 15px 15px 15px;
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+.trabalho_background
+	{
+		background-color: #dfffdf;
+	}
+.semic_status_0
+	{
+		background-color: #FFA500;		
+	}
+
+.semic_status_1
+	{
+		background-color: #FFA500;		
+	}	
+.semic_status_2
+	{
+		background-color: #dedede;		
+	}	
+
+.semic_lista_oral
+	{
+		padding: 20px;
+		border: 1px solid #000000;
+		border-radius: 10px;
+	}
+.form_submit
+	{
+		font-size: 22px;
+		padding: 3px 10px 3px 10px;
+	}
+.div_semic_nota
+{
+		float: right; 
+		color: #111111;
+		width: 80px;
+		border: 1px solid #333333;
+		border-radius: 10px;
+		padding: 5px 20px 5px 20px;
+		position:relative;
+		background-color: #FFC540;
+		cursor: pointer;
+		box-shadow: 3px 3px 2px #333333;
+		text-align: center;
+		margin-right: 20px;
+}	
+	
+.div_semic_avaliar
+	{
+		float: right; 
+		color: #111111;
+		width: 180px;
+		border: 1px solid #333333;
+		border-radius: 10px;
+		padding: 5px 20px 5px 20px;
+		position:relative;
+		background-color: #FFC540;
+		cursor: pointer;
+		box-shadow: 3px 3px 2px #333333;
+		text-align: center;
+	}
+
+.div_semic_avaliar:hover
+	{
+		background-color: #bF6500;
+		color: white;
+	}
+.form_tabela
+	{
+		font-size:22px;
+	}
+.form_radio
+	{
+		font-size:16px;
+	}
+.form_string
+	{
+		font-size:23px;
+	}

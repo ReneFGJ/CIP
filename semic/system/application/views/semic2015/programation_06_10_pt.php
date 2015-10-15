@@ -21,7 +21,7 @@
 	}
 	
 	.left{	
-		height: 40px;;
+		height: 50px;;
 	}	
 	
 </style>
