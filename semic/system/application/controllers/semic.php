@@ -244,23 +244,32 @@ class semic extends Controller {
 		$this -> load -> view('semic2015/main_image');
 		$data = array();
 
-		/* Programacao puc cultural */
+		if ($this -> idioma == 'en') {
+			/* Programacao puc cultural */
+		$data['content'] = $this -> load -> view('semic2015/edicoes-anteriores_en', NULL, true);
+		} else {
+			/* Programacao puc cultural */
 		$data['content'] = $this -> load -> view('semic2015/edicoes-anteriores', NULL, true);
+		}
 
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);
-
 		$this -> load -> view('semic2015/footer');
 	}
-	
+	 
 	//Pagina Expediente
 	function expedient() {
 		$this -> cab();
 		$this -> load -> view('semic2015/main_image');
 		$data = array();
 
+		if ($this -> idioma == 'en') {
+		/* Expediente */
+		$data['content'] = $this -> load -> view('semic2015/expedient_en', NULL, true);
+		} else {
 		/* Expediente */
 		$data['content'] = $this -> load -> view('semic2015/expedient', NULL, true);
+		}
 
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);
@@ -268,14 +277,20 @@ class semic extends Controller {
 		$this -> load -> view('semic2015/footer');
 	}
 	
-	//Pagina programacao
+	//Pagina programacao Cultural
 	function programmation_cult() {
 		$this -> cab();
 		$this -> load -> view('semic2015/main_image');
 		$data = array();
 
-		/* Expediente */
+		if ($this -> idioma == 'en') {
+		/* Programacao Cultural */
+		$data['content'] = $this -> load -> view('semic2015/programation_puc_cultural_en', NULL, true);
+		}else{
+		/* Programacao Cultural */
 		$data['content'] = $this -> load -> view('semic2015/programation_puc_cultural', NULL, true);
+		}
+
 
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);
