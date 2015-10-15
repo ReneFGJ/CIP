@@ -12,7 +12,6 @@ class semic extends Controller {
 		date_default_timezone_set('America/Sao_Paulo');
 	}
 
-
 	function cab() {
 	
 		if ($this -> idioma == 'en') {
