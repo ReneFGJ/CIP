@@ -31,7 +31,7 @@ class artigo
 				$sql = "select * from lattes_artigos 
 							left join lattes_journals on j_codigo = la_periodico 
 							left join cited_journals on j_issn = cj_issn and cj_issn <> ''
-							inner join pibic_professor on la_professor = pp_cracha
+							inner join pibic_professor on la_professor = pp_cracha and pp_ativo = 1
 							where cj_scimago = 'Q1' $wh
 							order by pp_nome,la_ano desc, id_la desc
 						";
@@ -42,7 +42,7 @@ class artigo
 				$xnome = '';
 				while ($line = db_read($rlt))
 					{
-						$issn = $line['cj_ano'].'-'.$line['cj_issn'];
+						$issn = $line['cj_issn'];
 						$nome = $line['pp_cracha'];
 						if ($nome != $xnome)
 							{
@@ -51,7 +51,7 @@ class artigo
 								$id++;
 								$sx .= '<TR>';
 								$sx .= '<TD>';
-								$sx .= $line['la_professor'];
+								$sx .= '<nobr>'.$line['la_professor'];
 								$sx .= '<TD>';
 								$sx .= $line['pp_nome'];
 								$sx .= '<TD>';
@@ -64,7 +64,7 @@ class artigo
 								$sx .= $line['pp_ativo'];
 								$xnome = $nome;
 							}
-						$sx .= '<TD>'.$issn;
+						$sx .= '<TD><nobr>"'.$issn.'"';
 					}
 				$sx .= '<TR><TD colspan=4>Total de '.$id;
 				$sx .= '</table>';
