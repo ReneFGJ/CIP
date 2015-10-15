@@ -34,8 +34,5 @@ $lang['about_system'] = 'About the event';
 $lang['contact_system'] = 'Contact the organization';
 $lang['presentation'] = 'PRESENTATION';
 
-$lang['cwb'] = 'Science without Borders';
-
-
 
 ?>
