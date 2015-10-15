@@ -40,7 +40,12 @@ class semic extends Controller {
 		}
 		$this -> idioma = trim($id);
 		$this -> load -> view("semic2015/header", $data);
-		$this -> load -> view('semic2015/menu_top');
+		
+		if ($this -> idioma == 'en') {
+			$this -> load -> view('semic2015/menu_top_en');
+		} else {
+			$this -> load -> view('semic2015/menu_top');
+		}
 
 	}
 
@@ -64,12 +69,21 @@ class semic extends Controller {
 		$this -> cab();
 		$this -> load -> view('semic2015/main_image');
 		$data = array();
-
 		$box = array('text' => 'whats_semic', 'link');
-		$data['content'] = $this -> load -> view('semic2015/box_highlight', $box, true);
 		
-		/* Pagina apresentacao */
-		$data['content'] .= $this -> load -> view('semic2015/presentation', $data, true);
+		//altera idioma
+		if ($this -> idioma == 'en') {
+					$data['content'] = $this -> load -> view('semic2015/box_highlight_en', $box, true);
+					/* Pagina apresentacao em ingles */
+					$data['content'] .= $this -> load -> view('semic2015/presentation_en', $data, true);
+				
+		} else {
+					$data['content'] = $this -> load -> view('semic2015/box_highlight', $box, true);
+					
+					/* Pagina apresentacao */
+					$data['content'] .= $this -> load -> view('semic2015/presentation', $data, true);
+				
+					}
 		
 		/* Menu lateral */
 		//$data['content_right'] = $this -> load -> view('semic2015/content_right', $data, true);
@@ -202,13 +216,21 @@ class semic extends Controller {
 		$this -> cab();
 		$this -> load -> view('semic2015/main_image');
 		$data = array();
+		
+		if ($this -> idioma == 'en') {
+			/* Box O que é o semic */
+			$data['content'] = $this -> load -> view('semic2015/whats_semic_en', NULL, true);
+			$data['layout'] = 1;
+			$this -> load -> view('semic2015/content', $data);
+			} else {
 
-		/* Programacao puc cultural */
+		/* Box O que é o semic */
 		$data['content'] = $this -> load -> view('semic2015/whats_semic', NULL, true);
-
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);
+	}
 
+		
 		$this -> load -> view('semic2015/footer');
 	}
 
