@@ -13,9 +13,14 @@ class semic extends Controller {
 	}
 
 	function cab() {
-
-		/* Carrega classes adicionais */
+	
+		if ($this -> idioma == 'en') {
+					/* Carrega classes adicionais */
+		$this -> lang -> load("app", "english");
+		} else {
+					/* Carrega classes adicionais */
 		$this -> lang -> load("app", "portuguese");
+		}
 
 		$css = array();
 		$js = array();
@@ -220,16 +225,15 @@ class semic extends Controller {
 		if ($this -> idioma == 'en') {
 			/* Box O que é o semic */
 			$data['content'] = $this -> load -> view('semic2015/whats_semic_en', NULL, true);
-			$data['layout'] = 1;
-			$this -> load -> view('semic2015/content', $data);
 			} else {
 
 		/* Box O que é o semic */
 		$data['content'] = $this -> load -> view('semic2015/whats_semic', NULL, true);
-		$data['layout'] = 1;
-		$this -> load -> view('semic2015/content', $data);
+
 	}
 
+		$data['layout'] = 1;
+		$this -> load -> view('semic2015/content', $data);
 		
 		$this -> load -> view('semic2015/footer');
 	}
