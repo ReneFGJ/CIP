@@ -54,7 +54,6 @@ class semic extends Controller {
 		} else {
 			$this -> load -> view('semic2015/menu_top');
 		}
-		
 
 	}
 
@@ -80,6 +79,34 @@ class semic extends Controller {
 		$data = array();
 
 		$box = array('text' => 'whats_semic', 'link');
+		
+		if ($this -> idioma == 'en') {
+			
+			$data['content'] = $this -> load -> view('semic2015/box_highlight_en', $box, true);
+
+			$path = $_SERVER['CONTEXT_DOCUMENT_ROOT'];
+			$file = $path . '/semic/system/application/views/semic2015/anais/';
+			$file .=  'premiacao.php';
+			
+		if (file_exists($file))
+		{
+			/* Pagina apresentacao */
+			$data['content'] .= '<h1>Trabalhos Premiados - SEMIC 2015</h1>';
+			$data['content'] .= '<div class="premios">';
+			$data['content'] .= $this -> load -> view('semic2015/anais/premiacao', $data, true);
+			$data['content'] .= '</div>';
+		}
+
+		/* Pagina apresentacao */
+		$data['content'] .= $this -> load -> view('semic2015/presentation_en', $data, true);
+		
+		/* Menu lateral */
+		//$data['content_right'] = $this -> load -> view('semic2015/content_right', $data, true);
+		$data['content_right'] = $this -> load -> view('semic2015/menu_edital', $data, true);
+		
+		
+		}else {
+			
 		$data['content'] = $this -> load -> view('semic2015/box_highlight', $box, true);
 		
 			$path = $_SERVER['CONTEXT_DOCUMENT_ROOT'];
@@ -101,7 +128,9 @@ class semic extends Controller {
 		/* Menu lateral */
 		//$data['content_right'] = $this -> load -> view('semic2015/content_right', $data, true);
 		$data['content_right'] = $this -> load -> view('semic2015/menu_edital', $data, true);
-
+		
+		}
+		
 		$data['layout'] = 2;
 		$this -> load -> view('semic2015/content', $data);
 
@@ -113,12 +142,11 @@ class semic extends Controller {
 		$this -> load -> view('semic2015/main_image');
 
 		$data = array();
-
 		$box = array('text' => 'whats_semic', 'link');
+		
 		$this -> load -> view('semic2015/anais/sumario_cloud', $data);
 		$this -> load -> view('semic2015/anais/sumario_geral', $data);
 		
-
 		$this -> load -> view('semic2015/footer');
 	}
 	
@@ -152,7 +180,13 @@ class semic extends Controller {
 
 		$data = array();
 
-		/* Programacao */
+		if ($this -> idioma == 'en') {
+			/* Programacao */
+		$data['content'] = $this -> load -> view('semic2015/programation_en', NULL, true);
+		
+		} else {
+	
+			/* Programacao */
 		$data['content'] = $this -> load -> view('semic2015/programation', NULL, true);
 
 		$data['content'] .= $this -> load -> view('semic2015/programation_06_10_pt', NULL, true);
@@ -172,12 +206,14 @@ class semic extends Controller {
 
 		/* Programacao Cientifica */
 		//$data['content'] = $this -> load -> view('semic2015/programation_puc_cientifica', NULL, true);
+		}
 
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);
+		
 		$this -> load -> view('semic2015/footer');
 	
-}
+	}
 
 	//Pagina duvidas
 	function faq() {
@@ -215,8 +251,13 @@ class semic extends Controller {
 		$this -> load -> view('semic2015/main_image');
 		$data = array();
 
-		/* Programacao puc cultural */
+		if ($this -> idioma == 'en') {
+					/* Programacao puc cultural */
+		$data['content'] = $this -> load -> view('semic2015/contact_en', NULL, true);
+		} else {
+					/* Programacao puc cultural */
 		$data['content'] = $this -> load -> view('semic2015/contact', NULL, true);
+		}
 
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);
@@ -230,8 +271,14 @@ class semic extends Controller {
 		$this -> load -> view('semic2015/main_image');
 		$data = array();
 
+		if ($this -> idioma == 'en') {
 		/* Programacao puc cultural */
+		$data['content'] = $this -> load -> view('semic2015/whats_semic_en', NULL, true);
+
+		}else{
+			/* Programacao puc cultural */
 		$data['content'] = $this -> load -> view('semic2015/whats_semic', NULL, true);
+		}
 
 		$data['layout'] = 1;
 		$this -> load -> view('semic2015/content', $data);
@@ -265,8 +312,8 @@ class semic extends Controller {
 		$data = array();
 
 		if ($this -> idioma == 'en') {
-		/* Expediente */
-		$data['content'] = $this -> load -> view('semic2015/expedient_en', NULL, true);
+			/* Expediente */
+			$data['content'] = $this -> load -> view('semic2015/expedient_en', NULL, true);
 		} else {
 		/* Expediente */
 		$data['content'] = $this -> load -> view('semic2015/expedient', NULL, true);

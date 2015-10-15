@@ -1,7 +1,7 @@
 <hr size="5" width="100%" align="left" noshade>
 <h1>EXPEDIENT</h1>
 <div >
-	<h2><strong> PONTIFÍCIA UNIVERSIDADE CATÓLICA DO PARANÁ - PUCPR</strong></h2>
+	<h2><strong> PONTIFÍCIA UNIVERSIDADE CATÓLICA OF PARANÁ - PUCPR</strong></h2>
 	<p align="justify">
 		<strong> Scientific Commission </strong><br /><br />
 		<table>																								
