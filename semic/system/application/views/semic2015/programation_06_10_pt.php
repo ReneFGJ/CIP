@@ -21,7 +21,7 @@
 	}
 	
 	.left{	
-		height: 50px;;
+		height: 40px;;
 	}	
 	
 </style>
@@ -318,7 +318,7 @@
 					<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_verde.png');?>" title="Anfiteatro Brasílio Vicente de Castro - CCBS - Bloco Verde - Térreo"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>" /></a>
 					<span class="tooltip-content clearfix"> 
 					<span class="tooltip-text"> Participantes:<br />
-					Profa. Dra. Vanessa Santos Sotomaior, Profa. Dra. Cleybe Vieira e Profa. Dra. Cinthia Bittencourt Spricigo.
+					Profa Dra Paula C. Trevilatto Pró-Reitora de Pesquisa e Pós Graduação e prof Dr Vidal Martins Pró-Reitor de Graduação.
 					</span>
 					</p>
 					</span>

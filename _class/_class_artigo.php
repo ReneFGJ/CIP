@@ -36,6 +36,7 @@ class artigo
 							order by pp_nome,la_ano desc, id_la desc
 						";
 				$rlt = db_query($sql);
+				echo $sql;
 			
 				$sx = '<table>';
 				$xnome = '';
