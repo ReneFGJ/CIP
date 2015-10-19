@@ -1,23 +1,24 @@
 <hr size="5" width="100%" align="left" noshade>
-<h1>O que é o SEMIC?</h1>
+<h1>What is SEMIC?</h1>
 <div >
-	<h2><strong>Iniciação Científica e Tecnológica</strong></h2>
+	<h2><strong>Scientific and Technological Initiation</strong></h2>
 	<p align="justify">
-		O Seminário de Iniciação Científica (SEMIC) é um evento aberto à comunidade tendo em sua programação científica palestras, mesas-redondas, mini-cursos além das apresentações dos resultados de pesquisas realizados ao longo do ano. Desde 2014, o evento apresenta também uma programação cultural, entrelaçando a ciência, a arte e a cultura.
+		The Scientific Seminar (SEMIC) is an open community event taking its scientific programming lectures, panel discussions, mini-courses in addition to the presentations of the results of research carried out throughout the year. Since 2014, the event also features a cultural program, linking science, art and culture.
 	</p>
 	<p align="justify">
-		As apresentações orais e as sessões de pôsteres são decorrentes da participação dos estudantes de graduação nos programas PIBITI (Programa Institucional de Bolsas de Iniciação em Desenvolvimento Tecnológico e Inovação) e PIBIC (Programa Institucional de Bolsas de Iniciação Científica), além dos estudantes do ensino médio de diversos colégios da rede pública e privada no PIBIC Jr (Programa Institucional de Bolsas de Iniciação Científica Júnior).
+		Oral presentations and poster sessions are due to the participation of undergraduate students in PIBITI programs (Initiation Scholarship Institutional Program for Technological Development and Innovation) and PIBIC (Institutional Scholarship Program for Scientific Initiation), in addition to high school students several schools of public and private in PIBIC Jr (Institutional Scholarship program for Scientific Initiation Junior).
 	</p>
 	<p align="justify">
-		Para a Pró-Reitora de Pesquisa e Pós-Graduação, Paula Cristina Trevilatto, a apresentação de pesquisas à comunidade é fundamental: “Não há ciência se ela não for exposta”. “Para a formação dos alunos a avaliação é um passo indispensável, pois pesquisadores mais experientes fazem as suas considerações sobre o trabalho", complementa.
+		Pro-Rector for Research and Graduate Studies, Paula Cristina Trevilatto, the community research presentation is fundamental:
+		 "There is no science if it is not exposed, for the training of students evaluation is a necessary step, as more experienced researchers make their considerations about the work", complement.
 	</p>
 	<p align="justify">
-		A Iniciação Científica é uma atividade voltada para a formação de recursos humanos para a pesquisa. A PUCPR é a instituição de ensino privada que mais investe em pesquisa no Paraná, concentrando 20% de toda a produção científica do Estado. "Na vigência 2014/2015, temos aproximadamente 1300 estudantes envolvidos nos programas de iniciação científica da Universidade", informa a profa. Cleybe Vieira, coordenadora da Iniciação Científica da PUCPR. Sem dúvida alguma, adentrar o universo científico é um grande diferencial na formação de nossos alunos, complementa.
+		Scientific Initiation is an activity aimed at training human resources for research. The PUCPR is a private educational institution that invests the most in research in Paraná, concentrating 20% of the scientific production of the state. "In the presence 2014/2015, we have about 1300 students enrolled in undergraduate programs at the University", informs the teacher Cleybe Vieira, coordinator of Scientific Initiation of PUCPR. Undoubtedly enter the scientific universe is a big difference in the education of our students, it adds.
 	</p>
 	<br />
 	<hr size="5" width="100%" align="left" noshade>
-	<hr size="8" width="100%" align="left" noshade>
+	<hr size="8" width="100%" align="left" noshade> 
 </div>
 <div id="toTop" style="display: none;">
-	^ Voltar ao topo
+	^ <?php echo msg('back');?>
 </div>

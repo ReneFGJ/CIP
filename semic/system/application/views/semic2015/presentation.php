@@ -66,5 +66,5 @@
 </div>
 
 <div id="toTop" style="display: none;">
-	^ Voltar ao topo
+	^ <?php echo msg('back');?>
 </div>

@@ -19,6 +19,6 @@
 	</tr>
 	<tr>
 		<td><img src="<?php echo base_url('img/semic2015/logo_ic_csf.png');?>" height="40" style="border-radius: 8px;"></td>
-		<td><a href="http://www.pucpr.br/pesquisacientifica/iniciacaocientifica/cienciasemfronteiras.php" class="menu_edital" ><b><?php echo msg('cwb');?></b></a></td>
+		<td><a href="http://www.pucpr.br/pesquisacientifica/iniciacaocientifica/cienciasemfronteiras.php" class="menu_edital" ><b> <?php echo msg('cwb');?></b></a></td>
 	</tr>
 </table>

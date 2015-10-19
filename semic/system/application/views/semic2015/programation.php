@@ -1,4 +1,4 @@
-<h1><span><?php echo msg('programmation');?></span></h1>
+<h1><span><?php echo msg('program');?></span></h1>
 <i>Legendas:</i>
 <div class="modalidades-prog">
 	<div class="evento-cientifico-modalidade"></div>
@@ -14,7 +14,7 @@
 		<img src="<?php echo base_url('img/semic2015/bt_prog_cult.png');?>" />
 		<br />
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="<?php echo base_url('index.php/semic/programmation_cult');?>">
-			<font size="2px;"> Acesse aqui... </font></a>
+			<font size="2px;"> <?php echo msg('access');?> </font></a>
 	</div>
 	<div class="docs">
 		<table  >

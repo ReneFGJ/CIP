@@ -32,8 +32,15 @@ $lang['about_system'] = 'About the event';
 $lang['contact_system'] = 'Contact the organization';
 $lang['presentation'] = 'PRESENTATION';
 $lang['cwb'] = 'Science without Borders';
-$lang['programmation'] = 'Programmation';
+$lang['program'] = 'Programmation';
+$lang['access'] = 'Access here';
+$lang['back'] = 'Back to the top';
 
+//footer
+$lang['colaboracao'] = 'Fostering agencies';
+$lang['apoio'] = 'Support';
+$lang['ies'] = 'IES';
+$lang['semic_apres_area'] = 'Presentation by Areas';
 
 
 ?>

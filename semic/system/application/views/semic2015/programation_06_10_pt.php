@@ -36,8 +36,7 @@
 					<span class="estilo-horario">08h30 às 09h20</span> - <strong>Abertura Oficial</strong>
 					<br />
 					<br />
-					<strong>Evento:</strong> Apresentação Cultural
-					<br />
+					<strong>Evento:</strong> Apresentação Cultural<br />
 					<strong>Local:</strong> Auditório TUCA - Bloco azul 
 					<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_azul.png');?>" title="Teatro TUCA - CCET - Bloco Azul - Térreo">
 								<img class="right" class="right" src="<?php echo base_url('img/semic2015/local.png');?>"/></a>

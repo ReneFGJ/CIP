@@ -150,5 +150,5 @@
 	<hr size="8" width="100%" align="left" noshade>
 </div>
 <div id="toTop" style="display: none;">
-	^ Voltar ao topo
+	^ <?php echo msg('back');?>
 </div>

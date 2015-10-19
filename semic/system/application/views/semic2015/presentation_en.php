@@ -41,7 +41,7 @@
 	</p>
 	<p align="left">
 		<center>
-			<img src="<?php echo base_url('img/semic2015/conceito.png');?>" height="450" border=0 > </a>
+			<img src="<?php echo base_url('img/semic2015/conceito.png');?>" height="70%" border=0 > </a>
 		</center>
 	</p>
 	<br />
@@ -66,5 +66,5 @@
 </div>
 
 <div id="toTop" style="display: none;">
-	^ Voltar ao topo
+	^ <?php echo msg('back');?>
 </div>

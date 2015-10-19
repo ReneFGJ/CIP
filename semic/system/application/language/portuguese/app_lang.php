@@ -27,25 +27,25 @@ $lang['top_menu_07'] = 'FAQ';
 $lang['whats_semic'] = 'O que é o SEMIC?';
 $lang['whats_semic_text'] = 'O Seminário de Iniciação Científica (SEMIC) é um evento aberto à comunidade tendo em sua programação científica palestras, mesas-redondas, mini-cursos além das apresentações dos resultados de pesquisas realizados ao longo do ano. Desde 2014, o evento apresenta também uma programação cultural, entrelaçando a ciência, a arte e a cultura...';
 $lang['read_more'] = '+ leia mais';
-
 $lang['modalidade_edital'] = 'Modalidades de IC';
 
 $lang['cab_expediente_01'] = 'Apoiadores do evento';
 $lang['about_system'] = 'Sobre o evento';
 $lang['contact_system'] = 'Contato com a organização';
-
 $lang['cwb'] = 'Ciência sem Fronteiras';
 
-$lang['programmation'] = 'Programação';
+$lang['program'] = 'Programação';
 $lang['casaestrela'] = 'Casa Estrela';
 $lang['link_semic'] = 'SEMIC';
 $lang['model_doc'] = 'modelos de documentos';
 $lang['summary'] = 'Sumário';
+$lang['access'] = 'Acesse aqui';
 
 //footer
 $lang['colaboracao'] = 'Agências de fomento';
 $lang['apoio'] = 'Apoio';
 $lang['ies'] = 'IES';
 $lang['semic_apres_area'] = 'Apresentação por Áreas';
+$lang['back'] = 'Voltar ao topo';
 
 ?>

@@ -119,7 +119,7 @@
 </div>
 
 <div id="toTop" style="display: none;">
-	^ Voltar ao topo
+	^ <?php echo msg('back');?>
 </div>
 <!-- Tooltipi do mapa  -->
 <script type="text/javascript" src="./Simple Tooltips w  CSS & jQuery   Tutorial by Soh Tanaka_files/jquery.min.js"></script>
