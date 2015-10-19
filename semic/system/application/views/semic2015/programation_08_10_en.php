@@ -36,7 +36,7 @@
 				<br />
 				<strong>Stage:</strong> Gregor Mendel
 				Auditorium<span>
-				<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_verde.png');?>" title="Auditório Gregor Mendel - CCBS - Bloco Verde - Térreo"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>" /></a></span>
+				<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_verde.png');?>" title="Gregor Mendel Auditorium - Building 3(green) - Ground floor"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>" /></a></span>
 				<span class="tooltip-content clearfix"> <span class="tooltip-text"><b>Attendees:</b> Ilda Witiuk <small><i>(PUCPR)</i></small> Janaina Rodrigues <small><i>(Social center Marist House Station)</i></small> Rita de Cássia Rodrigues Costa Naumann <small><i>(Director of Paraná female penitentiary)</i></small> e Maria Helena Leviski Alves <small><i>(PUCPR).</i></small> </span>
 		</p>
 		</span>
@@ -55,7 +55,7 @@
 				<strong>Coordination:</strong> Prof. Dr. Jucimeri I. Silveira <small><i>(Superintendent of Social Action Foundation and Councillor of the City Commission on Human Rights)</i></small>
 				<br />
 				<strong>Stage:</strong> Carlos Costa Auditorium
-				<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_verde.png');?>" title="Auditório Carlos Costa - CCBS - Bloco Verde - Térreo" /><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>" /></a>
+				<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_verde.png');?>" title="Carlos Costa Auditorium - Building 3(green) - Ground floor" /><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>" /></a>
 				<span class="tooltip-content clearfix"> 
 					<span class="tooltip-text"><b>Attendees:</b> Douglas Moreira <small><i>(Journalist - Marist children's advocacy center)</i></small> Débora Carvalho <small><i>(Psychologist - Program Curitiba more human)</i></small> e Cezar Bueno <small><i>(PUCPR).</i></small></span>
 		</p>
@@ -72,7 +72,7 @@
 				<strong>Panelist:</strong> Dr. Milton Pires Ramos <small><i>(Coordinator of IC TECPAR)</i></small>
 				<br />
 				<strong>Stage:</strong> Gregor Mendel Auditorium
-				<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_verde.png');?>" title="Auditório Gregor Mendel - CCBS - Bloco Verde - Térreo"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>" /></a>
+				<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_verde.png');?>" title="Gregor Mendel Auditorium - Building 3(green) - Ground floor"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>" /></a>
 				<span class="tooltip-content clearfix">
 				
 					<span class="tooltip-text"><b> Part 3 </b>
@@ -116,7 +116,7 @@
 			<span class="tooltip tooltip-effect-5"> 
 			<strong>Title:</strong> <span class="tooltip-item">"Human rights, cities and sustainable development"</span>
 			<br />
-			<strong>Stage:</strong>TUCA Theater - Building 2 (blue)<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_azul.png');?>" title="Teatro TUCA - CCET - Bloco Azul - Térreo"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>  " /></a>
+			<strong>Stage:</strong>TUCA Theater - Building 2 (blue)<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_azul.png');?>" title="TUCA Theater - Building 2(blue)"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>  " /></a>
 		<span class="tooltip-content clearfix"> 
 					<span class="tooltip-text"><b>Painelist:</b> Prof. Dr. Harry Alberto Bollmann <small><i>(PUCPR).<br />
 					Civil engineer from PUCPR, he has a master’s degree in Hydraulic Engineering and Sanitation from USP and a PhD in Water and Environmental Sanitation, from UFRGS. He is currently Full Professor at PUCPR in the Masters and PhD in Urban Management, and in the Undergraduate Program in Environmental Engineering. He is a member of LEAD International Institute since 1994, working on issues related to the Environment and Sustainable Development. He is also  co-editor of URBE - Journal of Urban Management of PUCPR and reviewer of magazines Árvore (Scielo) of the Federal University of Viçosa, and of the Journal Sanitary and Environmental Engineering (Scielo) of the Brazilian Association of Sanitary and Environmental Engineering. He is part of the Watershed Committee of the Metropolitan Region of Curitiba and Karst Technical Board with the coordination of the Metropolitan Region of Curitiba. He has experience in Environmental Engineering with emphasis on Integrated Environmental Planning, acting on the following topics: water resources planning, sustainable urban settlements, monitoring of water quality, environmental assessment, urban watersheds and recovering of damaged areas.
@@ -134,7 +134,7 @@
 			<br />
 			<br />
 			Awards the best works<br />
-			<b>Stage:</b>TUCA Theater - Building 2 (blue)<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_azul.png');?>" title="Teatro TUCA - CCET - Bloco Azul - Térreo"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>  " /></a>
+			<b>Stage:</b>TUCA Theater - Building 2 (blue)<a class="screenshot" rel="<?php echo base_url('img/semic2015/mapa_azul.png');?>" title="TUCA Theater - Building 2(blue)"><img class="right" src="<?php echo base_url('img/semic2015/local.png');?>  " /></a>
 		</p>
 	</div>
 	
