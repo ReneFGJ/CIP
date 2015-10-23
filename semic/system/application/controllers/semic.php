@@ -89,6 +89,7 @@ class semic extends Controller {
 		$box = array('text' => 'whats_semic', 'link');
 		
 		$data['content'] = $this -> load -> view('semic2015/box_highlight_en', $box, true);
+		$data['content'] .= $this -> load -> view('semic2015/edital_premiacao', $data, true);
 		
 			$path = $_SERVER['CONTEXT_DOCUMENT_ROOT'];
 			$file = $path . '/semic/system/application/views/semic2015/anais/';
@@ -114,8 +115,8 @@ class semic extends Controller {
 				
 						$box = array('text' => 'whats_semic', 'link');
 						$data['content'] = $this -> load -> view('semic2015/box_highlight', $box, true);
-						//$data['content'] = $this -> load -> view('semic2015/edital_premiacao', $box, true);
-		
+						$data['content'] .= $this -> load -> view('semic2015/edital_premiacao', $data, true);
+						
 						$path = $_SERVER['CONTEXT_DOCUMENT_ROOT'];
 						$file = $path . '/semic/system/application/views/semic2015/anais/';
 						$file .=  'premiacao.php';
