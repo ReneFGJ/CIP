@@ -13,7 +13,6 @@
 		Neste ano, esta rede se amplia extra-muros entre os estudantes, pois estarão conosco 7 bolsistas CNPq do programa PIBITI do SENAI, que farão a apresentação dos resultados de suas pesquisas durante o evento. 
 	</p>
 	
-	
 	<p align="justify">
 		Serão três dias de intensos debates científicos, palestras, mesas-redondas, mini-curso, sessões de pôsteres, exposição de protótipos de projetos inovadores, apresentações culturais e artísticas. E, muito mais: a oportunidade de estabelecer network com 2.000 estudantes (do ensino médio, da graduação e estudantes internacionais), todos interessados em pesquisa; 500 pesquisadores que atuaram como orientadores das pesquisas, além de 200 avaliadores.
 	</p>

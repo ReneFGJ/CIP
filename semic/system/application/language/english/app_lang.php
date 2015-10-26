@@ -22,7 +22,7 @@ $lang['top_menu_03'] = 'Conference Committee';
 $lang['top_menu_04'] = 'Index';
 $lang['top_menu_05'] = 'Back Editions';
 
-$lang['top_menu_08'] = 'Emissão de Certificados';
+$lang['top_menu_08'] = 'Certificates Issuance';
 
 /* Box O que é o semic */
 $lang['whats_semic'] = 'Whats this SEMIC?';

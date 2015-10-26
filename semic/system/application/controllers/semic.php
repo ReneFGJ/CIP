@@ -349,4 +349,25 @@ class semic extends Controller {
 		$this -> load -> view('semic2015/footer');
 	}	
 
+	//Pagina aviso de manutenção
+	function aviso() {
+		$this -> cab();
+		$this -> load -> view('semic2015/main_image');
+		$data = array();
+		
+		if ($this -> idioma == 'en') {
+		/* aviso */
+		$data['content'] = $this -> load -> view('semic2015/aviso_en', NULL, true);
+		}else{
+			$data['content'] = $this -> load -> view('semic2015/aviso', NULL, true);
+			
+		}
+
+		$data['layout'] = 1;
+		$this -> load -> view('semic2015/content', $data);
+		$this -> load -> view('semic2015/footer');
+	}
+
+
+
 }
