@@ -24,6 +24,8 @@ $lang['top_menu_05'] = 'Edições Anteriores';
 $lang['top_menu_06'] = 'Instruções aos autores';
 $lang['top_menu_07'] = 'FAQ';
 
+$lang['top_menu_08'] = 'Emissão de Certificados';
+
 $lang['whats_semic'] = 'O que é o SEMIC?';
 $lang['whats_semic_text'] = 'O Seminário de Iniciação Científica (SEMIC) é um evento aberto à comunidade tendo em sua programação científica palestras, mesas-redondas, mini-cursos além das apresentações dos resultados de pesquisas realizados ao longo do ano. Desde 2014, o evento apresenta também uma programação cultural, entrelaçando a ciência, a arte e a cultura...';
 $lang['read_more'] = '+ leia mais';

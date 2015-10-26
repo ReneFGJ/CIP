@@ -8,6 +8,8 @@
 		<li><a href="<?php echo base_url('index.php/semic/instructions');?>"><?php echo msg('top_menu_06');?></a></li>
 		<li><a href="<?php echo base_url('index.php/semic/faq');?>"><?php echo msg('top_menu_07');?></a></li>
 
+		<li><a href="https://cip.pucpr.br/index.php/central_declaracao"><?php echo msg('top_menu_08');?></a></li>
+
 	  <li><a href="<?php echo base_url('index.php/semic/en');?>"><img src="<?php echo base_url('img/semic2015/eua_icon_flag_lang.png"');?>" title="English"/></a></li>
     <li><a href="<?php echo base_url('index.php/semic/pt');?>"><img src="<?php echo base_url('img/semic2015/brazil_icon_flag_lang.png"');?>" title="Português"/></a></li>	
 

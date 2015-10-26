@@ -22,6 +22,8 @@ $lang['top_menu_03'] = 'Conference Committee';
 $lang['top_menu_04'] = 'Index';
 $lang['top_menu_05'] = 'Back Editions';
 
+$lang['top_menu_08'] = 'Emissão de Certificados';
+
 /* Box O que é o semic */
 $lang['whats_semic'] = 'Whats this SEMIC?';
 $lang['whats_semic_text'] = 'The Scientific Seminar (SEMIC) is an open community event taking its scientific programming lectures, panel discussions, mini-courses in addition to the presentations of the results of research carried out throughout the year. Since 2014, the event also features a cultural program, linking science, art and culture ...';
