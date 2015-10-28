@@ -15,7 +15,7 @@ DOCTYPE html>
 				box-shadow: 3px 2px 1px #ffffff;
 				border-color: #FFFFFF;
 				padding: 1px;
-				margin: 25px 10px 10px 0;
+				margin: 430px 735px 10px 0;
 			}
 			body {
 				background-image: url('img/site_teaser.jpg');
@@ -45,7 +45,8 @@ DOCTYPE html>
 	</head>
 	<body>
 		<div class="container">
-			<a href="http://www2.pucpr.br/reol/eventos/swbexperience1st/" target="_blank" ti> <img src=" <?php echo base_url('img/swb1st.jpg');?> " title="1st SWB Experience"/> </a>
+			<a href="http://www2.pucpr.br/reol/eventos/swbexperience1st/" target="_blank" ti> 
+				<img src="img/swb1st.jpg" title="1st SWB Experience"/> </a>
 		</div>
 	</body>
 </html>
