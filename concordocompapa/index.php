@@ -70,10 +70,12 @@ require ("view/header/cab.php");
 		</table>
 	</div>
 	<br />
+	
 	<div>
-		<a href="_documents/papa/Edital de premiação - XXIII SEMIC.pdf" target="_blank" title="Premiados do Concurso do Papa"> 
+		<a  href="_documents/papa/edital_resultado.pdf" target="_blank" title="Premiados do Concurso do Papa"> 
 			<img src="img/Enciclica_02.jpg" width="400" border=0> </a>
 	</div>
+	
 	<div>
 		<BR>
 		<BR>
