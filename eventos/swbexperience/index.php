@@ -296,10 +296,10 @@ require_once BASEPATH.'core/CodeIgniter.php';
 function base_url($x)
 	{
 		//para rodar no servidor
-		return('/eventos/swbexperience/'.$x);
+		//return('/eventos/swbexperience/'.$x);
 		
 		//para rodar local
-		//return('/projetos/CIP/eventos/swbexperience/'.$x);
+		return('/projetos/CIP/eventos/swbexperience/'.$x);
 		
 		//return('http://www2.pucpr.br/reol/csf/'.$x);
 		print_r($_SERVER);

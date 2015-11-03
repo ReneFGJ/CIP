@@ -1,3 +1,104 @@
-body {
+q	@charset "utf-8";
+/* CSS Document */
 
+/* Estilos gerais */	
+body {
+		background-color:#a6272f;
+	}
+
+/* Estilos Menu */	
+.navbar{    
+	margin-bottom: 0px;
 }
+
+.navbar-default {
+	box-shadow: 2px 2px 8px #888888;
+    background-color: rgba(255, 255, 255, 1.00);
+	
+	}
+
+	
+/* Estilos Banner */	
+.jumbotron { 
+	background-image:url(img/banner.jpg)
+	}
+	
+
+.parallax .parallax-image { 
+	width:960px;
+}
+
+/* --------------------------- */
+/* BARRA INSTITUCIONAL - PUCPR */
+/* --------------------------- */
+
+/* Barra Institucional ------- */
+div#barra_institucional {
+  height:60px;
+  background:url(../img/bk_barra_puc.png) repeat-x;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(230,179,179,0.2);
+  position: fixed;
+  z-index: 2500;
+  background-color: #8b1217;
+  width: 100%;
+  margin: 0;
+}
+div.logo_pucpr_topo {
+  background:url(../img/logo_puc_topo.png) no-repeat;
+  width:160px;
+  height:61px;
+  float:left;
+  }
+div.cont_barra_inst {
+  .transition(all 0.3s ease-in-out);
+  width: 1070px;
+    overflow: hidden;
+  margin:0 auto;
+  background:url(../img/bk_marcadagua_institucional.png) right no-repeat;
+  }
+div.menu_institucional {
+  float:right;
+}
+div.menu_institucional a {
+  color:#FFF;
+  font-size:11px;
+  font-family:Arial, Helvetica, sans-serif;
+  float:left;
+  margin:33px 0 0 13px;
+  text-decoration:none;
+  }
+div.menu_inst_1 {
+  background:url(../img/bk_menu_inst_1.png) no-repeat left;
+  width:88px;
+  height:18px;
+  padding-top:3px;
+  text-align:center;
+  }
+div.menu_inst_1:hover {
+  background-position:right;
+  background-position:right;
+  color:#8c1318;
+  }
+div.menu_inst_2 {
+  background:url(../img/bk_menu_inst_2.png) no-repeat left;
+  width:83px;
+  height:18px;
+  padding-top:3px;
+  text-align:center;
+  }
+div.menu_inst_2:hover {
+  background-position:right;
+  color:#8c1318;
+  }
+div.menu_inst_3 {
+  background:url(../img/bk_menu_inst_3.png) no-repeat left;
+  width:128px;
+  height:18px;
+  padding-top:3px;
+  text-align:center;
+  }
+div.menu_inst_3:hover {
+  background-position:right;
+  color:#8c1318;
+  }
