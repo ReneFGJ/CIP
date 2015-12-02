@@ -31,6 +31,12 @@ $nome_orientador = trim($line['pp_nome']);
 $projeto_titulo = troca($projeto_titulo, chr(13), ' ');
 $projeto_titulo = troca($projeto_titulo, chr(10), '');
 $projeto_titulo = troca($projeto_titulo, '  ', ' ');
+
+$projeto_titulo = troca($projeto_titulo, 'E&#769;', 'É');
+$projeto_titulo = troca($projeto_titulo, 'O&#769;', 'Ó');
+$projeto_titulo = troca($projeto_titulo, 'O&#770;', 'Ô');
+$projeto_titulo = troca($projeto_titulo, 'E&#770;', 'Ê');
+
 $aluno = trim($line['pa_nome']);
 $edital = trim($line['pbt_edital']);
 $bolsa = trim($line['pbt_descricao']);
