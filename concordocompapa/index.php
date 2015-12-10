@@ -74,8 +74,28 @@ require ("view/header/cab.php");
 	<div>
 		<a  href="_documents/papa/edital_resultado.pdf" target="_blank" title="Premiados do Concurso do Papa"> 
 			<img src="img/Enciclica_02.jpg" width="400" border=0> </a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a  href="_documents/papa/1_Lugar.pdf" target="_blank" title="Trabalho Premiados como 1º Lugar">
+			<img src="img/papa/icone_premiado_1.png" width="80" border=0> </a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a  href="_documents/papa/2_Lugar.pdf" target="_blank" title="Trabalho Premiados como 2º Lugar">
+			<img src="img/papa/icone_premiado_2.png" width="80" border=0> </a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a  href="_documents/papa/3_Lugar.pdf" target="_blank" title="Trabalho Premiados como 3º Lugar">
+			<img src="img/papa/icone_premiado_3.png" width="80" border=0> </a>		
 	</div>
-	
+		<div >
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<font color="#8B0000" align="right"size="5"><b> TRABALHOS PREMIADOS </b></font>
+		</div>
 	<div>
 		<BR>
 		<BR>
